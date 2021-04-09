@@ -299,3 +299,5 @@ if ($err) {
   echo $result;
 }
 ?>
+<!DOCTYPE html>
+<html></html>
