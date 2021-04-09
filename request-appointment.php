@@ -20,7 +20,7 @@
 
 <body>
     <?php  
-	    $data = file_get_contents('#');
+	    $data = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slot2json.php');
 	    $data = json_decode($data, true);
 	    $data2 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slotjson.php');
 	    $data2 = json_decode($data2, true);
