@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-  
-</html>
 <?php
     $curl = curl_init();
 
@@ -301,4 +297,6 @@
     } else {
       echo $result;
     }
-    ?>
+?>
+<!DOCTYPE html>
+<html></html>
