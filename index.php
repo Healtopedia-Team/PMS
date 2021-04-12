@@ -445,8 +445,8 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#"><i
-                                            class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-box-arrow-left me-2"></i>
+                                        Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -455,6 +455,9 @@
         </header>
         <div id="main" style="margin-top: -90px;">
             <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
             </header>
 
             <div class="page-heading">
@@ -538,91 +541,104 @@
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-content">
-                                        <img src="doc.jpg" class="card-img-top img-fluid"
-                                            alt="singleminded">
+                                        <img src="doc.jpg" class="card-img-top img-fluid" alt="singleminded">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
 
-                            <div class="card">
-                                <div class="table-responsive" style="overflow-y:auto; height:310px;">
-                                    <table class="table table-lg">
-                                        <thead>
-                                            <tr>
-                                                <th>Today's Appointment &nbsp;<a href="appointment-list.html" class="btn rounded-pill btn-sm btn-outline-primary">View All</a> </th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-bold-500">
-                                                    <strong>#32011 Deanna Tan</strong><br>
-                                                    Executive Health Screening (Women)<br>
-                                                    3:20PM<br>
-                                                    <span class="badge bg-primary">Booked</span>
+                                <div class="card">
+                                    <div class="table-responsive" style="overflow-y:auto; height:310px;">
+                                        <table class="table table-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>Today's Appointment &nbsp;<a href="appointment-list.html"
+                                                            class="btn rounded-pill btn-sm btn-outline-primary">View
+                                                            All</a> </th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="text-bold-500">
+                                                        <strong>#32011 Deanna Tan</strong><br>
+                                                        Executive Health Screening (Women)<br>
+                                                        3:20PM<br>
+                                                        <span class="badge bg-primary">Booked</span>
 
-                                                </td>
-                                                <td class="text-bold-500"><a href="#"
-                                                        class="badge bg-success">Check-In</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-bold-500">
-                                                    <strong>#32012 Deanna Tan</strong><br>
-                                                    Executive Health Screening (Women)<br>
-                                                    4:20PM<br>
-                                                    <span class="badge bg-primary">Booked</span>
+                                                    </td>
+                                                    <td class="text-bold-500"> <button type="button"
+                                                            class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                                            data-bs-target="#inlineForm">
+                                                            Check-In
+                                                        </button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-bold-500">
+                                                        <strong>#32012 Deanna Tan</strong><br>
+                                                        Executive Health Screening (Women)<br>
+                                                        4:20PM<br>
+                                                        <span class="badge bg-primary">Booked</span>
 
-                                                </td>
-                                                <td class="text-bold-500"><a href="#"
-                                                        class="badge bg-success">Check-In</a></td>
+                                                    </td>
+                                                    <td class="text-bold-500"><button type="button"
+                                                            class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                                            data-bs-target="#inlineForm">
+                                                            Check-In
+                                                        </button></td>
 
-                                            </tr>
-                                            <tr>
-                                                <td class="text-bold-500">
-                                                    <strong>#32011 Selvendran Baskaran</strong><br>
-                                                    Executive Health Screening (Men)<br>
-                                                    5:20PM<br>
-                                                    <span class="badge bg-success">Checked-In</span>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-bold-500">
+                                                        <strong>#32011 Selvendran Baskaran</strong><br>
+                                                        Executive Health Screening (Men)<br>
+                                                        5:20PM<br>
+                                                        <span class="badge bg-success">Checked-In</span>
 
-                                                </td>
-                                                <td class="text-bold-500"><a href="#"
-                                                        class="badge bg-success">Completed</a></td>
+                                                    </td>
+                                                    <td class="text-bold-500"><button type="button"
+                                                            class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                                            data-bs-target="#inlineForm">
+                                                            Check-In
+                                                        </button></td>
 
-                                            </tr>
-                                            <tr>
-                                                <td class="text-bold-500">
-                                                    <strong>#32011 Deanna Tan</strong><br>
-                                                    Executive Health Screening (Women)<br>
-                                                    6:20PM<br>
-                                                    <span class="badge bg-danger">Canceled</span>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-bold-500">
+                                                        <strong>#32011 Deanna Tan</strong><br>
+                                                        Executive Health Screening (Women)<br>
+                                                        6:20PM<br>
+                                                        <span class="badge bg-danger">Canceled</span>
 
-                                                </td>
-                                                <td class="text-bold-500"><a href="#"
-                                                        class="badge bg-danger">Canceled</a></td>
+                                                    </td>
+                                                    <td class="text-bold-500"><a href="#"
+                                                            class="badge bg-danger">Canceled</a></td>
 
-                                            </tr>
-                                            <tr>
-                                                <td class="text-bold-500">
-                                                    <strong>#32011 Deanna Tan</strong><br>
-                                                    Executive Health Screening (Women)<br>
-                                                    3:20PM<br>
-                                                    <span class="badge bg-primary">Booked</span>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-bold-500">
+                                                        <strong>#32011 Deanna Tan</strong><br>
+                                                        Executive Health Screening (Women)<br>
+                                                        3:20PM<br>
+                                                        <span class="badge bg-primary">Booked</span>
 
-                                                </td>
-                                                <td class="text-bold-500"><a href="#"
-                                                        class="badge bg-success">Check-In</a></td>
+                                                    </td>
+                                                    <td class="text-bold-500"><button type="button"
+                                                            class="btn btn-sm btn-success" data-bs-toggle="modal"
+                                                            data-bs-target="#inlineForm">
+                                                            Check-In
+                                                        </button></td>
 
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                         <section class="section">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-12 col-md-6">
                                     <div class="card">
                                         <div class="card-header">
                                             <h4>Weekly Appointment List</h4>
@@ -678,7 +694,78 @@
                                 </div>
                             </div>
                         </section>
-                        
+
+                        <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel33" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-primary">
+                                        <h5 class="modal-title white" id="myModalLabel160">
+                                            Patient Check-In Authorization
+                                        </h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                            <i data-feather="x"></i>
+                                        </button>
+                                    </div>
+                                    <form action="#">
+                                        <div class="modal-body">
+                                            <label>Enter Patient I/C : </label>
+                                            <div class="form-group">
+                                                <input type="text" placeholder="I/C Number" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light-secondary"
+                                                data-bs-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Close</span>
+                                            </button>
+                                            <button type="button" class="btn btn-primary ml-1" data-bs-toggle="modal"
+                                                data-bs-target="#warning" data-bs-dismiss="modal">
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Check-In</span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade text-left" id="warning" tabindex="-1"
+                                                        role="dialog" aria-labelledby="myModalLabel140"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                                                            role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header bg-warning">
+                                                                    <h5 class="modal-title white" id="myModalLabel140">
+                                                                        Warning
+                                                                    </h5>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Adding patient's I/C Number will make means that the patient with I/C number entered has checked-in for their appointment. Continue?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button"
+                                                                        class="btn btn-light-secondary"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Cancel</span>
+                                                                    </button>
+
+                                                                    <button type="button" class="btn btn-warning ml-1"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Yes</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
 
                     </div>
 
