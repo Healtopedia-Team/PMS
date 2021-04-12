@@ -44,7 +44,7 @@
                         <li class="sidebar-item active ">
                             <a href="form-layout.html" class='sidebar-link'>
                                 <i class="bi bi-file-earmark-medical-fill"></i>
-                                <span>Add Appointment</span>
+                                <span>View Appointment</span>
                             </a>
                         </li>
                     </ul>
