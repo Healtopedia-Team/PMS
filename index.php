@@ -382,6 +382,9 @@
         <header class='mb-3'>
             <nav class="navbar navbar-expand navbar-light ">
                 <div class="container-fluid">
+                    <a href="#" class="burger-btn d-block">
+                        <i class="bi bi-justify fs-3"></i>
+                    </a>
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -452,9 +455,6 @@
         </header>
         <div id="main" style="margin-top: -90px;">
             <header class="mb-3">
-                <a href="#" class="burger-btn d-block d-xl-none">
-                    <i class="bi bi-justify fs-3"></i>
-                </a>
             </header>
 
             <div class="page-heading">
