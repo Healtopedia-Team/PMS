@@ -102,46 +102,47 @@
                                     </div>
                             <table class="table table-striped" id="table1">
                                 <thead>
-                                    <tr>
-                                        <th>Order No</th>
-                                        <th>Name</th>
-                                        <th>Package</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-					<th>Status</th>
-					<th>Action</th>
-                                    </tr>
-                                </thead>   
-                                <tbody>
-				<?php $i = 1; ?>
-				<?php foreach ($data as $row ) : ?>
-				<?php if ($row['status'] == "completed" || $row['status'] == "processing") { ?>
 					<tr>
-					<td><?= $i; ?></td>
-					<td><?= $row['number']; ?></td>
-					<td>
-						<?= $row['billing']['first_name']; ?>
-						<?= $row['billing']['last_name']; ?>
-						<?php foreach ($data2 as $row2) {
-							if ($row2['order_id'] == $row['number']) {
-								$cust_id = $row2['id']; }
-						} ?>
-					</td>
-					<td>
-						<?php if ($row['status'] == "completed") { ?>
-							<button class="btn btn-success" disabled><?= $row['status']; ?></button>
-						<?php } elseif ($row['status'] == "processing") { ?>
-							<button class="btn btn-primary" disabled><?= $row['status']; ?></button>
-						<?php } ?>
-					</td>
-					<td>
-						<a href='intersect.php?orderid=<?= $row['number']; ?>&custid=<?php echo $cust_id;?>' target='_blank'><button class="btn btn-info"><i class="icon-eye-open"></i></button></a>
-					</td>
-					</tr>
-				<?php $i++; ?>
-				<?php } ?>
-				<?php endforeach; ?>
-				</tbody>
+						<th>No</th>
+	                			<th>Order ID</th>
+	                			<th>Customer Name</th>
+	                			<th>Status</th>
+	                			<th>Order Details</th>
+	            			</tr>
+            			</thead>
+           	 		<tbody>
+            				<?php $i = 1; ?>
+              				<?php foreach ($data as $row ) : ?>
+                			<?php if ($row['status'] == "completed" || $row['status'] == "processing") { ?>
+                  			<tr>
+                    				<td><?= $i; ?></td>
+                    				<td><?= $row['number']; ?></td>
+                    				<td>
+                      					<?= $row['billing']['first_name']; ?>
+                      					<?= $row['billing']['last_name']; ?>
+                      					<?php foreach ($data2 as $row2) {
+                        					if ($row2['order_id'] == $row['number']) {
+                          						$cust_id = $row2['id']; }
+                          				} ?>
+                    				</td>
+                    				<td>
+                      					<?php if ($row['status'] == "completed") { ?>
+
+                        				<button class="btn btn-success" disabled><?= $row['status']; ?></button>
+
+                      					<?php } elseif ($row['status'] == "processing") { ?>
+
+                        				<button class="btn btn-primary" disabled><?= $row['status']; ?></button>
+                      					<?php } ?>
+                    				</td>
+                    				<td>
+                      					<a href='intersect.php?orderid=<?= $row['number']; ?>&custid=<?php echo $cust_id;?>' target='_blank'><button class="btn btn-info"><i class="icon-eye-open"></i></button></a>
+                    				</td>
+                  			</tr>
+               	 			<?php $i++; ?>
+                			<?php } ?>
+            				<?php endforeach; ?>
+        			</tbody>
                             </table>
                         </div>
                     </div>
