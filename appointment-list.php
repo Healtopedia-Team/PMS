@@ -21,7 +21,7 @@
 <body>
 	<?php
 		$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-		$result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY orderwoo_id DESC");
+		$result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY orderwoo_id ASC");
 		$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	?>
     <div id="app">
