@@ -25,7 +25,7 @@
     		}
   	}
 
-  	$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
+  	//$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
 
     	mysqli_query($conn, $sql);
 ?>
