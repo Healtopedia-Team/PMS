@@ -12,29 +12,27 @@
   	foreach ($data as $row ){
     	if ($row['status'] == "completed" || $row['status'] == "processing") {
 
-      		$firstname = $row['billing']['first_name'];
-      		$lastname = $row['billing']['last_name'];
-      		$orderid = $row['number'];
-      		$status = $row['status'];
+	      	$firstname = $row['billing']['first_name'];
+	      	$lastname = $row['billing']['last_name'];
+	      	$orderid = $row['number'];
+	      	$status = $row['status'];
 
-      		foreach ($data2 as $row2) {
-        		if ($row2['order_id'] == $row['number']) {
-          			$custid = $row2['id']; 
-				}
-        	}
+	      	foreach ($data2 as $row2) {
+	        	if ($row2['order_id'] == $row['number']) {
+	          		$custid = $row2['id'];
+	          	}
+	          	$result = mysqli_query($conn, "SELECT * FROM orderwoo WHERE cust_id = '$custid'");
+	          	$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-        	$result=mysqli_query($conn, "SELECT * FROM orderwoo WHERE cust_id = '$custid'");
-			$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+	          	foreach ($user as $key) {
+	          		if ($key['cust_id'] == "") {
+	          			
+	          			$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
 
-			foreach ($user as $keyid){
-
-				if ($keyid['cust_id'] == "") {
-
-	        		$sql2 = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
-
-	        		mysqli_query($conn, $sql2);
-	        	}
-			}
+	      				mysqli_query($conn, $sql);
+	          		}
+	          	}
+	        }
     	}
   	}
 ?>
