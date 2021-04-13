@@ -112,7 +112,7 @@ $data3 = json_decode($data3, true);
                             </a>
                         </li>
 			    
-			                <li class="sidebar-item active">
+			                <li class="sidebar-item">
                             <a href="setting.php" class='sidebar-link'>
                                 <i class="bi bi-gear-fill"></i>
                                 <span>Setting</span>
