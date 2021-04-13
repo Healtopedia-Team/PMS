@@ -26,7 +26,7 @@
 
     	$sql = "SELECT * FROM orderwoo WHERE cust_id = '$custid'";
 
-        	mysqli_query($conn, $sql)
+        	mysqli_query($conn, $sql);
 
         	if ($sql == "") {
 
