@@ -26,8 +26,8 @@
 			$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 			foreach ($user as $key) {
-				if ($key['Total'] == "" || $key['Total'] < 2) {
-					//$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
+				if ($key['Total'] < 2) {
+					$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
 
       			mysqli_query($conn, $sql);
 				}
