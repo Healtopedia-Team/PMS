@@ -10,21 +10,22 @@
   	$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
   	foreach ($data as $row ){
-    	if ($row['status'] == "completed" || $row['status'] == "processing") {
+    		if ($row['status'] == "completed" || $row['status'] == "processing") {
 
-      	$firstname = $row['billing']['first_name'];
-      	$lastname = $row['billing']['last_name'];
-      	$orderid = $row['number'];
-      	$status = $row['status'];
+      			$firstname = $row['billing']['first_name'];
+      			$lastname = $row['billing']['last_name'];
+      			$orderid = $row['number'];
+      			$status = $row['status'];
 
-      	foreach ($data2 as $row2) {
-        	if ($row2['order_id'] == $row['number']) {
-          		$custid = $row2['id']; }
-        	}
-
-      	//$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
-
-      	mysqli_query($conn, $sql);
-    	}
+      			foreach ($data2 as $row2) {
+        			if ($row2['order_id'] == $row['number']) {
+          				$custid = $row2['id']; 
+				}
+        		}
+    		}
   	}
+
+  	$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
+
+    	mysqli_query($conn, $sql);
 ?>
