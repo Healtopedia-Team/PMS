@@ -20,10 +20,9 @@
 
 <body>
 	<?php
-		$data = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slot2json.php');
-		$data = json_decode($data, true);
-		$data2 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slotjson.php');
-		$data2 = json_decode($data2, true);
+		$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+		$result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY orderwoo_id DESC");
+		$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 	?>
     <div id="app">
         <div id="sidebar" class="active">
@@ -112,36 +111,26 @@
             			</thead>
            	 		<tbody>
             				<?php $i = 1; ?>
-              				<?php foreach ($data as $row ) : ?>
-                			<?php if ($row['status'] == "completed" || $row['status'] == "processing") { ?>
-                  			<tr>
-                    				<td><?= $i; ?></td>
-                    				<td><?= $row['number']; ?></td>
-                    				<td>
-                      					<?= $row['billing']['first_name']; ?>
-                      					<?= $row['billing']['last_name']; ?>
-                      					<?php foreach ($data2 as $row2) {
-                        					if ($row2['order_id'] == $row['number']) {
-                          						$cust_id = $row2['id']; }
-                          				} ?>
-                    				</td>
-                    				<td>
-                      					<?php if ($row['status'] == "completed") { ?>
-
-                        				<button class="btn btn-success" disabled><?= $row['status']; ?></button>
-
-                      					<?php } elseif ($row['status'] == "processing") { ?>
-
-                        				<button class="btn btn-primary" disabled><?= $row['status']; ?></button>
-                      					<?php } ?>
-                    				</td>
-                    				<td>
-                      					<a href='intersect.php?orderid=<?= $row['number']; ?>&custid=<?php echo $cust_id;?>' target='_blank'><button class="btn btn-info"><i class="icon-eye-open"></i></button></a>
-                    				</td>
-                  			</tr>
-               	 			<?php $i++; ?>
-                			<?php } ?>
-            				<?php endforeach; ?>
+					<?php foreach ($user as $row){ ?>
+					<tr>
+						<td>
+							<?php echo $i;?>
+						</td>
+						<td>
+							<?php echo $row['order_id'];?>
+						</td>
+						<td>
+							<?php echo $row['firstname']; echo $row['lastname'];?>
+						</td>
+						<td>
+							<?php echo $row['status'];?>
+						</td>
+						<td>
+							<?php echo $row['cust_id'];?>
+						</td>
+					</tr>	
+					<?php $i++; ?>
+					<?php } ?>
         			</tbody>
                             </table>
                         </div>
