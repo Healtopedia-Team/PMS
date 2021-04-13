@@ -43,7 +43,7 @@
                         <li class="sidebar-title">Forms &amp; Tables</li>
                       
                       	<li class="sidebar-item">
-                            <a href="request-appointment.html" class='sidebar-link'>
+                            <a href="request-appointment.php" class='sidebar-link'>
                                 <i class="bi bi-person-check-fill"></i>
                                 <span>Request Appointment</span>
                             </a>
@@ -57,7 +57,7 @@
                         </li>
 			    
 			<li class="sidebar-item">
-                            <a href="setting.html" class='sidebar-link'>
+                            <a href="setting.php" class='sidebar-link'>
                                 <i class="bi bi-gear-fill"></i>
                                 <span>Setting</span>
                             </a>
