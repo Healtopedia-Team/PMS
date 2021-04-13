@@ -126,7 +126,7 @@
 							<?php echo $row['status'];?>
 						</td>
 						<td>
-							<a href='orderdetails.php?orderid=<?= $row['number']; ?>&custid=<?php echo $cust_id;?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
+							<a href='orderdetails.php?orderid=<?php echo $row['number']; ?>&custid=<?php echo $cust_id;?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
 						</td>
 					</tr>	
 					<?php $i++; ?>
