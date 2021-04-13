@@ -165,94 +165,88 @@ $data3 = json_decode($data3, true);
                       				for ($q=0; $q < 1 ; $q++) { ?>
                     					<div class="col-sm">
                       						<div class="card text-white bg-secondary mb-3">
-									<div class="header">
-										<strong>Personal Details</strong>
-									</div>
                         					<div class="card-body">
                           						<p class="card-text">
-                            						<label><strong>Phone No :</strong></label>
-                           				 		<?php echo $key['billing']['phone'];?><br>
+										<h4><strong>Personal Details</strong></h4>
+                            							<label><strong>Phone No :</strong></label>
+                           				 			<?php echo $key['billing']['phone'];?><br>
 
-                            						<label><strong>IC/Passport :</strong></label>
-                            						<?php
-									    if ($key['meta_data'][0]['key'] == "_billing_ic_passport_no") {
-										echo $key['meta_data'][$q]['value'];
-									      } elseif ($key['meta_data'][1]['key'] == "_billing_ic_passport_no") {
-										echo $key['meta_data'][1]['value'];
-									      } elseif ($key['meta_data'][2]['key'] == "_billing_ic_passport_no") {
-										echo $key['meta_data'][2]['value'];
-									      } elseif ($key['meta_data'][3]['key'] == "_billing_ic_passport_no") {
-										echo $key['meta_data'][3]['value'];
-									      } elseif ($key['meta_data'][4]['key'] == "_billing_ic_passport_no") {
-										echo $key['meta_data'][4]['value'];
-									      } else {
-										echo "No Data";
-									      }
-                            						?><br>
+                            							<label><strong>IC/Passport :</strong></label>
+                            							<?php
+									    	if ($key['meta_data'][0]['key'] == "_billing_ic_passport_no") {
+											echo $key['meta_data'][$q]['value'];
+									      		} elseif ($key['meta_data'][1]['key'] == "_billing_ic_passport_no") {
+											echo $key['meta_data'][1]['value'];
+									      		} elseif ($key['meta_data'][2]['key'] == "_billing_ic_passport_no") {
+											echo $key['meta_data'][2]['value'];
+									      		} elseif ($key['meta_data'][3]['key'] == "_billing_ic_passport_no") {
+											echo $key['meta_data'][3]['value'];
+									      		} elseif ($key['meta_data'][4]['key'] == "_billing_ic_passport_no") {
+											echo $key['meta_data'][4]['value'];
+									      		} else {
+											echo "No Data";
+									      	} ?><br>
 
-									    <label><strong>Nationality :</strong></label>
-									    <?php
-									    if ($key['meta_data'][0]['key'] == "_billing_nationality_") {
-										echo $key['meta_data'][$q]['value'];
-									      } elseif ($key['meta_data'][1]['key'] == "_billing_nationality_") {
-										echo $key['meta_data'][1]['value'];
-									      } elseif ($key['meta_data'][2]['key'] == "_billing_nationality_") {
-										echo $key['meta_data'][2]['value'];
-									      } elseif ($key['meta_data'][3]['key'] == "_billing_nationality_") {
-										echo $key['meta_data'][3]['value'];
-									      } elseif ($key['meta_data'][4]['key'] == "_billing_nationality_") {
-										echo $key['meta_data'][4]['value'];
-									      } else {
-										echo "No Data";
-									      }
-									    ?><br>
+									    	<label><strong>Nationality :</strong></label>
+									    	<?php
+									    	if ($key['meta_data'][0]['key'] == "_billing_nationality_") {
+											echo $key['meta_data'][$q]['value'];
+									      		} elseif ($key['meta_data'][1]['key'] == "_billing_nationality_") {
+											echo $key['meta_data'][1]['value'];
+									      		} elseif ($key['meta_data'][2]['key'] == "_billing_nationality_") {
+											echo $key['meta_data'][2]['value'];
+									      		} elseif ($key['meta_data'][3]['key'] == "_billing_nationality_") {
+											echo $key['meta_data'][3]['value'];
+									      		} elseif ($key['meta_data'][4]['key'] == "_billing_nationality_") {
+											echo $key['meta_data'][4]['value'];
+									      		} else {
+											echo "No Data";
+									      	} ?><br>
 
-									    <label><strong>Gender :</strong></label>
-									    <?php
-									    if ($key['meta_data'][0]['key'] == "_billing_gender") {
-										echo $key['meta_data'][$q]['value'];
-									      } elseif ($key['meta_data'][1]['key'] == "_billing_gender") {
-										echo $key['meta_data'][1]['value'];
-									      } elseif ($key['meta_data'][2]['key'] == "_billing_gender") {
-										echo $key['meta_data'][2]['value'];
-									      } elseif ($key['meta_data'][3]['key'] == "_billing_gender") {
-										echo $key['meta_data'][3]['value'];
-									      } elseif ($key['meta_data'][4]['key'] == "_billing_gender") {
-										echo $key['meta_data'][4]['value'];
-									      } else {
-										echo "No Data";
-									      }
-									    ?><br>
+									    	<label><strong>Gender :</strong></label>
+									    	<?php
+									    	if ($key['meta_data'][0]['key'] == "_billing_gender") {
+											echo $key['meta_data'][$q]['value'];
+									      		} elseif ($key['meta_data'][1]['key'] == "_billing_gender") {
+											echo $key['meta_data'][1]['value'];
+									      		} elseif ($key['meta_data'][2]['key'] == "_billing_gender") {
+											echo $key['meta_data'][2]['value'];
+									      		} elseif ($key['meta_data'][3]['key'] == "_billing_gender") {
+											echo $key['meta_data'][3]['value'];
+									      		} elseif ($key['meta_data'][4]['key'] == "_billing_gender") {
+											echo $key['meta_data'][4]['value'];
+									      		} else {
+											echo "No Data";
+									      	} ?><br>
 
-									    <label><strong>Birth's Date :</strong></label>
-									    <?php
-									    if ($key['meta_data'][0]['key'] == "_billing_date_of_birth") {
-										echo $key['meta_data'][$q]['value'];
-									      } elseif ($key['meta_data'][1]['key'] == "_billing_date_of_birth") {
-										echo $key['meta_data'][1]['value'];
-									      } elseif ($key['meta_data'][2]['key'] == "_billing_date_of_birth") {
-										echo $key['meta_data'][2]['value'];
-									      } elseif ($key['meta_data'][3]['key'] == "_billing_date_of_birth") {
-										echo $key['meta_data'][3]['value'];
-									      } elseif ($key['meta_data'][4]['key'] == "_billing_date_of_birth") {
-										echo $key['meta_data'][4]['value'];
-									      } else {
-										echo "No Data";
-									      }
-									    ?><br>
+									    	<label><strong>Birth's Date :</strong></label>
+									    	<?php
+									    	if ($key['meta_data'][0]['key'] == "_billing_date_of_birth") {
+											echo $key['meta_data'][$q]['value'];
+									      		} elseif ($key['meta_data'][1]['key'] == "_billing_date_of_birth") {
+											echo $key['meta_data'][1]['value'];
+									      		} elseif ($key['meta_data'][2]['key'] == "_billing_date_of_birth") {
+											echo $key['meta_data'][2]['value'];
+									      		} elseif ($key['meta_data'][3]['key'] == "_billing_date_of_birth") {
+											echo $key['meta_data'][3]['value'];
+									      		} elseif ($key['meta_data'][4]['key'] == "_billing_date_of_birth") {
+											echo $key['meta_data'][4]['value'];
+									      		} else {
+											echo "No Data";
+									      	} ?><br>
 
-									    <label><strong>Email :</strong></label>
-									    <?php echo $key['billing']['email'];?><br>
+									    	<label><strong>Email :</strong></label>
+									    	<?php echo $key['billing']['email'];?><br>
 
-									    <label><strong>Billing Address :</strong></label>
-									    <?php echo $key['billing']['address_1'].", ";echo $key['billing']['address_2'].", ";echo $key['billing']['postcode'].", ";echo $key['billing']['city'];?><br>
+									    	<label><strong>Billing Address :</strong></label>
+									    	<?php echo $key['billing']['address_1'].", ";echo $key['billing']['address_2'].", ";echo $key['billing']['postcode'].", ";echo $key['billing']['city'];?><br>
 
-									    <?php } ?>
+									    	<?php } ?>
 									</p>
 								</div>
 							</div>
 					    	</div>
-					    <?php } ?>
+					    	<?php } ?>
 					  </div>
 					    <?php foreach ($data as $key) {
 					      for ($q=0; $q < 10 ; $q++) {
