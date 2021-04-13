@@ -19,19 +19,19 @@
 </head>
 
 <body>
-	<!--?php
+	<?php
 		$data = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slot2json.php');
 		$data = json_decode($data, true);
 		$data2 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slotjson.php');
 		$data2 = json_decode($data2, true);
-	?-->
+	?>
     <div id="app">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
+                            <a href="index.php"><img src="assets/images/logo/logo.png" alt="Logo" srcset=""></a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -51,7 +51,7 @@
                         </li>
 			    
 			<li class="sidebar-item active">
-                            <a href="appointment-list.html" class='sidebar-link'>
+                            <a href="appointment-list.php" class='sidebar-link'>
                                 <i class="bi bi-list-ul"></i>
                                 <span>Appointment List</span>
                             </a>
@@ -85,7 +85,7 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Appointment List</li>
                                 </ol>
                             </nav>
@@ -111,50 +111,8 @@
 					<th>Status</th>
 					<th>Action</th>
                                     </tr>
-                                </thead>
-				    <tr>
-					    <td>31256</td>
-					    <td>Amirul Atiq Mohd Rohan</td>
-					    <td>Covid-19 KLHIC</td>
-					    <td>4/4/2021</td>
-					    <td>03:00PM</td>
-					    <td><span class="badge bg-success">Checked-In</span></td>
-					    <td>
-						    <div class="btn-group mb-3" role="group" aria-label="Basic example">
-							    <button class="btn btn-info"><i class="bi bi-search"></i></button>
-							    <button class="btn btn-secondary">Report</button>
-						    </div>
-					    </td>
-				    </tr>
-				    <tr>
-					    <td>36547</td>
-					    <td>Mohd Rohan Sidek</td>
-					    <td>Covid-29 KLHIC</td>
-					    <td>19/4/2021</td>
-					    <td>01:00PM</td>
-					    <td><span class="badge bg-success">Checked-In</span></td>
-					    <td>
-						    <div class="btn-group mb-3" role="group" aria-label="Basic example">
-							    <button class="btn btn-info"><i class="bi bi-search"></i></button>
-							    <button class="btn btn-secondary">Report</button>
-						    </div>
-					    </td>
-				    </tr>
-				    <tr>
-					    <td>31256</td>
-					    <td>Healtopedia Junior</td>
-					    <td>Premium Women Screening</td>
-					    <td>10/4/2021</td>
-					    <td>09:00AM</td>
-					    <td><span class="badge bg-primary">Booked</span></td>
-					    <td>
-						    <div class="btn-group mb-3" role="group" aria-label="Basic example">
-							    <button class="btn btn-info"><i class="bi bi-search"></i></button>
-							    <button class="btn btn-secondary">Report</button>
-						    </div>
-					    </td>
-				    </tr>
-                                <!--tbody>
+                                </thead>   
+                                <tbody>
 				<?php $i = 1; ?>
 				<?php foreach ($data as $row ) : ?>
 				<?php if ($row['status'] == "completed" || $row['status'] == "processing") { ?>
@@ -183,7 +141,7 @@
 				<?php $i++; ?>
 				<?php } ?>
 				<?php endforeach; ?>
-				</tbody-->
+				</tbody>
                             </table>
                         </div>
                     </div>
