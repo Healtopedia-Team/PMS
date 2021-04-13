@@ -256,7 +256,7 @@ $data3 = json_decode($data3, true);
 						  					<div class="card text-dark bg-white mb-3">
 						    						<div class="card-body">
 						      						<p class="card-text">
-													<h4><strong><?php echo $key['line_items'][$q]['name'];?></strong></h4>
+													<h5><strong><?php echo $key['line_items'][$q]['name'];?></strong></h5>
 													<label><strong>Price :</strong></label>
 													<?php
 													$totalori = $key['line_items'][$q]['subtotal'];
@@ -296,7 +296,7 @@ $data3 = json_decode($data3, true);
 																<?php if ($key['line_items'][$q]['id']) {
 																	if ($key['line_items'][$q]['meta_data'][0]['key'] == "Full Name") {
 								  									$tickname = $key['line_items'][$q]['meta_data'][0]['value'];?>
-								  									<h4><strong><?php echo $tickname;?></strong></h4>
+								  									<h6><strong><?php echo $tickname;?></strong></h6>
 																<?php }
 																foreach ($data3 as $key3){
 																	if ($key3['order_id'] == $orderid && $key3['order_item_id'] == $key['line_items'][$q]['id']) {
