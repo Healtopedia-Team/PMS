@@ -22,17 +22,19 @@
           			$custid = $row2['id']; 
 				}
         	}
+
+        	$result=mysqli_query($conn, "SELECT * FROM orderwoo WHERE cust_id = '$custid'");
+			$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+			foreach ($user as $keyid){
+
+				if ($keyid['cust_id'] == "") {
+
+	        		$sql2 = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
+
+	        		mysqli_query($conn, $sql2);
+	        	}
+			}
     	}
-
-    	$sql = "SELECT * FROM orderwoo WHERE cust_id = '$custid'";
-
-        	mysqli_query($conn, $sql);
-
-        	if ($sql == "") {
-
-        		$sql2 = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
-
-        		mysqli_query($conn, $sql2);
-        	}
   	}
 ?>
