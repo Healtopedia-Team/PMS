@@ -19,16 +19,19 @@
 
       	foreach ($data2 as $row2) {
         	if ($row2['order_id'] == $row['number']) {
-          		$custid = $row2['id'];
-          		$custidno = count($row2['id']);
-          	}
-        }
+          		$custid = $row2['id']; }
+        	}
 
-        if ($custidno < 2) {
-        	//$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
+        	$result=mysqli_query($conn, "SELECT COUNT(cust_id) as Total FROM orderwoo WHERE cust_id = '$custid'");
+			$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-      		mysqli_query($conn, $sql);
-        }
+			foreach ($user as $key) {
+				if ($key['Total'] == "" || $key['Total'] < 2) {
+					$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
+
+      			mysqli_query($conn, $sql);
+				}
+			}
     	}
   	}
 ?>
