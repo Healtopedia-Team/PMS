@@ -33,11 +33,11 @@
                         <span>Appointment List</span>
                     </a>
                 </li>
-                <li class="sidebar-item <?php if ($your_variable=="index") {echo "active"; } 
+                <li class="sidebar-item <?php if ($your_variable=="setting") {echo "active"; } 
      else{echo"noactive";}?>" >
                     <a href="setting.html" class='sidebar-link'>
                         <i class="bi bi-gear-fill"></i>
-                        <span>Index</span>
+                        <span>Setting</span>
                     </a>
                 </li>
             </ul>
