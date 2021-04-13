@@ -147,7 +147,7 @@ $data3 = json_decode($data3, true);
                     </div>
                 </div>
 		    <div class="container">
-			    <div class="alert alert-light-info color-info" role="alert">
+			    <div class="alert alert-info">
 				    <?php foreach ($data as $key) { ?>
 				    <h3>
 					    <?php echo $key['billing']['first_name']." ";echo $key['billing']['last_name']." - ";echo $key['status'];
@@ -165,7 +165,9 @@ $data3 = json_decode($data3, true);
                       				for ($q=0; $q < 1 ; $q++) { ?>
                     					<div class="col-sm">
                       						<div class="card text-white bg-secondary mb-3">
-                          						<strong>Personal Details</strong>
+									<div class="header">
+										<strong>Personal Details</strong>
+									</div>
                         					<div class="card-body">
                           						<p class="card-text">
                             						<label><strong>Phone No :</strong></label>
