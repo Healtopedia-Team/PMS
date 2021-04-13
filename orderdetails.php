@@ -164,7 +164,7 @@ $data3 = json_decode($data3, true);
 					    <?php foreach ($data as $key) {
                       				for ($q=0; $q < 1 ; $q++) { ?>
                     					<div class="col-sm">
-                      						<div class="card text-white bg-secondary mb-3">
+                      						<div class="card text-white bg-secondary mb-2">
                         					<div class="card-body">
                           						<p class="card-text">
 										<h4><strong>Personal Details</strong></h4>
