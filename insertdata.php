@@ -21,16 +21,16 @@
 	        	if ($row2['order_id'] == $row['number']) {
 	          		$custid = $row2['id'];
 	          	}
-	          	$result = mysqli_query($conn, "SELECT * FROM orderwoo WHERE cust_id = '$custid'");
-	          	$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+	        }
+	        $result = mysqli_query($conn, "SELECT * FROM orderwoo WHERE cust_id = '$custid'");
+	        $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-	          	foreach ($user as $key) {
-	          		if ($key['cust_id'] == "") {
+	        foreach ($user as $key) {
+	        	if ($key['cust_id'] == "") {
 	          			
-	          			$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
+	          		$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
 
-	      				mysqli_query($conn, $sql);
-	          		}
+	      			mysqli_query($conn, $sql);
 	          	}
 	        }
     	}
