@@ -120,7 +120,7 @@
 							<?php echo $row['order_id'];?>
 						</td>
 						<td>
-							<?php echo $row['firstname'];&nbsp;echo $row['lastname'];?>
+							<?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
 						</td>
 						<td>
 							<?php echo $row['status'];?>
