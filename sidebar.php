@@ -21,21 +21,21 @@
                 <li class="sidebar-title">Forms &amp; Tables</li>
                 <li class="sidebar-item <?php if ($your_variable=="request-appointment") {echo "active"; } 
      else{echo"noactive";}?>" >
-                    <a href="request-appointment.html" class='sidebar-link'>
+                    <a href="request-appointment.php" class='sidebar-link'>
                         <i class="bi bi-person-check-fill"></i>
                         <span>Request Appointment</span>
                     </a>
                 </li>
                 <li class="sidebar-item <?php if ($your_variable=="appointment-list" || $your_variable=="view-appointment") {echo "active"; } 
      else{echo"noactive";}?>" >
-                    <a href="appointment-list.html" class='sidebar-link'>
+                    <a href="appointment-list.php" class='sidebar-link'>
                         <i class="bi bi-list-ul"></i>
                         <span>Appointment List</span>
                     </a>
                 </li>
                 <li class="sidebar-item <?php if ($your_variable=="setting") {echo "active"; } 
      else{echo"noactive";}?>" >
-                    <a href="setting.html" class='sidebar-link'>
+                    <a href="setting.php" class='sidebar-link'>
                         <i class="bi bi-gear-fill"></i>
                         <span>Setting</span>
                     </a>
