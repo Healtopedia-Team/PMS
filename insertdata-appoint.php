@@ -18,7 +18,7 @@
   
         foreach ($user as $key) {
             if ($key['Total'] < 1) {
-                if ($key['status'] == "paid" || $key['status'] == "completed") {
+                if ($roe['status'] == "paid" || $row['status'] == "completed") {
                     $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid',start_appoint = '$startappoint',statusapp = '$statusapp'";
                     mysqli_query($conn, $sql);
                 }
