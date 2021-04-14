@@ -325,7 +325,7 @@ $data3 = json_decode($data3, true);
                                                                                             echo $key['line_items'][$q]['meta_data'][5]['value'];
                                                                                         }
                                                                                     } ?></div>
-                                                                    <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&appid=<?php echo $appid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px;">Get Ticket</button></a>
+                                                                    <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&appid=<?php echo $appid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
 
 
 
