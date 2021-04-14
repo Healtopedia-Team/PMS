@@ -235,27 +235,35 @@ $data3 = json_decode($data3, true);
                         <?php foreach ($data as $key) {
                             for ($q = 0; $q < 10; $q++) {
                                 if ($key['line_items'][$q]['name'] != "") { ?>
-                                    <div class="row">
-                                        <div class="col-sm">
-                                            <div class="card text-dark bg-white mb-3">
-                                                <div class="card-body">
-                                                    <p class="card-text">
-                                                    <h5><strong><?php echo $key['line_items'][$q]['name']; ?></strong></h5>
-                                                    <label><strong>Price :</strong></label>
-                                                    <?php
-                                                    $totalori = $key['line_items'][$q]['subtotal'];
-                                                    echo "RM " . $totalori;
-                                                    ?><br>
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>Appointment(s) Details</h4>
+                                                <hr>
+                                            </div>
+                                            <div class="card-content">
+                                                <div class="card-body" style="margin-top: -40px;">
 
-                                                    <label><strong>Payment Method :</strong></label>
-                                                    <?php echo $key['payment_method_title']; ?><br>
+                                                    <div>
+                                                        <h5><span class="badge bg-light-primary"><?php echo $key['line_items'][$q]['name']; ?></span><br></h5>
+                                                    </div>
+
+                                                    <div class="quest">Package Fee :</div>
+                                                    <div class="ans"><?php
+                                                                        $totalori = $key['line_items'][$q]['subtotal'];
+                                                                        echo "RM " . $totalori;
+                                                                        ?></div>
+
+                                                    <div class="quest">Payment via :</div>
+                                                    <div class="ans"><?php echo $key['payment_method_title']; ?></div>
 
                                                     <?php foreach ($data2 as $key2) { ?>
-                                                        <label><strong>Appointment Date :</strong></label>
-                                                        <?php echo date("d-m-Y", $key2['start'] - 28800); ?><br>
+                                                        <div class="quest">Appointment Date:</div>
+                                                        <div class="ans"><?php echo date("d-m-Y", $key2['start'] - 28800); ?></div>
 
-                                                        <label><strong>Appointment Time :</strong></label>
-                                                    <?php date("H:i", $key2['start'] - 28800);
+                                                        <div class="quest">Appointment Time :</div>
+                                                        <div class="ans">
+                                                        <?php date("H:i", $key2['start'] - 28800);
                                                         ob_start();
                                                         $date = date("H:i", $key2['start'] - 28800);
                                                         ob_end_clean();
@@ -269,54 +277,68 @@ $data3 = json_decode($data3, true);
                                                             echo $date . " AM";
                                                         }
                                                         $prodid = $key2['product_id'];
-                                                    } ?>
-                                                    </p>
-                                                </div>
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-sm-3">
-                                                            <div class="card text-dark bg-warning mb-3">
-                                                                <div class="card-body">
-                                                                    <p class="card-text">
-                                                                        <?php if ($key['line_items'][$q]['id']) {
-                                                                            if ($key['line_items'][$q]['meta_data'][0]['key'] == "Full Name") {
-                                                                                $tickname = $key['line_items'][$q]['meta_data'][0]['value']; ?>
-                                                                    <h6><strong><?php echo $tickname; ?></strong></h6>
-                                                                <?php }
-                                                                            foreach ($data3 as $key3) {
-                                                                                if ($key3['order_id'] == $orderid && $key3['order_item_id'] == $key['line_items'][$q]['id']) {
-                                                                                    $appid = $key3['id'];
-                                                                                }
-                                                                            } ?>
-                                                                <label><strong>IC/Passport :</strong></label>
-                                                                <?php if ($key['line_items'][$q]['meta_data'][1]['key'] == "IC / Passport No.") {
-                                                                                $icpass = $key['line_items'][$q]['meta_data'][1]['value'];
-                                                                                echo $icpass;
-                                                                            } ?><br>
-                                                                <label><strong>Gender :</strong></label>
-                                                                <?php if ($key['line_items'][$q]['meta_data'][2]['key'] == "Gender") {
-                                                                                echo $key['line_items'][$q]['meta_data'][2]['value'];
-                                                                            } ?><br>
-                                                                <label><strong>Birthday :</strong></label>
-                                                                <?php if ($key['line_items'][$q]['meta_data'][3]['key'] == "Date of Birth") {
-                                                                                echo $key['line_items'][$q]['meta_data'][3]['value'];
-                                                                            } ?><br>
-                                                                <label><strong>Nationality :</strong></label>
-                                                                <?php if ($key['line_items'][$q]['meta_data'][4]['key'] == "Nationality") {
-                                                                                echo $key['line_items'][$q]['meta_data'][4]['value'];
-                                                                            } ?><br>
-                                                                <label><strong>Method :</strong></label>
-                                                            <?php if ($key['line_items'][$q]['meta_data'][5]['key'] == "Appointment Method") {
-                                                                                echo $key['line_items'][$q]['meta_data'][5]['value'];
-                                                                            }
-                                                                        } ?>
-                                                            </p>
-                                                            <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&appid=<?php echo $appid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn btn-success">Get Ticket</button></a>
-                                                                </div>
-                                                            </div>
+                                                    } ?></div>
+                                                        <div style="height: 120px;">
+                                                            <hr>
                                                         </div>
-                                                    </div>
+
+
+
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item">
+
+
+
+                                                                <?php if ($key['line_items'][$q]['id']) {
+                                                                    if ($key['line_items'][$q]['meta_data'][0]['key'] == "Full Name") {
+                                                                        $tickname = $key['line_items'][$q]['meta_data'][0]['value']; ?>
+                                                                        <div class="quest">Attendee Name :</div>
+                                                                        <div class="ans"><?php echo $tickname; ?></div>
+                                                                    <?php }
+                                                                    foreach ($data3 as $key3) {
+                                                                        if ($key3['order_id'] == $orderid && $key3['order_item_id'] == $key['line_items'][$q]['id']) {
+                                                                            $appid = $key3['id'];
+                                                                        }
+                                                                    } ?>
+                                                                    <div class="quest">IC/ Passport :</div>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][1]['key'] == "IC / Passport No.") {
+                                                                                            $icpass = $key['line_items'][$q]['meta_data'][1]['value'];
+                                                                                            echo $icpass;
+                                                                                        } ?></div>
+
+                                                                    <div class="quest">Gender :</div>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][2]['key'] == "Gender") {
+                                                                                            echo $key['line_items'][$q]['meta_data'][2]['value'];
+                                                                                        } ?></div>
+
+                                                                    <div class="quest">Birth Date :</div>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][3]['key'] == "Date of Birth") {
+                                                                                            echo $key['line_items'][$q]['meta_data'][3]['value'];
+                                                                                        } ?></div>
+                                                                    <div class="quest">Nationality :</div>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][4]['key'] == "Nationality") {
+                                                                                            echo $key['line_items'][$q]['meta_data'][4]['value'];
+                                                                                        } ?>
+                                                                    </div>
+                                                                    <div class="quest">Method :</div>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][5]['key'] == "Appointment Method") {
+                                                                                            echo $key['line_items'][$q]['meta_data'][5]['value'];
+                                                                                        }
+                                                                                    } ?></div>
+                                                                    <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&appid=<?php echo $appid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn btn-success">Get Ticket</button></a>
+
+
+
+                                                            </li>
+                                                        </ul>
+
+
+
+
+
+
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
