@@ -2,39 +2,39 @@
               
                 <?php
                 include 'appointment-list-header.php';
-		            $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-		            $result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY orderwoo_id ASC");
-		            $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	              ?>
+		$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+		$result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY orderwoo_id ASC");
+		$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	        ?>
 
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-				                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
+				<div class="btn-group mb-3" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-primary active">All</button>
                                 <button type="button" class="btn btn-outline-primary">Upcoming</button>
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
                             </div>
                             <table class="table table-striped" id="table1">
                                 <thead>
-					                          <tr>
-						                            <th>No</th>
-                                        <th>Order ID</th>
-                                        <th>Customer Name</th>
-                                        <th>Status</th>
-                                        <th>Order Details</th>
-	            			                </tr>
-            			              </thead>
-           	 		            <tbody>
-            				        <?php $i = 1; ?>
-					                  <?php foreach ($user as $row){ ?>
-					                  <tr>
-						                    <td>
-							                      <?php echo $i;?>
-						                    </td>
-						                    <td>
-							                      <?php echo $row['order_id'];?>
-						                    </td>
+					<tr>
+						<th>No</th>
+						<th>Order ID</th>
+						<th>Customer Name</th>
+						<th>Status</th>
+						<th>Order Details</th>
+	            			</tr>
+            			</thead>
+           	 		<tbody>
+            				<?php $i = 1; ?>
+						<?php foreach ($user as $row){ ?>
+					        	<tr>
+						        	<td>
+							        	<?php echo $i;?>
+						                </td>
+						                <td>
+							        	<?php echo $row['order_id'];?>
+						                </td>
 						                    <td>
 							                      <?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
 						                    </td>
