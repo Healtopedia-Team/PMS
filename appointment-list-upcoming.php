@@ -8,6 +8,7 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
+                            <?php echo date("Y-m-d");?>
                             <a href="appointment-list-all.php"><button type="button" class="btn btn-outline-primary">All</button></a>
                             <a href="appointment-list-upcoming.php"><button type="button" class="btn btn-outline-primary active">Upcoming</button></a>
                             <a href="appointment-list-processing.php"><button type="button" class="btn btn-outline-primary">Processing</button></a>
@@ -23,7 +24,7 @@
                                     </tr>
                             	  </thead>
                                 <tbody>
-                				        <?php $i = 1; ?>
+                                <?php $i = 1; ?>
                                 <?php foreach ($user as $row){ ?>
                                     <tr>
                                         <td>
