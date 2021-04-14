@@ -25,7 +25,7 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
-                                  echo date("d-m-Y",$row['start_appoint']);?>
+                                  if (date("d-m-Y",$row['start_appoint']) > date("d-m-Y")){ ?>
                                     <tr>
                                         <td>
                                             <?php echo $i;?>
