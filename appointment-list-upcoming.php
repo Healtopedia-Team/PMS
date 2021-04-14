@@ -1,9 +1,9 @@
                 <?php
                 include 'appointment-list-header.php';
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $result = mysqli_query($conn, "SELECT * FROM orderwoo WHERE status = 'processing' ORDER BY orderwoo_id ASC");
+                $result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY orderwoo_id ASC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    	        ?>
+    	          ?>
 
                 <section class="section">
                     <div class="card">
@@ -14,37 +14,37 @@
                             <br><br>
                             <table class="table table-striped" id="table1">
                                 <thead>
-                					<tr>
-                						<th>No</th>
-                						<th>Order ID</th>
-                						<th>Customer Name</th>
-                						<th>Status</th>
-                						<th>Order Details</th>
-                	            	</tr>
-                            	</thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Order ID</th>
+                                        <th>Customer Name</th>
+                                        <th>Status</th>
+                                        <th>Order Details</th>
+                                    </tr>
+                            	  </thead>
                                 <tbody>
-                				<?php $i = 1; ?>
+                				        <?php $i = 1; ?>
                                 <?php foreach ($user as $row){ ?>
                                     <tr>
                                         <td>
                                             <?php echo $i;?>
                                         </td>
                                         <td>
-    							        	<?php echo $row['order_id'];?>
+    							        	                <?php echo $row['order_id'];?>
                                         </td>
                                         <td>
                                             <?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
                                         </td>
                                         <td>
                                             <?php echo $row['status'];?>
-    						            </td>
+    						                        </td>
                                         <td>
                                             <a href='orderdetails.php?orderid=<?php echo $row['order_id'];?>&custid=<?php echo $row['cust_id'];?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
-    						            </td>
-    					            </tr>	
-    					            <?php $i++; ?>
-    					            <?php } ?>
-    				    		</tbody>
+    						                        </td>
+    					                      </tr>	
+    					                      <?php $i++; ?>
+    					                      <?php } ?>
+    				    		            </tbody>
                             </table>
                         </div>
                     </div>
