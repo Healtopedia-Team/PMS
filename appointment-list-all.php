@@ -11,7 +11,7 @@
 				<a href="appointment-list-all.php"><button type="button" class="btn btn-outline-primary active">All</button></a>
                                 <a href="appointment-list-upcoming.php"><button type="button" class="btn btn-outline-primary">Upcoming</button></a>
                                 <a href="appointment-list-processing.php"><button type="button" class="btn btn-outline-primary">Processing</button></a>
-				<br>
+				<br><br>
                             	<table class="table table-striped" id="table1">
                                 <thead>
 					<tr>
