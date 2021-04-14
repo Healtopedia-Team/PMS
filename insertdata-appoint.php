@@ -16,12 +16,11 @@
         $result=mysqli_query($conn, "SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
         
-            foreach ($user as $key) {
-                if ($key['Total'] < 1) {
-                    $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid',start_appoint = '$startappoint',statusapp = '$statusapp'";
-                    mysqli_query($conn, $sql);
-                }
-            
+        foreach ($user as $key) {
+            if ($key['Total'] < 1) {
+                $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid',start_appoint = '$startappoint',statusapp = '$statusapp'";
+                mysqli_query($conn, $sql);
+            }
         }
     }
 ?>
