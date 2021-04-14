@@ -1,14 +1,14 @@
                 <?php
                 include 'appointment-list-header.php';
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY orderwoo_id ASC");
+                $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,appointwoo.appoint_id,appointwoo.start_appoint FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
     	          ?>
 
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <?php echo date("Y-m-d");?>
+                            <?php  date("d-m-Y");?>
                             <a href="appointment-list-all.php"><button type="button" class="btn btn-outline-primary">All</button></a>
                             <a href="appointment-list-upcoming.php"><button type="button" class="btn btn-outline-primary active">Upcoming</button></a>
                             <a href="appointment-list-processing.php"><button type="button" class="btn btn-outline-primary">Processing</button></a>
@@ -25,7 +25,8 @@
                             	  </thead>
                                 <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach ($user as $row){ ?>
+                                <?php foreach ($user as $row){
+                                  date("d-m-Y");?>
                                     <tr>
                                         <td>
                                             <?php echo $i;?>
