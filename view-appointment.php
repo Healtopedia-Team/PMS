@@ -259,7 +259,7 @@ $data3 = json_decode($data3, true);
 
                                                     <?php foreach ($data2 as $key2) { ?>
                                                         <div class="quest">Appointment Date:</div>
-                                                        <div class="ans"><?php echo date("d-m-Y", $key2['start'] - 28800); ?></div>
+                                                        <div class="ans"><?php echo date("d-m-Y", $key2['start']); ?></div>
 
                                                         <div class="quest">Appointment Time :</div>
                                                         <div class="ans">
