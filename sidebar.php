@@ -26,7 +26,7 @@
                         <span>Request Appointment</span>
                     </a>
                 </li>
-                <li class="sidebar-item <?php if ($your_variable=="appointment-list" || $your_variable=="view-appointment") {echo "active"; } 
+                <li class="sidebar-item <?php if ($your_variable=="appointment-list-all" || $your_variable=="view-appointment") {echo "active"; } 
      else{echo"noactive";}?>" >
                     <a href="appointment-list-all.php" class='sidebar-link'>
                         <i class="bi bi-list-ul"></i>
