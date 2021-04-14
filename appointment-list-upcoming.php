@@ -44,7 +44,7 @@
     						                        </td>
     					                      </tr>	
     					                      <?php $i++; ?>
-    					                      <?php } ?>
+    					                      <?php }} ?>
     				    		            </tbody>
                             </table>
                         </div>
