@@ -28,7 +28,7 @@
                 </li>
                 <li class="sidebar-item <?php if ($your_variable=="appointment-list" || $your_variable=="view-appointment") {echo "active"; } 
      else{echo"noactive";}?>" >
-                    <a href="appointment-list.php" class='sidebar-link'>
+                    <a href="appointment-list-all.php" class='sidebar-link'>
                         <i class="bi bi-list-ul"></i>
                         <span>Appointment List</span>
                     </a>
