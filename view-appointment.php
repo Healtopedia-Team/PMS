@@ -58,7 +58,7 @@ if (!$err2) {
     echo "cURL Error #:" . $err2;
 }
 
-$data3 = file_get_contents('https://digital.healtopedia.com/ATIQ/MigrateWoo/appointmentjson.php');
+$data3 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/appointmentjson.php');
 $data3 = json_decode($data3, true);
 ?>
 <!DOCTYPE html>
@@ -325,7 +325,14 @@ $data3 = json_decode($data3, true);
                                                                                             echo $key['line_items'][$q]['meta_data'][5]['value'];
                                                                                         }
                                                                                     } ?></div>
+                                                                <?php
+                                                                           $appdate = date("Y-m-d", $key2['start'] - 28800);
+                                                                           $currdate = date("Y-m-d");
+                                                                           if ($appdate > $currdate) {
+                                                                ?>
                                                                     <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&appid=<?php echo $appid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
+                                                                
+                                                                <?php } ?>
 
 
 
