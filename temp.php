@@ -221,7 +221,7 @@ $data3 = json_decode($data3, true);
                                                         <div class="ans"><?php echo $key['billing']['address_1'] . ", ";
                                                                             echo $key['billing']['address_2'] . ", ";
                                                                             echo $key['billing']['postcode'] . ", ";
-                                                                            echo $key['billing']['city']; ?></div>
+                                                                            echo $key['billing']['city']; ?> <br><br></div>
 
 
                                                     </div>
