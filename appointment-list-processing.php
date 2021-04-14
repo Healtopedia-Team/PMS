@@ -8,11 +8,9 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                 <a href="appointment-list-all.php"><button type="button" class="btn btn-outline-primary">All</button></a>
                                 <a href="appointment-list-upcoming.php"><button type="button" class="btn btn-outline-primary">Upcoming</button></a>
                                 <a href="appointment-list-processing.php"><button type="button" class="btn btn-outline-primary active">Processing</button></a>
-                            </div>
                             <table class="table table-striped" id="table1">
                                 <thead>
                 					          <tr>
