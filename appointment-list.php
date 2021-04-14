@@ -95,7 +95,7 @@
                     <div class="card">
                         <div class="card-body">
 				<div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-outline-primary">All</button>
+                                        <button type="button" class="btn btn-outline-primary active">All</button>
                                         <button type="button" class="btn btn-outline-primary">Upcoming</button>
                                         <button type="button" class="btn btn-outline-primary">Pending</button>
                                     </div>
