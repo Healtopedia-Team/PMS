@@ -26,7 +26,7 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
-                                  date("d-m-Y");?>
+                                  echo date("d-m-Y");?>
                                     <tr>
                                         <td>
                                             <?php echo $i;?>
