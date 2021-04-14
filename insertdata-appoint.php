@@ -10,8 +10,8 @@
     foreach ($data as $row){
         $orderid = $row['order_id'];
         $appointid = $row['id'];
-        $dateappoint = date("d-m-Y", $data['start']-28800);
-        $startappoint = date("H:i", $data['start']-28800);
+        $dateappoint = date("d-m-Y", $row['start']-28800);
+        $startappoint = date("H:i", $row['start']-28800);
   
         $result=mysqli_query($conn, "SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
