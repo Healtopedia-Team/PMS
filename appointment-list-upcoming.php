@@ -26,7 +26,8 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
-                                  echo date("d-m-Y");?>
+                                  date("d-m-Y");
+                                  echo date("d-m-Y", $row['start_appoint']-28800);?>
                                     <tr>
                                         <td>
                                             <?php echo $i;?>
