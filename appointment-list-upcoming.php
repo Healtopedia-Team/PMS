@@ -19,6 +19,7 @@
                                         <th>Order ID</th>
                                         <th>Customer Name</th>
                                         <th>Status</th>
+                                        <th>Date</th>
                                         <th>Order Details</th>
                                     </tr>
                                   </thead>
@@ -38,6 +39,9 @@
                                         </td>
                                         <td>
                                             <?php echo $row['status'];?>
+                                        </td>
+                                        <td>
+                                            <?php echo date("d-m-Y",$row['start_appoint']);?>
                                         </td>
                                         <td>
                                             <a href='view-appointment.php?orderid=<?php echo $row['order_id'];?>&custid=<?php echo $row['appoint_id'];?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
