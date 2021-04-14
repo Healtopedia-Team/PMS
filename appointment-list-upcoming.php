@@ -38,7 +38,7 @@
                                         </td>
                                         <td>
                                             <?php echo $row['status'];?>
-                                                    </td>
+                                        </td>
                                         <td>
                                             <a href='view-appointment.php?orderid=<?php echo $row['order_id'];?>&custid=<?php echo $row['cust_id'];?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
                                         </td>
