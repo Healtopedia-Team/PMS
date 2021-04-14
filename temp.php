@@ -140,7 +140,6 @@ $data3 = json_decode($data3, true);
                                         <div class="col-sm">
                                             <div class="alert alert-secondary">
                                                 <div class="card-body">
-                                                    <p class="card-text">
                                                     <h4><strong>Personal Details</strong></h4>
 
                                                     <div class="quest">Phone No :</div>
@@ -220,12 +219,11 @@ $data3 = json_decode($data3, true);
                                                     echo $key['billing']['city']; ?></div>
 
 
-                                                <?php } ?>
-                                                </p>
+
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php } ?>
+                                    <?php } }?>
                             </div>
                             <?php foreach ($data as $key) {
                                 for ($q = 0; $q < 10; $q++) {
