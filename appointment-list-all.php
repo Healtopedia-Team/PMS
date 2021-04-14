@@ -1,5 +1,3 @@
-
-              
                 <?php
                 include 'appointment-list-header.php';
 		$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
@@ -10,10 +8,9 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-				<div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary active">All</button>
-                                <button type="button" class="btn btn-outline-primary">Upcoming</button>
-                                <button type="button" class="btn btn-outline-primary">Pending</button>
+				<a href="appointment-list-all.php"><button type="button" class="btn btn-outline-primary active">All</button></a>
+                                <a href="appointment-list-upcoming.php"><button type="button" class="btn btn-outline-primary">Upcoming</button></a>
+                                <a href="appointment-list-processing.php"><button type="button" class="btn btn-outline-primary">Processing</button></a>
                             </div>
                             <table class="table table-striped" id="table1">
                                 <thead>
@@ -47,10 +44,10 @@
 					                  </tr>	
 					                  <?php $i++; ?>
 					                  <?php } ?>
-        			              </tbody>
-                          </table>
-                       </div>
-                    </div>
+				    		</tbody>
+                          		</table>
+                       		</div>
+                    	</div>
                 </section>
             </div>
 
