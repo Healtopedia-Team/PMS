@@ -10,14 +10,14 @@
     foreach ($data as $row){
         $orderid = $row['order_id'];
         $appointid = $row['id'];
-        $startappoint = $row['start'];
+        $startappoint = date("d-m-Y", $row['start']-28800);
   
         $result=mysqli_query($conn, "SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
   
         foreach ($user as $key) {
             if ($key['Total'] < 1) {
-                //$sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid',start_appoint = '$startappoint'";
+                $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid',start_appoint = '$startappoint'";
                 mysqli_query($conn, $sql);
             }
         }
