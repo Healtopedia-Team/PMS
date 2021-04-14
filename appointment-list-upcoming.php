@@ -8,7 +8,6 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <?php  date("d-m-Y");?>
                             <a href="appointment-list-all.php"><button type="button" class="btn btn-outline-primary">All</button></a>
                             <a href="appointment-list-upcoming.php"><button type="button" class="btn btn-outline-primary active">Upcoming</button></a>
                             <a href="appointment-list-processing.php"><button type="button" class="btn btn-outline-primary">Processing</button></a>
@@ -26,8 +25,8 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
-                                  date("d-m-Y");
-                                  echo date("d-m-Y", $row['start_appoint']-28800);?>
+                                  if (date("d-m-Y", $row['start_appoint']-28800) > date("d-m-Y")){
+                                  ?>
                                     <tr>
                                         <td>
                                             <?php echo $i;?>
@@ -46,7 +45,7 @@
     						                        </td>
     					                      </tr>	
     					                      <?php $i++; ?>
-    					                      <?php } ?>
+    					                      <?php }} ?>
     				    		            </tbody>
                             </table>
                         </div>
