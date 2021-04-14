@@ -25,7 +25,7 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
-                                  $row['start_appoint'];?>
+                                  echo $row['start_appoint'];?>
                                     <tr>
                                         <td>
                                             <?php echo $i;?>
