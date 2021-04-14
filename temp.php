@@ -142,7 +142,7 @@ $data3 = json_decode($data3, true);
                                                 <div class="card-body">
                                                     <p class="card-text">
                                                     <h4><strong>Personal Details</strong></h4>
-                                                    
+
                                                     <div class="quest">Phone No :</div>
                                                     <div class="ans"><?php echo $key['billing']['phone']; ?></div>
                                                     
@@ -162,9 +162,8 @@ $data3 = json_decode($data3, true);
                                                         echo "No Data";
                                                     } ?></div>
 
-
-                                                    <label><strong>Nationality :</strong></label>
-                                                    <?php
+                                                    <div class="quest">Nationality :</div>
+                                                    <div class="ans"><?php
                                                     if ($key['meta_data'][0]['key'] == "_billing_nationality_") {
                                                         echo $key['meta_data'][$q]['value'];
                                                     } elseif ($key['meta_data'][1]['key'] == "_billing_nationality_") {
@@ -177,10 +176,10 @@ $data3 = json_decode($data3, true);
                                                         echo $key['meta_data'][4]['value'];
                                                     } else {
                                                         echo "No Data";
-                                                    } ?><br>
+                                                    } ?></div>
 
-                                                    <label><strong>Gender :</strong></label>
-                                                    <?php
+                                                    <div class="quest">Gender :</div>
+                                                    <div class="ans"><?php
                                                     if ($key['meta_data'][0]['key'] == "_billing_gender") {
                                                         echo $key['meta_data'][$q]['value'];
                                                     } elseif ($key['meta_data'][1]['key'] == "_billing_gender") {
@@ -193,10 +192,10 @@ $data3 = json_decode($data3, true);
                                                         echo $key['meta_data'][4]['value'];
                                                     } else {
                                                         echo "No Data";
-                                                    } ?><br>
+                                                    } ?></div>
 
-                                                    <label><strong>Birth's Date :</strong></label>
-                                                    <?php
+                                                    <div class="quest">Birthdate :</div>
+                                                    <div class="ans"><?php
                                                     if ($key['meta_data'][0]['key'] == "_billing_date_of_birth") {
                                                         echo $key['meta_data'][$q]['value'];
                                                     } elseif ($key['meta_data'][1]['key'] == "_billing_date_of_birth") {
@@ -209,16 +208,17 @@ $data3 = json_decode($data3, true);
                                                         echo $key['meta_data'][4]['value'];
                                                     } else {
                                                         echo "No Data";
-                                                    } ?><br>
+                                                    } ?></div>
 
-                                                    <label><strong>Email :</strong></label>
-                                                    <?php echo $key['billing']['email']; ?><br>
+                                                    <div class="quest">Email :</div>
+                                                    <div class="ans"><?php echo $key['billing']['email']; ?></div>
 
-                                                    <label><strong>Billing Address :</strong></label>
-                                                    <?php echo $key['billing']['address_1'] . ", ";
+                                                    <div class="quest">Billing Address :</div>
+                                                    <div class="ans"><?php echo $key['billing']['address_1'] . ", ";
                                                     echo $key['billing']['address_2'] . ", ";
                                                     echo $key['billing']['postcode'] . ", ";
-                                                    echo $key['billing']['city']; ?><br>
+                                                    echo $key['billing']['city']; ?></div>
+
 
                                                 <?php } ?>
                                                 </p>
