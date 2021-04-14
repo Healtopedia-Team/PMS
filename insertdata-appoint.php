@@ -17,7 +17,7 @@
   
         foreach ($user as $key) {
             if ($key['Total'] < 1) {
-                $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid',start_appoint = '$startappoint'";
+                //$sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid',start_appoint = '$startappoint'";
                 mysqli_query($conn, $sql);
             }
         }
