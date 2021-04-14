@@ -1,7 +1,7 @@
                 <?php
                 include 'appointment-list-header.php';
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,appointwoo.start_appoint FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY orderwoo.order_id ORDER BY orderwoo.order_id DESC");
+                $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,appointwoo.appoint_id,appointwoo.start_appoint FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY orderwoo.order_id ORDER BY orderwoo.order_id DESC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
 
@@ -40,7 +40,7 @@
                                             <?php echo $row['status'];?>
                                         </td>
                                         <td>
-                                            <a href='view-appointment.php?orderid=<?php echo $row['order_id'];?>&custid=<?php echo $row['cust_id'];?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
+                                            <a href='view-appointment.php?orderid=<?php echo $row['order_id'];?>&custid=<?php echo $row['appoint_id'];?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
                                         </td>
                                     </tr> 
                                     <?php $i++; ?>
