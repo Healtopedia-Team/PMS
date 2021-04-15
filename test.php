@@ -9,3 +9,5 @@ echo $timestamp;
 $timestamp2 = strtotime('tomorrow midnight +8 hour');
 echo $timestamp2;
 
+echo date('H:i:s', $timestamp);
+
