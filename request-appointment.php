@@ -119,25 +119,25 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <label>Package Name :</label>
-							<input type="text" class="form-control" name="packname">
+							<input type="text" class="form-control" name="packname"><br>
 							    
 							<label>Customer Name :</label>
-							<input type="text" class="form-control" name="custname">
+							<input type="text" class="form-control" name="custname"><br>
 							
 							<label>Customer ID :</label>
-							<input type="text" class="form-control" name="custpassport">
+							<input type="text" class="form-control" name="custpassport"><br>
 							    
 							<label>Customer Phone :</label>
-							<input type="text" class="form-control" name="custphone">
+							<input type="text" class="form-control" name="custphone"><br>
 							    
 							<label>Customer Address :</label>
-							<input type="text" class="form-control" name="custaddress">
+							<input type="text" class="form-control" name="custaddress"><br>
 							    
 							<label>Appointment Date :</label>
-							<input type="text" class="form-control" name="appdate">
+							<input type="text" class="form-control" name="appdate"><br>
 							    
 							<label>Appointment Time :</label>
-							<input type="text" class="form-control" name="apptime">
+							<input type="text" class="form-control" name="apptime"><br>
 							    
 							<label>Status :</label>
 							<div class="btn-group mb-1">
@@ -148,9 +148,8 @@
 								    Secondary
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButtonSec">
-								    <a class="dropdown-item" href="#">Option 1</a>
-								    <a class="dropdown-item" href="#">Option 2</a>
-								    <a class="dropdown-item" href="#">Option 3</a>
+								    <a class="dropdown-item" href="#">Pending</a>
+								    <a class="dropdown-item" href="#">Complete</a>
 								</div>
 							    </div>
 							</div>
