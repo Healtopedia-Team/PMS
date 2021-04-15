@@ -1,3 +1,3 @@
 <?php
-<?php
-echo time()+8;
+echo strtotime('+8 hour'); 
+
