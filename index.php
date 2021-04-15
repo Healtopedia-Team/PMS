@@ -212,7 +212,9 @@ $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             Executive Health Screening (Women)<br>
                                                             <?php 
                                                             
-                                                             echo date('h:i A', $rows['start_appoint']); ?><br>
+                                                            $atime= strtotime('-8 hour', $rows['start_appoint']);
+
+                                                             echo date('h:i A', $atime); ?><br>
 
                                                             <?php
 
