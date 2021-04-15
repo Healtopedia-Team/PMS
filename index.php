@@ -212,7 +212,8 @@ $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             <?php 
                                                             
                                                             $times = $rows['start_appoint'];
-                                                            $time = date('h:i A', strtotime($time.'-8 hour'));
+                                                            $new_time = strtotime($times. ' - 8 hours');
+                                                            $time = date('h:i A', $new_time);
                                                             echo $time; ?><br>
 
                                                             <?php
