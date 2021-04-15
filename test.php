@@ -1,5 +1,5 @@
 <?php
-echo strtotime('+8 hour'); //current timestap
+echo strtotime('+7 hour'); //current timestamp
 
-echo strtotime('+32 hour'); 
+echo strtotime('+32 hour'); //timestamp 24 hours from now
 
