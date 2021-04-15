@@ -11,3 +11,6 @@ echo $timestamp2;
 
 echo date('h:i A', $times);
 
+$time_given = 1618563600;
+echo date('h:i A', $time_given);
+
