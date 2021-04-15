@@ -1,8 +1,12 @@
 <?php include 'dbconnect.php';
 
 //get all appointments in range from now(1 hour early) to tomorrow
+$timestamp = strtotime('today midnight +8 hour');
+echo $timestamp;
+$timestamp2 = strtotime('tomorrow midnight +8 hour');
+echo $timestamp2;
 
-$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN 1618484638 AND 1618574638");
+$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND $timestamp2");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
