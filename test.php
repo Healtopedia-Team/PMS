@@ -13,4 +13,5 @@ echo date('h:i A', $times);
 
 $time_given = 1618563600;
 echo date('h:i A', $time_given);
+echo strtotime($time_given.'-8 hour');
 
