@@ -207,56 +207,63 @@ $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($appointment as $rows) : ?>
-                                                    <tr>
-                                                        <td class="text-bold-500">
-                                                            <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
-                                                            <?php echo $rows['packagename']; ?><br>
-                                                            <?php 
-                                                            
-                                                            $atime= strtotime('-8 hour', $rows['start_appoint']);
+                                                <?php
+                                                if (mysqli_num_rows($result) > 0) {
+                                                    foreach ($appointment as $rows) : ?>
+                                                        <tr>
+                                                            <td class="text-bold-500">
+                                                                <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
+                                                                Executive Health Screening (Women)<br>
+                                                                <?php
 
-                                                             echo date('h:i A', $atime); ?><br>
 
-                                                            <?php
+                                                                echo date('h:i A', $rows['start_appoint']); ?><br>
 
-                                                            $status = $rows['statusapp'];
-                                                            if ($status == "paid") {
-                                                            ?>
-                                                                <span class="badge bg-primary">Booked</span>
+                                                                <?php
 
-                                                        </td>
-                                                        <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                                                Check-In
-                                                            </button></td>
-                                                    <?php } elseif ($status == "complete") {
-                                                    ?>
-                                                        <span class="badge bg-success">Checked-In</span>
+                                                                $status = $rows['statusapp'];
+                                                                if ($status == "paid") {
+                                                                ?>
+                                                                    <span class="badge bg-primary">Booked</span>
 
-                                                        </td>
-                                                        <td class="text-bold-500"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                                                Check-In
-                                                            </button></td>
-                                                    <?php
-                                                            } elseif ($status == "cancelled") { ?>
-                                                        span class="badge bg-danger">Canceled</span>
+                                                            </td>
+                                                            <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
+                                                                    Check-In
+                                                                </button></td>
+                                                        <?php } elseif ($status == "complete") {
+                                                        ?>
+                                                            <span class="badge bg-success">Checked-In</span>
 
-                                                        </td>
-                                                        <td class="text-bold-500"></td>
-                                                    <?php
-                                                            }
-                                                            else{ ?>
-                                                            
+                                                            </td>
+                                                            <td class="text-bold-500"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
+                                                                    Check-In
+                                                                </button></td>
+                                                        <?php
+                                                                } elseif ($status == "cancelled") { ?>
+                                                            span class="badge bg-danger">Canceled</span>
+
+                                                            </td>
+                                                            <td class="text-bold-500"></td>
+                                                        <?php
+                                                                } else { ?>
+
                                                             span class="badge bg-warning">Waiting Payment</span>
 
-                                                        </td>
-                                                        <td class="text-bold-500"></td>
-                                                            <?php
+                                                            </td>
+                                                            <td class="text-bold-500"></td>
+                                                        <?php
 
-                                                            }
-                                                    ?>
-                                                    </tr>
-                                                <?php endforeach; ?>
+                                                                }
+                                                        ?>
+                                                        </tr>
+                                                    <?php endforeach;
+                                                } else { ?>
+
+                                                <tr><td>No appointments today</td></tr>
+
+
+                                                <?php } ?>
+
                                             </tbody>
                                         </table>
                                     </div>
