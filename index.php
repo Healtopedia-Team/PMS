@@ -6,7 +6,7 @@
 //$timestamp =1618651800;
 //$timestamp2 =1618747200;
 
-$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN 1618484638 AND 1618574638");
+$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN 1618484638 AND 1618574638");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
@@ -212,7 +212,7 @@ $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <tr>
                                                         <td class="text-bold-500">
                                                             <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
-                                                            Executive Health Screening (Women)<br>
+                                                            <?php echo $rows['packagename']; ?><br>
                                                             <?php 
                                                             
                                                             $atime= strtotime('-8 hour', $rows['start_appoint']);
