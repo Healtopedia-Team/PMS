@@ -1,4 +1,5 @@
 <?php include 'dbconnect.php';
+date_default_timezone_set('GMT');
 
 //get all appointments in range from now(1 hour early) to tomorrow
 
