@@ -1,10 +1,18 @@
+<?php include 'dbconnect.php';
+
+//get all appointments in range from now(1 hour early) to tomorrow
+
+$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN 1618484638 AND 1618574638");
+$appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title>Dashboard - Patient Management System</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -185,92 +193,67 @@
                             </div>
                             <div class="col-md-6">
 
-                                <div class="card">
+                                                                <div class="card">
                                     <div class="table-responsive" style="overflow-y:auto; height:310px;">
                                         <table class="table table-lg">
                                             <thead>
                                                 <tr>
-                                                    <th>Today's Appointment &nbsp;<a href="appointment-list.html"
-                                                            class="btn rounded-pill btn-sm btn-outline-primary">View
+                                                    <th>Today's Appointment &nbsp;<a href="appointment-list-all.php" class="btn rounded-pill btn-sm btn-outline-primary">View
                                                             All</a> </th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="text-bold-500">
-                                                        <strong>#32011 Deanna Tan</strong><br>
-                                                        Executive Health Screening (Women)<br>
-                                                        3:20PM<br>
-                                                        <span class="badge bg-primary">Booked</span>
+                                                <?php foreach ($appointment as $rows) : ?>
+                                                    <tr>
+                                                        <td class="text-bold-500">
+                                                            <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
+                                                            Executive Health Screening (Women)<br>
+                                                            <?php echo date('h:i A', $rows['start_appoint']); ?><br>
 
-                                                    </td>
-                                                    <td class="text-bold-500"> <button type="button"
-                                                            class="btn btn-sm btn-success" data-bs-toggle="modal"
-                                                            data-bs-target="#inlineForm">
-                                                            Check-In
-                                                        </button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500">
-                                                        <strong>#32012 Deanna Tan</strong><br>
-                                                        Executive Health Screening (Women)<br>
-                                                        4:20PM<br>
-                                                        <span class="badge bg-primary">Booked</span>
+                                                            <?php
 
-                                                    </td>
-                                                    <td class="text-bold-500"><button type="button"
-                                                            class="btn btn-sm btn-success" data-bs-toggle="modal"
-                                                            data-bs-target="#inlineForm">
-                                                            Check-In
-                                                        </button></td>
+                                                            $status = $rows['statusapp'];
+                                                            if ($status == "paid") {
+                                                            ?>
+                                                                <span class="badge bg-primary">Booked</span>
 
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500">
-                                                        <strong>#32011 Selvendran Baskaran</strong><br>
-                                                        Executive Health Screening (Men)<br>
-                                                        5:20PM<br>
+                                                        </td>
+                                                        <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
+                                                                Check-In
+                                                            </button></td>
+                                                    <?php } elseif ($status == "complete") {
+                                                    ?>
                                                         <span class="badge bg-success">Checked-In</span>
 
-                                                    </td>
-                                                    <td class="text-bold-500"><button type="button"
-                                                            class="btn btn-sm btn-success" data-bs-toggle="modal"
-                                                            data-bs-target="#inlineForm">
-                                                            Check-In
-                                                        </button></td>
+                                                        </td>
+                                                        <td class="text-bold-500"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
+                                                                Check-In
+                                                            </button></td>
+                                                    <?php
+                                                            } elseif ($status == "cancelled") { ?>
+                                                        span class="badge bg-danger">Canceled</span>
 
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500">
-                                                        <strong>#32011 Deanna Tan</strong><br>
-                                                        Executive Health Screening (Women)<br>
-                                                        6:20PM<br>
-                                                        <span class="badge bg-danger">Canceled</span>
+                                                        </td>
+                                                        <td class="text-bold-500"></td>
+                                                    <?php
+                                                            }
+                                                            else{ ?>
+                                                            
+                                                            span class="badge bg-warning">Waiting Payment</span>
 
-                                                    </td>
-                                                    <td class="text-bold-500"><a href="#"
-                                                            class="badge bg-danger">Canceled</a></td>
+                                                        </td>
+                                                        <td class="text-bold-500"></td>
+                                                            <?php
 
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-bold-500">
-                                                        <strong>#32011 Deanna Tan</strong><br>
-                                                        Executive Health Screening (Women)<br>
-                                                        3:20PM<br>
-                                                        <span class="badge bg-primary">Booked</span>
-
-                                                    </td>
-                                                    <td class="text-bold-500"><button type="button"
-                                                            class="btn btn-sm btn-success" data-bs-toggle="modal"
-                                                            data-bs-target="#inlineForm">
-                                                            Check-In
-                                                        </button></td>
-
-                                                </tr>
+                                                            }
+                                                    ?>
+                                                    </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
