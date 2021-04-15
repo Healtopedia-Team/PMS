@@ -6,7 +6,7 @@
 //$timestamp =1618651800;
 //$timestamp2 =1618747200;
 
-$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN 1618484638 AND 1618574638");
+$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.cust_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN 1618484638 AND 1618574638");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
