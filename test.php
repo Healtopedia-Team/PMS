@@ -1,5 +1,5 @@
 <?php
-echo strtotime('+7 hour'); //current timestamp
+$times = strtotime('+7 hour'); //current timestamp
 
 echo strtotime('+32 hour'); //timestamp 24 hours from now
 
@@ -9,5 +9,5 @@ echo $timestamp;
 $timestamp2 = strtotime('tomorrow midnight +8 hour');
 echo $timestamp2;
 
-echo date('H:i:s', $timestamp);
+echo date('H:i:s', $times);
 
