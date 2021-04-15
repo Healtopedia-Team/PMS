@@ -286,7 +286,7 @@ $data3 = json_decode($data3, true);
                                                                 
                                                         </div>
 
-                                                        <ul class="list-group">
+                                                        <ul class="list-group" style="width: fit-content;">
                                                             <li class="list-group-item">
                                                                 <?php 
                                                                     if ($key['line_items'][$q]['id']) {
