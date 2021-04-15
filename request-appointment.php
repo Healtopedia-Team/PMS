@@ -140,19 +140,7 @@
 							<input type="text" class="form-control" name="apptime"><br>
 							    
 							<label>Status :</label>
-							<div class="btn-group mb-1">
-							    <div class="dropdown">
-								<button class="btn btn-secondary dropdown-toggle me-1" type="button"
-								    id="dropdownMenuButtonSec" data-bs-toggle="dropdown"
-								    aria-haspopup="true" aria-expanded="false">
-								    Secondary
-								</button>
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButtonSec">
-								    <a class="dropdown-item" href="#">Pending</a>
-								    <a class="dropdown-item" href="#">Complete</a>
-								</div>
-							    </div>
-							</div>
+							
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light-secondary"
