@@ -287,7 +287,7 @@ $data3 = json_decode($data3, true);
                                                         </div>
 
                                                         <ul class="list-group" style="width: fit-content; margin-top: 30px;">
-                                                            <li class="list-group-item">
+                                                            <li class="list-group-item" style="margin-top: 20px;">
                                                                 <?php 
                                                                     if ($key['line_items'][$q]['id']) {
                                                                         if ($key['line_items'][$q]['meta_data'][0]['key'] == "Full Name") {
