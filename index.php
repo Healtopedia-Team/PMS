@@ -209,7 +209,11 @@ $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                         <td class="text-bold-500">
                                                             <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
                                                             Executive Health Screening (Women)<br>
-                                                            <?php echo date('h:i A', $rows['start_appoint']); ?><br>
+                                                            <?php 
+                                                            
+                                                            $time = $rows['start_appoint'];
+                                                            $time = date('h:i A', strtotime('-8 hour'));
+                                                            echo $time; ?><br>
 
                                                             <?php
 
