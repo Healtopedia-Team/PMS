@@ -18,6 +18,7 @@
         $productid = $row['product_id'];
         
         foreach ($data2 as $row2){
+            $packagename = $row2['name'];
             if ($row2['id'] == $row['product_id']){
                 if (strpos("'".$row2['categories'][5]['name']."'",'KPJ') != false || strpos("'".$row2['categories'][5]['name']."'",'Sunway') != false || strpos("'".$row2['categories'][5]['name']."'",'Healtopedia') != false || strpos("'".$row2['categories'][5]['name']."'",'Disinfection') != false || strpos("'".$row2['categories'][5]['name']."'",'Klinik') != false || strpos("'".$row2['categories'][5]['name']."'",'Wellness') != false || strpos("'".$row2['categories'][5]['name']."'",'Medicare') != false || strpos("'".$row2['categories'][5]['name']."'",'Clinic') != false || strpos("'".$row2['categories'][5]['name']."'",'BeLive') != false || strpos("'".$row2['categories'][5]['name']."'",'BENPHYSIO') != false || strpos("'".$row2['categories'][5]['name']."'",'CryoFit') != false || strpos("'".$row2['categories'][5]['name']."'",'International') != false || strpos("'".$row2['categories'][5]['name']."'",'Regen') != false || strpos("'".$row2['categories'][5]['name']."'",'Soul') != false || strpos("'".$row2['categories'][5]['name']."'",'ALPS') != false || strpos("'".$row2['categories'][5]['name']."'",'Home') != false || strpos("'".$row2['categories'][5]['name']."'",'Dokter4U') != false || strpos("'".$row2['categories'][5]['name']."'",'Thomson') != false || strpos("'".$row2['categories'][5]['name']."'",'Prince') != false || strpos("'".$row2['categories'][5]['name']."'",'Timberland') != false || strpos("'".$row2['categories'][5]['name']."'",'Imperial') != false) {
                          $hospname = $row2['categories'][5]['name'];
@@ -45,7 +46,7 @@
         
         foreach ($user as $key) {
             if ($key['Total'] < 1) {
-                $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', start_appoint = '$startappoint', statusapp = '$statusapp', hospname = '$hospname'";
+                $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', start_appoint = '$startappoint', statusapp = '$statusapp', hospname = '$hospname', packagename = '$packagename'";
                 mysqli_query($conn, $sql);
             }
         }
