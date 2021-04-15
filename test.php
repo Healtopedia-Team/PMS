@@ -7,4 +7,6 @@ echo strtotime('-8 hour'); //timestamp 24 hours from now
 echo date('h:i A', $times);
 
 $time_given = 1618563600;
-echo date('h:i A', $time_given);
+$atime= date('h:i A', $time_given);
+
+echo strtotime('-8 hour', $atime);
