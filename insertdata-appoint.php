@@ -18,8 +18,8 @@
         $productid = $row['product_id'];
         
         foreach ($data2 as $row2){
-            $packagename = $row2['name'];
             if ($row2['id'] == $row['product_id']){
+                $packagename = $row2['name'];
                 if (strpos("'".$row2['categories'][5]['name']."'",'KPJ') != false || strpos("'".$row2['categories'][5]['name']."'",'Sunway') != false || strpos("'".$row2['categories'][5]['name']."'",'Healtopedia') != false || strpos("'".$row2['categories'][5]['name']."'",'Disinfection') != false || strpos("'".$row2['categories'][5]['name']."'",'Klinik') != false || strpos("'".$row2['categories'][5]['name']."'",'Wellness') != false || strpos("'".$row2['categories'][5]['name']."'",'Medicare') != false || strpos("'".$row2['categories'][5]['name']."'",'Clinic') != false || strpos("'".$row2['categories'][5]['name']."'",'BeLive') != false || strpos("'".$row2['categories'][5]['name']."'",'BENPHYSIO') != false || strpos("'".$row2['categories'][5]['name']."'",'CryoFit') != false || strpos("'".$row2['categories'][5]['name']."'",'International') != false || strpos("'".$row2['categories'][5]['name']."'",'Regen') != false || strpos("'".$row2['categories'][5]['name']."'",'Soul') != false || strpos("'".$row2['categories'][5]['name']."'",'ALPS') != false || strpos("'".$row2['categories'][5]['name']."'",'Home') != false || strpos("'".$row2['categories'][5]['name']."'",'Dokter4U') != false || strpos("'".$row2['categories'][5]['name']."'",'Thomson') != false || strpos("'".$row2['categories'][5]['name']."'",'Prince') != false || strpos("'".$row2['categories'][5]['name']."'",'Timberland') != false || strpos("'".$row2['categories'][5]['name']."'",'Imperial') != false) {
                          $hospname = $row2['categories'][5]['name'];
 
