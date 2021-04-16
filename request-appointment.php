@@ -167,10 +167,7 @@ if (isset($_POST['submit'])) {
                                                 </select>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" name="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Submit</span>
-                                                </button>
+                                                <button type="submit" name="submit" class="btn btn-primary ml-1">Submit</button>
                                             </div>
                                         </div>
                                     </div>
