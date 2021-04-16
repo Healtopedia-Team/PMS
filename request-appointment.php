@@ -123,7 +123,69 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             </div>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Request</button>
                             <form method="POST">
-                                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel33">Login Form </h4>
+                                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <i data-feather="x"></i>
+                                                    </button>
+                                            </div>
+                                            <form action="#">
+                                                <div class="modal-body">
+                                                    <h5>Request Appointment</h5><br>
+                                                    <label>Package Name :</label>
+                                                    <select class="choices form-select" name="reqpackname">
+                                                        <option value="">Select package...</option>
+                                                        <?php foreach ($data as $row){ ?>
+                                                            <option value="<?php echo $row['package_name'];?>">
+                                                                <?php echo $row['package_name'];?>
+                                                            </option>
+                                                        <?php } ?>
+                                                    </select><br>
+                                        
+                                                    <label>Customer Name :</label>
+                                                    <input type="text" class="form-control" name="custname"><br>
+                                                    
+                                                    <label>Customer ID/Passport :</label>
+                                                    <input type="text" class="form-control" name="custpassport"><br>
+                                                        
+                                                    <label>Customer Phone :</label>
+                                                    <input type="text" class="form-control" name="custphone"><br>
+                                                        
+                                                    <label>Customer Address :</label>
+                                                    <input type="text" class="form-control" name="custaddress"><br>
+                                                        
+                                                    <label>Appointment Date :</label>
+                                                    <input type="text" class="form-control" name="appdate"><br>
+                                                        
+                                                    <label>Appointment Time :</label>
+                                                    <input type="text" class="form-control" name="apptime"><br>
+                                                        
+                                                    <label>Status :</label>
+                                                    <select class="form-select" id="basicSelect" name="reqstatus">
+                                                        <option value="pending">Pending</option>
+                                                        <option value="complete">Complete</option>
+                                                    </select><br>
+
+                                                    <button type="submit" name="submitrequest" class="btn btn-primary ml-1" style="position: relative;float: right;z-index: 597;">Submit</button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">Close</span>
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">login</span>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-body">
@@ -166,7 +228,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div-->
                             </form>
                             <table class="table table-striped" id="table1">
                                 <thead>
