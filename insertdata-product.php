@@ -31,6 +31,6 @@
         }
     }
 
-    $sql = "INSERT INTO packagewoo SET package_id = '$packageid', package_name = '$packagename', package_hosp = '$hospname', package_price = '$packageprice'";
+    //$sql = "INSERT INTO packagewoo SET package_id = '$packageid', package_name = '$packagename', package_hosp = '$hospname', package_price = '$packageprice'";
     mysqli_query($conn, $sql);
 ?>
