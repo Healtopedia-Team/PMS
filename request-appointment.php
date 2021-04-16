@@ -125,13 +125,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalScrollableTitle">Request Form</h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
                                             <div class="modal-body">
+                                                <h5>Request Appointment</h5><br>
                                                 <label>Package Name :</label>
                                                 <select class="choices form-select" name="reqpackname">
                                                     <option value="">Select package...</option>
