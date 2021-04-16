@@ -21,8 +21,8 @@
 
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
-$result = mysqli_query($conn, "SELECT package_name FROM productwoo GROUP BY package_name");
-$data = mysqli_fetch_all($data, MYSQLI_ASSOC);
+$result = mysqli_query($conn, "SELECT package_name FROM packagewoo");
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
 <body>
