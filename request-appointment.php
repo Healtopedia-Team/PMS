@@ -1,3 +1,25 @@
+<?php
+
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+
+$result = mysqli_query($conn, "SELECT package_name FROM packagewoo");
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+if (isset($_POST['submit'])) {
+    $req_packname = $_POST['req_packname'];
+    $custname = $_POST['custname'];
+    $custpassport = $_POST['custpassport'];
+    $custphone = $_POST['custphone'];
+    $custaddress = $_POST['custaddress'];
+    $appdate = $_POST['appdate'];
+    $apptime = $_POST['apptime'];
+    $req_status = $_POST['req_status'];
+
+    $sql = "INSERT INTO request_appoint SET req_packname = '$req_packname', req_custname = '$custname', req_custid = '$custpassport', req_custphone='$custphone', req_custaddress = '$custaddress', req_appdate = '$appdate', req_apptime = '$apptime', req_status = '$req_status'";
+    mysqli_query($conn, $sql);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,14 +40,6 @@
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
 </head>
-<?php 
-
-$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-
-$result = mysqli_query($conn, "SELECT package_name FROM packagewoo");
-$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-?>
-
 <body>
     <div id="app">
         <div id="sidebar" class="active">
@@ -106,57 +120,59 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Request Form</h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <label>Package Name :</label>
-                                            <select class="choices form-select">
-                                                <option>Select package...</option>
-                                                <?php foreach ($data as $row){ ?>
-                                                    <option value="<?php echo $row['package_name'];?>">
-                                                        <?php echo $row['package_name'];?>
-                                                    </option>
-                                                <?php } ?>
-                                            </select><br>
-                                
-                                            <label>Customer Name :</label>
-                                            <input type="text" class="form-control" name="custname"><br>
-                                            
-                                            <label>Customer ID :</label>
-                                            <input type="text" class="form-control" name="custpassport"><br>
+                                        <form method="POST">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalScrollableTitle">Request Form</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                    <i data-feather="x"></i>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>Package Name :</label>
+                                                <select class="choices form-select" name="req_packname">
+                                                    <option>Select package...</option>
+                                                    <?php foreach ($data as $row){ ?>
+                                                        <option value="<?php echo $row['package_name'];?>">
+                                                            <?php echo $row['package_name'];?>
+                                                        </option>
+                                                    <?php } ?>
+                                                </select><br>
+                                    
+                                                <label>Customer Name :</label>
+                                                <input type="text" class="form-control" name="custname"><br>
                                                 
-                                            <label>Customer Phone :</label>
-                                            <input type="text" class="form-control" name="custphone"><br>
-                                                
-                                            <label>Customer Address :</label>
-                                            <input type="text" class="form-control" name="custaddress"><br>
-                                                
-                                            <label>Appointment Date :</label>
-                                            <input type="text" class="form-control" name="appdate"><br>
-                                                
-                                            <label>Appointment Time :</label>
-                                            <input type="text" class="form-control" name="apptime"><br>
-                                                
-                                            <label>Status :</label>
-                                            <select class="form-select" id="basicSelect">
-                                                <option value="pending">Pending</option>
-                                                <option value="complete">Complete</option>
-                                            </select>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Close</span>
-                                            </button>
-                                            <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Accept</span>
-                                            </button>
-                                        </div>
+                                                <label>Customer ID/Passport :</label>
+                                                <input type="text" class="form-control" name="custpassport"><br>
+                                                    
+                                                <label>Customer Phone :</label>
+                                                <input type="text" class="form-control" name="custphone"><br>
+                                                    
+                                                <label>Customer Address :</label>
+                                                <input type="text" class="form-control" name="custaddress"><br>
+                                                    
+                                                <label>Appointment Date :</label>
+                                                <input type="text" class="form-control" name="appdate"><br>
+                                                    
+                                                <label>Appointment Time :</label>
+                                                <input type="text" class="form-control" name="apptime"><br>
+                                                    
+                                                <label>Status :</label>
+                                                <select class="form-select" id="basicSelect" name="req_status">
+                                                    <option value="pending">Pending</option>
+                                                    <option value="complete">Complete</option>
+                                                </select>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" name="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Submit</span>
+                                                </button>
+                                        </form>
+                                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Close</span>
+                                                </button>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
