@@ -100,10 +100,10 @@
                                         <button type="button" class="btn btn-outline-primary">All</button>
                                         <button type="button" class="btn btn-outline-primary">Upcoming</button>
                                         <button type="button" class="btn btn-outline-primary">Pending</button>
-					<button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
-                                            Launch demo modal
-                                        </button>
 				</div>
+				<button type="button" class="btn btn-success" style="text-align: right;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+					Add Request
+				</button>
 				<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
