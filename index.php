@@ -213,7 +213,7 @@ $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                         <tr>
                                                             <td class="text-bold-500">
                                                                 <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
-                                                                Executive Health Screening (Women)<br>
+                                                                <?php echo $rows['packagename']; ?><br>
                                                                 <?php
 
 
