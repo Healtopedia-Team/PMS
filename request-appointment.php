@@ -102,7 +102,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <button type="button" class="btn btn-outline-primary">Upcoming</button>
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
                             </div>
-                            <button type="button" class="btn btn-success mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Request</button>
+                            <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Request</button>
                             <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                                     <div class="modal-content">
