@@ -161,7 +161,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <option value="complete">Complete</option>
                                                 </select><br>
 
-                                                <button type="submit" name="submitrequest" class="btn btn-primary ml-1" style="position: relative;float: right;z-index: 597;">Submit</button>
+                                                <button type="submit" name="submitrequest" class="btn btn-primary ml-1" style="position: relative;float: right;z-index: 597;">Submit</button><br>
                                             </div>
                                         </div>
                                     </div>
