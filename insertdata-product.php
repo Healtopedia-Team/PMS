@@ -29,8 +29,8 @@
         }elseif (strpos("'".$row2['categories'][0]['name']."'",'KPJ') != false || strpos("'".$row2['categories'][0]['name']."'",'Sunway') != false || strpos("'".$row2['categories'][0]['name']."'",'Healtopedia') != false || strpos("'".$row2['categories'][0]['name']."'",'Disinfection') != false || strpos("'".$row2['categories'][0]['name']."'",'Klinik') != false || strpos("'".$row2['categories'][0]['name']."'",'Wellness') != false || strpos("'".$row2['categories'][0]['name']."'",'Medicare') != false || strpos("'".$row2['categories'][0]['name']."'",'Clinic') != false || strpos("'".$row2['categories'][0]['name']."'",'BeLive') != false || strpos("'".$row2['categories'][0]['name']."'",'BENPHYSIO') != false || strpos("'".$row2['categories'][0]['name']."'",'CryoFit') != false || strpos("'".$row2['categories'][0]['name']."'",'International') != false || strpos("'".$row2['categories'][0]['name']."'",'Regen') != false || strpos("'".$row2['categories'][0]['name']."'",'Soul') != false || strpos("'".$row2['categories'][0]['name']."'",'ALPS') != false || strpos("'".$row2['categories'][0]['name']."'",'Home') != false || strpos("'".$row2['categories'][0]['name']."'",'Dokter4U') != false || strpos("'".$row2['categories'][0]['name']."'",'Thomson') != false || strpos("'".$row2['categories'][0]['name']."'",'Prince') != false || strpos("'".$row2['categories'][0]['name']."'",'Timberland') != false || strpos("'".$row2['categories'][0]['name']."'",'Imperial') != false) {
                 $hospname = $row2['categories'][0]['name'];
         }
+        
+        $sql = "INSERT INTO packagewoo SET package_id = '$packageid', package_name = '$packagename', package_hosp = '$hospname', package_price = '$packageprice'";
+        mysqli_query($conn, $sql);
     }
-
-    //$sql = "INSERT INTO packagewoo SET package_id = '$packageid', package_name = '$packagename', package_hosp = '$hospname', package_price = '$packageprice'";
-    mysqli_query($conn, $sql);
 ?>
