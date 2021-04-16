@@ -124,7 +124,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
-                                            <form method="POST">
+                                            <form action="request-appointment.php">
                                                 <div class="modal-body">
                                                     <h5>Request Appointment</h5><br>
                                                     <label>Package Name :</label>
