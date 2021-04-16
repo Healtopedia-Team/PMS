@@ -2,9 +2,9 @@
 	
 	header("refresh: 60");
 
-	$data = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slot2json.php');
+	$data = file_get_contents('https://pms.healtopedia.com/slot2json.php');
 	$data = json_decode($data, true);
-	$data2 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slotjson.php');
+	$data2 = file_get_contents('https://pms.healtopedia.com/slotjson.php');
 	$data2 = json_decode($data2, true);
 
   	$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
