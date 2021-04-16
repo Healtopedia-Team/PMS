@@ -159,9 +159,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 <select class="form-select" id="basicSelect" name="reqstatus">
                                                     <option value="pending">Pending</option>
                                                     <option value="complete">Complete</option>
-                                                </select>
-                                            </div>
-                                            <div class="modal-footer">
+                                                </select><br>
+
                                                 <button type="submit" name="submitrequest" class="btn btn-primary ml-1">Submit</button>
                                             </div>
                                         </div>
