@@ -135,23 +135,44 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         </div>
                                         <form metho="POST">
                                             <div class="modal-body">
-                                                <label>Email: </label>
-                                                <div class="form-group">
-                                                    <input type="text" placeholder="Email Address" class="form-control">
-                                                </div>
-                                                <label>Password: </label>
-                                                <div class="form-group">
-                                                    <input type="password" placeholder="Password" class="form-control">
-                                                </div>
+                                                <label>Package Name :</label>
+                                                <select class="choices form-select" name="reqpackname">
+                                                    <option value="">Select package...</option>
+                                                    <?php foreach ($data as $row){ ?>
+                                                        <option value="<?php echo $row['package_name'];?>">
+                                                            <?php echo $row['package_name'];?>
+                                                        </option>
+                                                    <?php } ?>
+                                                </select><br>
+                                    
+                                                <label>Customer Name :</label>
+                                                <input type="text" class="form-control" name="custname"><br>
+                                                
+                                                <label>Customer ID/Passport :</label>
+                                                <input type="text" class="form-control" name="custpassport"><br>
+                                                    
+                                                <label>Customer Phone :</label>
+                                                <input type="text" class="form-control" name="custphone"><br>
+                                                    
+                                                <label>Customer Address :</label>
+                                                <input type="text" class="form-control" name="custaddress"><br>
+                                                    
+                                                <label>Appointment Date :</label>
+                                                <input type="text" class="form-control" name="appdate"><br>
+                                                    
+                                                <label>Appointment Time :</label>
+                                                <input type="text" class="form-control" name="apptime"><br>
+                                                    
+                                                <label>Status :</label>
+                                                <select class="form-select" id="basicSelect" name="reqstatus">
+                                                    <option value="pending">Pending</option>
+                                                    <option value="complete">Complete</option>
+                                                </select><br>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Close</span>
-                                                </button>
-                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                <button type="submit" name="submitrequest" class="btn btn-primary ml-1">
                                                     <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">login</span>
+                                                    <span class="d-none d-sm-block">Submit</span>
                                                 </button>
                                             </div>
                                         </form>
