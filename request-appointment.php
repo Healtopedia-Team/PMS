@@ -145,7 +145,17 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 <option value="pending">Pending</option>
                                                 <option value="complete">Complete</option>
                                             </select>
-
+                                            <div class="form-group">
+                                                <select class="choices form-select">
+                                                    <option value="square">Square</option>
+                                                    <option value="rectangle">Rectangle</option>
+                                                    <option value="rombo">Rombo</option>
+                                                    <option value="romboid">Romboid</option>
+                                                    <option value="trapeze">Trapeze</option>
+                                                    <option value="traible">Triangle</option>
+                                                    <option value="polygon">Polygon</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
@@ -241,6 +251,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
+    <script src="assets/vendors/choices.js/choices.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
