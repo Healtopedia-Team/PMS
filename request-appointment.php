@@ -121,52 +121,52 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
                             </div>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Request</button>
-                            <form method="POST">
                                 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-body">
-                                                <h5>Request Appointment</h5><br>
-                                                <label>Package Name :</label>
-                                                <select class="choices form-select" name="reqpackname">
-                                                    <option value="">Select package...</option>
-                                                    <?php foreach ($data as $row){ ?>
-                                                        <option value="<?php echo $row['package_name'];?>">
-                                                            <?php echo $row['package_name'];?>
-                                                        </option>
-                                                    <?php } ?>
-                                                </select><br>
-                                    
-                                                <label>Customer Name :</label>
-                                                <input type="text" class="form-control" name="custname"><br>
-                                                
-                                                <label>Customer ID/Passport :</label>
-                                                <input type="text" class="form-control" name="custpassport"><br>
+                                            <form method="POST">
+                                                <div class="modal-body">
+                                                    <h5>Request Appointment</h5><br>
+                                                    <label>Package Name :</label>
+                                                    <select class="choices form-select" name="reqpackname">
+                                                        <option value="">Select package...</option>
+                                                        <?php foreach ($data as $row){ ?>
+                                                            <option value="<?php echo $row['package_name'];?>">
+                                                                <?php echo $row['package_name'];?>
+                                                            </option>
+                                                        <?php } ?>
+                                                    </select><br>
+                                        
+                                                    <label>Customer Name :</label>
+                                                    <input type="text" class="form-control" name="custname"><br>
                                                     
-                                                <label>Customer Phone :</label>
-                                                <input type="text" class="form-control" name="custphone"><br>
-                                                    
-                                                <label>Customer Address :</label>
-                                                <input type="text" class="form-control" name="custaddress"><br>
-                                                    
-                                                <label>Appointment Date :</label>
-                                                <input type="text" class="form-control" name="appdate"><br>
-                                                    
-                                                <label>Appointment Time :</label>
-                                                <input type="text" class="form-control" name="apptime"><br>
-                                                    
-                                                <label>Status :</label>
-                                                <select class="form-select" id="basicSelect" name="reqstatus">
-                                                    <option value="pending">Pending</option>
-                                                    <option value="complete">Complete</option>
-                                                </select><br>
+                                                    <label>Customer ID/Passport :</label>
+                                                    <input type="text" class="form-control" name="custpassport"><br>
+                                                        
+                                                    <label>Customer Phone :</label>
+                                                    <input type="text" class="form-control" name="custphone"><br>
+                                                        
+                                                    <label>Customer Address :</label>
+                                                    <input type="text" class="form-control" name="custaddress"><br>
+                                                        
+                                                    <label>Appointment Date :</label>
+                                                    <input type="text" class="form-control" name="appdate"><br>
+                                                        
+                                                    <label>Appointment Time :</label>
+                                                    <input type="text" class="form-control" name="apptime"><br>
+                                                        
+                                                    <label>Status :</label>
+                                                    <select class="form-select" id="basicSelect" name="reqstatus">
+                                                        <option value="pending">Pending</option>
+                                                        <option value="complete">Complete</option>
+                                                    </select><br>
 
-                                                <button type="submit" name="submitrequest" class="btn btn-primary ml-1" style="position: relative;float: right;z-index: 597;">Submit</button><br><br>
-                                            </div>
+                                                    <button type="submit" name="submitrequest" class="btn btn-primary ml-1" style="position: relative;float: right;z-index: 597;">Submit</button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
