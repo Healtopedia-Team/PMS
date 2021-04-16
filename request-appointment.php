@@ -3,16 +3,16 @@
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
 if (isset($_POST['submitrequest'])) {
-    $reqpackname = $_POST['reqpackname'];
-    $custname = $_POST['custname'];
-    $custpassport = $_POST['custpassport'];
-    $custphone = $_POST['custphone'];
-    $custaddress = $_POST['custaddress'];
-    $appdate = $_POST['appdate'];
-    $apptime = $_POST['apptime'];
-    $reqstatus = $_POST['reqstatus'];
+    $reqpackname=$_POST['reqpackname'];
+    $custname=$_POST['custname'];
+    $custpassport=$_POST['custpassport'];
+    $custphone=$_POST['custphone'];
+    $custaddress=$_POST['custaddress'];
+    $appdate=$_POST['appdate'];
+    $apptime=$_POST['apptime'];
+    $reqstatus=$_POST['reqstatus'];
 
-    $sql = "INSERT INTO request_appoint SET req_packname = '$reqpackname', req_custname = '$custname', req_custid = '$custpassport', req_custphone = '$custphone', req_custaddress = '$custaddress', req_appdate = '$appdate', req_apptime = '$apptime', req_status = '$reqstatus'";
+    $sql = "INSERT INTO request_appoint(req_packname, req_custname, req_custid, req_custphone, req_custaddress, req_appdate, req_apptime, req_status) VALUES ('$reqpackname','$custname','$custpassport','$custphone','$custaddress','$appdate','$apptime','$reqstatus')";
     if (mysqli_query($conn, $sql)){
         echo "<script>alert('Request successfully added !!')</script>";
     }else{
@@ -124,7 +124,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
-                                            <form action="request-appointment.php">
+                                            <form method="POST">
                                                 <div class="modal-body">
                                                     <h5>Request Appointment</h5><br>
                                                     <label>Package Name :</label>
