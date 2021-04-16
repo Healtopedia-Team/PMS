@@ -118,9 +118,9 @@ if (isset($_POST['submit'])) {
                             </div>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Request</button>
                             <form method="POST">
-                            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                    <div class="modal-content">
+                                <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalScrollableTitle">Request Form</h5>
                                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -168,9 +168,9 @@ if (isset($_POST['submit'])) {
                                                     <span class="d-none d-sm-block">Submit</span>
                                                 </button>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             </form>
                             <table class="table table-striped" id="table1">
                                 <thead>
