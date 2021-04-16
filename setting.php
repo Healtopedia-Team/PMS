@@ -43,7 +43,7 @@
                         </li>
 			    
 			                <li class="sidebar-item">
-                            <a href="appointment-list.php" class='sidebar-link'>
+                            <a href="appointment-list-all.php" class='sidebar-link'>
                                 <i class="bi bi-list-ul"></i>
                                 <span>Appointment List</span>
                             </a>
