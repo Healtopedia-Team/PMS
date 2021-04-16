@@ -179,10 +179,10 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         <td>Approved</td>
                                         <td>
                                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                <button class="btn btn-outline-success"><i class="bi bi-plus-circle"></i></button>
-                                                <button class="btn btn-outline-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-outline-warning"><i class="bi bi-calendar3-week-fill"></i></button>
-                                                <button class="btn btn-outline-info"><i class="bi bi-search"></i></button>
+                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
+                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
                                             </div>
                                         </td>
                                     </tr>
@@ -196,7 +196,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                 <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
                                                 <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week-fill"></i></button>
+                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
                                                 <button class="btn btn-info"><i class="bi bi-search"></i></button>
                                             </div>
                                         </td>
@@ -211,7 +211,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                 <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
                                                 <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week-fill"></i></button>
+                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
                                                 <button class="btn btn-info"><i class="bi bi-search"></i></button>
                                             </div>
                                         </td>
