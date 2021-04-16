@@ -2,26 +2,26 @@
 
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
-$result = mysqli_query($conn, "SELECT package_name FROM packagewoo");
-$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-if (isset($_POST['submit'])) {
-    $req_packname = $_POST['req_packname'];
+if (isset($_POST['submitrequest'])) {
+    $reqpackname = $_POST['reqpackname'];
     $custname = $_POST['custname'];
     $custpassport = $_POST['custpassport'];
     $custphone = $_POST['custphone'];
     $custaddress = $_POST['custaddress'];
     $appdate = $_POST['appdate'];
     $apptime = $_POST['apptime'];
-    $req_status = $_POST['req_status'];
+    $reqstatus = $_POST['reqstatus'];
 
-    $sql = "INSERT INTO request_appoint SET req_packname = '$req_packname', req_custname = '$custname', req_custid = '$custpassport', req_custphone='$custphone', req_custaddress = '$custaddress', req_appdate = '$appdate', req_apptime = '$apptime', req_status = '$req_status'";
+    $sql = "INSERT INTO request_appoint SET req_packname = '$reqpackname', req_custname = '$custname', req_custid = '$custpassport', req_custphone = '$custphone', req_custaddress = '$custaddress', req_appdate = '$appdate', req_apptime = '$apptime', req_status = '$reqstatus'";
     if (mysqli_query($conn, $sql)){
         echo "<script>alert('Request successfully added !!')</script>";
     }else{
         echo "<script>alert('Request failed to be added !!')</script>";
     }
 }
+
+$result = mysqli_query($conn, "SELECT package_name FROM packagewoo");
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -133,8 +133,8 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="modal-body">
                                                 <label>Package Name :</label>
-                                                <select class="choices form-select" name="req_packname">
-                                                    <option>Select package...</option>
+                                                <select class="choices form-select" name="reqpackname">
+                                                    <option value="">Select package...</option>
                                                     <?php foreach ($data as $row){ ?>
                                                         <option value="<?php echo $row['package_name'];?>">
                                                             <?php echo $row['package_name'];?>
@@ -161,13 +161,13 @@ if (isset($_POST['submit'])) {
                                                 <input type="text" class="form-control" name="apptime"><br>
                                                     
                                                 <label>Status :</label>
-                                                <select class="form-select" id="basicSelect" name="req_status">
+                                                <select class="form-select" id="basicSelect" name="reqstatus">
                                                     <option value="pending">Pending</option>
                                                     <option value="complete">Complete</option>
                                                 </select>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" name="submit" class="btn btn-primary ml-1">Submit</button>
+                                                <button type="submit" name="submitrequest" class="btn btn-primary ml-1">Submit</button>
                                             </div>
                                         </div>
                                     </div>
