@@ -2,7 +2,7 @@
     
     header("refresh: 60");
     
-    $data2 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/productjson.php');
+    $data2 = file_get_contents('https://pms.healtopedia.com/productjson.php');
     $data2 = json_decode($data2, true);
 
     $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
