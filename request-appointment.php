@@ -101,7 +101,7 @@
                                         <button type="button" class="btn btn-outline-primary">Upcoming</button>
                                         <button type="button" class="btn btn-outline-primary">Pending</button>
 				</div>
-				<button type="button" class="btn btn-success mb-3" style="position: absolute;right: 0;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+				<button type="button" class="btn btn-success mb-3" style="position: absolute;right: 3;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
 					Add Request
 				</button>
 				<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
