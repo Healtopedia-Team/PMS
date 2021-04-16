@@ -129,15 +129,14 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <div class="modal-body">
                                                 <h5>Request Appointment</h5><br>
                                                 <label>Package Name :</label>
-                                                <input type="text" class="form-control" name="reqpackname"><br>
-                                                <!--select class="choices form-select" name="reqpackname">
+                                                <select class="choices form-select" name="reqpackname">
                                                     <option value="">Select package...</option>
-                                                    <!--?php foreach ($data as $row){ ?>
-                                                        <option value="<!--?php echo $row['package_name'];?>">
-                                                            <!--?php echo $row['package_name'];?>
+                                                    <?php foreach ($data as $row){ ?>
+                                                        <option value="<?php echo $row['package_name'];?>">
+                                                            <?php echo $row['package_name'];?>
                                                         </option>
-                                                    <!--?php }>
-                                                </select><br-->
+                                                    <?php } ?>
+                                                </select><br>
                                     
                                                 <label>Customer Name :</label>
                                                 <input type="text" class="form-control" name="custname"><br>
