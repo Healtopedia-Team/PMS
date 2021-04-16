@@ -214,10 +214,10 @@ $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             <td class="text-bold-500">
                                                                 <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
                                                                 <?php echo $rows['packagename']; ?><br>
-                                                                <?php
+                                                                                                                            <?php 
 
-
-                                                                echo date('h:i A', $rows['start_appoint']); ?><br>
+                                                            $atime= strtotime('-8 hour', $rows['start_appoint']);
+                                                             echo date('h:i A', $atime); ?><br>
 
                                                                 <?php
 
