@@ -16,7 +16,11 @@ if (isset($_POST['submit'])) {
     $req_status = $_POST['req_status'];
 
     $sql = "INSERT INTO request_appoint SET req_packname = '$req_packname', req_custname = '$custname', req_custid = '$custpassport', req_custphone='$custphone', req_custaddress = '$custaddress', req_appdate = '$appdate', req_apptime = '$apptime', req_status = '$req_status'";
-    mysqli_query($conn, $sql);
+    if (mysqli_query($conn, $sql)){
+        echo "<script>alert('Request successfully added !!')</script>";
+    }else{
+        echo "<script>alert('Request failed to be added !!')</script>";
+    }
 }
 
 ?>
@@ -163,7 +167,7 @@ if (isset($_POST['submit'])) {
                                                 </select>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" name="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                <button type="submit" name="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Submit</span>
                                                 </button>
