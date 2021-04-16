@@ -17,15 +17,16 @@
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
 </head>
+<?php 
+
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+
+$result = mysqli_query($conn, "SELECT package_name FROM productwoo GROUP BY package_name");
+$data = mysqli_fetch_all($data, MYSQLI_ASSOC);
+?>
 
 <body>
-	<!--?php
-		$data = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slot2json.php');
-		$data = json_decode($data, true);
-		$data2 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/slotjson.php');
-		$data2 = json_decode($data2, true);
-	?-->
-        <div id="app">
+    <div id="app">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
@@ -43,27 +44,26 @@
 
                         <li class="sidebar-title">Forms &amp; Tables</li>
                       
-                      	<li class="sidebar-item active ">
+                        <li class="sidebar-item active ">
                             <a href="request-appointment.php" class='sidebar-link'>
                                 <i class="bi bi-person-check-fill"></i>
                                 <span>Request Appointment</span>
                             </a>
                         </li>
-			    
-			<li class="sidebar-item">
+                
+                        <li class="sidebar-item">
                             <a href="appointment-list.php" class='sidebar-link'>
                                 <i class="bi bi-list-ul"></i>
                                 <span>Appointment List</span>
                             </a>
                         </li>
-			    
-			<li class="sidebar-item">
+                
+                        <li class="sidebar-item">
                             <a href="setting.php" class='sidebar-link'>
                                 <i class="bi bi-gear-fill"></i>
                                 <span>Setting</span>
                             </a>
                         </li>
-
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -96,67 +96,69 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-				<div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-outline-primary">All</button>
-                                        <button type="button" class="btn btn-outline-primary">Upcoming</button>
-                                        <button type="button" class="btn btn-outline-primary">Pending</button>
-				</div>
-				<button type="button" class="btn btn-success mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
-					Add Request
-				</button>
-				<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                            Scrolling long
-                                                            Content</h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <label>Package Name :</label>
-							<input type="text" class="form-control" name="packname"><br>
-							    
-							<label>Customer Name :</label>
-							<input type="text" class="form-control" name="custname"><br>
-							
-							<label>Customer ID :</label>
-							<input type="text" class="form-control" name="custpassport"><br>
-							    
-							<label>Customer Phone :</label>
-							<input type="text" class="form-control" name="custphone"><br>
-							    
-							<label>Customer Address :</label>
-							<input type="text" class="form-control" name="custaddress"><br>
-							    
-							<label>Appointment Date :</label>
-							<input type="text" class="form-control" name="appdate"><br>
-							    
-							<label>Appointment Time :</label>
-							<input type="text" class="form-control" name="apptime"><br>
-							    
-							<label>Status :</label>
-							
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Close</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Accept</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-primary">All</button>
+                                <button type="button" class="btn btn-outline-primary">Upcoming</button>
+                                <button type="button" class="btn btn-outline-primary">Pending</button>
+                            </div>
+                            <button type="button" class="btn btn-success mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Request</button>
+                            <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalScrollableTitle">Request Form</h5>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
                                         </div>
+                                        <div class="modal-body">
+                                            <label>Package Name :</label>
+                                            <select class="choices form-select">
+                                                <?php foreach ($data as $row){ ?>
+                                                    <option value="<?php echo $row['package_name'];?>">
+                                                        <?php echo $row['package_name'];?>
+                                                    </option>
+                                                <?php } ?>
+                                            </select><br>
+                                
+                                            <label>Customer Name :</label>
+                                            <input type="text" class="form-control" name="custname"><br>
+                                            
+                                            <label>Customer ID :</label>
+                                            <input type="text" class="form-control" name="custpassport"><br>
+                                                
+                                            <label>Customer Phone :</label>
+                                            <input type="text" class="form-control" name="custphone"><br>
+                                                
+                                            <label>Customer Address :</label>
+                                            <input type="text" class="form-control" name="custaddress"><br>
+                                                
+                                            <label>Appointment Date :</label>
+                                            <input type="text" class="form-control" name="appdate"><br>
+                                                
+                                            <label>Appointment Time :</label>
+                                            <input type="text" class="form-control" name="apptime"><br>
+                                                
+                                            <label>Status :</label>
+                                            <select class="form-select" id="basicSelect">
+                                                <option value="pending">Pending</option>
+                                                <option value="complete">Complete</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Close</span>
+                                            </button>
+                                            <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Accept</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
@@ -165,61 +167,59 @@
                                         <th>Date</th>
                                         <th>Time</th>
                                         <th>Status</th>
-					<th>Action</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
-				    <tr>
-					    <td>Deanna Tan</td>
-					    <td>Executive Health Screening (Women)</td>
-					    <td>12/5/2021</td>
-					    <td>12:00PM</td>
-					    <td>Approved</td>
-					    <td>
-						    <div class="btn-group mb-3" role="group" aria-label="Basic example">
-							    <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-							    <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-							    <button class="btn btn-warning"><i class="bi bi-calendar3-week-fill"></i></button>
-							    <button class="btn btn-info"><i class="bi bi-search"></i></button>
-						    </div>
-					    </td>
-				    </tr>
-				    <tr>
-					    <td>Selvendran Baskaran</td>
-					    <td>Basic Health Screening (Men)</td>
-					    <td>22/5/2021</td>
-					    <td>04:00PM</td>
-					    <td>Pending</td>
-					    <td>
-						    <div class="btn-group mb-3" role="group" aria-label="Basic example">
-							    <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-							    <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-							    <button class="btn btn-warning"><i class="bi bi-calendar3-week-fill"></i></button>
-							    <button class="btn btn-info"><i class="bi bi-search"></i></button>
-						    </div>
-					    </td>
-				    </tr>
-				    <tr>
-					    <td>Muaz</td>
-					    <td>Mental Health Screening</td>
-					    <td>5/5/2021</td>
-					    <td>09:00AM</td>
-					    <td>Postponed</td>
-					    <td>
-						    <div class="btn-group mb-3" role="group" aria-label="Basic example">
-							    <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-							    <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-							    <button class="btn btn-warning"><i class="bi bi-calendar3-week-fill"></i></button>
-							    <button class="btn btn-info"><i class="bi bi-search"></i></button>
-						    </div>
-					    </td>
-				    </tr>
-                            </table>
+                                    <tr>
+                                        <td>Deanna Tan</td>
+                                        <td>Executive Health Screening (Women)</td>
+                                        <td>12/5/2021</td>
+                                        <td>12:00PM</td>
+                                        <td>Approved</td>
+                                        <td>
+                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week-fill"></i></button>
+                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Selvendran Baskaran</td>
+                                        <td>Basic Health Screening (Men)</td>
+                                        <td>22/5/2021</td>
+                                        <td>04:00PM</td>
+                                        <td>Pending</td>
+                                        <td>
+                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week-fill"></i></button>
+                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Muaz</td>
+                                        <td>Mental Health Screening</td>
+                                        <td>5/5/2021</td>
+                                        <td>09:00AM</td>
+                                        <td>Postponed</td>
+                                        <td>
+                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week-fill"></i></button>
+                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
                         </div>
                     </div>
-
                 </section>
             </div>
-
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
@@ -234,15 +234,12 @@
     </div>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
     <script>
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
-
     <script src="assets/js/main.js"></script>
 </body>
-
 </html>
