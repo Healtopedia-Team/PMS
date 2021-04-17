@@ -121,7 +121,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <button type="button" class="btn btn-outline-primary">Upcoming</button>
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
                             </div>
-                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+                            <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
                                 Add Request
                             </button>
                             <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
