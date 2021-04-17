@@ -133,6 +133,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 <i data-feather="x"></i>
                                             </button>
                                         </div>
+                                        <form method="POST">
                                         <div class="modal-body">
                                             <label>Package Name :</label>
                                                 <select class="choices form-select" name="reqpackname">
@@ -168,6 +169,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <option value="complete">Complete</option>
                                                 </select>
                                         </div>
+                                        </form>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                 <i class="bx bx-x d-block d-sm-none"></i>
