@@ -121,21 +121,20 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <button type="button" class="btn btn-outline-primary">Upcoming</button>
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
                             </div>
-                            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#inlineForm" style="position: relative;float: right;z-index: 597;">
+                            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
                                 Add Request
                             </button>
-                            <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel33">Login Form </h4>
-                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Scrolling Modal</h5>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
                                         </div>
-                                        <form metho="POST">
-                                            <div class="modal-body">
-                                                <label>Package Name :</label>
+                                        <div class="modal-body">
+                                            <label>Package Name :</label>
                                                 <select class="choices form-select" name="reqpackname">
                                                     <option value="">Select package...</option>
                                                     <?php foreach ($data as $row){ ?>
@@ -167,18 +166,23 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 <select class="form-select" id="basicSelect" name="reqstatus">
                                                     <option value="pending">Pending</option>
                                                     <option value="complete">Complete</option>
-                                                </select><br>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" name="submitrequest" class="btn btn-primary ml-1">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Submit</span>
-                                                </button>
-                                            </div>
-                                        </form>
+                                                </select>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Close</span>
+                                            </button>
+
+                                            <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Accept</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            
                             <!--button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">Add Request</button>
                             <form method="POST">
                                 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
