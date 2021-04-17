@@ -12,7 +12,7 @@ if (isset($_POST['submitrequest'])) {
     $apptime=$_POST['apptime'];
     $reqstatus=$_POST['reqstatus'];
 
-    $sql = "INSERT INTO request_appoint(req_packname, req_custname, req_custid, req_custphone, req_custaddress, req_appdate, req_apptime, req_status) VALUES ('$reqpackname','$custname','$custpassport','$custphone','$custaddress','$appdate','$apptime','$reqstatus')";
+    $sql = "INSERT INTO requestappoint(req_packname, req_custname, req_custid, req_custphone, req_custaddress, req_appdate, req_apptime, req_status) VALUES ('$reqpackname','$custname','$custpassport','$custphone','$custaddress','$appdate','$apptime','$reqstatus')";
     if (mysqli_query($conn, $sql)){
         echo "<script>alert('Request successfully added !!')</script>";
     }else{
