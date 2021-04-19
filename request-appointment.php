@@ -2,24 +2,6 @@
 
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
-if (isset($_POST['submitrequest'])) {
-    $reqpackname=$_POST['reqpackname'];
-    $custname=$_POST['custname'];
-    $custpassport=$_POST['custpassport'];
-    $custphone=$_POST['custphone'];
-    $custaddress=$_POST['custaddress'];
-    $appdate=$_POST['appdate'];
-    $apptime=$_POST['apptime'];
-    $reqstatus=$_POST['reqstatus'];
-
-    $sql = "INSERT INTO requestappoint(req_packname, req_custname, req_custid, req_custphone, req_custaddress, req_appdate, req_apptime, req_status) VALUES ('$reqpackname','$custname','$custpassport','$custphone','$custaddress','$appdate','$apptime','$reqstatus')";
-    if (mysqli_query($conn, $sql)){
-        echo "<script>alert('Request successfully added !!')</script>";
-    }else{
-        echo "<script>alert('Request failed to be added !!')</script>";
-    }
-}
-
 
 $result = mysqli_query($conn, "SELECT package_name FROM packagewoo");
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -133,7 +115,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 <i data-feather="x"></i>
                                             </button>
                                         </div>
-                                        <form method="POST">
+                                        <form method="POST" action="function.php">
+                                            <input type="hidden" name="command" value="REQ_APPOINT">
                                         <div class="modal-body">
                                             <label>Package Name :</label>
                                                 <select class="choices form-select" name="reqpackname">
