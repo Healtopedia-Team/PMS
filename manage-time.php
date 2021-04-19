@@ -445,7 +445,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
 </body>
 <?php
 
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 
 $result=mysqli_query($conn, "SELECT datedisable FROM xdate");
 $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
