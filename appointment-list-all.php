@@ -1,53 +1,65 @@
                 <?php
                 include 'appointment-list-header.php';
-		$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-		$result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY order_id DESC");
-		$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
-	        ?>
+                $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+                $result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY order_id DESC");
+                $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                ?>
 
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-				<a href="appointment-list-all.php"><button type="button" class="btn btn-outline-primary active">All</button></a>
-                                <a href="appointment-list-upcoming.php"><button type="button" class="btn btn-outline-primary">Upcoming</button></a>
-                                <a href="appointment-list-processing.php"><button type="button" class="btn btn-outline-primary">Processing</button></a>
-				<br><br>
-                            	<table class="table table-striped" id="table1">
+                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-outline-primary active" onclick="listall()">All</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="listupcoming()">Upcoming</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
+                            </div>
+                            <script>
+                                function listall(){
+                                    window.open('https://pms.healtopedia.com/appointment-list-all.php');
+                                }
+                                function listupcoming(){
+                                    window.open('https://pms.healtopedia.com/appointment-list-upcoming.php');
+                                }
+                                function listpending(){
+                                    window.open('https://pms.healtopedia.com/appointment-list-pending.php');
+                                }
+                            </script>
+                            <table class="table table-striped" id="table1">
                                 <thead>
-					<tr>
-						<th>No</th>
-						<th>Order ID</th>
-						<th>Customer Name</th>
-						<th>Status</th>
-						<th>Order Details</th>
-	            			</tr>
-            			</thead>
-           	 		<tbody>
-            				<?php $i = 1; ?>
-						<?php foreach ($user as $row){ ?>
-					        	<tr>
-						        	<td>
-							        	<?php echo $i;?>
-						                </td>
-						                <td>
-							        	<?php echo $row['order_id'];?>
-						                </td>
-						                    <td>
-							                      <?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
-						                    </td>
-						                    <td>
-							                       <?php echo $row['status'];?>
-						                    </td>
-						                    <td>
-							                       <a href='view-appointment.php?orderid=<?php echo $row['order_id'];?>&custid=<?php echo $row['cust_id'];?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
-						                    </td>
-					                  </tr>	
-					                  <?php $i++; ?>
-					                  <?php } ?>
-				    		</tbody>
-                          		</table>
-                       		</div>
-                    	</div>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Order ID</th>
+                                        <th>Customer Name</th>
+                                        <th>Status</th>
+                                        <th>Order Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php $i = 1; ?>
+                                <?php foreach ($user as $row){ ?>
+                                    <tr>
+                                        <td>
+                                        <?php echo $i;?>
+                                        </td>
+                                        <td>
+                                        <?php echo $row['order_id'];?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
+                                        </td>
+                                        <td>
+                                            <?php echo $row['status'];?>
+                                        </td>
+                                        <td>
+                                            <a href='view-appointment.php?orderid=<?php echo $row['order_id'];?>&custid=<?php echo $row['cust_id'];?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
+                                        </td>
+                                      </tr> 
+                                      <?php $i++; ?>
+                                      <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </section>
             </div>
 
