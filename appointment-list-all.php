@@ -1,6 +1,14 @@
                 <?php
                 include 'appointment-list-header.php';
-                $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+                include 'dbconnect.php';
+
+                session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
+    header("location: auth-login.php");
+    exit;
+}
                 $result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY order_id DESC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
