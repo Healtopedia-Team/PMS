@@ -1,20 +1,3 @@
-<?php
-$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-
-if (isset($_POST['submit'])){
-  $name = $_POST['tryname'];
-  $passport = $_POST['trypassport'];
-  $phone = $_POST['tryphone'];
-  
-  $sql = "INSERT INTO requestappoint SET req_custname = '$name', req_custid = '$passport', req_custphone = '$phone'";
-  
-  if(mysqli_query($conn,$sql)){
-    echo '<script>alert("Successfully added");</script>';
-  }else{
-    echo '<script>alert("Failed to added");</script>';
-  }
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +8,8 @@ if (isset($_POST['submit'])){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form method="POST">
+    <form method="POST" action="function.php">
+      <input type="hidden" name="command" value="TRY">
         <div class="container">
             <label>Name :</label>
             <input type="text" name="tryname" class="form-control">
