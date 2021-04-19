@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 
 if (isset($_POST['submit'])) {
 
