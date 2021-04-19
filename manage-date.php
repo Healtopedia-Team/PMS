@@ -69,7 +69,7 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.php">Setting</a></li>
+                                    <li class="breadcrumb-item"><a href="#">Setting</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Manage Date</li>
                                 </ol>
                             </nav>
@@ -79,6 +79,51 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
+                            <div class="container">
+				<div class="row">
+					<div class="col-sm">
+						<form method="POST">
+							<label>Date to close :</label>
+							<input type="text" name="ddate" class="form-control datepicker" autocomplete="off">
+							<br>
+							<label>Date to close :</label>
+							<input type="text" name="ddate1" class="form-control datepicker" autocomplete="off">
+							<br>
+							<label>Date to close :</label>
+							<input type="text" name="ddate2" class="form-control datepicker" autocomplete="off">
+							<br>
+							<label>Date to close :</label>
+							<input type="text" name="ddate3" class="form-control datepicker" autocomplete="off">
+							<br>
+							<label>Date to close :</label>
+							<input type="text" name="ddate4" class="form-control datepicker" autocomplete="off">
+							<br>
+							<button type="submit" name="submit" class="btn btn-warning">Submit</button>
+						</form>
+					</div>
+					<div class="col-sm">
+						<table class="table table-bordered" style="text-align: center;">
+							<tr class="table-info">
+								<th>DISABLED DATE</th>
+								<th>DELETE</th>
+							</tr>
+							<?php foreach($user as $row): ?>
+								<form method="POST">
+								<tr>
+									<td><?php echo $row['datedisable']; ?></td>
+									<td>
+										<button type="submit" name="deletedate" class="btn btn-danger">
+											<i class="icon-trash"></i>
+											<input type="text" name="deletedate" value="<?php echo $row['id']; ?>" style="display: none;">
+										</button>
+									</td>
+								</tr>
+								</form>
+							<?php endforeach; ?>
+						</table>
+					</div>
+				</div>
+			</div>
                         </div>
                     </div>
                 </section>
