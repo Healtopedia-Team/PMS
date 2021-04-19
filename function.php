@@ -80,9 +80,7 @@ function tryme($conn){
   $sql = "INSERT INTO requestappoint SET req_custname = '$name', req_custid = '$passport', req_custphone = '$phone'";
   
   if(mysqli_query($conn,$sql)){
-    echo '<script>alert("Successfully added");</script>';
-  }else{
-    echo '<script>alert("Failed to added");</script>';
+   header('location:index.php');
   }
 }
 }
