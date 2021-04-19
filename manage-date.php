@@ -60,7 +60,6 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-
             <div class="page-heading">
                 <div class="page-title">
                     <div class="row">
@@ -77,6 +76,13 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                     </div>
                 </div>
+                <section class="section">
+                    <div class="card">
+                        <div class="card-body">
+                        </div>
+                    </div>
+                </section>
+            </div>
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
