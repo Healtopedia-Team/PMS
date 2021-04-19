@@ -49,6 +49,8 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 </head>
 
 <body>
@@ -150,5 +152,30 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     <script src="assets/js/main.js"></script>
 </body>
+<?php
+
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
+
+$result=mysqli_query($conn, "SELECT datedisable FROM xdate");
+$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+?>
+<script type="text/javascript">
+    var disableDates = [<?php foreach ($user as $row){echo "'".$row['datedisable']."'".",";}?>];
+      
+    $('.datepicker').datepicker({
+    	startDate: new Date(),
+        format: 'd-m-yyyy',
+        beforeShowDay: function(date){
+            dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+            if(disableDates.indexOf(dmy) != -1){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    });
+</script>
 
 </html>
