@@ -15,13 +15,13 @@
                             </div>
                             <script>
                                 function listall(){
-                                    window.location.href('https://pms.healtopedia.com/appointment-list-all.php');
+                                    window.location.href="https://pms.healtopedia.com/appointment-list-all.php";
                                 }
                                 function listupcoming(){
-                                    window.location.href('https://pms.healtopedia.com/appointment-list-upcoming.php');
+                                    window.location.href="https://pms.healtopedia.com/appointment-list-upcoming.php";
                                 }
                                 function listpending(){
-                                    window.location.href('https://pms.healtopedia.com/appointment-list-pending.php');
+                                    window.location.href="https://pms.healtopedia.com/appointment-list-pending.php";
                                 }
                             </script>
                             <table class="table table-striped" id="table1">
