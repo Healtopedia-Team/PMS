@@ -35,8 +35,9 @@ if (isset($_POST['submit'])){
 
             <label>Phone No :</label>
             <input type="text" name="tryphone" class="form-control">
+
+            <button type="submit" name="submit" class="btn btn-warning">Submit</button>
         </div>
-        <button type="submit" name="submit" class="btn btn-warning">Submit</button>
     </form>
 </body>
 </html>
