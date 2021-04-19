@@ -8,10 +8,23 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <a href="appointment-list-all.php"><button type="button" class="btn btn-outline-primary">All</button></a>
-                            <a href="appointment-list-upcoming.php"><button type="button" class="btn btn-outline-primary active">Upcoming</button></a>
-                            <a href="appointment-list-processing.php"><button type="button" class="btn btn-outline-primary">Processing</button></a>
-                            <br><br>
+                            <div class="card-body">
+                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
+                            <button type="button" class="btn btn-outline-primary active" onclick="listupcoming()">Upcoming</button>
+                            <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
+                        </div>
+                        <script>
+                            function listall(){
+                                window.location.href="https://pms.healtopedia.com/appointment-list-all.php";
+                            }
+                            function listupcoming(){
+                                window.location.href="https://pms.healtopedia.com/appointment-list-upcoming.php";
+                            }
+                            function listpending(){
+                                window.location.href="https://pms.healtopedia.com/appointment-list-pending.php";
+                            }
+                        </script>
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
@@ -21,13 +34,13 @@
                                         <th>Status</th>
                                         <th>Order Details</th>
                                     </tr>
-                                  </thead>
+                                </thead>
                                 <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
-                                  $currdate = date("Y-m-d");
-                                  $appdate = date("Y-m-d",$row['start_appoint']);
-                                  if ($appdate > $currdate){ ?>
+                                $currdate = date("Y-m-d");
+                                $appdate = date("Y-m-d",$row['start_appoint']);
+                                if ($appdate > $currdate){ ?>
                                     <tr>
                                         <td>
                                             <?php echo $i;?>
@@ -77,5 +90,4 @@
 
     <script src="assets/js/main.js"></script>
 </body>
-
 </html>
