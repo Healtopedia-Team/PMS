@@ -117,7 +117,7 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 									<td><?php echo $row['datedisable']; ?></td>
 									<td>
 										<button type="submit" name="deletedate" class="btn btn-danger">
-											<i class="icon-trash"></i>
+											<i class="bi bi-trash"></i>
 											<input type="text" name="deletedate" value="<?php echo $row['id']; ?>" style="display: none;">
 										</button>
 									</td>
