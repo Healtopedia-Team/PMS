@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'dbconnect.php';
 
 $theCommand = $_REQUEST['command'];
@@ -27,6 +29,10 @@ function add_user($conn)
 
     $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp'";
     if (mysqli_query($conn, $sql)) {
+        $_SESSION["loggedin"] = true;
+        $_SESSION["name"] = $firstname;
+        $_SESSION["hospital"] = $hosp;
+        $_SESSION["role"] = $role;
         header('location:index.php');
     }
 }
@@ -40,6 +46,13 @@ function check_user($conn)
 
     $sql = "SELECT * FROM user WHERE username='$username' AND password='$pass'";
     if (mysqli_query($conn, $sql)) {
+
+        $result = mysqli_query($conn, "SELECT * FROM user WHERE username='$username' AND password='$pass'");
+        $userdet = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $_SESSION["loggedin"] = true;
+        $_SESSION["name"] = $userdet["first_name"];
+        $_SESSION["hospital"] = $userdet["hospital"];
+        $_SESSION["role"] = $userdet["role"];
         header('location:index.php');
     } else {
 ?>
