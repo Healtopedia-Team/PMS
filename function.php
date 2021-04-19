@@ -11,6 +11,9 @@ switch ($theCommand) {
     case "CHECK_USER":
         check_user($conn);
         break;
+    case "TRY":
+        tryme($conn);
+        break;
     default:
         echo "System Error!";
 }
@@ -65,4 +68,21 @@ function check_user($conn)
 <?php
 
     }
+}
+
+function tryme($conn){
+    
+    if (isset($_POST['submit'])){
+  $name = $_POST['tryname'];
+  $passport = $_POST['trypassport'];
+  $phone = $_POST['tryphone'];
+  
+  $sql = "INSERT INTO requestappoint SET req_custname = '$name', req_custid = '$passport', req_custphone = '$phone'";
+  
+  if(mysqli_query($conn,$sql)){
+    echo '<script>alert("Successfully added");</script>';
+  }else{
+    echo '<script>alert("Failed to added");</script>';
+  }
+}
 }
