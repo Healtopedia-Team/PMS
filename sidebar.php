@@ -31,12 +31,12 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                         <span>Appointment List</span>
                     </a>
                 </li>
-                <li class="sidebar-item <?php if ($your_variable=="manage-date" || $your_variable=="manage-date") {echo "active"; }else{echo"noactive";}?> has-sub">
+                <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-gear-fill"></i>
                         <span>Setting</span>
                     </a>
-                    <ul class="submenu ">
+                    <ul class="submenu <?php if ($your_variable=="manage-date" || $your_variable=="manage-time") {echo "active"; }else{echo"noactive";}?>">
                         <li class="submenu-item <?php if ($your_variable=="manage-date") {echo "active"; }else{echo"noactive";}?>">
                             <a href="manage-date.php">Manage Date</a>
                         </li>
