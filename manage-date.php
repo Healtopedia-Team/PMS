@@ -50,9 +50,10 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+<!--========================== S C R I P T == F O R == D A T E P I C K ==========================-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 </head>
 
 <body>
@@ -84,50 +85,50 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="card">
                         <div class="card-body">
                             <div class="container">
-				<div class="row">
-					<div class="col-sm">
-						<form method="POST">
-							<label>Date to close :</label>
-							<input type="text" name="ddate" class="form-control datepicker" autocomplete="off">
-							<br>
-							<label>Date to close :</label>
-							<input type="text" name="ddate1" class="form-control datepicker" autocomplete="off">
-							<br>
-							<label>Date to close :</label>
-							<input type="text" name="ddate2" class="form-control datepicker" autocomplete="off">
-							<br>
-							<label>Date to close :</label>
-							<input type="text" name="ddate3" class="form-control datepicker" autocomplete="off">
-							<br>
-							<label>Date to close :</label>
-							<input type="text" name="ddate4" class="form-control datepicker" autocomplete="off">
-							<br>
-							<button type="submit" name="submit" class="btn btn-warning">Submit</button>
-						</form>
-					</div>
-					<div class="col-sm">
-						<table class="table table-bordered" style="text-align: center;">
-							<tr class="table-info">
-								<th>DISABLED DATE</th>
-								<th>DELETE</th>
-							</tr>
-							<?php foreach($user as $row): ?>
-								<form method="POST">
-								<tr>
-									<td><?php echo $row['datedisable']; ?></td>
-									<td>
-										<button type="submit" name="deletedate" class="btn btn-danger">
-											<i class="bi bi-trash"></i>
-											<input type="text" name="deletedate" value="<?php echo $row['id']; ?>" style="display: none;">
-										</button>
-									</td>
-								</tr>
-								</form>
-							<?php endforeach; ?>
-						</table>
-					</div>
-				</div>
-			</div>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <form method="POST">
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate1" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate2" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate3" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate4" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <button type="submit" name="submit" class="btn btn-warning">Submit</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-sm">
+                                        <table class="table table-bordered" style="text-align: center;">
+                                            <tr class="table-info">
+                                                <th>DISABLED DATE</th>
+                                                <th>DELETE</th>
+                                            </tr>
+                                            <?php foreach($user as $row): ?>
+                                                <form method="POST">
+                                                <tr>
+                                                    <td><?php echo $row['datedisable']; ?></td>
+                                                    <td>
+                                                        <button type="submit" name="deletedate" class="btn btn-danger">
+                                                            <i class="bi bi-trash"></i>
+                                                            <input type="text" name="deletedate" value="<?php echo $row['id']; ?>" style="display: none;">
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                </form>
+                                            <?php endforeach; ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -166,7 +167,7 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     var disableDates = [<?php foreach ($user as $row){echo "'".$row['datedisable']."'".",";}?>];
       
     $('.datepicker').datepicker({
-    	startDate: new Date(),
+        startDate: new Date(),
         format: 'd-m-yyyy',
         beforeShowDay: function(date){
             dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
