@@ -1,6 +1,5 @@
                 <?php
                 include 'appointment-list-header.php';
-                include 'dbconnect.php';
 
                 session_start();
 
@@ -9,6 +8,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
     exit;
 }
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                 $result = mysqli_query($conn, "SELECT * FROM orderwoo ORDER BY order_id DESC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
