@@ -1,7 +1,5 @@
 <?php
-include 'admin-dash.php';
-
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 
 if (isset($_POST['submit'])) {
     
@@ -14,7 +12,12 @@ if (isset($_POST['submit'])) {
     $sql = "INSERT INTO xdate(datedisable) VALUES('$date'),('$date1'),('$date2'),('$date3'),('$date4')";
 
     if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Successfully close date");</script>';
+        $sql2 = "DELETE FROM xdate WHERE datedisable = ''";
+        if (mysqli_query($conn,$sql2)) {
+            echo '<script>alert("Successfully close date");</script>';
+        }else{
+            echo '<script>alert("Something is wrong");</script>';
+        }
     }
 }
 
@@ -26,6 +29,8 @@ if (isset($_POST['deletedate'])) {
 
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Success delete closed data");</script>';
+    }else{
+        echo '<script>alert("Something is wrong");</script>';
     }
 }
 
