@@ -1,9 +1,9 @@
 <?php 
-  $directoryURI = $_SERVER['REQUEST_URI'];
-   $path = parse_url($directoryURI, PHP_URL_PATH);
-   $components = explode('/', $path);
-   $your_variable = basename($_SERVER['PHP_SELF'], ".php"); 
-  ?> 
+$directoryURI = $_SERVER['REQUEST_URI'];
+$path = parse_url($directoryURI, PHP_URL_PATH);
+$components = explode('/', $path);
+$your_variable = basename($_SERVER['PHP_SELF'], ".php"); 
+?> 
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
@@ -19,26 +19,31 @@
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Forms &amp; Tables</li>
-                <li class="sidebar-item <?php if ($your_variable=="request-appointment") {echo "active"; } 
-     else{echo"noactive";}?>" >
+                <li class="sidebar-item <?php if ($your_variable=="request-appointment") {echo "active";}else{echo"noactive";}?>">
                     <a href="request-appointment.php" class='sidebar-link'>
                         <i class="bi bi-person-check-fill"></i>
                         <span>Request Appointment</span>
                     </a>
                 </li>
-                <li class="sidebar-item <?php if ($your_variable=="appointment-list-all" || $your_variable=="view-appointment") {echo "active"; } 
-     else{echo"noactive";}?>" >
+                <li class="sidebar-item <?php if ($your_variable=="appointment-list-all" || $your_variable=="view-appointment") {echo "active"; }else{echo"noactive";}?>">
                     <a href="appointment-list-all.php" class='sidebar-link'>
                         <i class="bi bi-list-ul"></i>
                         <span>Appointment List</span>
                     </a>
                 </li>
-                <li class="sidebar-item <?php if ($your_variable=="setting") {echo "active"; } 
-     else{echo"noactive";}?>" >
-                    <a href="setting.php" class='sidebar-link'>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
                         <i class="bi bi-gear-fill"></i>
                         <span>Setting</span>
                     </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item <?php if ($your_variable=="manage-date") {echo "active"; }else{echo"noactive";}?>">
+                            <a href="manage-date.php">Manage Date</a>
+                        </li>
+                        <li class="submenu-item <?php if ($your_variable=="manage-time") {echo "active"; }else{echo"noactive";}?>">
+                            <a href="manage-time.php">Manage Time</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>
