@@ -370,11 +370,11 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                 <td><?php echo $row['timedisable']; ?></td>
                                                 <td>
                                                     <button type="submit" name="deletetime" class="btn btn-danger">
-                                                        <i class="icon-trash"></i>
+                                                        <i class="bi bi-trash"></i>
                                                         <input type="text" name="deletetime" value="<?php echo $row['timedisdate']; ?>" style="display: none;">
                                                     </button>
                                         </form>
-                                                    <a href='edittime.php?date=<?php echo $row['timedisdate']; ?>'><button class="btn btn-info"><i class="icon-edit"></i></button></a>
+                                                    <a href='edittime.php?date=<?php echo $row['timedisdate']; ?>'><button class="btn btn-info"><i class="bi bi-pencil-square"></i></button></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
