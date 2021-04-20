@@ -29,7 +29,7 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                             <a href="request-appointment-all.php">Request List</a>
                         </li>
                         <li class="submenu-item <?php if ($your_variable=="request-addappoint") {echo "active"; }else{echo"noactive";}?>">
-                            <a href="request-addappoint.php">Manage Time</a>
+                            <a href="request-addappoint.php">Add Request</a>
                         </li>
                     </ul>
                 </li>
