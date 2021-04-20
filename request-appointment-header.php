@@ -2,7 +2,11 @@
 
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
-?>
+$directoryURI = $_SERVER['REQUEST_URI'];
+$path = parse_url($directoryURI, PHP_URL_PATH);
+$components = explode('/', $path);
+$your_variable = basename($_SERVER['PHP_SELF'], ".php"); 
+?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,10 +57,10 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                     <div class="card">
                         <div class="card-body">
                             <div class="btn-group mb-4" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary" onclick="requestall()">All</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="requestapproved()">Approved</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="requestpending()">Pending</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="requestpostponed()">Postponed</button>
+                                <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-all") {echo "active"; }else{echo"noactive";}?>" onclick="requestall()">All</button>
+                                <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-approved") {echo "active"; }else{echo"noactive";}?>" onclick="requestapproved()">Approved</button>
+                                <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-pending") {echo "active"; }else{echo"noactive";}?>" onclick="requestpending()">Pending</button>
+                                <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-postponed") {echo "active"; }else{echo"noactive";}?>" onclick="requestpostponed()">Postponed</button>
                             </div>
                             <a href="request-addappoint.php">
                                 <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;">
