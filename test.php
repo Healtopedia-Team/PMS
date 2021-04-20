@@ -56,32 +56,52 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <form method="POST" name="formdate">
-                                        <div style="text-align: center;">
-                                            <img src="logo.png" width="250" height="80"><br/><br/>
-                                            <h1 class="h5 text-gray-900 mb-4"><b>Walk-in Register for Covid-19 Screening</b></h1>
-                                            <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
-                                            <br>
-                                            <button type="submit" name="submitdate" class="btn btn-info" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
-                                            <br><br>
-                                            <?php
-                                            if (isset($_POST['submitdate'])) {
-                                                $appdate=$_POST['date'];
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-xl-5 col-lg-11 col-md-8">
+                                        <div class="card o-hidden border-0 shadow-lg my-6">
+                                            <div class="card-body p-0">
+                                                <!-- Nested Row within Card Body -->
+                                                <div class="row justify-content-center">
+                                                    <div class="col-lg-11 d-lg-block center">
+                                                        <div class="p-5">
 
-                                                $sql = "INSERT INTO bookappoint SET app_date='$appdate'";
+                                            <!--=================================== S E L E C T == D A T E ===============================-->
+    
+                                                            <form method="POST" name="formdate">
+                                                                <div style="text-align: center;">
+                                                                    <img src="logo.png" width="250" height="80"><br/><br/>
+                                                                    <h1 class="h5 text-gray-900 mb-4"><b>Walk-in Register for Covid-19 Screening</b></h1>
+                                                                    <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
+                                                                    <br>
+                                                                    <button type="submit" name="submitdate" class="btn btn-info" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
+                                                                    <br><br>
+                                                                    <?php
+                                                                    if (isset($_POST['submitdate'])) {
+                                                                        $appdate=$_POST['date'];
 
-                                                if(mysqli_query($conn, $sql)){
-                                                    $last_id = mysqli_insert_id($conn);
-                                                    print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
-                                                }else{
-                                                    echo '<script>
-                                                    alert("Try again!");
-                                                    </script>';
-                                                }
-                                            }
-                                            ?>
+                                                                        $sql = "INSERT INTO bookappoint SET app_date='$appdate'";
+
+                                                                        if(mysqli_query($conn, $sql)){
+                                                                            $last_id = mysqli_insert_id($conn);
+                                                                            print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
+                                                                        }else{
+                                                                            echo '<script>
+                                                                            alert("Try again!");
+                                                                            </script>';
+                                                                        }
+                                                                    }
+                                                                    ?>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
