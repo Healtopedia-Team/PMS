@@ -22,11 +22,11 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-person-check-fill"></i>
-                        <span>Request Appointment</span>
+                        <span>Request Appoint</span>
                     </a>
                     <ul class="submenu <?php if ($your_variable=="request-appointment" || $your_variable=="request-addappoint") {echo "active"; }else{echo"noactive";}?>">
                         <li class="submenu-item <?php if ($your_variable=="request-appointment") {echo "active"; }else{echo"noactive";}?>">
-                            <a href="request-appointment.php">Request List
+                            <a href="request-appointment.php">Request List</a>
                         </li>
                         <li class="submenu-item <?php if ($your_variable=="request-addappoint") {echo "active"; }else{echo"noactive";}?>">
                             <a href="request-addappoint.php">Manage Time</a>
