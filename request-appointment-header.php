@@ -62,11 +62,9 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                                 <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-pending") {echo "active"; }else{echo"noactive";}?>" onclick="requestpending()">Pending</button>
                                 <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-postponed") {echo "active"; }else{echo"noactive";}?>" onclick="requestpostponed()">Postponed</button>
                             </div>
-                            <a href="request-addappoint.php">
-                                <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;">
-                                    Add Request
-                                </button>
-                            </a>
+                            <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" onclick="addappoint()">
+                                Add Request
+                            </button>
                             <script>
                                 function requestall(){
                                      window.location.href="https://pms.healtopedia.com/request-appointment-all.php";
@@ -79,5 +77,8 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                                 }
                                 function requestpostponed(){
                                      window.location.href="https://pms.healtopedia.com/request-appointment-postponed.php";
+                                }
+                                function addappoint(){
+                                     window.location.href="https://pms.healtopedia.com/request-addappoint.php";
                                 }
                             </script>
