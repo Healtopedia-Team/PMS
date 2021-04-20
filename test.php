@@ -47,6 +47,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Request Appointment</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Add Request</li>
                                 </ol>
                             </nav>
                         </div>
@@ -55,75 +56,32 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <div class="btn-group mb-4" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary">All</button>
-                                <button type="button" class="btn btn-outline-primary">Approved</button>
-                                <button type="button" class="btn btn-outline-primary">Pending</button>
-                                <button type="button" class="btn btn-outline-primary">Postponed</button>
-                            </div>
-                            <a href="request-addappoint.php">
-                                <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;">
-                                    Add Request
-                                </button>
-                            </a>
+                            <form method="POST" name="formdate">
+                                        <div style="text-align: center;">
+                                            <img src="logo.png" width="250" height="80"><br/><br/>
+                                            <h1 class="h5 text-gray-900 mb-4"><b>Walk-in Register for Covid-19 Screening</b></h1>
+                                            <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
+                                            <br>
+                                            <button type="submit" name="submitdate" class="btn btn-info" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
+                                            <br><br>
+                                            <?php
+                                            if (isset($_POST['submitdate'])) {
+                                                $appdate=$_POST['date'];
 
-                            <table class="table table-striped" id="table1">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Package</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                    <tr>
-                                        <td>Deanna Tan</td>
-                                        <td>Executive Health Screening (Women)</td>
-                                        <td>12/5/2021</td>
-                                        <td>12:00PM</td>
-                                        <td>Approved</td>
-                                        <td>
-                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Selvendran Baskaran</td>
-                                        <td>Basic Health Screening (Men)</td>
-                                        <td>22/5/2021</td>
-                                        <td>04:00PM</td>
-                                        <td>Pending</td>
-                                        <td>
-                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muaz</td>
-                                        <td>Mental Health Screening</td>
-                                        <td>5/5/2021</td>
-                                        <td>09:00AM</td>
-                                        <td>Postponed</td>
-                                        <td>
-                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+                                                $sql = "INSERT INTO bookappoint SET app_date='$appdate'";
+
+                                                if(mysqli_query($conn, $sql)){
+                                                    $last_id = mysqli_insert_id($conn);
+                                                    print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
+                                                }else{
+                                                    echo '<script>
+                                                    alert("Try again!");
+                                                    </script>';
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                    </form>
                         </div>
                     </div>
                 </section>
