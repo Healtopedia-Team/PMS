@@ -103,25 +103,240 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
                                 <button type="button" class="btn btn-outline-primary">Postponed</button>
                             </div>
+                            <input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
                                 Add Request
                             </button>
 
+                            <form method="POST" name="forminfo">
+                                        <div class="modal-wrapper">  
+                                            <section class="modal-window" id="modal2">
+                                                <header class="modal-header">
+                                                  <h3>PICK TIME</h3>
+                                                  <button type="button" class="close-modal-button" aria-label="Close modal window">X</button>
+                                                </header>
+                                                <div>
+                                                  <label>Select Time:</label>
+                                                  <p id="demoss"></p>
+                                                  <p id="demo"></p>
+                                                  <input type="text" id="apptime" name="apptime" class="form-control" style="display: none;">
+                                                  <table>
+                                                    <thead>
+                                                      <tr>
+                                                        <th>&nbsp; MORNING &nbsp;<br><br></th>
+                                                        <th>&nbsp; AFTERNOON &nbsp;<br><br></th>
+                                                        <th>&nbsp; EVENING  &nbsp;<br><br></th>
+                                                      </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center">
+                                                          <input type="button" id="time" class="btn btn-success" value="09:00AM" onclick="myTime()" 
+                                                          <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '09:00AM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td align="center">
+                                                          <input type="button" id="time3" class="btn btn-success" value="12:00PM" onclick="myTime3()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '12:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td align="center">
+                                                          <input type="button" id="time10" class="btn btn-success" value="07:00PM" onclick="myTime10()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '07:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td align="center">
+                                                            <input type="button" id="time1" class="btn btn-success" value="10:00AM" onclick="myTime1()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '10:00AM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td align="center">
+                                                            <input type="button" id="time4" class="btn btn-success" value="01:00PM" onclick="myTime4()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '01:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td align="center">
+                                                            <input type="button" id="time11" class="btn btn-success" value="08:00PM" onclick="myTime11()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '08:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td align="center">
+                                                            <input type="button" id="time2" class="btn btn-success" value="11:00AM" onclick="myTime2()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '11:00AM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td align="center">
+                                                            <input type="button" id="time5" class="btn btn-success" value="02:00PM" onclick="myTime5()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '02:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td align="center">
+                                                            <input type="button" id="time12" class="btn btn-success" value="09:00PM" onclick="myTime12()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '09:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td></td>
+                                                        <td align="center">
+                                                            <input type="button" id="time6" class="btn btn-success" value="03:00PM" onclick="myTime6()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '03:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td></td>
+                                                        <td align="center">
+                                                            <input type="button" id="time7" class="btn btn-success" value="04:00PM" onclick="myTime7()"
+                                                            <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '04:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td></td>
+                                                        <td align="center">
+                                                            <input type="button" id="time8" class="btn btn-success" value="05:00PM" onclick="myTime8()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '05:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td></td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td></td>
+                                                        <td align="center">
+                                                            <input type="button" id="time9" class="btn btn-success" value="06:00PM" onclick="myTime9()" <?php
+                                                            $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '06:00PM'");
+                                                            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                                            foreach($user as $row){
+                                                                if ($row['timeonoff'] == "Off"){ ?>
+                                                                disabled
+                                                            <?php }} ?>>
+                                                        </td>
+                                                        <td></td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </div>
+                                                <br />
+                                                <input type="button" class="modal-trigger btn btn-primary" data-modal-id="modal3" value="NEXT">
+                                              </section>
+
+                                        <!--=================================== P A T I E N T == I N F O ===============================-->
+
+                                              <section class="modal-window" id="modal3" style="width: 400px;">
+                                                <header class="modal-header">
+                                                    <h3>YOUR INFORMATION</h3>
+                                                    <button type="button" class="close-modal-button" aria-label="Close modal window">X</button>
+                                                </header>
+                                                <div>
+                                                    <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
+
+                                                    <label>Full Name:</label>
+                                                    <input type="text" name="pname" class="form-control" placeholder="Full name like in IC..." required>
+
+                                                    <label>IC/Passport:</label>
+                                                    <input type="text" name="passport" class="form-control" placeholder="IC or passport number..." required>
+
+                                                    <label>Address:</label>
+                                                    <input type="text" name="address" class="form-control" placeholder="Your current address..." required>
+
+                                                    <label>Phone No:</label>
+                                                    <input type="text" name="phoneno" class="form-control" placeholder="Your phone number..." required>
+
+                                                    <label>Gender:</label>
+                                                    <select name="gender" class="custom-select">
+                                                        <option value="">Select...</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                    </select>
+
+                                                    <label>Birthday Date:</label>
+                                                    <input type="date" id="dob" name="dob" class="form-control" autocomplete="off" placeholder="Select date of birth..." required>
+
+                                                    <label>Nationality:</label>
+                                                    <select name="national" class="custom-select">
+                                                        <option value="">Select...</option>
+                                                        <option value="Malaysian">Malaysian</option>
+                                                        <option value="Non-Malaysian">Non-Malaysian</option>
+                                                    </select>
+                                                </div>
+                                                <br />
+                                                <button type="submit" name="submitbooking" class="btn btn-warning">BOOK NOW</button>
+                                            </section>
+                                        </div>
+                                    </form>
+
                     <!--============================================ M O D A L == F O R == A D D == R E Q U E S T ==================================================-->
 
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <!--div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Scrolling Modal</h5>
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Add Request</h5>
                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                 <i data-feather="x"></i>
                                             </button>
                                         </div>
                                         <form method="POST" action="function.php">
                                             <input type="hidden" name="command" value="REQ_APPOINT">
-                                        <div class="modal-body">
-                                            <label>Package Name :</label>
+                                            <div class="modal-body">
+                                                <label>Package Name :</label>
                                                 <select class="choices form-select" name="reqpackname">
                                                     <option value="">Select package...</option>
                                                     <?php foreach ($data as $row){ ?>
@@ -156,11 +371,11 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 </select><br>
                                                 
                                                 <button type="submit" name="submitrequest" class="btn btn-primary ml-1" style="position: relative;float: right;z-index: 597;">Submit</button><br><br>
-                                        </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                     <!--==========================================================================================-->
                             <table class="table table-striped" id="table1">
                                 <thead>
