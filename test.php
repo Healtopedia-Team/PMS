@@ -57,8 +57,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="card">
                         <div class="card-body">
                             <form method="POST" name="formdate">
-                                <div style="text-align: center;">
-                                    <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
+                                <div>
+                                    <input type="text" id="date" name="date" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
                                     <br>
                                     <button type="submit" name="submitdate" class="btn btn-info" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
                                     <br><br>
