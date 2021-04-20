@@ -450,6 +450,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
             </footer>
         </div>
     </div>
+    <script src="scripttime.js"></script>
+    <script src='scriptmodal.js'></script>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
