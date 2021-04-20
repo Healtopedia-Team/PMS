@@ -86,8 +86,14 @@
                                             $sql = "INSERT INTO requestappoint SET req_appdate='$appdate', request_count='1'";
 
                                             if(mysqli_query($conn, $sql)){
-                                                $last_id = mysqli_insert_id($conn);?>
-                                                <div class="col-md-6 col-12" style="display: none;">
+                                                $last_id = mysqli_insert_id($conn);
+                                                echo '<script>alert("Success!");</script>';
+                                            }else{
+                                                echo '<script>alert("Try again!");</script>';
+                                            }
+                                        }
+                                    ?>
+                                                <!--div class="col-md-6 col-12" style="display: none;">
                                                     <div class="card">
                                                         <div class="card-header">
                                                             <h4 class="card-title">Horizontal Form with Icons</h4>
@@ -174,13 +180,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div-->
 
-                                            <?php  }else{
-                                                echo '<script>alert("Try again!");</script>';
-                                            }
-                                        }
-                                    ?>
                                 </div>
                             </section>
                         </div>
