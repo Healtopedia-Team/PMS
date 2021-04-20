@@ -2,9 +2,6 @@
 
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
-$result = mysqli_query($conn, "SELECT package_name FROM packagewoo");
-$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +22,9 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 </head>
 <body>
     <div id="app">
@@ -104,5 +104,40 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
     </script>
     <script src="assets/vendors/choices.js/choices.min.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script src="scripttime.js"></script>
+    <script src='script.js'></script>
+
+    <?php
+
+    $result=mysqli_query($conn, "SELECT datedisable FROM xdate");
+    $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    ?>
+    <script type="text/javascript">
+        var disableDates = [<?php foreach ($user as $row){echo "'".$row['datedisable']."'".",";}?>];
+          
+        $('.datepicker').datepicker({
+            startDate: new Date(),
+            format: 'mm/dd/yyyy',
+            beforeShowDay: function(date){
+                dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+                if(disableDates.indexOf(dmy) != -1){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        });
+
+        $('.dateappoint').datepicker({
+            startDate: new Date(),
+            format: 'mm/dd/yyyy',
+            beforeShowDay: function(date){
+                dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+            }
+        });
+    </script>
 </body>
 </html>
