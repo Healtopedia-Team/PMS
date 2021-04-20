@@ -1,8 +1,3 @@
-<?php
-
-$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,10 +79,11 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                         </div>
                                     </div>
                                     <?php
+                                        $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                         if (isset($_POST['submitdate'])) {
                                             $appdate=$_POST['date'];
 
-                                            $sql = "INSERT INTO requestappoint SET req_appdate='$appdate' request_count='1'";
+                                            $sql = "INSERT INTO requestappoint SET req_appdate='$appdate', request_count='1'";
 
                                             if(mysqli_query($conn, $sql)){
                                                 $last_id = mysqli_insert_id($conn);?>
