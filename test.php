@@ -97,7 +97,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                            <div class="btn-group mb-4" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-primary">All</button>
                                 <button type="button" class="btn btn-outline-primary">Approved</button>
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
