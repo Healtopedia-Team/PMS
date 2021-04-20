@@ -1,8 +1,6 @@
                 <?php
                 include 'appointment-list-header.php';
 
-                session_start();
-
                 $result = mysqli_query($conn, "SELECT * FROM orderwoo WHERE status = 'processing' ORDER BY orderwoo_id ASC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
