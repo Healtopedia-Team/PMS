@@ -26,7 +26,7 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                     </a>
                     <ul class="submenu <?php if ($your_variable=="request-appointment" || $your_variable=="request-addappoint") {echo "active"; }else{echo"noactive";}?>">
                         <li class="submenu-item <?php if ($your_variable=="request-appointment") {echo "active"; }else{echo"noactive";}?>">
-                            <a href="request-appointment.php">Request List</a>
+                            <a href="request-appointment-all.php">Request List</a>
                         </li>
                         <li class="submenu-item <?php if ($your_variable=="request-addappoint") {echo "active"; }else{echo"noactive";}?>">
                             <a href="request-addappoint.php">Manage Time</a>
