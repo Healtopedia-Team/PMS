@@ -124,7 +124,7 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                                     <button type="submit" name="submitdate" class="btn btn-info" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
                                                     <br><br>
                                                     <?php
-                                                    if (isset($_POST['checkappdate'])) {
+                                                    if (isset($_POST['submitdate'])) {
                                                         $appdate=$_POST['date'];
 
                                                         $result = mysqli_query($conn,"SELECT COUNT(req_appdate) as totalappdate FROM requestappoint WHERE req_appdate = '$appdate'");
@@ -141,7 +141,6 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                                     ?>
                                                 </div>
                                                 <br />
-                                                <button type="submit" name="checkappdate" class="btn btn-warning">BOOK NOW</button>
                                             </section>
                                         </form>
 
