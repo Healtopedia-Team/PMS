@@ -1,14 +1,8 @@
                 <?php
                 include 'appointment-list-header.php';
-                include 'dbconnect.php';
 
                 session_start();
 
-// Check if the user is logged in, if not then redirect him to login page
-if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
-    header("location: auth-login.php");
-    exit;
-}
                 $result = mysqli_query($conn, "SELECT * FROM orderwoo WHERE status = 'processing' ORDER BY orderwoo_id ASC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
