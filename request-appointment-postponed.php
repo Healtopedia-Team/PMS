@@ -14,7 +14,7 @@ $result = mysqli_query($conn,"SELECT * FROM requestappoint WHERE req_status = 'p
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
-                                </thead>>
+                                </thead>
                                     <tr>
                                         <td>Muaz</td>
                                         <td>Mental Health Screening</td>
