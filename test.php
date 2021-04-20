@@ -69,27 +69,27 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                                         <div class="form-body">
                                                             <div class="row">
                                                                 <form method="POST" name="formdate">
-                                <div>
-                                    <input type="text" id="date" name="date" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
-                                    <br>
-                                    <button type="submit" name="submitdate" class="btn btn-info" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
-                                    <br><br>
-                                    <?php
-                                        if (isset($_POST['submitdate'])) {
-                                            $appdate=$_POST['date'];
+                                                                    <div>
+                                                                        <input type="text" id="date" name="date" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
+                                                                        <br>
+                                                                        <button type="submit" name="submitdate" class="btn btn-primary" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
+                                                                        <br><br>
+                                                                        <?php
+                                                                            if (isset($_POST['submitdate'])) {
+                                                                                $appdate=$_POST['date'];
 
-                                            $sql = "INSERT INTO bookappoint SET app_date='$appdate'";
+                                                                                $sql = "INSERT INTO bookappoint SET app_date='$appdate'";
 
-                                            if(mysqli_query($conn, $sql)){
-                                                $last_id = mysqli_insert_id($conn);
-                                                print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
-                                            }else{
-                                                echo '<script>alert("Try again!");</script>';
-                                            }
-                                        }
-                                    ?>
-                                </div>
-                            </form>
+                                                                                if(mysqli_query($conn, $sql)){
+                                                                                    $last_id = mysqli_insert_id($conn);
+                                                                                    print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
+                                                                                }else{
+                                                                                    echo '<script>alert("Try again!");</script>';
+                                                                                }
+                                                                            }
+                                                                        ?>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -97,7 +97,7 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12">
+                                    <div class="col-md-6 col-12" style="display: none;">
                                         <div class="card">
                                             <div class="card-header">
                                                 <h4 class="card-title">Horizontal Form with Icons</h4>
