@@ -2,9 +2,6 @@
 
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
-$result = mysqli_query($conn, "SELECT package_name FROM packagewoo");
-$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,44 +116,34 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <button type="button" class="close-modal-button" aria-label="Close modal window">X</button>
                                                 </header>
                                                 <div>
-                                                    <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
+                                                    <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." required>
+                                                    <br>
+                                                    <button type="submit" name="submitdate" class="btn btn-info" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
+                                                    <br><br>
+                                                    <?php
+                                                    if (isset($_POST['checkappdate'])) {
+                                                        $appdate=$_POST['date'];
 
-                                                    <label>Full Name:</label>
-                                                    <input type="text" name="pname" class="form-control" placeholder="Full name like in IC..." required>
+                                                        $result = mysqli_query($conn,"SELECT COUNT(req_appdate) as totalappdate FROM requestappoint WHERE req_appdate = '$appdate'");
+                                                        $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
-                                                    <label>IC/Passport:</label>
-                                                    <input type="text" name="passport" class="form-control" placeholder="IC or passport number..." required>
-
-                                                    <label>Address:</label>
-                                                    <input type="text" name="address" class="form-control" placeholder="Your current address..." required>
-
-                                                    <label>Phone No:</label>
-                                                    <input type="text" name="phoneno" class="form-control" placeholder="Your phone number..." required>
-
-                                                    <label>Gender:</label>
-                                                    <select name="gender" class="custom-select">
-                                                        <option value="">Select...</option>
-                                                        <option value="Male">Male</option>
-                                                        <option value="Female">Female</option>
-                                                    </select>
-
-                                                    <label>Birthday Date:</label>
-                                                    <input type="date" id="dob" name="dob" class="form-control" autocomplete="off" placeholder="Select date of birth..." required>
-
-                                                    <label>Nationality:</label>
-                                                    <select name="national" class="custom-select">
-                                                        <option value="">Select...</option>
-                                                        <option value="Malaysian">Malaysian</option>
-                                                        <option value="Non-Malaysian">Non-Malaysian</option>
-                                                    </select>
+                                                        foreach ($data as $row){
+                                                            if ($row['totalappdate'] < 50) {
+                                                                print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
+                                                            }else{
+                                                                echo "Sorry, the slot for this date is already full";
+                                                            }
+                                                        }
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <br />
-                                                <button type="submit" name="submitbooking" class="btn btn-warning">BOOK NOW</button>
-                                                <input type="button" class="modal-trigger btn btn-primary" data-modal-id="modal2" value="NEXT">
+                                                <button type="submit" name="checkappdate" class="btn btn-warning">BOOK NOW</button>
                                             </section>
+                                        </form>
 
                     <!--=================================== S E L E C T == T I M E ===============================-->
-  
+                                        <form method="POST">   
                                             <section class="modal-window" id="modal2">
                                                 <header class="modal-header">
                                                   <h3>PICK TIME</h3>
