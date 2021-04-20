@@ -105,13 +105,58 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
                                 <button type="button" class="btn btn-outline-primary">Postponed</button>
                             </div>
-                            <input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>
+                            <input type='button' class='modal-trigger btn btn-success' data-modal-id='modal1' value='NEXT'>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
                                 Add Request
                             </button>
 
-                            <form method="POST" name="forminfo">
-                                        <div class="modal-wrapper">  
+                    <!--=================================== S E L E C T == D A T E ===============================-->
+                    <form method="POST" name="forminfo">
+                                        <div class="modal-wrapper">
+                            <section class="modal-window" id="modal1" style="width: 400px;">
+                                                <header class="modal-header">
+                                                    <h3>CHOOSE DATE</h3>
+                                                    <button type="button" class="close-modal-button" aria-label="Close modal window">X</button>
+                                                </header>
+                                                <div>
+                                                    <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
+
+                                                    <label>Full Name:</label>
+                                                    <input type="text" name="pname" class="form-control" placeholder="Full name like in IC..." required>
+
+                                                    <label>IC/Passport:</label>
+                                                    <input type="text" name="passport" class="form-control" placeholder="IC or passport number..." required>
+
+                                                    <label>Address:</label>
+                                                    <input type="text" name="address" class="form-control" placeholder="Your current address..." required>
+
+                                                    <label>Phone No:</label>
+                                                    <input type="text" name="phoneno" class="form-control" placeholder="Your phone number..." required>
+
+                                                    <label>Gender:</label>
+                                                    <select name="gender" class="custom-select">
+                                                        <option value="">Select...</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                    </select>
+
+                                                    <label>Birthday Date:</label>
+                                                    <input type="date" id="dob" name="dob" class="form-control" autocomplete="off" placeholder="Select date of birth..." required>
+
+                                                    <label>Nationality:</label>
+                                                    <select name="national" class="custom-select">
+                                                        <option value="">Select...</option>
+                                                        <option value="Malaysian">Malaysian</option>
+                                                        <option value="Non-Malaysian">Non-Malaysian</option>
+                                                    </select>
+                                                </div>
+                                                <br />
+                                                <button type="submit" name="submitbooking" class="btn btn-warning">BOOK NOW</button>
+                                                <input type="button" class="modal-trigger btn btn-primary" data-modal-id="modal2" value="NEXT">
+                                            </section>
+
+                    <!--=================================== S E L E C T == T I M E ===============================-->
+  
                                             <section class="modal-window" id="modal2">
                                                 <header class="modal-header">
                                                   <h3>PICK TIME</h3>
