@@ -131,8 +131,13 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                                         $data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 
                                                         foreach ($data as $row){
-                                                            if ($row['totalappdate'] < 50) {
-                                                                print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
+                                                            if ($row['totalappdate'] < 50) {?>
+                                                                <script type="text/javascript">
+                                                                    $(document).ready(function(){
+                                                                        $("#modal1").modal("show");
+                                                                    });
+                                                                </script>
+                                                                <?php print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
                                                             }else{
                                                                 echo "Sorry, the slot for this date is already full";
                                                             }
