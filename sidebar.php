@@ -19,11 +19,19 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
         <div class="sidebar-menu">
             <ul class="menu">
                 <li class="sidebar-title">Forms &amp; Tables</li>
-                <li class="sidebar-item <?php if ($your_variable=="request-appointment") {echo "active";}else{echo"noactive";}?>">
-                    <a href="request-appointment.php" class='sidebar-link'>
+                <li class="sidebar-item has-sub">
+                    <a href="#" class='sidebar-link'>
                         <i class="bi bi-person-check-fill"></i>
                         <span>Request Appointment</span>
                     </a>
+                    <ul class="submenu <?php if ($your_variable=="request-appointment" || $your_variable=="request-addappoint") {echo "active"; }else{echo"noactive";}?>">
+                        <li class="submenu-item <?php if ($your_variable=="request-appointment") {echo "active"; }else{echo"noactive";}?>">
+                            <a href="request-appointment.php">Request List
+                        </li>
+                        <li class="submenu-item <?php if ($your_variable=="request-addappoint") {echo "active"; }else{echo"noactive";}?>">
+                            <a href="request-addappoint.php">Manage Time</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="sidebar-item <?php if ($your_variable=="appointment-list-all" || $your_variable=="view-appointment") {echo "active"; }else{echo"noactive";}?>">
                     <a href="appointment-list-all.php" class='sidebar-link'>
