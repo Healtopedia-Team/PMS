@@ -61,65 +61,12 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <button type="button" class="btn btn-outline-primary">Pending</button>
                                 <button type="button" class="btn btn-outline-primary">Postponed</button>
                             </div>
-                            <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
-                                Add Request
-                            </button>
+                            <a href="request-addappoint.php">
+                                <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;">
+                                    Add Request
+                                </button>
+                            </a>
 
-                    <!--============================================ M O D A L == F O R == A D D == R E Q U E S T ==================================================-->
-
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Add Request</h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <form method="POST" action="function.php">
-                                            <input type="hidden" name="command" value="REQ_APPOINT">
-                                            <div class="modal-body">
-                                                <label>Package Name :</label>
-                                                <select class="choices form-select" name="reqpackname">
-                                                    <option value="">Select package...</option>
-                                                    <?php foreach ($data as $row){ ?>
-                                                        <option value="<?php echo $row['package_name'];?>">
-                                                            <?php echo $row['package_name'];?>
-                                                        </option>
-                                                    <?php } ?>
-                                                </select><br>
-                                    
-                                                <label>Customer Name :</label>
-                                                <input type="text" class="form-control" name="custname"><br>
-                                                
-                                                <label>Customer ID/Passport :</label>
-                                                <input type="text" class="form-control" name="custpassport"><br>
-                                                    
-                                                <label>Customer Phone :</label>
-                                                <input type="text" class="form-control" name="custphone"><br>
-                                                    
-                                                <label>Customer Address :</label>
-                                                <input type="text" class="form-control" name="custaddress"><br>
-                                                    
-                                                <label>Appointment Date :</label>
-                                                <input type="text" class="form-control" name="appdate"><br>
-                                                    
-                                                <label>Appointment Time :</label>
-                                                <input type="text" class="form-control" name="apptime"><br>
-                                                    
-                                                <label>Status :</label>
-                                                <select class="form-select" id="basicSelect" name="reqstatus">
-                                                    <option value="pending">Pending</option>
-                                                    <option value="complete">Complete</option>
-                                                </select><br>
-                                                
-                                                <button type="submit" name="submitrequest" class="btn btn-primary ml-1" style="position: relative;float: right;z-index: 597;">Submit</button><br><br>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                    <!--==========================================================================================-->
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
