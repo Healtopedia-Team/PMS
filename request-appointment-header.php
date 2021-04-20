@@ -53,13 +53,27 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                     <div class="card">
                         <div class="card-body">
                             <div class="btn-group mb-4" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary">All</button>
-                                <button type="button" class="btn btn-outline-primary">Approved</button>
-                                <button type="button" class="btn btn-outline-primary">Pending</button>
-                                <button type="button" class="btn btn-outline-primary">Postponed</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="requestall()">All</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="requestapproved()">Approved</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="requestpending()">Pending</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="requestpostponed()">Postponed</button>
                             </div>
                             <a href="request-addappoint.php">
                                 <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;">
                                     Add Request
                                 </button>
                             </a>
+                            <script>
+                                function requestall(){
+                                     window.location.href="https://pms.healtopedia.com/request-appointment-all.php";
+                                }
+                                function requestapproved(){
+                                     window.location.href="https://pms.healtopedia.com/request-appointment-approved.php";
+                                }
+                                function requestpending(){
+                                     window.location.href="https://pms.healtopedia.com/request-appointment-pending.php";
+                                }
+                                function requestpostponed(){
+                                     window.location.href="https://pms.healtopedia.com/request-appointment-postponed.php";
+                                }
+                            </script>
