@@ -74,20 +74,6 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                                                         <br>
                                                                         <button type="submit" name="submitdate" class="btn btn-primary" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
                                                                         <br><br>
-                                                                        <?php
-                                                                            if (isset($_POST['submitdate'])) {
-                                                                                $appdate=$_POST['date'];
-
-                                                                                $sql = "INSERT INTO bookappoint SET app_date='$appdate'";
-
-                                                                                if(mysqli_query($conn, $sql)){
-                                                                                    $last_id = mysqli_insert_id($conn);
-                                                                                    print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
-                                                                                }else{
-                                                                                    echo '<script>alert("Try again!");</script>';
-                                                                                }
-                                                                            }
-                                                                        ?>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -97,7 +83,22 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12" style="display: none;">
+                                    <div class="col-md-6 col-12"
+                                    <?php
+                                        if (isset($_POST['submitdate'])) {
+                                            $appdate=$_POST['date'];
+
+                                            $sql = "INSERT INTO requestappoint SET req_appdate='$appdate' request_count='1'";
+
+                                            if(mysqli_query($conn, $sql)){
+                                                $last_id = mysqli_insert_id($conn);?>
+
+                                    style="display: none;"
+                                    <?php   }else{
+                                                echo '<script>alert("Try again!");</script>';
+                                            }
+                                        }
+                                    ?> >
                                         <div class="card">
                                             <div class="card-header">
                                                 <h4 class="card-title">Horizontal Form with Icons</h4>
