@@ -74,6 +74,20 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                                                         <br>
                                                                         <button type="submit" name="submitdate" class="btn btn-primary" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
                                                                         <br><br>
+                                                                        <?php
+                                                                            if (isset($_POST['submitdate'])) {
+                                                                                $appdate=$_POST['date'];
+
+                                                                                $sql = "INSERT INTO requestappoint SET req_appdate='$appdate' request_count='1'";
+
+                                                                                if(mysqli_query($conn, $sql)){
+                                                                                    $last_id = mysqli_insert_id($conn);
+                                                                                    print "<input type='button' class='modal-trigger btn btn-success' data-modal-id='modal2' value='NEXT'>";
+                                                                                }else{
+                                                                                    echo '<script>alert("Try again!");</script>';
+                                                                                }
+                                                                            }
+                                                                        ?>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -83,7 +97,6 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-12"
                                     <?php
                                         if (isset($_POST['submitdate'])) {
                                             $appdate=$_POST['date'];
@@ -92,100 +105,100 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
                                             if(mysqli_query($conn, $sql)){
                                                 $last_id = mysqli_insert_id($conn);?>
+                                                <div class="col-md-6 col-12" style="display: none;">
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <h4 class="card-title">Horizontal Form with Icons</h4>
+                                                        </div>
+                                                        <div class="card-content">
+                                                            <div class="card-body">
+                                                                <form class="form form-horizontal">
+                                                                    <div class="form-body">
+                                                                        <div class="row">
+                                                                            <div class="col-md-4">
+                                                                                <label>Name</label>
+                                                                            </div>
+                                                                            <div class="col-md-8">
+                                                                                <div class="form-group has-icon-left">
+                                                                                    <div class="position-relative">
+                                                                                        <input type="text" class="form-control"
+                                                                                            placeholder="Name" id="first-name-icon">
+                                                                                        <div class="form-control-icon">
+                                                                                            <i class="bi bi-person"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <label>Email</label>
+                                                                            </div>
+                                                                            <div class="col-md-8">
+                                                                                <div class="form-group has-icon-left">
+                                                                                    <div class="position-relative">
+                                                                                        <input type="email" class="form-control"
+                                                                                            placeholder="Email" id="first-name-icon">
+                                                                                        <div class="form-control-icon">
+                                                                                            <i class="bi bi-envelope"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <label>Mobile</label>
+                                                                            </div>
+                                                                            <div class="col-md-8">
+                                                                                <div class="form-group has-icon-left">
+                                                                                    <div class="position-relative">
+                                                                                        <input type="number" class="form-control"
+                                                                                            placeholder="Mobile">
+                                                                                        <div class="form-control-icon">
+                                                                                            <i class="bi bi-phone"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-4">
+                                                                                <label>Password</label>
+                                                                            </div>
+                                                                            <div class="col-md-8">
+                                                                                <div class="form-group has-icon-left">
+                                                                                    <div class="position-relative">
+                                                                                        <input type="password" class="form-control"
+                                                                                            placeholder="Password">
+                                                                                        <div class="form-control-icon">
+                                                                                            <i class="bi bi-lock"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group col-md-8 offset-md-4">
+                                                                                <div class='form-check'>
+                                                                                    <div class="checkbox">
+                                                                                        <input type="checkbox" id="checkbox2"
+                                                                                            class='form-check-input' checked>
+                                                                                        <label for="checkbox2">Remember Me</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-12 d-flex justify-content-end">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary me-1 mb-1">Submit</button>
+                                                                                <button type="reset"
+                                                                                    class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                    style="display: none;"
-                                    <?php   }else{
+                                            <?php  }else{
                                                 echo '<script>alert("Try again!");</script>';
                                             }
                                         }
-                                    ?> >
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title">Horizontal Form with Icons</h4>
-                                            </div>
-                                            <div class="card-content">
-                                                <div class="card-body">
-                                                    <form class="form form-horizontal">
-                                                        <div class="form-body">
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <label>Name</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group has-icon-left">
-                                                                        <div class="position-relative">
-                                                                            <input type="text" class="form-control"
-                                                                                placeholder="Name" id="first-name-icon">
-                                                                            <div class="form-control-icon">
-                                                                                <i class="bi bi-person"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>Email</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group has-icon-left">
-                                                                        <div class="position-relative">
-                                                                            <input type="email" class="form-control"
-                                                                                placeholder="Email" id="first-name-icon">
-                                                                            <div class="form-control-icon">
-                                                                                <i class="bi bi-envelope"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>Mobile</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group has-icon-left">
-                                                                        <div class="position-relative">
-                                                                            <input type="number" class="form-control"
-                                                                                placeholder="Mobile">
-                                                                            <div class="form-control-icon">
-                                                                                <i class="bi bi-phone"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>Password</label>
-                                                                </div>
-                                                                <div class="col-md-8">
-                                                                    <div class="form-group has-icon-left">
-                                                                        <div class="position-relative">
-                                                                            <input type="password" class="form-control"
-                                                                                placeholder="Password">
-                                                                            <div class="form-control-icon">
-                                                                                <i class="bi bi-lock"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group col-md-8 offset-md-4">
-                                                                    <div class='form-check'>
-                                                                        <div class="checkbox">
-                                                                            <input type="checkbox" id="checkbox2"
-                                                                                class='form-check-input' checked>
-                                                                            <label for="checkbox2">Remember Me</label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-12 d-flex justify-content-end">
-                                                                    <button type="submit"
-                                                                        class="btn btn-primary me-1 mb-1">Submit</button>
-                                                                    <button type="reset"
-                                                                        class="btn btn-light-secondary me-1 mb-1">Reset</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    ?>
                                 </div>
                             </section>
                         </div>
