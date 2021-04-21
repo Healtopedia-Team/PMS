@@ -1,5 +1,4 @@
-                                        <div class="col-md-6 col-12">
-                                            <div class="card">
+                                            <div class="col-md-6 col-12">
                                                 <div class="card-header">
                                                     <h4 class="card-title">Choose Time</h4>
                                                 </div>
@@ -173,4 +172,3 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
