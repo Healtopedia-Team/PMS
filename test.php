@@ -59,18 +59,6 @@
                                                     <form class="form form-horizontal">
                                                         <div class="form-body">
                                                             <div class="row">
-                                                                <?php 
-                                                                $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                                                                if (isset($_POST['submitdate'])) {
-                                                                    $appdate = $_POST['datecheck'];
-                                                                    $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
-                                                                    if (mysqli_query($conn, $sql)) {
-                                                                        echo "Success";
-                                                                    }else{
-                                                                        echo "Failed";
-                                                                    }
-                                                                }
-                                                                 ?>
                                                                 <form method="POST">
                                                                     <div>
                                                                         <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
