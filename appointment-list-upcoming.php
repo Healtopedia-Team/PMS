@@ -31,6 +31,7 @@
                                         <th>No</th>
                                         <th>Order ID</th>
                                         <th>Customer Name</th>
+                                      <th>Appointment Date</th>
                                         <th>Status</th>
                                         <th>Order Details</th>
                                     </tr>
@@ -38,6 +39,9 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
+                        $orderid = $row['order_id'];
+                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
+                        $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                 $currdate = date("Y-m-d");
                                 $appdate = date("Y-m-d",$row['start_appoint']);
                                 if ($appdate > $currdate){ ?>
@@ -51,6 +55,11 @@
                                         <td>
                                             <?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
                                         </td>
+                                      <td>
+                                <?php foreach ($timee as $rows) :
+                                    echo date('m/d/Y', $rows['start_appoint']);
+                                endforeach; ?>
+                            </td>
                                         <td>
                                             <?php echo $row['status'];?>
                                         </td>
