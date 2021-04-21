@@ -1,4 +1,3 @@
-                        <div class="col-md-6 col-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Patient Information</h4>
@@ -42,4 +41,3 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
