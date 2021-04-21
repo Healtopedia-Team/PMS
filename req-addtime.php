@@ -15,7 +15,7 @@
                                                                 <input type="text" id="apptime" name="apptime" class="form-control" style="display: none;">
                                                                 <table>
                                                                     <thead>
-                                                                        <tr>
+                                                                        <tr align="center">
                                                                             <th>&nbsp; MORNING &nbsp;<br><br></th>
                                                                             <th>&nbsp; AFTERNOON &nbsp;<br><br></th>
                                                                             <th>&nbsp; EVENING  &nbsp;<br><br></th>
