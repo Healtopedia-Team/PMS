@@ -50,6 +50,7 @@
                 </div>
                 <section id="basic-horizontal-layouts">
                     <div class="row match-height">
+                        <div class="card">
                         <div class="col-md-6 col-12">
                             <div class="card">
                                 <div class="card-header">
@@ -198,8 +199,10 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     </div>
                 </section>
+
                 <section id="basic-horizontal-layouts">
                     <div class="row match-height">
                         <div class="card">
