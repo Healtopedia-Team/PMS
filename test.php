@@ -82,7 +82,7 @@
                                                                     <div>
                                                                         <input type="text" id="checkdate" name="date" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
                                                                         <br>
-                                                                        <button type="submit" name="submitdate" class="btn btn-primary" onclick="myValid()">CHECK TIME SLOT AVAILABILITIES ></button>
+                                                                        <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABILITIES ></button>
                                                                         <br><br>
                                                                     </div>
                                                                 </form>
