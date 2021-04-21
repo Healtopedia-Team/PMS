@@ -8,8 +8,8 @@
                                                 <div class="card-content">
                                                     <div class="card-body">
                                                         <div class="form-body">
-                                                            <div class="row">
-                                                                <form method="POST">
+                                                            <form method="POST">
+                                                                <div class="row">
                                                                     <label>Select Time:</label>
                                                                     <p id="demoss"></p>
                                                                     <p id="demo"></p>
@@ -166,11 +166,11 @@
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                    <div class="col-12 d-flex justify-content-end">
-                                                                        <button type="submit" name="submittime" class="btn btn-primary me-1 mb-1">Next</button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
+                                                                </div>
+                                                                <div class="col-12 d-flex justify-content-end">
+                                                                    <button type="submit" name="submittime" class="btn btn-primary me-1 mb-1">Next</button>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
