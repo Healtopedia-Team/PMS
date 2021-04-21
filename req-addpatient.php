@@ -1,4 +1,4 @@
-                                                <div class="col-md-6 col-12" style="display: none;">
+                                                <div class="col-md-6 col-12">
                                                     <div class="card">
                                                         <div class="card-header">
                                                             <h4 class="card-title">Horizontal Form with Icons</h4>
