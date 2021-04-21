@@ -224,7 +224,7 @@
                                                                    </select>
                                                                    <br><br>
                                                                         <div class="col-12 d-flex justify-content-end">
-                                                                            <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">CHECK TIME SLOT AVAILABILITIES ></button>
+                                                                            <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">SUBMIT</button>
                                                                         </div>
                                                                         <br><br>
                                                                 </div>
