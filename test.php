@@ -52,7 +52,6 @@
                     <div class="row match-height">
                         <div class="card">
                         <div class="col-md-6 col-12">
-                            <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Horizontal Form</h4>
                                 </div>
@@ -109,10 +108,8 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                         <div class="col-md-6 col-12">
-                            <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Horizontal Form with Icons</h4>
                                 </div>
@@ -197,7 +194,6 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                         </div>
                     </div>
