@@ -77,15 +77,8 @@
                                     if (isset($_REQUEST['submitdate'])) {
                                         $appdate = $_REQUEST['datecheck'];
                                         $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
-                                        if(mysqli_query($conn,$sql)){
-                                            echo "Success";
-                                        }else{
-                                            echo "Failed";
-                                        }
-                                    }
-                                    ?>
-                                    
-                                                <!--div class="col-md-6 col-12" style="display: none;">
+                                        if(mysqli_query($conn,$sql)){?>
+                                            <div class="col-md-6 col-12" style="display: none;">
                                                     <div class="card">
                                                         <div class="card-header">
                                                             <h4 class="card-title">Horizontal Form with Icons</h4>
@@ -172,8 +165,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div-->
-
+                                                </div>
+                                        <?php}else{
+                                            echo "Failed";
+                                        }
+                                    }
+                                    ?>
                                 </div>
                             </section>
                         
