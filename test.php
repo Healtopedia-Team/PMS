@@ -89,7 +89,7 @@
                         }
                     }
 
-                    if (isset($_POST['submitinformation']})) {
+                    if (isset($_POST['submitinformation'])) {
                         $packname=$_POST['packname'];
                         $name=$_POST['pname'];
                         $passport=$_POST['passport'];
