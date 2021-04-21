@@ -50,6 +50,7 @@
                 </div>
                 <section id="basic-horizontal-layouts">
                     <div class="row match-height">
+                        <div class="card">
                         <div class="col-md-6 col-12">
                             <div class="card">
                                 <div class="card-header">
@@ -74,18 +75,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <?php
-                                if (isset($_POST['submitdate'])) {
-                                    $appdate = $_POST['datecheck'];
-                                    $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
-                                    if(mysqli_query($conn,$sql)){
-                                        include 'req-addpatient.php';
-                            ?>
                         </div>
+                        <?php
+                            if (isset($_POST['submitdate'])) {
+                                $appdate = $_POST['datecheck'];
+                                $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
+                                if(mysqli_query($conn,$sql)){
+                                    include 'req-addtime.php';
+                        ?>
+                    </div>
                     </div>
                 </section>
                 <?php
-                            include 'req-addtime.php';
+                            include 'req-addpatient.php';
                         }else{
                             echo "Failed";
                         }
