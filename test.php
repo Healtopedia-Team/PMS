@@ -64,7 +64,7 @@
                                                         <div class="form-body">
                                                             <div class="row">
                                                                 <form method="POST" action="function.php">
-                                                                    <input type="hidden" name="command" value="checkdate">
+                                                                    <input type="hidden" name="command" value="CHECKDATE">
                                                                     <div>
                                                                         <input type="text" id="checkdate" name="date" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
                                                                         <br>
