@@ -31,33 +31,43 @@
                                         <th>No</th>
                                         <th>Order ID</th>
                                         <th>Customer Name</th>
+                                      <th>Appointment Date</th>
                                         <th>Payment Status</th>
                                         <th>Order Details</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php $i = 1; ?>
-                                <?php foreach ($user as $row){ ?>
-                                    <tr>
-                                        <td>
-                                        <?php echo $i;?>
-                                        </td>
-                                        <td>
-                                        <?php echo $row['order_id'];?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['status'];?>
-                                        </td>
-                                        <td>
-                                            <a href='view-appointment.php?orderid=<?php echo $row['order_id'];?>&custid=<?php echo $row['cust_id'];?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
-                                        </td>
-                                      </tr> 
-                                      <?php $i++; ?>
-                                      <?php } ?>
-                                </tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($user as $row) {
+                        $orderid = $row['order_id'];
+                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
+                        $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+                    ?>
+                        <tr>
+                            <td>
+                                <?php echo $i; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['order_id']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
+                            </td>
+                            <td>
+                                <?php foreach ($timee as $rows) :
+                                    echo date('m/d/Y', $rows['start_appoint']);
+                                endforeach; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['status']; ?>
+                            </td>
+                            <td>
+                                <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                    <?php } ?>
+                </tbody>
                             </table>
                         </div>
                     </div>
