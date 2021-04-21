@@ -14,12 +14,6 @@ switch ($theCommand) {
     case "TRY":
         tryme($conn);
         break;
-    case "REQ_APPOINT":
-        request_appointment($conn);
-        break;
-    case "CHECKDATE":
-        checkdate($conn);
-        break;
     default:
         echo "System Error!";
 }
@@ -88,36 +82,5 @@ function tryme($conn){
   if(mysqli_query($conn,$sql)){
    header('location:index.php');
   }
-}
-}
-
-function checkdate($conn){
-    if (isset($_POST['submitdate'])){
-        $appdate=$_POST['checkdate'];
-        $sql = "INSERT INTO requestappoint SET req_appdate='$appdate', request_count='1'";
-        if(mysqli_query($conn, $sql)){
-            $last_id = mysqli_insert_id($conn);
-            echo '<script>alert("Success!");</script>';
-        }else{
-            echo '<script>alert("Try again!");</script>';
-        }
-    }
-}
-
-function request_appointment($conn){
-    if (isset($_POST['submitrequest'])) {
-    $reqpackname=$_POST['reqpackname'];
-    $custname=$_POST['custname'];
-    $custpassport=$_POST['custpassport'];
-    $custphone=$_POST['custphone'];
-    $custaddress=$_POST['custaddress'];
-    $appdate=$_POST['appdate'];
-    $apptime=$_POST['apptime'];
-    $reqstatus=$_POST['reqstatus'];
-
-    $sql = "INSERT INTO requestappoint(req_packname, req_custname, req_custid, req_custphone, req_custaddress, req_appdate, req_apptime, req_status) VALUES ('$reqpackname','$custname','$custpassport','$custphone','$custaddress','$appdate','$apptime','$reqstatus')";
-    if (mysqli_query($conn, $sql)){
-        header('location:index.php');
-    }
 }
 }
