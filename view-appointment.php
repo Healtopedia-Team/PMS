@@ -325,6 +325,7 @@ $data3 = json_decode($data3, true);
                                                                     <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][5]['key'] == "Appointment Method") {
                                                                                             echo $key['line_items'][$q]['meta_data'][5]['value'];
                                                                                         }
+                                                                        else echo "None";
                                                                                     } ?>
                                                                     </div>
                                                                     <?php
