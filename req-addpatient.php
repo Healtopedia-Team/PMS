@@ -9,7 +9,7 @@
                                                 <div class="card-content">
                                                     <div class="card-body">
                                                         <div class="form-body">
-                                                            <div class="row" style="text-align: center;">
+                                                            <div class="row">
                                                                 <div>
                                                                     <label>Select Time:</label>
                                                                     <p id="demoss"></p>
@@ -17,14 +17,14 @@
                                                                     <input type="text" id="apptime" name="apptime" style="display: none;">
                                                                     <table>
                                                                         <thead>
-                                                                            <tr align="center">
+                                                                            <tr style="text-align: center;">
                                                                                 <th>&nbsp; MORNING &nbsp;<br><br></th>
                                                                                 <th>&nbsp; AFTERNOON &nbsp;<br><br></th>
                                                                                 <th>&nbsp; EVENING  &nbsp;<br><br></th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr>
+                                                                            <tr style="text-align: center;">
                                                                                 <td align="center">
                                                                                     <input type="button" id="time" class="btn btn-success" value="09:00AM" onclick="myTime()" 
                                                                                     <?php
