@@ -48,47 +48,49 @@
                         </div>
                     </div>
                 </div>
-                            <section id="basic-horizontal-layouts">
-                                <div class="row match-height">
-                                    <div class="col-md-6 col-12">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title">Check Date</h4>
-                                            </div>
-                                            <div class="card-content">
-                                                <div class="card-body">
-                                                        <div class="form-body">
-                                                            <div class="row">
-                                                                <form method="POST">
-                                                                    <div>
-                                                                        <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
-                                                                        <br>
-                                                                        <div class="col-12 d-flex justify-content-end">
-                                                                            <button type="submit" name="submitdate" class="btn btn-primary me-1 mb-1">CHECK TIME SLOT AVAILABILITIES ></button>
-                                                                        </div>
-                                                                        <br><br>
-                                                                    </div>
-                                                                </form>
+                <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Check Date</h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <form method="POST">
+                                                    <div>
+                                                        <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
+                                                        <br>
+                                                            <div class="col-12 d-flex justify-content-end">
+                                                                <button type="submit" name="submitdate" class="btn btn-primary me-1 mb-1">CHECK TIME SLOT AVAILABILITIES ></button>
                                                             </div>
-                                                        </div>
-                                                </div>
+                                                            <br><br>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
-                                    if (isset($_POST['submitdate'])) {
-                                        $appdate = $_POST['datecheck'];
-                                        $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
-                                        if(mysqli_query($conn,$sql)){
-                                            include 'req-addtime.php';
-                                        }else{
-                                            echo "Failed";
-                                        }
-                                    }
-                                    ?>
                                 </div>
-                            </section>
-                        
+                            </div>
+                        </div>
+                        <?php
+                        if (isset($_POST['submitdate'])) {
+                            $appdate = $_POST['datecheck'];
+                            $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
+                            if(mysqli_query($conn,$sql)){
+                                include 'req-addpatient';
+                        ?>
+                    </div>
+                </section>
+                <?php
+                            include 'req-addtime.php';
+                        }else{
+                            echo "Failed";
+                        }
+                    }
+                ?>                    
             </div>
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
