@@ -56,7 +56,6 @@
                                             </div>
                                             <div class="card-content">
                                                 <div class="card-body">
-                                                    <form class="form form-horizontal">
                                                         <div class="form-body">
                                                             <div class="row">
                                                                 <form action="function.php" method="POST">
@@ -70,7 +69,6 @@
                                                                 </form>
                                                             </div>
                                                         </div>
-                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
