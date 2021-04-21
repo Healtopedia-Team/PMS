@@ -355,34 +355,6 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                 </div>
                             </div>
                         </div>
-                        <div class="modal fade text-left" id="warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel140" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header bg-warning">
-                                        <h5 class="modal-title white" id="myModalLabel140">
-                                            Warning
-                                        </h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Adding patient's I/C Number will make means that the patient with I/C number entered has checked-in for their appointment. Continue?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Cancel</span>
-                                        </button>
-
-                                        <button type="button" class="btn btn-warning ml-1" data-bs-dismiss="modal">
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Yes</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
 
