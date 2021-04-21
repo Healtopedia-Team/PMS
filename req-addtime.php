@@ -1,10 +1,14 @@
-                                                <div class="col-md-6 col-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h4 class="card-title">Choose Time</h4>
-                                                        </div>
-                                                        <div class="card-content">
-                                                            <div class="card-body">
+                                <section id="basic-horizontal-layouts">
+                                    <div class="row match-height">
+                                        <div class="col-md-6 col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Choose Time</h4>
+                                                </div>
+                                                <div class="card-content">
+                                                    <div class="card-body">
+                                                        <div class="form-body">
+                                                            <div class="row">
                                                                 <label>Select Time:</label>
                                                                 <p id="demoss"></p>
                                                                 <p id="demo"></p>
@@ -165,3 +169,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
