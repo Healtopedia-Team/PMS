@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,9 +47,6 @@
                         </div>
                     </div>
                 </div>
-                <section class="section">
-                    <div class="card">
-                        <div class="card-body">
                             <section id="basic-horizontal-layouts">
                                 <div class="row match-height">
                                     <div class="col-md-6 col-12">
@@ -63,10 +59,21 @@
                                                     <form class="form form-horizontal">
                                                         <div class="form-body">
                                                             <div class="row">
-                                                                <form method="POST" action="function.php">
-                                                                    <input type="hidden" name="command" value="CHECKDATE">
+                                                                <?php 
+                                                                $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+                                                                if (isset($_POST['datecheck'])) {
+                                                                    $appdate = $_POST['datecheck'];
+                                                                    $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
+                                                                    if (mysqli_query($conn, $sql)) {
+                                                                        echo "Success";
+                                                                    }else{
+                                                                        echo "Failed";
+                                                                    }
+                                                                }
+                                                                 ?>
+                                                                <form method="POST">
                                                                     <div>
-                                                                        <input type="text" id="checkdate" name="date" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
+                                                                        <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
                                                                         <br>
                                                                         <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABILITIES ></button>
                                                                         <br><br>
@@ -171,9 +178,7 @@
 
                                 </div>
                             </section>
-                        </div>
-                    </div>
-                </section>
+                        
             </div>
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
@@ -202,7 +207,7 @@
     <script src='script.js'></script>
 
     <?php
-    $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+
     $result=mysqli_query($conn, "SELECT datedisable FROM xdate");
     $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
