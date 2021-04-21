@@ -62,7 +62,7 @@
                                                                 <form action="function.php" method="POST">
                                                                     <input type="hidden" name="command" value="DATECHECK">
                                                                     <div>
-                                                                        <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
+                                                                        <input type="text" id="datecheck" name="datecheck"  placeholder="click here.." required>
                                                                         <br>
                                                                         <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABILITIES ></button>
                                                                         <br><br>
@@ -201,30 +201,5 @@
     $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     ?>
-    <script type="text/javascript">
-        var disableDates = [<?php foreach ($user as $row){echo "'".$row['datedisable']."'".",";}?>];
-          
-        $('.datepicker').datepicker({
-            startDate: new Date(),
-            format: 'mm/dd/yyyy',
-            beforeShowDay: function(date){
-                dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-                if(disableDates.indexOf(dmy) != -1){
-                    return false;
-                }
-                else{
-                    return true;
-                }
-            }
-        });
-
-        $('.dateappoint').datepicker({
-            startDate: new Date(),
-            format: 'mm/dd/yyyy',
-            beforeShowDay: function(date){
-                dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-            }
-        });
-    </script>
 </body>
 </html>
