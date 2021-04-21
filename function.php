@@ -17,6 +17,9 @@ switch ($theCommand) {
     case "REQ_APPOINT":
         request_appointment($conn);
         break;
+    case "CHECKDATE":
+        checkdate($conn);
+        break;
     default:
         echo "System Error!";
 }
