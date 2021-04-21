@@ -17,14 +17,14 @@
                                                                     <input type="text" id="apptime" name="apptime" style="display: none;">
                                                                     <table>
                                                                         <thead>
-                                                                            <tr style="text-align: center;">
+                                                                            <tr>
                                                                                 <th>&nbsp; MORNING &nbsp;<br><br></th>
                                                                                 <th>&nbsp; AFTERNOON &nbsp;<br><br></th>
                                                                                 <th>&nbsp; EVENING  &nbsp;<br><br></th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr style="text-align: center;">
+                                                                            <tr>
                                                                                 <td align="center">
                                                                                     <input type="button" id="time" class="btn btn-success" value="09:00AM" onclick="myTime()" 
                                                                                     <?php
@@ -221,7 +221,7 @@
                                                                     </select>
                                                                     <br>
                                                                         <div class="col-12 d-flex justify-content-end">
-                                                                            <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">CHECK TIME SLOT AVAILABILITIES ></button>
+                                                                            <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">Submit</button>
                                                                         </div>
                                                                         <br><br>
                                                                 </div>
