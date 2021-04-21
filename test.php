@@ -82,9 +82,33 @@
                         $appdate = $_POST['datecheck'];
                         $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
                         if(mysqli_query($conn,$sql)){
+                            include 'req-addtime.php';
                             include 'req-addpatient.php';
                         }else{
                             echo "Failed";
+                        }
+                    }
+
+                    if (isset($_POST['submitinformation']})) {
+                        $packname=$_POST['packname'];
+                        $name=$_POST['pname'];
+                        $passport=$_POST['passport'];
+                        $address=$_POST['address'];
+                        $phoneno=$_POST['phoneno'];
+                        $national=$_POST['national'];
+                        $apptime=$_POST['apptime'];
+                        $latestid=$_POST['latestid'];
+
+                        $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime' WHERE  id = '$latestid'";
+
+                        if (mysqli_query($conn,$sql)) {
+                            echo '<script>
+                            alert("Successfully request an appointment !!");
+                            </script>';
+                        }else{
+                            echo '<script>
+                            alert("Request failed !!");
+                            </script>';
                         }
                     }
                 ?>                    
