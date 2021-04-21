@@ -79,6 +79,6 @@ function date_check($conn){
             header('location:index.php');
         }
         else
-            echo "error!";
+            header('location:index.php');
     }
 }
