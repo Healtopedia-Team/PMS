@@ -354,12 +354,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <span class="d-none d-sm-block">Check-In</span>
                                             </button>
                                         </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal fade text-left" id="warning" tabindex="-1"
-                                                        role="dialog" aria-labelledby="myModalLabel140"
+                                     <div class="modal fade text-left" id="warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel140"
                                                         aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                                                             role="document">
@@ -384,7 +379,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                         <span class="d-none d-sm-block">Cancel</span>
                                                                     </button>
 
-                                                                    <button type="button" class="btn btn-warning ml-1"
+                                                                    <button type="submit" class="btn btn-warning ml-1"
                                                                         data-bs-dismiss="modal">
                                                                         <i class="bx bx-check d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block">Yes</span>
@@ -393,6 +388,10 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                             </div>
                                                         </div>
                                                     </div>
+                                    </form>
+                                </div>
+                            </div>
+</div>
 
 
                     </div>
