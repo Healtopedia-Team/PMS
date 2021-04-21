@@ -59,7 +59,7 @@
                                                     <form class="form form-horizontal">
                                                         <div class="form-body">
                                                             <div class="row">
-                                                                <form action="function.php" method="POST">
+                                                                <form action="function.php" method="GET">
                                                                     <input type="hidden" name="command" value="DATECHECK">
                                                                     <div>
                                                                         <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
