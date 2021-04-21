@@ -11,9 +11,6 @@ switch ($theCommand) {
     case "CHECK_USER":
         check_user($conn);
         break;
-    case "TRY":
-        tryme($conn);
-        break;
     case "DATECHECK":
         date_check($conn);
         break;
@@ -73,30 +70,13 @@ function check_user($conn)
     }
 }
 
-function tryme($conn){
-    
-    if (isset($_POST['submit'])){
-  $name = $_POST['tryname'];
-  $passport = $_POST['trypassport'];
-  $phone = $_POST['tryphone'];
-  
-  $sql = "INSERT INTO requestappoint SET req_custname = '$name', req_custid = '$passport', req_custphone = '$phone'";
-  
-  if(mysqli_query($conn,$sql)){
-   header('location:index.php');
-  }
-}
-}
-
 function date_check($conn){
     
     if (isset($_POST['submitdate'])) {
         $appdate = $_POST['datecheck'];
         $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
-        if (mysqli_query($conn, $sql)) {
-            echo "Success";
-        }else{
-            echo "Failed";
+        if(mysqli_query($conn,$sql)){
+            header('location:index.php');
         }
     }
 }
