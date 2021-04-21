@@ -88,6 +88,19 @@ function tryme($conn){
 }
 }
 
+function checkdate($conn){
+    if (isset($_POST['submitdate'])){
+        $appdate=$_POST['checkdate'];
+        $sql = "INSERT INTO requestappoint SET req_appdate='$appdate', request_count='1'";
+        if(mysqli_query($conn, $sql)){
+            $last_id = mysqli_insert_id($conn);
+            echo '<script>alert("Success!");</script>';
+        }else{
+            echo '<script>alert("Try again!");</script>';
+        }
+    }
+}
+
 function request_appointment($conn){
     if (isset($_POST['submitrequest'])) {
     $reqpackname=$_POST['reqpackname'];
