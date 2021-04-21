@@ -334,7 +334,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             <i data-feather="x"></i>
                                         </button>
                                     </div>
-                                    <form action="#">
+                                    <form action="function.php" method="POST">
                                         <div class="modal-body">
                                             <label>Enter Patient I/C : </label>
                                             <div class="form-group">
@@ -346,7 +346,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                 <span class="d-none d-sm-block">Close</span>
                                             </button>
-                                            <button type="submit" class="btn btn-primary ml-1" data-bs-toggle="modal" data-bs-target="#warning" data-bs-dismiss="modal">
+                                            <button type="submit" class="btn btn-primary ml-1" data-bs-toggle="modal">
                                                 <i class="bx bx-check d-block d-sm-none"></i>
                                                 <span class="d-none d-sm-block">Check-In</span>
                                             </button>
