@@ -31,7 +31,7 @@
                                         <th>No</th>
                                         <th>Order ID</th>
                                         <th>Customer Name</th>
-                                        <th>Status</th>
+                                        <th>Payment Status</th>
                                         <th>Order Details</th>
                                     </tr>
                                 </thead>
