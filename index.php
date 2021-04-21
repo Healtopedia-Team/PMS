@@ -15,6 +15,9 @@ $timestamp2 = strtotime('tomorrow midnight +8 hour');
 
 $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND '$timestamp2'");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$hosp = $_SESSION["hospital"];
+$result2 = mysqli_query($conn, "SELECT packagename, COUNT(*) FROM appointwoo WHERE hospname='$hosp' GROUP BY packagename ORDER BY 2 DESC");
+$hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -305,31 +308,13 @@ $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td class="text-bold-500">Basic Health Screening (Male)</td>
-                                                        <td class="text-bold-500">12</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-bold-500">Executive Health Screening (Male)</td>
-                                                        <td class="text-bold-500">52</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-bold-500">Executive Health Screening (Male)</td>
-                                                        <td class="text-bold-500">8</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-bold-500">Executive Health Screening (Male)</td>
-                                                        <td class="text-bold-500">12</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-bold-500">Executive Health Screening (Male)</td>
-                                                        <td class="text-bold-500">55</td>
-
-                                                    </tr>
+                                                    <?php foreach ($hospital_list as $rows) : ?>
+                                                        <tr>
+                                                            <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $rows['packagename']);?>
+                                                            <td class="text-bold-500"><?php echo $package_name;?></td>
+                                                            <td class="text-bold-500"><?php echo $rows['COUNT(*)'];?></td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
                                                 </tbody>
                                             </table>
                                         </div>
