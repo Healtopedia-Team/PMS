@@ -61,7 +61,7 @@
                                                             <div class="row">
                                                                 <?php 
                                                                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                                                                if (isset($_POST['datecheck'])) {
+                                                                if (isset($_POST['submitdate'])) {
                                                                     $appdate = $_POST['datecheck'];
                                                                     $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
                                                                     if (mysqli_query($conn, $sql)) {
