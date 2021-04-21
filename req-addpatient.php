@@ -9,7 +9,7 @@
                                                 <div class="card-content">
                                                     <div class="card-body">
                                                         <div class="form-body">
-                                                            <div class="row">
+                                                            <div class="row" style="text-align: center;">
                                                                 <div>
                                                                     <label>Select Time:</label>
                                                                     <p id="demoss"></p>
