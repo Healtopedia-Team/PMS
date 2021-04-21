@@ -193,36 +193,36 @@
 
                                                                    <label>Package Name:</label>
                                                                    <input type="text" name="packname" class="form-control" placeholder="Full name like in IC..." required>
-                                                                   <br>
+                                                                   <br><br>
                                                                    <label>Full Name:</label>
                                                                    <input type="text" name="pname" class="form-control" placeholder="Full name like in IC..." required>
-                                                                   <br>
+                                                                   <br><br>
                                                                    <label>IC/Passport:</label>
                                                                    <input type="text" name="passport" class="form-control" placeholder="IC or passport number..." required>
-                                                                   <br>
+                                                                   <br><br>
                                                                    <label>Address:</label>
                                                                    <input type="text" name="address" class="form-control" placeholder="Your current address..." required>
-                                                                   <br>
+                                                                   <br><br>
                                                                    <label>Phone No:</label>
                                                                    <input type="text" name="phoneno" class="form-control" placeholder="Your phone number..." required>
-                                                                   <br>
+                                                                   <br><br>
                                                                    <label>Gender:</label>
                                                                    <select name="gender" class="form-select">
                                                                         <option value="">Select...</option>
                                                                         <option value="Male">Male</option>
                                                                         <option value="Female">Female</option>
                                                                    </select>
-                                                                   <br>
+                                                                   <br><br>
                                                                    <label>Birthday Date:</label>
                                                                    <input type="date" id="dob" name="dob" class="form-control" autocomplete="off" placeholder="Select date of birth..." required>
-                                                                   <br>
+                                                                   <br><br>
                                                                    <label>Nationality:</label>
                                                                    <select name="national" class="form-select">
                                                                         <option value="">Select...</option>
                                                                         <option value="Malaysian">Malaysian</option>
                                                                         <option value="Non-Malaysian">Non-Malaysian</option>
                                                                    </select>
-                                                                   <br>
+                                                                   <br><br>
                                                                         <div class="col-12 d-flex justify-content-end">
                                                                             <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">CHECK TIME SLOT AVAILABILITIES ></button>
                                                                         </div>
