@@ -11,9 +11,6 @@ switch ($theCommand) {
     case "CHECK_USER":
         check_user($conn);
         break;
-    case "DATECHECK":
-        date_check($conn);
-        break;
     default:
         echo "System Error!";
 }
@@ -67,18 +64,5 @@ function check_user($conn)
         </div>
 <?php
 
-    }
-}
-
-function date_check($conn){
-    
-    if (isset($_REQUEST['submitdate'])) {
-        $appdate = $_REQUEST['datecheck'];
-        $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
-        if(mysqli_query($conn,$sql)){
-            header('location:index.php');
-        }
-        else
-            header('location:index.php');
     }
 }
