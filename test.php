@@ -1,3 +1,4 @@
+<?php $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,8 +59,7 @@
                                                 <div class="card-body">
                                                         <div class="form-body">
                                                             <div class="row">
-                                                                <form action="function.php" method="POST">
-                                                                    <input type="hidden" name="command" value="DATECHECK">
+                                                                <form method="POST">
                                                                     <div>
                                                                         <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
                                                                         <br>
@@ -73,6 +73,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <?php
+                                    if (isset($_REQUEST['submitdate'])) {
+                                        $appdate = $_REQUEST['datecheck'];
+                                        $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
+                                        if(mysqli_query($conn,$sql)){
+                                            echo "Success";
+                                        }else{
+                                            echo "Failed";
+                                        }
+                                    }
+                                    ?>
                                     
                                                 <!--div class="col-md-6 col-12" style="display: none;">
                                                     <div class="card">
@@ -194,7 +205,7 @@
     <script src='script.js'></script>
 
     <?php
-    $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+
     $result=mysqli_query($conn, "SELECT datedisable FROM xdate");
     $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
