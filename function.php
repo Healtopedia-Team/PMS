@@ -14,6 +14,9 @@ switch ($theCommand) {
     case "TRY":
         tryme($conn);
         break;
+    case "DATECHECK":
+        date_check($conn);
+        break;
     default:
         echo "System Error!";
 }
@@ -83,4 +86,17 @@ function tryme($conn){
    header('location:index.php');
   }
 }
+}
+
+function date_check($conn){
+    
+    if (isset($_POST['submitdate'])) {
+        $appdate = $_POST['datecheck'];
+        $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
+        if (mysqli_query($conn, $sql)) {
+            echo "Success";
+        }else{
+            echo "Failed";
+        }
+    }
 }
