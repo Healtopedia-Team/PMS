@@ -72,8 +72,8 @@ function check_user($conn)
 
 function date_check($conn){
     
-    if (isset($_POST['submitdate'])) {
-        $appdate = $_POST['datecheck'];
+    if (isset($_REQUEST['submitdate'])) {
+        $appdate = $_REQUEST['datecheck'];
         $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
         if(mysqli_query($conn,$sql)){
             header('location:index.php');
