@@ -1,18 +1,3 @@
-<?php
-                                        $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                                        if (isset($_POST['submitdate'])) {
-                                            $appdate=$_POST['checkdate'];
-
-                                            $sql = "INSERT INTO requestappoint SET req_appdate='$appdate', request_count='1'";
-
-                                            if(mysqli_query($conn, $sql)){
-                                                $last_id = mysqli_insert_id($conn);
-                                                echo '<script>alert("Success!");</script>';
-                                            }else{
-                                                echo '<script>alert("Try again!");</script>';
-                                            }
-                                        }
-                                    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +63,8 @@
                                                     <form class="form form-horizontal">
                                                         <div class="form-body">
                                                             <div class="row">
-                                                                <form method="POST">
+                                                                <form method="POST" action="function.php">
+                                                                    <input type="hidden" name="command" value="checkdate">
                                                                     <div>
                                                                         <input type="text" id="checkdate" name="date" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." value="<?= $appdate ?>" required>
                                                                         <br>
