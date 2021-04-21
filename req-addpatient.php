@@ -1,3 +1,17 @@
+                            <?php
+                            if (isset($_POST['submitinformation']})) {
+                                $packname=$_POST['packname'];
+                                $name=$_POST['pname'];
+                                $passport=$_POST['passport'];
+                                $address=$_POST['address'];
+                                $phoneno=$_POST['phoneno'];
+                                $national=$_POST['national'];
+                                $apptime=$_POST['apptime'];
+                                $latestid=$_POST['latestid'];
+
+                                $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime' WHERE  id = '$latestid'";
+                            }
+                            ?>
                             <form method="POST">
                                 <section id="basic-horizontal-layouts">
                                     <div class="row match-height">
@@ -17,14 +31,14 @@
                                                                     <input type="text" id="apptime" name="apptime" style="display: none;">
                                                                     <table>
                                                                         <thead>
-                                                                            <tr>
+                                                                            <tr style="text-align: center;">
                                                                                 <th>&nbsp; MORNING &nbsp;<br><br></th>
                                                                                 <th>&nbsp; AFTERNOON &nbsp;<br><br></th>
                                                                                 <th>&nbsp; EVENING  &nbsp;<br><br></th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr>
+                                                                            <tr style="text-align: center;">
                                                                                 <td align="center">
                                                                                     <input type="button" id="time" class="btn btn-success" value="09:00AM" onclick="myTime()" 
                                                                                     <?php
@@ -191,6 +205,9 @@
                                                                 <div>
                                                                    <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
 
+                                                                   <label>Package Name:</label>
+                                                                   <input type="text" name="packname" class="form-control" placeholder="Full name like in IC..." required>
+
                                                                     <label>Full Name:</label>
                                                                     <input type="text" name="pname" class="form-control" placeholder="Full name like in IC..." required>
 
@@ -221,7 +238,7 @@
                                                                     </select>
                                                                     <br>
                                                                         <div class="col-12 d-flex justify-content-end">
-                                                                            <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                                            <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">CHECK TIME SLOT AVAILABILITIES ></button>
                                                                         </div>
                                                                         <br><br>
                                                                 </div>
