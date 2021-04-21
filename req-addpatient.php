@@ -20,7 +20,7 @@
                                         <input type="text" name="phoneno" class="form-control" placeholder="Your phone number..." required>
 
                                         <label>Gender:</label>
-                                        <select name="gender" class="custom-select">
+                                        <select name="gender" class="form-select">
                                             <option value="">Select...</option>
                                             <option value="Male">Male</option>
                                             <option value="Female">Female</option>
@@ -30,7 +30,7 @@
                                         <input type="date" id="dob" name="dob" class="form-control" autocomplete="off" placeholder="Select date of birth..." required>
 
                                         <label>Nationality:</label>
-                                        <select name="national" class="custom-select">
+                                        <select name="national" class="form-select">
                                             <option value="">Select...</option>
                                             <option value="Malaysian">Malaysian</option>
                                             <option value="Non-Malaysian">Non-Malaysian</option>
