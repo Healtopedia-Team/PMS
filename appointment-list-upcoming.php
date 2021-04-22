@@ -1,7 +1,7 @@
                 <?php
                 include 'appointment-list-header.php';
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,appointwoo.appoint_id,appointwoo.start_appoint FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY order_id ORDER BY orderwoo.order_id DESC");
+                $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,SUBSTRING(orderwoo.order_date,1,10) AS order_date,appointwoo.appoint_id,appointwoo.start_appoint FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY order_id ORDER BY orderwoo.order_id DESC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
 
@@ -39,11 +39,11 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
-                        $orderid = $row['order_id'];
-                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
-                        $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
-                                $currdate = date("Y-m-d");
-                                $appdate = date("Y-m-d",$row['start_appoint']);
+                                    $orderid = $row['order_id'];
+                                    $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
+                                    $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+                                    $currdate = date("Y-m-d");
+                                    $appdate = date("Y-m-d",$row['start_appoint']);
                                 if ($appdate > $currdate){ ?>
                                     <tr>
                                         <td>
@@ -55,11 +55,14 @@
                                         <td>
                                             <?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
                                         </td>
-                                      <td>
-                                <?php foreach ($timee as $rows) :
-                                    echo date('m/d/Y', $rows['start_appoint']);
-                                endforeach; ?>
-                            </td>
+                                        <td>
+                                            <?php echo $row['order_date']; ?>
+                                        </td>
+                                        <td>
+                                            <?php foreach ($timee as $rows) :
+                                              echo date('m/d/Y', $rows['start_appoint']);
+                                              endforeach; ?>
+                                        </td>
                                         <td>
                                             <?php echo $row['status'];?>
                                         </td>
