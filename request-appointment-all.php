@@ -1,7 +1,8 @@
 <?php
 include 'request-appointment-header.php';
 
-$result = mysqli_query($conn,"SELECT * FROM requestappoint");
+$result = mysqli_query($conn,"SELECT * FROM requestappoint ORDER BY request_id");
+$data = mysqli_fetch_all($result,MYSQLI_ASSOC);
 ?>
 
                             <table class="table table-striped" id="table1">
@@ -15,13 +16,15 @@ $result = mysqli_query($conn,"SELECT * FROM requestappoint");
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                    <tr>
-                                        <td>Deanna Tan</td>
-                                        <td>Executive Health Screening (Women)</td>
-                                        <td>12/5/2021</td>
-                                        <td>12:00PM</td>
-                                        <td>Approved</td>
-                                        <td>
+                                <tbody>
+                                    <?php foreach ($data as $row) { ?>
+                                        <tr>
+                                            <td><?php echo $row['req_custname'];?></td>
+                                            <td><?php echo $row['req_packname'];?></td>
+                                            <td><?php echo $row['req_appdate'];?></td>
+                                            <td><?php echo $row['req_apptime'];?></td>
+                                            <td><?php echo $row['req_status'];?></td>
+                                            <td>
                                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                 <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
                                                 <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
@@ -29,38 +32,10 @@ $result = mysqli_query($conn,"SELECT * FROM requestappoint");
                                                 <button class="btn btn-info"><i class="bi bi-search"></i></button>
                                             </div>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Selvendran Baskaran</td>
-                                        <td>Basic Health Screening (Men)</td>
-                                        <td>22/5/2021</td>
-                                        <td>04:00PM</td>
-                                        <td>Pending</td>
-                                        <td>
-                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Muaz</td>
-                                        <td>Mental Health Screening</td>
-                                        <td>5/5/2021</td>
-                                        <td>09:00AM</td>
-                                        <td>Postponed</td>
-                                        <td>
-                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+                                        </tr>
+                                    }?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </section>
