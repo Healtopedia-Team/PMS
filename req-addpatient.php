@@ -187,7 +187,7 @@
                                                         <div class="row">
                                                             <form method="POST">
                                                                 <div>
-                                                                   <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>">
+                                                                   <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
 
                                                                    <label>Package Name:</label>
                                                                    <input type="text" name="packname" class="form-control" placeholder="Full name like in IC..." required>
