@@ -197,9 +197,7 @@
                                                                                         <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
                                                                                     <?php } ?>
                                                                             </select>
-
-                                                                            <input type="text" name="packname" class="form-control" placeholder="Package Name" required>
-                                                                            <br>
+                                                                          
                                                                             <input type="text" name="pname" class="form-control" placeholder="Patient Name" required>
                                                                             <br />
                                                                             <input type="text" name="passport" class="form-control" placeholder="IC or Passport Number" required>
