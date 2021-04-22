@@ -2,7 +2,7 @@
                 include 'appointment-list-header.php';
 
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $result = mysqli_query($conn, "SELECT * FROM orderwoo WHERE status = 'processing' ORDER BY orderwoo_id ASC");
+                $result = mysqli_query($conn, "SELECT firstname, lastname, order_id, cust_id, status, SUBSTRING(order_date,1,10) AS order_date FROM orderwoo WHERE status = 'processing' ORDER BY order_id DESC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
 
@@ -31,7 +31,8 @@
                                     <th>No</th>
                                     <th>Order ID</th>
                                     <th>Customer Name</th>
-                                  <th>Appointment Date</th>
+                                    <th>Order Date</th>
+                                    <th>Appointment Date</th>
                                     <th>Status</th>
                                     <th>Order Details</th>
                                 </tr>
@@ -52,6 +53,9 @@
                             </td>
                             <td>
                                 <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['order_date']; ?>
                             </td>
                             <td>
                                 <?php foreach ($timee as $rows) :
