@@ -1,7 +1,8 @@
 <?php
 include 'request-appointment-header.php';
-
-$result = mysqli_query($conn,"SELECT * FROM requestappoint WHERE req_status = 'approved'");
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+$result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE status = 'approved' ORDER BY request_id");
+$data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
                             <table class="table table-striped" id="table1">
@@ -15,22 +16,26 @@ $result = mysqli_query($conn,"SELECT * FROM requestappoint WHERE req_status = 'a
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                    <tr>
-                                        <td>Deanna Tan</td>
-                                        <td>Executive Health Screening (Women)</td>
-                                        <td>12/5/2021</td>
-                                        <td>12:00PM</td>
-                                        <td>Approved</td>
-                                        <td>
-                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+                                <tbody>
+                                    <?php foreach ($data as $row) { ?>
+                                        <tr>
+                                            <td><?php echo $row['req_custname']; ?></td>
+                                            <td><?php echo $row['req_packname']; ?></td>
+                                            <td><?php echo $row['req_appdate']; ?></td>
+                                            <td><?php echo $row['req_apptime']; ?></td>
+                                            <td><?php echo $row['req_status']; ?></td>
+                                            <td>
+                                                <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                    <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                    <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                    <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
+                                                    <button class="btn btn-info"><i class="bi bi-search"></i></button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </section>
