@@ -17,23 +17,23 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($data as $row) { ?>
+                                    <!--?php foreach ($data as $row) { ?-->
                                         <tr>
-                                            <td><?php echo $row['req_custname'];?></td>
+                                            <!--td><?php echo $row['req_custname'];?></td>
                                             <td><?php echo $row['req_packname'];?></td>
                                             <td><?php echo $row['req_appdate'];?></td>
                                             <td><?php echo $row['req_apptime'];?></td>
-                                            <td><?php echo $row['req_status'];?></td>
+                                            <td><?php echo $row['req_status'];?></td-->
                                             <td>
-                                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                <button class="btn btn-info"><i class="bi bi-search"></i></button>
-                                            </div>
-                                        </td>
+                                                <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                    <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                    <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                    <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
+                                                    <button class="btn btn-info"><i class="bi bi-search"></i></button>
+                                                </div>
+                                            </td>
                                         </tr>
-                                    <?php}?>
+                                    <!--?php}?-->
                                 </tbody>
                             </table>
                         </div>
