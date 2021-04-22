@@ -31,7 +31,8 @@
                                         <th>No</th>
                                         <th>Order ID</th>
                                         <th>Customer Name</th>
-                                      <th>Appointment Date</th>
+                                        <th>Order Date</th>
+                                        <th>Appointment Date</th>
                                         <th>Status</th>
                                         <th>Order Details</th>
                                     </tr>
