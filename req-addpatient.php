@@ -219,6 +219,12 @@
                                                                                 <option value="Malaysian">Malaysian</option>
                                                                                 <option value="Non-Malaysian">Non-Malaysian</option>
                                                                             </select>
+                                                                            <br>
+                                                                            <select name="status" class="form-select">
+                                                                                <option value="">Request Status</option>
+                                                                                <option value="pending">Pending</option>
+                                                                                <option value="accepted">Accepted</option>
+                                                                            </select>
                                                                             <br><br>
                                                                             <div class="col-12 d-flex justify-content-end">
                                                                                 <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">SUBMIT</button>
