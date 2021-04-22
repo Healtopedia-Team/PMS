@@ -62,10 +62,8 @@
                                                     <div>
                                                         <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
                                                         <br>
-                                                            <div class="col-12 d-flex justify-content-end">
-                                                                <button type="submit" name="submitdate" class="btn btn-primary me-1 mb-1">CHECK TIME SLOT AVAILABILITIES ></button>
-                                                            </div>
-                                                            <br><br>
+                                                        <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABILITIES <i class="bi bi-caret-down-fill"></i></button>
+                                                        <br><br>
                                                     </div>
                                                 </form>
                                             </div>
