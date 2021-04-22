@@ -45,9 +45,9 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="float-start">
                         <p>2021 &copy; Healtopedia Digital</p>
                     </div>
-                    <div class="float-end">
+                    <!--div class="float-end">
                         <p>Powered By Atiq hehehe ;)<span class="text-danger"><i class="bi bi-heart"></i></span></p>
-                    </div>
+                    </div-->
                 </div>
             </footer>
         </div>
