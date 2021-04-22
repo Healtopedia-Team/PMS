@@ -166,62 +166,77 @@
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <h4 class="card-title">Patient Information</h4>
-                                                </div>
-                                                <div class="card-content">
-                                                    <div class="card-body">
-                                                        <div class="form-body">
-                                                            <div class="row">
-                                                                <form method="POST">
-                                                                    <div>
-                                                                       <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
+                                        <!--========================== C A L L == P R O D U C T S =======================-->
+                                            <?php
+                                            $query = mysqli_query($conn,"SELECT package_name FROM packagewoo ORDER BY package_id DESC");
+                                            $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
+                                            ?>
+                                        <!--=============================================================================-->
+                                            <div class="col-md-6 col-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h4 class="card-title">Patient Information</h4>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <div class="card-body">
+                                                            <div class="form-body">
+                                                                <div class="row">
+                                                                    <form method="POST">
+                                                                        <div>
+                                                                            <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
 
-                                                                       <input type="text" name="packname" class="form-control" placeholder="Package Name" required>
-                                                                       <br>
-                                                                       <input type="text" name="pname" class="form-control" placeholder="Patient Name" required>
-                                                                       <br />
-                                                                       <input type="text" name="passport" class="form-control" placeholder="IC or Passport Number" required>
-                                                                       <br>
-                                                                       <input type="text" name="address" class="form-control" placeholder="Patient Address" required>
-                                                                       <br>
-                                                                       <input type="text" name="phoneno" class="form-control" placeholder="Patient Phone Number" required>
-                                                                       <br>
-                                                                       <select name="gender" class="form-select">
-                                                                            <option value="">Select Gender</option>
-                                                                            <option value="Male">Male</option>
-                                                                            <option value="Female">Female</option>
-                                                                       </select>
-                                                                       <br>
-                                                                       <input type="text" name="dob" class="form-control" placeholder="Date of Birth" required onfocus="(this.type='date')">
-                                                                       <br>
-                                                                       <select name="national" class="form-select">
-                                                                            <option value="">Select Nationality</option>
-                                                                            <option value="Malaysian">Malaysian</option>
-                                                                            <option value="Non-Malaysian">Non-Malaysian</option>
-                                                                       </select>
-                                                                       <br><br>
+                                                                            <select class="choices form-select" name="packname">
+                                                                                <optgroup label="Packages">
+                                                                                    <option value="">Select Package</option>
+                                                                                    <?php foreach($data as $key){?>
+                                                                                        <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
+                                                                                    <?php}?>
+                                                                                </optgroup>
+                                                                            </select>
+
+                                                                            <input type="text" name="packname" class="form-control" placeholder="Package Name" required>
+                                                                            <br>
+                                                                            <input type="text" name="pname" class="form-control" placeholder="Patient Name" required>
+                                                                            <br />
+                                                                            <input type="text" name="passport" class="form-control" placeholder="IC or Passport Number" required>
+                                                                            <br>
+                                                                            <input type="text" name="address" class="form-control" placeholder="Patient Address" required>
+                                                                            <br>
+                                                                            <input type="text" name="phoneno" class="form-control" placeholder="Patient Phone Number" required>
+                                                                            <br>
+                                                                            <select name="gender" class="form-select">
+                                                                                <option value="">Select Gender</option>
+                                                                                <option value="Male">Male</option>
+                                                                                <option value="Female">Female</option>
+                                                                            </select>
+                                                                            <br>
+                                                                            <input type="text" name="dob" class="form-control" placeholder="Date of Birth" required onfocus="(this.type='date')">
+                                                                            <br>
+                                                                            <select name="national" class="form-select">
+                                                                                <option value="">Select Nationality</option>
+                                                                                <option value="Malaysian">Malaysian</option>
+                                                                                <option value="Non-Malaysian">Non-Malaysian</option>
+                                                                            </select>
+                                                                            <br><br>
                                                                             <div class="col-12 d-flex justify-content-end">
                                                                                 <button type="submit" name="submitinformation" class="btn btn-primary me-1 mb-1">SUBMIT</button>
                                                                             </div>
                                                                             <br><br>
-                                                                    </div>
-                                                                </form>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </section>
-                            </form>
+                                    </section>
+                                </form>
 
