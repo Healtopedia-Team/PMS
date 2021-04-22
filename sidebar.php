@@ -55,7 +55,7 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                 </li>
                 <li class="sidebar-item <?php if ($your_variable=="users") {echo "active"; }else{echo"noactive";}?>">
                     <a href="users.php" class='sidebar-link'>
-                        <i class="bi bi-list-ul"></i>
+                        <i class="bi bi-person-fill"></i>
                         <span>Users</span>
                     </a>
                 </li>
