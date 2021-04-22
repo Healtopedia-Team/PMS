@@ -192,6 +192,7 @@
                                                                             <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
 
                                                                             <select class="choices form-select" name="packname">
+                                                                                <option value="">Select Package</option>
                                                                                     <?php foreach($data as $key){ ?>
                                                                                         <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
                                                                                     <?php } ?>
