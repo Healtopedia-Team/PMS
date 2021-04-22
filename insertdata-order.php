@@ -16,6 +16,7 @@
       	$lastname = $row['billing']['last_name'];
       	$orderid = $row['number'];
       	$status = $row['status'];
+	$orderdate = $row['date_created'];
 
       	foreach ($data2 as $row2) {
         	if ($row2['order_id'] == $row['number']) {
@@ -27,7 +28,7 @@
 
 			foreach ($user as $key) {
 				if ($key['Total'] < 1) {
-					$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status'";
+					$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status', order_date = '$orderdate'";
 
       			mysqli_query($conn, $sql);
 				}
