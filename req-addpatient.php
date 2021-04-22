@@ -201,9 +201,7 @@
                                                                             <option value="Female">Female</option>
                                                                        </select>
                                                                        <br>
-                                                                       <input type="date" name="dob" class="form-control" placeholder="Date of Birth" required>
-                                                                       <br>
-                                                                       <input type="text" class="form-control" placeholder="Date of Birth" required onfocus="(this.type='date')">
+                                                                       <input type="text" name="dob" class="form-control" placeholder="Date of Birth" required onfocus="(this.type='date')">
                                                                        <br>
                                                                        <select name="national" class="form-select">
                                                                             <option value="">Select Nationality</option>
