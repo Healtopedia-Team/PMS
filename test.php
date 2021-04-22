@@ -62,7 +62,7 @@
                                                     <div style="text-align: center;">
                                                         <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
                                                         <br>
-                                                        <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABILITIES <i class="bi bi-chevron-double-down"></i></button>
+                                                        <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABLE   <i class="bi bi-chevron-double-down"></i></button>
                                                         <br><br>
                                                     </div>
                                                 </form>
