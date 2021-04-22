@@ -172,10 +172,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </section>
-                                <section id="basic-horizontal-layouts">
-                                <div class="row match-height">
                                     <div class="col-md-6 col-12">
                                         <div class="card">
                                             <div class="card-header">
