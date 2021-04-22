@@ -172,12 +172,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <!--========================== C A L L == P R O D U C T S =======================-->
-                                            <?php
-                                            $query = mysqli_query($conn,"SELECT package_name FROM packagewoo ORDER BY package_id DESC");
-                                            $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
-                                            ?>
-                                        <!--=============================================================================-->
                                             <div class="col-md-6 col-12">
                                                 <div class="card">
                                                     <div class="card-header">
