@@ -50,7 +50,6 @@
                 </div>
                 <section id="basic-horizontal-layouts">
                     <div class="row match-height">
-                        <div class="col-md-6 col-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Check Date</h4>
@@ -74,7 +73,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </section>
                 <?php
