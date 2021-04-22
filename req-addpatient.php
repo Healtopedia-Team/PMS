@@ -10,7 +10,6 @@
                                                     <div class="card-body" style="text-align: center;">
                                                         <div class="form-body" style="text-align: center;">
                                                             <div class="row" style="text-align: center;">
-                                                                <div>
                                                                     <label>Select Time:</label>
                                                                     <p id="demoss"></p>
                                                                     <p id="demo"></p>
@@ -167,7 +166,6 @@
                                                                             </tr>
                                                                         </tbody>
                                                                     </table>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
