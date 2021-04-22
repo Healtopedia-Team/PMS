@@ -99,7 +99,7 @@
                         $apptime=$_POST['apptime'];
                         $latestid=$_POST['latestid'];
 
-                        $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime' WHERE  id = '$latestid'";
+                        $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime' WHERE  request_id = '$latestid'";
 
                         if (mysqli_query($conn,$sql)) {
                             echo '<script>
