@@ -61,7 +61,7 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                 </li>
                 <li class="sidebar-item <?php if ($your_variable=="hospitals") {echo "active"; }else{echo"noactive";}?>">
                     <a href="hospitals.php" class='sidebar-link'>
-                        <i class="bi bi-cup-ul"></i>
+                        <i class="bi bi-house-ul"></i>
                         <span>Hospitals</span>
                     </a>
                 </li>
