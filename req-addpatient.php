@@ -6,10 +6,10 @@
                                                 <div class="card-header">
                                                     <h4 class="card-title">Choose Time</h4>
                                                 </div>
-                                                <div class="card-content">
-                                                    <div class="card-body">
-                                                        <div class="form-body">
-                                                            <div class="row">
+                                                <div class="card-content" style="text-align: center;">
+                                                    <div class="card-body" style="text-align: center;">
+                                                        <div class="form-body" style="text-align: center;">
+                                                            <div class="row" style="text-align: center;">
                                                                 <div>
                                                                     <label>Select Time:</label>
                                                                     <p id="demoss"></p>
