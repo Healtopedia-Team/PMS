@@ -82,6 +82,7 @@
                         $appdate = $_POST['datecheck'];
                         $sql = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
                         if(mysqli_query($conn,$sql)){
+                            $last_id = mysqli_insert_id($conn);
                             include 'req-addpatient.php';
                         }else{
                             echo "Failed";
