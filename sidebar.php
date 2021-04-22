@@ -59,6 +59,12 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                         <span>Users</span>
                     </a>
                 </li>
+                <li class="sidebar-item <?php if ($your_variable=="hospitals") {echo "active"; }else{echo"noactive";}?>">
+                    <a href="hospitals.php" class='sidebar-link'>
+                        <i class="bi bi-hospital-ul"></i>
+                        <span>Hospitals</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
