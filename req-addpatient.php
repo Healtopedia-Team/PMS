@@ -15,7 +15,7 @@
                                                                     <p id="demoss"></p>
                                                                     <p id="demo"></p>
                                                                     <input type="text" id="apptime" name="apptime" style="display: none;">
-                                                                    <table>
+                                                                    <table style="text-align: center;">
                                                                         <thead>
                                                                             <tr style="text-align: center;">
                                                                                 <th>&nbsp; MORNING &nbsp;<br><br></th>
@@ -24,7 +24,7 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr style="text-align: center;">
+                                                                            <tr>
                                                                                 <td align="center">
                                                                                     <input type="button" id="time" class="btn btn-success" value="09:00AM" onclick="myTime()" 
                                                                                     <?php
