@@ -16,6 +16,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         <th>Action</th>
                                     </tr>
                                 </thead>
+                                <tbody>
                                     <?php foreach ($data as $row) { ?>
                                         <tr>
                                             <td><?php echo $row['req_custname'];?></td>
@@ -32,7 +33,8 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
                                         </td>
                                         </tr>
-                                    }?>
+                                    <?php}?>
+                                </tbody>
                             </table>
                         </div>
                     </div>
