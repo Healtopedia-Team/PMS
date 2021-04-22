@@ -185,25 +185,26 @@
                                                                     <div>
                                                                        <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
 
-                                                                       <label>Package Name:</label>
-                                                                       <input type="text" name="packname" class="form-control" placeholder="Full name like in IC..." required>
-
+                                                                       <input type="text" name="packname" class="form-control" placeholder="Package Name" required>
+                                                                       <br>
                                                                        <input type="text" name="pname" class="form-control" placeholder="Patient Name" required>
-
+                                                                       <br />
                                                                        <input type="text" name="passport" class="form-control" placeholder="IC or Passport Number" required>
-
+                                                                       <br>
                                                                        <input type="text" name="address" class="form-control" placeholder="Patient Address" required>
-
+                                                                       <br>
                                                                        <input type="text" name="phoneno" class="form-control" placeholder="Patient Phone Number" required>
-
+                                                                       <br>
                                                                        <select name="gender" class="form-select">
                                                                             <option value="">Select Gender</option>
                                                                             <option value="Male">Male</option>
                                                                             <option value="Female">Female</option>
                                                                        </select>
-
-                                                                       <input type="date" id="dob" name="dob" class="form-control" placeholder="Date of Birth" required>
-
+                                                                       <br>
+                                                                       <input type="date" name="dob" class="form-control" placeholder="Date of Birth" required>
+                                                                       <br>
+                                                                       <input type="text" class="form-control" placeholder="Date of Birth" required onfocus="(this.type='date')">
+                                                                       <br>
                                                                        <select name="national" class="form-select">
                                                                             <option value="">Select Nationality</option>
                                                                             <option value="Malaysian">Malaysian</option>
