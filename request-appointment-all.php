@@ -24,14 +24,14 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $row['req_appdate']; ?></td>
                                             <td><?php echo $row['req_apptime']; ?></td>
                                             <td><?php echo $row['req_status']; ?></td>
-                                            <!--td>
+                                            <td>
                                                 <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                     <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
                                                     <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
                                                     <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
                                                     <button class="btn btn-info"><i class="bi bi-search"></i></button>
                                                 </div>
-                                            </td-->
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
