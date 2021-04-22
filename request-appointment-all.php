@@ -1,8 +1,8 @@
 <?php
 include 'request-appointment-header.php';
-
-$result = mysqli_query($conn,"SELECT * FROM requestappoint ORDER BY request_id");
-$data = mysqli_fetch_all($result,MYSQLI_ASSOC);
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+$result=mysqli_query($conn, "SELECT * FROM requestappoint ORDER BY request_id");
+$data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 
                             <table class="table table-striped" id="table1">
