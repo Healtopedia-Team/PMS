@@ -185,15 +185,6 @@
                                                                         <div>
                                                                             <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
 
-                                                                            <select class="choices form-select" name="packname">
-                                                                                <optgroup label="Packages">
-                                                                                    <option value="">Select Package</option>
-                                                                                    <?php foreach($data as $key){?>
-                                                                                        <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
-                                                                                    <?php}?>
-                                                                                </optgroup>
-                                                                            </select>
-
                                                                             <input type="text" name="packname" class="form-control" placeholder="Package Name" required>
                                                                             <br>
                                                                             <input type="text" name="pname" class="form-control" placeholder="Patient Name" required>
