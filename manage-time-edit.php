@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
-    
+
     <!--========================== S C R I P T == F O R == D A T E P I C K ==========================-->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -110,7 +110,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time" checked="true" value="09:00AM">&nbsp;09:00AM
+                                            <input type="checkbox" name="time" checked="true" value="09:00AM" style="display: none;">&nbsp;09:00AM
                                         </div>
                                     </div>
                                     <select name="dtime" class="custom-select">
@@ -123,7 +123,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time3" checked="true" value="12:00PM">&nbsp;12:00PM
+                                            <input type="checkbox" name="time3" checked="true" value="12:00PM" style="display: none;">&nbsp;12:00PM
                                         </div>
                                     </div>
                                     <select name="dtime3" class="custom-select">
@@ -136,7 +136,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time10" checked="true" value="07:00PM">&nbsp;07:00PM
+                                            <input type="checkbox" name="time10" checked="true" value="07:00PM" style="display: none;">&nbsp;07:00PM
                                         </div>
                                     </div>
                                     <select name="dtime10" class="custom-select">
@@ -151,7 +151,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time1" checked="true" value="10:00AM">&nbsp;10:00AM
+                                            <input type="checkbox" name="time1" checked="true" value="10:00AM" style="display: none;">&nbsp;10:00AM
                                         </div>
                                     </div>
                                     <select name="dtime1" class="custom-select">
@@ -164,7 +164,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time4" checked="true" value="01:00PM">&nbsp;01:00PM
+                                            <input type="checkbox" name="time4" checked="true" value="01:00PM" style="display: none;">&nbsp;01:00PM
                                         </div>
                                     </div>
                                     <select name="dtime4" class="custom-select">
@@ -177,7 +177,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time11" checked="true" value="08:00PM">&nbsp;08:00PM
+                                            <input type="checkbox" name="time11" checked="true" value="08:00PM" style="display: none;">&nbsp;08:00PM
                                         </div>
                                     </div>
                                     <select name="dtime11" class="custom-select">
@@ -192,7 +192,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time2" checked="true" value="11:00AM">&nbsp;11:00AM
+                                            <input type="checkbox" name="time2" checked="true" value="11:00AM" style="display: none;">&nbsp;11:00AM
                                         </div>
                                     </div>
                                     <select name="dtime2" class="custom-select">
@@ -205,7 +205,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time5" checked="true" value="02:00PM">&nbsp;02:00PM
+                                            <input type="checkbox" name="time5" checked="true" value="02:00PM" style="display: none;">&nbsp;02:00PM
                                         </div>
                                     </div>
                                     <select name="dtime5" class="custom-select">
@@ -218,7 +218,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input type="checkbox" name="time12" checked="true" value="09:00PM">&nbsp;09:00PM
+                                            <input type="checkbox" name="time12" checked="true" value="09:00PM" style="display: none;">&nbsp;09:00PM
                                         </div>
                                     </div>
                                     <select name="dtime12" class="custom-select">
@@ -234,7 +234,7 @@ if (isset($_POST['submit'])) {
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" name="time6" checked="true" value="03:00PM">&nbsp;03:00PM
+                                        <input type="checkbox" name="time6" checked="true" value="03:00PM" style="display: none;">&nbsp;03:00PM
                                     </div>
                                 </div>
                                 <select name="dtime6" class="custom-select">
@@ -251,7 +251,7 @@ if (isset($_POST['submit'])) {
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" name="time7" checked="true"value="04:00PM">&nbsp;04:00PM
+                                        <input type="checkbox" name="time7" checked="true"value="04:00PM" style="display: none;">&nbsp;04:00PM
                                     </div>
                                 </div>
                                 <select name="dtime7" class="custom-select">
@@ -268,7 +268,7 @@ if (isset($_POST['submit'])) {
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" name="time8" checked="true" value="05:00PM">&nbsp;05:00PM
+                                        <input type="checkbox" name="time8" checked="true" value="05:00PM" style="display: none;">&nbsp;05:00PM
                                     </div>
                                 </div>
                                 <select name="dtime8" class="custom-select">
@@ -285,7 +285,7 @@ if (isset($_POST['submit'])) {
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" name="time9" checked="true" value="06:00PM">&nbsp;06:00PM
+                                        <input type="checkbox" name="time9" checked="true" value="06:00PM" style="display: none;">&nbsp;06:00PM
                                     </div>
                                 </div>
                                 <select name="dtime9" class="custom-select">
