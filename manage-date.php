@@ -78,38 +78,37 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
                 <section id="basic-horizontal-layouts">
                     <div class="row match-height">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <form method="POST">
-                                        <label>Date to close :</label>
-                                        <input type="text" name="ddate" class="form-control datepicker" autocomplete="off">
-                                        <br>
-                                        <label>Date to close :</label>
-                                        <input type="text" name="ddate1" class="form-control datepicker" autocomplete="off">
-                                        <br>
-                                        <label>Date to close :</label>
-                                        <input type="text" name="ddate2" class="form-control datepicker" autocomplete="off">
-                                        <br>
-                                        <label>Date to close :</label>
-                                        <input type="text" name="ddate3" class="form-control datepicker" autocomplete="off">
-                                        <br>
-                                        <label>Date to close :</label>
-                                        <input type="text" name="ddate4" class="form-control datepicker" autocomplete="off">
-                                        <br>
-                                        <button type="submit" name="submit" class="btn btn-primary">Close Date</button>
-                                    </form>                     
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <form method="POST">
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate1" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate2" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate3" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <label>Date to close :</label>
+                                            <input type="text" name="ddate4" class="form-control datepicker" autocomplete="off">
+                                            <br>
+                                            <button type="submit" name="submit" class="btn btn-primary">Close Date</button>
+                                        </form>                     
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section id="basic-horizontal-layouts">
-                    <div class="row match-height">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="card-body">
-                                    <table class="table table-striped" id="table1">
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <table class="table table-striped" id="table1">
                                         <thead>
                                             <tr class="table-info">
                                                 <th>DISABLED DATE</th>
@@ -132,6 +131,7 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -152,10 +152,12 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     </div>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
-
+    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+    <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table1');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
