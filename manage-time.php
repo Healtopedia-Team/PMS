@@ -339,15 +339,12 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                     </td>
                                                     <td></td>
                                                 </tr>
-                                                <tr>
-                                                    <td></td>
-                                                    <td style="text-align: center;">
-                                                        <button type="submit" name="submit" class="btn btn-primary">Update</button>
-                                                    </td>
-                                                    <td></td>
-                                                </tr>
                                             </tbody>
                                         </table>
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <button type="submit" name="submit" class="btn btn-primary">Close Slot</button>
+                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
