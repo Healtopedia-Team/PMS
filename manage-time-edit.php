@@ -298,7 +298,7 @@ if (isset($_POST['submit'])) {
                     </tr>
                 </tbody>
             </table>
-            <button type="submit" name="submit" class="btn btn-warning">Update</button>
+            <button type="submit" name="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
 
