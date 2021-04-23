@@ -99,7 +99,6 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
     <style>
         form {
-            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
