@@ -112,7 +112,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Appointment List</h3>
+                            <h3>Close Slot</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -127,9 +127,6 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                 <section id="basic-horizontal-layouts">
                     <div class="row match-height">
                         <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Close Slot</h4>
-                            </div>
                             <div class="card-content">
                                 <div class="card-body">
                                     <form method="POST">
@@ -345,7 +342,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                 <tr>
                                                     <td></td>
                                                     <td style="text-align: center;">
-                                                        <button type="submit" name="submit" class="btn btn-warning">Update</button>
+                                                        <button type="submit" name="submit" class="btn btn-primary">Update</button>
                                                     </td>
                                                     <td></td>
                                                 </tr>
@@ -375,7 +372,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                     <td><?php echo $row['timedisable']; ?></td>
                                                     <td>
                                                         <button type="submit" name="deletetime" class="btn btn-danger">
-                                                            <i class="icon-trash"></i>
+                                                            <i class="bi bi-trash"></i>
                                                             <input type="text" name="deletetime" value="<?php echo $row['timedisdate']; ?>" style="display: none;">
                                                         </button>
                                             </form>
