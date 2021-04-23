@@ -343,7 +343,6 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                         </table>
                                         <div class="col-12 d-flex justify-content-end">
                                             <button type="submit" name="submit" class="btn btn-primary">Close Slot</button>
-                                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                                         </div>
                                     </form>
                                 </div>
