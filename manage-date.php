@@ -108,29 +108,29 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-content">
                                     <div class="card-body">
-                                        <table class="table table-striped" id="table1">
-                                        <thead>
-                                            <tr class="table-info">
-                                                <th>DISABLED DATE</th>
-                                                <th>DELETE</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                        <table class="table table-striped" style="text-align: center;">
+                                            <thead>
+                                                <tr class="table-info">
+                                                    <th>DISABLED DATE</th>
+                                                    <th>DELETE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
                                             <?php foreach($user as $row): ?>
                                                 <form method="POST">
                                                 <tr>
                                                     <td><?php echo $row['datedisable']; ?></td>
                                                     <td>
                                                         <button type="submit" name="deletedate" class="btn btn-danger">
-                                                            <i class="icon-trash"></i>
+                                                            <i class="bi bi-trash"></i>
                                                             <input type="text" name="deletedate" value="<?php echo $row['id']; ?>" style="display: none;">
                                                         </button>
                                                     </td>
                                                 </tr>
                                                 </form>
                                             <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
