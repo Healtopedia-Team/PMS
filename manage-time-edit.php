@@ -103,8 +103,8 @@ if (isset($_POST['submit'])) {
         <div class="row match-height">
             <div class="card">
                 <div class="card-content">
-                    <div class="card-body">
-                        <div class="content" style="width: 600px;">
+                    <div class="card-body" style="text-align: center;">
+                        <div class="content" style="width: 700px;">
                             <div class="alert alert-info" role="alert">
                                 <h3>Edit Time - <?php echo $edittime;?></h3>
                             </div>
