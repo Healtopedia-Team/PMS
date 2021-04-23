@@ -40,11 +40,26 @@ if (isset($_POST['submit'])) {
     $dtime11 = $_POST['dtime11'];
     $dtime12 = $_POST['dtime12'];
 
+    //=========================== L I M I T ==============================//
+    $limit = $_POST['limit'];
+    $limit1 = $_POST['limit1'];
+    $limit2 = $_POST['limit2'];
+    $limit3 = $_POST['limit3'];
+    $limit4 = $_POST['limit4'];
+    $limit5 = $_POST['limit5'];
+    $limit6 = $_POST['limit6'];
+    $limit7 = $_POST['limit7'];
+    $limit8 = $_POST['limit8'];
+    $limit9 = $_POST['limit9'];
+    $limit10 = $_POST['limit10'];
+    $limit11 = $_POST['limit11'];
+    $limit12 = $_POST['limit12'];
+
     $sql = "DELETE FROM xtime WHERE timedisdate = '$date'";
 
     if (mysqli_query($conn,$sql)) {
 
-        $sql2 = "INSERT INTO xtime(timedisdate,timedisable,timeonoff) VALUES('$date','$time','$dtime'),('$date','$time1','$dtime1'),('$date','$time2','$dtime2'),('$date','$time3','$dtime3'),('$date','$time4','$dtime4'),('$date','$time5','$dtime5'),('$date','$time6','$dtime6'),('$date','$time7','$dtime7'),('$date','$time8','$dtime8'),('$date','$time9','$dtime9'),('$date','$time10','$dtime10'),('$date','$time11','$dtime11'),('$date','$time12','$dtime12')";
+        $sql2 = "INSERT INTO xtime(timedisdate,timedisable,timeonoff,totalappoint,limitapp) VALUES('$date','$time','$dtime','0','$limit'),('$date','$time1','$dtime1','0','$limit1'),('$date','$time2','$dtime2','0','$limit2'),('$date','$time3','$dtime3','0','$limit4'),('$date','$time4','$dtime4','0','$limit4'),('$date','$time5','$dtime5','0','$limit5'),('$date','$time6','$dtime6','0','$limit6'),('$date','$time7','$dtime7','0','$limit7'),('$date','$time8','$dtime8','0','$limit8'),('$date','$time9','$dtime9','0','$limit9'),('$date','$time10','$dtime10','0','$limit10'),('$date','$time11','$dtime11','0','$limit11'),('$date','$time12','$dtime12','0','$limit12')";
 
         if(mysqli_query($conn,$sql2)){
             echo "<script>
@@ -78,229 +93,238 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
-    <style>
-        .modal-wrapper { overflow: auto !important; }
-
-        .content {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-          }
-    </style>
 </head>
 
 <body>
 
 <!--=================================== S E L E C T == D A T E ===============================-->
-    
     <input type="text" id="validate" name="validate" value="<?php echo $userid?>" style="display: none;">
-    <form method="POST" name="formdate">
-        <div class="content" style="width: 510px;">
-            <div class="alert alert-info" role="alert">
-              <h3>Edit Time - <?php echo $edittime;?></h3>
-            </div>
-            <form method="POST">
-                <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." value="<?php echo $_GET['date'];?>" style="display: none;">
-                <br>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time" checked="true" value="09:00AM" style="display: none;">&nbsp;09:00AM
+    <section id="basic-horizontal-layouts">
+                    <div class="row match-height">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <form method="POST">
+                                        <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." value="<?php echo $_GET['date'];?>" style="display: none;">
+                                        <label>Select Date:</label><br />
+                                        <br>
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time" checked="true" value="09:00AM" style="display: none;">&nbsp;09:00AM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time3" checked="true" value="12:00PM" style="display: none;">&nbsp;12:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime3" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit3" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time10" checked="true" value="07:00PM" style="display: none;">&nbsp;07:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime10" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit10" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time1" checked="true" value="10:00AM" style="display: none;">&nbsp;10:00AM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime1" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit1" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time4" checked="true" value="01:00PM" style="display: none;">&nbsp;01:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime4" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit4" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time11" checked="true" value="08:00PM" style="display: none;">&nbsp;08:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime11" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit11" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time2" checked="true" value="11:00AM" style="display: none;">&nbsp;11:00AM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime2" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit2" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time5" checked="true" value="02:00PM" style="display: none;">&nbsp;02:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime5" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit5" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time12" checked="true" value="09:00PM" style="display: none;">&nbsp;09:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime12" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit12" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time6" checked="true" value="03:00PM" style="display: none;">&nbsp;03:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime6" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit6" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time7" checked="true" value="04:00PM" style="display: none;">&nbsp;04:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime7" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit7" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time8" checked="true" value="05:00PM" style="display: none;">&nbsp;05:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime8" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                            <input type="text" name="limit8" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                                <div class="input-group-text">
+                                                                    <input type="checkbox" name="time9" checked="true" value="06:00PM" style="display: none;">&nbsp;06:00PM
+                                                                </div>
+                                                            </div>
+                                                            <select name="dtime9" class="custom-select">
+                                                                <option value="On">On</option>
+                                                                <option value="Off">Off</option>
+                                                            </select>
+                                                        <input type="text" name="limit9" class="form-control" value="100">
+                                                        </div>
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="col-12 d-flex justify-content-end">
+                                            <button type="submit" name="submit" class="btn btn-primary">Update Close Slot</button>
                                         </div>
-                                    </div>
-                                    <select name="dtime" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
+                                    </form>
                                 </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time3" checked="true" value="12:00PM" style="display: none;">&nbsp;12:00PM
-                                        </div>
-                                    </div>
-                                    <select name="dtime3" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time10" checked="true" value="07:00PM" style="display: none;">&nbsp;07:00PM
-                                        </div>
-                                    </div>
-                                    <select name="dtime10" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time1" checked="true" value="10:00AM" style="display: none;">&nbsp;10:00AM
-                                        </div>
-                                    </div>
-                                    <select name="dtime1" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time4" checked="true" value="01:00PM" style="display: none;">&nbsp;01:00PM
-                                        </div>
-                                    </div>
-                                    <select name="dtime4" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time11" checked="true" value="08:00PM" style="display: none;">&nbsp;08:00PM
-                                        </div>
-                                    </div>
-                                    <select name="dtime11" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time2" checked="true" value="11:00AM" style="display: none;">&nbsp;11:00AM
-                                        </div>
-                                    </div>
-                                    <select name="dtime2" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time5" checked="true" value="02:00PM" style="display: none;">&nbsp;02:00PM
-                                        </div>
-                                    </div>
-                                    <select name="dtime5" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="time12" checked="true" value="09:00PM" style="display: none;">&nbsp;09:00PM
-                                        </div>
-                                    </div>
-                                    <select name="dtime12" class="custom-select">
-                                        <option value="on">On</option>
-                                        <option value="off">Off</option>
-                                    </select>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                        <td></td>
-                        <td>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="time6" checked="true" value="03:00PM" style="display: none;">&nbsp;03:00PM
-                                    </div>
-                                </div>
-                                <select name="dtime6" class="custom-select">
-                                    <option value="on">On</option>
-                                    <option value="off">Off</option>
-                                </select>
                             </div>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="time7" checked="true"value="04:00PM" style="display: none;">&nbsp;04:00PM
-                                    </div>
-                                </div>
-                                <select name="dtime7" class="custom-select">
-                                    <option value="on">On</option>
-                                    <option value="off">Off</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="time8" checked="true" value="05:00PM" style="display: none;">&nbsp;05:00PM
-                                    </div>
-                                </div>
-                                <select name="dtime8" class="custom-select">
-                                    <option value="on">On</option>
-                                    <option value="off">Off</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="time9" checked="true" value="06:00PM" style="display: none;">&nbsp;06:00PM
-                                    </div>
-                                </div>
-                                <select name="dtime9" class="custom-select">
-                                    <option value="on">On</option>
-                                    <option value="off">Off</option>
-                                </select>
-                            </div>
-                        </td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button type="submit" name="submit" class="btn btn-primary">Update</button>
-        </form>
-    </div>
+                        </div>
+                    </div>
+                </section>
 
     <script>
         if ( window.history.replaceState ) {
