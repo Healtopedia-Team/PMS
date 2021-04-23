@@ -97,6 +97,14 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <style>
+        form {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -129,7 +137,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form method="POST" style="width: 600px;">
+                                    <form method="POST" style="width: 650px;">
                                         <label>Select Date:</label><br />
                                         <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." required>
                                         <br>
