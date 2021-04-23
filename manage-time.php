@@ -383,7 +383,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                 <input type="text" name="deletetime" value="<?php echo $row['timedisdate']; ?>" style="display: none;">
                                                             </button>
                                                 </form>
-                                                            <a href='edittime.php?date=<?php echo $row['timedisdate']; ?>'><button class="btn btn-info"><i class="bi bi-pencil-square"></i></button></a>
+                                                            <a href='manage-time-edit.php?date=<?php echo $row['timedisdate']; ?>'><button class="btn btn-info"><i class="bi bi-pencil-square"></i></button></a>
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
