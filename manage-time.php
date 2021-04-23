@@ -129,11 +129,11 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                         <div class="card">
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form method="POST" style="width: 650px;">
+                                    <form method="POST" style="width: 650px;text-align: center;">
                                         <label>Select Date:</label><br />
                                         <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." required>
                                         <br>
-                                        <table style="text-align: center;">
+                                        <table>
                                             <tbody>
                                                 <tr>
                                                     <td>
