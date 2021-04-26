@@ -52,8 +52,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                     <div class="card">
                         <div class="card-body">
                             <div class="user-img d-flex align-items-center">
-                                <div class="avatar avatar-xxxl">
-                                    <img src="assets/images/faces/1.jpg" style="display: block;margin-left: auto;margin-right: auto;">
+                                <div class="avatar avatar-xxxl" style="text-align: center;">
+                                    <img src="assets/images/faces/1.jpg" style="text-align: center;">
                                 </div>
                             </div>
                         </div>
