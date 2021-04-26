@@ -141,9 +141,6 @@
   width: 32px;
   height: 32px;
   font-size: 0.8rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 .avatar.avatar-lg .avatar-content,
 .avatar.avatar-lg img {
