@@ -104,7 +104,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                 </div>
             </nav>
         </header>
-        <div id="main" style="margin-top: -70px;">
+        <div id="main" style="margin-top: -50px;">
             <div class="page-heading">
                 <div class="page-title">
                     <div class="row">
