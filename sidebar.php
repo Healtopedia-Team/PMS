@@ -57,14 +57,10 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                     </ul>
                     <ul class="submenu <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
                         <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
-                             <i class="bi bi-person-fill"></i><a href="users.php">Users</a>
+                            <a href="update-profile.php">Update Profile</a>
                         </li>
                     </ul>
-                    <ul class="submenu <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
-                        <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
-                            <i class="bi bi-house-fill"></i><a href="hospitals.php">Hospitals</a>
-                        </li>
-                    </ul>
+                    
                 
                 
                 </li>
