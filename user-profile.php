@@ -53,7 +53,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <center>
                                 <div class="user-img d-flex align-items-center">
-                                    <div class="avatar avatar-md">
+                                    <div class="avatar avatar-xxxl">
                                         <img src="assets/images/faces/1.jpg">
                                     </div>
                                 </div>
