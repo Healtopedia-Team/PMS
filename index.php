@@ -101,7 +101,6 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                     <h6 class="dropdown-header">Hello, <?php echo $_SESSION["name"]?>!</h6>
                                 </li>
                                 <li><a class="dropdown-item" href="user-profile.php"><i class="icon-mid bi bi-person me-2"></i>Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>Wallet</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
