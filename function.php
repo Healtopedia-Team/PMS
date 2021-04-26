@@ -33,7 +33,7 @@ function add_user($conn)
         $_SESSION["name"] = $firstname;
         $_SESSION["hospital"] = $hosp;
         $_SESSION["role"] = $role;
-        header('location:index.php');
+        header('location:users.php');
     }
 }
 
