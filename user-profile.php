@@ -56,16 +56,18 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <br>
                                 <center>
                                     <h6>Firstname</h6>
-                                    <input align="ce" type="text" name="accountname" class="form-control" style="width: 400px;">
+                                    <input align="ce" type="text" name="firstnameuser" class="form-control" style="width: 400px;">
                                     <br>
                                     <h6>Lastname</h6>
-                                    <input type="text" name="accountname" class="form-control" style="width: 400px;">
+                                    <input type="text" name="lastnameuser" class="form-control" style="width: 400px;">
                                     <br>
                                     <h6>Email</h6>
-                                    <input type="text" name="accountname" class="form-control" style="width: 400px;">
+                                    <input type="text" name="emailuser" class="form-control" style="width: 400px;">
                                     <br>
                                     <h6>Hospital</h6>
-                                    <input type="text" name="accountname" class="form-control" style="width: 400px;">
+                                    <input type="text" name="hospitaluser" class="form-control" style="width: 400px;">
+                                    <br>
+                                    <button type="submit" name="saveprofile" class="btn btn-primary">SAVE</button>
                                 </center>
                             </div>
                         </div>
