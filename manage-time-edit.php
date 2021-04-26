@@ -112,8 +112,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <div id="app" style="display: none;">
-        <header class="mb-3">
+        <header class="mb-3" style="display: none;">
             <nav class="navbar navbar-expand navbar-light ">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
