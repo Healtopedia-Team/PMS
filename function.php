@@ -66,3 +66,21 @@ function check_user($conn)
 
     }
 }
+
+function add_hospital($conn){
+
+    $hospname = $_POST['hospname'];
+    $hospcompany = $_POST['hospcomp'];
+    $hospphone = $_POST['hospphone'];
+    $hospaddress = $_POST['hospadd'];
+
+    $sql = "INSERT INTO hospital SET hosp_name='$hospname',hosp_company='$hospcompany',hosp_phone='$hospphone', hosp_address='$hospaddress'";
+    if (mysqli_query($conn, $sql)) {
+        header('location:hospitals.php');
+    }
+
+
+
+
+
+}
