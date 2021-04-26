@@ -59,7 +59,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                     <div class="card">
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
-                                <button onclick="functiontry()" style="border-radius: 50%;"><img src="assets/images/faces/1.jpg"></button>
+                                <img src="assets/images/faces/1.jpg" onclick="functiontry()">
                                 <script>
                                     function functiontry(){
                                         alert('DONE!!!!');
