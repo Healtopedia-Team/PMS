@@ -58,7 +58,6 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 </head>
 <body>
-    <body>
     <div id="app">
         <?php include 'sidebar.php'; ?>
         <header class="mb-3">
