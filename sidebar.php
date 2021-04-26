@@ -55,26 +55,18 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                             <a href="update-profile.php">Update Profile</a>
                         </li>
                         <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
-                            <a href="update-profile.php">Update Profile</a>
+        <i class="bi bi-person-fill"></i>
+
+                            <a href="users.php">Users</a>
                         </li>
                         <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
-                            <a href="update-profile.php">Update Profile</a>
+                                                   <i class="bi bi-house-fill"></i>
+ <a href="hospitals.php">Hospitals</a>
                         </li>
                     </ul>
    
                 </li>
-                <li class="sidebar-item <?php if ($your_variable=="users") {echo "active"; }else{echo"noactive";}?>">
-                    <a href="users.php" class='sidebar-link'>
-                        <i class="bi bi-person-fill"></i>
-                        <span>Users</span>
-                    </a>
-                </li>
-                <li class="sidebar-item <?php if ($your_variable=="hospitals") {echo "active"; }else{echo"noactive";}?>">
-                    <a href="hospitals.php" class='sidebar-link'>
-                        <i class="bi bi-house-fill"></i>
-                        <span>Hospitals</span>
-                    </a>
-                </li>
+         
                     
             </ul>
         </div>
