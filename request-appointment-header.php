@@ -6,7 +6,8 @@ $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
- 
+
+session_start(); 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
     header("location: auth-login.php");
