@@ -51,20 +51,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <div class="avatar avatar-xxxl" style="text-align: center;width: 400px;">
+                            <div class="avatar avatar-xxxl" style="text-align: center;">
                                 <img src="assets/images/faces/1.jpg" style="text-align: center;">
-                                <br>
-                                <h6>Firstname</h6>
-                                <input type="text" name="accountname" class="form-control">
-                                <br>
-                                <h6>Lastname</h6>
-                                <input type="text" name="accountname" class="form-control">
-                                <br>
-                                <h6>Email</h6>
-                                <input type="text" name="accountname" class="form-control">
-                                <br>
-                                <h6>Hospital</h6>
-                                <input type="text" name="accountname" class="form-control">
                             </div>
                         </div>
                     </div>
