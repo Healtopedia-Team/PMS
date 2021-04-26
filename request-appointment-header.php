@@ -6,8 +6,7 @@ $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
-
-session_start(); 
+ 
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
     header("location: auth-login.php");
@@ -36,7 +35,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
 </head>
 <body>
     <div id="app">
-        <?php include 'sidebar.php'?>
+        <?php include 'sidebar.php'; ?>
         <header class="mb-3">
             <nav class="navbar navbar-expand navbar-light ">
                 <div class="container-fluid">
@@ -109,9 +108,9 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         </div>
                     </div>
                 </div>
-            </nav>        
+            </nav>
         </header>
-        <div id="main" style="margin-top: -50px;">
+        <div id="main" style="margin-top: -90px;">
             <div class="page-heading">
                 <div class="page-title">
                     <div class="row">
