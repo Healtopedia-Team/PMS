@@ -11,6 +11,9 @@ switch ($theCommand) {
     case "CHECK_USER":
         check_user($conn);
         break;
+    case "ADD_HOSP":
+        add_hospital($conn);
+        break;
     default:
         echo "System Error!";
 }
