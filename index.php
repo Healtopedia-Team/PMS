@@ -100,17 +100,12 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                 <li>
                                     <h6 class="dropdown-header">Hello, <?php echo $_SESSION["name"]?>!</h6>
                                 </li>
-                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
-                                        Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-gear me-2"></i>
-                                        Settings</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>
-                                        Wallet</a></li>
+                                <li><a class="dropdown-item" href="user-profile.php"><i class="icon-mid bi bi-person me-2"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-wallet me-2"></i>Wallet</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-box-arrow-left me-2"></i>
-                                        Logout</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-box-arrow-left me-2"></i>Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -121,8 +116,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 
             <div class="page-heading">
-                <h3>Dashboard
-                </h3>
+                <h3>Dashboard</h3>
             </div>
             <div class="page-content">
                 <section class="row">
@@ -224,11 +218,11 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                         <tr>
                                                             <td class="text-bold-500">
                                                                 <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
-                                                                <?php echo $rows['packagename']; ?><br>
-                                                                                                                            <?php 
 
-                                                            $atime= strtotime('-8 hour', $rows['start_appoint']);
-                                                             echo date('h:i A', $atime); ?><br>
+                                                                <?php echo $rows['packagename']; ?><br>
+                                                                <?php 
+                                                                $atime= strtotime('-8 hour', $rows['start_appoint']);
+                                                                echo date('h:i A', $atime); ?><br>
 
                                                                 <?php
 
