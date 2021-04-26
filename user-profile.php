@@ -55,13 +55,18 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <img src="assets/images/faces/1.jpg" style="text-align: center;">
                             </div>
                             <br>
-                            <div style="width: 500px;text-align: center;">
-                                <h6>Name</h6>
-                                <input type="text" name="firstname" class="form-control" size="2">
-                                <input type="text" name="lastname" class="form-control" size="2">
+                            <div style="width: 300px;text-align: center;">
+                                <h6>Firstname</h6>
+                                <input type="text" name="accountname" class="form-control">
+                                <br>
+                                <h6>Lastname</h6>
+                                <input type="text" name="accountname" class="form-control">
+                                <br>
                                 <h6>Email</h6>
                                 <input type="text" name="accountname" class="form-control">
+                                <br>
                                 <h6>Hospital</h6>
+                                <input type="text" name="accountname" class="form-control">
                             </div>
                         </div>
                     </div>
