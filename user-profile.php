@@ -59,14 +59,9 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                     <div class="card">
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 70%;">
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 40%;">
                                         <img src="assets/images/faces/1.jpg">
                                 </button>
-                                <script>
-                                    function functiontry(){
-                                        alert('DONE!!!!');
-                                    }
-                                </script>
                                 <br>
                                 <center><br>
                                     <?php foreach ($data as $row){ ?>
@@ -103,6 +98,11 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
             </footer>
         </div>
     </div>
+    <script>
+        function functiontry(){
+            alert('DONE!!!!');
+        }
+    </script>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
