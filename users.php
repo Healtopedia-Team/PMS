@@ -70,7 +70,11 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                 </thead>
                                 <tbody>
 
-                                    <?php foreach ($user as $rows) : ?>
+                                    <?php $count = 0; 
+                                    foreach ($user as $rows) :
+                                        
+                                        
+                                        ?>
                                         <tr>
                                             <td><?php echo $rows["first_name"]; ?> <?php echo $rows["last_name"]; ?></td>
                                             <td><?php echo $rows["username"]; ?></td>
@@ -79,7 +83,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             <td><?php echo $rows["hospital"]; ?></td>
                                             <td>
                                                 <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
-                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm2"><i class="bi bi-pencil-square"></i></button>
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm<?php echo $count?>"><i class="bi bi-pencil-square"></i></button>
                                                     <button type="button" class="btn btn-primary" onclick="warning(); location.href = 'function.php?id=<?php echo $rows['user_id']; ?>&command=DELETE_USER';"><i class="bi bi-x-octagon"></i></button>
                                                     <script>
                                                         function warning() {
@@ -90,7 +94,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                 return false;
                                                         }
                                                     </script>
-                                                    <div class="modal fade text-left" id="inlineForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                                                    <div class="modal fade text-left" id="inlineForm<?php echo $count?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -155,7 +159,9 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 </div>
                                             </td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    <?php 
+                                $count++;
+                                endforeach; ?>
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;margin-top: 8px;" data-bs-toggle="modal" data-bs-target="#inlineForm">
