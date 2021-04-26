@@ -54,20 +54,20 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                         <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
                             <a href="update-profile.php">Update Profile</a>
                         </li>
-                    </ul>
-                <ul class="sidebar-item <?php if ($your_variable=="users") {echo "active"; }else{echo"noactive";}?>">
+                    </ul></li>
+                <li class="sidebar-item <?php if ($your_variable=="users") {echo "active"; }else{echo"noactive";}?>">
                     <a href="users.php" class='sidebar-link'>
                         <i class="bi bi-person-fill"></i>
                         <span>Users</span>
                     </a>
-                </ul>
-                <ul class="sidebar-item <?php if ($your_variable=="hospitals") {echo "active"; }else{echo"noactive";}?>">
+                </li>
+                <li class="sidebar-item <?php if ($your_variable=="hospitals") {echo "active"; }else{echo"noactive";}?>">
                     <a href="hospitals.php" class='sidebar-link'>
                         <i class="bi bi-house-fill"></i>
                         <span>Hospitals</span>
                     </a>
-                </ul>
-                    </li>
+                </li>
+                    
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
