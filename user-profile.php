@@ -59,7 +59,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                     <div class="card">
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
-                                <img src="assets/images/faces/1.jpg" onclick="functiontry()">
+                                <img src="assets/images/faces/1.jpg" data-bs-toggle="tooltip"
+                                        data-bs-placement="left" title="Tooltip on left">
                                 <script>
                                     function functiontry(){
                                         alert('DONE!!!!');
