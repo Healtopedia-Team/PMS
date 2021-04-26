@@ -52,7 +52,7 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                     </a>
                     <ul class="submenu <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
                         <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
-                            <a href="update-profile.php">Update Profile</a>
+                            <a href="user-profile.php">Profile</a>
                         </li>
                         <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
                             <a href="users.php">Users</a>
