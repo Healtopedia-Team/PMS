@@ -53,9 +53,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <div class="avatar avatar-xxxl" style="text-align: center;">
                                 <img src="assets/images/faces/1.jpg" style="text-align: center;">
-                            </div>
-                            <br>
-                            <div style="width: 300px;text-align: center;">
+                                <br>
+                                <div style="width: 400px;text-align: center;">
                                 <h6>Firstname</h6>
                                 <input type="text" name="accountname" class="form-control">
                                 <br>
@@ -67,6 +66,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <br>
                                 <h6>Hospital</h6>
                                 <input type="text" name="accountname" class="form-control">
+                            </div>
                             </div>
                         </div>
                     </div>
