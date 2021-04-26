@@ -51,13 +51,13 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <center>
                                 <div class="user-img d-flex align-items-center">
                                     <div class="avatar avatar-xxxl">
+                                     <center>
                                         <img src="assets/images/faces/1.jpg">
+                                     </center>
                                     </div>
                                 </div>
-                            </center>
                         </div>
                     </div>
                 </section>
