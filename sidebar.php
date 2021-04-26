@@ -50,14 +50,14 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
                         <i class="bi bi-gear-fill"></i>
                         <span>Setting</span>
                     </a>
-                    <ul class="submenu <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
-                        <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
+                    <ul class="submenu <?php if ($your_variable=="user-profile" || $your_variable=="users" || $your_variable=="hospitals") {echo "active"; }else{echo"noactive";}?>">
+                        <li class="submenu-item <?php if ($your_variable=="user-profile") {echo "active"; }else{echo"noactive";}?>">
                             <a href="user-profile.php">Profile</a>
                         </li>
-                        <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
+                        <li class="submenu-item <?php if ($your_variable=="users") {echo "active"; }else{echo"noactive";}?>">
                             <a href="users.php">Users</a>
                         </li>
-                        <li class="submenu-item <?php if ($your_variable=="update-profile") {echo "active"; }else{echo"noactive";}?>">
+                        <li class="submenu-item <?php if ($your_variable=="hospitals") {echo "active"; }else{echo"noactive";}?>">
                              <a href="hospitals.php">Hospitals</a>
                         </li>
                     </ul>
