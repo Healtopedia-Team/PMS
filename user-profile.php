@@ -6,9 +6,6 @@ session_start();
 if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
     header("location: auth-login.php");
     exit;
-}else{
-    $sql = mysqli_query($conn,"SELECT * FROM user WHERE first_name = '$_SESSION['name']'");
-    $data = mysqli_fetch_all($sql,MYSQLI_ASSOC);
 }
 ?>
 <!DOCTYPE html>
