@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" style="display: none;">
         <header class="mb-3">
             <nav class="navbar navbar-expand navbar-light ">
                 <div class="container-fluid">
