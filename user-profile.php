@@ -54,6 +54,19 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                             <div class="avatar avatar-xxxl" style="text-align: center;">
                                 <img src="assets/images/faces/1.jpg">
                             </div>
+                            <div class="avatar avatar-xxxl" style="text-align: center;">
+                                <h6>Firstname</h6>
+                                <input type="text" name="accountname" class="form-control">
+                                <br>
+                                <h6>Lastname</h6>
+                                <input type="text" name="accountname" class="form-control">
+                                <br>
+                                <h6>Email</h6>
+                                <input type="text" name="accountname" class="form-control">
+                                <br>
+                                <h6>Hospital</h6>
+                                <input type="text" name="accountname" class="form-control">
+                            </div>
                         </div>
                     </div>
                 </section>
