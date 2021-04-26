@@ -58,11 +58,11 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <div class="avatar avatar-xxxl">
+                            <!--div class="avatar avatar-xxxl">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
                                         <img src="assets/images/faces/1.jpg">
                                 </button>
-                            </div>
+                            </div-->
                             <div>
                                 <center><br>
                                     <?php foreach ($data as $row){ ?>
