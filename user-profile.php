@@ -53,8 +53,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
                                 <img src="assets/images/faces/1.jpg">
-                                <br><br>
                                 <center>
+                                    <br>
                                     <h6>Firstname</h6>
                                     <input align="ce" type="text" name="firstnameuser" class="form-control" style="width: 400px;">
                                     <br>
