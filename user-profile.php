@@ -1,4 +1,6 @@
-<?php include 'dbconnect.php';
+<?php
+
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
 session_start();
  
@@ -6,6 +8,11 @@ session_start();
 if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
     header("location: auth-login.php");
     exit;
+}else{
+    $name = $_SESSION["name"];
+
+    $query = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$name'");
+    $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
 ?>
 <!DOCTYPE html>
@@ -53,19 +60,21 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
                                 <img src="assets/images/faces/1.jpg">
+                                <br>
                                 <center>
-                                    <br>
+                                    <?php foreach ($data as $row){ ?>
                                     <h6>Firstname</h6>
-                                    <input align="ce" type="text" name="firstnameuser" class="form-control" style="width: 400px;">
+                                    <input align="ce" type="text" name="firstnameuser" value="<?php echo $row['first_name'];?>" class="form-control" style="width: 400px;">
                                     <br>
                                     <h6>Lastname</h6>
-                                    <input type="text" name="lastnameuser" class="form-control" style="width: 400px;">
+                                    <input type="text" name="lastnameuser" value="<?php echo $row['last_name'];?>" class="form-control" style="width: 400px;">
                                     <br>
                                     <h6>Email</h6>
-                                    <input type="text" name="emailuser" class="form-control" style="width: 400px;">
+                                    <input type="text" name="emailuser" value="<?php echo $row['email'];?>" class="form-control" style="width: 400px;">
                                     <br>
                                     <h6>Hospital</h6>
-                                    <input type="text" name="hospitaluser" class="form-control" style="width: 400px;">
+                                    <input type="text" name="hospitaluser" value="<?php echo $row['hospital'];?>" class="form-control" style="width: 400px;">
+                                    <?php } ?>
                                     <br>
                                     <button type="submit" name="saveprofile" class="btn btn-primary">SAVE</button>
                                 </center>
