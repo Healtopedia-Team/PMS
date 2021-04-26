@@ -71,8 +71,13 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $rows["hosp_company"]; ?></td>
                                             <td><?php echo $rows["hosp_phone"]; ?></td>
                                             <td><?php echo $rows["hosp_address"]; ?></td>
+                                            <td>
+                                                <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
+                                                    <button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
+                                                    <button type="button" class="btn btn-primary"><i class="bi bi-x-octagon"></i></button>
+                                                </div>
+                                            </td>
                                         </tr>
-
                                             <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -153,5 +158,4 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     <script src="assets/js/main.js"></script>
 </body>
-
 </html>
