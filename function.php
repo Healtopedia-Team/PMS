@@ -14,6 +14,12 @@ switch ($theCommand) {
     case "ADD_HOSP":
         add_hospital($conn);
         break;
+    case "DELETE_USER":
+        delete_user($conn);
+        break;
+    case "UPDATE_USER":
+        update_user($conn);
+        break;
     default:
         echo "System Error!";
 }
@@ -82,8 +88,31 @@ function add_hospital($conn){
         header('location:hospitals.php');
     }
 
-
-
-
-
 }
+function delete_user($conn)
+{
+
+    $userid = $_REQUEST['id'];
+    $sql = "DELETE user FROM user WHERE user_id=$userid";
+    if (mysqli_multi_query($conn, $sql)) {
+        header('location:users.php');
+    }
+}
+
+function update_user($conn)
+{
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $username = $_POST['username'];
+    $pass = $_POST['password'];
+    $email = $_POST['email'];
+    $hosp = $_POST['hospital'];
+    $role = $_POST['role'];
+
+    $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp'";
+    if (mysqli_query($conn, $sql)) {
+        header('location:users.php');
+    }
+    
+}
+
