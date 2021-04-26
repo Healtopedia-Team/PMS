@@ -60,8 +60,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
                                 <img src="assets/images/faces/1.jpg">
-                                <br>
-                                <center>
+                                <center><br>
                                     <?php foreach ($data as $row){ ?>
                                     <h6>Firstname</h6>
                                     <input align="ce" type="text" name="firstnameuser" value="<?php echo $row['first_name'];?>" class="form-control" style="width: 400px;">
