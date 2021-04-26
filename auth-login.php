@@ -59,7 +59,7 @@
                                 <div class="">
                                     <br><br>
 
-                                    <p>Don't have an account? <a href="auth-register.html" class="font-bold">Sign
+                                    <p>Don't have an account? <a href="auth-register.php" class="font-bold">Sign
                                             up</a>.</p>
                                     <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a></p>
                                 </div>
