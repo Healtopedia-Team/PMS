@@ -1,4 +1,11 @@
 <?php
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
+    header("location: auth-login.php");
+    exit;
+}
 
 error_reporting(0);
 $edittime = $_GET['date'];
@@ -105,6 +112,30 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
+    <div id="app">
+        <header class="mb-3">
+            <nav class="navbar navbar-expand navbar-light ">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="dropdown">
+                            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="user-menu d-flex">
+                                    <div class="user-name text-end me-3">
+                                        <h6 class="mb-0 text-gray-600"><?php echo $_SESSION["name"]?></h6>
+                                        <p class="mb-0 text-sm text-gray-600"><?php echo $_SESSION["role"]?></p>
+                                    </div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <h6 class="dropdown-header">Hello, <?php echo $_SESSION["name"]?>!</h6>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
 <!--=================================== S E L E C T == D A T E ===============================-->
     <input type="text" id="validate" name="validate" value="<?php echo $userid?>" style="display: none;">
