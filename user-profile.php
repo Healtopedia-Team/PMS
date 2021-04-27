@@ -61,9 +61,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                             <div class="avatar avatar-xxxl">
                                 <?php foreach ($data as $row){ ?>
                                 <form method="POST">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
+                                <button type="button" class="btn btn-outline-secondary" onclick="functiontry()" style="border-radius: 50%;">
                                         <img src="assets/images/faces/1.jpg" id="profileDisplay">
-                                        <input type="file" name="userimage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
                                 </button>
                                 <br>
                                 <center><br>
