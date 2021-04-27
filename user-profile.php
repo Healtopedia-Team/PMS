@@ -59,27 +59,29 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                     <div class="card">
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
                                         <img src="assets/images/faces/1.jpg" id="profileDisplay">
                                         <input type="file" name="image" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
                                 </button>
                                 <br>
                                 <center><br>
                                     <?php foreach ($data as $row){ ?>
-                                    <h6>Firstname</h6>
-                                    <input align="ce" type="text" name="firstnameuser" value="<?php echo $row['first_name'];?>" class="form-control" style="width: 400px;">
-                                    <br>
-                                    <h6>Lastname</h6>
-                                    <input type="text" name="lastnameuser" value="<?php echo $row['last_name'];?>" class="form-control" style="width: 400px;">
-                                    <br>
-                                    <h6>Email</h6>
-                                    <input type="text" name="emailuser" value="<?php echo $row['email'];?>" class="form-control" style="width: 400px;">
-                                    <br>
-                                    <h6>Hospital</h6>
-                                    <input type="text" name="hospitaluser" value="<?php echo $row['hospital'];?>" class="form-control" style="width: 400px;">
-                                    <?php } ?>
-                                    <br>
-                                    <button type="submit" name="saveprofile" class="btn btn-primary">SAVE</button>
+                                    <form method="POST">
+                                        <h6>Firstname</h6>
+                                        <input align="ce" type="text" name="firstnameuser" value="<?php echo $row['first_name'];?>" class="form-control" style="width: 400px;">
+                                        <br>
+                                        <h6>Lastname</h6>
+                                        <input type="text" name="lastnameuser" value="<?php echo $row['last_name'];?>" class="form-control" style="width: 400px;">
+                                        <br>
+                                        <h6>Email</h6>
+                                        <input type="text" name="emailuser" value="<?php echo $row['email'];?>" class="form-control" style="width: 400px;">
+                                        <br>
+                                        <h6>Hospital</h6>
+                                        <input type="text" name="hospitaluser" value="<?php echo $row['hospital'];?>" class="form-control" style="width: 400px;">
+                                        <?php } ?>
+                                        <br>
+                                        <button type="submit" name="saveprofile" class="btn btn-primary">SAVE</button>
+                                    </form>
                                 </center>
                             </div>
                         </div>
