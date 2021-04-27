@@ -3,7 +3,7 @@
 <?php
 include 'dbconnect.php';
 
-$result = mysqli_query($conn, "SELECT hosp_name,hosp_company,hosp_phone,hosp_address FROM hospital");
+$result = mysqli_query($conn, "SELECT * FROM hospital");
 $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
@@ -26,7 +26,7 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <body>
     <div id="app">
-<?php include 'sidebar.php' ?>
+        <?php include 'sidebar.php' ?>
         <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
@@ -53,7 +53,7 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                        
+
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
@@ -65,7 +65,9 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($hospital as $rows) : ?>
+                                    <?php
+                                    $count = 0;
+                                    foreach ($hospital as $rows) : ?>
                                         <tr>
                                             <td><?php echo $rows["hosp_name"]; ?></td>
                                             <td><?php echo $rows["hosp_company"]; ?></td>
@@ -73,60 +75,107 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $rows["hosp_address"]; ?></td>
                                             <td>
                                                 <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
-                                                    <button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
-                                                    <button type="button" class="btn btn-primary"><i class="bi bi-x-octagon"></i></button>
+                                                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm<?php echo $count; ?>"><i class=" bi bi-pencil-square"></i></button>
+                                                    <a href="function.php?id=<?php echo $rows['hosp_id']; ?>&command=DELETE_HOSP" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete this hospital?')"><i class="bi bi-x-octagon"></i></a>
+
+                                                </div>
+                                                <div class="modal fade text-left" id="inlineForm<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title" id="myModalLabel33">Hospital Form </h4>
+                                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+                                                            <form action="function.php" method="POST">
+                                                                <input type="hidden" name="command" value="UPDATE_HOSP">
+                                                                <input type="hidden" name="id" value="<?php echo $rows["hosp_id"]; ?>">
+                                                                <div class="modal-body">
+                                                                    <label>Hospital Name: </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" value="<?php echo $rows["hosp_name"]; ?>" class="form-control" name="hospname">
+                                                                    </div>
+                                                                    <label>Hospital Company: </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" value="<?php echo $rows["hosp_company"]; ?>" class="form-control" name="hospcomp">
+                                                                    </div>
+                                                                    <label>Phone No: </label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" value="<?php echo $rows["hosp_phone"]; ?>" class="form-control" name="hospphone">
+                                                                    </div>
+                                                                    <label>Hospital Address: </label>
+                                                                    <div class="form-group">
+                                                                        <textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3" name="hospadd"><?php echo $rows["hosp_address"]; ?></textarea>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Close</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Submit</span>
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </tr>
-                                            <?php endforeach; ?>
+                                    <?php
+                                        $count++;
+                                    endforeach; ?>
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;margin-top: 8px;" data-bs-toggle="modal" data-bs-target="#inlineForm">
                                 Add Hospital
                             </button>
                             <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myModalLabel33">Hospital Form </h4>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                        <i data-feather="x"></i>
-                                    </button>
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel33">Hospital Form </h4>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <form action="function.php" method="POST">
+                                            <input type="hidden" name="command" value="ADD_HOSP">
+                                            <div class="modal-body">
+                                                <label>Hospital Name: </label>
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Hospital Name" class="form-control" name="hospname">
+                                                </div>
+                                                <label>Hospital Company: </label>
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Company Name" class="form-control" name="hospcomp">
+                                                </div>
+                                                <label>Phone No: </label>
+                                                <div class="form-group">
+                                                    <input type="text" placeholder="Phone No." class="form-control" name="hospphone">
+                                                </div>
+                                                <label>Hospital Address: </label>
+                                                <div class="form-group">
+                                                    <textarea type="text" placeholder="Address" class="form-control" id="exampleFormControlTextarea1" rows="3" name="hospadd"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Close</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary ml-1">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Submit</span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                <form action="function.php" method="POST">
-                                    <input type="hidden" name="command" value="ADD_HOSP">
-                                    <div class="modal-body">
-                                        <label>Hospital Name: </label>
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Hospital Name" class="form-control" name="hospname">
-                                        </div>
-                                        <label>Hospital Company: </label>
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Company Name" class="form-control" name="hospcomp">
-                                        </div>
-                                        <label>Phone No: </label>
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Phone No." class="form-control" name="hospphone">
-                                        </div>
-                                        <label>Hospital Address: </label>
-                                        <div class="form-group">
-                                            <textarea type="text" placeholder="Address" class="form-control" id="exampleFormControlTextarea1" rows="3" name="hospadd"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Close</span>
-                                        </button>
-                                        <button type="submit" class="btn btn-primary ml-1">
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Submit</span>
-                                        </button>
-                                    </div>
-                                </form>
                             </div>
-                        </div>
-                    </div>
                         </div>
                     </div>
 
@@ -139,8 +188,7 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <p>2021 &copy; Mazer</p>
                     </div>
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
                     </div>
                 </div>
             </footer>
