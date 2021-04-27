@@ -60,7 +60,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
-                                        <img src="assets/images/faces/1.jpg">
+                                        <img src="assets/images/faces/1.jpg" id="profileDisplay">
+                                        <input type="file" name="image" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
                                 </button>
                                 <br>
                                 <center><br>
@@ -99,8 +100,14 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
         </div>
     </div>
     <script>
-        function functiontry(){
-            alert('DONE!!!!');
+        function functiontry(e) { document.querySelector('#profileImage').click(); }
+        function displayImage(e) {
+            if (e.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    document.querySelector('#profileDisplay').setAttribute('src', e.target.result);}
+                    reader.readAsDataURL(e.files[0]);
+            }
         }
     </script>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
