@@ -14,6 +14,12 @@ switch ($theCommand) {
     case "ADD_HOSP":
         add_hospital($conn);
         break;
+    case "DELETE_HOSP":
+        delete_hospital($conn);
+        break;
+    case "UPDATE_HOSP":
+        update_hospital($conn);
+        break;
     case "DELETE_USER":
         delete_user($conn);
         break;
@@ -117,3 +123,26 @@ function update_user($conn)
     
 }
 
+function delete_hospital($conn)
+{
+
+    $hospid = $_REQUEST['id'];
+    $sql = "DELETE hospital FROM hospital WHERE hosp_id=$hospid";
+    if (mysqli_multi_query($conn, $sql)) {
+        header('location:hospitals.php');
+    }
+}
+
+function update_hospital($conn)
+{
+    $id = $_POST['id'];
+    $hospname = $_POST['hospname'];
+    $hospcompany = $_POST['hospcomp'];
+    $hospphone = $_POST['hospphone'];
+    $hospaddress = $_POST['hospadd'];
+
+    $sql = "UPDATE hospital SET hosp_name='$hospname',hosp_company='$hospcompany',hosp_phone='$hospphone', hosp_address='$hospaddress' WHERE hosp_id='$id'";
+    if (mysqli_query($conn, $sql)) {
+        header('location:hospitals.php');
+    }
+}
