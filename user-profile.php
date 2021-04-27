@@ -60,9 +60,9 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
                                 <?php foreach ($data as $row){ ?>
-                                <form action="fucntionuserprofile.php" method="POST">
+                                <form method="POST">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
-                                        <img src="<?php echo 'images/'. $row['user_profile']; ?>" id="profileDisplay">
+                                        <img src="assets/images/faces/1.jpg" id="profileDisplay">
                                         <input type="file" name="userimage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
                                 </button>
                                 <br>
@@ -101,17 +101,6 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
             </footer>
         </div>
     </div>
-    <script>
-        function functiontry(e) { document.querySelector('#profileImage').click(); }
-        function displayImage(e) {
-            if (e.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e){
-                    document.querySelector('#profileDisplay').setAttribute('src', e.target.result);}
-                    reader.readAsDataURL(e.files[0]);
-            }
-        }
-    </script>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
