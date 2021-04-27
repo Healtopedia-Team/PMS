@@ -20,16 +20,14 @@ if (isset($_POST['saveprofile'])) {
     $lastnameuser = $_POST['lastnameuser'];
     $emailuser = $_POST['emailuser'];
     $hospitaluser = $_POST['hospitaluser'];
-    $image=time() . '-' . $_POST['userimage'];
 
-    //upload the image to a specific folder first and this folder for example called (images)
+    $image=time() . '-' . $_FILES['userimage']['name'];
+    $imageDir=$_FILES['userimage']['tmp_name'];
 
-    $target_dir="https://github.com/Healtopedia-Team/PMS/tree/main/images/";
-    $target_file=$target_dir . basename($image);
+    $upload_dir = 'images/';
+    $imageExt = strtolower(pathinfo($image,PATHINFO_EXTENSION));
 
-    //now move the image to the folder (images)
-
-    move_uploaded_file($_POST['userimage']['tmp_name'], $target_file);
+    move_uploaded_file($imageDir,$upload_dir.$image);
 
     $sql = "UPDATE user SET first_name = '$firstnameuser', last_name = '$lastnameuser', email = '$emailuser', hospital = '$hospitaluser', user_profile = '$image'";
     if (mysqli_query($conn,$sql)) {
