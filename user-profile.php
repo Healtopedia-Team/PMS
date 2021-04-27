@@ -14,10 +14,6 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
     $query = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$name'");
     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 }
-
-if (isset($_POST['saveprofile'])) {
-    include 'fucntionuserprofile.php';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +60,7 @@ if (isset($_POST['saveprofile'])) {
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
                                 <?php foreach ($data as $row){ ?>
-                                <form method="POST">
+                                <form action="fucntionuserprofile.php" method="POST">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
                                         <img src="<?php echo 'images/'. $row['user_profile']; ?>" id="profileDisplay">
                                         <input type="file" name="userimage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
