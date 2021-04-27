@@ -63,7 +63,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <form method="POST">
                                 <button type="button" class="btn btn-outline-secondary" onclick="functiontry()" style="border-radius: 50%;">
                                        <img src="images/<?php if ($row['user_profile'] ==""){
- echo "images/avatar.jpg";
+ echo "avatar.jpg";
 }
                                                               
                                                               
