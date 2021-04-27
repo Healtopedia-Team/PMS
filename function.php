@@ -101,6 +101,7 @@ function delete_user($conn)
 
 function update_user($conn)
 {
+    $id = $_POST['id'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $username = $_POST['username'];
@@ -109,7 +110,7 @@ function update_user($conn)
     $hosp = $_POST['hospital'];
     $role = $_POST['role'];
 
-    $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp'";
+    $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp' WHERE user_id='$id'";
     if (mysqli_query($conn, $sql)) {
         header('location:users.php');
     }
