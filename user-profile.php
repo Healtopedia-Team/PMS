@@ -24,7 +24,7 @@ if (isset($_POST['saveprofile'])) {
 
     //upload the image to a specific folder first and this folder for example called (images)
 
-    $target_dir="images/";
+    $target_dir="https://github.com/Healtopedia-Team/PMS/tree/main/images/";
     $target_file=$target_dir . basename($image);
 
     //now move the image to the folder (images)
