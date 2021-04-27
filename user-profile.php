@@ -34,6 +34,7 @@ if (isset($_POST['saveprofile'])) {
     $sql = "UPDATE user SET first_name = '$firstnameuser', last_name = '$lastnameuser', email = '$emailuser', hospital = '$hospitaluser', user_profile = '$image'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Successfully update profile");</script>';
+        header("Location: auth-login.php");
     }
 }
 ?>
