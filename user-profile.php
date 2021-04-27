@@ -86,7 +86,7 @@ if (isset($_POST['saveprofile'])) {
                                 <form method="POST">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
                                         <img src="<?php echo 'images/'. $row['user_profile']; ?>" id="profileDisplay">
-                                        <input type="file" name="image" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
+                                        <input type="file" name="image" onChange="displayImage(this)" id="profileImage" class="form-control" accept='image/*'>
                                 </button>
                                 <br>
                                 <center><br>
