@@ -29,7 +29,7 @@ if (isset($_POST['saveprofile'])) {
 
     //now move the image to the folder (images)
 
-    move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+    move_uploaded_file($_POST['userimage']['tmp_name'], $target_file);
 
     $sql = "UPDATE user SET first_name = '$firstnameuser', last_name = '$lastnameuser', email = '$emailuser', hospital = '$hospitaluser', user_profile = '$image'";
     if (mysqli_query($conn,$sql)) {
