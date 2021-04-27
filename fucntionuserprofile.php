@@ -1,3 +1,5 @@
+<?php
+if (isset($_POST['saveprofile'])) {
     $firstnameuser = $_POST['firstnameuser'];
     $lastnameuser = $_POST['lastnameuser'];
     $emailuser = $_POST['emailuser'];
@@ -23,3 +25,5 @@
         }
         header("Location: auth-login.php");
     }
+}
+?>
