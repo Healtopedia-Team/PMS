@@ -20,7 +20,7 @@ if (isset($_POST['saveprofile'])) {
     $lastnameuser = $_POST['lastnameuser'];
     $emailuser = $_POST['emailuser'];
     $hospitaluser = $_POST['hospitaluser'];
-    $image=time() . '-' . $_FILES['image']['name'];
+    $image=time() . '-' . $_POST['userimage'];
 
     //upload the image to a specific folder first and this folder for example called (images)
 
@@ -86,7 +86,7 @@ if (isset($_POST['saveprofile'])) {
                                 <form method="POST">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="click to change" onclick="functiontry()" style="border-radius: 50%;">
                                         <img src="<?php echo 'images/'. $row['user_profile']; ?>" id="profileDisplay">
-                                        <input type="file" name="image" onChange="displayImage(this)" id="profileImage" class="form-control" accept='image/*'>
+                                        <input type="file" name="userimage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
                                 </button>
                                 <br>
                                 <center><br>
