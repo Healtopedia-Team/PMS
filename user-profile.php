@@ -62,7 +62,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <?php foreach ($data as $row){ ?>
                                 <form method="POST">
                                 <button type="button" class="btn btn-outline-secondary" onclick="functiontry()" style="border-radius: 50%;">
-                                       <img src="images/1612926572-tcm_logo.png"  id="profileDisplay">
+                                       <img src="images/<?php echo $row['user_profile'];?>"  id="profileDisplay">
                                 </button>
                                 <br>
                                 <center><br>
