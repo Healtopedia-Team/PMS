@@ -182,7 +182,7 @@ if (!$err3) {
          <div style="position:absolute;left:10.80px;top:137.27px" class="cls_009">
             <span class="cls_009">IMPORTANT</span><span class="cls_010">: AT ALL TIMES HAVE THIS BOOKING CONFIRMATION AND</span>
          </div>
-         <div style="position:absolute;left:479px;top:140px" class="cls_014">
+         <div style="position:absolute;left:479px;top:145px" class="cls_014">
             <span class="cls_014">*Individual Booking</span>
          </div>
          <div style="position:absolute;left:10.80px;top:149.27px" class="cls_010">
