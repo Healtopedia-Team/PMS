@@ -1,4 +1,7 @@
 <?php
+
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+
 if (isset($_POST['saveprofile'])) {
     $firstnameuser = $_POST['firstnameuser'];
     $lastnameuser = $_POST['lastnameuser'];
