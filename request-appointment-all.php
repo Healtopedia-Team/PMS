@@ -38,9 +38,9 @@ if (isset($_POST['reqaccept'])) {
                                                 <td>
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                         <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                        <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                        <!--button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
                                                         <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                        <a href="request-info.php"><button class="btn btn-info"><i class="bi bi-search"></i></button></a>
+                                                        <a href="request-info.php"><button class="btn btn-info"><i class="bi bi-search"></i></button></a-->
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                     </div>
                                                 </td>
