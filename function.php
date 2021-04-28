@@ -133,13 +133,8 @@ function update_profile($conn)
     $image = time() . '-' . $_FILES['image']['name'];
     $target_dir = "images/";
     $target_file = $target_dir . basename($image);
-   if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-    $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', user_profile='$image' WHERE user_id='$id'";
-    if (mysqli_query($conn, $sql)) {
-        header('location:user-profile.php');
-    }
-   }else
-       echo 'error!';
+    echo $image;
+    echo $target_file;
 }
 
 function delete_hospital($conn)
