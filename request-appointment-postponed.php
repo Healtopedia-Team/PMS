@@ -64,7 +64,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                     $sql = "UPDATE requestappoint SET req_status = 'postponed' WHERE request_id = '$requestid'";
                     if (mysqli_query($conn,$sql)) {
                         echo '<script>alert("Request rejected.");</script>';
-                        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+                        echo '<script>window.location.href = "request-appointment-postponed.php";</script>';
                     }
                 }else{ ?>
                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
