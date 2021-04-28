@@ -3,7 +3,7 @@ include 'request-appointment-header.php';
 
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
-$result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE status = 'postponed' ORDER BY request_id");
+$result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'postponed' ORDER BY request_id");
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_POST['reqpostpone'])) {
