@@ -48,10 +48,6 @@ function add_user($conn)
 
     $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
     if (mysqli_query($conn, $sql)) {
-        $_SESSION["loggedin"] = true;
-        $_SESSION["name"] = $firstname;
-        $_SESSION["hospital"] = $hosp;
-        $_SESSION["role"] = $role;
         header('location:users.php');
     }
 }
