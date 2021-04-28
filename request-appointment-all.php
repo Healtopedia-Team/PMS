@@ -61,14 +61,8 @@ if (isset($_POST['reqreject'])) {
 
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                 </form>
-
-                                                        <button class="btn btn-info" onclick="requestinfo()"><i class="bi bi-search"></i></button>
+                                                        <a href="request-info.php" class="btn btn-info"><input type="button" class="bi bi-search"></a>
                                                     </div>
-                                                <script>
-                                                    function requestinfo(){
-                                                        window.location.href = "request-info.php";
-                                                    }
-                                                </script>
                                             </td>
                                         </tr>
                                     <?php } ?>
