@@ -121,17 +121,19 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <div class="card-header">
                                     <h4 class="card-title">Check Date</h4>
                                 </div>
-                                <div class="card-content" style="text-align: center;">
-                                    <div class="card-body" style="text-align: center;">
-                                        <div class="form-body" style="text-align: center;">
-                                            <div class="row" style="text-align: center;">
-                                                <form method="POST" style="text-align: center;">
-                                                    <div style="text-align: center; width:600px;">
-                                                        <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
-                                                        <br>
-                                                        <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABLE&nbsp;&nbsp;<i class="bi bi-chevron-double-down"></i></button>
-                                                        <br><br>
-                                                    </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <form method="POST">
+                                                    <center>
+                                                        <div style="width:600px;">
+                                                            <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
+                                                            <br>
+                                                            <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABLE&nbsp;&nbsp;<i class="bi bi-chevron-double-down"></i></button>
+                                                            <br><br>
+                                                        </div>
+                                                    </center>
                                                 </form>
                                             </div>
                                         </div>
