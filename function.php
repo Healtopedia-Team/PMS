@@ -133,7 +133,7 @@ function update_profile($conn)
     
     $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp' WHERE user_id='$id'";
     if (mysqli_query($conn, $sql)) {
-        header('location:user-profile.php');
+        header('location:index.php');
     }
    
 }
