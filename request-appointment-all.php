@@ -28,7 +28,7 @@ if (isset($_POST['reqpostpone'])) {
     $requestid = $_POST['requestid'];
     $sql = "UPDATE requestappoint SET req_status = 'postponed' WHERE request_id = '$requestid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Request rejected.");</script>';
+        echo '<script>alert("Request postponed.");</script>';
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
