@@ -244,14 +244,14 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                 </button></td>
                                                         <?php
                                                                 } elseif ($status == "cancelled") { ?>
-                                                            span class="badge bg-danger">Canceled</span>
+                                                            <span class="badge bg-danger">Canceled</span>
 
                                                             </td>
                                                             <td class="text-bold-500"></td>
                                                         <?php
                                                                 } else { ?>
 
-                                                            span class="badge bg-warning">Waiting Payment</span>
+                                                            <span class="badge bg-warning">Waiting Payment</span>
 
                                                             </td>
                                                             <td class="text-bold-500"></td>
