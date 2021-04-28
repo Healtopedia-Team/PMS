@@ -43,7 +43,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>">
 
-                                                        <input type="text" name="requeststatus" value="<?php echo $row['request_id']; ?>">
+                                                        <input type="text" name="requeststatus" value="<?php echo $row['req_status']; ?>">
                                                 </form>
                                                         <a href="request-info.php" class="btn btn-info"><i class="bi bi-search"></i></a>
                                                     </div>
