@@ -126,7 +126,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                         <div class="form-body">
                                             <div class="row">
                                                 <form method="POST">
-                                                    <div style="text-align: center; width:500px;">
+                                                    <div style="text-align: center; width:600px;">
                                                         <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
                                                         <br>
                                                         <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABLE&nbsp;&nbsp;<i class="bi bi-chevron-double-down"></i></button>
