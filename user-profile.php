@@ -60,7 +60,9 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <div class="avatar avatar-xxxl">
                                 <?php foreach ($data as $row){ ?>
-                                <form method="POST">
+                                <form method="POST" action="function.php">
+                                 <input type="hidden" name="command" value="UPDATE_PROFILE">
+                                 <input type="hidden" name="id" value="<?php echo $row['user_id'];?>">
                                 <div class="text-center img-placeholder" onClick="triggerClick()">
                                                                         </div>
                                 <button type="button" class="btn btn-outline-secondary" onclick="functiontry()" style="border-radius: 50%;">
