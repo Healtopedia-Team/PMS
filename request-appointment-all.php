@@ -59,7 +59,7 @@ if (isset($_POST['reqreject'])) {
                                                             <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
                                                         <?php } ?>
 
-                                                        <i class="bi bi-search"><a href="request-info.php?id=<?php echo $row['request_id']; ?>" class=""><input type="button" class="btn btn-info"></a></i>
+                                                        <a href="request-info.php"><button class="btn btn-info"><i class="bi bi-search"></i></button></a>
 
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                     </div>
