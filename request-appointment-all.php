@@ -11,8 +11,6 @@ if (isset($_POST['reqaccept'])) {
     $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$requestid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request accepted.");</script>';
-        echo '<script>window.location.reload();</script>';
-        exit();
     }
 }
 
@@ -21,8 +19,6 @@ if (isset($_POST['reqreject'])) {
     $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$requestid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request rejected.");</script>';
-        echo '<script>window.location.reload();</script>';
-        exit();
     }
 }
 ?>
@@ -51,8 +47,8 @@ if (isset($_POST['reqreject'])) {
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                         <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
                                                         <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                        <!--button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                        <a href="request-info.php"><button class="btn btn-info"><i class="bi bi-search"></i></button></a-->
+                                                        <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
+                                                        <a href="request-info.php"><button class="btn btn-info"><i class="bi bi-search"></i></button></a>
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                     </div>
                                                 </form>
