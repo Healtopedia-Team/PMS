@@ -41,9 +41,9 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             <button type="submit" name="reqpostpone" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-calendar3-week"></i></button>
                                                         <?php } ?>
 
-                                                        <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>">
+                                                        <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
 
-                                                        <input type="text" name="requeststatus" value="<?php echo $row['req_status']; ?>">
+                                                        <input type="text" name="requeststatus" value="<?php echo $row['req_status']; ?>" style="display: none;">
                                                 </form>
                                                         <a href="request-info.php" class="btn btn-info"><i class="bi bi-search"></i></a>
                                                     </div>
