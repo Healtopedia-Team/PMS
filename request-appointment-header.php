@@ -153,6 +153,6 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                      window.location.href="https://pms.healtopedia.com/request-addappoint.php";
                                 }
                                 function requestrejected(){
-                                     window.location.href="https://pms.healtopedia.com/request-rejected.php";
+                                     window.location.href="https://pms.healtopedia.com/request-appointment-rejected.php";
                                 }
                             </script>
