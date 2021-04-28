@@ -65,12 +65,10 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                  <input type="hidden" name="id" value="<?php echo $row['user_id'];?>">
                                 <div class="text-center img-placeholder" onClick="triggerClick()">
                                                                         </div>
-                                <button type="button" class="btn btn-outline-secondary" onclick="functiontry()" style="border-radius: 50%;">
                                        <img src="images/<?php if ($row['user_profile'] ==""){ echo "avatar.jpg";}
                                                               
                                                               
                                                               echo $row['user_profile'];?>"  id="profileDisplay" onClick="triggerClick()">
-                                </button>
                                 <input type="file" name="image" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
                                 <br>
                                 <center><br>
