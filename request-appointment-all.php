@@ -11,6 +11,7 @@ if (isset($_POST['reqaccept'])) {
     $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$requestid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request accepted.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
 
@@ -19,6 +20,7 @@ if (isset($_POST['reqreject'])) {
     $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$requestid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request rejected.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
 ?>
