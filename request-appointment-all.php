@@ -28,14 +28,14 @@ if (isset($_POST['reqaccept'])) {
                                 </thead>
                                 <tbody>
                                     <?php foreach ($data as $row) { ?>
-                                        <form method="POST">
-                                            <tr>
-                                                <td><?php echo $row['req_custname']; ?></td>
-                                                <td><?php echo $row['req_packname']; ?></td>
-                                                <td><?php echo $row['req_appdate']; ?></td>
-                                                <td><?php echo $row['req_apptime']; ?></td>
-                                                <td><?php echo $row['req_status']; ?></td>
-                                                <td>
+                                        <tr>
+                                            <td><?php echo $row['req_custname']; ?></td>
+                                            <td><?php echo $row['req_packname']; ?></td>
+                                            <td><?php echo $row['req_appdate']; ?></td>
+                                            <td><?php echo $row['req_apptime']; ?></td>
+                                            <td><?php echo $row['req_status']; ?></td>
+                                            <td>
+                                                <form method="POST">
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                         <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
                                                         <!--button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
@@ -43,9 +43,9 @@ if (isset($_POST['reqaccept'])) {
                                                         <a href="request-info.php"><button class="btn btn-info"><i class="bi bi-search"></i></button></a-->
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                     </div>
-                                                </td>
-                                            </tr>
-                                        </form>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     <?php } ?>
                                 </tbody>
                             </table>
