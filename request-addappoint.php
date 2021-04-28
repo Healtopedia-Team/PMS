@@ -126,7 +126,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                         <div class="form-body">
                                             <div class="row">
                                                 <form method="POST">
-                                                    <div style="text-align: center;">
+                                                    <div style="text-align: center; width:500px;">
                                                         <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here.." required>
                                                         <br>
                                                         <button type="submit" name="submitdate" class="btn btn-primary">CHECK TIME SLOT AVAILABLE&nbsp;&nbsp;<i class="bi bi-chevron-double-down"></i></button>
@@ -161,9 +161,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         $national=$_POST['national'];
                         $apptime=$_POST['apptime'];
                         $latestid=$_POST['latestid'];
-                        $status=$_POST['status'];
 
-                        $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime', req_status = '$status' WHERE  request_id = '$latestid'";
+                        $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime', req_status = 'pending' WHERE  request_id = '$latestid'";
 
                         if (mysqli_query($conn,$sql)) {
                             echo '<script>
