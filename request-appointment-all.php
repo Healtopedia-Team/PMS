@@ -51,7 +51,7 @@ if (isset($_POST['reqreject'])) {
 
                                                         <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
 
-                                                        <?php if ($row['req_status'] != "approved") {?>
+                                                        <?php if ($row['req_status'] == "approved") {?>
                                                             <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
                                                         <?php } ?>
 
