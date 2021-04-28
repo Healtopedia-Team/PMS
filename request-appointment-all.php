@@ -12,6 +12,7 @@ if (isset($_POST['reqaccept'])) {
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request accepted.");</script>';
         echo '<script>window.location.reload();</script>';
+        exit();
     }
 }
 
@@ -21,6 +22,7 @@ if (isset($_POST['reqreject'])) {
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request rejected.");</script>';
         echo '<script>window.location.reload();</script>';
+        exit();
     }
 }
 ?>
