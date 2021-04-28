@@ -59,15 +59,10 @@ if (isset($_POST['reqreject'])) {
                                                             <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
                                                         <?php } ?>
 
-                                                        <button class="btn btn-info" onclick="requestinfo()"><i class="bi bi-search"></i></button>
+                                                        <a href="request-info.php?id=<?php echo $row['request_id']; ?>"><button class="btn btn-info" onclick="requestinfo()"><i class="bi bi-search"></i></button></a>
 
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                     </div>
-                                                    <script>
-                                                        function requestinfo(){
-                                                            window.location.href = "request-info.php?id=<?php echo $row['request_id']; ?>";
-                                                        }
-                                                    </script>
                                                 </form>
                                             </td>
                                         </tr>
