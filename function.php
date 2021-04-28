@@ -40,9 +40,10 @@ function add_user($conn)
     $email = $_POST['email'];
     $hosp = $_POST['hospital'];
     $role = $_POST['role'];
+    $img = 'avatar.jpg';
 
 
-    $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp'";
+    $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
     if (mysqli_query($conn, $sql)) {
         $_SESSION["loggedin"] = true;
         $_SESSION["name"] = $firstname;
