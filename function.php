@@ -142,7 +142,8 @@ function update_profile($conn)
     if (mysqli_query($conn, $sql)) {
         header('location:user-profile.php');
     }
-   }
+   }else
+       echo 'error!';
 }
 
 function delete_hospital($conn)
