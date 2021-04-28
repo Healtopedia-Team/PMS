@@ -47,11 +47,15 @@ if (isset($_POST['reqreject'])) {
                                             <td>
                                                 <form method="POST">
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                        <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                        <?php if ($row['req_status'] == "pending") {?>
+                                                            <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                        <?php } ?>
 
-                                                        <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                        <?php if ($row['req_status'] == "pending") {?>
+                                                            <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                        <?php } ?>
 
-                                                        <?php if ($row['req_status'] == "approved") {?>
+                                                        <?php if ($row['req_status'] == "approved" || $row['req_status'] == "postponed") {?>
                                                             <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
                                                         <?php } ?>
 
