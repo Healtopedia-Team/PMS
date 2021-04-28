@@ -9,6 +9,9 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 if (isset($_POST['reqaccept'])) {
     $requestid = $_POST['requestid'];
     $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$requestid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Request accepted.");</script>';
+    }
 }
 ?>
 
