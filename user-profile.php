@@ -61,12 +61,15 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                             <div class="avatar avatar-xxxl">
                                 <?php foreach ($data as $row){ ?>
                                 <form method="POST">
+                                <div class="text-center img-placeholder" onClick="triggerClick()">
+                                                                        </div>
                                 <button type="button" class="btn btn-outline-secondary" onclick="functiontry()" style="border-radius: 50%;">
                                        <img src="images/<?php if ($row['user_profile'] ==""){ echo "avatar.jpg";}
                                                               
                                                               
-                                                              echo $row['user_profile'];?>"  id="profileDisplay">
+                                                              echo $row['user_profile'];?>"  id="profileDisplay" onClick="triggerClick()">
                                 </button>
+                                <input type="file" name="image" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
                                 <br>
                                 <center><br>
                                         <h6>Firstname</h6>
@@ -111,6 +114,20 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
+     
+     function triggerClick(e) {
+            document.querySelector('#profileImage').click();
+        }
+
+        function displayImage(e) {
+            if (e.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
+                }
+                reader.readAsDataURL(e.files[0]);
+            }
+        }
     </script>
 
     <script src="assets/js/main.js"></script>
