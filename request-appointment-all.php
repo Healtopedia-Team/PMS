@@ -26,10 +26,11 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
                                                 <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                    <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                    <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                    <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                    <button class="btn btn-info"><i class="bi bi-search"></i></button>
+                                                    <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                    <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                    <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
+                                                    <a href="request-info.php"><button class="btn btn-info"><i class="bi bi-search"></i></button></a>
+                                                    <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>">
                                                 </div>
                                             </td>
                                         </tr>
