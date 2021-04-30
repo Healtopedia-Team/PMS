@@ -43,28 +43,28 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <div class="modal-body">
                                                         <div style="float: left;width: 30%;"><b>Package Name</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_packname']; ?></div>
-
+                                                        <br>
                                                         <div style="float: left;width: 30%;"><b>Client Name</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_custname']; ?></div>
-
+                                                        <br>
                                                         <div style="float: left;width: 30%;"><b>IC/Passport</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_custid']; ?></div>
-
+                                                        <br>
                                                         <div style="float: left;width: 30%;"><b>No Phone</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_custphone']; ?></div>
-
+                                                        <br>
                                                         <div style="float: left;width: 30%;"><b>Address</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_custaddress']; ?></div>
-
+                                                        <br>
                                                         <div style="float: left;width: 30%;"><b>Nationalities</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_custnational']; ?></div>
-
+                                                        <br>
                                                         <div style="float: left;width: 30%;"><b>Appointment Date</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_appdate']; ?></div>
-
+                                                        <br>
                                                         <div style="float: left;width: 30%;"><b>Appointment Time</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_apptime']; ?></div>
-
+                                                        <br>
                                                         <div style="float: left;width: 30%;"><b>Status</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_status']; ?></div>
                                                     </div>
