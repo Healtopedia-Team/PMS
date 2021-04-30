@@ -25,24 +25,9 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $row['req_apptime']; ?></td>
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
-                                                <form method="POST">
-                                                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                        <?php if ($row['req_status'] == "pending") {?>
-                                                            <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                        <?php } ?>
-
-                                                        <?php if ($row['req_status'] == "pending") {?>
-                                                            <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                        <?php } ?>
-
-                                                        <?php if ($row['req_status'] == "approved" || $row['req_status'] == "postponed") {?>
-                                                            <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                        <?php } ?>
-
-                                                        <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                </form>
-                                                        <a href="request-info.php" class="btn btn-info"><i class="bi bi-search"></i></a>
-                                                    </div>
+                                                <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                     <a href="request-info.php" class="btn btn-info"><i class="bi bi-search"></i></a>
+                                                </div>
                                             </td>
                                         </tr>
                                     <?php } ?>
