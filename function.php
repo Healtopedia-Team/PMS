@@ -130,11 +130,11 @@ function update_profile($conn)
     $lastname = $_POST['lastnameuser'];
     $email = $_POST['emailuser'];
     $hosp = $_POST['hospitaluser'];
-    $image = time() . '-' . $_FILES['image']['name'];
-    $target_dir = "images/";
-    $target_file = $target_dir . basename($image);
-    echo $image;
-    echo $target_file;
+    $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp' WHERE user_id='$id'";
+    if (mysqli_query($conn, $sql)) {
+        header('location:user-profile.php');
+    }
+    
 }
 
 function delete_hospital($conn)
