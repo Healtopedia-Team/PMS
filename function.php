@@ -135,16 +135,6 @@ $target_file = $target_dir . basename($_FILES["file_to_upload"]["name"]);
 $uploadOk = 1;
 $image_file_type = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["file_to_upload"]["tmp_name"]);
-    if($check !== false) {
-        echo "The file you picked is an image - " . $check["mime"] . ".";
-        $upload_ok = 1;
-    } else {
-        echo "The file you picked is not an image.";
-        $upload_ok = 0;
-    }
-}
 // Check if file already exists
 if (file_exists($target_file)) {
     echo "File already present.";
