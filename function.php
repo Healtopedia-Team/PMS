@@ -138,7 +138,10 @@ function update_profile($conn)
     // Check if file already exists
 
         if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
-            echo "The file " . basename($_FILES["file_to_upload"]["name"]) . " was uploaded.";
+            $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', user_profile='$image' WHERE user_id='$id'";
+            if (mysqli_query($conn, $sql)) {
+                header('location:user-profile.php');
+                }
         } else {
             echo "A error has occured uploading.";
         }
