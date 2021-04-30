@@ -27,53 +27,42 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td>
                                                 <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                      <a href="request-info.php?id=<?php echo $row['request_id']; ?>" class="btn btn-info"><i class="bi bi-search"></i></a>
-                                                     <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#default1"><i class="bi bi-search"></i></button>
+                                                     <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#patientinfo"><i class="bi bi-search"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                            <div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="myModalLabel1">Basic Modal</h5>
-                                            <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Bonbon caramels muffin. Chocolate bar oat cake cookie pastry
-                                                        dragée pastry.
-                                                        Carrot cake
-                                                        chocolate tootsie roll chocolate bar candy canes biscuit.
-
-                                                        Gummies bonbon apple pie fruitcake icing biscuit apple pie
-                                                        jelly-o sweet
-                                                        roll. Toffee sugar
-                                                        plum sugar plum jelly-o jujubes bonbon dessert carrot cake.
-                                                        Cookie dessert
-                                                        tart muffin topping
-                                                        donut icing fruitcake. Sweet roll cotton candy dragée danish
-                                                        Candy canes
-                                                        chocolate bar cookie.
-                                                        Gingerbread apple pie oat cake. Carrot cake fruitcake bear claw.
-                                                        Pastry
-                                                        gummi bears
-                                                        marshmallow jelly-o.
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn" data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Close</span>
-                                                    </button>
+                                        <div class="modal fade text-left" id="patientinfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Request Information</h5>
+                                                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <label>Package Name     : <?php echo $row['req_packname']; ?></label>
+                                                        <label>Client Name      : <?php echo $row['req_custname']; ?></label>
+                                                        <label>IC/Passport      : <?php echo $row['req_custid']; ?></label>
+                                                        <label>No Phone         : <?php echo $row['req_custphone']; ?></label>
+                                                        <label>Address          : <?php echo $row['req_custaddress']; ?></label>
+                                                        <label>Nationalities    : <?php echo $row['req_custnational']; ?></label>
+                                                        <label>Appointment Date : <?php echo $row['req_appdate']; ?></label>
+                                                        <label>Appointment Time : <?php echo $row['req_apptime']; ?></label>
+                                                        <label>Status           : <?php echo $row['req_status']; ?></label>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Close</span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </section>
