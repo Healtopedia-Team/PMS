@@ -26,7 +26,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
                                                 <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                     <a href="request-info.php" class="btn btn-info"><i class="bi bi-search"></i></a>
+                                                     <a href="request-info.php?id=<?php echo $row['request_id']; ?>" class="btn btn-info"><i class="bi bi-search"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
