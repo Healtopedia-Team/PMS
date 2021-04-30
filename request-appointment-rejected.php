@@ -41,8 +41,10 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <div style="float: left;width: 30%;"><b>Package Name</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_packname']; ?></div>
+                                                        <div style="float: left;width: 30%;">
+                                                            <b>Package Name</b>
+                                                            <div style="float: right;width: 70%;"><?php echo $row['req_packname']; ?></div>
+                                                        </div>
                                                         <br>
                                                         <div style="float: left;width: 30%;"><b>Client Name</b></div>
                                                         <div style="float: right;width: 70%;"><?php echo $row['req_custname']; ?></div>
