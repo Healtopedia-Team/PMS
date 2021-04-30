@@ -63,8 +63,10 @@ if (isset($_POST['reqpostpone'])) {
                                                             <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
                                                         <?php } ?>
 
-                                                        <?php if ($row['req_status'] == "postponed" || $row['req_status'] == "approved") {?>
+                                                        <?php if ($row['req_status'] == "approved") {?>
                                                             <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
+                                                        <?php }elseif ($row['req_status'] == "postponed") {?>
+                                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
                                                         <?php } ?>
 
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
@@ -73,6 +75,37 @@ if (isset($_POST['reqpostpone'])) {
                                                     </div>
                                             </td>
                                         </tr>
+                            <!--========================================== M O D A L == D A T E =====================================-->
+                                        <div class="modal fade text-left" id="postpone<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Postpone Request</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <form method="POST">
+                                                        <div class="modal-body">
+                                                            <label>Select Date :</label>
+                                                            <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
+                                                            <input type="text" name="postponeid" value="<?php echo $row['request_id']; ?>" style="display: none;">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-sm-block d-none">Close</span>
+                                                            </button>
+                                                            <button type="submit" name="updatedate" class="btn btn-primary ml-1">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-sm-block d-none">Submit</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <!--========================================== M O D A L == I N F O =====================================-->
                                         <div class="modal fade text-left" id="patient<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
@@ -83,23 +116,23 @@ if (isset($_POST['reqpostpone'])) {
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <label><b>Package Name</b>     : <?php echo $row['req_packname']; ?></label>
+                                                        <label><b>Package Name</b>: <?php echo $row['req_packname']; ?></label>
                                                         <br>
-                                                        <label><b>Client Name</b>      : <?php echo $row['req_custname']; ?></label>
+                                                        <label><b>Client Name</b>: <?php echo $row['req_custname']; ?></label>
                                                         <br>
-                                                        <label><b>IC/Passport</b>      : <?php echo $row['req_custid']; ?></label>
+                                                        <label><b>IC/Passport</b>: <?php echo $row['req_custid']; ?></label>
                                                         <br>
-                                                        <label><b>No Phone</b>         : <?php echo $row['req_custphone']; ?></label>
+                                                        <label><b>No Phone</b>: <?php echo $row['req_custphone']; ?></label>
                                                         <br>
-                                                        <label><b>Address</b>          : <?php echo $row['req_custaddress']; ?></label>
+                                                        <label><b>Address</b>: <?php echo $row['req_custaddress']; ?></label>
                                                         <br>
-                                                        <label><b>Nationalities</b>    : <?php echo $row['req_custnational']; ?></label>
+                                                        <label><b>Nationalities</b>: <?php echo $row['req_custnational']; ?></label>
                                                         <br>
-                                                        <label><b>Appointment Date</b> : <?php echo $row['req_appdate']; ?></label>
+                                                        <label><b>Appointment Date</b>: <?php echo $row['req_appdate']; ?></label>
                                                         <br>
-                                                        <label><b>Appointment Time</b> : <?php echo $row['req_apptime']; ?></label>
+                                                        <label><b>Appointment Time</b>: <?php echo $row['req_apptime']; ?></label>
                                                         <br>
-                                                        <label><b>Status</b>           : <?php echo $row['req_status']; ?></label>
+                                                        <label><b>Status</b>: <?php echo $row['req_status']; ?></label>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn" data-bs-dismiss="modal">
@@ -110,6 +143,7 @@ if (isset($_POST['reqpostpone'])) {
                                                 </div>
                                             </div>
                                         </div>
+                            <!--========================================== E N D == O F == M O D A L =====================================-->
                                     <?php } ?>
                                 </tbody>
                             </table>
