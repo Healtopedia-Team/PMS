@@ -69,9 +69,7 @@ if (isset($_POST['reqpostpone'])) {
 
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                 </form>
-
-                                                         <a href="request-info.php?id=<?php echo $row['request_id']; ?>" class="btn btn-info"><i class="bi bi-search"></i></a>
-                                                         <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
+                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
                                                     </div>
                                             </td>
                                         </tr>
