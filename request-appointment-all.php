@@ -63,7 +63,7 @@ if (isset($_POST['reqpostpone'])) {
                                                             <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
                                                         <?php } ?>
 
-                                                        <?php if ($row['req_status'] == "postponed") {?>
+                                                        <?php if ($row['req_status'] == "postponed" || $row['req_status'] == "approved") {?>
                                                             <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
                                                         <?php } ?>
 
