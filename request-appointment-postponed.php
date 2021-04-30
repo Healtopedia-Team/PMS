@@ -5,6 +5,15 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
 $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'postponed' ORDER BY request_id");
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+if (isset($_POST['reqpostpone'])) {
+    $requestid = $_POST['requestid'];
+    $sql = "UPDATE requestappoint SET req_status = 'postponed' WHERE request_id = '$requestid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Request postponed.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+    }
+}
 ?>
 
                             <table class="table table-striped" id="table1">
@@ -29,17 +38,8 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td>
                                                 <form method="POST">
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                        <?php if ($row['req_status'] == "pending") {?>
-                                                            <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                        <?php } ?>
 
-                                                        <?php if ($row['req_status'] == "pending") {?>
-                                                            <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                        <?php } ?>
-
-                                                        <?php if ($row['req_status'] == "approved" || $row['req_status'] == "postponed") {?>
-                                                            <button type="submit" name="reqpostpone" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-calendar3-week"></i></button>
-                                                        <?php } ?>
+                                                        <button type="submit" name="reqpostpone" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-calendar3-week"></i></button>
 
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
 
