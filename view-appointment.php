@@ -304,29 +304,25 @@ $data3 = json_decode($data3, true);
                                                                     <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][1]['key'] == "IC / Passport No.") {
                                                                                             $icpass = $key['line_items'][$q]['meta_data'][1]['value'];
                                                                                             echo $icpass;
-                                                                                        }
-                                                                        else echo "N/A";
+                                                                                        
                                                                                     } ?>
                                                                     </div>
                                                                     <div class="quest">Gender :</div>
                                                                     <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][2]['key'] == "Gender") {
                                                                                             echo $key['line_items'][$q]['meta_data'][2]['value'];
-                                                                                        }
-                                                                        else echo "N/A";
+                                                                                        
                                                                                     } ?>
                                                                     </div>
                                                                     <div class="quest">Birth Date :</div>
                                                                     <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][3]['key'] == "Date of Birth") {
                                                                                             echo $key['line_items'][$q]['meta_data'][3]['value'];
-                                                                                        }
-                                                                        else echo "N/A";
+                                                                                        
                                                                                     } ?>
                                                                     </div>
                                                                     <div class="quest">Nationality :</div>
                                                                     <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][4]['key'] == "Nationality") {
                                                                                             echo $key['line_items'][$q]['meta_data'][4]['value'];
-                                                                                        }
-                                                                        else echo "N/A";
+                                                                                       
                                                                                     } ?>
                                                                     </div>
                                                                     <div class="quest">Method :</div>
