@@ -1,8 +1,35 @@
 <?php
 include 'request-appointment-header.php';
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-$result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'rejected' ORDER BY request_id");
+$result=mysqli_query($conn, "SELECT * FROM requestappoint ORDER BY request_id");
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+if (isset($_POST['reqaccept'])) {
+    $requestid = $_POST['requestid'];
+    $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$requestid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Request accepted.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+    }
+}
+
+if (isset($_POST['reqreject'])) {
+    $requestid = $_POST['requestid'];
+    $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$requestid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Request rejected.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+    }
+}
+
+if (isset($_POST['reqpostpone'])) {
+    $requestid = $_POST['requestid'];
+    $sql = "UPDATE requestappoint SET req_status = 'postponed' WHERE request_id = '$requestid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Request postponed.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+    }
+}
 ?>
 
                             <table class="table table-striped" id="table1">
@@ -25,10 +52,27 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $row['req_apptime']; ?></td>
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
-                                                <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                     <a href="request-info.php?id=<?php echo $row['request_id']; ?>" class="btn btn-info"><i class="bi bi-search"></i></a>
-                                                     <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
-                                                </div>
+                                                <form method="POST">
+                                                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
+
+                                                        <?php if ($row['req_status'] == "pending") {?>
+                                                            <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                        <?php } ?>
+
+                                                        <?php if ($row['req_status'] == "pending") {?>
+                                                            <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                        <?php } ?>
+
+                                                        <?php if ($row['req_status'] == "postponed") {?>
+                                                            <button type="submit" name="reqpostpone" class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
+                                                        <?php } ?>
+
+                                                        <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
+                                                </form>
+
+                                                         <a href="request-info.php?id=<?php echo $row['request_id']; ?>" class="btn btn-info"><i class="bi bi-search"></i></a>
+                                                         <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
+                                                    </div>
                                             </td>
                                         </tr>
                                         <div class="modal fade text-left" id="patient<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
