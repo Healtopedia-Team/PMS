@@ -135,8 +135,6 @@ function update_profile($conn)
     $target_file = $target_dir . basename($image);
     $uploadOk = 1;
     $image_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
-    // Check if image file is a actual image or fake image
-    // Check if file already exists
 
         if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
             $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', user_profile='$image' WHERE user_id='$id'";
