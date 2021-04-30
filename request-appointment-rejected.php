@@ -27,7 +27,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td>
                                                 <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                      <a href="request-info.php?id=<?php echo $row['request_id']; ?>" class="btn btn-info"><i class="bi bi-search"></i></a>
-                                                     <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#default"><i class="bi bi-search"></i></button>
+                                                     <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#default1"><i class="bi bi-search"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
