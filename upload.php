@@ -1,5 +1,5 @@
 <?php
-$target_dir = "uploads/";
+$target_dir = "images/";
 $target_file = $target_dir . basename($_FILES["file_to_upload"]["name"]);
 $upload_ok = 1;
 $image_file_type = pathinfo($target_file,PATHINFO_EXTENSION);
