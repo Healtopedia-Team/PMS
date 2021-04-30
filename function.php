@@ -82,7 +82,8 @@ function check_user($conn)
     }
 }
 
-function add_hospital($conn){
+function add_hospital($conn)
+{
 
     $hospname = $_POST['hospname'];
     $hospcompany = $_POST['hospcomp'];
@@ -93,7 +94,6 @@ function add_hospital($conn){
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
     }
-
 }
 function delete_user($conn)
 {
@@ -120,7 +120,6 @@ function update_user($conn)
     if (mysqli_query($conn, $sql)) {
         header('location:users.php');
     }
-    
 }
 
 function update_profile($conn)
@@ -131,36 +130,18 @@ function update_profile($conn)
     $email = $_POST['emailuser'];
     $hosp = $_POST['hospitaluser'];
     $target_dir = "images/";
-$target_file = $target_dir . basename($_FILES["file_to_upload"]["name"]);
-$uploadOk = 1;
-$image_file_type = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo "File already present.";
-    $upload_ok = 0;
-}
-// Check file size
-if ($_FILES["file_to_upload"]["size"] > 500000) {
-    echo "File too big.";
-    $upload_ok = 0;
-}
-// Limit allowed file formats
-if($image_file_type != "jpg" && $image_file_type != "png" && $image_file_type != "jpeg" && $image_file_type != "gif" ) {
-    echo "Only JPG, JPEG, PNG & GIF files are allowed.";
-    $upload_ok = 0;
-}
-// Check if $upload_ok is set to 0 by an error
-if ($upload_ok == 0) {
-    echo "Your file was not uploaded.";
-// If all the checks are passed, file is uploaded
-} else {
-    if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["file_to_upload"]["name"]). " was uploaded.";
-    } else {
-        echo "A error has occured uploading.";
-    }
-}
+    $target_file = $target_dir . basename($_FILES["file_to_upload"]["name"]);
+    $uploadOk = 1;
+    $image_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+    // Check if image file is a actual image or fake image
+    // Check if file already exists
+
+        if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
+            echo "The file " . basename($_FILES["file_to_upload"]["name"]) . " was uploaded.";
+        } else {
+            echo "A error has occured uploading.";
+        }
+    
 }
 
 function delete_hospital($conn)
