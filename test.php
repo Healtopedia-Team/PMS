@@ -21,7 +21,7 @@
 </script>
 </head> 
 <body>
-    <form action="confirmation.php" method="post">
+    <form action="upload.php" method="post">
         <p>
             <input type="file" name="photo" onchange="previewFile(this);" required>
         </p>
