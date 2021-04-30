@@ -68,6 +68,7 @@ function check_user($conn)
         $_SESSION["name"] = $userdet["first_name"];
         $_SESSION["hospital"] = $userdet["hospital"];
         $_SESSION["role"] = $userdet["role"];
+        $_SESSION["pic"] = $userdet["user_profile"];
         header('location:index.php');
     } else {
 ?>
