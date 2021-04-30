@@ -25,7 +25,7 @@
         <p>
             <input type="file" name="photo" onchange="previewFile(this);" required>
         </p>
-        <img id="previewImg" src="images/avatar.jpg" alt="Placeholder">
+        <img id="previewImg" src="" alt="Placeholder">
         <p>
             <input type="submit" value="Submit">
         </p>
