@@ -173,6 +173,27 @@ if (isset($_POST['updatedate'])) {
             </footer>
         </div>
     </div>
+<?php
+    $query=mysqli_query($conn, "SELECT datedisable FROM xdate");
+    $dateclose=mysqli_fetch_all($query, MYSQLI_ASSOC);
+    ?>
+    <script type="text/javascript">
+        var disableDates = [<?php foreach ($dateclose as $value){echo "'".$value['datedisable']."'".",";}?>];
+          
+        $('.datepicker').datepicker({
+            startDate: new Date(),
+            format: 'm/d/yyyy',
+            beforeShowDay: function(date){
+                dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+                if(disableDates.indexOf(dmy) != -1){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        });
+    </script>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
