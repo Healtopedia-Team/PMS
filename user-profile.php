@@ -37,7 +37,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
 
 <body>
     <div id="app">
-        <?php include 'sidebar.php'; ?>
+        <?php include 'sidebar-test.php'; ?>
         <div id="main">
             <div class="page-heading">
                 <div class="page-title">
