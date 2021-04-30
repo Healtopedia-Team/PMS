@@ -57,59 +57,23 @@ if (isset($_POST['reqpostpone'])) {
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>Package Name</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_packname']; ?></div>
-                                                        </div>
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>Client Name</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custname']; ?></div>
-                                                        </div>
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>IC/Passport</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custid']; ?></div>
-                                                        </div>
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>No Phone</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custphone']; ?></div>
-                                                        </div>
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>Address</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custaddress']; ?></div>
-                                                        </div>
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>Nationalities</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custnational']; ?></div>
-                                                        </div>
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>Appointment Date</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_appdate']; ?></div>
-                                                        </div>
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>Appointment Time</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_apptime']; ?></div>
-                                                        </div>
-                                                        <div>
-                                                            <div style="float: left;width: 20%;"><b>Status</b></div>
-                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_status']; ?></div>
-                                                        </div>
-                                                        <!--label><b>Package Name</b>     : <?php echo $row['req_packname']; ?></label>
+                                                        <label><b>Package Name</b>&nbsp;&nbsp;: <?php echo $row['req_packname']; ?></label>
                                                         <br>
-                                                        <label><b>Client Name</b>      : <?php echo $row['req_custname']; ?></label>
+                                                        <label><b>Client Name</b>&nbsp;&nbsp;: <?php echo $row['req_custname']; ?></label>
                                                         <br>
-                                                        <label><b>IC/Passport</b>      : <?php echo $row['req_custid']; ?></label>
+                                                        <label><b>IC/Passport</b>&nbsp;&nbsp;&nbsp;: <?php echo $row['req_custid']; ?></label>
                                                         <br>
-                                                        <label><b>No Phone</b>         : <?php echo $row['req_custphone']; ?></label>
+                                                        <label><b>No Phone</b>&nbsp;&nbsp;: <?php echo $row['req_custphone']; ?></label>
                                                         <br>
-                                                        <label><b>Address</b>          : <?php echo $row['req_custaddress']; ?></label>
+                                                        <label><b>Address</b>&nbsp;&nbsp;&nbsp;: <?php echo $row['req_custaddress']; ?></label>
                                                         <br>
-                                                        <label><b>Nationalities</b>    : <?php echo $row['req_custnational']; ?></label>
+                                                        <label><b>Nationalities</b>&nbsp;: <?php echo $row['req_custnational']; ?></label>
                                                         <br>
-                                                        <label><b>Appointment Date</b> : <?php echo $row['req_appdate']; ?></label>
+                                                        <label><b>Appointment Date</b>&nbsp;: <?php echo $row['req_appdate']; ?></label>
                                                         <br>
-                                                        <label><b>Appointment Time</b> : <?php echo $row['req_apptime']; ?></label>
+                                                        <label><b>Appointment Time</b>&nbsp;: <?php echo $row['req_apptime']; ?></label>
                                                         <br>
-                                                        <label><b>Status</b>           : <?php echo $row['req_status']; ?></label-->
+                                                        <label><b>Status</b>&nbsp;&nbsp;&nbsp;: <?php echo $row['req_status']; ?></label>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
@@ -131,50 +95,7 @@ if (isset($_POST['reqpostpone'])) {
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <!--input type="text" name="postponedate" class="form-control datepicker" autocomplete="off"-->
-                                                        <div class="table-responsive">
-                                                            <table class="table table-lg">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>NAME</th>
-                                                                        <th>RATE</th>
-                                                                        <th>SKILL</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Michael Right</td>
-                                                                        <td>$15/hr</td>
-                                                                        <td class="text-bold-500">UI/UX</td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Morgan Vanblum</td>
-                                                                        <td>$13/hr</td>
-                                                                        <td class="text-bold-500">Graphic concepts</td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Tiffani Blogz</td>
-                                                                        <td>$15/hr</td>
-                                                                        <td class="text-bold-500">Animation</td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Ashley Boul</td>
-                                                                        <td>$15/hr</td>
-                                                                        <td class="text-bold-500">Animation</td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Mikkey Mice</td>
-                                                                        <td>$15/hr</td>
-                                                                        <td class="text-bold-500">Animation</td>
-
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                        <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn" data-bs-dismiss="modal">
