@@ -42,7 +42,6 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     </div>
                                                     <div class="modal-body">
                                                         <table class="table table-borderless mb-0">
-                                                            <tbody>
                                                                 <tr>
                                                                     <td><b>Package Name</b></td>
                                                                     <td><?php echo $row['req_packname']; ?></td>
@@ -79,7 +78,6 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                     <td><b>Status</b></td>
                                                                     <td><?php echo $row['req_status']; ?></td>
                                                                 </tr>
-                                                            </tbody>
                                                         </table>
                                                     </div>
                                                     <div class="modal-footer">
