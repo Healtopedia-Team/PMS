@@ -41,15 +41,46 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <label>Package Name     : <?php echo $row['req_packname']; ?></label>
-                                                        <label>Client Name      : <?php echo $row['req_custname']; ?></label>
-                                                        <label>IC/Passport      : <?php echo $row['req_custid']; ?></label>
-                                                        <label>No Phone         : <?php echo $row['req_custphone']; ?></label>
-                                                        <label>Address          : <?php echo $row['req_custaddress']; ?></label>
-                                                        <label>Nationalities    : <?php echo $row['req_custnational']; ?></label>
-                                                        <label>Appointment Date : <?php echo $row['req_appdate']; ?></label>
-                                                        <label>Appointment Time : <?php echo $row['req_apptime']; ?></label>
-                                                        <label>Status           : <?php echo $row['req_status']; ?></label>
+                                                        <table class="table table-borderless mb-0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><b>Package Name</b></td>
+                                                                    <td><?php echo $row['req_packname']; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>Client Name</b></td>
+                                                                    <td><?php echo $row['req_custname']; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>IC/Passport</b></td>
+                                                                    <td><?php echo $row['req_custid']; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>No Phone</b></td>
+                                                                    <td><?php echo $row['req_custphone']; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>Address</b></td>
+                                                                    <td><?php echo $row['req_custaddress']; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>Nationalities</b></td>
+                                                                    <td><?php echo $row['req_custnational']; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>Appointment Date</b></td>
+                                                                    <td><?php echo $row['req_appdate']; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>Appointment Time</b></td>
+                                                                    <td><?php echo $row['req_apptime']; ?></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>Status</b></td>
+                                                                    <td><?php echo $row['req_status']; ?></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn" data-bs-dismiss="modal">
