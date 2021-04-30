@@ -6,12 +6,13 @@ $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'postponed' ORDER BY request_id");
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-if (isset($_POST['reqpostpone'])) {
-    $requestid = $_POST['requestid'];
-    $sql = "UPDATE requestappoint SET req_status = 'postponed' WHERE request_id = '$requestid'";
+if (isset($_POST['updatedate'])) {
+    $postponedate = $_POST['postponedate'];
+    $postponeid = $_POST['postponeid'];
+    $sql = "UPDATE requestappoint SET req_appdate = '$postponedate' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Request postponed.");</script>';
-        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+        echo '<script>alert("Request date postponed.");</script>';
+        echo '<script>window.location.href = "request-appointment-postponed.php";</script>';
     }
 }
 ?>
@@ -36,18 +37,15 @@ if (isset($_POST['reqpostpone'])) {
                                             <td><?php echo $row['req_apptime']; ?></td>
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
-                                                <form method="POST">
-                                                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                <div class="btn-group mb-3" role="group" aria-label="Basic example">
 
-                                                        <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                </form>
-                                                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
+                                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
 
-                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
-                                                    </div>
+                                                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
+                                                </div>
                                             </td>
                                         </tr>
-
+                        <!--========================================== M O D A L == D A T E =====================================-->
                                         <div class="modal fade text-left" id="postpone<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog"
                                                 aria-labelledby="myModalLabel19" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm"
@@ -60,26 +58,28 @@ if (isset($_POST['reqpostpone'])) {
                                                                 <i data-feather="x"></i>
                                                             </button>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            <label>Seelct Date :</label>
-                                                            <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-sm-block d-none">Close</span>
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-sm-block d-none">Accept</span>
-                                                            </button>
-                                                        </div>
+                                                        <form method="POST">
+                                                            <div class="modal-body">
+                                                                <label>Seelct Date :</label>
+                                                                <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
+                                                                <input type="text" name="postponeid" value="<?php echo $row['request_id']; ?>" style="display: none;">
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-light-secondary"
+                                                                    data-bs-dismiss="modal">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span class="d-sm-block d-none">Close</span>
+                                                                </button>
+                                                                <button type="submit" name="updatedate" class="btn btn-primary ml-1">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-sm-block d-none">Submit</span>
+                                                                </button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
-                        <!--=================================================================================-->
+                        <!--========================================== M O D A L == I N F O =====================================-->
                                         <div class="modal fade text-left" id="patient<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                                                 <div class="modal-content">
@@ -117,7 +117,7 @@ if (isset($_POST['reqpostpone'])) {
                                                 </div>
                                             </div>
                                         </div>
-                        <!--===================================================================================-->
+                        <!--========================================== E N D == O F == M O D A L =====================================-->
                                         
                                     <?php } ?>
                                 </tbody>
