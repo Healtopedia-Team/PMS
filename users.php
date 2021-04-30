@@ -29,7 +29,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 <body>
     <div id="app">
-        <?php include 'sidebar.php' ?>
+        <?php include 'sidebar-test.php' ?>
         <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
