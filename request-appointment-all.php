@@ -106,12 +106,12 @@ if (isset($_POST['reqpostpone'])) {
                                             </div>
                                         </div>
                             <!--========================================== M O D A L == I N F O =====================================-->
-                                        <div class="modal fade text-left" id="patient<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="modal fade text-left" id="patient<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="myModalLabel1">Request Information</h5>
-                                                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                                                        <h4 class="modal-title" id="myModalLabel17">Request Appointment Detail</h4>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
@@ -135,7 +135,7 @@ if (isset($_POST['reqpostpone'])) {
                                                         <label><b>Status</b>: <?php echo $row['req_status']; ?></label>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn" data-bs-dismiss="modal">
+                                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Close</span>
                                                         </button>
