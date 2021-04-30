@@ -147,7 +147,7 @@ if (isset($_POST['updatedate'])) {
           
         $('.datepicker').datepicker({
             startDate: new Date(),
-            format: 'd-m-yyyy',
+            format: 'm/d/yyyy',
             beforeShowDay: function(date){
                 dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
                 if(disableDates.indexOf(dmy) != -1){
