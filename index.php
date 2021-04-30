@@ -254,7 +254,6 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                             <span class="badge bg-warning">Waiting Payment</span>
 
                                                             </td>
-                                                            <td class="text-bold-500"></td>
                                                             <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm">
                                                                     Pay Now
                                                                 </button></td>
