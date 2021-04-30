@@ -30,6 +30,16 @@ if (isset($_POST['reqpostpone'])) {
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
+
+if (isset($_POST['updatedate'])) {
+    $postponedate = $_POST['postponedate'];
+    $postponeid = $_POST['postponeid'];
+    $sql = "UPDATE requestappoint SET req_appdate = '$postponedate' WHERE request_id = '$postponeid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Request date postponed.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+    }
+}
 ?>
 
                             <table class="table table-striped" id="table1">
