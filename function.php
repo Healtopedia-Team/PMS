@@ -133,8 +133,12 @@ function update_profile($conn)
     $image = time() . '-' . $_FILES['image']['name'];
     $target_dir = "images/";
     $target_file = $target_dir . basename($image);
-    echo $image;
-    echo $target_file;
+    
+     if (move_uploaded_file($_FILES["image"]["name"], $target_file)) {
+        echo "The file ". basename( $_FILES["image"]["name"]). " was uploaded.";
+    } else {
+        echo "A error has occured uploading.";
+    }
 }
 
 function delete_hospital($conn)
