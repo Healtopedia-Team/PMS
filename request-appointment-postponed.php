@@ -39,12 +39,10 @@ if (isset($_POST['reqpostpone'])) {
                                                 <form method="POST">
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
 
-                                                        <button type="submit" name="reqpostpone" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModalCenter"><i class="bi bi-calendar3-week"></i></button>
-
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-
-                                                        <input type="text" name="requeststatus" value="<?php echo $row['req_status']; ?>" style="display: none;">
                                                 </form>
+                                                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
+
                                                          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
                                                     </div>
                                             </td>
@@ -76,6 +74,28 @@ if (isset($_POST['reqpostpone'])) {
                                                         <label><b>Appointment Time</b> : <?php echo $row['req_apptime']; ?></label>
                                                         <br>
                                                         <label><b>Status</b>           : <?php echo $row['req_status']; ?></label>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn" data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Close</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        <!--=================================================================================-->
+                                        <div class="modal fade text-left" id="postpone<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Request Information</h5>
+                                                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h1>Yeeehhaaaaa !!</h1>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn" data-bs-dismiss="modal">
