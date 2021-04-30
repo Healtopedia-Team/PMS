@@ -322,9 +322,7 @@ $data3 = json_decode($data3, true);
                                                                     <div class="quest">Nationality :</div>
                                                                     <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][4]['key'] == "Nationality") {
                                                                                             echo $key['line_items'][$q]['meta_data'][4]['value'];
-                                                                                       }
-                                                                        else echo "None";
-                                                                                   
+                                                                               
                                                                                     } ?>
                                                                     </div>
                                                                     <div class="quest">Method :</div>
