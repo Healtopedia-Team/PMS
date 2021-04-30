@@ -61,15 +61,16 @@ if (isset($_POST['reqpostpone'])) {
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
+                                                            <label>Seelct Date :</label>
                                                             <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary btn-sm"
+                                                            <button type="button" class="btn btn-light-secondary"
                                                                 data-bs-dismiss="modal">
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-sm-block d-none">Close</span>
                                                             </button>
-                                                            <button type="button" class="btn btn-primary ml-1 btn-sm"
+                                                            <button type="button" class="btn btn-primary ml-1"
                                                                 data-bs-dismiss="modal">
                                                                 <i class="bx bx-check d-block d-sm-none"></i>
                                                                 <span class="d-sm-block d-none">Accept</span>
