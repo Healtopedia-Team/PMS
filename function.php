@@ -133,11 +133,9 @@ function update_profile($conn)
     $image = time() . '-' . $_FILES['image']['name'];
     $target_dir = "images/";
     $target_file = $target_dir . basename($image);
-    
-     if (move_uploaded_file($_FILES["image"]["name"], $target_file)) {
-        echo "The file ". basename( $_FILES["image"]["name"]). " was uploaded.";
-    } else {
-        echo "A error has occured uploading.";
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+
+        echo "uploaded!";
     }
 }
 
