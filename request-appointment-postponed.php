@@ -57,7 +57,15 @@ if (isset($_POST['reqpostpone'])) {
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <label><b>Package Name</b>     : <?php echo $row['req_packname']; ?></label>
+                                                        <div>
+                                                            <div style="float: left;width: 30%;"><b>Package Name</b></div>
+                                                            <div style="float: right;width: 70%;"><?php echo $row['req_packname']; ?></div>
+                                                        </div>
+                                                        <div>
+                                                            <div style="float: left;width: 30%;"><b>Client Name</b></div>
+                                                            <div style="float: right;width: 70%;"><?php echo $row['req_custname']; ?></div>
+                                                        </div>
+                                                        <!--label><b>Package Name</b>     : <?php echo $row['req_packname']; ?></label>
                                                         <br>
                                                         <label><b>Client Name</b>      : <?php echo $row['req_custname']; ?></label>
                                                         <br>
@@ -73,7 +81,7 @@ if (isset($_POST['reqpostpone'])) {
                                                         <br>
                                                         <label><b>Appointment Time</b> : <?php echo $row['req_apptime']; ?></label>
                                                         <br>
-                                                        <label><b>Status</b>           : <?php echo $row['req_status']; ?></label>
+                                                        <label><b>Status</b>           : <?php echo $row['req_status']; ?></label-->
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
