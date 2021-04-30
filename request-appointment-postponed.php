@@ -89,13 +89,13 @@ if (isset($_POST['reqpostpone'])) {
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="myModalLabel1">Request Information</h5>
+                                                        <h5 class="modal-title" id="myModalLabel1">Postpone Request</h5>
                                                         <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <h1>Yeeehhaaaaa !!</h1>
+                                                        <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn" data-bs-dismiss="modal">
@@ -125,6 +125,27 @@ if (isset($_POST['reqpostpone'])) {
             </footer>
         </div>
     </div>
+    <?php
+    $query=mysqli_query($conn, "SELECT datedisable FROM xdate");
+    $dateclose=mysqli_fetch_all($query, MYSQLI_ASSOC);
+    ?>
+    <script type="text/javascript">
+        var disableDates = [<?php foreach ($dateclose as $value){echo "'".$value['datedisable']."'".",";}?>];
+          
+        $('.datepicker').datepicker({
+            startDate: new Date(),
+            format: 'd-m-yyyy',
+            beforeShowDay: function(date){
+                dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+                if(disableDates.indexOf(dmy) != -1){
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        });
+    </script>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
