@@ -7,7 +7,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 if (isset($_POST['updatedate'])) {
     $postponedate = $_POST['postponedate'];
     $postponeid = $_POST['postponeid'];
-    $sql = "UPDATE requestappoint SET req_appdate = '$postponedate' WHERE request_id = '$postponeid'";
+    $sql = "UPDATE requestappoint SET req_appdate = '$postponedate', req_status = 'postponed' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request date postponed.");</script>';
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
@@ -37,7 +37,7 @@ if (isset($_POST['updatedate'])) {
                                             <td>
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
-                                                        
+
                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
                                                     </div>
                                             </td>
