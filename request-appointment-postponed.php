@@ -60,7 +60,7 @@ if (isset($_POST['updatedate'])) {
                                                         </div>
                                                         <form method="POST">
                                                             <div class="modal-body">
-                                                                <label>Seelct Date :</label>
+                                                                <label>Select Date :</label>
                                                                 <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
                                                                 <input type="text" name="postponeid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                             </div>
