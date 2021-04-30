@@ -3,6 +3,24 @@ include 'request-appointment-header.php';
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'pending' ORDER BY request_id");
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+if (isset($_POST['reqaccept'])) {
+    $requestid = $_POST['requestid'];
+    $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$requestid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Request accepted.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+    }
+}
+
+if (isset($_POST['reqreject'])) {
+    $requestid = $_POST['requestid'];
+    $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$requestid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Request rejected.");</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+    }
+}
 ?>
 
                             <table class="table table-striped" id="table1">
@@ -25,12 +43,20 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $row['req_apptime']; ?></td>
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
-                                                <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                                    <button class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
-                                                    <button class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
-                                                    <button class="btn btn-warning"><i class="bi bi-calendar3-week"></i></button>
-                                                    <button class="btn btn-info"><i class="bi bi-search"></i></button>
-                                                </div>
+                                                <form method="POST">
+                                                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                        <?php if ($row['req_status'] == "pending") {?>
+                                                            <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                        <?php } ?>
+
+                                                        <?php if ($row['req_status'] == "pending") {?>
+                                                            <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                        <?php } ?>
+
+                                                        <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
+                                                </form>
+                                                        <a href="request-info.php" class="btn btn-info"><i class="bi bi-search"></i></a>
+                                                    </div>
                                             </td>
                                         </tr>
                                     <?php } ?>
