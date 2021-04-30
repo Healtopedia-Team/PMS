@@ -41,34 +41,23 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <div style="float: left;">
-                                                            <b>Package Name</b>
-                                                            <div style="float: right;"><?php echo $row['req_packname']; ?></div>
-                                                        </div>
+                                                        <label><b>Package Name</b>     : <?php echo $row['req_packname']; ?></label>
                                                         <br>
-                                                        <div style="float: left;width: 30%;"><b>Client Name</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_custname']; ?></div>
+                                                        <label><b>Client Name</b>      : <?php echo $row['req_custname']; ?></label>
                                                         <br>
-                                                        <div style="float: left;width: 30%;"><b>IC/Passport</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_custid']; ?></div>
+                                                        <label><b>IC/Passport</b>      : <?php echo $row['req_custid']; ?></label>
                                                         <br>
-                                                        <div style="float: left;width: 30%;"><b>No Phone</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_custphone']; ?></div>
+                                                        <label><b>No Phone</b>         : <?php echo $row['req_custphone']; ?></label>
                                                         <br>
-                                                        <div style="float: left;width: 30%;"><b>Address</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_custaddress']; ?></div>
+                                                        <label><b>Address</b>          : <?php echo $row['req_custaddress']; ?></label>
                                                         <br>
-                                                        <div style="float: left;width: 30%;"><b>Nationalities</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_custnational']; ?></div>
+                                                        <label><b>Nationalities</b>    : <?php echo $row['req_custnational']; ?></label>
                                                         <br>
-                                                        <div style="float: left;width: 30%;"><b>Appointment Date</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_appdate']; ?></div>
+                                                        <label><b>Appointment Date</b> : <?php echo $row['req_appdate']; ?></label>
                                                         <br>
-                                                        <div style="float: left;width: 30%;"><b>Appointment Time</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_apptime']; ?></div>
+                                                        <label><b>Appointment Time</b> : <?php echo $row['req_apptime']; ?></label>
                                                         <br>
-                                                        <div style="float: left;width: 30%;"><b>Status</b></div>
-                                                        <div style="float: right;width: 70%;"><?php echo $row['req_status']; ?></div>
+                                                        <label><b>Status</b>           : <?php echo $row['req_status']; ?></label>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn" data-bs-dismiss="modal">
