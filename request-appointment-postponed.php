@@ -59,39 +59,39 @@ if (isset($_POST['reqpostpone'])) {
                                                     <div class="modal-body">
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>Package Name</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_packname']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_packname']; ?></div>
                                                         </div>
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>Client Name</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_custname']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custname']; ?></div>
                                                         </div>
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>IC/Passport</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_custid']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custid']; ?></div>
                                                         </div>
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>No Phone</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_custphone']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custphone']; ?></div>
                                                         </div>
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>Address</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_custaddress']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custaddress']; ?></div>
                                                         </div>
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>Nationalities</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_custnational']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_custnational']; ?></div>
                                                         </div>
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>Appointment Date</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_appdate']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_appdate']; ?></div>
                                                         </div>
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>Appointment Time</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_apptime']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_apptime']; ?></div>
                                                         </div>
                                                         <div>
                                                             <div style="float: left;width: 20%;"><b>Status</b></div>
-                                                            <div style="float: right;width: 70%;">: <?php echo $row['req_status']; ?></div>
+                                                            <div style="float: right;width: 80%;">: <?php echo $row['req_status']; ?></div>
                                                         </div>
                                                         <!--label><b>Package Name</b>     : <?php echo $row['req_packname']; ?></label>
                                                         <br>
