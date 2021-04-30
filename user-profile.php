@@ -63,6 +63,14 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <form method="POST" action="function.php">
                                  <input type="hidden" name="command" value="UPDATE_PROFILE">
                                  <input type="hidden" name="id" value="<?php echo $row['user_id'];?>">
+                                <div class="text-center img-placeholder" onClick="triggerClick()">
+                                                                        </div>
+                                       <img src="images/<?php if ($row['user_profile'] ==""){ echo "avatar.jpg";}
+                                                              
+                                                              
+                                                              echo $row['user_profile'];?>"  id="profileDisplay" onClick="triggerClick()">
+                                <input type="file" name="image" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;" accept='image/*'>
+                                <br>
                                 <center><br>
                                         <h6>Firstname</h6>
                                         <input type="text" name="firstnameuser" value="<?php echo $row['first_name'];?>" class="form-control" style="width: 400px;">
