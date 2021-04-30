@@ -129,8 +129,9 @@ function update_profile($conn)
     $lastname = $_POST['lastnameuser'];
     $email = $_POST['emailuser'];
     $hosp = $_POST['hospitaluser'];
+    $image = time() . '-' . $_FILES["file_to_upload"]["name"];
     $target_dir = "images/";
-    $target_file = $target_dir . basename($_FILES["file_to_upload"]["name"]);
+    $target_file = $target_dir . basename($image);
     $uploadOk = 1;
     $image_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
     // Check if image file is a actual image or fake image
