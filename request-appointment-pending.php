@@ -92,7 +92,7 @@ if (isset($_POST['reqreject'])) {
                                         <div class="modal fade text-left" id="accept<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
                                                 <div class="modal-content">
-                                                    <div class="modal-header bg-warning">
+                                                    <div class="modal-header bg-warning" style="text-align: center;">
                                                         <h5 class="modal-title white" id="myModalLabel140">
                                                             Are you confirm?
                                                         </h5>
@@ -101,7 +101,7 @@ if (isset($_POST['reqreject'])) {
                                                         </button>
                                                     </div>
                                                     <form method="POST">
-                                                        <div class="modal-body">
+                                                        <div class="modal-body" style="text-align: center;">
                                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Close</span>
