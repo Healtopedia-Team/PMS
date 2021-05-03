@@ -168,9 +168,11 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         $national=$_POST['national'];
                         $apptime=$_POST['apptime'];
                         $latestid=$_POST['latestid'];
-
+                        
+                        $appdate = $_POST['datecheck'];
                         $register_name = $_SESSION["name"];
-                        $current_timestamp = time();
+                        $t = time();
+                        $current_timestamp = date("Y-m-d H:i", $t);
                         $finalDateD = date('Y-m-d', strtotime($appdate));
                         $finalDateT = date('H:i', strtotime($apptime));
                         $reservedTime = $finalDateD . ' ' . $finalDateT;
