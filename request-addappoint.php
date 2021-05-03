@@ -146,7 +146,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                     if (isset($_POST['submitdate'])) {
                         $sql = "DELETE FROM `requestappoint` WHERE req_packname IS NULL";
                         if(mysqli_query($conn,$sql)){
-                            static $appdate = $_POST['datecheck'];
+                            $appdate = $_POST['datecheck'];
                             $sql2 = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
                             if (mysqli_query($conn,$sql2)) {
                                 $last_id = mysqli_insert_id($conn);
