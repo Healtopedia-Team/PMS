@@ -144,7 +144,7 @@ session_start();
                             $notifications = mysqli_fetch_assoc($statuscnt);
                             $cnt_not = count(array_keys($notifications, "unread"));
                             ?>
-                            <span class="badge badge-light">99</span>
+                            <span class="badge badge-light" style="color: red">99</span>
                             <?php
                             if ($cnt_not > 0) {
                             ?>
