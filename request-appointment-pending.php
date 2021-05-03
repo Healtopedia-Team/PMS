@@ -8,7 +8,6 @@ if (isset($_POST['reqaccept'])) {
     $requestid = $_POST['requestid'];
     $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$requestid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Request accepted.");</script>';
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
@@ -17,7 +16,6 @@ if (isset($_POST['reqreject'])) {
     $requestid = $_POST['requestid'];
     $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$requestid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Request rejected.");</script>';
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
@@ -108,7 +106,7 @@ if (isset($_POST['reqreject'])) {
                                                                 <span class="d-none d-sm-block">Close</span>
                                                             </button>
                                                             <form method="POST">
-                                                                <button type="submit" name="reqaccept" class="btn btn-warning ml-1" data-bs-dismiss="modal">
+                                                                <button type="submit" name="reqaccept" class="btn btn-warning ml-1">
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Confirm</span>
                                                                 </button>
@@ -135,7 +133,7 @@ if (isset($_POST['reqreject'])) {
                                                                 <span class="d-none d-sm-block">Close</span>
                                                             </button>
                                                             <form method="POST">
-                                                                <button type="submit" name="reqreject" class="btn btn-warning ml-1" data-bs-dismiss="modal">
+                                                                <button type="submit" name="reqreject" class="btn btn-warning ml-1">
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Confirm</span>
                                                                 </button>
