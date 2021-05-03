@@ -100,7 +100,7 @@ if (isset($_POST['reqreject'])) {
                                                                 <i data-feather="x"></i>
                                                             </button>
                                                         </div>
-                                                        <div class="modal-footer">
+                                                        <div class="modal-body">
                                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Close</span>
