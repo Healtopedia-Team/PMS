@@ -161,35 +161,32 @@ session_start();
                             if ($cnt_not > 0) {
                                 foreach (mysqli_fetch_assoc($statuscnt) as $i) {
                             ?>
-                                    <li>
-                                        <a style="
-                                            <?php
-                                            if ($i['status'] == 'unread') {
-                                                echo "font-weight:bold;";
-                                            }
-                                            ?>  
-                                            " class="dropdown-item" href="#">
-                                            <small><i>
-                                                    <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
-                                                </i></small><br />
-                                            <?php
-                                            if ($i['type'] == 'request-appointment') {
-                                                echo "You just successfully reserved an appointment on  .";
-                                            } else if ($i['type'] == 'cancel') {
-                                                echo "You just successfully cancelled your appointment on  .";
-                                            }
-                                            ?>
-                                        </a>
-                                    </li>
+                                <li>
+                                    <a style="
+                                        <?php
+                                        if ($i['status'] == 'unread') {
+                                            echo "font-weight:bold;";
+                                        }
+                                        ?>  
+                                        " class="dropdown-item" href="#">
+                                        <small><i>
+                                                <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
+                                            </i></small><br />
+                                        <?php
+                                        if ($i['type'] == 'request-appointment') {
+                                            echo "You just successfully reserved an appointment on  .";
+                                        } else if ($i['type'] == 'cancel') {
+                                            echo "You just successfully cancelled your appointment on  .";
+                                        }
+                                        ?>
+                                    </a>
+                                </li>
                             <?php
                                 }
                             } else {
                             ?>
                                 <li><a class="dropdown-item">
-                                <?php
-                                echo "No notifications yet.";
-                            }
-                            ?>
+                                    No notifications yet
                                 </a></li>
                         </ul>
                     </li>
