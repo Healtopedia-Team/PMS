@@ -183,7 +183,7 @@ session_start();
                                             <small><i>
                                                     <?php echo $rows[5] ?>
                                                 </i></small><br />
-                                            <?php echo "You just successfully reserved an appointment on " ?>
+                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?>
                                         </a>
                                     </li>
                                 <?php
