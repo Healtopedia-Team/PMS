@@ -144,7 +144,15 @@ session_start();
                             $notifications = mysqli_fetch_assoc($statuscnt);
                             $cnt_not = count(array_keys($notifications, "unread"));
                             ?>
-                            
+                            <span class="badge badge-light">99</span>
+                            <?php
+                            if ($cnt_not > 0) {
+                            ?>
+                                <span class="badge badge-light"><?php echo $cnt_not; ?></span>
+                            <?php
+                            }
+                            ?>
+                            </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <li>
