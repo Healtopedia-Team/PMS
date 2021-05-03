@@ -59,36 +59,37 @@ if (isset($_POST['reqreject'])) {
                                                     </div>
                                             </td>
                                         </tr>
-                                        <div class="modal fade text-left" id="patient<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <!--========================================== M O D A L == I N F O =====================================-->
+                                        <div class="modal fade text-left" id="patient<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="myModalLabel1">Request Information</h5>
-                                                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                                                        <h4 class="modal-title" id="myModalLabel17">Request Appointment Detail</h4>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <label><b>Package Name</b>     : <?php echo $row['req_packname']; ?></label>
+                                                        <label><b>Package Name</b>: <?php echo $row['req_packname']; ?></label>
                                                         <br>
-                                                        <label><b>Client Name</b>      : <?php echo $row['req_custname']; ?></label>
+                                                        <label><b>Client Name</b>: <?php echo $row['req_custname']; ?></label>
                                                         <br>
-                                                        <label><b>IC/Passport</b>      : <?php echo $row['req_custid']; ?></label>
+                                                        <label><b>IC/Passport</b>: <?php echo $row['req_custid']; ?></label>
                                                         <br>
-                                                        <label><b>No Phone</b>         : <?php echo $row['req_custphone']; ?></label>
+                                                        <label><b>No Phone</b>: <?php echo $row['req_custphone']; ?></label>
                                                         <br>
-                                                        <label><b>Address</b>          : <?php echo $row['req_custaddress']; ?></label>
+                                                        <label><b>Address</b>: <?php echo $row['req_custaddress']; ?></label>
                                                         <br>
-                                                        <label><b>Nationalities</b>    : <?php echo $row['req_custnational']; ?></label>
+                                                        <label><b>Nationalities</b>: <?php echo $row['req_custnational']; ?></label>
                                                         <br>
-                                                        <label><b>Appointment Date</b> : <?php echo $row['req_appdate']; ?></label>
+                                                        <label><b>Appointment Date</b>: <?php echo $row['req_appdate']; ?></label>
                                                         <br>
-                                                        <label><b>Appointment Time</b> : <?php echo $row['req_apptime']; ?></label>
+                                                        <label><b>Appointment Time</b>: <?php echo $row['req_apptime']; ?></label>
                                                         <br>
-                                                        <label><b>Status</b>           : <?php echo $row['req_status']; ?></label>
+                                                        <label><b>Status</b>: <?php echo $row['req_status']; ?></label>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn" data-bs-dismiss="modal">
+                                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Close</span>
                                                         </button>
@@ -96,6 +97,7 @@ if (isset($_POST['reqreject'])) {
                                                 </div>
                                             </div>
                                         </div>
+                            <!--========================================== E N D == O F == M O D A L =====================================-->
                                     <?php } ?>
                                 </tbody>
                             </table>
