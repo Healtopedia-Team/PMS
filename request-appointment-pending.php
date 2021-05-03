@@ -96,7 +96,7 @@ if (isset($_POST['reqreject'])) {
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-warning">
                                                             <h5 class="modal-title white" id="myModalLabel140">
-                                                                Accept Modal
+                                                                Are you confirm?
                                                             </h5>
                                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                                 <i data-feather="x"></i>
@@ -107,11 +107,12 @@ if (isset($_POST['reqreject'])) {
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Close</span>
                                                             </button>
-
-                                                            <button type="button" class="btn btn-warning ml-1" data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Accept</span>
-                                                            </button>
+                                                            <form method="POST">
+                                                                <button type="submit" name="reqaccept" class="btn btn-warning ml-1" data-bs-dismiss="modal">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Confirm</span>
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -122,7 +123,7 @@ if (isset($_POST['reqreject'])) {
                                                     <div class="modal-content">
                                                         <div class="modal-header bg-warning">
                                                             <h5 class="modal-title white" id="myModalLabel140">
-                                                                Reject Modal
+                                                                Are you confirm?
                                                             </h5>
                                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                                 <i data-feather="x"></i>
@@ -133,11 +134,12 @@ if (isset($_POST['reqreject'])) {
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Close</span>
                                                             </button>
-
-                                                            <button type="button" class="btn btn-warning ml-1" data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Accept</span>
-                                                            </button>
+                                                            <form method="POST">
+                                                                <button type="submit" name="reqreject" class="btn btn-warning ml-1" data-bs-dismiss="modal">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Confirm</span>
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
