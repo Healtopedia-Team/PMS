@@ -140,8 +140,8 @@ session_start();
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
                             <?php
-                            $query = mysqli_query($conn, "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
-                            $notifications = mysqli_fetch_assoc($query);
+                            $statuscnt = mysqli_query($conn, "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
+                            $notifications = mysqli_fetch_assoc($statuscnt);
                             $cnt_not = count(array_keys($notifications, "unread"));
                             if ($cnt_not > 0) {
                             ?>
@@ -158,8 +158,8 @@ session_start();
                             <li><a class="dropdown-item">No notification available</a></li>
                             <?php
                             $query = "SELECT * from 'notification' order by `date` DESC";
-                            if (count(mysqli_fetch_assoc($query)) > 0) {
-                                foreach (mysqli_fetch_assoc($query) as $i) {
+                            if ($cnt_not > 0) {
+                                foreach (mysqli_fetch_assoc($statuscnt) as $i) {
                             ?>
                                     <li>
                                         <a style="
@@ -170,7 +170,7 @@ session_start();
                                             ?>  
                                             " class="dropdown-item" href="#">
                                             <small><i>
-                                                    <?php echo date('F j, Y, g:i a', strtotime($i['date'])) ?>
+                                                    <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
                                                 </i></small><br />
                                             <?php
                                             if ($i['type'] == 'request-appointment') {
