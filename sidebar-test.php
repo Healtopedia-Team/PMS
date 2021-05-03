@@ -140,7 +140,7 @@ session_start();
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
                             <?php
-                            $statuscnt = mysqli_query($conn, "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
+                            $statuscnt = mysqli_query($conn, "SELECT * from `notification` where `status` = 'unread' order by `date` DESC");
                             $notifications = mysqli_fetch_assoc($statuscnt);
                             $cnt_not = count(array_keys($notifications, "unread"));
                             ?>
