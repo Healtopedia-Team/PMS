@@ -166,12 +166,13 @@ session_start();
                             if ($cnt_not > 0) {
                                 foreach ($notifications as $rows) {
                             ?>
+                                    <?php echo $rows ?>
                                     <li>
                                         <a style="font-weight:bold" class="dropdown-item" href="#">
                                             <small><i>
-                                                <?php echo $rows['date'] ?>
-                                            </i></small><br />
-                                            <?php echo "You just successfully reserved an appointment on "?>
+                                                    <?php echo $rows['date'] ?>
+                                                </i></small><br />
+                                            <?php echo "You just successfully reserved an appointment on " ?>
                                         </a>
                                     </li>
                                 <?php
