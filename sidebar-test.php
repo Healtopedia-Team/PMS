@@ -155,7 +155,7 @@ session_start();
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
-                            <li><a class="dropdown-item">No notification available</a></li>
+                            <!-- <li><a class="dropdown-item">No notification available</a></li> -->
                             <?php
                             $query = "SELECT * from 'notification' order by `date` DESC";
                             if ($cnt_not > 0) {
