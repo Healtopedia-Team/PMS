@@ -78,7 +78,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                     </div>
                                     <div class="user-img d-flex align-items-center">
                                         <div class="avatar avatar-md">
-                                            <img src="<?php echo $_SESSION["pic"]?>">
+                                            <img src="images/<?php echo $_SESSION["pic"]?>">
                                         </div>
                                     </div>
                                 </div>
