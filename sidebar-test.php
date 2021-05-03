@@ -166,13 +166,7 @@ session_start();
                                 foreach ($notifications as $i) {
                             ?>
                                     <li>
-                                        <a style="
-                                        <?php
-                                        if ($i['status'] == 'unread') {
-                                            echo "font-weight:bold;";
-                                        }
-                                        ?>  
-                                        " class="dropdown-item" href="#">
+                                        <a style="font-weight:bold" class="dropdown-item" href="#">
                                             <small><i>
                                                 <?php echo date("Y-m-d H:i", strtotime($i['date'])) ?>
                                             </i></small><br />
@@ -184,6 +178,7 @@ session_start();
                                             }
                                             ?>
                                         </a>
+                                    
                                     </li>
                                 <?php
                                 }
