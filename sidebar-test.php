@@ -160,13 +160,24 @@ session_start();
                             </li>
                             <!-- <li><a class="dropdown-item">No notification available</a></li> -->
                             <?php
+                            function console_log($output, $with_script_tags = true)
+                            {
+                                $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+                                    ');';
+                                if ($with_script_tags) {
+                                    $js_code = '<script>' . $js_code . '</script>';
+                                }
+                                echo $js_code;
+                            } ?>
+                            <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' ORDER BY 'date' DESC");
                             //mysqli_num_rows($not_list)
                             $notifications = mysqli_fetch_all($not_list);
                             if ($cnt_not > 0) {
                                 foreach ($notifications as $rows) {
                             ?>
-                                    <?php echo $rows ?>
+                                    <?php $view_variable = $rows; ?>
+                                    <?= console_log($view_variable); ?>
                                     <li>
                                         <a style="font-weight:bold" class="dropdown-item" href="#">
                                             <small><i>
