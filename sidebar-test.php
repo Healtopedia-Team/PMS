@@ -161,7 +161,7 @@ session_start();
                             <?php
                             $query = "SELECT * from 'notification' order by `date` DESC";
                             if ($cnt_not > 0) {
-                                foreach (mysqli_fetch_assoc($statuscnt) as $i) {
+                                foreach (mysqli_fetch_assoc($query) as $i) {
                             ?>
                                     <li>
                                         <a style="
@@ -175,9 +175,9 @@ session_start();
                                                     <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
                                                 </i></small><br />
                                             <?php
-                                            if ($i['type'] == 'request-appointment') {
+                                            if ($i['type'] === 'request-appointment') {
                                                 echo "You just successfully reserved an appointment on ";
-                                            } else if ($i['type'] == 'cancel') {
+                                            } else if ($i['type'] === 'cancel') {
                                                 echo "You just successfully cancelled your appointment on ";
                                             }
                                             ?>
