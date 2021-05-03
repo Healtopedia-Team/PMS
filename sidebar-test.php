@@ -140,7 +140,7 @@ session_start();
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
                             <?php
-                            $statuscnt = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM notification WHERE `status`= 'unread'");
+                            $statuscnt = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM notification WHERE 'status'= 'unread'");
                             $notifications = mysqli_fetch_assoc($statuscnt);
                             $cnt_not = $notifications['cnt'];
                             ?>
@@ -160,9 +160,9 @@ session_start();
                             </li>
                             <!-- <li><a class="dropdown-item">No notification available</a></li> -->
                             <?php
-                            $query = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' ORDER BY 'date' DESC");
-                            $notifications = mysqli_fetch_assoc($query);
-                            if ($cnt_not > 0 && mysqli_num_rows($query) > 0) {
+                            $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE 'status'='unread' ORDER BY 'date' DESC");
+                            $notifications = mysqli_fetch_all($not_list);
+                            if ($mysqli_num_rows($not_list) > 0) {
                                 foreach ($notifications as $i) {
                             ?>
                                     <li>
