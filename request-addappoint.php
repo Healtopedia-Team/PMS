@@ -174,8 +174,8 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         $reservedTime = $finalDateD . ' ' . $finalDateT;
                         $message = 'Inserting...';
                         $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime', req_status = 'pending' WHERE  request_id = '$latestid'";
-                        $query = "INSERT INTO 'notification' (`id`, `name`, `type`, `message`, `status`, `date`, `reserved_date`) VALUES (NULL, '$name', 'request-appointment', '$message', 'unread', '$current_timestamp', '$reservedTime')";
-                        if (mysqli_query($conn, $query)) {
+                        $query = "INSERT INTO 'notification' (`id`, `name`, `type`, `message`, `status`, `date`, `reserved_date`) VALUES (NULL, '$name', 'request-appointment', '$message', 'unread', '$2021-05-03 16:43:10', '2021-05-28 16:41:41')";
+                        if (mysqli_query($conn,$sql) and mysqli_query($conn, $query)) {
                             echo '<script>
                             alert("Successfully request an appointment !!");
                             </script>';
