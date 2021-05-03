@@ -56,6 +56,9 @@ if (isset($_POST['reqreject'])) {
                                                         <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                 </form>
                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
+                                                        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#warning">
+                                                            Warning
+                                                        </button>
                                                     </div>
                                             </td>
                                         </tr>
@@ -97,6 +100,41 @@ if (isset($_POST['reqreject'])) {
                                                 </div>
                                             </div>
                                         </div>
+                            <!--========================================== E N D == O F == M O D A L =====================================-->
+                                            <div class="modal fade text-left" id="warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel140" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-warning">
+                                                            <h5 class="modal-title white" id="myModalLabel140">
+                                                                Warning Modal
+                                                            </h5>
+                                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Tart lemon drops macaroon oat cake chocolate toffee
+                                                            chocolate
+                                                            bar icing. Pudding jelly beans
+                                                            carrot cake pastry gummies cheesecake lollipop. I
+                                                            love cookie
+                                                            lollipop cake I love sweet
+                                                            gummi bears cupcake dessert.
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Close</span>
+                                                            </button>
+
+                                                            <button type="button" class="btn btn-warning ml-1" data-bs-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Accept</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                             <!--========================================== E N D == O F == M O D A L =====================================-->
                                     <?php } ?>
                                 </tbody>
