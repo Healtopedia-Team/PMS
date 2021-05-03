@@ -67,7 +67,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Request In-Waiting</h6>
                                                 <h6>
                                                     <?php
-                                                    $which_hos= mysqli_query($conn, "SELECT hospital FROM user WHERE first_name='$_SESSION["name"] '");
+                                                    $which_hos= mysqli_query($conn, "SELECT hospital FROM user WHERE first_name='$_SESSION['name']'");
                                                     $try = mysqli_fetch_assoc($which_hos);
                                                     echo $try;
                                                     ?>
