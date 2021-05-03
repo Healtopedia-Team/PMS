@@ -140,9 +140,9 @@ session_start();
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
                             <?php
-                            $statuscnt = mysqli_query($conn, "SELECT * from `notification` where `status` = 'unread' order by `date` DESC");
+                            $statuscnt = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM notification WHERE `status`= 'unread'");
                             $notifications = mysqli_fetch_assoc($statuscnt);
-                            $cnt_not = count(array_keys($notifications, "unread"));
+                            $cnt_not = $notifications['cnt'];
                             ?>
                             <?php
                             if ($cnt_not > 0) {
@@ -153,15 +153,16 @@ session_start();
                             ?>
                             </span>
                         </a>
+                        <!-- Here not done -->
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
                             <!-- <li><a class="dropdown-item">No notification available</a></li> -->
                             <?php
-                            $query = "SELECT * from 'notification' order by `date` DESC";
+                            $query = mysqli_query($conn, "SELECT * FROM notification ORDER BY `date` DESC");
                             $notifications = mysqli_fetch_assoc($query);
-                            if ($cnt_not ==  0) {
+                            if ($cnt_not > 0) {
                                 foreach ($notifications as $i) {
                             ?>
                                     <li>
@@ -173,8 +174,8 @@ session_start();
                                         ?>  
                                         " class="dropdown-item" href="#">
                                             <small><i>
-                                                    <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
-                                                </i></small><br />
+                                                <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
+                                            </i></small><br />
                                             <?php
                                             if ($i['type'] === 'request-appointment') {
                                                 echo "You just successfully reserved an appointment on ";
