@@ -172,7 +172,7 @@ session_start();
                             <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' ORDER BY 'date' DESC");
                             //mysqli_num_rows($not_list)
-                            $notifications = mysqli_fetch_all($not_list);
+                            $notifications = mysqli_fetch_assoc($not_list);
                             if ($cnt_not > 0) {
                                 foreach ($notifications as $rows) {
                             ?>
@@ -181,7 +181,7 @@ session_start();
                                     <li>
                                         <a style="font-weight:bold" class="dropdown-item" href="#">
                                             <small><i>
-                                                    <?php echo $rows['date'] ?>
+                                                    <?php echo $rows[5] ?>
                                                 </i></small><br />
                                             <?php echo "You just successfully reserved an appointment on " ?>
                                         </a>
