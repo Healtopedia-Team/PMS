@@ -71,7 +71,7 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td>
                                                 <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
                                                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm<?php echo $count; ?>"><i class=" bi bi-pencil-square"></i></button>
-                                                    <a href="function.php?id=<?php echo $rows['hosp_id']; ?>&command=DELETE_HOSP" class="btn btn-primary" onclick="return confirm('Are you sure you want to delete this hospital?')"><i class="bi bi-x-octagon"></i></a>
+                                                    <a href="function.php?id=<?php echo $rows['hosp_id']; ?>&command=DELETE_HOSP" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this hospital?')"><i class="bi bi-x-octagon"></i></a>
 
                                                 </div>
                                                 <div class="modal fade text-left" id="inlineForm<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
