@@ -5,19 +5,17 @@ $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status != ''
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_POST['reqaccept'])) {
-    $requestid = $_POST['requestid'];
-    $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$requestid'";
+    $confirmid = $_POST['confirmid'];
+    $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Request accepted.");</script>';
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
 
 if (isset($_POST['reqreject'])) {
-    $requestid = $_POST['requestid'];
-    $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$requestid'";
+    $confirmid = $_POST['confirmid'];
+    $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Request rejected.");</script>';
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
@@ -27,7 +25,6 @@ if (isset($_POST['updatedate'])) {
     $postponeid = $_POST['postponeid'];
     $sql = "UPDATE requestappoint SET req_appdate = '$postponedate', req_status = 'postponed' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Request date postponed.");</script>';
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
