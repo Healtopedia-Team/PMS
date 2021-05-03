@@ -160,8 +160,8 @@ session_start();
                             </li>
                             <!-- <li><a class="dropdown-item">No notification available</a></li> -->
                             <?php
-                            $query = mysqli_query($conn, "SELECT * FROM notification ORDER BY `date` DESC");
-                            $notifications = mysqli_fetch_assoc($query);
+                            $query = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' ORDER BY 'date' DESC");
+                            $notifications = mysqli_fetch_all($query);
                             if ($cnt_not > 0) {
                                 foreach ($notifications as $i) {
                             ?>
@@ -170,15 +170,8 @@ session_start();
                                             <small><i>
                                                 <?php echo date("Y-m-d H:i", strtotime($i['date'])) ?>
                                             </i></small><br />
-                                            <?php
-                                            if ($i['type'] === 'request-appointment') {
-                                                echo "You just successfully reserved an appointment on ";
-                                            } else if ($i['type'] === 'cancel') {
-                                                echo "You just successfully cancelled your appointment on ";
-                                            }
-                                            ?>
+                                            <?php echo "You just successfully reserved an appointment on "?>
                                         </a>
-                                    
                                     </li>
                                 <?php
                                 }
