@@ -143,6 +143,7 @@ session_start();
                             $statuscnt = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM notification WHERE status='unread'");
                             $notifications = mysqli_fetch_assoc($statuscnt);
                             $cnt_not = $notifications['cnt'];
+                            echo $cnt_not;
                             ?>
                             <?php
                             if ($cnt_not > 0) {
@@ -163,7 +164,6 @@ session_start();
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' ORDER BY 'date' DESC");
                             //mysqli_num_rows($not_list)
                             $notifications = mysqli_fetch_all($not_list);
-                            echo $cnt_not;
                             if ($cnt_not > 0) {
                                 foreach ($notifications as $i) {
                             ?>
