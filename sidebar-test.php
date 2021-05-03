@@ -145,14 +145,6 @@ session_start();
                             $cnt_not = count(array_keys($notifications, "unread"));
                             ?>
                             
-                            <?php
-                            if ($cnt_not > 0) {
-                            ?>
-                                <span class="badge badge-light"><?php echo $cnt_not; ?></span>
-                            <?php
-                            }
-                            ?>
-                            </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <li>
@@ -164,36 +156,36 @@ session_start();
                             if ($cnt_not > 0) {
                                 foreach (mysqli_fetch_assoc($statuscnt) as $i) {
                             ?>
-                                <li>
-                                    <a style="
+                                    <li>
+                                        <a style="
                                         <?php
                                         if ($i['status'] == 'unread') {
                                             echo "font-weight:bold;";
                                         }
                                         ?>  
                                         " class="dropdown-item" href="#">
-                                        <small><i>
-                                                <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
-                                            </i></small><br />
-                                        <?php
-                                        if ($i['type'] == 'request-appointment') {
-                                            echo "You just successfully reserved an appointment on ";
-                                        } else if ($i['type'] == 'cancel') {
-                                            echo "You just successfully cancelled your appointment on ";
-                                        }
-                                        ?>
-                                    </a>
-                                </li>
-                            <?php
+                                            <small><i>
+                                                    <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
+                                                </i></small><br />
+                                            <?php
+                                            if ($i['type'] == 'request-appointment') {
+                                                echo "You just successfully reserved an appointment on ";
+                                            } else if ($i['type'] == 'cancel') {
+                                                echo "You just successfully cancelled your appointment on ";
+                                            }
+                                            ?>
+                                        </a>
+                                    </li>
+                                <?php
                                 }
                             } else {
-                            ?>
+                                ?>
                                 <li><a class="dropdown-item">
-                                <?php
-                                echo "No notifications available.";
-                            }
-                            ?>
-                                </a></li>
+                                    <?php
+                                    echo "No notifications available.";
+                                }
+                                    ?>
+                                    </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -225,33 +217,33 @@ session_start();
             </div>
         </div>
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Logout Confirmation
-                                    </h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                        <i data-feather="x"></i>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                        Select "Logout" below if you are ready to end your current session.
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Close</span>
-                                    </button>
-                                    <a class="btn btn-primary ml-1" href="auth-logout.php">
-                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Logout</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Logout Confirmation
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
                     </div>
+                    <div class="modal-body">
+                        <p>
+                            Select "Logout" below if you are ready to end your current session.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Close</span>
+                        </button>
+                        <a class="btn btn-primary ml-1" href="auth-logout.php">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
 </header>
