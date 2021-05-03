@@ -162,7 +162,7 @@ session_start();
                             $query = "SELECT * from 'notification' order by `date` DESC";
                             $notifications = mysqli_fetch_assoc($query);
                             if ($cnt_not>  0) {
-                                foreach (mysqli_fetch_assoc($query) as $i) {
+                                foreach ($notifications as $i) {
                             ?>
                                     <li>
                                         <a style="
