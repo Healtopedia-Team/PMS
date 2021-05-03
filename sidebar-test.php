@@ -174,9 +174,9 @@ session_start();
                                             </i></small><br />
                                         <?php
                                         if ($i['type'] == 'request-appointment') {
-                                            echo "You just successfully reserved an appointment on  .";
+                                            echo "You just successfully reserved an appointment on ";
                                         } else if ($i['type'] == 'cancel') {
-                                            echo "You just successfully cancelled your appointment on  .";
+                                            echo "You just successfully cancelled your appointment on ";
                                         }
                                         ?>
                                     </a>
@@ -185,7 +185,12 @@ session_start();
                                 }
                             } else {
                             ?>
-                                <li><a class="dropdown-item">No notifications available </a></li>
+                                <li><a class="dropdown-item">
+                                <?php
+                                echo "No notifications available.";
+                            }
+                            ?>
+                                </a></li>
                         </ul>
                     </li>
                 </ul>
