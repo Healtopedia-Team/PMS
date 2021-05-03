@@ -143,7 +143,6 @@ session_start();
                             $statuscnt = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM notification WHERE status='unread'");
                             $notifications = mysqli_fetch_assoc($statuscnt);
                             $cnt_not = $notifications['cnt'];
-                            echo $cnt_not;
                             ?>
                             <?php
                             if ($cnt_not > 0) {
@@ -165,12 +164,12 @@ session_start();
                             //mysqli_num_rows($not_list)
                             $notifications = mysqli_fetch_all($not_list);
                             if ($cnt_not > 0) {
-                                foreach ($notifications as $i) {
+                                foreach ($notifications as $rows) {
                             ?>
                                     <li>
                                         <a style="font-weight:bold" class="dropdown-item" href="#">
                                             <small><i>
-                                                <?php echo date("Y-m-d H:i", strtotime($i['date'])) ?>
+                                                <?php echo $rows['date'] ?>
                                             </i></small><br />
                                             <?php echo "You just successfully reserved an appointment on "?>
                                         </a>
