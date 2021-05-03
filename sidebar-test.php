@@ -143,6 +143,8 @@ session_start();
                             $statuscnt = mysqli_query($conn, "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
                             $notifications = mysqli_fetch_assoc($statuscnt);
                             $cnt_not = count(array_keys($notifications, "unread"));
+                            ?>
+                            <span class="badge badge-light"><?php echo $cnt_not; ?></span>
                             if ($cnt_not > 0) {
                             ?>
                                 <span class="badge badge-light"><?php echo $cnt_not; ?></span>
