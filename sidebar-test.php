@@ -174,7 +174,7 @@ session_start();
                                         ?>  
                                         " class="dropdown-item" href="#">
                                             <small><i>
-                                                <?php echo date('F j, Y, g:i', strtotime($i['date'])) ?>
+                                                <?php echo date("Y-m-d H:i", strtotime($i['date'])) ?>
                                             </i></small><br />
                                             <?php
                                             if ($i['type'] === 'request-appointment') {
