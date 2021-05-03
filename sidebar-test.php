@@ -5,7 +5,7 @@ $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 
 session_start();
-
+$username=$_SESSION['name'];
 ?>
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
@@ -170,7 +170,7 @@ session_start();
                                 echo $js_code;
                             } ?>
                             <?php
-                            $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' AND name='$_SESSION['first_name']' ORDER BY 'date' DESC");
+                            $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' AND name='$username' ORDER BY 'date' DESC");
                             //mysqli_num_rows($not_list)
                             $notifications = mysqli_fetch_all($not_list);
                             if ($cnt_not > 0) {
