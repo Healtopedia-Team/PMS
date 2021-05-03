@@ -221,6 +221,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
         $('.datepicker').datepicker({
             startDate: new Date(),
             format: 'mm/dd/yyyy',
+            daysOfWeekDisabled: [0,6],
             beforeShowDay: function(date){
                 dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
                 if(disableDates.indexOf(dmy) != -1){
@@ -229,14 +230,6 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                 else{
                     return true;
                 }
-            }
-        });
-
-        $('.dateappoint').datepicker({
-            startDate: new Date(),
-            format: 'mm/dd/yyyy',
-            beforeShowDay: function(date){
-                dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
             }
         });
     </script>
