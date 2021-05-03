@@ -185,9 +185,7 @@ session_start();
                                 }
                             } else {
                             ?>
-                                <li><a class="dropdown-item">
-                                    No notifications yet
-                                </a></li>
+                                <li><a class="dropdown-item">No notifications available </a></li>
                         </ul>
                     </li>
                 </ul>
