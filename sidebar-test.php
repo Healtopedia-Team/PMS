@@ -160,7 +160,8 @@ session_start();
                             <!-- <li><a class="dropdown-item">No notification available</a></li> -->
                             <?php
                             $query = "SELECT * from 'notification' order by `date` DESC";
-                            if ($cnt_not > 0) {
+                            $notifications = mysqli_fetch_assoc($query);
+                            if ($count(array_keys($notifications, "unread"))> 0) {
                                 foreach (mysqli_fetch_assoc($query) as $i) {
                             ?>
                                     <li>
