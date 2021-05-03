@@ -65,6 +65,13 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Request In-Waiting</h6>
+                                                <h6>
+                                                    <?php
+                                                    $which_hos= mysqli_query($conn, "SELECT hospital FROM user WHERE first_name='$_SESSION["name"]'");
+                                                    $try = mysqli_fetch_assoc($which_hos);
+                                                    echo $try;
+                                                    ?>
+                                                </h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
                                                     $res = mysqli_query($conn, "SELECT COUNT(request_id) as 'cnt' FROM requestappoint WHERE req_status='pending'");
