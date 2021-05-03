@@ -172,7 +172,6 @@ if (isset($_POST['updatedate'])) {
         $('.datepicker').datepicker({
             startDate: new Date(),
             format: 'm/d/yyyy',
-            daysOfWeekDisabled: [0,6],
             beforeShowDay: function(date){
                 dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
                 if(disableDates.indexOf(dmy) != -1){
