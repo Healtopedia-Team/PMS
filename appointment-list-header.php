@@ -87,7 +87,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <li>
                                     <h6 class="dropdown-header">Hello, <?php echo $_SESSION["name"]?>!</h6>
                                 </li>
-                                <li><a class="dropdown-item" href="user-profile.php"><i class="icon-mid bi bi-person me-2"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="<?php echo $_SESSION["pic"]?>"><i class="icon-mid bi bi-person me-2"></i>Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
