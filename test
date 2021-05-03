@@ -1,0 +1,26 @@
+if ($cnt_not > 0) {
+                                foreach ($notifications as $i) {
+                            ?>
+                                    <li>
+                                        <a style="
+                                        <?php
+                                        if ($i['status'] == 'unread') {
+                                            echo "font-weight:bold;";
+                                        }
+                                        ?>  
+                                        " class="dropdown-item" href="#">
+                                            <small><i>
+                                                <?php echo date("Y-m-d H:i", strtotime($i['date'])) ?>
+                                            </i></small><br />
+                                            <?php
+                                            if ($i['type'] === 'request-appointment') {
+                                                echo "You just successfully reserved an appointment on ";
+                                            } else if ($i['type'] === 'cancel') {
+                                                echo "You just successfully cancelled your appointment on ";
+                                            }
+                                            ?>
+                                        </a>
+                                    
+                                    </li>
+                                <?php
+                                }
