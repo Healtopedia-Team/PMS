@@ -5,16 +5,16 @@ $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'pe
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_POST['reqaccept'])) {
-    $requestid = $_POST['requestid'];
-    $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$requestid'";
+    $confirmid = $_POST['confirmid'];
+    $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
 
 if (isset($_POST['reqreject'])) {
-    $requestid = $_POST['requestid'];
-    $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$requestid'";
+    $confirmid = $_POST['confirmid'];
+    $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
@@ -101,12 +101,7 @@ if (isset($_POST['reqreject'])) {
                                                         </button>
                                                     </div>
                                                     <form method="POST">
-                                                        <div class="modal-body">
-                                                            <label>Select Date :</label>
-                                                            <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
-                                                            <input type="text" name="postponeid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                        </div>
-                                                        <div class="modal-body">
+                                                        <div class="modal-body" style="text-align: center;">
                                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Close</span>
@@ -116,6 +111,7 @@ if (isset($_POST['reqreject'])) {
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Confirm</span>
                                                                 </button>
+                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                             </form>
                                                         </div>
                                                     </form>
@@ -123,18 +119,19 @@ if (isset($_POST['reqreject'])) {
                                             </div>
                                         </div>
                             <!--========================================== R E J E C T == M O D A L =====================================-->
-                                            <div class="modal fade text-left" id="reject<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel140" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header bg-warning">
-                                                            <h5 class="modal-title white" id="myModalLabel140">
-                                                                Are you confirm?
-                                                            </h5>
-                                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-footer">
+                                        <div class="modal fade text-left" id="reject<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-warning">
+                                                        <h5 class="modal-title white" id="myModalLabel140">
+                                                            Are you confirm?
+                                                        </h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <form method="POST">
+                                                        <div class="modal-body" style="text-align: center;">
                                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Close</span>
@@ -144,11 +141,13 @@ if (isset($_POST['reqreject'])) {
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Confirm</span>
                                                                 </button>
+                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                             </form>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
                                             </div>
+                                        </div>
                                     <?php } ?>
                                 </tbody>
                             </table>

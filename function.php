@@ -136,15 +136,17 @@ function update_profile($conn)
     $uploadOk = 1;
     $image_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 
-        if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
-            $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', user_profile='$image' WHERE user_id='$id'";
-            if (mysqli_query($conn, $sql)) {
-                header('location:user-profile.php');
-                }
-        } else {
-            echo "A error has occured uploading.";
+    if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', user_profile='$image' WHERE user_id='$id'";
+        if (mysqli_query($conn, $sql)) {
+            $_SESSION["name"] = $firstname;
+            $_SESSION["hospital"] = $lastname;
+            $_SESSION["pic"] = $image;
+            header('location:user-profile.php');
         }
-    
+    } else {
+        echo "A error has occured uploading.";
+    }
 }
 
 function delete_hospital($conn)
