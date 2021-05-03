@@ -1,9 +1,9 @@
 <?php include 'dbconnect.php';
 
 session_start();
- 
+
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
     exit;
 }
@@ -43,7 +43,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 <body>
     <div id="app">
         <?php include 'sidebar-test.php'; ?>
-        
+
         <div id="main" style="margin-top: -90px;">
 
 
@@ -65,7 +65,13 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Request In-Waiting</h6>
-                                                <h6 class="font-extrabold mb-0">1</h6>
+                                                <h6 class="font-extrabold mb-0">
+                                                    <?php
+                                                    $res = mysqli_query($conn, "SELECT COUNT(request_id) FROM requestappoint WHERE req_status='pending'");
+                                                    $req_in_wait = mysqli_fetch_all($res, MYSQLI_ASSOC);
+                                                    echo $req_in_wait;
+                                                    ?>
+                                                </h6>
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +88,13 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Appointments This Week</h6>
-                                                <h6 class="font-extrabold mb-0">12</h6>
+                                                <h6 class="font-extrabold mb-0">
+                                                    <?php
+                                                    $res1 = mysqli_query($conn, "SELECT COUNT(id) FROM appointwoo WHERE statusapp='paid'");
+                                                    $appointment_this_week = mysqli_fetch_all($res1, MYSQLI_ASSOC);
+                                                    echo $appointment_this_week;
+                                                    ?>
+                                                </h6>
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +111,13 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             </div>
                                             <div class="col-md-8">
                                                 <h6 class="text-muted font-semibold">Completed Appointments</h6>
-                                                <h6 class="font-extrabold mb-0">45</h6>
+                                                <h6 class="font-extrabold mb-0">
+                                                    <?php
+                                                    $res2 = mysqli_query($conn, "SELECT COUNT(id) FROM appointwoo WHERE statusapp='complete'");
+                                                    $complete_appointments = mysqli_fetch_all($res2, MYSQLI_ASSOC);
+                                                    echo $complete_appointments;
+                                                    ?>
+                                                </h6>
                                             </div>
                                         </div>
                                     </div>
@@ -132,8 +150,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                 </div>
                             </div>
                             <div class="col-md-6">
-
-                                                                <div class="card">
+                                <div class="card">
                                     <div class="table-responsive" style="overflow-y:auto; height:310px;">
                                         <table class="table table-lg">
                                             <thead>
@@ -152,8 +169,8 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                 <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
 
                                                                 <?php echo $rows['packagename']; ?><br>
-                                                                <?php 
-                                                                $atime= strtotime('-8 hour', $rows['start_appoint']);
+                                                                <?php
+                                                                $atime = strtotime('-8 hour', $rows['start_appoint']);
                                                                 echo date('h:i A', $atime); ?><br>
 
                                                                 <?php
@@ -198,7 +215,9 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                     <?php endforeach;
                                                 } else { ?>
 
-                                                <tr><td>No appointments today</td></tr>
+                                                    <tr>
+                                                        <td>No appointments today</td>
+                                                    </tr>
 
 
                                                 <?php } ?>
@@ -207,134 +226,128 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                         </table>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="section">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Weekly Appointment List</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="chart-profile-visit"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Product Overview</h4>
+                                    </div>
+                                    <div class="table-responsive" style="overflow-y:auto; height:338px;">
+                                        <table class="table table-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Count</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($hospital_list as $rows) : ?>
+                                                    <tr>
+                                                        <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/', '', $rows['packagename']); ?>
+                                                        <td class="text-bold-500"><?php echo $package_name; ?></td>
+                                                        <td class="text-bold-500"><?php echo $rows['COUNT(*)']; ?></td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <section class="section">
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>Weekly Appointment List</h4>
-                                        </div>
-                                        <div class="card-body">
-                                            <div id="chart-profile-visit"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h4>Product Overview</h4>
-                                        </div>
-                                        <div class="table-responsive" style="overflow-y:auto; height:338px;">
-                                            <table class="table table-lg">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Product</th>
-                                                        <th>Count</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <?php foreach ($hospital_list as $rows) : ?>
-                                                        <tr>
-                                                            <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/','', $rows['packagename']);?>
-                                                            <td class="text-bold-500"><?php echo $package_name;?></td>
-                                                            <td class="text-bold-500"><?php echo $rows['COUNT(*)'];?></td>
-                                                        </tr>
-                                                    <?php endforeach; ?>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                    </section>
 
-                        <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header bg-primary">
-                                        <h5 class="modal-title white" id="myModalLabel160">
-                                            Patient Check-In Authorization
-                                        </h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                            <i data-feather="x"></i>
+                    <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header bg-primary">
+                                    <h5 class="modal-title white" id="myModalLabel160">
+                                        Patient Check-In Authorization
+                                    </h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <form action="function.php" method="POST">
+                                    <div class="modal-body">
+                                        <label>Enter Patient I/C : </label>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="I/C Number" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Close</span>
+                                        </button>
+                                        <button type="submit" class="btn btn-primary ml-1" data-bs-toggle="modal">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Check-In</span>
                                         </button>
                                     </div>
-                                    <form action="function.php" method="POST">
-                                        <div class="modal-body">
-                                            <label>Enter Patient I/C : </label>
-                                            <div class="form-group">
-                                                <input type="text" placeholder="I/C Number" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Close</span>
-                                            </button>
-                                            <button type="submit" class="btn btn-primary ml-1" data-bs-toggle="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Check-In</span>
-                                            </button>
-                                        </div>
-                                    </form>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Logout Confirmation
+                                    </h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Select "Logout" below if you are ready to end your current session.
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Close</span>
+                                    </button>
+                                    <a class="btn btn-primary ml-1" href="auth-logout.php">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Logout</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
- 
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Logout Confirmation
-                                                        </h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Select "Logout" below if you are ready to end your current session.
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Close</span>
-                                                        </button>
-                                                        <a class="btn btn-primary ml-1"
-                                                             href="auth-logout.php" >
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Logout</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
                     </div>
 
-                </section>
             </div>
 
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
-                    </div>
-                </div>
-            </footer>
+            </section>
         </div>
+
+        <footer>
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>2021 &copy; Mazer</p>
+                </div>
+                <div class="float-end">
+                    <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
     </div>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
