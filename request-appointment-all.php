@@ -57,11 +57,11 @@ if (isset($_POST['updatedate'])) {
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
 
                                                         <?php if ($row['req_status'] == "pending") {?>
-                                                            <button type="submit" name="reqaccept" class="btn btn-success"><i class="bi bi-plus-circle"></i></button>
+                                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accept<?php echo $row['request_id']; ?>"><i class="bi bi-plus-circle"></i></button>
                                                         <?php } ?>
 
                                                         <?php if ($row['req_status'] == "pending") {?>
-                                                            <button type="submit" name="reqreject" class="btn btn-danger"><i class="bi bi-x-circle"></i></button>
+                                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reject<?php echo $row['request_id']; ?>"><i class="bi bi-x-circle"></i></button>
                                                         <?php } ?>
 
                                                         <?php if ($row['req_status'] == "approved" || $row['req_status'] == "postponed") {?>
@@ -139,6 +139,66 @@ if (isset($_POST['updatedate'])) {
                                                             <span class="d-none d-sm-block">Close</span>
                                                         </button>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <!--========================================== A C C E P T == M O D A L =====================================-->
+                                        <div class="modal fade text-left" id="accept<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-warning">
+                                                        <h5 class="modal-title white" id="myModalLabel140">
+                                                            Are you confirm?
+                                                        </h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <form method="POST">
+                                                        <div class="modal-body" style="text-align: center;">
+                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Close</span>
+                                                            </button>
+                                                            <form method="POST">
+                                                                <button type="submit" name="reqaccept" class="btn btn-warning ml-1">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Confirm</span>
+                                                                </button>
+                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
+                                                            </form>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <!--========================================== R E J E C T == M O D A L =====================================-->
+                                        <div class="modal fade text-left" id="reject<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-warning">
+                                                        <h5 class="modal-title white" id="myModalLabel140">
+                                                            Are you confirm?
+                                                        </h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <form method="POST">
+                                                        <div class="modal-body" style="text-align: center;">
+                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Close</span>
+                                                            </button>
+                                                            <form method="POST">
+                                                                <button type="submit" name="reqreject" class="btn btn-warning ml-1">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Confirm</span>
+                                                                </button>
+                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
+                                                            </form>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
