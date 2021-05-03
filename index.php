@@ -67,8 +67,8 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Request In-Waiting</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
-                                                    $res = mysqli_query($conn, "SELECT COUNT(request_id) as cnt FROM requestappoint WHERE req_status='pending'");
-                                                    $req_in_wait = mysqli_fetch_all($res, MYSQLI_ASSOC);
+                                                    $res = mysqli_query($conn, "SELECT COUNT(request_id) as 'cnt' FROM requestappoint WHERE req_status='pending'");
+                                                    $req_in_wait = mysqli_fetch_assoc($res);
                                                     echo $req_in_wait['cnt'];
                                                     ?>
                                                 </h6>
@@ -90,8 +90,8 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Appointments This Week</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
-                                                    $res1 = mysqli_query($conn, "SELECT COUNT(id) as cnt FROM appointwoo WHERE statusapp='paid'");
-                                                    $appointment_this_week = mysqli_fetch_all($res1, MYSQLI_ASSOC);
+                                                    $res1 = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='paid'");
+                                                    $appointment_this_week = mysqli_fetch_assoc($res1);
                                                     echo $appointment_this_week['cnt'];
                                                     ?>
                                                 </h6>
@@ -113,8 +113,8 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Completed Appointments</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
-                                                    $res2 = mysqli_query($conn, "SELECT COUNT(id) as cnt FROM appointwoo WHERE statusapp='complete'");
-                                                    $complete_appointments = mysqli_fetch_all($res2, MYSQLI_ASSOC);
+                                                    $res2 = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='complete'");
+                                                    $complete_appointments = mysqli_fetch_assoc($res2);
                                                     echo $complete_appointments['cnt'];
                                                     ?>
                                                 </h6>
