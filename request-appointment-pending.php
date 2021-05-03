@@ -141,6 +141,7 @@ if (isset($_POST['reqreject'])) {
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Confirm</span>
                                                                 </button>
+                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                             </form>
                                                         </div>
                                                     </form>
