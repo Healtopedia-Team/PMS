@@ -139,12 +139,58 @@ session_start();
                     <li class="nav-item dropdown me-3">
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
+                            <?php
+                            $query = mysqli_query($conn, "SELECT * from `notifications` where `status` = 'unread' order by `date` DESC");
+                            $notifications = mysqli_fetch_assoc($query);
+                            $cnt_not = count(array_keys($notifications, "unread"));
+                            if ($cnt_not > 0) {
+                            ?>
+                                <span class="badge badge-light"><?php echo $cnt_not; ?></span>
+                            <?php
+                            }
+                            ?>
+                            </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
                             <li><a class="dropdown-item">No notification available</a></li>
+                            <?php
+                            $query = "SELECT * from `notifications` order by `date` DESC";
+                            if (count(mysqli_fetch_assoc($query)) > 0) {
+                                foreach (mysqli_fetch_assoc($query) as $i) {
+                            ?>
+                                    <li>
+                                        <a style="
+                                            <?php
+                                            if ($i['status'] == 'unread') {
+                                                echo "font-weight:bold;";
+                                            }
+                                            ?>  
+                                            " class="dropdown-item" href="#">
+                                            <small><i>
+                                                    <?php echo date('F j, Y, g:i a', strtotime($i['date'])) ?>
+                                                </i></small><br />
+                                            <?php
+                                            if ($i['type'] == 'request-appointment') {
+                                                echo "You just successfully reserved an appointment on  .";
+                                            } else if ($i['type'] == 'cancel') {
+                                                echo "You just successfully cancelled your appointment on  .";
+                                            }
+                                            ?>
+                                        </a>
+                                    </li>
+                            <?php
+                                }
+                            } else {
+                            ?>
+                                <li><a class="dropdown-item">
+                                <?php
+                                echo "No notifications yet.";
+                            }
+                            ?>
+                                </a></li>
                         </ul>
                     </li>
                 </ul>
