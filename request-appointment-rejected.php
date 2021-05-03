@@ -76,27 +76,4 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                 </section>
             </div>
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Healtopedia Digital</p>
-                    </div>
-                    <!--div class="float-end">
-                        <p>Powered By Atiq hehehe ;)<span class="text-danger"><i class="bi bi-heart"></i></span></p>
-                    </div-->
-                </div>
-            </footer>
-        </div>
-    </div>
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
-    <script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-    </script>
-    <script src="assets/vendors/choices.js/choices.min.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
-</html>
+            <?php include 'request-appointment-footer.php';?>
