@@ -102,15 +102,6 @@ if (isset($_POST['reqreject'])) {
                                                                 <i data-feather="x"></i>
                                                             </button>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            Tart lemon drops macaroon oat cake chocolate toffee
-                                                            chocolate
-                                                            bar icing. Pudding jelly beans
-                                                            carrot cake pastry gummies cheesecake lollipop. I
-                                                            love cookie
-                                                            lollipop cake I love sweet
-                                                            gummi bears cupcake dessert.
-                                                        </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
@@ -136,15 +127,6 @@ if (isset($_POST['reqreject'])) {
                                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                                 <i data-feather="x"></i>
                                                             </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Tart lemon drops macaroon oat cake chocolate toffee
-                                                            chocolate
-                                                            bar icing. Pudding jelly beans
-                                                            carrot cake pastry gummies cheesecake lollipop. I
-                                                            love cookie
-                                                            lollipop cake I love sweet
-                                                            gummi bears cupcake dessert.
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
