@@ -60,7 +60,9 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                     <div class="section">
                         <div class="row">
                             <div class="card">
-                                <div id="calendar"></div>
+                                <div class="card-body">
+                                    <div id="calendar"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
