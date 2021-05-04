@@ -194,9 +194,9 @@ $username = $_SESSION['name'];
                             <script>
                                 $(document).ready(function() {
                                     $("#notif-bell").click(function() {
-                                        setInterval(function() {
+                                        setTimeout(function() {
                                             $('#notif-item').css("font-weight", "normal");
-                                        }, 5000);
+                                        }, 1000);
                                     });
                                 });
                             </script>
