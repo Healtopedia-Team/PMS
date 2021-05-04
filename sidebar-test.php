@@ -171,10 +171,10 @@ $username = $_SESSION['name'];
                             </span>
                         </a>
                         <!-- Here not done -->
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="transform: translateX(3rem);
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="
                         max-width: 400px !important; max-height: 400px !important; overflow-y:auto; right:0 !important;">
-                            <li>
-                                <h6 class="dropdown-header">Notifications</h6>
+                            <li style="word-wrap: break-word; width:100% word-spacing:380px !important;>
+                                <h6 class=" dropdown-header">Notifications</h6>
                             </li>
 
                             <?php
@@ -202,7 +202,7 @@ $username = $_SESSION['name'];
                                                     <?php echo $rows[5] ?>
                                                 </i></small><br />
                                             <p style="word-break: break-all;">
-                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?></p>
+                                                <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?></p>
                                         </a>
                                     </li>
                                 <?php
