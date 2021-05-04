@@ -37,11 +37,36 @@ function add_user($conn)
 {
 
     if (isset($_POST['hospital'])) {
-        echo "has hospital";
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $username = $_POST['username'];
+        $pass = $_POST['password'];
+        $email = $_POST['email'];
+        $hosp = $_POST['hospital'];
+        $role = $_POST['role'];
+        $img = 'avatar.jpg';
+
+
+        $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
+        if (mysqli_query($conn, $sql)) {
+            header('location:users.php');
+        }
     }
     else{
-        
-        echo "does not have hospital";
+        $hosp='-';
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $username = $_POST['username'];
+        $pass = $_POST['password'];
+        $email = $_POST['email'];
+        $role = $_POST['role'];
+        $img = 'avatar.jpg';
+
+
+        $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
+        if (mysqli_query($conn, $sql)) {
+            header('location:users.php');
+        }
 
     }
 }
