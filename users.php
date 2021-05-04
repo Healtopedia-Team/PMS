@@ -185,7 +185,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                     <input type="text" placeholder="Email" class="form-control" name="email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <select class="choices form-select" name="role" required>
+                                                    <select id="role" class="choices form-select" name="role" required onchange="roleChange()">
                                                         <option value="">Role</option>
                                                         <option value="admin">Admin</option>
                                                         <option value="receptionist">Receptionist</option>
@@ -249,6 +249,14 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
+
+        function roleChange(){
+            var role = document.getElementById("role").value;
+            document.getElementById("demo").innerHTML = "You selected: " + role;
+        }
+
+        
+
     </script>
 
     <script src="assets/js/main.js"></script>
