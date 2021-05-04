@@ -148,12 +148,12 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         if(mysqli_query($conn,$sql)){
                             $appdate = $_POST['datecheck'];
                             $_SESSION['appdate'] = $appdate;
-                            $sql2 = "INSERT INTO requestappoint SET req_appdate = '$appdate', request_count = '1'";
+                            $sql2 = "INSERT INTO requestappoint SET req_appdate = '$appdate'";
                             if (mysqli_query($conn,$sql2)) {
                                 $last_id = mysqli_insert_id($conn);
                                 include 'req-addpatient.php';
                             }else{
-                                echo "Request Failed";
+                                echo "ERROR: Could not able to execute $sql2. " . mysqli_error($conn);
                             }
                         }else{
                             echo "Failed";

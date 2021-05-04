@@ -136,6 +136,23 @@ $username = $_SESSION['name'];
                             <li><a class="dropdown-item" href="#">No new mail</a></li>
                         </ul>
                     </li>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $("#notif-bell").click(function() {
+                                setInterval(function() {
+                                    $('#notif-item').css("font-weight", "400");
+                                    <?php
+                                    $chgstatus = "UPDATE notification SET status='read'";
+                                    if (mysqli_query($conn, $chgstatus)) {
+                                        echo "Record was updated successfully.";
+                                    } else {
+                                        echo "ERROR: " . mysqli_error($conn);
+                                    }
+                                    ?>
+                                }, 5000);
+                            });
+                        });
+                    </script>
                     <li class="nav-item dropdown me-3">
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="notif-bell">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
@@ -154,27 +171,24 @@ $username = $_SESSION['name'];
                             </span>
                         </a>
                         <!-- Here not done -->
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="transform: translateX(3rem);
+                        max-width: 400px !important; max-height: 400px !important; overflow-y:auto; right:0 !important;">
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
-                            <script type="text/javascript">
-                                $(document).ready(function() {
-                                    $("#notif-item").click(function() {
-                                        setInterval(function() {
-                                            $('#notif-item').css("font-weight", "400");
-                                        }, 5000);
-                                    });
-                                });
-                            </script>
+
                             <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE name='$username' ORDER BY 'date' DESC");
                             $notifications = mysqli_fetch_all($not_list);
-                            if ($cnt_not > 0) {
+                            if ($cnt_not >= 0) {
                                 foreach ($notifications as $rows) {
                             ?>
                                     <li>
-                                        <a style="font-weight:bold" class="dropdown-item" href="#" id="notif-item">
+                                        <a style="<?php if ($rows['status'] == 'unread') {
+                                                        echo "font-weight:bold";
+                                                    } else {
+                                                        echo "font-weight:400";
+                                                    } ?>; word-wrap: break-word; width:100% word-spacing:380px !important;" class="dropdown-item" href="#" id="notif-item">
                                             <small><i>
                                                     <!-- 
                                                         0: "id"
@@ -187,7 +201,8 @@ $username = $_SESSION['name'];
                                                     -->
                                                     <?php echo $rows[5] ?>
                                                 </i></small><br />
-                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?>
+                                            <p style="word-break: break-all;">
+                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?></p>
                                         </a>
                                     </li>
                                 <?php
