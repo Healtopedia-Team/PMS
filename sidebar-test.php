@@ -72,6 +72,16 @@ $username = $_SESSION['name'];
                         <span>Appointment List</span>
                     </a>
                 </li>
+                <li class="sidebar-item <?php if ($your_variable == "appoint-calendar") {
+                                            echo "active";
+                                        } else {
+                                            echo "noactive";
+                                        } ?>">
+                    <a href="appoint-calendar.php" class='sidebar-link'>
+                        <i class="bi bi-calendar"></i>
+                        <span>Appointment Calendar</span>
+                    </a>
+                </li>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-gear-fill"></i>
