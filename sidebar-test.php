@@ -158,10 +158,8 @@ $username = $_SESSION['name'];
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
-                            <!-- <li><a class="dropdown-item">No notification available</a></li> -->
                             <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' AND name='$username' ORDER BY 'date' DESC");
-                            //mysqli_num_rows($not_list)
                             $notifications = mysqli_fetch_all($not_list);
                             if ($cnt_not > 0) {
                                 foreach ($notifications as $rows) {
