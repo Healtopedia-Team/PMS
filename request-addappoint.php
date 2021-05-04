@@ -152,8 +152,6 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                             if (mysqli_query($conn,$sql2)) {
                                 $last_id = mysqli_insert_id($conn);
                                 include 'req-addpatient.php';
-                            }else{
-                                echo "ERROR: Could not able to execute $sql2. " . mysqli_error($conn);
                             }
                         }else{
                             echo "Failed";
