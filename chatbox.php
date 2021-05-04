@@ -88,7 +88,7 @@ Website: http://emilcarlsson.se/
 						echo "ERROR: " . mysqli_error($conn);
 					}
 					?>
-					<?= console_log($row); ?>
+					<?= console_log($user_id); ?>
 					<img id="profile-img" src="<?php echo $row['user_profile'] ?>" class="online" alt="" />
 					<p><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
 					<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
