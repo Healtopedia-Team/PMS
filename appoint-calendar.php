@@ -14,7 +14,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Patient Management System</title>
+    <title>Calendar - Patient Management System</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -28,7 +28,6 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -56,9 +55,6 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
         <?php include 'sidebar-test.php'; ?>
 
         <div id="main" style="margin-top: -90px;">
-            <div class="page-heading">
-                <h3>Dashboard</h3>
-            </div>
             <div class="page-content">
                 <section class="row">
                     <div class="section">
