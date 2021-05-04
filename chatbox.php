@@ -7,6 +7,8 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 	header("location: auth-login.php");
 	exit;
 }
+$name = $_SESSION['user_id'];
+
 ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -67,9 +69,11 @@ Website: http://emilcarlsson.se/
 			<div id="profile">
 				<div class="wrap">
 					<?php
-					$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = {$_SESSION['user_id']}");
+					$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$name'");
 					if (mysqli_num_rows($sql) > 0) {
 						$row = mysqli_fetch_assoc($sql);
+					} else {
+						echo "ERROR: " . mysqli_error($conn);
 					}
 					?>
 					<img id="profile-img" src="<?php echo $row['user_profile'] ?>" class="online" alt="" />
