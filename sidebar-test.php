@@ -173,7 +173,7 @@ $username = $_SESSION['name'];
                         <!-- Here not done -->
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="
                         max-width: 400px !important; max-height: 400px !important; overflow-y:auto; right:0 !important;">
-                            <li style="word-wrap: break-word; width:100% word-spacing:380px !important;>
+                            <li style="word-wrap: break-word; width:100% word-spacing:380px !important;">
                                 <h6 class=" dropdown-header">Notifications</h6>
                             </li>
 
