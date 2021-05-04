@@ -171,7 +171,7 @@ $username = $_SESSION['name'];
                             </span>
                         </a>
                         <!-- Here not done -->
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="width:600px">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
@@ -183,11 +183,11 @@ $username = $_SESSION['name'];
                                 foreach ($notifications as $rows) {
                             ?>
                                     <li>
-                                        <a style="<?php if ($rows['status'] === 'unread') {
+                                        <a style="<?php if ($rows['status'] == 'unread') {
                                                         echo "font-weight:bold";
                                                     } else {
                                                         echo "font-weight:400";
-                                                    } ?>" class="dropdown-item" href="#" id="notif-item">
+                                                    } ?>; 'white-space: pre-line'" class="dropdown-item" href="#" id="notif-item">
                                             <small><i>
                                                     <!-- 
                                                         0: "id"
@@ -200,7 +200,8 @@ $username = $_SESSION['name'];
                                                     -->
                                                     <?php echo $rows[5] ?>
                                                 </i></small><br />
-                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?>
+                                            <?php echo "You just successfully reserved 
+                                            an appointment on {$rows[6]}" ?>
                                         </a>
                                     </li>
                                 <?php
