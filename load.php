@@ -4,7 +4,7 @@ $connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Heali
 
 $data = array();
 
-$query = "SELECT * FROM calendar ORDER BY id";
+$query = "SELECT * FROM calendar ORDER BY calendar_id";
 
 $statement = $connect->prepare($query);
 

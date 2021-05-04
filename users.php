@@ -88,7 +88,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title" id="myModalLabel33">Hospital Form </h4>
+                                                                <h4 class="modal-title" id="myModalLabel33">User Update</h4>
                                                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                                     <i data-feather="x"></i>
                                                                 </button>
@@ -110,7 +110,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                         <input type="text" placeholder="Email" class="form-control" name="email" value="<?php echo $rows['email']; ?>">
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <select class="choices form-select" name="role" required>
+                                                                        <select class="choices form-select" name="role" disabled="disabled">
                                                                             <option value="<?php echo $rows['role']; ?>"><?php echo $rows['role']; ?></option>
                                                                             <option value="admin">Admin</option>
                                                                             <option value="receptionist">Receptionist</option>
