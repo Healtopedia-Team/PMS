@@ -201,7 +201,8 @@ $username = $_SESSION['name'];
                                                     -->
                                                     <?php echo $rows[5] ?>
                                                 </i></small><br />
-                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?>
+                                            <p style="word-break: break-all;">
+                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?></p>
                                         </a>
                                     </li>
                                 <?php
