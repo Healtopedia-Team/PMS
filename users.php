@@ -257,6 +257,9 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             if (role=="admin"){
                 document.getElementById('hospital').style.display = 'none';
             }
+            else{
+                document.getElementById('hospital').style.display = 'block';
+            }
 
         }
 
