@@ -1,6 +1,6 @@
 <?php
 //load.php
-$connect = new PDO('mysql:host=localhost;dbname=db_pms', 'root', '');
+$connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Healit20.');
 
 $data = array();
 
