@@ -51,8 +51,8 @@
                 $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', start_appoint = '$startappoint', statusapp = '$statusapp', hospname = '$hospname', packagename = '$packagename'";
                 mysqli_query($conn, $sql);
 
-                $sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$calendarstart', end_event = '$calendarend'";
-                mysqli_query($conn, $sql2);
+                //$sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$calendarstart', end_event = '$calendarend'";
+                //mysqli_query($conn, $sql2);
             }
         }
     }
