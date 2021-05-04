@@ -36,22 +36,38 @@ switch ($theCommand) {
 function add_user($conn)
 {
 
-    if (empty($_POST['hospital'])){
-        $hosp='-';
+    if (isset($_POST['hospital'])) {
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $username = $_POST['username'];
+        $pass = $_POST['password'];
+        $email = $_POST['email'];
+        $hosp = $_POST['hospital'];
+        $role = $_POST['role'];
+        $img = 'avatar.jpg';
+
+
+        $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
+        if (mysqli_query($conn, $sql)) {
+            header('location:users.php');
+        }
     }
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $username = $_POST['username'];
-    $pass = $_POST['password'];
-    $email = $_POST['email'];
-    $hosp = $_POST['hospital'];
-    $role = $_POST['role'];
-    $img = 'avatar.jpg';
+    else{
+        $hosp='-';
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $username = $_POST['username'];
+        $pass = $_POST['password'];
+        $email = $_POST['email'];
+        $role = $_POST['role'];
+        $img = 'avatar.jpg';
 
 
-    $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
-    if (mysqli_query($conn, $sql)) {
-        header('location:users.php');
+        $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
+        if (mysqli_query($conn, $sql)) {
+            header('location:users.php');
+        }
+
     }
 }
 
@@ -119,7 +135,7 @@ function update_user($conn)
     $email = $_POST['email'];
     $hosp = $_POST['hospital'];
     $role = $_POST['role'];
-    
+
 
     //hospital might be empty
 
