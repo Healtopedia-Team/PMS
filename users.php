@@ -193,7 +193,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                     </select>
                                                 </div>
                                                 <div id="text"></div>
-                                                <div class="form-group">
+                                                <div class="form-group" id="hospital">
                                                     <select class="choices form-select" name="hospital" required>
                                                         <option value="">Select Hospital</option>
                                                         <?php foreach ($hospital as $rows) : ?>
@@ -253,7 +253,11 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
         function roleChange(){
             var role = document.getElementById("role").value;
-            document.getElementById("text").innerHTML = "You selected: " + role;
+
+            if (role=="admin"){
+                document.getElementById('hospital').style.display = 'none';
+            }
+
         }
 
         
