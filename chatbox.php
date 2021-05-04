@@ -78,15 +78,9 @@ Website: http://emilcarlsson.se/
 			<div id="profile">
 				<div class="wrap">
 					<?php
-					$sql = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$username'");
-					$row = mysqli_fetch_assoc($sql);
-					if (mysqli_num_rows($sql) > 0) {
+						$sql = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$username'");
 						$row = mysqli_fetch_assoc($sql);
-					} else {
-						echo mysqli_error($conn);
-					}
 					?>
-					<?= console_log($username); ?>
 					<?= console_log($row); ?>
 
 					<img id="profile-img" src="<?php echo $row['user_profile'] ?>" class="online" alt="" />
