@@ -158,7 +158,15 @@ $username = $_SESSION['name'];
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
-
+                            <script type="text/javascript">
+                                $(document).ready(function() {
+                                    $("#notif-item").click(function() {
+                                        setInterval(function() {
+                                            $('#notif-item').css("font-weight", "400");
+                                        }, 5000);
+                                    });
+                                });
+                            </script>
                             <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE name='$username' ORDER BY 'date' DESC");
                             $notifications = mysqli_fetch_all($not_list);
