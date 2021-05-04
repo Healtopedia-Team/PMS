@@ -168,20 +168,9 @@ $username = $_SESSION['name'];
                                 });
                             </script>
                             <?php
-                            function console_log($output, $with_script_tags = true)
-                            {
-                                $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
-                                    ');';
-                                if ($with_script_tags) {
-                                    $js_code = '<script>' . $js_code . '</script>';
-                                }
-                                echo $js_code;
-                            } ?>
-                            <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE name='$username' ORDER BY 'date' DESC");
                             $notifications = mysqli_fetch_all($not_list);
-                            console_log($notifications);
-                            if ($cnt_not > 0) {
+                            if ($cnt_not >= 0) {
                                 foreach ($notifications as $rows) {
                             ?>
                                     <li>
