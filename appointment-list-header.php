@@ -30,7 +30,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 <body>
     <div id="app">
         <?php include 'sidebar-test.php'; ?>
-        <header class="mb-3">
+        <!--header class="mb-3">
             <nav class="navbar navbar-expand navbar-light ">
                 <div class="container-fluid">
                     <a href="#" class="burger-btn d-block">
@@ -122,7 +122,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                     </div>
                 </div>
             </nav>
-        </header>
+        </header-->
         <div id="main" style="margin-top: -50px;">
             <div class="page-heading">
                 <div class="page-title">
