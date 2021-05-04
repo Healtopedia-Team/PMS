@@ -13,7 +13,7 @@
                                                                     <label>Select Time:</label>
                                                                     <p id="demoss"></p>
                                                                     <p id="demo"></p>
-                                                                    <input type="text" id="apptime" name="apptime" style="display: none;">
+                                                                    <input type="text" id="apptime" name="apptime" style="display: none;" required>
                                                                     <table style="text-align: center;">
                                                                         <thead>
                                                                             <tr style="text-align: center;">
@@ -191,7 +191,7 @@
                                                                         <div>
                                                                             <input type="text" name="latestid" class="form-control" value="<?php echo $last_id ?>" style="display: none;">
 
-                                                                            <select class="choices form-select" name="packname">
+                                                                            <select class="choices form-select" name="packname" required>
                                                                                 <option value="">Select Package</option>
                                                                                     <?php foreach($data as $key){ ?>
                                                                                         <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
@@ -212,9 +212,9 @@
                                                                                 <option value="Female">Female</option>
                                                                             </select>
                                                                             <br>
-                                                                            <input type="text" name="dob" class="form-control" placeholder="Date of Birth" required onfocus="(this.type='date')">
+                                                                            <input type="text" name="dob" class="form-control" placeholder="Date of Birth" required onfocus="(this.type='date')" required>
                                                                             <br>
-                                                                            <select name="national" class="form-select">
+                                                                            <select name="national" class="form-select" required>
                                                                                 <option value="">Select Nationality</option>
                                                                                 <option value="Malaysian">Malaysian</option>
                                                                                 <option value="Non-Malaysian">Non-Malaysian</option>
