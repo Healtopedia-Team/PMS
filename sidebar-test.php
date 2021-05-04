@@ -158,6 +158,15 @@ $username = $_SESSION['name'];
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
+                            <script type="text/javascript">
+                                $(document).ready(function() {
+                                    $("#notif-item").click(function() {
+                                        setTimeout(function() {
+                                            $('#notif-item').css("font-weight", "400");
+                                        }, 1000);
+                                    });
+                                });
+                            </script>
                             <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' AND name='$username' ORDER BY 'date' DESC");
                             $notifications = mysqli_fetch_all($not_list);
@@ -191,15 +200,7 @@ $username = $_SESSION['name'];
                                 }
                                     ?>
                                     </a></li>
-                                <script type="text/javascript">
-                                    $(document).ready(function() {
-                                        $("#notif-bell").click(function() {
-                                            setInterval(function() {
-                                                $('#notif-item').css("font-weight", "400");
-                                            }, 1000);
-                                        });
-                                    });
-                                </script>
+
                         </ul>
                     </li>
                 </ul>
