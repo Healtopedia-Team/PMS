@@ -191,15 +191,15 @@ $username = $_SESSION['name'];
                                 }
                                     ?>
                                     </a></li>
-                            <script>
-                                $(document).ready(function() {
-                                    $("#notif-bell").click(function() {
-                                        setTimeout(function() {
-                                            $('#notif-item').css("font-weight", "normal");
-                                        }, 1000);
+                                <script type="text/javascript">
+                                    $(document).ready(function() {
+                                        $("#notif-bell").click(function() {
+                                            setInterval(function() {
+                                                $('#notif-item').css("font-weight", "400");
+                                            }, 1000);
+                                        });
                                     });
-                                });
-                            </script>
+                                </script>
                         </ul>
                     </li>
                 </ul>
