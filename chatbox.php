@@ -69,13 +69,26 @@ Website: http://emilcarlsson.se/
 			<div id="profile">
 				<div class="wrap">
 					<?php
+					function console_log($output, $with_script_tags = true)
+					{
+						$js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+							');';
+						if ($with_script_tags) {
+							$js_code = '<script>' . $js_code . '</script>';
+						}
+						echo $js_code;
+					} ?>
+
+					<?php
 					$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$user_id'");
+					$row = mysqli_fetch_assoc($sql);
 					if (mysqli_num_rows($sql) > 0) {
 						$row = mysqli_fetch_assoc($sql);
 					} else {
 						echo "ERROR: " . mysqli_error($conn);
 					}
 					?>
+					<?= console_log($row); ?>
 					<img id="profile-img" src="<?php echo $row['user_profile'] ?>" class="online" alt="" />
 					<p><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
 					<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
