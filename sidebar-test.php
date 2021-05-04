@@ -163,7 +163,7 @@ $username = $_SESSION['name'];
                                     $("#notif-item").click(function() {
                                         setInterval(function() {
                                             $('#notif-item').css("font-weight", "400");
-                                        }, 5000);
+                                        }, 1000);
                                     });
                                 });
                             </script>
@@ -174,7 +174,8 @@ $username = $_SESSION['name'];
                                 foreach ($notifications as $rows) {
                             ?>
                                     <li>
-                                        <a style="font-weight:bold" class="dropdown-item" href="#" id="notif-item">
+                                        <a style="<?php if ($i['status'] == 'unread') { echo "font-weight:bold;";}?>" 
+                                        class="dropdown-item" href="#" id="notif-item">
                                             <small><i>
                                                     <!-- 
                                                         0: "id"
