@@ -163,12 +163,12 @@ $username = $_SESSION['name'];
                                     $("#notif-item").click(function() {
                                         setInterval(function() {
                                             $('#notif-item').css("font-weight", "400");
-                                        }, 1000);
+                                        }, 5000);
                                     });
                                 });
                             </script>
                             <?php
-                            $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' AND name='$username' ORDER BY 'date' DESC");
+                            $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE name='$username' ORDER BY 'date' DESC");
                             $notifications = mysqli_fetch_all($not_list);
                             if ($cnt_not > 0) {
                                 foreach ($notifications as $rows) {
