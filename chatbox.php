@@ -86,6 +86,8 @@ Website: http://emilcarlsson.se/
 						echo mysqli_error($conn);
 					}
 					?>
+					<?= console_log($username); ?>
+					<?= console_log($row); ?>
 
 					<img id="profile-img" src="<?php echo $row['user_profile'] ?>" class="online" alt="" />
 					<p><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
