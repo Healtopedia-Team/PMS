@@ -78,12 +78,10 @@ Website: http://emilcarlsson.se/
 			<div id="profile">
 				<div class="wrap">
 					<?php
-						$sql = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$username'");
-						$row = mysqli_fetch_assoc($sql);
+					$sql = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$username'");
+					$row = mysqli_fetch_assoc($sql);
 					?>
-					<?= console_log($row); ?>
-
-					<img id="profile-img" src="<?php echo $row['user_profile'] ?>" class="online" alt="" />
+					<img id="profile-img" src="assets/images/faces/1.jpg" class="online" alt="" />
 					<p><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
 					<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
 					<div id="status-options">
@@ -227,8 +225,8 @@ Website: http://emilcarlsson.se/
 		</div>
 		<div class="content">
 			<div class="contact-profile">
-				<img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
-				<p>Harvey Specter</p>
+				<img src="assets/images/faces/1.jpg" alt="" />
+				<p><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
 				<div class="social-media">
 					<i class="fa fa-facebook" aria-hidden="true"></i>
 					<i class="fa fa-twitter" aria-hidden="true"></i>
