@@ -7,7 +7,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 	header("location: auth-login.php");
 	exit;
 }
-$user_id = $_SESSION["user_id"];
+$username= $_SESSION["name"];
 
 ?>
 
@@ -80,7 +80,7 @@ Website: http://emilcarlsson.se/
 					} ?>
 
 					<?php
-					$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$user_id'");
+					$sql = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$username'");
 					$row = mysqli_fetch_assoc($sql);
 					if (mysqli_num_rows($sql) > 0) {
 						$row = mysqli_fetch_assoc($sql);
@@ -88,7 +88,7 @@ Website: http://emilcarlsson.se/
 						echo "ERROR: " . mysqli_error($conn);
 					}
 					?>
-					<?= console_log($user_id); ?>
+					<?= console_log($username); ?>
 					<img id="profile-img" src="<?php echo $row['user_profile'] ?>" class="online" alt="" />
 					<p><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
 					<i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
