@@ -136,6 +136,23 @@ $username = $_SESSION['name'];
                             <li><a class="dropdown-item" href="#">No new mail</a></li>
                         </ul>
                     </li>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $("#notif-bell").click(function() {
+                                setInterval(function() {
+                                    $('#notif-item').css("font-weight", "400");
+                                    <?php
+                                    $chgstatus = "UPDATE notification SET status='read'";
+                                    if (mysqli_query($conn, $chgstatus)) {
+                                        echo "Record was updated successfully.";
+                                    } else {
+                                        echo "ERROR: " . mysqli_error($conn);
+                                    }
+                                    ?>
+                                }, 5000);
+                            });
+                        });
+                    </script>
                     <li class="nav-item dropdown me-3">
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="notif-bell">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
@@ -158,23 +175,7 @@ $username = $_SESSION['name'];
                             <li>
                                 <h6 class="dropdown-header">Notifications</h6>
                             </li>
-                            <script type="text/javascript">
-                                $(document).ready(function() {
-                                    $("#notif-bell").click(function() {
-                                        setInterval(function() {
-                                            $('#notif-item').css("font-weight", "400");
-                                            <?php
-                                                $chgstatus = "UPDATE notification SET status='read'";
-                                                if (mysqli_query($conn, $chgstatus)) {
-                                                    echo "Record was updated successfully.";
-                                                } else {
-                                                    echo "ERROR: " . mysqli_error($conn);
-                                                }
-                                            ?>
-                                        }, 5000);
-                                    });
-                                });
-                            </script>
+
                             <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE name='$username' ORDER BY 'date' DESC");
                             $notifications = mysqli_fetch_all($not_list);
