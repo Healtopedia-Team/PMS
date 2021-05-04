@@ -108,6 +108,9 @@ function delete_user($conn)
 
 function update_user($conn)
 {
+    if (empty($_POST['hospital'])){
+        $hosp='-';
+    }
     $id = $_POST['id'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -116,6 +119,9 @@ function update_user($conn)
     $email = $_POST['email'];
     $hosp = $_POST['hospital'];
     $role = $_POST['role'];
+    
+
+    //hospital might be empty
 
     $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp' WHERE user_id='$id'";
     if (mysqli_query($conn, $sql)) {
