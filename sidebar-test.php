@@ -188,7 +188,7 @@ $username = $_SESSION['name'];
                                                         echo "font-weight:bold";
                                                     } else {
                                                         echo "font-weight:400";
-                                                    } ?>; word-wrap: break-word; white-space: -moz-pre-wrap; white-space: pre-wrap; width:350px !important;" class="dropdown-item" href="#" id="notif-item">
+                                                    } ?>;  width:350px !important;" class="dropdown-item" href="#" id="notif-item">
                                             <small><i>
                                                     <!-- 
                                                         0: "id"
