@@ -29,7 +29,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 
 <body>
     <div id="app">
-        <?php include 'sidebar.php'; ?>
+        <?php include 'sidebar-test.php'; ?>
         <header class="mb-3">
             <nav class="navbar navbar-expand navbar-light ">
                 <div class="container-fluid">
