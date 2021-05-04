@@ -66,11 +66,6 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                         <h6 class="dropdown-header">Notifications</h6>
                                     </li>
                                     <li><a class="dropdown-item">No notification available</a></li>
-                                    <li><a class="dropdown-item">No notification available</a></li>
-                                    <li><a class="dropdown-item">No notification available</a></li>
-                                    <li><a class="dropdown-item">No notification available</a></li>
-                                    <li><a class="dropdown-item">No notification available</a></li>
-                                    <li><a class="dropdown-item">No notification available</a></li>
 
                                 </ul>
                             </li>
