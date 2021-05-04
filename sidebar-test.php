@@ -163,14 +163,6 @@ $username = $_SESSION['name'];
                                     $("#notif-item").click(function() {
                                         setInterval(function() {
                                             $('#notif-item').css("font-weight", "400");
-                                            <?php
-                                                $chgstatus = "UPDATE notification SET status='read'";
-                                                if (mysqli_query($conn, $chgstatus)) {
-                                                    echo "Record was updated successfully.";
-                                                } else {
-                                                    echo "ERROR: Could not able to execute $chgstatus. " . mysqli_error($conn);
-                                                }
-                                            ?>
                                         }, 1000);
                                     });
                                 });
