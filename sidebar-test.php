@@ -153,7 +153,7 @@ $username = $_SESSION['name'];
                             });
                         });
                     </script>
-                    <li class="nav-item dropdown me-3">
+                    <li class="nav-item dropdown me-3" style="width:300px">
                         <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="notif-bell">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
                             <?php
