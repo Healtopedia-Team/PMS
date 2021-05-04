@@ -36,6 +36,9 @@ switch ($theCommand) {
 function add_user($conn)
 {
 
+    if (empty($_POST['hospital'])){
+        $hosp='-';
+    }
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $username = $_POST['username'];
@@ -108,9 +111,6 @@ function delete_user($conn)
 
 function update_user($conn)
 {
-    if (empty($_POST['hospital'])){
-        $hosp='-';
-    }
     $id = $_POST['id'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
