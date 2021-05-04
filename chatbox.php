@@ -7,7 +7,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 	header("location: auth-login.php");
 	exit;
 }
-$name = $_SESSION['user_id'];
+$user_id = $_SESSION["user_id"];
 
 ?>
 
@@ -69,7 +69,7 @@ Website: http://emilcarlsson.se/
 			<div id="profile">
 				<div class="wrap">
 					<?php
-					$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$name'");
+					$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$user_id'");
 					if (mysqli_num_rows($sql) > 0) {
 						$row = mysqli_fetch_assoc($sql);
 					} else {
