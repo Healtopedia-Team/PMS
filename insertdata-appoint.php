@@ -14,6 +14,8 @@
         $orderid = $row['order_id'];
         $appointid = $row['id'];
         $startappoint = $row['start'];
+        $calendarstart = date("Y-m-d H:i", $row['start'] - 28800);
+        $calendarend = date("Y-m-d H:i", $row['start'] - 25200);
         $statusapp = $row['status'];
         $productid = $row['product_id'];
         
@@ -48,6 +50,9 @@
             if ($key['Total'] < 1) {
                 $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', start_appoint = '$startappoint', statusapp = '$statusapp', hospname = '$hospname', packagename = '$packagename'";
                 mysqli_query($conn, $sql);
+
+                $sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$calendarstart', end_event = '$calendarend'";
+                mysqli_query($conn, $sql2);
             }
         }
     }
