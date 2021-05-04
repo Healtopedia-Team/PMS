@@ -160,10 +160,18 @@ $username = $_SESSION['name'];
                             </li>
                             <script type="text/javascript">
                                 $(document).ready(function() {
-                                    $("#notif-item").click(function() {
+                                    $("#notif-bell").click(function() {
                                         setInterval(function() {
                                             $('#notif-item').css("font-weight", "400");
-                                        }, 1000);
+                                            <?php
+                                                $chgstatus = "UPDATE notification SET status='read'";
+                                                if (mysqli_query($conn, $chgstatus)) {
+                                                    echo "Record was updated successfully.";
+                                                } else {
+                                                    echo "ERROR: " . mysqli_error($conn);
+                                                }
+                                            ?>
+                                        }, 5000);
                                     });
                                 });
                             </script>
@@ -174,8 +182,11 @@ $username = $_SESSION['name'];
                                 foreach ($notifications as $rows) {
                             ?>
                                     <li>
-                                        <a style="font-weight:bold" 
-                                        class="dropdown-item" href="#" id="notif-item">
+                                        <a style="<?php if ($rows['status'] === 'unread') {
+                                                        echo "font-weight:bold";
+                                                    } else {
+                                                        echo "font-weight:400";
+                                                    } ?>" class="dropdown-item" href="#" id="notif-item">
                                             <small><i>
                                                     <!-- 
                                                         0: "id"
