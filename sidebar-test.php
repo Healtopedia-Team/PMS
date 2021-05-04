@@ -174,7 +174,7 @@ $username = $_SESSION['name'];
                                 foreach ($notifications as $rows) {
                             ?>
                                     <li>
-                                        <a style="<?php if ($rows['status'] == 'unread') { echo "font-weight:bold;";}?>" 
+                                        <a style="<?php if ($rows['status'] === 'unread') { echo "font-weight:bold";}?>" 
                                         class="dropdown-item" href="#" id="notif-item">
                                             <small><i>
                                                     <!-- 
