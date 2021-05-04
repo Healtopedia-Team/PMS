@@ -5,7 +5,7 @@ $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 
 session_start();
-$username=$_SESSION['name'];
+$username = $_SESSION['name'];
 ?>
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
@@ -137,7 +137,7 @@ $username=$_SESSION['name'];
                         </ul>
                     </li>
                     <li class="nav-item dropdown me-3">
-                        <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="notif-bell">
                             <i class='bi bi-bell bi-sub fs-4 text-gray-600'></i>
                             <?php
                             $statuscnt = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM notification WHERE status='unread'");
@@ -160,27 +160,24 @@ $username=$_SESSION['name'];
                             </li>
                             <!-- <li><a class="dropdown-item">No notification available</a></li> -->
                             <?php
-                            function console_log($output, $with_script_tags = true)
-                            {
-                                $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
-                                    ');';
-                                if ($with_script_tags) {
-                                    $js_code = '<script>' . $js_code . '</script>';
-                                }
-                                echo $js_code;
-                            } ?>
-                            <?php
                             $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE status='unread' AND name='$username' ORDER BY 'date' DESC");
                             //mysqli_num_rows($not_list)
                             $notifications = mysqli_fetch_all($not_list);
                             if ($cnt_not > 0) {
                                 foreach ($notifications as $rows) {
                             ?>
-                                    <?php $view_variable = $rows; ?>
-                                    <?= console_log($view_variable); ?>
                                     <li>
-                                        <a style="font-weight:bold" class="dropdown-item" href="#">
+                                        <a style="font-weight:bold" class="dropdown-item" href="#" id="notif-item">
                                             <small><i>
+                                                    <!-- 
+                                                        0: "id"
+                                                        1: "name"
+                                                        2: "type"
+                                                        3: "message"
+                                                        4: "status"
+                                                        5: "date"
+                                                        6: "reserved_date"
+                                                    -->
                                                     <?php echo $rows[5] ?>
                                                 </i></small><br />
                                             <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?>
@@ -196,6 +193,15 @@ $username=$_SESSION['name'];
                                 }
                                     ?>
                                     </a></li>
+                            <script>
+                                $(document).ready(function() {
+                                    $("#notif-bell").click(function() {
+                                        setInterval(function() {
+                                            $('#notif-item').css("font-weight", "normal");
+                                        }, 5000);
+                                    });
+                                });
+                            </script>
                         </ul>
                     </li>
                 </ul>
