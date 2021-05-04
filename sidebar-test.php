@@ -188,7 +188,7 @@ $username = $_SESSION['name'];
                                                         echo "font-weight:bold";
                                                     } else {
                                                         echo "font-weight:400";
-                                                    } ?>; 'white-space: pre-line'" class="dropdown-item" href="#" id="notif-item">
+                                                    } ?>; word-break: break-all" class="dropdown-item" href="#" id="notif-item">
                                             <small><i>
                                                     <!-- 
                                                         0: "id"
@@ -201,8 +201,7 @@ $username = $_SESSION['name'];
                                                     -->
                                                     <?php echo $rows[5] ?>
                                                 </i></small><br />
-                                            <?php echo "You just successfully reserved 
-                                            an appointment on {$rows[6]}" ?>
+                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?>
                                         </a>
                                     </li>
                                 <?php
