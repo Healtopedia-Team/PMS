@@ -59,7 +59,7 @@
                             </td>
                             <td>
                                 <?php foreach ($timee as $rows) :
-                                    echo date('Y-m-d', $rows['start_appoint']);
+                                    echo date('Y-m-d hh:mm:ss', $rows['start_appoint']);
                                 endforeach; ?>
                             </td>
                             <td>
