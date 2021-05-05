@@ -262,6 +262,7 @@ Website: http://emilcarlsson.se/
 				},
 			});
 		};
+		update();
 		var refInterval = window.setInterval('update()', 10000); // 30 seconds
 		function search(searchvalue) {
 			$.ajax({
