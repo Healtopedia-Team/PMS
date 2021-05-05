@@ -23,7 +23,7 @@ function console_log($output, $with_script_tags = true)
 function userlist_php($user_id, $conn)
 {
 	$outgoing_id = $user_id;
-	$sqlu = "SELECT * FROM user WHERE NOT user_id='$user_id' ORDER BY user_id DESC";
+	$sqlu = "SELECT * FROM user WHERE NOT user_id='$outgoing_id' ORDER BY user_id DESC";
 	$userlist = mysqli_query($conn, $sqlu);
 	$output = "";
 	if (mysqli_num_rows($userlist) == 0) {
@@ -273,8 +273,8 @@ Website: http://emilcarlsson.se/
 		const usersList = document.querySelector('.users-list')
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', <?= userlist_php($user_id, $conn) ?>, true)
-			console.loh("userlist_php($user_id, $conn)");
+			xhr.open('GET', <?= userlist_php($user_id, $conn); ?>, true)
+			console.log("userlist_php($user_id, $conn)");
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
