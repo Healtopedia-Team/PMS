@@ -12,20 +12,20 @@
                                 <img src= "../assets/images/faces/1.jpg" alt="" />
                                 <div class="meta">
                                     <p class="name">' . $row['first_name'] . " " . $row['last_name'] . '</p>
-                                    <p>'.$safe_value.'</p>
                                 </div>
                             </div>
                         </li>';
         }
     } else {
         $output .=
-            '<li class="contact">
+    '<li class="contact">
                 <div class="wrap">
                     <span class="contact-status offline"></span>
                     <img src= "../assets/images/faces/1.jpg" alt="" />
                     <div class="meta">
                         <p class="name">Nobody</p>
                         <p class="preview"> Sorry! The user is not in your list!</p>
+                        <p>' . $safe_value . '</p>
                     </div>
                 </div>
             </li>';
