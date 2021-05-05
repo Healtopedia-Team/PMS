@@ -187,20 +187,20 @@ Website: http://emilcarlsson.se/
 			</form>
 		</div>
 	</div>
-	<script src="js/chat.js"></script>
+	<script src="chat.js"></script>
 	<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
-		var refInterval = window.setInterval('update()', 1000); // 30 seconds
+		var refInterval = window.setInterval('update()', 10000); // 30 seconds
 
 		var update = function() {
 			$.ajax({
 				type: 'GET',
 				url: 'userlist.php',
 				success: function(data) {
-					sersList.innerHTML = data;
+					usersList.innerHTML = data;
 				},
 			});
 		};
