@@ -113,35 +113,10 @@ Website: http://emilcarlsson.se/
 				</div>
 			</div>
 			<div id="search">
-				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-				<input type="text" placeholder="Search contacts...">
-				<?php
-
-				$outgoing_id = $_SESSION['user_id'];
-				$searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
-				$output = "";
-				$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%' ");
-				if (mysqli_num_rows($query) > 0) {
-					$output .=
-							'<li>
-								<p class="name">User List</p>
-							</li>';
-				} else {
-					$output .=
-							'<li class="contact">
-								<div class="wrap">
-									<span class="contact-status offline"></span>
-									<img src= "../assets/images/faces/1.jpg" alt="" />
-									<p class="name">User List</p>
-									<div class="meta">
-										<p class="name">Nobody</p>
-										<p class="preview"> No users in your list</p>
-									</div>
-								</div>
-							</li>';
-				}
-				echo $output;
-				?>
+				<form action="searchbar.php" method="GET">
+					<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+					<input type="text" placeholder="Search contacts..." id="search" name="searchvalue">
+				</form>
 			</div>
 			<div id="contacts">
 				<ul class="users-list">
@@ -275,6 +250,22 @@ Website: http://emilcarlsson.se/
 	<script src="chat.js"></script>
 	<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+	<script type="text/javascript">
+		function search(searchvalue) {
+			$.ajax({
+				url: "searchbar.php",
+				type: "POST",
+				data: {
+					searchvalue: searchvalue
+				},
+				success: function(result) {
+					$("users-list").html(result);
+				}
+			});
+		}
+	</script>
+
 	<script>
 		<?php
 		function userlist_php($user_id, $conn)
