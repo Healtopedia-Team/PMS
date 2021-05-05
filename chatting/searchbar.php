@@ -24,7 +24,6 @@
                     <img src= "../assets/images/faces/1.jpg" alt="" />
                     <div class="meta">
                         <p class="name">Nobody</p>
-                        <p class="preview"> Sorry! The user is not in your list!</p>
                         <p>' . $safe_value . '</p>
                     </div>
                 </div>
