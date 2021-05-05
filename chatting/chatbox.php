@@ -254,16 +254,15 @@ Website: http://emilcarlsson.se/
 		const usersList = document.querySelector('.users-list');
 
 		function update() {
-			setInterval(
 			$.ajax({
 				type: 'GET',
 				url: 'php/users.php',
 				success: function(data) {
 					usersList.innerHTML = data;
 				},
-			}), 1000)
+			});
 		};
-
+		var refInterval = window.setInterval('update()', 10000); // 30 seconds
 		function search(searchvalue) {
 			$.ajax({
 				url: "searchbar.php",
