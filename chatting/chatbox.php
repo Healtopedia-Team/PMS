@@ -273,7 +273,7 @@ Website: http://emilcarlsson.se/
 		const usersList = document.querySelector('.users-list')
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', <?php userlist_php($user_id, $conn); ?>, true)
+			xhr.open('GET', userlist_php($user_id, $conn), true)
 			console.log("userlist_php($user_id, $conn)");
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
