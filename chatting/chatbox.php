@@ -19,6 +19,26 @@ function console_log($output, $with_script_tags = true)
 	}
 	echo $js_code;
 }
+
+function userlist_php($user_id, $conn){
+		$outgoing_id = $user_id;
+		$sqlu = "SELECT * FROM user WHERE NOT user_id='$user_id' ORDER BY user_id DESC";
+		$userlist = mysqli_query($conn, $sqlu);
+		$output = "";
+		if (mysqli_num_rows($userlist) == 0) {
+			$output .= '<li class="contact">
+							<div class="wrap">
+								<div class="meta">
+									<p class="name">Nobody</p>
+									<p class="preview"> No users are available to chat</p>
+								</div>
+							</div>
+						</li>';
+		} elseif (mysqli_num_rows($userlist) > 0) {
+			include_once "data.php";
+		}
+		echo $output;
+}
 ?>
 <?= console_log($username); ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -248,32 +268,11 @@ Website: http://emilcarlsson.se/
 			}
 		});
 		//# sourceURL=pen.js
-		const phpscript = "<?php
-							$outgoing_id = 10;
-							$sqlu = "SELECT * FROM user WHERE NOT user_id='10' ORDER BY user_id DESC";
-							$userlist = mysqli_query($conn, $sqlu);
-							$output = "";
-							console_log($outgoing_id);
-							if (mysqli_num_rows($userlist) == 0) {
-								$output .= '<li class="contact">
-                        <div class="wrap">
-                            <div class="meta">
-                                <p class="name">Nobody</p>
-                                <p class="preview"> No users are available to chat</p>
-                            </div>
-                        </div>
-                    </li>';
-							} elseif (mysqli_num_rows($userlist) > 0) {
-								include_once "data.php";
-							}
-							echo $output;
-							?>";
-
-
+		//const phpscript = "";
 		const usersList = document.querySelector('.users-list')
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', phpscript, true)
+			xhr.open('GET', <?= userlist_php($user_id, $conn)?>, true)
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
