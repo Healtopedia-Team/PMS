@@ -123,7 +123,16 @@ Website: http://emilcarlsson.se/
 						$query = mysqli_query($conn, $sql);
 						$output = "";
 						if(mysqli_num_rows($query) == 0){
-							$output .= "No users are available to chat";
+							$output .= '<li class="contact">
+											<div class="wrap">
+												<span class="contact-status online"></span>
+												<img src= "../assets/images/faces/1.jpg" alt="" />
+												<div class="meta">
+													<p class="name">Nobody</p>
+													<p class="preview"> No users are available to chat</p>
+												</div>
+											</div>
+										</li>';
 						} elseif(mysqli_num_rows($query) > 0){
 							while ($row = mysqli_fetch_assoc($query)) {
 								$sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
