@@ -123,22 +123,22 @@ Website: http://emilcarlsson.se/
 				$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%' ");
 				if (mysqli_num_rows($query) > 0) {
 					$output .=
-							'<li class="contact">
+							'<li>
 								<p class="name">User List</p>
 							</li>';
 				} else {
 					$output .=
-					'<li class="contact">
-									<div class="wrap">
-										<span class="contact-status offline"></span>
-										<img src= "../assets/images/faces/1.jpg" alt="" />
-										<p class="name">User List</p>
-										<div class="meta">
-											<p class="name">Nobody</p>
-											<p class="preview"> No users in your list</p>
-										</div>
+							'<li class="contact">
+								<div class="wrap">
+									<span class="contact-status offline"></span>
+									<img src= "../assets/images/faces/1.jpg" alt="" />
+									<p class="name">User List</p>
+									<div class="meta">
+										<p class="name">Nobody</p>
+										<p class="preview"> No users in your list</p>
 									</div>
-								</li>';
+								</div>
+							</li>';
 				}
 				echo $output;
 				?>
