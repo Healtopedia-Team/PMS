@@ -116,7 +116,7 @@ Website: http://emilcarlsson.se/
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
 				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue" onkeyup="search(this.value)">
 			</div>
-			<div id="contacts">
+			<div id="contacts" onload="update()">
 				<ul class="users-list">
 
 				</ul>
@@ -253,13 +253,15 @@ Website: http://emilcarlsson.se/
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
 
-		fetch('php/users.php', {
-				method: 'GET',
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+		function update() {
+			$.ajax({
+				type: 'GET',
+				url: 'userlist.php',
+				success: function(data) {
+					usersList.innerHTML = data;
 				},
-			})
-			.then(data => console.log(data));
+			});
+		};
 
 		function search(searchvalue) {
 			$.ajax({
@@ -269,12 +271,20 @@ Website: http://emilcarlsson.se/
 					searchvalue: searchvalue
 				},
 				success: function(result) {
-					searchvalue?(usersList.innerHTML = result):(usersList.innerHTML='');
-					
+					searchvalue ? (usersList.innerHTML = result) : (usersList.innerHTML = '');
+
 				}
 			});
 		}
 		/*
+		fetch('php/users.php', {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+				},
+			})
+			.then(data => console.log(data));
+
 		var refInterval = window.setInterval('update()', 10000); // 30 seconds
 
 		var update = function() {
