@@ -336,6 +336,7 @@ Website: http://emilcarlsson.se/
 		});
 		//# sourceURL=pen.js
 		//const phpscript = "";
+		/*
 		const usersList = document.querySelector('.users-list')
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
@@ -372,6 +373,7 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 			xhr.send('searchTerm=' + searchTerm)
 		}
+		*/
 	</script>
 </body>
 
