@@ -24,7 +24,7 @@
                     <img src= "../assets/images/faces/1.jpg" alt="" />
                     <div class="meta">
                         <p class="name">Nobody</p>
-                        <p>' . $safe_value . '</p>
+                        <p>' . $_POST['searchvalue'] . '</p>
                     </div>
                 </div>
             </li>';
