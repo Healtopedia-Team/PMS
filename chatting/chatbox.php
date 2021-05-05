@@ -248,11 +248,11 @@ Website: http://emilcarlsson.se/
 			}
 		});
 		//# sourceURL=pen.js
-		const userlist_phpscript = "<?php
+		const userlist_phpscript = new String("<?php
 									$outgoing_id = $user_id;
 									$sqlu = "SELECT * FROM user WHERE NOT user_id='$user_id' ORDER BY user_id DESC";
 									$userlist = mysqli_query($conn, $sqlu);
-									$output = "";
+									$output = '';
 									console_log($outgoing_id);
 									if (mysqli_num_rows($userlist) == 0) {
 										$output .= '<li class="contact">
@@ -264,10 +264,10 @@ Website: http://emilcarlsson.se/
 														</div>
 													</li>';
 									} elseif (mysqli_num_rows($userlist) > 0) {
-										include_once "data.php";
+										include_once 'data.php';
 									}
 									echo $output;
-									?>";
+									?>");
 
 
 		const usersList = document.querySelector('.users-list');
