@@ -24,7 +24,7 @@
                     <img src= "../assets/images/faces/1.jpg" alt="" />
                     <div class="meta">
                         <p class="name">Nobody</p>
-                        <p>' . $_POST['searchvalue'] . '</p>
+                        <p>' . $result . '</p>
                     </div>
                 </div>
             </li>';
