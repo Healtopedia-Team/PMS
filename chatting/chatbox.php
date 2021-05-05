@@ -116,16 +116,16 @@ Website: http://emilcarlsson.se/
 				<input type="text" placeholder="Search contacts..." />
 			</div>
 			<div id="contacts">
-				<ul>
+				<ul class="users-list">
 					<?php
-						$outgoing_id = $_SESSION['user_id'];
-						$sql = "SELECT * FROM user WHERE NOT user_id = {$outgoing_id} ORDER BY user_id DESC";
-						$query = mysqli_query($conn, $sql);
-						$output = "";
-						if(mysqli_num_rows($query) == 0){
-							$output .= '<li class="contact">
+					$outgoing_id = $_SESSION['user_id'];
+					$sql = "SELECT * FROM user WHERE NOT user_id = {$outgoing_id} ORDER BY user_id DESC";
+					$query = mysqli_query($conn, $sql);
+					$output = "";
+					if (mysqli_num_rows($query) == 0) {
+						$output .= '<li class="contact">
 											<div class="wrap">
-												<span class="contact-status online"></span>
+												<span class="contact-status offline"></span>
 												<img src= "../assets/images/faces/1.jpg" alt="" />
 												<div class="meta">
 													<p class="name">Nobody</p>
@@ -133,46 +133,46 @@ Website: http://emilcarlsson.se/
 												</div>
 											</div>
 										</li>';
-						} elseif(mysqli_num_rows($query) > 0){
-							while ($row = mysqli_fetch_assoc($query)) {
-								$sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
+					} elseif (mysqli_num_rows($query) > 0) {
+						while ($row = mysqli_fetch_assoc($query)) {
+							$sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
 										OR outgoing_msg_id = {$row['user_id']}) AND (outgoing_msg_id = {$outgoing_id} 
 										OR incoming_msg_id = {$outgoing_id}) ORDER BY msg_id DESC LIMIT 1";
 
-								$query2 = mysqli_query($conn, $sql2);
-								$row2 = mysqli_fetch_assoc($query2);
-								if (mysqli_num_rows($query2) > 0) {
-									$result = $row2['msg'];
-								} else {
-									$result = "No message available";
-								}
-								if (strlen($result) > 28) {
-									$msg =  substr($result, 0, 28) . '...';
-								} else {
-									$msg = $result;
-								}
-								if (isset($row2['outgoing_msg_id'])) {
-									($outgoing_id == $row2['outgoing_msg_id']) ? $you = "You: " : $you = "";
-								} else {
-									$you = "";
-								}
-								//($outgoing_id == $row['user_id']) ? $hid_me = "hide" : $hid_me = "";
+							$query2 = mysqli_query($conn, $sql2);
+							$row2 = mysqli_fetch_assoc($query2);
+							if (mysqli_num_rows($query2) > 0) {
+								$result = $row2['msg'];
+							} else {
+								$result = "No message available";
+							}
+							if (strlen($result) > 28) {
+								$msg =  substr($result, 0, 28) . '...';
+							} else {
+								$msg = $result;
+							}
+							if (isset($row2['outgoing_msg_id'])) {
+								($outgoing_id == $row2['outgoing_msg_id']) ? $you = "You: " : $you = "";
+							} else {
+								$you = "";
+							}
+							//($outgoing_id == $row['user_id']) ? $hid_me = "hide" : $hid_me = "";
 
-								$output .= '
+							$output .= '
 											<li class="contact">
 												<div class="wrap">
 													<span class="contact-status online"></span>
 													<img src= "../assets/images/faces/1.jpg" alt="" />
 													<div class="meta">
-														<p class="name">' . $row['fname'] . " " . $row['lname'] . '</p>
+														<p class="name">' . $row['first_name'] . " " . $row['last_name'] . '</p>
 														<p class="preview"> ' . $you . $msg . '</p>
 													</div>
 												</div>
 											</li>
 										';
 						}
-						}
-						echo $output;
+					}
+					echo $output;
 					?>
 				</ul>
 			</div>
@@ -305,6 +305,22 @@ Website: http://emilcarlsson.se/
 			}
 		});
 		//# sourceURL=pen.js
+		usersList = document.querySelector(".users-list");
+		setInterval(() => {
+			let xhr = new XMLHttpRequest();
+			xhr.open("GET", "php/users.php", true);
+			xhr.onload = () => {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						let data = xhr.response;
+						if (!searchBar.classList.contains("active")) {
+							usersList.innerHTML = data;
+						}
+					}
+				}
+			};
+			xhr.send();
+		}, 500)
 	</script>
 </body>
 
