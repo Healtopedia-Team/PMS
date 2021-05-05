@@ -269,7 +269,8 @@ Website: http://emilcarlsson.se/
 					searchvalue: searchvalue
 				},
 				success: function(result) {
-					usersList.innerHTML = result;
+					searchvalue?(usersList.innerHTML = result):(usersList.innerHTML='');
+					
 				}
 			});
 		}
