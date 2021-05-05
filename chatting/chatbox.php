@@ -253,7 +253,7 @@ Website: http://emilcarlsson.se/
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
 
-		fetch('userlist.php', {
+		fetch('php/users.php', {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
@@ -263,7 +263,7 @@ Website: http://emilcarlsson.se/
 
 		function search(searchvalue) {
 			$.ajax({
-				url: "searchbar.php",
+				url: "php/search.php",
 				type: "POST",
 				data: {
 					searchvalue: searchvalue
