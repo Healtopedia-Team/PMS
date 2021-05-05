@@ -114,7 +114,7 @@ Website: http://emilcarlsson.se/
 			</div>
 			<div id="search">
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue" onkeyup="search(this.value)">
+				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue" onkeyup="searchBar(this.value)">
 			</div>
 			<div id="contacts">
 				<ul class="users-list">
@@ -191,6 +191,42 @@ Website: http://emilcarlsson.se/
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 
 	<script type="text/javascript">
+		const usersList = document.querySelector('.users-list')
+		setInterval(() => {
+			let xhr = new XMLHttpRequest()
+			xhr.open('GET', "userlist.php", true)
+			xhr.onload = () => {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						let data = xhr.response
+						if (!searchBar.classList.contains('active')) {
+							usersList.innerHTML = data
+						}
+					}
+				} else {
+					alert('Connection issues!');
+				}
+			}
+			xhr.send()
+		}, 500)
+
+		function searchBar(searchitem) {
+			let searchTerm = searchitem
+			let xhr = new XMLHttpRequest()
+			xhr.open('POST', 'php/search.php', true)
+			xhr.onload = () => {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						let data = xhr.response
+						//console.log(data);
+						usersList.innerHTML = data
+					}
+				}
+			}
+			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+			xhr.send('searchTerm=' + searchTerm)
+		}
+
 		function search(searchvalue) {
 			$.ajax({
 				url: "searchbar.php",
@@ -216,6 +252,7 @@ Website: http://emilcarlsson.se/
 
 	<script>
 		<?php
+
 		function userlist_php($user_id, $conn)
 		{
 			$outgoing_id = $user_id;

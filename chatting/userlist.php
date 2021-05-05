@@ -1,8 +1,8 @@
 <?php
-$outgoing_id = $user_id;
-$sql = "SELECT * FROM user WHERE NOT user_id = '$outgoing_id' ORDER BY user_id DESC";
-$query = mysqli_query($conn, $sql);
-$output = "";
+    $outgoing_id = $user_id;
+    $sql = "SELECT * FROM user WHERE NOT user_id = '$user_id' ORDER BY user_id DESC";
+    $query = mysqli_query($conn, $sql);
+    $output = "";
 ?>
 <?= console_log(mysqli_fetch_assoc($query)); ?>
 <?php
