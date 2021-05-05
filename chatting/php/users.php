@@ -7,7 +7,6 @@
         $output .= '<li class="contact">
                         <div class="wrap">
                             <span class="contact-status online"></span>
-                            <img src= "../assets/images/faces/1.jpg" alt="" />
                             <div class="meta">
                                 <p class="name">Nobody</p>
                                 <p class="preview"> No users are available to chat</p>

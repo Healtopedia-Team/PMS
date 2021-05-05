@@ -13,7 +13,7 @@ setInterval(() => {
     }
   }
   xhr.send()
-}, 5000)
+}, 500)
 
 const searchBar = document.querySelector('.search input')
 searchBar.onkeyup = () => {
