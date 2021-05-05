@@ -204,17 +204,13 @@ Website: http://emilcarlsson.se/
 			});
 		}
 		$(document).ready(function() {
-			$('#contact').load(function()
-				{
-					$.ajax({
-						url: "userlist.php",
-						type: "GET",
-						success: function(result) {
-							$(".users-list").html(result);
-						}
-					});
+			$.ajax({
+				url: "userlist.php",
+				type: "GET",
+				success: function(result) {
+					$(".users-list").html(result);
 				}
-			)
+			});
 		});
 	</script>
 
