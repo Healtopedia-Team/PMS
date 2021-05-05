@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once "dbconnect.php";
+    include_once "../dbconnect.php";
     if (isset($_SESSION['user_id'])) {
         $outgoing_id = $_SESSION['user_id'];
         $incoming_id = mysqli_real_escape_string($conn, $_POST['incoming_id']);

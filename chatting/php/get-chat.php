@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if(isset($_SESSION['user_id'])){
-        include_once "dbconnect.php";
+        include_once "../dbconnect.php";
         $outgoing_id = $_SESSION['user_id'];
         $incoming_id = mysqli_real_escape_string($conn, $_POST['incoming_id']);
         $output = "";
@@ -13,12 +13,12 @@
             while($row = mysqli_fetch_assoc($query)){
                 if($row['outgoing_msg_id'] === $outgoing_id){//message send
                     $output .= '<li class="sent">
-                                    <img id="profile-img" src="assets/images/faces/1.jpg" class="online" alt="" />
+                                    <img id="profile-img" src="../assets/images/faces/1.jpg" class="online" alt="" />
                                     <p>'. $row['msg'] .'</p>
                                 </li>';
                 }else{//message receiver
                     $output .= '<li class="chat incoming">
-                                    <img id="profile-img" src="assets/images/faces/1.jpg" class="online" alt="" />
+                                    <img id="profile-img" src="../assets/images/faces/1.jpg" class="online" alt="" />
                                     <p>'. $row['msg'] .'</p>
                                 </li>';
                 }
