@@ -116,9 +116,16 @@ Website: http://emilcarlsson.se/
 				<input type="text" placeholder="Search contacts...">
 			</div>
 			<div id="contacts">
+				<?php
+				$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = {$_SESSION['user_id']}");
+				if (mysqli_num_rows($sql) > 0) {
+					$row = mysqli_fetch_assoc($sql);
+				}
+				?>
 				<ul class="users-list">
 
 				</ul>
+				<script src="js/users.js"></script>
 			</div>
 			<div id="bottom-bar">
 				<button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
@@ -249,41 +256,6 @@ Website: http://emilcarlsson.se/
 			}
 		});
 		//# sourceURL=pen.js
-		usersList = document.querySelector(".users-list");
-		setInterval(() => {
-			let xhr = new XMLHttpRequest();
-			xhr.open("GET", "php/users.php", true);
-			xhr.onload = () => {
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						let data = xhr.response;
-						if (!searchBar.classList.contains("active")) {
-							usersList.innerHTML = data;
-						}
-					}
-				}
-			};
-			xhr.send();
-		}, 500)
-
-		const searchBar = document.querySelector(".search input");
-		searchBar.onkeyup = () => {
-			let searchTerm = searchBar.value;
-			let xhr = new XMLHttpRequest();
-			xhr.open("POST", "php/search.php", true);
-			xhr.onload = () => {
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					let data = xhr.response;
-					//console.log(data);
-					usersList.innerHTML = data;
-					
-				}
-				}
-			};
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhr.send("searchTerm=" + searchTerm);
-		};
 	</script>
 </body>
 
