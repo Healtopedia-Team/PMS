@@ -263,7 +263,7 @@ Website: http://emilcarlsson.se/
 
 		function search(searchvalue) {
 			$.ajax({
-				url: "php/search.php",
+				url: "searchbar.php",
 				type: "POST",
 				data: {
 					searchvalue: searchvalue
