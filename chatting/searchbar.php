@@ -17,6 +17,7 @@
                         </li>';
         }
     } else {
+        $var_error = mysqli_error($conn);
         $output .=
     '<li class="contact">
                 <div class="wrap">
@@ -27,7 +28,8 @@
                         <p>' . $_POST['searchvalue'] . '</p>
                     </div>
                 </div>
-            </li>';
+            </li>
+            <script>alert($var_error);</script>';
     } 
     if ($safe_value === '') {
     $outgoing_id = $user_id;
