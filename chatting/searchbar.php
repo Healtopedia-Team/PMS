@@ -17,7 +17,6 @@
                         </li>';
         }
     } else {
-        $var_error = mysqli_error($conn);
         $output .=
     '<li class="contact">
                 <div class="wrap">
@@ -29,7 +28,8 @@
                     </div>
                 </div>
             </li>
-            <script>alert($var_error);</script>';
+            <?php $var_error = mysqli_error($conn);
+                echo "<script>alert($var_error);</script>";?>';
     } 
     if ($safe_value === '') {
     $outgoing_id = $user_id;
