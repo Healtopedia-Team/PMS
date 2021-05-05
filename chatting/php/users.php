@@ -3,6 +3,7 @@
     $sqlu = "SELECT * FROM user WHERE NOT user_id = {$outgoing_id} ORDER BY user_id DESC";
     $userlist = mysqli_query($conn, $sqlu);
     $output = "";
+    console_log(mysqli_fetch_assoc($userlist));
     if(mysqli_num_rows($userlist) == 0){
         $output .= '<li class="contact">
                         <div class="wrap">
