@@ -122,9 +122,26 @@ Website: http://emilcarlsson.se/
 				$output = "";
 				$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%' ");
 				if (mysqli_num_rows($query) > 0) {
-					$output .= "user is found";
+					$output .=
+							'<li class="contact">
+									<div class="wrap">
+										<div class="meta">
+											<p class="name">User List</p>
+										</div>
+									</div>
+								</li>';
 				} else {
-					$output .= 'No user found related to your search term';
+					$output .=
+							'<li class="contact">
+									<div class="wrap">
+										<span class="contact-status offline"></span>
+										<img src= "../assets/images/faces/1.jpg" alt="" />
+										<div class="meta">
+											<p class="name">Nobody</p>
+											<p class="preview"> No users in your list</p>
+										</div>
+									</div>
+								</li>';
 				}
 				echo $output;
 				?>
