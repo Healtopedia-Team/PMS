@@ -119,8 +119,8 @@ Website: http://emilcarlsson.se/
 				<ul class="users-list">
 
 					<?php
-					$outgoing_id = $_SESSION['user_id'];
-					$sql = "SELECT * FROM user WHERE NOT user_id = {$outgoing_id} ORDER BY user_id DESC";
+					$outgoing_id = $user_id;
+					$sql = "SELECT * FROM user WHERE NOT user_id = '$outgoing_id' ORDER BY user_id DESC";
 					$query = mysqli_query($conn, $sql);
 					$output = "";
 					?>
