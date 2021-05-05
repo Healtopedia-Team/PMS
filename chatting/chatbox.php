@@ -248,32 +248,32 @@ Website: http://emilcarlsson.se/
 			}
 		});
 		//# sourceURL=pen.js
-		const userlist_phpscript = new String("<?php
-									$outgoing_id = $user_id;
-									$sqlu = "SELECT * FROM user WHERE NOT user_id='$user_id' ORDER BY user_id DESC";
-									$userlist = mysqli_query($conn, $sqlu);
-									$output = '';
-									console_log($outgoing_id);
-									if (mysqli_num_rows($userlist) == 0) {
-										$output .= '<li class="contact">
-														<div class="wrap">
-															<div class="meta">
-																<p class="name">Nobody</p>
-																<p class="preview"> No users are available to chat</p>
-															</div>
-														</div>
-													</li>';
-									} elseif (mysqli_num_rows($userlist) > 0) {
-										include_once 'data.php';
-									}
-									echo $output;
-									?>");
+		const phpscript = "<?php
+							$outgoing_id = $user_id;
+							$sqlu = "SELECT * FROM user WHERE NOT user_id='10' ORDER BY user_id DESC";
+							$userlist = mysqli_query($conn, $sqlu);
+							$output = "";
+							console_log($outgoing_id);
+							if (mysqli_num_rows($userlist) == 0) {
+								$output .= '<li class="contact">
+                        <div class="wrap">
+                            <div class="meta">
+                                <p class="name">Nobody</p>
+                                <p class="preview"> No users are available to chat</p>
+                            </div>
+                        </div>
+                    </li>';
+							} elseif (mysqli_num_rows($userlist) > 0) {
+								include_once "data.php";
+							}
+							echo $output;
+							?>";
 
 
-		const usersList = document.querySelector('.users-list');
+		const usersList = document.querySelector('.users-list')
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', userlist_phpscript, true)
+			xhr.open('GET', phpscript, true)
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
@@ -287,22 +287,9 @@ Website: http://emilcarlsson.se/
 				}
 			}
 			xhr.send()
-		}, 500);
+		}, 500)
 
-		const search_phpscript = "<?php
-									$outgoing_id = $_SESSION['user_id'];
-									$searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
-									$output = "";
-									$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%' ");
-									if (mysqli_num_rows($query) > 0) {
-										$output .= "User is found";
-									} else {
-										$output .= 'No user found related to your search term';
-									}
-									echo $output;
-								?>";
-
-		const searchBar = document.querySelector('#search input');
+		const searchBar = document.querySelector('#search input')
 		searchBar.onkeyup = () => {
 			let searchTerm = searchBar.value
 			let xhr = new XMLHttpRequest()
@@ -311,14 +298,14 @@ Website: http://emilcarlsson.se/
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
 						let data = xhr.response
-						console.log(data);
+						//console.log(data);
 						usersList.innerHTML = data
 					}
 				}
 			}
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 			xhr.send('searchTerm=' + searchTerm)
-		};
+		}
 	</script>
 </body>
 
