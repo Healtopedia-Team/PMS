@@ -195,7 +195,7 @@ Website: http://emilcarlsson.se/
 		const usersList = document.querySelector('.users-list')
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', "userlist.php", true)
+			xhr.open('GET', "php/users.php", true)
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
@@ -227,28 +227,6 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 			xhr.send('searchTerm=' + searchTerm)
 		}
-
-		function search(searchvalue) {
-			$.ajax({
-				url: "searchbar.php",
-				type: "POST",
-				data: {
-					searchvalue: searchvalue
-				},
-				success: function(result) {
-					$(".users-list").html(result);
-				}
-			});
-		}
-		$(document).ready(function() {
-			$.ajax({
-				url: "userlist.php",
-				type: "GET",
-				success: function(result) {
-					$(".users-list").html(result);
-				}
-			});
-		});
 	</script>
 
 	<script>
