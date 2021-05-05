@@ -6,7 +6,6 @@
     if(mysqli_num_rows($userlist) == 0){
         $output .= '<li class="contact">
                         <div class="wrap">
-                            <span class="contact-status online"></span>
                             <div class="meta">
                                 <p class="name">Nobody</p>
                                 <p class="preview"> No users are available to chat</p>
