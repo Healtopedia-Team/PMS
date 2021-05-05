@@ -1,7 +1,7 @@
 const form = document.querySelector(".message-input"),
 incoming_id = form.querySelector(".incoming_id").value,
 inputField = form.querySelector(".input-field"),
-sendBtn = form.querySelector("submitbutton"),
+sendBtn = form.querySelector(".wrap .submitbutton"),
 chatBox = document.querySelector(".messages");
 
 form.onsubmit = (e) => {
