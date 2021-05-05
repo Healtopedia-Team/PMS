@@ -45,7 +45,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </section>
     </div>
-    <script src="js/users.js"></script>
+    <!-- <script src="js/users.js"></script> -->
 </body>
 
 </html>

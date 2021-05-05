@@ -1,24 +1,9 @@
-const searchBar = document.querySelector(".users .search input"),
-searchIcon = document.querySelector(".users .search button"),
+const searchBar = document.querySelector(".search input"),
 usersList = document.querySelector(".users-list");
 
-searchIcon.onclick = () => {
-  searchBar.classList.toggle("show");
-  searchIcon.classList.toggle("active");
-  searchBar.focus();
-  if (searchBar.classList.contains("active")) {
-    searchBar.value = "";
-    searchBar.classList.remove("active");
-  }
-};
 
 searchBar.onkeyup = () => {
   let searchTerm = searchBar.value;
-  if (searchTerm != "") {
-    searchBar.classList.add("active");
-  } else {
-    searchBar.classList.remove("active");
-  }
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "php/search.php", true);
   xhr.onload = () => {

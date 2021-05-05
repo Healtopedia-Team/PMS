@@ -113,7 +113,7 @@ Website: http://emilcarlsson.se/
 			</div>
 			<div id="search">
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-				<input type="text" placeholder="Search contacts..." />
+				<input type="text" placeholder="Search contacts...">
 			</div>
 			<div id="contacts">
 				<ul class="users-list">
@@ -325,6 +325,25 @@ Website: http://emilcarlsson.se/
 			};
 			xhr.send();
 		}, 500)
+
+		const searchBar = document.querySelector(".search input");
+		searchBar.onkeyup = () => {
+			let searchTerm = searchBar.value;
+			let xhr = new XMLHttpRequest();
+			xhr.open("POST", "php/search.php", true);
+			xhr.onload = () => {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					let data = xhr.response;
+					//console.log(data);
+					usersList.innerHTML = data;
+					
+				}
+				}
+			};
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.send("searchTerm=" + searchTerm);
+		};
 	</script>
 </body>
 
