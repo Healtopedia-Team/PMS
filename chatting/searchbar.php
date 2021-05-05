@@ -1,6 +1,12 @@
 
 
 <?php
+    function function_alert($message)
+    {
+
+        // Display the alert box 
+        echo "<script>alert($message);</script>";
+    }
     $safe_value = mysqli_real_escape_string($conn, $_POST['searchvalue']);
    
     $result = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '$safe_value%' OR last_name LIKE '$safe_value%'");
@@ -17,7 +23,7 @@
                         </li>';
         }
     } else {
-        $output .=
+        function_alert(mysqli_error($conn));
     '<li class="contact">
                 <div class="wrap">
                     <span class="contact-status offline"></span>
@@ -27,9 +33,7 @@
                         <p>' . $_POST['searchvalue'] . '</p>
                     </div>
                 </div>
-            </li>
-            <?php $var_error = mysqli_error($conn);
-                echo "<script>alert($var_error);</script>";?>';
+            </li>';
     } 
     if ($safe_value === '') {
     $outgoing_id = $user_id;
