@@ -8,15 +8,15 @@
 <?php
 if (mysqli_num_rows($query) == 0) {
     $output .= '<li class="contact">
-											<div class="wrap">
-												<span class="contact-status offline"></span>
-												<img src= "../assets/images/faces/1.jpg" alt="" />
-												<div class="meta">
-													<p class="name">Nobody</p>
-													<p class="preview"> No users are available to chat</p>
-												</div>
-											</div>
-										</li>';
+                    <div class="wrap">
+                        <span class="contact-status offline"></span>
+                        <img src= "../assets/images/faces/1.jpg" alt="" />
+                        <div class="meta">
+                            <p class="name">Nobody</p>
+                            <p class="preview"> No users are available to chat</p>
+                        </div>
+                    </div>
+                </li>';
 } elseif (mysqli_num_rows($query) > 0) {
     while ($row = mysqli_fetch_assoc($query)) {
         $sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
@@ -43,17 +43,16 @@ if (mysqli_num_rows($query) == 0) {
         //($outgoing_id == $row['user_id']) ? $hid_me = "hide" : $hid_me = "";
 
         $output .= '
-											<li class="contact">
-												<div class="wrap">
-													<span class="contact-status online"></span>
-													<img src= "../assets/images/faces/1.jpg" alt="" />
-													<div class="meta">
-														<p class="name">' . $row['first_name'] . " " . $row['last_name'] . '</p>
-														<p class="preview"> ' . $you . $msg . '</p>
-													</div>
-												</div>
-											</li>
-										';
+                <li class="contact">
+                    <div class="wrap">
+                        <span class="contact-status online"></span>
+                        <img src= "../assets/images/faces/1.jpg" alt="" />
+                        <div class="meta">
+                            <p class="name">' . $row['first_name'] . " " . $row['last_name'] . '</p>
+                            <p class="preview"> ' . $you . $msg . '</p>
+                        </div>
+                    </div>
+                </li>';
     }
 }
 echo $output;

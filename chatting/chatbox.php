@@ -192,10 +192,37 @@ Website: http://emilcarlsson.se/
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 
 	<script type="text/javascript">
-		const usersList = document.querySelector('.users-list')
+		const usersList = document.querySelector('.users-list');
+		var refInterval = window.setInterval('update()', 1000); // 30 seconds
+
+		var update = function() {
+			$.ajax({
+				type: 'GET',
+				url: 'userlist.php',
+				success: function(data) {
+					sersList.innerHTML = data;
+				},
+			});
+		};
+		update();
+
+
+		function search(searchvalue) {
+			$.ajax({
+				url: "searchbar.php",
+				type: "POST",
+				data: {
+					searchvalue: searchvalue
+				},
+				success: function(result) {
+					$(".users-list").html(result);
+				}
+			});
+		}
+		/*
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', "php/users.php", true)
+			xhr.open('GET', "userlist.php", true)
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
@@ -227,6 +254,7 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 			xhr.send('searchTerm=' + searchTerm)
 		}
+		*/
 	</script>
 
 	<script>
