@@ -256,7 +256,7 @@ Website: http://emilcarlsson.se/
 		function update() {
 			$.ajax({
 				type: 'GET',
-				url: 'userlist.php',
+				url: 'php/users.php',
 				success: function(data) {
 					usersList.innerHTML = data;
 				},
