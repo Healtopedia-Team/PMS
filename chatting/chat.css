@@ -379,7 +379,7 @@ body {
   width: calc(100% - 25px);
   border: none;
   background: #cae8f3;
-  color: #ffffff;
+  color: #000000;
 }
 #frame #sidepanel #search input:focus {
   outline: none;

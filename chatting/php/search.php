@@ -7,8 +7,7 @@
     $output = "";
     $query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%' ");
     if(mysqli_num_rows($query) > 0){ 
-        include_once "data.php";
-        //$output .= "user is found";
+        $output .= "user is found";
     }else{
         $output .= 'No user found related to your search term';
     }
