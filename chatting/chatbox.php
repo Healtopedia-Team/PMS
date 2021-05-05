@@ -116,7 +116,7 @@ Website: http://emilcarlsson.se/
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
 				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue" onkeyup="search(this.value)">
 			</div>
-			<div id="contacts" onload="update()">
+			<div id="contacts">
 				<ul class="users-list">
 
 				</ul>
