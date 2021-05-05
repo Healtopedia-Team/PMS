@@ -20,26 +20,6 @@ function console_log($output, $with_script_tags = true)
 	echo $js_code;
 }
 
-function userlist_php($user_id, $conn)
-{
-	$outgoing_id = $user_id;
-	$sqlu = "SELECT * FROM user WHERE NOT user_id='$outgoing_id' ORDER BY user_id DESC";
-	$userlist = mysqli_query($conn, $sqlu);
-	$output = "";
-	if (mysqli_num_rows($userlist) == 0) {
-		$output .= '<li class="contact">
-							<div class="wrap">
-								<div class="meta">
-									<p class="name">Nobody</p>
-									<p class="preview"> No users are available to chat</p>
-								</div>
-							</div>
-						</li>';
-	} elseif (mysqli_num_rows($userlist) > 0) {
-		include_once "data.php";
-	}
-	echo $output;
-}
 ?>
 <?= console_log($username); ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -209,6 +189,32 @@ Website: http://emilcarlsson.se/
 	<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 	<script>
+		<?php
+			function userlist_php($user_id, $conn)
+			{
+				$outgoing_id = $user_id;
+				$sqlu = "SELECT * FROM user WHERE NOT user_id='$outgoing_id' ORDER BY user_id DESC";
+				$userlist = mysqli_query($conn, $sqlu);
+				$output = "";
+				if (mysqli_num_rows($userlist) == 0) {
+					$output .= '<li class="contact">
+										<div class="wrap">
+											<div class="meta">
+												<p class="name">Nobody</p>
+												<p class="preview"> No users are available to chat</p>
+											</div>
+										</div>
+									</li>';
+				} elseif (mysqli_num_rows($userlist) > 0) {
+					include_once "data.php";
+				}
+				echo $output;
+			}
+			$userlist= userlist_php($user_id, $conn);
+		?>
+
+	</script>
+	<script>
 		$(".messages").animate({
 			scrollTop: $(document).height()
 		}, "fast");
@@ -273,8 +279,7 @@ Website: http://emilcarlsson.se/
 		const usersList = document.querySelector('.users-list')
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', userlist_php($user_id, $conn), true)
-			console.log("userlist_php($user_id, $conn)");
+			xhr.open('GET', <?php echo $userlist ?>, true)
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
