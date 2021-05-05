@@ -269,7 +269,7 @@ Website: http://emilcarlsson.se/
 		}, 500)
 		const phpscript = "<?php
 							$outgoing_id = $user_id;
-							$sqlu = "SELECT * FROM user WHERE NOT user_id='$user_id' ORDER BY user_id DESC";
+							$sqlu = "SELECT * FROM user WHERE NOT user_id='10' ORDER BY user_id DESC";
 							$userlist = mysqli_query($conn, $sqlu);
 							$output = "";
 							console_log($outgoing_id);
