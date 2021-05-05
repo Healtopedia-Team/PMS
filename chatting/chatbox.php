@@ -124,10 +124,8 @@ Website: http://emilcarlsson.se/
 				if (mysqli_num_rows($query) > 0) {
 					$output .=
 							'<li class="contact">
-									<div class="wrap">
-											<p class="name">User List</p>
-									</div>
-								</li>';
+								<p class="name">User List</p>
+							</li>';
 				} else {
 					$output .=
 					'<li class="contact">
