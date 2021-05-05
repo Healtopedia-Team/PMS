@@ -204,7 +204,7 @@ Website: http://emilcarlsson.se/
 			});
 		}
 		$(document).ready(function() {
-			$('#contact').onload(function()
+			$('#contact').load(function()
 				{
 					$.ajax({
 						url: "userlist.php",
