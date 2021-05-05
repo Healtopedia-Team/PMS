@@ -125,17 +125,16 @@ Website: http://emilcarlsson.se/
 					$output .=
 							'<li class="contact">
 									<div class="wrap">
-										<div class="meta">
 											<p class="name">User List</p>
-										</div>
 									</div>
 								</li>';
 				} else {
 					$output .=
-							'<li class="contact">
+					'<li class="contact">
 									<div class="wrap">
 										<span class="contact-status offline"></span>
 										<img src= "../assets/images/faces/1.jpg" alt="" />
+										<p class="name">User List</p>
 										<div class="meta">
 											<p class="name">Nobody</p>
 											<p class="preview"> No users in your list</p>
