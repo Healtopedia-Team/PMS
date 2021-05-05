@@ -24,6 +24,7 @@
         }
     } else {
         function_alert(mysqli_error($conn));
+        $output .=
     '<li class="contact">
                 <div class="wrap">
                     <span class="contact-status offline"></span>
