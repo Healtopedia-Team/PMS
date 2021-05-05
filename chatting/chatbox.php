@@ -302,11 +302,11 @@ Website: http://emilcarlsson.se/
 									echo $output;
 								?>";
 
-		const searchBar = document.querySelector('#search input')
+		const searchBar = document.querySelector('#search input');
 		searchBar.onkeyup = () => {
 			let searchTerm = searchBar.value
 			let xhr = new XMLHttpRequest()
-			xhr.open('POST', search_phpscript, true)
+			xhr.open('POST', 'php/search.php', true)
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
@@ -318,7 +318,7 @@ Website: http://emilcarlsson.se/
 			}
 			xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
 			xhr.send('searchTerm=' + searchTerm)
-		}
+		};
 	</script>
 </body>
 
