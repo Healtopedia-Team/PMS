@@ -53,7 +53,6 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
         });
     </script>
 </head>
-
 <body>
     <div id="app">
         <?php include 'sidebar-test.php'; ?>
