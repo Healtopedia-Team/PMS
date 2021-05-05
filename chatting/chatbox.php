@@ -249,7 +249,7 @@ Website: http://emilcarlsson.se/
 		});
 		//# sourceURL=pen.js
 		const phpscript = "<?php
-							$outgoing_id = $user_id;
+							$outgoing_id = 10;
 							$sqlu = "SELECT * FROM user WHERE NOT user_id='10' ORDER BY user_id DESC";
 							$userlist = mysqli_query($conn, $sqlu);
 							$output = "";
