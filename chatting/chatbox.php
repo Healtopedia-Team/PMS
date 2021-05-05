@@ -114,7 +114,7 @@ Website: http://emilcarlsson.se/
 			</div>
 			<div id="search">
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue" onkeyup="searchBar(this.value)">
+				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue" onkeyup="search(this.value)">
 			</div>
 			<div id="contacts">
 				<ul class="users-list">
@@ -214,7 +214,7 @@ Website: http://emilcarlsson.se/
 					searchvalue: searchvalue
 				},
 				success: function(result) {
-					$(".users-list").html(result);
+					usersList.innerHTML=result;
 				}
 			});
 		}
