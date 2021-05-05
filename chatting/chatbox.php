@@ -115,6 +115,19 @@ Website: http://emilcarlsson.se/
 			<div id="search">
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
 				<input type="text" placeholder="Search contacts...">
+				<?php
+
+				$outgoing_id = $_SESSION['user_id'];
+				$searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
+				$output = "";
+				$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%{$searchTerm}%' OR last_name LIKE '%{$searchTerm}%' ");
+				if (mysqli_num_rows($query) > 0) {
+					$output .= "user is found";
+				} else {
+					$output .= 'No user found related to your search term';
+				}
+				echo $output;
+				?>
 			</div>
 			<div id="contacts">
 				<ul class="users-list">
@@ -250,14 +263,14 @@ Website: http://emilcarlsson.se/
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 	<script>
 		<?php
-			function userlist_php($user_id, $conn)
-			{
-				$outgoing_id = $user_id;
-				$sqlu = "SELECT * FROM user WHERE NOT user_id='$outgoing_id' ORDER BY user_id DESC";
-				$userlist = mysqli_query($conn, $sqlu);
-				$output = "";
-				if (mysqli_num_rows($userlist) == 0) {
-					$output .= '<li class="contact">
+		function userlist_php($user_id, $conn)
+		{
+			$outgoing_id = $user_id;
+			$sqlu = "SELECT * FROM user WHERE NOT user_id='$outgoing_id' ORDER BY user_id DESC";
+			$userlist = mysqli_query($conn, $sqlu);
+			$output = "";
+			if (mysqli_num_rows($userlist) == 0) {
+				$output .= '<li class="contact">
 										<div class="wrap">
 											<div class="meta">
 												<p class="name">Nobody</p>
@@ -265,14 +278,13 @@ Website: http://emilcarlsson.se/
 											</div>
 										</div>
 									</li>';
-				} elseif (mysqli_num_rows($userlist) > 0) {
-					include_once "data.php";
-				}
-				echo $output;
+			} elseif (mysqli_num_rows($userlist) > 0) {
+				include_once "data.php";
 			}
-			$userlist= userlist_php($user_id, $conn);
+			echo $output;
+		}
+		$userlist = userlist_php($user_id, $conn);
 		?>
-
 	</script>
 	<script>
 		$(".messages").animate({
