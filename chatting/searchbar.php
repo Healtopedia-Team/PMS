@@ -8,7 +8,6 @@
         echo "<script>alert($message);</script>";
     }
     $safe_value = mysqli_real_escape_string($conn, $_POST['searchvalue']);
-   
     $result = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '$safe_value' OR last_name LIKE '$safe_value'");
     if (mysqli_num_rows($query) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -38,6 +37,7 @@
                 </div>
             </li>';
     } 
+
     if ($_POST['searchvalue'] === '') {
     $outgoing_id = $user_id;
     $sql = "SELECT * FROM user WHERE NOT user_id = '$outgoing_id' ORDER BY user_id DESC";
@@ -96,6 +96,7 @@
                         ';
             }
         }
+        echo $output;
     }
 
     echo $output;
