@@ -23,10 +23,9 @@ if (!empty($_POST['searchvalue'])) {
                 <div class="wrap">
                     <span class="contact-status offline"></span>
                     <img src= "../assets/images/faces/1.jpg" alt="" />
-                    <p class="name">User List</p>
                     <div class="meta">
                         <p class="name">Nobody</p>
-                        <p class="preview"> No users in your list</p>
+                        <p class="preview"> Sorry! The user is not in your list!</p>
                     </div>
                 </div>
             </li>';
