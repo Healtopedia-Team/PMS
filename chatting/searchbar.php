@@ -2,7 +2,7 @@
 
 <?php
     $safe_value = mysqli_real_escape_string($conn, $_POST['searchvalue']);
-    echo $safe_value;
+   
     $result = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '$safe_value%' OR last_name LIKE '$safe_value%'");
     if (mysqli_num_rows($query) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -12,7 +12,7 @@
                                 <img src= "../assets/images/faces/1.jpg" alt="" />
                                 <div class="meta">
                                     <p class="name">' . $row['first_name'] . " " . $row['last_name'] . '</p>
-                                    <?= console_log(mysqli_fetch_assoc($result)); ?>
+                                    <p>'.$safe_value.'</p>
                                 </div>
                             </div>
                         </li>';
