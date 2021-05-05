@@ -259,7 +259,7 @@ Website: http://emilcarlsson.se/
 					'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
 				},
 			})
-			.then(data => usersList.innerHTML = data);
+			.then(data => console.log(data));
 
 		function search(searchvalue) {
 			$.ajax({
