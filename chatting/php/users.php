@@ -1,8 +1,7 @@
 <?php
-    session_start();
-    include_once "../dbconnect.php";
-    $outgoing_id = $_SESSION["user_id"];
-    $sqlu = "SELECT * FROM user WHERE NOT user_id = {$outgoing_id} ORDER BY user_id DESC";
+
+    $outgoing_id = $user_id;
+    $sqlu = "SELECT * FROM user WHERE NOT user_id = '$outgoing_id' ORDER BY user_id DESC";
     $userlist = mysqli_query($conn, $sqlu);
     $output = "";
     console_log(mysqli_fetch_assoc($userlist));
