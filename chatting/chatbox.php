@@ -256,13 +256,13 @@ Website: http://emilcarlsson.se/
 									console_log($outgoing_id);
 									if (mysqli_num_rows($userlist) == 0) {
 										$output .= '<li class="contact">
-                        <div class="wrap">
-                            <div class="meta">
-                                <p class="name">Nobody</p>
-                                <p class="preview"> No users are available to chat</p>
-                            </div>
-                        </div>
-                    </li>';
+														<div class="wrap">
+															<div class="meta">
+																<p class="name">Nobody</p>
+																<p class="preview"> No users are available to chat</p>
+															</div>
+														</div>
+													</li>';
 									} elseif (mysqli_num_rows($userlist) > 0) {
 										include_once "data.php";
 									}
@@ -270,7 +270,7 @@ Website: http://emilcarlsson.se/
 									?>";
 
 
-		const usersList = document.querySelector('.users-list')
+		const usersList = document.querySelector('.users-list');
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
 			xhr.open('GET', userlist_phpscript, true)
