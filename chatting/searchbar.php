@@ -1,7 +1,7 @@
 
 
 <?php
-    $safe_value = mysqli_real_escape_string($conn, $_POST['searchvalue']);
+    $safe_value = $_POST['searchvalue'];
    
     $result = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '$safe_value%' OR last_name LIKE '$safe_value%'");
     if (mysqli_num_rows($query) > 0) {
