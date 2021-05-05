@@ -113,10 +113,8 @@ Website: http://emilcarlsson.se/
 				</div>
 			</div>
 			<div id="search">
-				<form action="searchbar.php" method="GET">
-					<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-					<input type="text" placeholder="Search contacts..." id="search" name="searchvalue">
-				</form>
+				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue" onkeyup="search(this.value)">
 			</div>
 			<div id="contacts">
 				<ul class="users-list">
