@@ -8,6 +8,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 	exit;
 }
 $username = $_SESSION["name"];
+$user_id = $_SESSION["user_id"];
 
 function console_log($output, $with_script_tags = true)
 {
@@ -269,16 +270,21 @@ Website: http://emilcarlsson.se/
 					</li>
 				</ul>
 			</div>
-			<div class="message-input">
+			<div class="messages">
+			</div>
+			<form action='#' class="message-input">
 				<div class="wrap">
-					<input type="text" placeholder="Write your message..." />
+					<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
 
-					<button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+					<input type="text" class="input-field" placeholder="Write your message..." />
+
+					<button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
 					<button><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
+	<script src="chat.js"></script>
 	<script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
 	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 	<script>
