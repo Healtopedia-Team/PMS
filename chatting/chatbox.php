@@ -261,7 +261,6 @@ Website: http://emilcarlsson.se/
 							usersList.innerHTML = data
 						}
 					}
-					alert('success');
 				} else{
 					alert('Connection issues!');
 				}
