@@ -116,14 +116,7 @@ Website: http://emilcarlsson.se/
 				<input type="text" placeholder="Search contacts...">
 			</div>
 			<div id="contacts">
-				<?php
-				$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = {$_SESSION['user_id']}");
-				if (mysqli_num_rows($sql) > 0) {
-					$row = mysqli_fetch_assoc($sql);
-				}
-				?>
 				<ul class="users-list">
-
 				</ul>
 			</div>
 			<div id="bottom-bar">
