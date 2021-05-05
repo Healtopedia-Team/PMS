@@ -23,7 +23,8 @@
                         </li>';
         }
     } else {
-        function_alert(mysqli_error($conn));
+        //function_alert(mysqli_error($conn));
+        $row = mysqli_fetch_assoc($result);
         $output .=
     '<li class="contact">
                 <div class="wrap">
@@ -32,11 +33,12 @@
                     <div class="meta">
                         <p class="name">Nobody</p>
                         <p>' . $_POST['searchvalue'] . '</p>
+                        <p>' . $row . '</p>
                     </div>
                 </div>
             </li>';
     } 
-    if ($safe_value === '') {
+    if ($_POST['searchvalue'] === '') {
     $outgoing_id = $user_id;
     $sql = "SELECT * FROM user WHERE NOT user_id = '$outgoing_id' ORDER BY user_id DESC";
     $query = mysqli_query($conn, $sql);
