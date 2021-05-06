@@ -1,5 +1,6 @@
 <?php
-
+    session_start();
+    include_once "dbconnect.php";
     $outgoing_id = $_SESSION['user_id'];
     $searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
     $output = "";
@@ -19,7 +20,7 @@
                 </li>';
         }
     
-    }else{
+    } else {
         $output .=
                 '<li class="contact">
                         <div class="wrap">
