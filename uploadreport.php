@@ -3,10 +3,10 @@ include_once 'dbconnect.php';
 
 if(isset($_POST['requpreport'])) {
     $requestid = $_POST['requestid'];
-    $file = rand(1000,100000)."-".$_FILES['file']['name'];
-    $file_loc = $_FILES['file']['tmp_name'];
-    $file_size = $_FILES['file']['size'];
     $folder="uploadreports/";
+    $file = rand(1000,100000)."-".$_FILES['file']['name'];
+    $file_loc = move_uploaded_file($file,$folder);
+    $file_size = $_FILES['file']['size'];
   
     // make file name in lower case
     $new_file_name = strtolower($file);
