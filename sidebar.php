@@ -21,7 +21,6 @@ $username = $_SESSION['name'];
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-                <li class="sidebar-title">Forms &amp; Tables</li>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-person-check-fill"></i>
@@ -123,15 +122,32 @@ $username = $_SESSION['name'];
                     </ul>
 
                 </li>
-                <li class="sidebar-item <?php if ($your_variable == "users-role") {
+                <li class="sidebar-item has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-gear-fill"></i>
+                        <span>Users Role</span>
+                    </a>
+                    <ul class="submenu <?php if ($your_variable == "users-role" || $your_variable == "add-users-role") {
                                             echo "active";
                                         } else {
                                             echo "noactive";
                                         } ?>">
-                    <a href="users-role.php" class='sidebar-link'>
-                        <i class="bi bi-list-ul"></i>
-                        <span>Users Role</span>
-                    </a>
+                        <li class="submenu-item <?php if ($your_variable == "users-role") {
+                                                    echo "active";
+                                                } else {
+                                                    echo "noactive";
+                                                } ?>">
+                            <a href="user-profile.php">Role List</a>
+                        </li>
+                        <li class="submenu-item <?php if ($your_variable == "add-users-role") {
+                                                    echo "active";
+                                                } else {
+                                                    echo "noactive";
+                                                } ?>">
+                            <a href="users.php">Add Role</a>
+                        </li>
+                    </ul>
+
                 </li>
 
 
