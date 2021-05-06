@@ -1,9 +1,9 @@
 <?php
     $outgoing_id = 10;
-    $sql = "SELECT * FROM user WHERE NOT user_id = '$user_id' ORDER BY user_id DESC";
-    $query = mysqli_query($conn, $sql);
+    $find_other_user = "SELECT * FROM user WHERE NOT user_id='10'";
+    $listed_user = mysqli_query($conn, $find_other_user);
     $output = "";
-    if (mysqli_num_rows($query) == 0) {
+    if (mysqli_num_rows($listed_user) == 0) {
         $output .= '<li class="contact">
                         <div class="wrap">
                             <span class="contact-status offline"></span>
@@ -14,8 +14,8 @@
                             </div>
                         </div>
                     </li>';
-    } elseif (mysqli_num_rows($query) > 0) {
-        while ($row = mysqli_fetch_assoc($query)) {
+    } elseif (mysqli_num_rows($listed_user) > 0) {
+        while ($row = mysqli_fetch_assoc($listed_user)) {
             $sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
                                             OR outgoing_msg_id = {$row['user_id']}) AND (outgoing_msg_id = {$outgoing_id} 
                                             OR incoming_msg_id = {$outgoing_id}) ORDER BY msg_id DESC LIMIT 1";
