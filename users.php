@@ -156,7 +156,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;margin-top: 8px;" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                Add Users
+                                Add User
                             </button>
 
                             <!-- THIS IS FOR ADD USER! -->
