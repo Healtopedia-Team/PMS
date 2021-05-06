@@ -267,6 +267,7 @@ Website: http://emilcarlsson.se/
 						//console.log(data);
 						if (searchBar.classList.contains("active")) {
 							usersList.innerHTML = data;
+							console.log(searchTerm)
 						}
 					}
 				}
