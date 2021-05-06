@@ -320,7 +320,7 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send("searchTerm=" + searchTerm);
 		};
-
+		/*
 		function refreshUserList() {
 			let xhr = new XMLHttpRequest()
 			xhr.open('GET', "userlist.php")
@@ -346,7 +346,7 @@ Website: http://emilcarlsson.se/
 		refreshUserList();
 		setInterval(refreshUserList, 600000);
 
-
+		*/
 		/*
 		const userItem = usersList.querySelector('li');
 		console.log(userItem);
