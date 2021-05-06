@@ -22,7 +22,8 @@
 
     } elseif (mysqli_num_rows($listed_user) > 0) {
         while ($row = mysqli_fetch_assoc($listed_user)) {
-            if ($row['user_id']==$outgoing_id){
+            if ($row['first_name']==$_SESSION['first_name']){
+                console_log("hehe break!");
                 continue;
             }
             $sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
