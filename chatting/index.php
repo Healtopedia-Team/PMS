@@ -263,13 +263,21 @@ Website: http://emilcarlsson.se/
 			userItem.classList.add("active");
 		}*/
 
-		function selectUser(e) {
+		function selectUsera(e) {
 			const elems = document.querySelector(".active");
 			if (elems !== null) {
 				elems.classList.remove("active");
 			}
 			console.log("active hihi !");
 			e.target.classList.add("active");
+		}
+
+		function selectUser(e) {
+			var elems = document.querySelectorAll(".active");
+			[].forEach.call(elems, function(el) {
+				el.classList.remove("active");
+			});
+			e.target.className = "active";
 		}
 
 		function myFunction(e) {
