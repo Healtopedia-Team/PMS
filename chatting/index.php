@@ -117,12 +117,24 @@ Website: http://emilcarlsson.se/
 			<div id="contacts">
 				<ul class="users-list" onclick="selectUser(event)">
 					<!--testing code-->
-					<li class="contact"><a href="#">home</a></li>
-					<li class="contact"><a href="#">about</a></li>
-					<li class="contact"><a href="#">service</a></li>
-					<li class="contact"><a href="#">profile</a></li>
-					<li class="contact"><a href="#">portfolio</a></li>
-					<li class="contact"><a href="#">contact</a></li>
+					<li class="contact">
+						<div class="wrap"><a href="#">home</a></div>
+					</li>
+					<li class="contact">
+						<div class="wrap"><a href="#">about</a></div>
+					</li>
+					<li class="contact">
+						<div class="wrap"><a href="#">service</a></div>
+					</li>
+					<li class="contact">
+						<div class="wrap"><a href="#">profile</a></div>
+					</li>
+					<li class="contact">
+						<div class="wrap"><a href="#">portfolio</a></div>
+					</li>
+					<li class="contact">
+						<div class="wrap"><a href="#">contact</a></div>
+					</li>
 				</ul>
 			</div>
 			<div id="bottom-bar">
