@@ -2,7 +2,7 @@
     session_start();
     include_once "dbconnect.php";
     $outgoing_id = $_SESSION['unique_id'];
-    $find_other_user = "SELECT * FROM user WHERE NOT user_id = '$outgoing_id'";
+    $find_other_user = "SELECT * FROM user WHERE NOT user_id = {$outgoing_id}";
     $listed_user = mysqli_query($conn, $find_other_user);
     $output = "";
     if (mysqli_num_rows($listed_user) == 0) {
