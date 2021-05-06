@@ -135,7 +135,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         </div>
                             <!--========================================== M O D A L == U P L O A D == R E P O R T =====================================-->
                                         <div class="modal fade text-left" id="upload<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="myModalLabel1">Upload Report</h5>
