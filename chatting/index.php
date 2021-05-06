@@ -253,14 +253,7 @@ Website: http://emilcarlsson.se/
 		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
 		//const usersList = document.querySelector('.users-list');
-		const userItem = usersList.querySelector('li');
-		for (let i = 0; i < userItem.length; i++) {
-			userItem[i].addEventListener("click", function() {
-				var current = document.getElementsByClassName("active");
-				current[0].className = current[0].className.replace(" active", "");
-				this.className += " active";
-			});
-		}
+
 
 
 		searchBar.onkeyup = () => {
@@ -315,6 +308,14 @@ Website: http://emilcarlsson.se/
 		refreshUserList();
 		setInterval(refreshUserList, 600000);
 
+		const userItem = usersList.querySelector('li');
+		for (let i = 0; i < userItem.length; i++) {
+			userItem[i].addEventListener("click", function() {
+				var current = document.getElementsByClassName("active");
+				current[0].className = current[0].className.replace(" active", "");
+				this.className += " active";
+			});
+		}
 
 		function search(searchvalue) {
 			$.ajax({
