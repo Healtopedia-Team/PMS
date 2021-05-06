@@ -63,10 +63,6 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" onclick="addappoint()">
-                                Add Request
-                            </button>
-
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
