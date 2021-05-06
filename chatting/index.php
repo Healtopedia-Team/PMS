@@ -253,7 +253,6 @@ Website: http://emilcarlsson.se/
 		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
 		//const usersList = document.querySelector('.users-list');
-		/*
 		const userItem = usersList.querySelector('li');
 		for (let i = 0; i < userItem.length; i++) {
 			userItem[i].addEventListener("click", function() {
@@ -262,7 +261,6 @@ Website: http://emilcarlsson.se/
 				this.className += " active";
 			});
 		}
-		*/
 
 
 		searchBar.onkeyup = () => {
