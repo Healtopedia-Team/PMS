@@ -27,7 +27,7 @@ $username = $_SESSION['name'];
                         <i class="bi bi-person-check-fill"></i>
                         <span>Request Appoint</span>
                     </a>
-                    <ul class="submenu <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-addappoint" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved" || $your_variable == "manage-date" || $your_variable == "manage-time") {
+                    <ul class="submenu <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-addappoint" || $your_variable == "patient-report" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved" || $your_variable == "manage-date" || $your_variable == "manage-time") {
                                             echo "active";
                                         } else {
                                             echo "noactive";
