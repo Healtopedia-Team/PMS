@@ -254,14 +254,14 @@ Website: http://emilcarlsson.se/
 		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
 		//const usersList = document.querySelector('.users-list');
-		function Clickuser() {
+		/*function Clickuser() {
 			var elems = userItem.querySelector(".active");
 			if (elems !== null) {
 				elems.classList.remove("active");
 			}
 			console.log("active hihi !");
 			userItem.classList.add("active");
-		}
+		}*/
 
 		function selectUser(e) {
 			const elems = document.querySelector(".active");
@@ -276,7 +276,7 @@ Website: http://emilcarlsson.se/
 			if (document.querySelector('.users-list li.active') !== null) {
 				document.querySelector('.users-list li.active').classList.remove('active');
 			}
-			e.target.classList.add("active");
+			document.querySelector('.users-list li.active').classList.add("active");
 		}
 
 
