@@ -278,6 +278,7 @@ Website: http://emilcarlsson.se/
 				el.classList.remove("active");
 			});
 			e.target.classList.add("active");
+			console.log("outside click");
 		}
 
 		function myFunction(e) {
@@ -315,6 +316,7 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send("searchTerm=" + searchTerm);
 		};
+
 		function refreshUserList() {
 			let xhr = new XMLHttpRequest()
 			xhr.open('GET', "userlist.php")
