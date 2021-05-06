@@ -115,7 +115,7 @@ Website: http://emilcarlsson.se/
 				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue">
 			</div>
 			<div id="contacts">
-				<ul class="users-list">
+				<ul class="users-list" onclick="myFunction(event)">
 
 				</ul>
 			</div>
@@ -254,7 +254,13 @@ Website: http://emilcarlsson.se/
 		//const searchIcon = document.querySelector(".#frame search label");
 		//const usersList = document.querySelector('.users-list');
 
-
+		function myFunction(e) {
+			var elems = document.querySelectorAll(".active");
+			[].forEach.call(elems, function(el) {
+				el.classList.remove("active");
+			});
+			e.target.className = "active";
+		}
 
 		searchBar.onkeyup = () => {
 			let searchTerm = searchBar.value;
@@ -308,6 +314,8 @@ Website: http://emilcarlsson.se/
 		refreshUserList();
 		setInterval(refreshUserList, 600000);
 
+
+		/*
 		const userItem = usersList.querySelector('li');
 		console.log(userItem);
 		for (let i = 0; i < userItem.length; i++) {
@@ -334,7 +342,7 @@ Website: http://emilcarlsson.se/
 				}
 			});
 		}
-		/*
+
 		function update() {
 			$.ajax({
 				type: 'GET',
