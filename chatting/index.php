@@ -254,6 +254,7 @@ Website: http://emilcarlsson.se/
 			xhr.open('GET', "./userlist.php", true)
 			console.log("Runs under xhr.open!")
 			xhr.onload = () => {
+				console.log("Runs under xhr.onload!")
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
 						let data = xhr.response
