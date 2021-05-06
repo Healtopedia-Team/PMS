@@ -252,7 +252,7 @@ Website: http://emilcarlsson.se/
 		const userItem = document.querySelector('.users-list li')
 		//const searchIcon = document.querySelector(".#frame search label");
 
-		$('.users-list li').click(function() {
+		userItem.onclick(function() {
 			$('.active').removeClass('active');
 			$(this).addClass('active');
 		});
