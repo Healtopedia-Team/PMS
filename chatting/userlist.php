@@ -55,7 +55,7 @@
                 $offoron = "offline";
             }
             $output .= '
-                    <li class="contact" onclick="selectUser(e)">
+                    <li class="contact" onclick="selectUser(event)">
                         <div class="wrap">
                             <span class="contact-status ' . $row['status'] . '"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
