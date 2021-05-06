@@ -46,6 +46,13 @@ $username = $_SESSION['name'];
                                                 } ?>">
                             <a href="request-addappoint.php">Add Request</a>
                         </li>
+                        <li class="submenu-item <?php if ($your_variable == "patient-report") {
+                                                    echo "active";
+                                                } else {
+                                                    echo "noactive";
+                                                } ?>">
+                            <a href="patient-report.php">Patient Report</a>
+                        </li>
                         <li class="submenu-item <?php if ($your_variable == "manage-date") {
                                                     echo "active";
                                                 } else {
