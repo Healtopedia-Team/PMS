@@ -137,14 +137,14 @@ $username = $_SESSION['name'];
                                                 } else {
                                                     echo "noactive";
                                                 } ?>">
-                            <a href="user-profile.php">Role List</a>
+                            <a href="users-role.php">Role List</a>
                         </li>
                         <li class="submenu-item <?php if ($your_variable == "add-users-role") {
                                                     echo "active";
                                                 } else {
                                                     echo "noactive";
                                                 } ?>">
-                            <a href="users.php">Add Role</a>
+                            <a href="add-users-role.php">Add Role</a>
                         </li>
                     </ul>
 
