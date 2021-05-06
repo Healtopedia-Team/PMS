@@ -266,7 +266,7 @@ Website: http://emilcarlsson.se/
 			}
 			console.log("Runs under xhr.onload!")
 			xhr.send()
-		}, 500)
+		}, 500);
 
 
 		function search(searchvalue) {
@@ -382,7 +382,7 @@ Website: http://emilcarlsson.se/
 			}
 			echo $output;
 		}
-		$userlist = userlist_php($user_id, $conn);
+		$userhhhhlist = userlist_php($user_id, $conn);
 		?>
 	</script>
 	<script>
