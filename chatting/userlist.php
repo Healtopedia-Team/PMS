@@ -57,7 +57,7 @@
             $output .= '
                     <li class="contact">
                         <div class="wrap">
-                            <span class="contact-status ' . $offoron . '"></span>
+                            <span class="contact-status ' . $row['status'] . '"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
                             <div class="meta">
                                 <p class="name">' . $row['first_name'] . " " . $row['last_name'] . '</p>
