@@ -22,13 +22,13 @@
     
     } else {
         $output .=
-                '<li class="contact">
+    '<li class="contact">
                         <div class="wrap">
                             <span class="contact-status offline"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
                             <div class="meta">
                                 <p class="name">No available users</p>
-                                <p>Last message not done yet</p>
+                                <p>' . $_POST['searchTerm'] . '</p>
                             </div>
                         </div>
                     </li>';
