@@ -426,6 +426,7 @@ body {
   padding: 10px 0 15px 0;
   font-size: 0.9em;
   cursor: pointer;
+  pointer-events: all;
 }
 @media screen and (max-width: 735px) {
   #frame #sidepanel #contacts ul li.contact {
