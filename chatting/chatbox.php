@@ -257,6 +257,7 @@ Website: http://emilcarlsson.se/
 					if (xhr.status === 200) {
 						let data = xhr.response
 						usersList.innerHTML = data
+						console.log('Connection issues inside!');
 						console.log(data)
 					}
 				} else {
