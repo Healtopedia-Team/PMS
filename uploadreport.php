@@ -3,10 +3,10 @@ include_once 'dbconnect.php';
 
 if(isset($_POST['requpreport'])) {
     $requestid = $_POST['requestid'];
-    $folder="uploadreports/";
     $file = rand(1000,100000)."-".$_FILES['file']['name'];
-    $file_loc = move_uploaded_file($file,$folder);
+    $file_loc = $_FILES['file']['tmp_name'];
     $file_size = $_FILES['file']['size'];
+    $folder="uploadreports/";
   
     // make file name in lower case
     $new_file_name = strtolower($file);
@@ -15,7 +15,6 @@ if(isset($_POST['requpreport'])) {
     $final_file=str_replace(' ','-',$new_file_name);
  
     if(move_uploaded_file($file_loc,$folder.$final_file)) {
-        $sql="INSERT INTO requestappointment(patient_report) VALUES('$final_file')";
         $sql = "UPDATE requestappoint SET patient_report = '$final_file' WHERE request_id = '$requestid'";
         mysqli_query($conn,$sql);
     ?>
