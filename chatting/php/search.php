@@ -4,7 +4,7 @@
     $outgoing_id = $_SESSION['user_id'];
     $searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
     $output = "";
-    $query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '$searchTerm' OR last_name LIKE '$searchTerm'");
+    $query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%' OR last_name LIKE '%$searchTerm%'");
     if(mysqli_num_rows($query) > 0){
         while($row = mysqli_fetch_assoc($query)){
             $output .=
@@ -14,7 +14,7 @@
                         <img src= "../assets/images/faces/1.jpg" alt="" />
                         <div class="meta">
                             <p class="name">' . $row['first_name'] . " " . $row['last_name'] . '</p>
-                            <p>Last message not done yet</p>
+                            <p>'. $_POST['searchTerm'] .'</p>
                         </div>
                     </div>
                 </li>';
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </li>';
-        echo "ERROR: " . mysqli_error($conn) . "hi";
+        //echo "ERROR: " . mysqli_error($conn) . "hi";
     }
     //echo $output;
 ?>
