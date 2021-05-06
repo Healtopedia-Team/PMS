@@ -265,8 +265,9 @@ Website: http://emilcarlsson.se/
 					if (xhr.status === 200) {
 						let data = xhr.response;
 						//console.log(data);
-						usersList.innerHTML = data;
-
+						if (searchBar.classList.contains("active")) {
+							usersList.innerHTML = data;
+						}
 					}
 				}
 			};
@@ -294,7 +295,7 @@ Website: http://emilcarlsson.se/
 			}
 			console.log("Runs under xhr.onload!")
 			xhr.send()
-		}(), 30000);
+		}(), 1000);
 
 
 		function search(searchvalue) {

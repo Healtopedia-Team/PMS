@@ -8,7 +8,7 @@
     if(mysqli_num_rows($query) > 0){
         while($row = mysqli_fetch_assoc($query)){
             $output .=
-        '<li class="contact">
+                '<li class="contact">
                     <div class="wrap">
                         <span class="contact-status offline"></span>
                         <img src= "../assets/images/faces/1.jpg" alt="" />
@@ -22,7 +22,7 @@
     
     } else {
         $output .=
-    '<li class="contact">
+                    '<li class="contact">
                         <div class="wrap">
                             <span class="contact-status offline"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
