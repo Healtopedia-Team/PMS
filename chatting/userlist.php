@@ -56,7 +56,7 @@
             }
             $output .= '
                     <li class="contact" >
-                        <div class="wrap" onclick="myFunction(event)">
+                        <div class="wrap">
                             <span class="contact-status ' . $row['status'] . '"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
                             <div class="meta">
