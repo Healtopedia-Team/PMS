@@ -85,11 +85,13 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td>
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
 
-                                                        <!--input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;"-->
+                                                        <?php if ($row['patient_report'] == ''){?>
+                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#upload<?php echo $row['request_id']; ?>"><i class="bi bi-cloud-upload"></i></button>
+                                                        <?php }?>
 
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#upload<?php echo $row['request_id']; ?>"><i class="bi bi-cloud-upload"></i></button>
-
-                                                        <a href="uploadreports/<?php echo $row['patient_report'] ?>"><button type="button" class="btn btn-primary"><i class="bi bi-eye-fill"></i></button></a>
+                                                        <?php if ($row['patient_report'] != ''){?>
+                                                            <a href="uploadreports/<?php echo $row['patient_report'] ?>" target="_blank"><button type="button" class="btn btn-primary"><i class="bi bi-eye-fill"></i></button></a>
+                                                        <?php }?>
 
                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
                                                     </div>
