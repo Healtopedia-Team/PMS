@@ -90,7 +90,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                         <?php }?>
 
                                                         <?php if ($row['patient_report'] != ''){?>
-                                                            <a href="uploadreports/<?php echo $row['patient_report'] ?>"><button type="button" class="btn btn-primary"><i class="bi bi-eye-fill"></i></button></a>
+                                                            <a href="uploadreports/<?php echo $row['patient_report'] ?>" target="_blank"><button type="button" class="btn btn-primary"><i class="bi bi-eye-fill"></i></button></a>
                                                         <?php }?>
 
                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
