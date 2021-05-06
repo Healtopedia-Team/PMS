@@ -83,12 +83,15 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td><?php echo $row['req_apptime']; ?></td>
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
-                                                <form method="POST">
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
 
-                                                        <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                </form>
-                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
+                                                        <!--input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;"-->
+
+                                                        <button type="button" class="btn btn-primary"><i class="bi bi-cloud-upload"></i></button>
+
+                                                        <button type="button" class="btn btn-primary"><i class="bi bi-cloud-download"></i></button>
+
+                                                        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
                                                     </div>
                                             </td>
                                         </tr>
