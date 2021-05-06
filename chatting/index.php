@@ -249,7 +249,7 @@ Website: http://emilcarlsson.se/
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
 
-		setInterval(() => {
+		setInterval(function refreshUserList(){
 			let xhr = new XMLHttpRequest()
 			xhr.open('GET', "userlist.php")
 			console.log("Runs under xhr.open!")
@@ -268,7 +268,7 @@ Website: http://emilcarlsson.se/
 			}
 			console.log("Runs under xhr.onload!")
 			xhr.send()
-		}, 100000);
+		}(), 30000);
 
 
 		function search(searchvalue) {
