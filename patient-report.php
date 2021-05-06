@@ -146,6 +146,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <form action="uploadreport.php" method="POST" enctype="multipart/form-data">
                                                         <div class="modal-body">
                                                             <input type="file" name="file" />
+                                                            <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
