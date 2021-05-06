@@ -13,20 +13,24 @@ if(isset($_POST['requpreport'])) {
     // make file name in lower case
  
     $final_file=str_replace(' ','-',$new_file_name);
+
+    if (pathinfo($final_file, PATHINFO_EXTENSION) != 'pdf') {
+        alert('Only PDF file can be uploaded');
+    }else{
  
-    if(move_uploaded_file($file_loc,$folder.$final_file)) {
-        $sql = "UPDATE requestappoint SET patient_report = '$final_file' WHERE request_id = '$requestid'";
-        mysqli_query($conn,$sql);
-    ?>
-    <script>
-        alert('successfully uploaded');
-        window.location.href='patient-report.php';
-    </script>
-    <?php }else {?>
-    <script>
-        alert('error while uploading file');
-        window.location.href='patient-report.php';
-    </script>
-    <?php }
-}
+        if(move_uploaded_file($file_loc,$folder.$final_file)) {
+            $sql = "UPDATE requestappoint SET patient_report = '$final_file' WHERE request_id = '$requestid'";
+            mysqli_query($conn,$sql);
+        ?>
+        <script>
+            alert('successfully uploaded');
+            window.location.href='patient-report.php';
+        </script>
+        <?php }else {?>
+        <script>
+            alert('error while uploading file');
+            window.location.href='patient-report.php';
+        </script>
+        <?php }
+    }
 ?>
