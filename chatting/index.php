@@ -116,25 +116,7 @@ Website: http://emilcarlsson.se/
 			</div>
 			<div id="contacts">
 				<ul class="users-list" onclick="selectUser(event)">
-					<!--testing code-->
-					<li class="contact">
-						<div class="wrap"><a href="#">home</a></div>
-					</li>
-					<li class="contact">
-						<div class="wrap"><a href="#">about</a></div>
-					</li>
-					<li class="contact">
-						<div class="wrap"><a href="#">service</a></div>
-					</li>
-					<li class="contact">
-						<div class="wrap"><a href="#">profile</a></div>
-					</li>
-					<li class="contact">
-						<div class="wrap"><a href="#">portfolio</a></div>
-					</li>
-					<li class="contact">
-						<div class="wrap"><a href="#">contact</a></div>
-					</li>
+
 				</ul>
 			</div>
 			<div id="bottom-bar">
@@ -302,7 +284,7 @@ Website: http://emilcarlsson.se/
 			if (document.querySelectorAll('.active') !== null) {
 				document.querySelectorAll('.active').classList.remove('active');
 			}
-			document.querySelector('.users-list li').classList.add("active");
+			document.querySelectorAll('.users-list li').classList.add("active");
 		}
 
 
@@ -332,7 +314,6 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send("searchTerm=" + searchTerm);
 		};
-		/*
 		function refreshUserList() {
 			let xhr = new XMLHttpRequest()
 			xhr.open('GET', "userlist.php")
@@ -358,7 +339,6 @@ Website: http://emilcarlsson.se/
 		refreshUserList();
 		setInterval(refreshUserList, 600000);
 
-		*/
 		/*
 		const userItem = usersList.querySelector('li');
 		console.log(userItem);
