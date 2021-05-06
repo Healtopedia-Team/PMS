@@ -250,7 +250,7 @@ Website: http://emilcarlsson.se/
 
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', "userlist.php", true)
+			xhr.open('GET', "./userlist.php", true)
 			console.log("Runs under xhr.open!")
 			xhr.onload = () => {
 				if (xhr.readyState === XMLHttpRequest.DONE) {
