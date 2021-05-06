@@ -268,6 +268,8 @@ Website: http://emilcarlsson.se/
 						if (searchBar.classList.contains("active")) {
 							usersList.innerHTML = data;
 							console.log(searchTerm)
+						} else {
+							refreshUserList();
 						}
 					}
 				}
@@ -275,7 +277,8 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send("searchTerm=" + searchTerm);
 		};
-		setInterval(function refreshUserList() {
+
+		function refreshUserList() {
 			let xhr = new XMLHttpRequest()
 			xhr.open('GET', "userlist.php")
 			console.log("Runs under xhr.open!")
@@ -296,7 +299,9 @@ Website: http://emilcarlsson.se/
 			}
 			console.log("Runs under xhr.onload!")
 			xhr.send()
-		}(), 1000);
+		}
+		refreshUserList();
+		setInterval(refreshUserList, 1000);
 
 
 		function search(searchvalue) {
