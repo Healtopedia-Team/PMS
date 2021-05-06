@@ -43,7 +43,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 <body>
     <div id="app">
-        <?php include 'sidebar-test.php'; ?>
+        <?php include 'sidebar.php'; ?>
 
         <div id="main" style="margin-top: -90px;">
 
