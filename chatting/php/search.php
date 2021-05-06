@@ -7,7 +7,7 @@
     $output = "";
     //$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%' OR last_name LIKE '%$searchTerm%'");
     $searchquery = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%'");
-    echo mysqli_fetch_assoc($searchquery);
+    echo "HI";
     if(mysqli_num_rows($searchquery) > 0){
         while($row = mysqli_fetch_assoc($searchquery)){
             $output .=
