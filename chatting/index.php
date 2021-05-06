@@ -251,7 +251,7 @@ Website: http://emilcarlsson.se/
 
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', "userlist.php", true)
+			xhr.open('GET', "userlist.php")
 			console.log("Runs under xhr.open!")
 			xhr.onload = () => {
 				console.log("Runs inside xhr.onload!")
