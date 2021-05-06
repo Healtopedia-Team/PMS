@@ -255,10 +255,10 @@ Website: http://emilcarlsson.se/
 		//const usersList = document.querySelector('.users-list');
 
 		function myFunction(e) {
-			var elems = document.querySelectorAll(".active");
-			[].forEach.call(elems, function(el) {
-				el.classList.remove("active");
-			});
+			var elems = document.querySelector(".active");
+			if (elems !== null) {
+				elems.classList.remove("active");
+			}
 			console.log("active hihi !");
 			e.target.classList.add("active");
 		}
