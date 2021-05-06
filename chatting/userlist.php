@@ -3,7 +3,7 @@
     include "../dbconnect.php";
     $outgoing_id = $_SESSION['user_id'];
     //echo "$outgoing_id";
-    $listed_user = mysqli_query($conn, "SELECT * FROM user WHERE NOT user_id='$_SESSION['user_id']'");
+    $listed_user = mysqli_query($conn, "SELECT * FROM user WHERE NOT first_name='$username'");
     $output = "";
     if (mysqli_num_rows($listed_user) == 0) {
         /*
