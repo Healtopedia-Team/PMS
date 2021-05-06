@@ -47,12 +47,17 @@
             } else {
                 $you = "";
             }
+            $offoron = ""
             //($outgoing_id == $row['user_id']) ? $hid_me = "hide" : $hid_me = "";
-
+            if($row['status'] === 'online'){
+                $offoron = "online";
+            } else{
+                $offoron = "offline";
+            }
             $output .= '
                     <li class="contact">
                         <div class="wrap">
-                            <span class="contact-status online"></span>
+                            <span class="contact-status <?php echo $offoron?>"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
                             <div class="meta">
                                 <p class="name">' . $row['first_name'] . " " . $row['last_name'] . '</p>
