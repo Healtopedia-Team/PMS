@@ -1,6 +1,6 @@
 <?php
     $outgoing_id = 10;
-    $find_other_user = "SELECT * FROM user WHERE NOT user_id='10'";
+    $find_other_user = "SELECT * FROM user ";
     $listed_user = mysqli_query($conn, $find_other_user);
     $output = "";
     if (mysqli_num_rows($listed_user) == 0) {
