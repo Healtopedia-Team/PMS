@@ -259,6 +259,8 @@ Website: http://emilcarlsson.se/
 				url: 'php/users.php',
 				success: function(data) {
 					usersList.innerHTML = data;
+					console.log("Userlist update run here!");
+					console.log(data);
 				},
 			});
 		};
@@ -273,7 +275,8 @@ Website: http://emilcarlsson.se/
 				},
 				success: function(result) {
 					searchvalue ? (usersList.innerHTML = result) : (usersList.innerHTML = '');
-
+					console.log("Search function runs here!");
+					console.log(result);
 				}
 			});
 		}
