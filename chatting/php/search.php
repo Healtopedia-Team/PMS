@@ -33,7 +33,6 @@
                             </div>
                         </div>
                     </li>';
-        echo "ERROR: " . mysqli_error($conn) . "hi";
     }
     echo $output;
 ?>
