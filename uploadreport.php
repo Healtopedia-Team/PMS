@@ -14,7 +14,7 @@ if(isset($_POST['requpreport'])) {
  
     $final_file=str_replace(' ','-',$new_file_name);
 
-    if (pathinfo($final_file, PATHINFO_EXTENSION) != 'pdf') {
+    if (pathinfo($file, PATHINFO_EXTENSION) != 'pdf') {
         alert('Only PDF file can be uploaded');
     }else{
  
