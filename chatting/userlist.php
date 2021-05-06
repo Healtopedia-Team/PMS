@@ -22,6 +22,9 @@
 
     } elseif (mysqli_num_rows($listed_user) > 0) {
         while ($row = mysqli_fetch_assoc($listed_user)) {
+            if ($row['user_id']==$outgoing_id){
+                continue;
+            }
             $sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
                                             OR outgoing_msg_id = {$row['user_id']}) AND (outgoing_msg_id = {$outgoing_id} 
                                             OR incoming_msg_id = {$outgoing_id}) ORDER BY msg_id DESC LIMIT 1";
