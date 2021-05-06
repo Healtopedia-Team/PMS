@@ -251,7 +251,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
 
-        function roleChange(){
+       /* function roleChange(){
             var role = document.getElementById("role").value;
 
             if (role=="admin"){
@@ -262,7 +262,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             }
 
         }
-
+*/
         
 
     </script>
