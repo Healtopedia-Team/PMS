@@ -87,9 +87,9 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                                         <!--input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;"-->
 
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-cloud-upload"></i></button>
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#upload<?php echo $row['request_id']; ?>"><i class="bi bi-cloud-upload"></i></button>
 
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-cloud-download"></i></button>
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#download<?php echo $row['request_id']; ?>"><i class="bi bi-cloud-download"></i></button>
 
                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
                                                     </div>
@@ -130,6 +130,34 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             <span class="d-none d-sm-block">Close</span>
                                                         </button>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <!--========================================== M O D A L == U P L O A D == R E P O R T =====================================-->
+                                        <div class="modal fade text-left" id="postpone<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="myModalLabel1">Upload Report</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <form method="POST">
+                                                        <div class="modal-body">
+                                                            <input type="file" name="fileupload">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-sm-block d-none">Close</span>
+                                                            </button>
+                                                            <button type="submit" name="requpreport" class="btn btn-primary ml-1">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-sm-block d-none">Submit</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
