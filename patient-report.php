@@ -87,12 +87,9 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                                         <!--input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;"-->
 
-                                                        <form action="uploadreport.php" method="post" enctype="multipart/form-data">
-                                                            <input type="file" name="file" />
-                                                            <button type="submit" name="uploadreport" class="btn btn-primary"><i class="bi bi-cloud-upload"></i></button>
-                                                        </form>
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-cloud-upload"></i></button>
 
-                                                        <button type="button" class="btn btn-primary"><i class="bi bi-cloud-download"></i></button>
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-cloud-download"></i></button>
 
                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
                                                     </div>
