@@ -268,7 +268,7 @@ Website: http://emilcarlsson.se/
 			}
 			console.log("Runs under xhr.onload!")
 			xhr.send()
-		}, 5000);
+		}, 1000);
 
 
 		function search(searchvalue) {
