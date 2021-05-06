@@ -57,6 +57,6 @@
                     </li>';
         }
     }
-    //echo $output;
+    echo $output;
 ?>
 
