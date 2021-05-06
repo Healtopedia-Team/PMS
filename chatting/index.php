@@ -273,8 +273,8 @@ Website: http://emilcarlsson.se/
 		}
 
 		function myFunction(e) {
-			if (document.querySelector('.users-list li.active') !== null) {
-				document.querySelector('.users-list li.active').classList.remove('active');
+			if (document.querySelectorAll('.active') !== null) {
+				document.querySelectorAll('.active').classList.remove('active');
 			}
 			document.querySelector('.users-list li').classList.add("active");
 		}
