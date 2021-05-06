@@ -112,7 +112,7 @@ Website: http://emilcarlsson.se/
 			</div>
 			<div id="search">
 				<label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
-				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue" onkeyup="search(this.value)">
+				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue">
 			</div>
 			<div id="contacts">
 				<ul class="users-list">
