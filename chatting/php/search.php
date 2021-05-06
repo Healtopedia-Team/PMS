@@ -28,7 +28,7 @@
                             <img src= "../assets/images/faces/1.jpg" alt="" />
                             <div class="meta">
                                 <p class="name">No available users</p>
-                                <p>' . $_POST['searchTerm'] . '</p>
+                                <p>' . $searchTerm . '</p>
                             </div>
                         </div>
                     </li>';
