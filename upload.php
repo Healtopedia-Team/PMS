@@ -1,45 +1,32 @@
 <?php
-$target_dir = "images/";
-$target_file = $target_dir . basename($_FILES["file_to_upload"]["name"]);
-$uploadOk = 1;
-$image_file_type = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["file_to_upload"]["tmp_name"]);
-    if($check !== false) {
-        echo "The file you picked is an image - " . $check["mime"] . ".";
-        $upload_ok = 1;
-    } else {
-        echo "The file you picked is not an image.";
-        $upload_ok = 0;
-    }
-}
-// Check if file already exists
-if (file_exists($target_file)) {
-    echo "File already present.";
-    $upload_ok = 0;
-}
-// Check file size
-if ($_FILES["file_to_upload"]["size"] > 500000) {
-    echo "File too big.";
-    $upload_ok = 0;
-}
-// Limit allowed file formats
-if($image_file_type != "jpg" && $image_file_type != "png" && $image_file_type != "jpeg" && $image_file_type != "gif" ) {
-    echo "Only JPG, JPEG, PNG & GIF files are allowed.";
-    $upload_ok = 0;
-}
-// Check if $upload_ok is set to 0 by an error
-if ($upload_ok == 0) {
-    echo "Your file was not uploaded.";
-// If all the checks are passed, file is uploaded
-} else {
-    if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["file_to_upload"]["name"]). " was uploaded.";
-    } else {
-        echo "A error has occured uploading.";
-    }
+include_once 'dbconnect.php';
+
+if(isset($_POST['requpreport'])) {
+    $requestid = $_POST['requestid'];
+    $file = rand(1000,100000)."-".$_FILES['file']['name'];
+    $file_loc = $_FILES['file']['tmp_name'];
+    $file_size = $_FILES['file']['size'];
+    $folder="uploadreports/";
+  
+    // make file name in lower case
+    $new_file_name = strtolower($file);
+    // make file name in lower case
+ 
+    $final_file=str_replace(' ','-',$new_file_name);
+ 
+    if(move_uploaded_file($_FILES['file']['tmp_name'],$folder.$final_file)) {
+        $sql = "UPDATE requestappoint SET patient_report = '$final_file' WHERE request_id = '$requestid'";
+        mysqli_query($conn,$sql);
+    ?>
+    <script>
+        alert('successfully uploaded');
+        window.location.href='patient-report.php';
+    </script>
+    <?php }else {?>
+    <script>
+        alert('error while uploading file');
+        window.location.href='patient-report.php';
+    </script>
+    <?php }
 }
 ?>
-
-
