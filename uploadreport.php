@@ -15,7 +15,6 @@ if(isset($_POST['requpreport'])) {
     $final_file=str_replace(' ','-',$new_file_name);
  
     if(move_uploaded_file($file_loc,$folder.$final_file)) {
-        $sql="INSERT INTO requestappointment(patient_report) VALUES('$final_file')";
         $sql = "UPDATE requestappoint SET patient_report = '$final_file' WHERE request_id = '$requestid'";
         mysqli_query($conn,$sql);
     ?>
