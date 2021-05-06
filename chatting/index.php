@@ -251,10 +251,10 @@ Website: http://emilcarlsson.se/
 
 		setInterval(() => {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', "./userlist.php", true)
+			xhr.open('GET', "userlist.php", true)
 			console.log("Runs under xhr.open!")
 			xhr.onload = () => {
-				console.log("Runs under xhr.onload!")
+				console.log("Runs inside xhr.onload!")
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
 						let data = xhr.response
@@ -268,7 +268,7 @@ Website: http://emilcarlsson.se/
 			}
 			console.log("Runs under xhr.onload!")
 			xhr.send()
-		}, 500);
+		}, 5000);
 
 
 		function search(searchvalue) {
