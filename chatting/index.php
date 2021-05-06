@@ -115,7 +115,7 @@ Website: http://emilcarlsson.se/
 				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue">
 			</div>
 			<div id="contacts">
-				<ul class="users-list" onclick="myFunction(event)">
+				<ul class="users-list">
 
 				</ul>
 			</div>
@@ -254,6 +254,13 @@ Website: http://emilcarlsson.se/
 		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
 		//const usersList = document.querySelector('.users-list');
+		$('#frame #contacts .users-list li').on('click', '> *', function() {
+			if (document.querySelector('.users-list li.active') !== null) {
+				document.querySelector('.users-list li.active').classList.remove('active');
+			}
+			e.target.classList.add("active");
+		});
+
 
 		function selectUser(e) {
 			var elems = document.querySelector(".active");
