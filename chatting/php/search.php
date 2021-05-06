@@ -7,7 +7,7 @@
     $output = "";
 //$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%' OR last_name LIKE '%$searchTerm%'");
     //$line = "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%'";
-    $line = "SELECT * FROM `user` WHERE first_name LIKE '%ati%' OR last_name LIKE '%ro%'";
+    $line = "SELECT * FROM `user` WHERE first_name like '%$searchTerm%' OR last_name like '%$searchTerm%'";
     $searchquery = mysqli_query($conn, $line) or die("Can't fetch data");
     echo "$line";
     if(mysqli_num_rows($searchquery) > 0){
