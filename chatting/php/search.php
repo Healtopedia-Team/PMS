@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once "dbconnect.php";
+include '../dbconnect.php';
     $outgoing_id = $_SESSION['user_id'];
     //$searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
     echo $searchTerm = 'Hajar';
