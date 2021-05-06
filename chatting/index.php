@@ -309,6 +309,7 @@ Website: http://emilcarlsson.se/
 		setInterval(refreshUserList, 600000);
 
 		const userItem = usersList.querySelector('li');
+		console.log(userItem);
 		for (let i = 0; i < userItem.length; i++) {
 			userItem[i].addEventListener("click", function() {
 				var current = document.getElementsByClassName("active");
