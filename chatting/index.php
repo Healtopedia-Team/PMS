@@ -248,8 +248,43 @@ Website: http://emilcarlsson.se/
 	</script>
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
+		const searchBar = document.querySelector("#frame #search input");
+		const searchIcon = document.querySelector(".#frame search label");
 
-		setInterval(function refreshUserList(){
+
+		searchIcon.onclick = () => {
+			searchBar.classList.toggle("show");
+			searchIcon.classList.toggle("active");
+			searchBar.focus();
+			if (searchBar.classList.contains("active")) {
+				searchBar.value = "";
+				searchBar.classList.remove("active");
+			}
+		};
+
+		searchBar.onkeyup = () => {
+			let searchTerm = searchBar.value;
+			if (searchTerm != "") {
+				searchBar.classList.add("active");
+			} else {
+				searchBar.classList.remove("active");
+			}
+			let xhr = new XMLHttpRequest();
+			xhr.open("POST", "php/search.php", true);
+			xhr.onload = () => {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						let data = xhr.response;
+						//console.log(data);
+						usersList.innerHTML = data;
+
+					}
+				}
+			};
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.send("searchTerm=" + searchTerm);
+		};
+		setInterval(function refreshUserList() {
 			let xhr = new XMLHttpRequest()
 			xhr.open('GET', "userlist.php")
 			console.log("Runs under xhr.open!")
@@ -258,7 +293,9 @@ Website: http://emilcarlsson.se/
 				if (xhr.readyState === XMLHttpRequest.DONE) {
 					if (xhr.status === 200) {
 						let data = xhr.response
-						usersList.innerHTML = data
+						if (!searchBar.classList.contains("active")) {
+							usersList.innerHTML = data;
+						}
 						console.log('Connection issues inside!');
 						console.log(data)
 					}
