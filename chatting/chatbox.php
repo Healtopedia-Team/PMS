@@ -52,8 +52,8 @@ function console_log($output, $with_script_tags = true)
 			});
 		} catch (e) {}
 	</script>
-	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
-	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+	<link rel='stylesheet prefetch' href='../assets/vendors/fontawesome/all.min.js'>
+	<link rel='stylesheet prefetch' href='../assets/vendors/fontawesome/all.min.css'>
 	<link rel="stylesheet" href="chat.css">
 </head>
 
@@ -248,22 +248,26 @@ Website: http://emilcarlsson.se/
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
 
-		function update() {
-			$.ajax({
-				type: 'GET',
-				url: 'php/users.php',
-				success: function(data) {
-					usersList.innerHTML = data;
-					console.log("Userlist update run here!");
-					console.log(data);
-				},
-				error: function(e) {
-					console.log(e);
+		setInterval(() => {
+			let xhr = new XMLHttpRequest()
+			xhr.open('GET', "userlist.php", true)
+			console.log("Runs under xhr.open!")
+			xhr.onload = () => {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						let data = xhr.response
+						usersList.innerHTML = data
+						console.log(data)
+					}
+				} else {
+					console.log('Connection issues!');
 				}
-			});
-		};
-		update();
-		var refInterval = window.setInterval('update()', 10000); // 30 seconds
+			}
+			console.log("Runs under xhr.onload!")
+			xhr.send()
+		}, 500)
+
+
 		function search(searchvalue) {
 			$.ajax({
 				url: "searchbar.php",
@@ -281,6 +285,22 @@ Website: http://emilcarlsson.se/
 			});
 		}
 		/*
+		function update() {
+			$.ajax({
+				type: 'GET',
+				url: 'php/users.php',
+				success: function(data) {
+					usersList.innerHTML = data;
+					console.log("Userlist update run here!");
+					console.log(data);
+				},
+				error: function(e) {
+					console.log(e);
+				}
+			});
+		};
+		update();
+		var refInterval = window.setInterval('update()', 10000); // 30 seconds
 		fetch('php/users.php', {
 				method: 'GET',
 				headers: {
