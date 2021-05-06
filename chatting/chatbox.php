@@ -262,9 +262,8 @@ Website: http://emilcarlsson.se/
 					console.log("Userlist update run here!");
 					console.log(data);
 				},
-				error: function(e){
+				error: function(e) {
 					console.log(e);
-					console.log(data);
 				}
 			});
 		};
@@ -279,7 +278,11 @@ Website: http://emilcarlsson.se/
 				},
 				success: function(result) {
 					searchvalue ? (usersList.innerHTML = result) : (usersList.innerHTML = '');
-					console.log("Search function runs here!");				}
+					console.log("Search function runs here!");
+				},
+				error: function(e) {
+					console.log(e);
+				}
 			});
 		}
 		/*
