@@ -115,7 +115,7 @@ Website: http://emilcarlsson.se/
 				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue">
 			</div>
 			<div id="contacts">
-				<ul class="users-list" onclick="Clickuser()">
+				<ul class="users-list" onclick="selectUser(e)">
 
 				</ul>
 			</div>
