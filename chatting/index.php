@@ -255,7 +255,7 @@ Website: http://emilcarlsson.se/
 		//const usersList = document.querySelector('.users-list');
 
 		function selectUser(e) {
-			var elems = document.querySelectorAll(".active #contact-id-");
+			var elems = document.querySelectorAll(".active > *");
 			if (elems !== null) {
 				elems.classList.remove("active");
 			}
