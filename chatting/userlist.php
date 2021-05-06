@@ -6,6 +6,7 @@
     $listed_user = mysqli_query($conn, $find_other_user);
     $output = "";
     if (mysqli_num_rows($listed_user) == 0) {
+        /*
         $output .= '<li class="contact">
                         <div class="wrap">
                             <span class="contact-status offline"></span>
@@ -16,6 +17,9 @@
                             </div>
                         </div>
                     </li>';
+        */
+        echo "ERROR: " . mysqli_error($conn);
+
     } elseif (mysqli_num_rows($listed_user) > 0) {
         while ($row = mysqli_fetch_assoc($listed_user)) {
             $sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
@@ -54,6 +58,6 @@
                     </li>';
         }
     }
-    echo $output;
+    //echo $output;
 ?>
 
