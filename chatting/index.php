@@ -301,7 +301,7 @@ Website: http://emilcarlsson.se/
 			xhr.send()
 		}
 		refreshUserList();
-		setInterval(refreshUserList, 1000);
+		setInterval(refreshUserList, 15000);
 
 
 		function search(searchvalue) {
