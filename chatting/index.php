@@ -53,7 +53,8 @@ function console_log($output, $with_script_tags = true)
 		} catch (e) {}
 	</script>
 	<link rel='stylesheet prefetch' href='../assets/vendors/fontawesome/all.min.js'>
-	<link rel='stylesheet prefetch' href='../assets/vendors/fontawesome/all.min.css'>
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
 	<link rel="stylesheet" href="chat.css">
 </head>
 
