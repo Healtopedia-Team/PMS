@@ -117,12 +117,12 @@ Website: http://emilcarlsson.se/
 			<div id="contacts">
 				<ul class="users-list" onclick="selectUser(event)">
 					<!--testing code-->
-					<li><a href="#">home</a></li>
-					<li><a href="#">about</a></li>
-					<li><a href="#">service</a></li>
-					<li><a href="#">profile</a></li>
-					<li><a href="#">portfolio</a></li>
-					<li><a href="#">contact</a></li>
+					<li class="contact"><a href="#">home</a></li>
+					<li class="contact"><a href="#">about</a></li>
+					<li class="contact"><a href="#">service</a></li>
+					<li class="contact"><a href="#">profile</a></li>
+					<li class="contact"><a href="#">portfolio</a></li>
+					<li class="contact"><a href="#">contact</a></li>
 				</ul>
 			</div>
 			<div id="bottom-bar">
@@ -283,7 +283,7 @@ Website: http://emilcarlsson.se/
 			[].forEach.call(elems, function(el) {
 				el.classList.remove("active");
 			});
-			e.target.className = "active";
+			e.target.classList.add("active");
 		}
 
 		function myFunction(e) {
