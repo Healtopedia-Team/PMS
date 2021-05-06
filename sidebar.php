@@ -130,7 +130,7 @@ $username = $_SESSION['name'];
                                         } ?>">
                     <a href="users-role.php" class='sidebar-link'>
                         <i class="bi bi-list-ul"></i>
-                        <span>Appointment List</span>
+                        <span>Users Role</span>
                     </a>
                 </li>
 
