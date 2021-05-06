@@ -50,7 +50,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 </head>
 <body>
     <div id="app">
-        <?php include 'sidebar-test.php'; ?>
+        <?php include 'sidebar.php'; ?>
 
         <div id="main" style="margin-top: -40px;">
             <div class="page-content">
