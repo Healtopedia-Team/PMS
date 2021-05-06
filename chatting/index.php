@@ -115,7 +115,7 @@ Website: http://emilcarlsson.se/
 				<input type="text" placeholder="Search contacts..." id="search" name="searchvalue">
 			</div>
 			<div id="contacts">
-				<ul class="users-list" onclick="selectUser(event)">
+				<ul class="users-list" onclick="myFunction(event)">
 
 				</ul>
 			</div>
@@ -249,19 +249,28 @@ Website: http://emilcarlsson.se/
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
 		const searchBar = document.querySelector("#frame #search input");
+		const userItem = document.querySelector(".users-list li");
 		//const userItem = document.querySelector('.users-list li');
 		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
 		//const usersList = document.querySelector('.users-list');
 
 		function selectUser(e) {
-			var elems = document.querySelectorAll(".active > *");
+			var elems = document.querySelector(".active");
 			if (elems !== null) {
 				elems.classList.remove("active");
 			}
 			console.log("active hihi !");
 			e.target.classList.add("active");
 		}
+
+		function myFunction(e) {
+			if (document.querySelector('.users-list li.active') !== null) {
+				document.querySelector('.users-list li.active').classList.remove('active');
+			}
+			e.target.classList.add("active");
+		}
+
 
 		searchBar.onkeyup = () => {
 			let searchTerm = searchBar.value;
