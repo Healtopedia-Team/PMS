@@ -288,7 +288,7 @@ Website: http://emilcarlsson.se/
 							usersList.innerHTML = data;
 						}
 						console.log('Connection issues inside!');
-						console.log(data)
+						//console.log(data)
 					}
 				} else {
 					console.log('Connection issues!');
