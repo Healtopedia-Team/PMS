@@ -250,19 +250,6 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
-
-       /* function roleChange(){
-            var role = document.getElementById("role").value;
-
-            if (role=="admin"){
-                document.getElementById('hospital').style.display = 'none';
-            }
-            else{
-                document.getElementById('hospital').style.display = 'block';
-            }
-
-        }
-*/
         
 
     </script>
