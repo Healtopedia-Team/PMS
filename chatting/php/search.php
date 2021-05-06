@@ -5,9 +5,10 @@
     //$searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
     $searchTerm = $_POST['searchTerm'];
     $output = "";
-    $query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%' OR last_name LIKE '%$searchTerm%'");
-    if(mysqli_num_rows($query) > 0){
-        while($row = mysqli_fetch_assoc($query)){
+    //$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%' OR last_name LIKE '%$searchTerm%'");
+    $searchquery = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%'");
+    if(mysqli_num_rows($searchquery) > 0){
+        while($row = mysqli_fetch_assoc($searchquery)){
             $output .=
                 '<li class="contact">
                     <div class="wrap">
