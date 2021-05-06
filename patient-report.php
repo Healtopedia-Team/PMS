@@ -143,9 +143,9 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
-                                                    <form method="POST">
+                                                    <form action="uploadreport.php" method="POST" enctype="multipart/form-data">
                                                         <div class="modal-body">
-                                                            <input type="file" name="fileupload">
+                                                            <input type="file" name="file" />
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
