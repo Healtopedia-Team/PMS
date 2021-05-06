@@ -1,4 +1,5 @@
 <?php
+/*
     session_start();
     include "../dbconnect.php";
     $outgoing_id = $_SESSION['user_id'];
@@ -18,6 +19,7 @@
                         </div>
                     </li>';
         */
+        /*
         echo "ERROR: " . mysqli_error($conn);
 
     } elseif (mysqli_num_rows($listed_user) > 0) {
@@ -68,5 +70,6 @@
         }
     }
     echo $output;
+    */
 ?>
 
