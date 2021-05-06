@@ -123,6 +123,16 @@ $username = $_SESSION['name'];
                     </ul>
 
                 </li>
+                <li class="sidebar-item <?php if ($your_variable == "users-role") {
+                                            echo "active";
+                                        } else {
+                                            echo "noactive";
+                                        } ?>">
+                    <a href="users-role.php" class='sidebar-link'>
+                        <i class="bi bi-list-ul"></i>
+                        <span>Appointment List</span>
+                    </a>
+                </li>
 
 
             </ul>
