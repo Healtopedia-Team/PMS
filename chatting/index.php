@@ -127,7 +127,7 @@ Website: http://emilcarlsson.se/
 		<div class="content">
 			<div class="contact-profile">
 				<img src="../assets/images/faces/1.jpg" alt="" />
-				<p><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
+				<p class="person_received"><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
 				<div class="social-media">
 					<i class="fa fa-facebook" aria-hidden="true"></i>
 					<i class="fa fa-twitter" aria-hidden="true"></i>
@@ -179,7 +179,7 @@ Website: http://emilcarlsson.se/
 					<input type="text" class="input-field" placeholder="Write your message..." />
 
 					<button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-					<button><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
+					<button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
 				</div>
 			</form>
 		</div>
@@ -281,7 +281,7 @@ Website: http://emilcarlsson.se/
 		function refreshUserList() {
 			let xhr = new XMLHttpRequest()
 			xhr.open('GET', "userlist.php")
-			console.log("Runs under xhr.open!")
+			//console.log("Runs under xhr.open!")
 			xhr.onload = () => {
 				console.log("Runs inside xhr.onload!")
 				if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -290,18 +290,18 @@ Website: http://emilcarlsson.se/
 						if (!searchBar.classList.contains("active")) {
 							usersList.innerHTML = data;
 						}
-						console.log('Connection issues inside!');
+						//console.log('Connection issues inside!');
 						//console.log(data)
 					}
 				} else {
-					console.log('Connection issues!');
+					//console.log('Connection issues!');
 				}
 			}
-			console.log("Runs under xhr.onload!")
+			//console.log("Runs under xhr.onload!")
 			xhr.send()
 		}
 		refreshUserList();
-		setInterval(refreshUserList, 15000);
+		setInterval(refreshUserList, 600000);
 
 
 		function search(searchvalue) {

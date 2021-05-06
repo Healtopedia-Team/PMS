@@ -47,7 +47,8 @@ function add_user($conn)
         $img = 'avatar.jpg';
 
 
-        $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
+        $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 
+        username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img', status='online'";
         if (mysqli_query($conn, $sql)) {
             header('location:users.php');
         }
@@ -63,7 +64,8 @@ function add_user($conn)
         $img = 'avatar.jpg';
 
 
-        $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img'";
+        $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 
+        username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img', status='online'";
         if (mysqli_query($conn, $sql)) {
             header('location:users.php');
         }

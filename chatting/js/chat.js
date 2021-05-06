@@ -1,8 +1,10 @@
-const form = document.querySelector(".message-input"),
+const form = document.querySelector(".content .message-input"),
 incoming_id = form.querySelector(".incoming_id").value,
 inputField = form.querySelector(".input-field"),
-sendBtn = form.querySelector(".wrap .submitbutton"),
-chatBox = document.querySelector(".messages");
+sendBtn = form.querySelector(".submitbutton"),
+//attachBtn = form.querySelector(".attachmentbtn")
+chatBox = document.querySelector(".messages"),
+personContactWith = document.querySelector(".content .contact-profile .person-received");
 
 form.onsubmit = (e) => {
     e.preventDefault();
@@ -15,9 +17,31 @@ inputField.onkeyup = () => {
     sendBtn.classList.remove("active");
   }
 };
+/*
+//Not doing first
+attachBtn.onclick = () => {
+  let xhr = new XMLHttpRequest()
+  xhr.open('POST', 'php/insert-attach.php', true)
+  xhr.onload = () => {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        inputField.value = '' //clear the input once submitted
+        scrollToBottom()
+      }
+    }
+  }
+  let formData = new FormData(form)
+  console.log(formData)
+  xhr.send(formData)
+}
+chatBox.onmouseenter = () => {
+  chatBox.classList.add('active')
+}
+*/
+
 sendBtn.onclick = () => {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "./php/insert-chat.php", true);
+    xhr.open("POST", "php/insert-chat.php", true);
     xhr.onload = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
@@ -40,12 +64,14 @@ chatBox.onmouseleave = () => {
 
 setInterval(() => {
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "./php/get-chat.php", true);
+  xhr.open("POST", "php/get-chat.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         let data = xhr.response;
         chatBox.innerHTML = data;
+        //personContactWith.innerHTML=data;
+
         if (!chatBox.classList.contains("active")) {
           scrollToBottom();
         }
