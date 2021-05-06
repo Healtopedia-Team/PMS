@@ -25,7 +25,7 @@ $username = $_SESSION['name'];
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-person-check-fill"></i>
-                        <span>Request Appoint</span>
+                        <span>Request Appointment</span>
                     </a>
                     <ul class="submenu <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-addappoint" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved" || $your_variable == "manage-date" || $your_variable == "manage-time") {
                                             echo "active";
