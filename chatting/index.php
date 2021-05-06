@@ -259,7 +259,8 @@ Website: http://emilcarlsson.se/
 			[].forEach.call(elems, function(el) {
 				el.classList.remove("active");
 			});
-			e.target.className = "active";
+			console.log("active hihi !");
+			e.target.classList.add("active");
 		}
 
 		searchBar.onkeyup = () => {
