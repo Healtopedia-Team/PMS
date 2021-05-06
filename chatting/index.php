@@ -254,7 +254,7 @@ Website: http://emilcarlsson.se/
 		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
 		//const usersList = document.querySelector('.users-list');
-		$('#frame #contacts .users-list li').on('click', '> *', function() {
+		$('.users-list li').on('click', '> *', function() {
 			if (document.querySelector('.users-list li.active') !== null) {
 				document.querySelector('.users-list li.active').classList.remove('active');
 			}
