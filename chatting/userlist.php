@@ -21,11 +21,8 @@
         echo "ERROR: " . mysqli_error($conn);
 
     } elseif (mysqli_num_rows($listed_user) > 0) {
+        $cnt=0;
         while ($row = mysqli_fetch_assoc($listed_user)) {
-            if ($row['first_name']==$_SESSION['first_name']){
-                console_log("hehe break!");
-                continue;
-            }
             $sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
                                             OR outgoing_msg_id = {$row['user_id']}) AND (outgoing_msg_id = {$outgoing_id} 
                                             OR incoming_msg_id = {$outgoing_id}) ORDER BY msg_id DESC LIMIT 1";
@@ -55,7 +52,7 @@
                 $offoron = "offline";
             }
             $output .= '
-                    <li class="contact">
+                    <li class="contact" id="contact-id-'. $cnt .'">
                         <div class="wrap">
                             <span class="contact-status ' . $row['status'] . '"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
@@ -65,7 +62,9 @@
                             </div>
                         </div>
                     </li>';
+            $cnt += 1;
         }
+
     }
     echo $output;
 ?>
