@@ -262,10 +262,7 @@ Website: http://emilcarlsson.se/
 					console.log("Userlist update run here!");
 					console.log(data);
 				},
-				error: function(data, textStatus, errorThrown) {
-					//this is going to happen when you send something different from a 200 OK HTTP
-					alert('Ooops, something happened: ' + textStatus + ' ' + errorThrown);
-				}
+				
 			});
 		};
 		update();
