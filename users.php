@@ -185,7 +185,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                     <input type="text" placeholder="Email" class="form-control" name="email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <select id="role" class="choices form-select" name="role" required onchange="roleChange()">
+                                                    <select class="choices form-select" name="role" required >
                                                         <option value="">Role</option>
                                                         <option value="admin">Admin</option>
                                                         <option value="receptionist">Receptionist</option>
