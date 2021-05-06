@@ -249,13 +249,19 @@ Website: http://emilcarlsson.se/
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
 		const searchBar = document.querySelector("#frame #search input");
-		const userItem = document.querySelector('.users-list li')
+		//const userItem = document.querySelector('.users-list li');
+		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
+		//const usersList = document.querySelector('.users-list');
+		const userItem = usersList.querySelector('li');
+		for (let i = 0; i < userItem.length; i++) {
+			userItem[i].addEventListener("click", function() {
+				var current = document.getElementsByClassName("active");
+				current[0].className = current[0].className.replace(" active", "");
+				this.className += " active";
+			});
+		}
 
-		userItem.onclick(function() {
-			$('.active').removeClass('active');
-			$(this).addClass('active');
-		});
 
 		searchBar.onkeyup = () => {
 			let searchTerm = searchBar.value;
