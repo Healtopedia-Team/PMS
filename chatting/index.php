@@ -276,7 +276,7 @@ Website: http://emilcarlsson.se/
 			if (document.querySelector('.users-list li.active') !== null) {
 				document.querySelector('.users-list li.active').classList.remove('active');
 			}
-			document.querySelector('.users-list li.active').classList.add("active");
+			document.querySelector('.users-list li').classList.add("active");
 		}
 
 
