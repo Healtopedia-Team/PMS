@@ -249,18 +249,7 @@ Website: http://emilcarlsson.se/
 	<script type="text/javascript">
 		const usersList = document.querySelector('.users-list');
 		const searchBar = document.querySelector("#frame #search input");
-		const searchIcon = document.querySelector(".#frame search label");
-
-
-		searchIcon.onclick = () => {
-			searchBar.classList.toggle("show");
-			searchIcon.classList.toggle("active");
-			searchBar.focus();
-			if (searchBar.classList.contains("active")) {
-				searchBar.value = "";
-				searchBar.classList.remove("active");
-			}
-		};
+		//const searchIcon = document.querySelector(".#frame search label");
 
 		searchBar.onkeyup = () => {
 			let searchTerm = searchBar.value;
