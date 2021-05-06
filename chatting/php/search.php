@@ -4,7 +4,7 @@
     $outgoing_id = $_SESSION['user_id'];
     $searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
     $output = "";
-    $line = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%' OR last_name LIKE '%$searchTerm%'");
+    $line = mysqli_query($conn, "SELECT * FROM user WHERE first_name LIKE '%$searchTerm' OR last_name LIKE '%$searchTerm'");
     //$line = "SELECT * FROM user WHERE first_name LIKE '%$searchTerm%'";
     $searchquery = mysqli_query($conn, $line);
     if(mysqli_num_rows($searchquery) > 0){
