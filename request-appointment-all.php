@@ -71,7 +71,7 @@ if (isset($_POST['reqcomplete'])) {
 
                                                         <?php if ($row['req_status'] == "approved" || $row['req_status'] == "postponed") {?>
                                                             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#complete<?php echo $row['request_id']; ?>"><i class="bi bi-check2-circle"></i></button>
-                                                            
+
                                                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
                                                         <?php } ?>
 
@@ -155,7 +155,7 @@ if (isset($_POST['reqcomplete'])) {
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-warning">
                                                         <h5 class="modal-title white" id="myModalLabel140">
-                                                            Are you confirm?
+                                                            Confirm accepting the request?
                                                         </h5>
                                                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                             <i data-feather="x"></i>
@@ -185,7 +185,7 @@ if (isset($_POST['reqcomplete'])) {
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-warning">
                                                         <h5 class="modal-title white" id="myModalLabel140">
-                                                            Are you confirm?
+                                                            Confirm rejecting the request?
                                                         </h5>
                                                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                             <i data-feather="x"></i>
@@ -215,7 +215,7 @@ if (isset($_POST['reqcomplete'])) {
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-warning">
                                                         <h5 class="modal-title white" id="myModalLabel140">
-                                                            Are you confirm?
+                                                            Confirm complete the appointment?
                                                         </h5>
                                                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                             <i data-feather="x"></i>
