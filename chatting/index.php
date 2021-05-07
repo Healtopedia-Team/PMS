@@ -186,7 +186,7 @@ Website: http://emilcarlsson.se/
 		</div>
 		-->
 		<div class="nomessage">
-
+			<img id="chatboximg" src="assets/img/chatbox.png" alt=""/> 
 		</div>
 	</div>
 	<script src="chat.js"></script>
