@@ -241,6 +241,7 @@ $role = $_SESSION['role']; ?>
                                             No
                                         </label>
                                     </div>
+                                    <br>
                                     <h4 class="card-title">Finance Management</h4>
                                     <label><strong>View/Download</strong> Financial Report</label>
                                     <div class="form-check">
@@ -255,8 +256,10 @@ $role = $_SESSION['role']; ?>
                                             No
                                         </label>
                                     </div>
+
                                     <br>
-                                    
+                                    <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+
 
                                 </div>
                             </div>
