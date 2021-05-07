@@ -574,6 +574,19 @@ body {
   overflow: hidden;
   position: relative;
 }
+#frame .nomessage{
+  float: right;
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: none;
+  z-index: 1000;
+}
+#frame .nomessage img{
+  vertical-align: middle;
+}
+
 @media screen and (max-width: 735px) {
   #frame .content {
     width: calc(100% - 58px);

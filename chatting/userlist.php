@@ -2,12 +2,15 @@
     session_start();
     include "../dbconnect.php";
     $outgoing_id = $_SESSION['user_id'];
+    $current_id = $_SESSION['user_id'];
     //echo "$outgoing_id";
-    $listed_user = mysqli_query($conn, "SELECT * FROM user WHERE NOT first_name='$username'");
+    //SELECT * FROM users WHERE NOT unique_id = {$outgoing_id} ORDER BY user_id DESC
+    $listed_user = mysqli_query($conn, "SELECT * FROM user WHERE NOT user_id='$current_id'");
     $output = "";
     if (mysqli_num_rows($listed_user) == 0) {
         /*
-        $output .= '<li class="contact">
+        $output .= '
+                    <li class="contact">
                         <div class="wrap">
                             <span class="contact-status offline"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
@@ -55,6 +58,7 @@
                 $offoron = "offline";
             }
             $output .= '
+                    <a href="chat.php?user_id=' . $row['user_id'] . '">
                     <li class="contact" >
                         <div class="wrap">
                             <span class="contact-status ' . $row['status'] . '"></span>

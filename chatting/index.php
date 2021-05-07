@@ -124,6 +124,7 @@ Website: http://emilcarlsson.se/
 				<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
 			</div>
 		</div>
+		<!--
 		<div class="content">
 			<div class="contact-profile">
 				<img src="../assets/images/faces/1.jpg" alt="" />
@@ -182,6 +183,10 @@ Website: http://emilcarlsson.se/
 					<button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
 				</div>
 			</form>
+		</div>
+		-->
+		<div class="nomessage">
+
 		</div>
 	</div>
 	<script src="chat.js"></script>
@@ -269,35 +274,11 @@ Website: http://emilcarlsson.se/
 			if (elems !== null) {
 				elems.classList.remove("active");
 			}
-			console.log("active hihi !");
+			console.log("active selection!");
 			$(this).addClass("active");
 		});
 
-		function selectUsera(e) {
-			const elems = document.querySelector(".active");
-			if (elems !== null) {
-				elems.classList.remove("active");
-			}
-			console.log("active hihi !");
-			e.target.classList.add("active");
-		}
 
-		function selectUser(e) {
-			var elems = document.querySelectorAll(".active");
-			[].forEach.call(elems, function(el) {
-				el.classList.remove("active");
-			});
-			e.target.classList.add("active");
-			console.log("outside click");
-		}
-
-		function myFunction(e) {
-			if (document.querySelectorAll('.active') !== null) {
-				document.querySelectorAll('.active').classList.remove('active');
-			}
-			document.querySelectorAll('.users-list li').classList.add("active");
-			console.log("inner click");
-		}
 
 
 		searchBar.onkeyup = () => {
@@ -353,6 +334,32 @@ Website: http://emilcarlsson.se/
 		setInterval(refreshUserList, 600000);
 
 		/*
+		function selectUsera(e) {
+			const elems = document.querySelector(".active");
+			if (elems !== null) {
+				elems.classList.remove("active");
+			}
+			console.log("active hihi !");
+			e.target.classList.add("active");
+		}
+
+		function selectUser(e) {
+			var elems = document.querySelectorAll(".active");
+			[].forEach.call(elems, function(el) {
+				el.classList.remove("active");
+			});
+			e.target.classList.add("active");
+			console.log("outside click");
+		}
+
+		function myFunction(e) {
+			if (document.querySelectorAll('.active') !== null) {
+				document.querySelectorAll('.active').classList.remove('active');
+			}
+			document.querySelectorAll('.users-list li').classList.add("active");
+			console.log("inner click");
+		}
+
 		const userItem = usersList.querySelector('li');
 		console.log(userItem);
 		for (let i = 0; i < userItem.length; i++) {
