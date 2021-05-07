@@ -21,7 +21,7 @@
                                                 font-size: 0.9em;">
                                 <img id="profile-img" src="../assets/images/faces/2.jpg" class="online" alt="" style="margin: 6px 0 0 8px; width: 22px;
   border-radius: 50%; float: right;"/>
-                                <p style="background: #d5ebff; color: #000000; display: inline-block;
+                                <p style="background: #d5ebff; color: #000000; display: inline-block; float:right
                                     padding: 10px 15px;
                                     border-radius: 20px;
                                     max-width: 205px;
