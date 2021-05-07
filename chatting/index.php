@@ -1,5 +1,8 @@
 <?php include '../dbconnect.php';
-
+							error_reporting(-1); // reports all errors
+							ini_set("display_errors", "1"); // shows all errors
+							ini_set("log_errors", 1);
+							ini_set("error_log", "/tmp/php-error.log");
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -185,37 +188,11 @@ Website: http://emilcarlsson.se/
 			</form>
 		</div>
 		-->
+		<!-- 
+		
+		-->
 		<div class="content">
-			<?php
-			$target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
-			$targetuser = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$target_id'");
-			if (mysqli_num_rows($targetuser) > 0) {
-				$row = mysqli_fetch_assoc($targetuser);
-			} else {
-				//echo "ERROR: " . mysqli_error($conn);
-			}
-			?>
-			<div class="contact-profile">
-				<img src="../assets/images/faces/1.jpg" alt="" />
-				<p class="person_received"><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
-				<div class="social-media">
-					<i class="fa fa-facebook" aria-hidden="true"></i>
-					<i class="fa fa-twitter" aria-hidden="true"></i>
-					<i class="fa fa-instagram" aria-hidden="true"></i>
-				</div>
-			</div>
-			<div class="messages">
-			</div>
-			<form action='#' class="message-input">
-				<div class="wrap">
-					<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
 
-					<input type="text" class="input-field" placeholder="Write your message..." />
-
-					<button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-					<button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
-				</div>
-			</form>
 		</div>
 		<div class="nomessage">
 			<img id="chatboximg" src="assets/img/chatmsg.png" alt="" />
@@ -291,6 +268,7 @@ Website: http://emilcarlsson.se/
 		const usersList = document.querySelector('.users-list');
 		const searchBar = document.querySelector("#frame #search input");
 		const userItem = document.querySelectorAll(".users-list li");
+		const chatBox = document.querySelector(".content")
 		//const userItem = document.querySelector('.users-list li');
 		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
@@ -305,6 +283,7 @@ Website: http://emilcarlsson.se/
 		}*/
 
 		var target_userid = 0;
+		/*
 		$("#contacts").on("click", ".contact", function() {
 			const elems = document.querySelector(".active");
 			if (elems !== null) {
@@ -323,15 +302,46 @@ Website: http://emilcarlsson.se/
 				xhr.onload = () => {
 					if (xhr.readyState === XMLHttpRequest.DONE) {
 						if (xhr.status === 200) {
+							let data = xhr.response;
+							chatBox.innerHTML=data;
 							console.log(data);
 							console.log("Obtain function runs here!");
 						}
 					}
 				};
-				xhr.send();
+				xhr.send(target_userid);
 			}
 		});
-		/*
+		*/
+		$("#contacts").on("click", ".contact", function() {
+			const elems = document.querySelector(".active");
+			if (elems !== null) {
+				elems.classList.remove("active");
+			}
+			console.log("active selection!");
+			$(this).addClass("active");
+			if ($(this).hasClass("active")) {
+				$(".nomessage").css("display", "none");
+				$(".content").css("display", "block");
+				target_userid = $(this).attr("id").split("info-").join("");
+				//alert(target_userid);
+				console.log(target_userid);
+				$.ajax({
+					url: "obtainTargetUserID.php",
+					method: "POST",
+					data: {
+						"target_userid": target_userid
+					},
+					success: function(result) {
+						console.log("Obtain function runs here!");
+						chatBox.innerHTML = result;
+					},
+					error: function(e) {
+						console.log(e);
+					}
+				})
+			}
+		});
 		$.ajax({
 			url: "obtainTargetUserID.php",
 			method: "POST",
@@ -346,7 +356,6 @@ Website: http://emilcarlsson.se/
 				console.log(e);
 			}
 		})
-		*/
 
 
 
