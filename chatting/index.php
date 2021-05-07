@@ -199,7 +199,6 @@ Website: http://emilcarlsson.se/
 
 		</div>
 	</div>
-	<script src="js/chat.js"></script>
 	<script>
 		<?php
 		function listalluser($user_id, $conn)
@@ -401,7 +400,7 @@ Website: http://emilcarlsson.se/
 		setInterval(refreshUserList, 600000);
 
 
-		
+
 		/*
 		function selectUsera(e) {
 			const elems = document.querySelector(".active");
@@ -528,6 +527,7 @@ Website: http://emilcarlsson.se/
 		}
 		*/
 	</script>
+	<script src="js/chat.js"></script>
 
 	<script>
 		<?php
