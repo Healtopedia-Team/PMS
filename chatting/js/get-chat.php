@@ -46,7 +46,7 @@
         }
     }else{
         $output .= '<div style="display:flex; align-items:center; justify-content:center; ">
-        <div style="margin: 10px 10px 10px 100%; text-align:center">No messages are available. Once you send message they will appear here.</div></div>';
+        <div style="margin: 100% 10px 10px 10px; text-align:center">No messages are available. Once you send message they will appear here.</div></div>';
     }
     echo $output;
 
