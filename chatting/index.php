@@ -368,7 +368,8 @@ Website: http://emilcarlsson.se/
 								}
 							};
 							let formData = new FormData(form);
-							console.log(formData)
+							console.log(form)
+							console.log(inputField)
 							xhr.send(formData);
 						}
 
