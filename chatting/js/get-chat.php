@@ -15,7 +15,7 @@
             if($row['outgoing_msg_id'] === $outgoing_id){//message send
                 $output .= '<li class="sent" style="display: inline-block;
                                                 clear: both;
-                                                float: right;
+                                                float: left;
                                                 margin: 15px 15px 5px 15px;
                                                 width: calc(100% - 25px);
                                                 font-size: 0.9em;">
@@ -35,7 +35,7 @@
                                                 width: calc(100% - 25px);
                                                 font-size: 0.9em;">
                                 <img id="profile-img" src="../assets/images/faces/1.jpg" class="online" alt=""  style="margin: 6px 0 0 8px; width: 22px;
-  border-radius: 50%; float: left;"/>
+  border-radius: 50%; float: right;"/>
                                 <p style="background: #000000; float: right; display: inline-block; color:white;
                                     padding: 10px 15px;
                                     border-radius: 20px;
