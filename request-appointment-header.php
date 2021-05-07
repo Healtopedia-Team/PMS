@@ -63,10 +63,9 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         <div class="card-body">
                             <div class="btn-group mb-4" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-all") {echo "active"; }else{echo"noactive";}?>" onclick="requestall()">All</button>
-                                <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-approved") {echo "active"; }else{echo"noactive";}?>" onclick="requestapproved()">Approved</button>
                                 <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-pending") {echo "active"; }else{echo"noactive";}?>" onclick="requestpending()">Pending</button>
+                                <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-approved") {echo "active"; }else{echo"noactive";}?>" onclick="requestapproved()">Approved</button>
                                 <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-postponed") {echo "active"; }else{echo"noactive";}?>" onclick="requestpostponed()">Postponed</button>
-                                <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-rejected") {echo "active"; }else{echo"noactive";}?>" onclick="requestrejected()">Rejected</button>
                             </div>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" onclick="addappoint()">
                                 Add Request
@@ -86,8 +85,5 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 }
                                 function addappoint(){
                                      window.location.href="https://pms.healtopedia.com/request-addappoint.php";
-                                }
-                                function requestrejected(){
-                                     window.location.href="https://pms.healtopedia.com/request-appointment-rejected.php";
                                 }
                             </script>
