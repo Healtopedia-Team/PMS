@@ -279,8 +279,8 @@ Website: http://emilcarlsson.se/
 			console.log("active selection!");
 			$(this).addClass("active");
 			if ($(this).hasClass("active")) {
-				$("nomessage").css("display", "none");
-				$("content").css("display", "block");
+				$(".nomessage").css("display", "none");
+				$(".content").css("display", "block");
 			}
 		});
 
