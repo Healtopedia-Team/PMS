@@ -188,7 +188,6 @@ Website: http://emilcarlsson.se/
 		<div class="content">
 			<?php
 			$target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
-			console_log($_SESSION["target_chat_user"]);
 			$targetuser = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$target_id'");
 			if (mysqli_num_rows($targetuser) > 0) {
 				$row = mysqli_fetch_assoc($targetuser);
@@ -327,7 +326,11 @@ Website: http://emilcarlsson.se/
 			method: "POST",
 			data: {
 				"target_userid": target_userid
-			}
+			},
+			success: function(result) {
+				console.log("Obtain function runs here!");
+				console.log(result);
+			},
 		})
 
 
