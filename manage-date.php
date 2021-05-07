@@ -23,16 +23,16 @@ if (isset($_POST['submit'])) {
     }
 }
 
-if (isset($_POST['deletedate'])) {
-    
-    $deletedate = $_POST['deletedate'];
+//if (isset($_POST['deletedate'])) {
+//    
+//  $deletedate = $_POST['deletedate'];
 
-    $sql = "DELETE FROM xdate WHERE id = '$deletedate'";
+//    $sql = "DELETE FROM xdate WHERE id = '$deletedate'";
 
-    if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Success delete closed data");</script>';
-    }
-}
+//    if (mysqli_query($conn,$sql)) {
+//        echo '<script>alert("Success delete closed data");</script>';
+//    }
+//}
 
 $result=mysqli_query($conn, "SELECT * FROM xdate WHERE datedisable != ''");
 $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -123,7 +123,7 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 <tr>
                                                     <td><?php echo $row['datedisable']; ?></td>
                                                     <td>
-                                                        <button type="submit" name="deletedate" class="btn btn-danger">
+                                                        <button type="submit" name="deletedate" class="btn btn-danger"  data-bs-toggle="modal" data-bs-target="#myModal">
                                                             <i class="bi bi-trash"></i>
                                                             <input type="text" name="deletedate" value="<?php echo $row['id']; ?>" style="display: none;">
                                                         </button>
@@ -164,7 +164,9 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <span class="d-sm-block d-none">Close</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -248,7 +250,7 @@ $(function() {
         //submit the form
         $.ajax({
             type: "POST",
-            url: '/echo',
+            url: 'deletedate.php',
             data: $(this).serialize(),
             success: function (data) {
                 console.log(data.body.remoteUrl);
