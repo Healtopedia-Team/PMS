@@ -94,7 +94,7 @@ if (isset($_POST['reqreject'])) {
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-warning">
                                                         <h5 class="modal-title white" id="myModalLabel140">
-                                                            Are you confirm?
+                                                            Confirm accepting the request?
                                                         </h5>
                                                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                             <i data-feather="x"></i>
@@ -124,7 +124,7 @@ if (isset($_POST['reqreject'])) {
                                                 <div class="modal-content">
                                                     <div class="modal-header bg-warning">
                                                         <h5 class="modal-title white" id="myModalLabel140">
-                                                            Are you confirm?
+                                                            Confirm rejecting the request?
                                                         </h5>
                                                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                             <i data-feather="x"></i>
