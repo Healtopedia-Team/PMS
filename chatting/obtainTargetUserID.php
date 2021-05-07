@@ -2,6 +2,7 @@
     session_start();
     include "../dbconnect.php";
     $_SESSION["target_chat_user"] = $_POST['target_userid'];
+    console_log($_POST['target_userid']);
     $output = '';
     $target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
     $targetuser = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$target_id'");
