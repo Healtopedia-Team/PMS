@@ -14,12 +14,12 @@
         while($row = mysqli_fetch_assoc($query)){
             if($row['outgoing_msg_id'] === $outgoing_id){//message send
                 $output .= '<li class="sent">
-                                <img id="profile-img" src="../assets/img/1.jpg" class="online" alt="" />
+                                <img id="profile-img" src="1.jpg" class="online" alt="" />
                                 <p>'. $row['msg'] .'</p>
                             </li>';
             }else{//message receiver
-                $output .= '<li class="chat incoming">
-                                <img id="profile-img" src="../assets/img/1.jpg" class="online" alt="" />
+                $output .= '<li class="replies chat incoming">
+                                <img id="profile-img" src="1.jpg" class="online" alt="" />
                                 <p>'. $row['msg'] .'</p>
                             </li>';
             }
