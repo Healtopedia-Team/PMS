@@ -399,6 +399,8 @@ Website: http://emilcarlsson.se/
 		refreshUserList();
 		setInterval(refreshUserList, 600000);
 
+		const form = document.querySelector(".content form");
+		console.log(form);
 
 		/*
 		function selectUsera(e) {

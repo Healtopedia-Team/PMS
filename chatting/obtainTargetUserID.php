@@ -30,7 +30,6 @@
                         <button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
                     </div>
                 </form>
-                <script src="js/chat.js"></script>
         ';
     } else {
         $output .= "ERROR: " . $_POST['target_userid'];
