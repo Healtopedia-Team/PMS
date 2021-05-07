@@ -318,9 +318,20 @@ Website: http://emilcarlsson.se/
 				target_userid = $(this).attr("id").split("info-").join("");
 				//alert(target_userid);
 				console.log(target_userid);
+				let xhr = new XMLHttpRequest();
+				xhr.open("POST", "obtainTargetUserID.php", true);
+				xhr.onload = () => {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							console.log(data);
+							console.log("Obtain function runs here!");
+						}
+					}
+				};
+				xhr.send();
 			}
 		});
-
+		/*
 		$.ajax({
 			url: "obtainTargetUserID.php",
 			method: "POST",
@@ -331,8 +342,11 @@ Website: http://emilcarlsson.se/
 				console.log("Obtain function runs here!");
 				console.log(result);
 			},
+			error: function(e) {
+				console.log(e);
+			}
 		})
-
+		*/
 
 
 
@@ -366,7 +380,7 @@ Website: http://emilcarlsson.se/
 
 		function getUserChatRoom() {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', "chatroom.php")
+			xhr.open('GET', "chatroom.php", true)
 			//console.log("Runs under xhr.open!")
 			xhr.onload = () => {
 				console.log("Runs inside xhr.onload chatroom!")
@@ -387,7 +401,7 @@ Website: http://emilcarlsson.se/
 
 		function refreshUserList() {
 			let xhr = new XMLHttpRequest()
-			xhr.open('GET', "userlist.php")
+			xhr.open('GET', "userlist.php", true)
 			//console.log("Runs under xhr.open!")
 			xhr.onload = () => {
 				console.log("Runs inside xhr.onload!")
