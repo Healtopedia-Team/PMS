@@ -587,13 +587,8 @@ body {
 #frame .nomessage .chatimg img{
   width: 70%;
   height: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  
+  display: block;
+  margin-top: 20%;  
 }
 #frame .nomessage .chatimg .startchat {
   text-align: center;
