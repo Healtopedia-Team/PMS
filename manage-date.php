@@ -31,7 +31,7 @@ if (isset($_POST['deletedate'])) {
 
     if (mysqli_query($conn,$sql)) {?>
         <script>
-            $(window).load(function(){
+            $(function(){
                 $('#successmodal').modal('show');
             });
         </script>
@@ -221,4 +221,5 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
     });
 </script>
+
 </html>
