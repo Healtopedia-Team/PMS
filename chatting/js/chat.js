@@ -1,5 +1,5 @@
 const form = document.querySelector(".content .message-input"),
-incoming_id = form.querySelector(".incoming_id").value,
+incoming_id = target_userid,
 inputField = form.querySelector(".input-field"),
 sendBtn = form.querySelector(".submitbutton"),
 //attachBtn = form.querySelector(".attachmentbtn")
