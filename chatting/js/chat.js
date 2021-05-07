@@ -3,7 +3,7 @@ incoming_id = form.querySelector(".incoming_id").value,
 inputField = form.querySelector(".input-field"),
 sendBtn = form.querySelector(".submitbutton"),
 //attachBtn = form.querySelector(".attachmentbtn")
-ChatBubbleBox = document.querySelector(".messages"),
+ChatBubbleBox = document.querySelector(".content .messages"),
 personContactWith = document.querySelector(".content .contact-profile .person-received");
 
 form.onsubmit = (e) => {
