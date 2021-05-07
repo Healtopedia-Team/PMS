@@ -189,7 +189,7 @@ Website: http://emilcarlsson.se/
 		
 		-->
 		<div class="content">
-			
+
 		</div>
 		<div class="nomessage">
 			<img id="chatboximg" src="assets/img/chatmsg.png" alt="" />
@@ -280,6 +280,7 @@ Website: http://emilcarlsson.se/
 		}*/
 
 		var target_userid = 0;
+		/*
 		$("#contacts").on("click", ".contact", function() {
 			const elems = document.querySelector(".active");
 			if (elems !== null) {
@@ -308,7 +309,36 @@ Website: http://emilcarlsson.se/
 				xhr.send(target_userid);
 			}
 		});
-		/*
+		*/
+		$("#contacts").on("click", ".contact", function() {
+			const elems = document.querySelector(".active");
+			if (elems !== null) {
+				elems.classList.remove("active");
+			}
+			console.log("active selection!");
+			$(this).addClass("active");
+			if ($(this).hasClass("active")) {
+				$(".nomessage").css("display", "none");
+				$(".content").css("display", "block");
+				target_userid = $(this).attr("id").split("info-").join("");
+				//alert(target_userid);
+				console.log(target_userid);
+				$.ajax({
+					url: "obtainTargetUserID.php",
+					method: "POST",
+					data: {
+						"target_userid": target_userid
+					},
+					success: function(result) {
+						console.log("Obtain function runs here!");
+						chatBox.innerHTML = result;
+					},
+					error: function(e) {
+						console.log(e);
+					}
+				})
+			}
+		});
 		$.ajax({
 			url: "obtainTargetUserID.php",
 			method: "POST",
@@ -323,7 +353,6 @@ Website: http://emilcarlsson.se/
 				console.log(e);
 			}
 		})
-		*/
 
 
 
