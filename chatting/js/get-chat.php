@@ -1,7 +1,7 @@
 <?php 
     session_start();
     include "../dbconnect.php";
-    $outgoing_id = 5;
+    $outgoing_id = '10';
     //echo "outgoing id is" . $outgoing_id;
     $incoming_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
     //echo "incoming id is " . $incoming_id;
