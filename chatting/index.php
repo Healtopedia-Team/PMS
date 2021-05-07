@@ -304,7 +304,8 @@ Website: http://emilcarlsson.se/
 			userItem.classList.add("active");
 		}*/
 
-
+		var target_userid = 0;
+		console.log(target_userid);
 		$("#contacts").on("click", ".contact", function() {
 			const elems = document.querySelector(".active");
 			if (elems !== null) {
@@ -315,7 +316,9 @@ Website: http://emilcarlsson.se/
 			if ($(this).hasClass("active")) {
 				$(".nomessage").css("display", "none");
 				$(".content").css("display", "block");
-				alert($(this).attr("id").split("info-").join(""));
+				target_userid = $(this).attr("id").split("info-").join("");
+				alert(target_userid);
+				console.log(target_userid);
 			}
 		});
 
