@@ -29,11 +29,13 @@ if (isset($_POST['deletedate'])) {
 
     $sql = "DELETE FROM xdate WHERE id = '$deletedate'";
 
-    if (mysqli_query($conn,$sql)) {
+    mysqli_query($conn,$sql);
+
+    //if (mysqli_query($conn,$sql)) {
         //echo '<script>alert("Success delete closed data");</script>';
 
-        echo "<script>$(window).load();</script>";
-    }
+        //echo "<script>$(window).load();</script>";
+    //}
 }
 
 $result=mysqli_query($conn, "SELECT * FROM xdate WHERE datedisable != ''");
