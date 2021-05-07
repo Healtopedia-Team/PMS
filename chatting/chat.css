@@ -583,7 +583,8 @@ body {
   position: relative;
   display: none;
 }
-#frame .nomessage img{
+#frame .nomessage .imgbg{
+  background-image: url("/assets/img/chatmsg.png");
   vertical-align: middle;
   width: 70%;
   height: auto;
@@ -599,6 +600,7 @@ body {
   font-size: 2.5em;
   font-weight: 900;
   color: #000000;
+  margin-top:;
 }
 @media screen and (max-width: 735px) {
   #frame .nomessage {
