@@ -319,7 +319,7 @@ Website: http://emilcarlsson.se/
 			//attachBtn = form.querySelector(".attachmentbtn")
 			ChatBubbleBox = document.querySelector(".content .messages"),
 			personContactWith = document.querySelector(".content .contact-profile .person-received");
-		console.log("anything here")
+		console.log("anything here");
 		/*
 		form.onsubmit = (e) => {
 			e.preventDefault();
@@ -370,7 +370,7 @@ Website: http://emilcarlsson.se/
 			console.log(formData)
 			xhr.send(formData);
 		}
-		*/
+		
 		ChatBubbleBox.onmouseenter = () => {
 			ChatBubbleBox.classList.add("active");
 		};
@@ -378,7 +378,7 @@ Website: http://emilcarlsson.se/
 		ChatBubbleBox.onmouseleave = () => {
 			ChatBubbleBox.classList.remove("active");
 		};
-
+		*/
 		setInterval(() => {
 			let xhr = new XMLHttpRequest();
 			console.log('getting chat data here outside!')
@@ -447,54 +447,54 @@ Website: http://emilcarlsson.se/
 			}
 			*/
 
-		sendBtn.onclick = () => {
-			let xhr = new XMLHttpRequest();
-			xhr.open("POST", "js/insert-chat.php", true);
-			xhr.onload = () => {
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						inputField.value = ""; //clear the input once submitted
-						scrollToBottom();
-					}
-				}
-			};
-			let formData = new FormData(form);
-			console.log(formData)
-			xhr.send(formData);
-		}
-		ChatBubbleBox.onmouseenter = () => {
-			ChatBubbleBox.classList.add("active");
-		};
-
-		ChatBubbleBox.onmouseleave = () => {
-			ChatBubbleBox.classList.remove("active");
-		};
-
-		setInterval(function() {
-			let xhr = new XMLHttpRequest();
-			console.log('getting chat data here outside!')
-			xhr.open("POST", "js/get-chat.php", true);
-			xhr.onload = () => {
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						let data = xhr.response;
-						ChatBubbleBox.innerHTML = data;
-						//personContactWith.innerHTML=data;
-						console.log("getting chat data here!");
-
-						if (!ChatBubbleBox.classList.contains("active")) {
+			sendBtn.onclick = () => {
+				let xhr = new XMLHttpRequest();
+				xhr.open("POST", "js/insert-chat.php", true);
+				xhr.onload = () => {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							inputField.value = ""; //clear the input once submitted
 							scrollToBottom();
 						}
 					}
-				}
+				};
+				let formData = new FormData(form);
+				console.log(formData)
+				xhr.send(formData);
+			}
+			ChatBubbleBox.onmouseenter = () => {
+				ChatBubbleBox.classList.add("active");
 			};
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhr.send("incoming_id=" + incoming_id);
-		}(), 5000);
 
-		function scrollToBottom() {
-			ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
-		}
+			ChatBubbleBox.onmouseleave = () => {
+				ChatBubbleBox.classList.remove("active");
+			};
+
+			setInterval(function() {
+				let xhr = new XMLHttpRequest();
+				console.log('getting chat data here outside!')
+				xhr.open("POST", "js/get-chat.php", true);
+				xhr.onload = () => {
+					if (xhr.readyState === XMLHttpRequest.DONE) {
+						if (xhr.status === 200) {
+							let data = xhr.response;
+							ChatBubbleBox.innerHTML = data;
+							//personContactWith.innerHTML=data;
+							console.log("getting chat data here!");
+
+							if (!ChatBubbleBox.classList.contains("active")) {
+								scrollToBottom();
+							}
+						}
+					}
+				};
+				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				xhr.send("incoming_id=" + incoming_id);
+			}(), 5000);
+
+			function scrollToBottom() {
+				ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
+			}
 
 		}
 		$.ajax({
