@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
@@ -29,9 +29,13 @@ if (isset($_POST['deletedate'])) {
 
     $sql = "DELETE FROM xdate WHERE id = '$deletedate'";
 
-    if (mysqli_query($conn,$sql)) {
-        echo '<script>alert("Success delete closed data");</script>';
-    }
+    if (mysqli_query($conn,$sql)) {?>
+        <script>
+            $(function(){
+                $('#myModal2').modal('show');
+            });
+        </script> 
+    <?php }
 }
 
 $result=mysqli_query($conn, "SELECT * FROM xdate WHERE datedisable != ''");
@@ -43,12 +47,11 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Patient Management System</title>
 
-    <link rel="stylesheet" href="assets/vendors/choices.js/choices.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
 
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -139,53 +142,36 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                     </div>
                 </section>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Launch Modal</button>
-
-                <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 id="myModalLabel">Modal 1</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div class="modal-body">
-                                <form class="form" role="form" id="myForm">
-                                    <div class="form-row">
-                                        <label for="input1" class="col-lg-2 control-label">URL</label>
-                                        <div class="col-lg-10">
-                                            <input type="text" class="form-control" id="remoteUrl" name="remoteUrl" value="/render/gPp78HigHH">
-                                        </div>
-                                    </div>
-                                    <div class="form-row py-2">
-                                        <div class="col-lg-12 text-right">
-                                            <button type="submit" class="btn btn-secondary">Submit</button>
-                                        </div>
-                                    </div>
+            </div>
+            <div class="modal fade text-left" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-warning">
+                            <h5 class="modal-title white" id="myModalLabel140">
+                                Confirm complete the appointment?
+                            </h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                        <form method="POST">
+                            <div class="modal-body" style="text-align: center;">
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Close</span>
+                                </button>
+                                <form method="POST">
+                                    <button type="submit" name="reqcomplete" class="btn btn-warning ml-1">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Confirm</span>
+                                    </button>
+                                    <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-
-                <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3 id="myModalLabel">Modal 2</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            </div>
-                            <div class="modal-body">
-                                Some other modal here...
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
@@ -206,11 +192,9 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
-    <script src="assets/vendors/choices.js/choices.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
-<!--====================================== F O R == D A T E == P I C K E R ======================================-->
 <?php
 
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
@@ -236,33 +220,6 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
             }
         }
     });
-</script>
-<!--====================================== S U B M I T ==  M O D A L ======================================-->
-<script>
-$(function() {
-    $("#myForm").on('submit',function(e){
-        
-        $("#myModal").modal("hide");
-        e.preventDefault();
-        
-        //submit the form
-        $.ajax({
-            type: "POST",
-            url: '/echo',
-            data: $(this).serialize(),
-            success: function (data) {
-                console.log(data.body.remoteUrl);
-                
-                // add content from another url
-                $("#myModal2 .modal-body").load(data.body.remoteUrl);
-                
-                // open the other modal
-                $("#myModal2").modal("show");
-            }
-      });
-        
-    });
-});
 </script>
 
 </html>
