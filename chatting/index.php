@@ -199,7 +199,7 @@ Website: http://emilcarlsson.se/
 
 		</div>
 	</div>
-	<script src="chat.js"></script>
+	<script src="js/chat.js"></script>
 	<script>
 		<?php
 		function listalluser($user_id, $conn)
