@@ -60,7 +60,7 @@
             }
             $output .= '
                     <!-- <a href="chat.php?user_id=' . $row['user_id'] . '"> -->
-                    <li class="contact" >
+                    <li class="contact info-' . $row['user_id'] . '" >
                         <div class="wrap">
                             <span class="contact-status ' . $row['status'] . '"></span>
                             <img src= "../assets/images/faces/1.jpg" alt="" />
