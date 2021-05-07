@@ -331,6 +331,9 @@ Website: http://emilcarlsson.se/
 				console.log("Obtain function runs here!");
 				console.log(result);
 			},
+			error: function(e) {
+				console.log(e);
+			}
 		})
 
 
