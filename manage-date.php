@@ -223,5 +223,10 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
     });
 </script>
+<script>
+    $(window).load(function(){
+        $('#successmodal').modal('show');
+    });
+</script>
 
 </html>
