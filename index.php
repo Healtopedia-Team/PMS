@@ -16,7 +16,7 @@ $timestamp2 = strtotime('tomorrow midnight +8 hour');
 $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND '$timestamp2'");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $hosp = $_SESSION["hospital"];
-$result2 = mysqli_query($conn, "SELECT packagename, COUNT(*) FROM appointwoo WHERE hospname='$hosp' GROUP BY packagename ORDER BY 2 DESC");
+$result2 = mysqli_query($conn, "SELECT packagename, COUNT(*) FROM appointwoo GROUP BY packagename ORDER BY 2 DESC");
 $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 ?>
