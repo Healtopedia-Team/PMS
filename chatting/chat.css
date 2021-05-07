@@ -585,6 +585,20 @@ body {
 }
 #frame .nomessage img{
   vertical-align: middle;
+  width: 70%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#frame .nomessage .startchat {
+  text-align: center;
+  font-size: 72px;
+  font-weight: 900;
+  
 }
 
 @media screen and (max-width: 735px) {

@@ -186,8 +186,11 @@ Website: http://emilcarlsson.se/
 		</div>
 		-->
 		<div class="nomessage">
-			<img id="chatboximg" src="assets/img/chatbox.png" alt=""/> 
-			<h1>Start new chat now!</h1>
+			<img id="chatboximg" src="assets/img/chatbox.png" alt="" />
+			<div class="startchat">
+				<h1>Start new chat now!</h1>
+			</div>
+
 		</div>
 	</div>
 	<script src="chat.js"></script>
