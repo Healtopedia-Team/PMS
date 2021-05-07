@@ -64,6 +64,7 @@ ChatBubbleBox.onmouseleave = () => {
 
 setInterval(() => {
   let xhr = new XMLHttpRequest();
+  console.log('getting chat data here outside!')
   xhr.open("POST", "get-chat.php", true);
   xhr.onload = () => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
