@@ -140,8 +140,6 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                 </section>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Launch Modal</button>
-
-                <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Launch modal</a>
                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
