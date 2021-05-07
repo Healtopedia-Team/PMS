@@ -30,7 +30,7 @@ if (isset($_POST['deletedate'])) {
     $sql = "DELETE FROM xdate WHERE id = '$deletedate'";
 
     if (mysqli_query($conn,$sql)) {
-        echo '<script>$(function(){$(#myModal2).modal(show);});</script>';
+        echo '<script>alert("Success delete closed data");</script>';
     }
 }
 
@@ -138,35 +138,6 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                     </div>
                 </section>
-            </div>
-            <div class="modal fade text-left" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header bg-warning">
-                            <h5 class="modal-title white" id="myModalLabel140">
-                                Confirm complete the appointment?
-                            </h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <i data-feather="x"></i>
-                            </button>
-                        </div>
-                        <form method="POST">
-                            <div class="modal-body" style="text-align: center;">
-                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Close</span>
-                                </button>
-                                <form method="POST">
-                                    <button type="submit" name="reqcomplete" class="btn btn-warning ml-1">
-                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Confirm</span>
-                                    </button>
-                                    <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                </form>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </div>
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
