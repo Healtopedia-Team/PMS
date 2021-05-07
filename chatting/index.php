@@ -329,7 +329,25 @@ Website: http://emilcarlsson.se/
 						function scrollToBottom() {
 							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
 						}
-
+						const form = document.querySelector(".content .message-input"),
+						incoming_id = target_userid,
+						inputField = form.querySelector(".input-field"),
+						sendBtn = form.querySelector(".submitbutton");
+						sendBtn.onclick = () => {
+							let xhr = new XMLHttpRequest();
+							xhr.open("POST", "js/insert-chat.php", true);
+							xhr.onload = () => {
+								if (xhr.readyState === XMLHttpRequest.DONE) {
+									if (xhr.status === 200) {
+										inputField.value = ""; //clear the input once submitted
+										scrollToBottom();
+									}
+								}
+							};
+							let formData = new FormData(form);
+							console.log(formData)
+							xhr.send(formData);
+						}
 
 						//ForChatting(target_userid);
 					},
