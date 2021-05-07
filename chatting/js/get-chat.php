@@ -15,7 +15,7 @@
             if($row['outgoing_msg_id'] === $outgoing_id){//message send
                 $output .= '<li class="sent" style="display: inline-block;
                                                 clear: both;
-                                                float: left;
+                                                float: right;
                                                 margin: 15px 15px 5px 15px;
                                                 width: calc(100% - 25px);
                                                 font-size: 0.9em;">
