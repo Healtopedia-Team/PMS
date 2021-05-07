@@ -215,6 +215,19 @@ $role = $_SESSION['role']; ?>
                                             No
                                         </label>
                                     </div>
+                                    <label><strong>Manage</strong> User Role</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="manage-user-role" id="flexRadioDefault1" value="1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="manage-user-role" id="flexRadioDefault2" checked value="0">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            No
+                                        </label>
+                                    </div>
                                     <label><strong>Manage</strong> Hospital</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="manage-hospital" id="flexRadioDefault1" value="1">
