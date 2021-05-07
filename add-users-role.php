@@ -65,7 +65,7 @@ $role = $_SESSION['role']; ?>
                                         <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Role Name">
                                     </div>
                                     <h4 class="card-title">Appointment</h4>
-                                    <label>View Appointment List</label>
+                                    <label><strong>View</strong> Appointment List</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="view-appointment-list"
                                             id="flexRadioDefault1" value="1">
@@ -80,7 +80,7 @@ $role = $_SESSION['role']; ?>
                                             No
                                         </label>
                                     </div>
-                                    <label>View Appointment Calendar</label>
+                                    <label><strong>View</strong> Appointment Calendar</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="view-appointment-calendar"
                                             id="flexRadioDefault1" value="1">
@@ -95,7 +95,7 @@ $role = $_SESSION['role']; ?>
                                             No
                                         </label>
                                     </div>
-                                    <label>Approve Appointment Attendance</label>
+                                    <label><strong>Approve</strong> Appointment Attendance</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="radio" name="approve-appointment-attendance"
                                             id="flexRadioDefault1" value="1">
