@@ -581,11 +581,7 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  min-width: 100vw;
+  display: block;
 
 }
 #frame .nomessage .chatimg img{
