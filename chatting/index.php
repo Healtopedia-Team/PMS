@@ -184,14 +184,10 @@ Website: http://emilcarlsson.se/
 			</form>
 		</div>
 		<div class="nomessage">
-			<div class="chatimg">
-				<img id="chatboximg" src="assets/img/chatmsg.png" alt="" />
-				<div class="startchat">
-					<h1>Start new chat now!</h1>
-				</div>
+			<img id="chatboximg" src="assets/img/chatmsg.png" alt="" />
+			<div class="startchat">
+				<h1>Start new chat now!</h1>
 			</div>
-
-
 
 		</div>
 	</div>
