@@ -187,7 +187,7 @@ Website: http://emilcarlsson.se/
 		-->
 		<div class="content">
 			<?php
-			$target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
+			$target_id = mysqli_real_escape_string($conn, $_POST['target_userid']);
 			$targetuser = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$target_id'");
 			if (mysqli_num_rows($targetuser) > 0) {
 				$row = mysqli_fetch_assoc($targetuser);
