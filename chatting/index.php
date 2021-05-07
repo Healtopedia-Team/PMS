@@ -264,7 +264,7 @@ Website: http://emilcarlsson.se/
 		}*/
 
 
-		$("#contacts").on("click", ".wrap", function() {
+		$("#contacts").on("click", ".contact", function() {
 			const elems = document.querySelector(".active");
 			if (elems !== null) {
 				elems.classList.remove("active");
