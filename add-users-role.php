@@ -69,7 +69,6 @@ $role = $_SESSION['role']; ?>
                         </div>
                     </div>
                 </section>
-                <br>
                 <section class="section">
                     <div class="row">
                         <div class="col-md-6 col-12">
