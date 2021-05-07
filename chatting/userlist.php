@@ -58,7 +58,7 @@
                 $offoron = "offline";
             }
             $output .= '
-                    <a href="chat.php?user_id=' . $row['user_id'] . '">
+                    <!-- <a href="chat.php?user_id=' . $row['user_id'] . '"> -->
                     <li class="contact" >
                         <div class="wrap">
                             <span class="contact-status ' . $row['status'] . '"></span>
