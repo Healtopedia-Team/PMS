@@ -270,7 +270,7 @@ Website: http://emilcarlsson.se/
 				elems.classList.remove("active");
 			}
 			console.log("active hihi !");
-			$(this).classList.add("active");
+			$(this).addClass("active");
 		});
 
 		function selectUsera(e) {
