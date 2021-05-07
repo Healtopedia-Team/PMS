@@ -3,17 +3,15 @@
 <?php
 include 'dbconnect.php';
 
-$result = mysqli_query($conn, "SELECT hosp_id, hosp_name FROM hospital");
+$result = mysqli_query($conn, "SELECT * FROM hospital");
 $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-$result2 = mysqli_query($conn,"SELECT * FROM user");
-$user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users Role - Patient Management System</title>
+    <title>Role List- Patient Management System</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +34,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Users List</h3>
+                            <h3>Role List</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
