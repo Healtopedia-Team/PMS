@@ -64,6 +64,8 @@ $role = $_SESSION['role']; ?>
                                     <div class="col-md-8 form-group">
                                         <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Role Name">
                                     </div>
+                                    <br>
+                                    <br>
                                     <h4 class="card-title">Appointment</h4>
                                     <label><strong>View</strong> Appointment List</label>
                                     <div class="form-check">
