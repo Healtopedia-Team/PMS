@@ -168,7 +168,7 @@ $role = $_SESSION['role'];
                     </li><?php } ?>
                     <li class="sidebar-item  ">
                     <a href="#" class='sidebar-link' data-bs-toggle="modal" data-bs-target="#logoutModal">
-                        <i class="bi bi-house-door-fill"></i>
+                        <i class="bi bi-box-arrow-up-right"></i>
                         <span>Logout</span>
                     </a>
                 </li>
