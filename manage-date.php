@@ -34,7 +34,7 @@ if (isset($_POST['deletedate'])) {
             $(window).load(function(){
                 $('#successmodal').modal('show');
             });
-        </script>";
+        </script>
     <?php }
 }
 
@@ -219,6 +219,11 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                 return true;
             }
         }
+    });
+</script>
+<script>
+    $(window).load(function(){
+        $('#successmodal').modal('show');
     });
 </script>
 
