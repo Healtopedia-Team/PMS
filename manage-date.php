@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
@@ -43,11 +43,12 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Patient Management System</title>
 
+    <link rel="stylesheet" href="assets/vendors/choices.js/choices.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
 
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -184,6 +185,7 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
+    <script src="assets/vendors/choices.js/choices.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
