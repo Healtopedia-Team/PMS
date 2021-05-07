@@ -315,7 +315,7 @@ Website: http://emilcarlsson.se/
 			if ($(this).hasClass("active")) {
 				$(".nomessage").css("display", "none");
 				$(".content").css("display", "block");
-				alert($(this).attr("id").split("info-,"));
+				alert($(this).attr("id").split("info-",""));
 			}
 		});
 
