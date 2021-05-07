@@ -580,7 +580,7 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative;
-  display: block;
+  display: none;
 }
 #frame .nomessage img{
   vertical-align: middle;
@@ -595,9 +595,9 @@ body {
 }
 #frame .nomessage .startchat {
   text-align: center;
-  font-size: 72px;
+  font-size: 2.5em;
   font-weight: 900;
-
+  color: #000000;
 }
 
 @media screen and (max-width: 735px) {
