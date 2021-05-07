@@ -3,7 +3,7 @@ incoming_id = form.querySelector(".incoming_id").value,
 inputField = form.querySelector(".input-field"),
 sendBtn = form.querySelector(".submitbutton"),
 //attachBtn = form.querySelector(".attachmentbtn")
-chatBox = document.querySelector(".messages"),
+ChatBubbleBox = document.querySelector(".messages"),
 personContactWith = document.querySelector(".content .contact-profile .person-received");
 
 form.onsubmit = (e) => {
@@ -34,8 +34,8 @@ attachBtn.onclick = () => {
   console.log(formData)
   xhr.send(formData)
 }
-chatBox.onmouseenter = () => {
-  chatBox.classList.add('active')
+ChatBubbleBox.onmouseenter = () => {
+  ChatBubbleBox.classList.add('active')
 }
 */
 
@@ -54,12 +54,12 @@ sendBtn.onclick = () => {
     console.log(formData)
     xhr.send(formData);
 }
-chatBox.onmouseenter = () => {
-  chatBox.classList.add("active");
+ChatBubbleBox.onmouseenter = () => {
+  ChatBubbleBox.classList.add("active");
 };
 
-chatBox.onmouseleave = () => {
-  chatBox.classList.remove("active");
+ChatBubbleBox.onmouseleave = () => {
+  ChatBubbleBox.classList.remove("active");
 };
 
 setInterval(() => {
@@ -69,10 +69,10 @@ setInterval(() => {
     if (xhr.readyState === XMLHttpRequest.DONE) {
       if (xhr.status === 200) {
         let data = xhr.response;
-        chatBox.innerHTML = data;
+        ChatBubbleBox.innerHTML = data;
         //personContactWith.innerHTML=data;
 
-        if (!chatBox.classList.contains("active")) {
+        if (!ChatBubbleBox.classList.contains("active")) {
           scrollToBottom();
         }
       }
@@ -83,6 +83,6 @@ setInterval(() => {
 }, 500);
 
 function scrollToBottom() {
-  chatBox.scrollTop = chatBox.scrollHeight;
+  ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
 }
   
