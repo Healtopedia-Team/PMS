@@ -6,6 +6,7 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 
 session_start();
 $username = $_SESSION['name'];
+$role = $_SESSION['role'];
 ?>
 <div id="sidebar" class="active">
     <div class="sidebar-wrapper active">
@@ -68,6 +69,8 @@ $username = $_SESSION['name'];
                         </li>
                     </ul>
                 </li>
+                <?php if ($role == "admin" || $role == "receptionisit"){
+                    ?>
                 <li class="sidebar-item <?php if ($your_variable == "appointment-list-all" || $your_variable == "view-appointment") {
                                             echo "active";
                                         } else {
@@ -88,6 +91,7 @@ $username = $_SESSION['name'];
                         <span>Appointment Calendar</span>
                     </a>
                 </li>
+                <?php } ?>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-gear-fill"></i>
@@ -98,13 +102,15 @@ $username = $_SESSION['name'];
                                         } else {
                                             echo "noactive";
                                         } ?>">
+
+                                        <?php if ($role == "admin" || $role =="receptionist"|| $role =="financial manager"){ ?>
                         <li class="submenu-item <?php if ($your_variable == "user-profile") {
                                                     echo "active";
                                                 } else {
                                                     echo "noactive";
                                                 } ?>">
                             <a href="user-profile.php">Profile</a>
-                        </li>
+                        </li> <?php } if ($role == "admin"){?>
                         <li class="submenu-item <?php if ($your_variable == "users") {
                                                     echo "active";
                                                 } else {
@@ -118,10 +124,11 @@ $username = $_SESSION['name'];
                                                     echo "noactive";
                                                 } ?>">
                             <a href="hospitals.php">Hospitals</a>
-                        </li>
+                        </li><?php } ?>
                     </ul>
 
                 </li>
+                <?php if ($role == "admin"){?>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-gear-fill"></i>
@@ -148,7 +155,7 @@ $username = $_SESSION['name'];
                         </li>
                     </ul>
 
-                </li>
+                </li><?php } ?>
 
 
             </ul>
