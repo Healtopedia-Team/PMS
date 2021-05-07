@@ -305,7 +305,7 @@ Website: http://emilcarlsson.se/
 						}
 					}
 				};
-				xhr.send();
+				xhr.send(target_userid);
 			}
 		});
 		/*
