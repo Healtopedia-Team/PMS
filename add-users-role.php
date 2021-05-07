@@ -241,6 +241,20 @@ $role = $_SESSION['role']; ?>
                                             No
                                         </label>
                                     </div>
+                                    <h4 class="card-title">Finance Management</h4>
+                                    <label><strong>View/Download</strong> Financial Report</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="view-financial-report" id="flexRadioDefault1" value="1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="view-financial-report" id="flexRadioDefault2" checked value="0">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            No
+                                        </label>
+                                    </div>
                                     <br>
                                     
 
