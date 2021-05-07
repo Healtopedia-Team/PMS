@@ -72,7 +72,7 @@ $role = $_SESSION['role']; ?>
                 <br>
                 <section class="section">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-6 col-12">
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title">Appointment</h4>
