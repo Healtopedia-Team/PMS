@@ -399,7 +399,7 @@ Website: http://emilcarlsson.se/
 			};
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send("incoming_id=" + target_userid);
-		}(), 5000);
+		}(), 1000);
 
 		function scrollToBottom() {
 			ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
