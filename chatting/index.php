@@ -265,6 +265,7 @@ Website: http://emilcarlsson.se/
 		const usersList = document.querySelector('.users-list');
 		const searchBar = document.querySelector("#frame #search input");
 		const userItem = document.querySelectorAll(".users-list li");
+		const chatBox = document.querySelector(".content")
 		//const userItem = document.querySelector('.users-list li');
 		//const activeItem = document.querySelector('.users-list li .active');
 		//const searchIcon = document.querySelector(".#frame search label");
@@ -297,6 +298,8 @@ Website: http://emilcarlsson.se/
 				xhr.onload = () => {
 					if (xhr.readyState === XMLHttpRequest.DONE) {
 						if (xhr.status === 200) {
+							let data = xhr.response;
+							chatBox.innerHTML=data;
 							console.log(data);
 							console.log("Obtain function runs here!");
 						}
