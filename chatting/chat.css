@@ -7,7 +7,7 @@ body {
   font-family: 'proxima-nova', 'Source Sans Pro', sans-serif;
   font-size: 1em;
   letter-spacing: 0.1px;
-  color: #f3fbfe;
+  color: black;
   text-rendering: optimizeLegibility;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
   -webkit-font-smoothing: antialiased;
