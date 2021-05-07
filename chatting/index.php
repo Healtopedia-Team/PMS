@@ -185,37 +185,11 @@ Website: http://emilcarlsson.se/
 			</form>
 		</div>
 		-->
+		<!-- 
+		
+		-->
 		<div class="content">
-			<?php
-			$target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
-			$targetuser = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$target_id'");
-			if (mysqli_num_rows($targetuser) > 0) {
-				$row = mysqli_fetch_assoc($targetuser);
-			} else {
-				//echo "ERROR: " . mysqli_error($conn);
-			}
-			?>
-			<div class="contact-profile">
-				<img src="../assets/images/faces/1.jpg" alt="" />
-				<p class="person_received"><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
-				<div class="social-media">
-					<i class="fa fa-facebook" aria-hidden="true"></i>
-					<i class="fa fa-twitter" aria-hidden="true"></i>
-					<i class="fa fa-instagram" aria-hidden="true"></i>
-				</div>
-			</div>
-			<div class="messages">
-			</div>
-			<form action='#' class="message-input">
-				<div class="wrap">
-					<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
-
-					<input type="text" class="input-field" placeholder="Write your message..." />
-
-					<button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-					<button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
-				</div>
-			</form>
+			
 		</div>
 		<div class="nomessage">
 			<img id="chatboximg" src="assets/img/chatmsg.png" alt="" />
