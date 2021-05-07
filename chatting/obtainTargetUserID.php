@@ -31,7 +31,7 @@
 			</form>
         ';
     } else {
-        $output .= "ERROR: " . mysqli_error($conn);
+        $output .= "ERROR: " . $_POST['target_userid'];
     }
     echo $output;
 
