@@ -20,7 +20,7 @@
                                                 width: calc(100% - 25px);
                                                 font-size: 0.9em;">
                                 <img id="profile-img" src="../assets/images/faces/1.jpg" class="online" alt="" style="margin: 6px 8px 0 0; width: 22px;
-  border-radius: 50%; float: left;"/>
+  border-radius: 50%; float: right;"/>
                                 <p style="background: #d5ebff; color: #000000; display: inline-block;
                                     padding: 10px 15px;
                                     border-radius: 20px;
@@ -36,7 +36,7 @@
                                                 font-size: 0.9em;">
                                 <img id="profile-img" src="../assets/images/faces/1.jpg" class="online" alt=""  style="float: right; margin: 6px 0 0 8px; width: 22px;
   border-radius: 50%; float: left;"/>
-                                <p style="background: #000000; float: right; display: inline-block;
+                                <p style="background: #000000; float: right; display: inline-block; color:white;
                                     padding: 10px 15px;
                                     border-radius: 20px;
                                     max-width: 205px;
