@@ -342,6 +342,7 @@ Website: http://emilcarlsson.se/
 										refreshChatRoom();
 										inputField.value = ""; //clear the input once submitted
 										scrollToBottom();
+										console.log("form onsubmit running?");
 									}
 								}
 							};
@@ -362,6 +363,7 @@ Website: http://emilcarlsson.se/
 										refreshChatRoom();
 										inputField.value = ""; //clear the input once submitted
 										scrollToBottom();
+										console.log("sendbtn running?");
 									}
 								}
 							};
