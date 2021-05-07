@@ -19,7 +19,7 @@
                                                 margin: 15px 15px 5px 15px;
                                                 width: calc(100% - 25px);
                                                 font-size: 0.9em;">
-                                <img id="profile-img" src="../assets/images/faces/1.jpg" class="online" alt="" style="margin: 6px 8px 0 0; width: 22px;
+                                <img id="profile-img" src="../assets/images/faces/2.jpg" class="online" alt="" style="margin: 6px 8px 0 0; width: 22px;
   border-radius: 50%; float: left;"/>
                                 <p style="background: #d5ebff; color: #000000; display: inline-block;
                                     padding: 10px 15px;
