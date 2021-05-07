@@ -329,10 +329,10 @@ Website: http://emilcarlsson.se/
 						function scrollToBottom() {
 							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
 						}
-						const form = document.querySelector(".content .message-input"),
+						const typingarea = document.querySelector(".content .message-input"),
 						incoming_id = target_userid,
-						inputField = form.querySelector(".input-field"),
-						sendBtn = form.querySelector(".submitbutton");
+						inputField = typingarea.querySelector(".input-field"),
+						sendBtn = typingarea.querySelector(".submitbutton");
 						sendBtn.onclick = () => {
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert-chat.php", true);
@@ -344,7 +344,7 @@ Website: http://emilcarlsson.se/
 									}
 								}
 							};
-							let formData = new FormData(form);
+							let formData = new FormData(typingarea);
 							console.log(formData)
 							xhr.send(formData);
 						}
