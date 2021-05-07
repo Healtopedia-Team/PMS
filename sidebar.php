@@ -62,16 +62,6 @@ $role = $_SESSION['role'];
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item <?php if ($your_variable == "patient-report") {
-                                            echo "active";
-                                        } else {
-                                            echo "noactive";
-                                        } ?>">
-                    <a href="patient-report.php" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-text-fill"></i>
-                        <span>Patient Report</span>
-                    </a>
-                </li>
                 <?php if ($role == "admin" || $role == "receptionisit"){
                     ?>
                 <li class="sidebar-item <?php if ($your_variable == "appointment-list-all" || $your_variable == "view-appointment") {
@@ -90,8 +80,18 @@ $role = $_SESSION['role'];
                                             echo "noactive";
                                         } ?>">
                     <a href="appoint-calendar.php" class='sidebar-link'>
-                        <i class="bi bi-calendar"></i>
+                        <i class="bi bi-calendar3-week-fill"></i>
                         <span>Appointment Calendar</span>
+                    </a>
+                </li>
+                <li class="sidebar-item <?php if ($your_variable == "patient-report") {
+                                            echo "active";
+                                        } else {
+                                            echo "noactive";
+                                        } ?>">
+                    <a href="patient-report.php" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Patient Report</span>
                     </a>
                 </li>
                 <?php } ?>
