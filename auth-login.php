@@ -18,6 +18,9 @@
         <div class="row h-100">
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
+                     <div class="auth-logo">
+                <a href="index.php"><img src="assets/images/logo/logo.png" alt="Logo"></a>
+            </div>
                     <h4 class="auth-title" style="margin-top: -50px; font-size:3rem;">Log In</h4>
                     <p class="auth-subtitle mb-5">Be a part of the synergy</p>
 
@@ -61,7 +64,7 @@
 
                                     <p>Don't have an account? <a href="auth-register.php" class="font-bold">Sign
                                             up</a>.</p>
-                                    <p><a class="font-bold" href="auth-forgot-password.html">Forgot password?</a></p>
+                                    <p><a class="font-bold" href="#">Forgot password?</a></p>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +73,7 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
-
+ <a href="index.php"><img src="assets/images/logo/logo.png" alt="Logo"></a>
                 </div>
             </div>
         </div>

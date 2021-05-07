@@ -27,7 +27,7 @@ $role = $_SESSION['role'];
                         <i class="bi bi-person-check-fill"></i>
                         <span>Request Appointment</span>
                     </a>
-                    <ul class="submenu <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-addappoint" || $your_variable == "patient-report" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved" || $your_variable == "manage-date" || $your_variable == "manage-time") {
+                    <ul class="submenu <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-addappoint" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved" || $your_variable == "manage-date" || $your_variable == "manage-time") {
                                             echo "active";
                                         } else {
                                             echo "noactive";
@@ -46,13 +46,6 @@ $role = $_SESSION['role'];
                                                 } ?>">
                             <a href="request-addappoint.php">Add Request</a>
                         </li>
-                        <li class="submenu-item <?php if ($your_variable == "patient-report") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="patient-report.php">Patient Report</a>
-                        </li>
                         <li class="submenu-item <?php if ($your_variable == "manage-date") {
                                                     echo "active";
                                                 } else {
@@ -68,6 +61,16 @@ $role = $_SESSION['role'];
                             <a href="manage-time.php">Manage Time</a>
                         </li>
                     </ul>
+                </li>
+                <li class="sidebar-item <?php if ($your_variable == "patient-report") {
+                                            echo "active";
+                                        } else {
+                                            echo "noactive";
+                                        } ?>">
+                    <a href="patient-report.php" class='sidebar-link'>
+                        <i class="bi bi-file-earmark-text-fill"></i>
+                        <span>Patient Report</span>
+                    </a>
                 </li>
                 <?php if ($role == "admin" || $role == "receptionisit"){
                     ?>
