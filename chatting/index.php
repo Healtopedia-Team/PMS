@@ -315,7 +315,7 @@ Website: http://emilcarlsson.se/
 										ChatBubbleBox.innerHTML = data;
 										//personContactWith.innerHTML=data;
 										console.log("getting chat data here!");
-										refreshChatRoom();
+										//refreshChatRoom();
 										if (!ChatBubbleBox.classList.contains("active")) {
 											scrollToBottom();
 										}
