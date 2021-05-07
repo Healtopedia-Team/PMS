@@ -77,7 +77,7 @@ Website: http://emilcarlsson.se/
 			<div id="profile">
 				<div class="wrap">
 					<?php
-					$sql = mysqli_query($conn, "SELECT * FROM user WHERE name = '$username'");
+					$sql = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$username'");
 					$row = mysqli_fetch_assoc($sql);
 					$_SESSION["user_id"] = $row['user_id'];
 					?>
