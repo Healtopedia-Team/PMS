@@ -131,7 +131,7 @@ $role = $_SESSION['role'];
                 <?php if ($role == "admin"){?>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-gear-fill"></i>
+                        <i class="bi bi-file-person-fill"></i>
                         <span>Users Role</span>
                     </a>
                     <ul class="submenu <?php if ($your_variable == "users-role" || $your_variable == "add-users-role") {
