@@ -11,7 +11,7 @@
         $output .= '
                 <div class="contact-profile">
                     <img src="../assets/images/faces/1.jpg" alt="" />
-                    <p class="person_received">' .$row['first_name'] . " " . $row['last_name'] .'</p>
+                    <p class="person_received">' .$row['first_name'] . " " . $row['last_name'] . '</p>
                     <div class="social-media">
                         <i class="fa fa-facebook" aria-hidden="true"></i>
                         <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -30,6 +30,7 @@
                         <button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
                     </div>
                 </form>
+                <script src="js/chat.js"></script>
         ';
     } else {
         $output .= "ERROR: " . $_POST['target_userid'];
