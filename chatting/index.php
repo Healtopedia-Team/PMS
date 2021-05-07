@@ -377,7 +377,7 @@ Website: http://emilcarlsson.se/
 				ChatBubbleBox.classList.remove("active");
 			};
 
-			setInterval(() => {
+			setInterval(function() {
 				let xhr = new XMLHttpRequest();
 				console.log('getting chat data here outside!')
 				xhr.open("POST", "js/get-chat.php", true);
@@ -397,7 +397,7 @@ Website: http://emilcarlsson.se/
 				};
 				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				xhr.send("incoming_id=" + incoming_id);
-			}, 5000);
+			}(), 5000);
 
 			function scrollToBottom() {
 				ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
