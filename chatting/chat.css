@@ -581,11 +581,9 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative;
-  display: none;
+  display: block;
 }
-#frame .nomessage .imgbg{
-  background-image: url("/assets/img/chatmsg.png");
-  vertical-align: middle;
+#frame .nomessage .chatimg img{
   width: 70%;
   height: auto;
   position: absolute;
