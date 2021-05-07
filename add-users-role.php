@@ -1,6 +1,5 @@
 <?php session_start();
-$username = $_SESSION['name'];
-$role = $_SESSION['role']; ?>
+$hospital = $_SESSION['hospital']; ?>
 
 
 <!DOCTYPE html>
@@ -29,48 +28,50 @@ $role = $_SESSION['role']; ?>
         <div id="main">
 
             <div class="page-heading">
-                <div class="page-title">
-                    <div class="row">
-                        <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Role List</h3>
-                        </div>
-                        <div class="col-12 col-md-6 order-md-2 order-first">
-                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Users List</li>
-                                </ol>
-                            </nav>
+                <form action="function.php" method="POST">
+                    <div class="page-title">
+                        <div class="row">
+                            <div class="col-12 col-md-6 order-md-1 order-last">
+                                <h3>Role List</h3>
+                            </div>
+                            <div class="col-12 col-md-6 order-md-2 order-first">
+                                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Users List</li>
+                                    </ol>
+                                </nav>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <section class="section">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Add Role</h4>
-                                </div>
-                                <div class="card-body">
-                                    <div class="col-md-4">
-                                        <label>Display Name</label>
+                    <section class="section">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Add Role</h4>
                                     </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="text" id="first-name" class="form-control" name="fname" placeholder="Display Name">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>Role Name</label>
-                                    </div>
-                                    <div class="col-md-8 form-group">
-                                        <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Role Name">
+                                    <div class="card-body">
+                                        <div class="col-md-4">
+                                            <label>Display Name</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="first-name" class="form-control" name="dispname" placeholder="Display Name">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Role Name</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="email" id="email-id" class="form-control" name="rolename" placeholder="Role Name">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="section">
-                    <form action="function.php" method="POST">
+                    </section>
+                    <section class="section">
+                        <input type="hidden" name="command" value="ADD_ROLE">
+                        <input type="hidden" name="hospital" value="<?php echo $hospital; ?>">
                         <div class="row">
                             <div class="col-md-6 col-12">
                                 <div class="card">
@@ -266,8 +267,8 @@ $role = $_SESSION['role']; ?>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </section>
+                    </section>
+                </form>
             </div>
 
             <footer>

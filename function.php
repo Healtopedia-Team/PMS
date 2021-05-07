@@ -29,6 +29,9 @@ switch ($theCommand) {
     case "UPDATE_PROFILE":
         update_profile($conn);
         break;
+    case "ADD_ROLE":
+        add_role($conn);
+        break;
     default:
         echo "System Error!";
 }
@@ -52,9 +55,8 @@ function add_user($conn)
         if (mysqli_query($conn, $sql)) {
             header('location:users.php');
         }
-    }
-    else{
-        $hosp='-';
+    } else {
+        $hosp = '-';
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $username = $_POST['username'];
@@ -69,7 +71,6 @@ function add_user($conn)
         if (mysqli_query($conn, $sql)) {
             header('location:users.php');
         }
-
     }
 }
 
@@ -192,6 +193,17 @@ function update_hospital($conn)
     $hospaddress = $_POST['hospadd'];
 
     $sql = "UPDATE hospital SET hosp_name='$hospname',hosp_company='$hospcompany',hosp_phone='$hospphone', hosp_address='$hospaddress' WHERE hosp_id='$id'";
+    if (mysqli_query($conn, $sql)) {
+        header('location:hospitals.php');
+    }
+}
+function add_role($conn)
+{
+
+    $displayname = $_POST['dispname'];
+    $hospital = $_POST['hospital'];
+
+    $sql = "INSERT INTO roles SET role_name='$displayname',hospital='$hospital'";
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
     }
