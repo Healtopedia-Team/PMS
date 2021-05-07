@@ -573,6 +573,7 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative;
+  display: none;
 }
 #frame .nomessage{
   float: right;
@@ -599,6 +600,18 @@ body {
   font-weight: 900;
   color: #000000;
 }
+@media screen and (max-width: 735px) {
+  #frame .nomessage {
+    width: calc(100% - 58px);
+    min-width: 300px !important;
+  }
+}
+@media screen and (min-width: 900px) {
+  #frame .nomessage {
+    width: calc(100% - 340px);
+  }
+}
+
 
 @media screen and (max-width: 735px) {
   #frame .content {
