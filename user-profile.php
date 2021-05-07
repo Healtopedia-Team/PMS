@@ -78,7 +78,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                         <input type="text" name="emailuser" value="<?php echo $row['email'];?>" class="form-control" style="width: 400px;">
                                         <br>
                                         <h6>Hospital</h6>
-                                        <input type="text" name="hospitaluser" value="<?php echo $row['hospital'];?>" class="form-control" style="width: 400px;">
+                                        <input type="text" name="hospitaluser" value="<?php echo $row['hospital'];?>" class="form-control" style="width: 400px;" read-only>
                                         <?php } ?>
                                         <br>
                                         <button type="submit" name="saveprofile" class="btn btn-primary">SAVE</button>
