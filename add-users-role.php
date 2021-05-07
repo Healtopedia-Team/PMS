@@ -1,13 +1,11 @@
+<?php session_start();
+$username = $_SESSION['name'];
+$role = $_SESSION['role']; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include 'dbconnect.php';
 
-$result = mysqli_query($conn, "SELECT * FROM hospital");
-$hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-
-?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,12 +49,21 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Switches</h4>
+                                    <h4 class="card-title">Add Role</h4>
                                 </div>
                                 <div class="card-body">
-                                    <p>A switch has the markup of a custom checkbox but uses the
-                                        <code>.form-switch</code> class to
-                                        render a toggle switch. Switches also support the disabled attribute.</p>
+                                    <div class="col-md-4">
+                                        <label>First Name</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="text" id="first-name" class="form-control" name="fname" placeholder="First Name">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-8 form-group">
+                                        <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Email">
+                                    </div>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                                         <label class="form-check-label" for="flexSwitchCheckDefault">Default switch
@@ -64,22 +71,19 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             input</label>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                            checked>
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch
                                             checkbox
                                             input</label>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled"
-                                            disabled>
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
                                         <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch
                                             checkbox
                                             input</label>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox"
-                                            id="flexSwitchCheckCheckedDisabled" checked disabled>
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
                                         <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled
                                             checked switch
                                             checkbox input</label>
@@ -111,10 +115,9 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
-        
-
     </script>
 
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
