@@ -305,7 +305,6 @@ Website: http://emilcarlsson.se/
 		}*/
 
 		var target_userid = 0;
-		console.log(target_userid);
 		$("#contacts").on("click", ".contact", function() {
 			const elems = document.querySelector(".active");
 			if (elems !== null) {
@@ -321,6 +320,14 @@ Website: http://emilcarlsson.se/
 				console.log(target_userid);
 			}
 		});
+
+		$.ajax({
+			url: "obtainTargetUserID.php",
+			method: "POST",
+			data: {
+				"target_userid": target_userid
+			}
+		})
 
 
 

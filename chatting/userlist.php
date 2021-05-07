@@ -29,7 +29,7 @@
                 console_log("hehe break!");
                 continue;
             }
-            $_SESSION["target_chat_user"]=$row["user_id"];
+            //$_SESSION["target_chat_user"]=$row["user_id"];
             $sql2 = "SELECT * FROM chat WHERE (incoming_msg_id = {$row['user_id']}
                                             OR outgoing_msg_id = {$row['user_id']}) AND (outgoing_msg_id = {$outgoing_id} 
                                             OR incoming_msg_id = {$outgoing_id}) ORDER BY msg_id DESC LIMIT 1";
