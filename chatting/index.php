@@ -124,6 +124,7 @@ Website: http://emilcarlsson.se/
 				<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
 			</div>
 		</div>
+		<!--
 		<div class="content">
 			<div class="contact-profile">
 				<img src="../assets/images/faces/1.jpg" alt="" />
@@ -169,6 +170,39 @@ Website: http://emilcarlsson.se/
 						<p>Wrong. You take the gun, or you pull out a bigger one. Or, you call their bluff. Or, you do any one of a hundred and forty six other things.</p>
 					</li>
 				</ul>
+			</div>
+			<div class="messages">
+			</div>
+			<form action='#' class="message-input">
+				<div class="wrap">
+					<input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+
+					<input type="text" class="input-field" placeholder="Write your message..." />
+
+					<button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+					<button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
+				</div>
+			</form>
+		</div>
+		-->
+		<div class="content">
+			<?php
+			$target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
+			$targetuser = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$target_id'");
+			if (mysqli_num_rows($targetuser) > 0) {
+				$row = mysqli_fetch_assoc($targetuser);
+			} else {
+				//echo "ERROR: " . mysqli_error($conn);
+			}
+			?>
+			<div class="contact-profile">
+				<img src="../assets/images/faces/1.jpg" alt="" />
+				<p class="person_received"><?php echo $row['first_name'] . " " . $row['last_name'] ?></p>
+				<div class="social-media">
+					<i class="fa fa-facebook" aria-hidden="true"></i>
+					<i class="fa fa-twitter" aria-hidden="true"></i>
+					<i class="fa fa-instagram" aria-hidden="true"></i>
+				</div>
 			</div>
 			<div class="messages">
 			</div>
@@ -270,7 +304,7 @@ Website: http://emilcarlsson.se/
 			userItem.classList.add("active");
 		}*/
 
-
+		var target_userid = 0;
 		$("#contacts").on("click", ".contact", function() {
 			const elems = document.querySelector(".active");
 			if (elems !== null) {
@@ -281,8 +315,23 @@ Website: http://emilcarlsson.se/
 			if ($(this).hasClass("active")) {
 				$(".nomessage").css("display", "none");
 				$(".content").css("display", "block");
+				target_userid = $(this).attr("id").split("info-").join("");
+				//alert(target_userid);
+				console.log(target_userid);
 			}
 		});
+
+		$.ajax({
+			url: "obtainTargetUserID.php",
+			method: "POST",
+			data: {
+				"target_userid": target_userid
+			},
+			success: function(result) {
+				console.log("Obtain function runs here!");
+				console.log(result);
+			},
+		})
 
 
 
@@ -313,6 +362,28 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send("searchTerm=" + searchTerm);
 		};
+		const Contentbox = document.querySelector(".content");
+
+		function getUserChatRoom() {
+			let xhr = new XMLHttpRequest()
+			xhr.open('GET', "chatroom.php")
+			//console.log("Runs under xhr.open!")
+			xhr.onload = () => {
+				console.log("Runs inside xhr.onload chatroom!")
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						let data = xhr.response
+						Contentbox.innerHTML = data;
+						//console.log('Connection issues inside!');
+						//console.log(data)
+					}
+				} else {
+					//console.log('Connection issues!');
+				}
+			}
+			//console.log("Runs under xhr.onload!")
+			xhr.send()
+		}
 
 		function refreshUserList() {
 			let xhr = new XMLHttpRequest()
