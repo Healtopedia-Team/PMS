@@ -301,6 +301,8 @@ Website: http://emilcarlsson.se/
 					success: function(result) {
 						console.log("Obtain function runs here!");
 						chatBox.innerHTML = result;
+						const form = document.querySelector(".content form");
+						console.log(form);
 					},
 					error: function(e) {
 						console.log(e);
@@ -399,8 +401,7 @@ Website: http://emilcarlsson.se/
 		refreshUserList();
 		setInterval(refreshUserList, 600000);
 
-		const form = document.querySelector(".content form");
-		console.log(form);
+
 
 		/*
 		function selectUsera(e) {
