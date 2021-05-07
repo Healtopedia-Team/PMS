@@ -89,14 +89,13 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                     </div>
                 </section>
             </div>
-
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
                         <p>2021 &copy; Healtopedia Digital</p>
                     </div>
                     <div class="float-end">
-                        <p>Powered By Atiq hehehe ;)<span class="text-danger"><i class="bi bi-heart"></i></span></p>
+                        <p>Powered By Atiq<span class="text-danger"><i class="bi bi-heart"></i></span></p>
                     </div>
                 </div>
             </footer>
