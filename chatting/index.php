@@ -184,7 +184,7 @@ Website: http://emilcarlsson.se/
 			</form>
 		</div>
 		<div class="nomessage">
-			<img id="chatboximg" src="assets/img/chatmsg.png" alt="" />
+			<div class="imgbg"></div>
 			<div class="startchat">
 				<h1>Start new chat now!</h1>
 			</div>
