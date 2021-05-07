@@ -5,7 +5,7 @@
     $incoming_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
     $output = "";
     $sql = "SELECT * FROM chat LEFT JOIN user ON user.user_id = chat.outgoing_msg_id
-            WHERE (outgoing_msg_id = '$outgoing_id AND incoming_msg_id = '$incoming_id')
+            WHERE (outgoing_msg_id = '$outgoing_id' AND incoming_msg_id = '$incoming_id')
             OR (outgoing_msg_id = '$incoming_id' AND incoming_msg_id = '$outgoing_id') ORDER BY msg_id";
     $query = mysqli_query($conn, $sql) or die("Cannot connect to obtain history chat!");
     if(mysqli_num_rows($query) > 0){
