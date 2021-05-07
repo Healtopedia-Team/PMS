@@ -80,6 +80,36 @@ $role = $_SESSION['role']; ?>
                                             No
                                         </label>
                                     </div>
+                                    <p>View Appointment Calendar</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="view-appointment-calendar"
+                                            id="flexRadioDefault1" value="1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="view-appointment-calendar"
+                                            id="flexRadioDefault2" checked value="0">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            No
+                                        </label>
+                                    </div>
+                                    <p>Approve Appointment Attendance</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="approve-appointment-attendance"
+                                            id="flexRadioDefault1" value="1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="approve-appointment-attendance"
+                                            id="flexRadioDefault2" checked value="0">
+                                        <label class="form-check-label" for="flexRadioDefault2">
+                                            No
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
