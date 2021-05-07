@@ -2,7 +2,9 @@
     session_start();
     include "../dbconnect.php";
     $outgoing_id = $_SESSION['user_id'];
+    echo $outgoing_id;
     $incoming_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
+    echo $incoming_id;
     $output = "";
     $sql = "SELECT * FROM chat LEFT JOIN user ON user.user_id = chat.outgoing_msg_id
             WHERE (outgoing_msg_id = '$outgoing_id' AND incoming_msg_id = '$incoming_id')
@@ -23,7 +25,7 @@
             }
         }
     }else{
-        $output .= '<div class="text">No messages are available. Once you send message they will appear here.</div>';
+        $output .= '<div style="color:black" class="text">No messages are available. Once you send message they will appear here.</div>';
     }
     echo $output;
 
