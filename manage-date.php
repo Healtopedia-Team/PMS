@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
@@ -43,11 +43,12 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Patient Management System</title>
 
+    <link rel="stylesheet" href="assets/vendors/choices.js/choices.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
+    <link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
 
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
@@ -138,7 +139,32 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                     </div>
                 </section>
-            </div>
+                <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Launch modal</a>
+                <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="myModalLabel">Modal 1</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form" role="form" id="myForm">
+                                    <div class="form-row">
+                                        <label for="input1" class="col-lg-2 control-label">URL</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" class="form-control" id="remoteUrl" name="remoteUrl" value="/render/gPp78HigHH">
+                                        </div>
+                                    </div>
+                                    <div class="form-row py-2">
+                                        <div class="col-lg-12 text-right">
+                                            <button type="submit" class="btn btn-secondary">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
@@ -159,9 +185,11 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
     </script>
+    <script src="assets/vendors/choices.js/choices.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+<!--====================================== F O R == D A T E == P I C K E R ======================================-->
 <?php
 
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
@@ -187,6 +215,33 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
             }
         }
     });
+</script>
+<!--====================================== S U B M I T ==  M O D A L ======================================-->
+<script>
+$(function() {
+    $("#myForm").on('submit',function(e){
+        
+        $("#myModal").modal("hide");
+        e.preventDefault();
+        
+        //submit the form
+        $.ajax({
+            type: "POST",
+            url: '/echo',
+            data: $(this).serialize(),
+            success: function (data) {
+                console.log(data.body.remoteUrl);
+                
+                // add content from another url
+                $("#myModal2 .modal-body").load(data.body.remoteUrl);
+                
+                // open the other modal
+                $("#myModal2").modal("show");
+            }
+      });
+        
+    });
+});
 </script>
 
 </html>
