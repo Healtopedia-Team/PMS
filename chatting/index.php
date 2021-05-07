@@ -8,7 +8,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 	exit;
 }
 $username = $_SESSION["name"];
-$user_id = $_SESSION["user_id"];
+$current_user_id = $_SESSION["user_id"];
 
 function console_log($output, $with_script_tags = true)
 {
@@ -78,7 +78,7 @@ Website: http://emilcarlsson.se/
 			<div id="profile">
 				<div class="wrap">
 					<?php
-					$sql = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$username'");
+					$sql = mysqli_query($conn, "SELECT * FROM user WHERE user_id = '$current_user_id'");
 					$row = mysqli_fetch_assoc($sql);
 					?>
 					<img id="profile-img" src="../assets/images/faces/1.jpg" class="online" alt="" />
