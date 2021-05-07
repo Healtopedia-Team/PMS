@@ -62,7 +62,7 @@ $hospital = $_SESSION['hospital']; ?>
                                             <label>Role Name</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="email" id="email-id" class="form-control" name="rolename" placeholder="Role Name">
+                                            <input type="text" id="email-id" class="form-control" name="rolename" placeholder="Role Name">
                                         </div>
                                     </div>
                                 </div>
