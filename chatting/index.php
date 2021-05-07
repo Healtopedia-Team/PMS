@@ -318,7 +318,7 @@ Website: http://emilcarlsson.se/
 										console.log("getting chat data here!");
 										//refreshChatRoom();
 										if (!ChatBubbleBox.classList.contains("active")) {
-											scrollToBottom();
+											//scrollToBottom();
 										}
 									}
 								}
@@ -341,7 +341,7 @@ Website: http://emilcarlsson.se/
 									if (xhr.status === 200) {
 										refreshChatRoom();
 										inputField.value = ""; //clear the input once submitted
-										scrollToBottom();
+										//scrollToBottom();
 										console.log("form onsubmit running?");
 									}
 								}
