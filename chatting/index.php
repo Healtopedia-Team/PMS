@@ -362,7 +362,7 @@ Website: http://emilcarlsson.se/
 									if (xhr.status === 200) {
 										refreshChatRoom();
 										inputField.value = ""; //clear the input once submitted
-										scrollToBottom();
+										//scrollToBottom();
 										console.log("sendbtn running?");
 									}
 								}
