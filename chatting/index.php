@@ -124,7 +124,6 @@ Website: http://emilcarlsson.se/
 				<button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
 			</div>
 		</div>
-		<!--
 		<div class="content">
 			<div class="contact-profile">
 				<img src="../assets/images/faces/1.jpg" alt="" />
@@ -184,7 +183,6 @@ Website: http://emilcarlsson.se/
 				</div>
 			</form>
 		</div>
-		-->
 		<div class="nomessage">
 			<img id="chatboximg" src="assets/img/chatmsg.png" alt="" />
 			<div class="startchat">
