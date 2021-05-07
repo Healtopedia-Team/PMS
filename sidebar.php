@@ -22,6 +22,12 @@ $role = $_SESSION['role'];
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
+                <li class="sidebar-item  ">
+                    <a href="index.php" class='sidebar-link'>
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-person-check-fill"></i>
@@ -62,38 +68,38 @@ $role = $_SESSION['role'];
                         </li>
                     </ul>
                 </li>
-                <?php if ($role == "admin" || $role == "receptionisit"){
-                    ?>
-                <li class="sidebar-item <?php if ($your_variable == "appointment-list-all" || $your_variable == "view-appointment") {
-                                            echo "active";
-                                        } else {
-                                            echo "noactive";
-                                        } ?>">
-                    <a href="appointment-list-all.php" class='sidebar-link'>
-                        <i class="bi bi-list-ul"></i>
-                        <span>Appointment List</span>
-                    </a>
-                </li>
-                <li class="sidebar-item <?php if ($your_variable == "appoint-calendar") {
-                                            echo "active";
-                                        } else {
-                                            echo "noactive";
-                                        } ?>">
-                    <a href="appoint-calendar.php" class='sidebar-link'>
-                        <i class="bi bi-calendar3-week-fill"></i>
-                        <span>Appointment Calendar</span>
-                    </a>
-                </li>
-                <li class="sidebar-item <?php if ($your_variable == "patient-report") {
-                                            echo "active";
-                                        } else {
-                                            echo "noactive";
-                                        } ?>">
-                    <a href="patient-report.php" class='sidebar-link'>
-                        <i class="bi bi-file-earmark-text-fill"></i>
-                        <span>Patient Report</span>
-                    </a>
-                </li>
+                <?php if ($role == "admin" || $role == "receptionisit") {
+                ?>
+                    <li class="sidebar-item <?php if ($your_variable == "appointment-list-all" || $your_variable == "view-appointment") {
+                                                echo "active";
+                                            } else {
+                                                echo "noactive";
+                                            } ?>">
+                        <a href="appointment-list-all.php" class='sidebar-link'>
+                            <i class="bi bi-list-ul"></i>
+                            <span>Appointment List</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item <?php if ($your_variable == "appoint-calendar") {
+                                                echo "active";
+                                            } else {
+                                                echo "noactive";
+                                            } ?>">
+                        <a href="appoint-calendar.php" class='sidebar-link'>
+                            <i class="bi bi-calendar3-week-fill"></i>
+                            <span>Appointment Calendar</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item <?php if ($your_variable == "patient-report") {
+                                                echo "active";
+                                            } else {
+                                                echo "noactive";
+                                            } ?>">
+                        <a href="patient-report.php" class='sidebar-link'>
+                            <i class="bi bi-file-earmark-text-fill"></i>
+                            <span>Patient Report</span>
+                        </a>
+                    </li>
                 <?php } ?>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
@@ -106,59 +112,66 @@ $role = $_SESSION['role'];
                                             echo "noactive";
                                         } ?>">
 
-                                        <?php if ($role == "admin" || $role =="receptionist"|| $role =="financial manager"){ ?>
-                        <li class="submenu-item <?php if ($your_variable == "user-profile") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="user-profile.php">Profile</a>
-                        </li> <?php } if ($role == "admin"){?>
-                        <li class="submenu-item <?php if ($your_variable == "users") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="users.php">Users</a>
-                        </li>
-                        <li class="submenu-item <?php if ($your_variable == "hospitals") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="hospitals.php">Hospitals</a>
-                        </li><?php } ?>
+                        <?php if ($role == "admin" || $role == "receptionist" || $role == "financial manager") { ?>
+                            <li class="submenu-item <?php if ($your_variable == "user-profile") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="user-profile.php">Profile</a>
+                            </li> <?php }
+                                if ($role == "admin") { ?>
+                            <li class="submenu-item <?php if ($your_variable == "users") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="users.php">Users</a>
+                            </li>
+                            <li class="submenu-item <?php if ($your_variable == "hospitals") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="hospitals.php">Hospitals</a>
+                            </li><?php } ?>
                     </ul>
 
                 </li>
-                <?php if ($role == "admin"){?>
-                <li class="sidebar-item has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-file-person-fill"></i>
-                        <span>Users Role</span>
-                    </a>
-                    <ul class="submenu <?php if ($your_variable == "users-role" || $your_variable == "add-users-role") {
-                                            echo "active";
-                                        } else {
-                                            echo "noactive";
-                                        } ?>">
-                        <li class="submenu-item <?php if ($your_variable == "users-role") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="users-role.php">Role List</a>
-                        </li>
-                        <li class="submenu-item <?php if ($your_variable == "add-users-role") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="add-users-role.php">Add Role</a>
-                        </li>
-                    </ul>
+                <?php if ($role == "admin") { ?>
+                    <li class="sidebar-item has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-file-person-fill"></i>
+                            <span>Users Role</span>
+                        </a>
+                        <ul class="submenu <?php if ($your_variable == "users-role" || $your_variable == "add-users-role") {
+                                                echo "active";
+                                            } else {
+                                                echo "noactive";
+                                            } ?>">
+                            <li class="submenu-item <?php if ($your_variable == "users-role") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="users-role.php">Role List</a>
+                            </li>
+                            <li class="submenu-item <?php if ($your_variable == "add-users-role") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="add-users-role.php">Add Role</a>
+                            </li>
+                        </ul>
 
-                </li><?php } ?>
+                    </li><?php } ?>
+                    <li class="sidebar-item  ">
+                    <a href="#" class='sidebar-link' data-bs-toggle="modal" data-bs-target="#logoutModal">
+                        <i class="bi bi-house-door-fill"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
 
 
             </ul>
