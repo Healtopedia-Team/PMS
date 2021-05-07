@@ -303,6 +303,34 @@ Website: http://emilcarlsson.se/
 						chatBox.innerHTML = result;
 						const form = document.querySelector(".content form");
 						console.log(form);
+						const ChatBubbleBox = document.querySelector(".content .messages");
+						setInterval(function() {
+							let xhr = new XMLHttpRequest();
+							console.log('getting chat data here outside!')
+							xhr.open("POST", "js/get-chat.php", true);
+							xhr.onload = () => {
+								if (xhr.readyState === XMLHttpRequest.DONE) {
+									if (xhr.status === 200) {
+										let data = xhr.response;
+										ChatBubbleBox.innerHTML = data;
+										//personContactWith.innerHTML=data;
+										console.log("getting chat data here!");
+
+										if (!ChatBubbleBox.classList.contains("active")) {
+											scrollToBottom();
+										}
+									}
+								}
+							};
+							xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							xhr.send("incoming_id=" + target_userid);
+						}(), 1000);
+
+						function scrollToBottom() {
+							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
+						}
+
+
 						//ForChatting(target_userid);
 					},
 					error: function(e) {
@@ -379,31 +407,6 @@ Website: http://emilcarlsson.se/
 			ChatBubbleBox.classList.remove("active");
 		};
 		*/
-		setInterval(function() {
-			let xhr = new XMLHttpRequest();
-			console.log('getting chat data here outside!')
-			xhr.open("POST", "js/get-chat.php", true);
-			xhr.onload = () => {
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						let data = xhr.response;
-						ChatBubbleBox.innerHTML = data;
-						//personContactWith.innerHTML=data;
-						console.log("getting chat data here!");
-
-						if (!ChatBubbleBox.classList.contains("active")) {
-							scrollToBottom();
-						}
-					}
-				}
-			};
-			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhr.send("incoming_id=" + target_userid);
-		}(), 1000);
-
-		function scrollToBottom() {
-			ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
-		}
 
 		function ForChatting(target_userid) {
 			const form = document.querySelector(".content .message-input"),
