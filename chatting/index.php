@@ -1,8 +1,5 @@
 <?php include '../dbconnect.php';
-error_reporting(-1); // reports all errors
-ini_set("display_errors", "1"); // shows all errors
-ini_set("log_errors", 1);
-ini_set("error_log", "/tmp/php-error.log");
+
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
