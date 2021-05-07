@@ -304,7 +304,7 @@ Website: http://emilcarlsson.se/
 						const form = document.querySelector(".content form");
 						console.log(form);
 						const ChatBubbleBox = document.querySelector(".content .messages");
-						setInterval(function() {
+						function refreshChatRoom() {
 							let xhr = new XMLHttpRequest();
 							console.log('getting chat data here outside!')
 							xhr.open("POST", "js/get-chat.php", true);
@@ -315,7 +315,7 @@ Website: http://emilcarlsson.se/
 										ChatBubbleBox.innerHTML = data;
 										//personContactWith.innerHTML=data;
 										console.log("getting chat data here!");
-
+										refreshChatRoom();
 										if (!ChatBubbleBox.classList.contains("active")) {
 											scrollToBottom();
 										}
@@ -324,7 +324,9 @@ Website: http://emilcarlsson.se/
 							};
 							xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 							xhr.send("incoming_id=" + target_userid);
-						}(), 1000);
+						};
+						refreshChatRoom()
+						setInterval(refreshChatRoom,10000);
 
 						function scrollToBottom() {
 							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
@@ -342,6 +344,7 @@ Website: http://emilcarlsson.se/
 							xhr.onload = () => {
 								if (xhr.readyState === XMLHttpRequest.DONE) {
 									if (xhr.status === 200) {
+										refreshChatRoom();
 										inputField.value = ""; //clear the input once submitted
 										scrollToBottom();
 									}
