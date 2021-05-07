@@ -584,11 +584,17 @@ body {
   display: block;
 
 }
+#frame .nomessage .chatimg {
+  display: flex;
+  /* margin-top: 20%; */
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
 #frame .nomessage .chatimg img{
   width: 70%;
   height: auto;
-  display: block;
-  margin-top: 20%;  
 }
 #frame .nomessage .chatimg .startchat {
   text-align: center;
