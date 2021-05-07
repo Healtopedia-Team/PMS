@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
 session_start();
  
 // Check if the user is logged in, if not then redirect him to login page
@@ -139,7 +139,8 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                     </div>
                 </section>
-                <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Launch modal</a>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Launch Modal</button>
+
                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -161,6 +162,26 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         </div>
                                     </div>
                                 </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 id="myModalLabel">Modal 2</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            </div>
+                            <div class="modal-body">
+                                Some other modal here...
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
                             </div>
                         </div>
                     </div>
