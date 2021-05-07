@@ -62,7 +62,7 @@ $role = $_SESSION['role'];
                         </li>
                     </ul>
                 </li>
-                <li class="sidebar-item <?php if ($your_variable == "appointment-list-all" || $your_variable == "view-appointment") {
+                <li class="sidebar-item <?php if ($your_variable == "patient-report") {
                                             echo "active";
                                         } else {
                                             echo "noactive";
