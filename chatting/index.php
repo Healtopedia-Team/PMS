@@ -398,7 +398,7 @@ Website: http://emilcarlsson.se/
 		}
 		refreshUserList();
 		setInterval(refreshUserList, 600000);
-		
+
 		const form = document.querySelector(".content .message-input"),
 			incoming_id = target_userid,
 			inputField = form.querySelector(".input-field"),
@@ -407,6 +407,8 @@ Website: http://emilcarlsson.se/
 			ChatBubbleBox = document.querySelector(".content .messages"),
 			personContactWith = document.querySelector(".content .contact-profile .person-received");
 
+
+		console.log(form);	
 		form.onsubmit = (e) => {
 			e.preventDefault();
 		}
