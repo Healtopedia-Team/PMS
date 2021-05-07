@@ -45,7 +45,8 @@
             }
         }
     }else{
-        $output .= '<div style="color:black; text-align: center; ">No messages are available. Once you send message they will appear here.</div>';
+        $output .= '<div style="display:flex; align-items:center; justify-content:center; ">
+        No messages are available. Once you send message they will appear here.</div>';
     }
     echo $output;
 
