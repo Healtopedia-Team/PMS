@@ -421,6 +421,12 @@ body {
 #frame #sidepanel #contacts::-webkit-scrollbar-thumb {
   background-color: #e0f7ff;
 }
+
+#frame #sidepanel #contacts ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
 #frame #sidepanel #contacts ul li.contact {
   position: relative;
   padding: 10px 0 15px 0;
@@ -595,8 +601,8 @@ body {
 }
 #frame .nomessage .startchat {
   text-align: center;
-  font-size: 2.5em;
-  font-weight: 900;
+  font-size: 2.4em;
+  font-weight: 600;
   color: #000000;
 }
 @media screen and (max-width: 735px) {
