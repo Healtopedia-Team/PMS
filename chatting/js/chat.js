@@ -5,7 +5,7 @@ sendBtn = form.querySelector(".submitbutton"),
 //attachBtn = form.querySelector(".attachmentbtn")
 ChatBubbleBox = document.querySelector(".content .messages"),
 personContactWith = document.querySelector(".content .contact-profile .person-received");
-
+console.log("anything here")
 form.onsubmit = (e) => {
     e.preventDefault();
 }
