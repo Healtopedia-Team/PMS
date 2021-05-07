@@ -580,8 +580,7 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative;
-  display: none;
-  z-index: 1000;
+  display: block;
 }
 #frame .nomessage img{
   vertical-align: middle;
@@ -598,7 +597,7 @@ body {
   text-align: center;
   font-size: 72px;
   font-weight: 900;
-  
+
 }
 
 @media screen and (max-width: 735px) {
