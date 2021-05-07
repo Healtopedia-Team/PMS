@@ -398,7 +398,7 @@ Website: http://emilcarlsson.se/
 				}
 			};
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhr.send("incoming_id=" + incoming_id);
+			xhr.send("incoming_id=" + target_userid);
 		}(), 5000);
 
 		function scrollToBottom() {
