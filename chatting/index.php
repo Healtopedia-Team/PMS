@@ -192,7 +192,7 @@ Website: http://emilcarlsson.se/
 			if (mysqli_num_rows($targetuser) > 0) {
 				$row = mysqli_fetch_assoc($targetuser);
 			} else {
-				echo "ERROR: " . mysqli_error($conn);
+				//echo "ERROR: " . mysqli_error($conn);
 			}
 			?>
 			<div class="contact-profile">
