@@ -1,8 +1,8 @@
 <?php include '../dbconnect.php';
-							error_reporting(-1); // reports all errors
-							ini_set("display_errors", "1"); // shows all errors
-							ini_set("log_errors", 1);
-							ini_set("error_log", "/tmp/php-error.log");
+error_reporting(-1); // reports all errors
+ini_set("display_errors", "1"); // shows all errors
+ini_set("log_errors", 1);
+ini_set("error_log", "/tmp/php-error.log");
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -202,7 +202,7 @@ Website: http://emilcarlsson.se/
 
 		</div>
 	</div>
-	<script src="chat.js"></script>
+	<script src="js/chat.js"></script>
 	<script>
 		<?php
 		function listalluser($user_id, $conn)
@@ -283,36 +283,6 @@ Website: http://emilcarlsson.se/
 		}*/
 
 		var target_userid = 0;
-		/*
-		$("#contacts").on("click", ".contact", function() {
-			const elems = document.querySelector(".active");
-			if (elems !== null) {
-				elems.classList.remove("active");
-			}
-			console.log("active selection!");
-			$(this).addClass("active");
-			if ($(this).hasClass("active")) {
-				$(".nomessage").css("display", "none");
-				$(".content").css("display", "block");
-				target_userid = $(this).attr("id").split("info-").join("");
-				//alert(target_userid);
-				console.log(target_userid);
-				let xhr = new XMLHttpRequest();
-				xhr.open("POST", "obtainTargetUserID.php", true);
-				xhr.onload = () => {
-					if (xhr.readyState === XMLHttpRequest.DONE) {
-						if (xhr.status === 200) {
-							let data = xhr.response;
-							chatBox.innerHTML=data;
-							console.log(data);
-							console.log("Obtain function runs here!");
-						}
-					}
-				};
-				xhr.send(target_userid);
-			}
-		});
-		*/
 		$("#contacts").on("click", ".contact", function() {
 			const elems = document.querySelector(".active");
 			if (elems !== null) {
@@ -432,6 +402,8 @@ Website: http://emilcarlsson.se/
 		}
 		refreshUserList();
 		setInterval(refreshUserList, 600000);
+
+
 
 		/*
 		function selectUsera(e) {
