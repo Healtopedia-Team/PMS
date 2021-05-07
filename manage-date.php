@@ -30,7 +30,7 @@ if (isset($_POST['deletedate'])) {
     $sql = "DELETE FROM xdate WHERE id = '$deletedate'";
 
     if (mysqli_query($conn,$sql)) {
-        echo '<script>$("#myModal2").modal("show");</script>';
+        echo '<script>$(function(){$(#myModal2).modal(show);});</script>';
     }
 }
 
