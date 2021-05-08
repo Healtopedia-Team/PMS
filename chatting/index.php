@@ -363,7 +363,7 @@ Website: http://emilcarlsson.se/
 									$.ajax({
 										url: 'js/insert.php',
 										type: 'post',
-										dataType: 'json',
+										//dataType: 'json',
 										contentType: false,
 										processData: false,
 										data: formData,
