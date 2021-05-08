@@ -328,7 +328,7 @@ Website: http://emilcarlsson.se/
 							xhr.send("incoming_id=" + target_userid);
 						};
 						refreshChatRoom()
-						setInterval(refreshChatRoom, 10000);
+						setInterval(refreshChatRoom, 60000);
 
 						function scrollToBottom() {
 							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
@@ -355,7 +355,7 @@ Website: http://emilcarlsson.se/
 						}
 						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
-						const incoming_id = 10,
+						const incoming_id = '<?php echo $_SESSION["user_id"]; ?>',
 							inputField = form.querySelector(".wrap .input-field"),
 							sendBtn = form.querySelector(".wrap .submitbutton");
 						sendBtn.onclick = () => {
