@@ -1,8 +1,6 @@
 <?php include '../dbconnect.php';
-							error_reporting(-1); // reports all errors
-							ini_set("display_errors", "1"); // shows all errors
-							ini_set("log_errors", 1);
-							ini_set("error_log", "/tmp/php-error.log");
+							error_reporting(E_ALL);
+							ini_set('display_errors', 'on');
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -766,33 +764,6 @@ Website: http://emilcarlsson.se/
 			xhr.send('searchTerm=' + searchTerm)
 		}
 		*/
-	</script>
-
-	<script>
-		<?php
-
-		function userlist_php($user_id, $conn)
-		{
-			$outgoing_id = $user_id;
-			$sqlu = "SELECT * FROM user WHERE NOT user_id='$outgoing_id' ORDER BY user_id DESC";
-			$userlist = mysqli_query($conn, $sqlu);
-			$output = "";
-			if (mysqli_num_rows($userlist) == 0) {
-				$output .= '<li class="contact">
-										<div class="wrap">
-											<div class="meta">
-												<p class="name">Nobody</p>
-												<p class="preview"> No users are available to chat</p>
-											</div>
-										</div>
-									</li>';
-			} elseif (mysqli_num_rows($userlist) > 0) {
-				include_once "data.php";
-			}
-			echo $output;
-		}
-		$userhhhhlist = userlist_php($user_id, $conn);
-		?>
 	</script>
 	<script>
 		$(".messages").animate({
