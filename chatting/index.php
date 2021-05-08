@@ -338,7 +338,6 @@ Website: http://emilcarlsson.se/
 							sendBtn = form.querySelector(".wrap .submitbutton");
 						form.onsubmit = (e) => {
 							e.preventDefault();
-							refreshChatRoom();
 							/*
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert-chat.php", true);
