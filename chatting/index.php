@@ -294,86 +294,105 @@ Website: http://emilcarlsson.se/
 				//alert(target_userid);
 				console.log(target_userid);
 				$.ajax({
-					url: "obtainTargetUserID.php",
-					method: "POST",
-					data: {
-						"target_userid": target_userid
-					},
-					success: function(result) {
-						console.log("Obtain function runs here!");
-						chatBox.innerHTML = result;
-						const form = document.querySelector(".content .message-input");
-						console.log(form);
-						const ChatBubbleBox = document.querySelector(".content .messages");
+							url: "obtainTargetUserID.php",
+							method: "POST",
+							data: {
+								"target_userid": target_userid
+							},
+							success: function(result) {
+								console.log("Obtain function runs here!");
+								chatBox.innerHTML = result;
+								const form = document.querySelector(".content .message-input");
+								console.log(form);
+								const ChatBubbleBox = document.querySelector(".content .messages");
 
-						function refreshChatRoom() {
-							let xhr = new XMLHttpRequest();
-							console.log('getting chat data here outside!')
-							xhr.open("POST", "js/get-chat.php", true);
-							xhr.onload = () => {
-								if (xhr.readyState === XMLHttpRequest.DONE) {
-									if (xhr.status === 200) {
-										let data = xhr.response;
-										ChatBubbleBox.innerHTML = data;
-										//personContactWith.innerHTML=data;
-										console.log("getting chat data here!");
-										//refreshChatRoom();
-										if (!ChatBubbleBox.classList.contains("active")) {
-											//scrollToBottom();
+								function refreshChatRoom() {
+									let xhr = new XMLHttpRequest();
+									console.log('getting chat data here outside!')
+									xhr.open("POST", "js/get-chat.php", true);
+									xhr.onload = () => {
+										if (xhr.readyState === XMLHttpRequest.DONE) {
+											if (xhr.status === 200) {
+												let data = xhr.response;
+												ChatBubbleBox.innerHTML = data;
+												//personContactWith.innerHTML=data;
+												console.log("getting chat data here!");
+												//refreshChatRoom();
+												if (!ChatBubbleBox.classList.contains("active")) {
+													//scrollToBottom();
+												}
+											}
 										}
-									}
-								}
-							};
-							xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-							xhr.send("incoming_id=" + target_userid);
-						};
-						refreshChatRoom()
-						setInterval(refreshChatRoom, 10000);
+									};
+									xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+									xhr.send("incoming_id=" + target_userid);
+								};
+								refreshChatRoom()
+								setInterval(refreshChatRoom, 10000);
 
-						function scrollToBottom() {
-							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
-						}
-						form.onsubmit = (e) => {
-							e.preventDefault();
-							/*
-							let xhr = new XMLHttpRequest();
-							xhr.open("POST", "js/insert-chat.php", true);
-							xhr.onload = () => {
-								if (xhr.readyState === XMLHttpRequest.DONE) {
-									if (xhr.status === 200) {
-										refreshChatRoom();
-										inputField.value = ""; //clear the input once submitted
-										//scrollToBottom();
-										console.log("form onsubmit running?");
-									}
+								function scrollToBottom() {
+									ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
 								}
-							};
-							let formData = new FormData(form);
-							console.log(formData)
-							xhr.send(formData);
-							*/
-						}
-						//might need to ajax version 研究一下是不是form取错了
-						//typingarea = document.querySelector(".content .message-input"),
-						const incoming_id = form.querySelector(".wrap .incoming-id"),
-							inputField = form.querySelector(".wrap .input-field"),
-							sendBtn = form.querySelector(".wrap .submitbutton");
-						let formData = new FormData(form);
-						sendBtn.onclick = () => {
-							$.ajax({
-								url: "js/insert.php",
-								method: "POST",
-								data: formData,
-								contentType: false,
-								processData: false,
-								success: function(result) {
-									console.log("Insert chat function runs here!");
-									console.log(result);
-								},
-								error: function(e) {
-									console.log(e);
+								form.onsubmit = (e) => {
+									e.preventDefault();
+									/*
+									let xhr = new XMLHttpRequest();
+									xhr.open("POST", "js/insert-chat.php", true);
+									xhr.onload = () => {
+										if (xhr.readyState === XMLHttpRequest.DONE) {
+											if (xhr.status === 200) {
+												refreshChatRoom();
+												inputField.value = ""; //clear the input once submitted
+												//scrollToBottom();
+												console.log("form onsubmit running?");
+											}
+										}
+									};
+									let formData = new FormData(form);
+									console.log(formData)
+									xhr.send(formData);
+									*/
 								}
-							})
+								//might need to ajax version 研究一下是不是form取错了
+								//typingarea = document.querySelector(".content .message-input"),
+								const incoming_id = form.querySelector(".wrap .incoming-id"),
+									inputField = form.querySelector(".wrap .input-field"),
+									sendBtn = form.querySelector(".wrap .submitbutton");
+								let formData = new FormData(form);
+								sendBtn.onclick = () => {
+									$.ajax({
+										url: 'js/insert.php',
+										type: 'post',
+										dataType: 'json',
+										contentType: false,
+										processData: false,
+										data: formData,
+										cache: false,
+										success: function(data, status, xhr) {
+											var dataStatus = (data.error === true) ? "Error" : "Success";
+											var message = "Status: " + dataStatus + "\n" +
+												data.message;
+											console.log("Insert chat function runs here!");
+											alert(message);
+										},
+										error: function(xhr, status, error) {
+											alert('Error: ' + error);
+										}
+									})
+									/*
+										url: "js/insert.php",
+										method: "POST",
+										data: formData,
+										contentType: false,
+										processData: false,
+										success: function(result) {
+											console.log("Insert chat function runs here!");
+											console.log(result);
+										},
+										error: function(e) {
+											console.log(e);
+										}
+									*/
 						}
 						/*
 						sendBtn.onclick = () => {
@@ -401,8 +420,8 @@ Website: http://emilcarlsson.se/
 					error: function(e) {
 						console.log(e);
 					}
-				})
-			}
+			})
+		}
 		});
 
 		const form = document.querySelector(".content .message-input"),
