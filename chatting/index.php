@@ -319,7 +319,7 @@ Website: http://emilcarlsson.se/
 										console.log("getting chat data here!");
 										//refreshChatRoom();
 										if (!ChatBubbleBox.classList.contains("active")) {
-											//scrollToBottom();
+											scrollToBottom();
 										}
 									}
 								}
@@ -333,6 +333,9 @@ Website: http://emilcarlsson.se/
 						function scrollToBottom() {
 							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
 						}
+						const incoming_id = '<?php echo $_SESSION["user_id"]; ?>',
+							inputField = form.querySelector(".wrap .input-field"),
+							sendBtn = form.querySelector(".wrap .submitbutton");
 						form.onsubmit = (e) => {
 							e.preventDefault();
 							let xhr = new XMLHttpRequest();
@@ -342,7 +345,7 @@ Website: http://emilcarlsson.se/
 									if (xhr.status === 200) {
 										refreshChatRoom();
 										inputField.value = ""; //clear the input once submitted
-										//scrollToBottom();
+										scrollToBottom();
 										console.log("inputarea running!!!");
 										console.log(inputField)
 									}
@@ -375,9 +378,7 @@ Website: http://emilcarlsson.se/
 						}
 						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
-						const incoming_id = '<?php echo $_SESSION["user_id"]; ?>',
-							inputField = form.querySelector(".wrap .input-field"),
-							sendBtn = form.querySelector(".wrap .submitbutton");
+
 						sendBtn.onclick = () => {
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert.php", true);
@@ -386,7 +387,7 @@ Website: http://emilcarlsson.se/
 									if (xhr.status === 200) {
 										refreshChatRoom();
 										inputField.value = ""; //clear the input once submitted
-										//scrollToBottom();
+										scrollToBottom();
 										console.log("sendbtn running!!!");
 										console.log(inputField)
 									}
