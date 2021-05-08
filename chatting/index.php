@@ -352,9 +352,9 @@ Website: http://emilcarlsson.se/
 						}
 						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
-						const incoming_id = form.querySelector(".incoming-id"),
-							inputField = form.querySelector(".input-field"),
-							sendBtn = form.querySelector(".submitbutton");
+						const incoming_id = form.querySelector(".wrap .incoming-id"),
+							inputField = form.querySelector(".wrap .input-field"),
+							sendBtn = form.querySelector(".wrap .submitbutton");
 						sendBtn.onclick = () => {
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert-chat.php", true);
