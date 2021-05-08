@@ -294,55 +294,58 @@ Website: http://emilcarlsson.se/
 				//alert(target_userid);
 				console.log(target_userid);
 				$.ajax({
-						url: "obtainTargetUserID.php",
-						method: "POST",
-						data: {
-							"target_userid": target_userid
-						},
-						success: function(result) {
-							console.log("Obtain function runs here!");
-							chatBox.innerHTML = result;
-							const form = document.querySelector(".content .message-input");
-							console.log(form);
-							const ChatBubbleBox = document.querySelector(".content .messages");
+					url: "obtainTargetUserID.php",
+					method: "POST",
+					data: {
+						"target_userid": target_userid
+					},
+					success: function(result) {
+						console.log("Obtain function runs here!");
+						chatBox.innerHTML = result;
+						const form = document.querySelector(".content .message-input");
+						console.log(form);
+						const ChatBubbleBox = document.querySelector(".content .messages");
 
-							function refreshChatRoom() {
-								let xhr = new XMLHttpRequest();
-								console.log('getting chat data here outside!')
-								xhr.open("POST", "js/get-chat.php", true);
-								xhr.onload = () => {
-									if (xhr.readyState === XMLHttpRequest.DONE) {
-										if (xhr.status === 200) {
-											let data = xhr.response;
-											ChatBubbleBox.innerHTML = data;
-											//personContactWith.innerHTML=data;
-											console.log("getting chat data here!");
-											//refreshChatRoom();
-											if (!ChatBubbleBox.classList.contains("active")) {
-												scrollToBottom();
-											}
+						function refreshChatRoom() {
+							let xhr = new XMLHttpRequest();
+							console.log('getting chat data here outside!')
+							xhr.open("POST", "js/get-chat.php", true);
+							xhr.onload = () => {
+								if (xhr.readyState === XMLHttpRequest.DONE) {
+									if (xhr.status === 200) {
+										let data = xhr.response;
+										ChatBubbleBox.innerHTML = data;
+										//personContactWith.innerHTML=data;
+										console.log("getting chat data here!");
+										//refreshChatRoom();
+										if (!ChatBubbleBox.classList.contains("active")) {
+											scrollToBottom();
 										}
 									}
-								};
-								xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-								xhr.send("incoming_id=" + target_userid);
-							};
-							refreshChatRoom()
-							setInterval(refreshChatRoom, 60000);
-
-							function scrollToBottom() {
-								ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
-							}
-							const incoming_id = '<?php echo $_SESSION["user_id"]; ?>',
-								inputField = form.querySelector(".wrap .input-field"),
-								sendBtn = form.querySelector(".wrap .submitbutton");
-							form.onsubmit = (e) => {
-								e.preventDefault();
-								if (e.keyCode === 13) {
-									sendBtn.click();
 								}
+							};
+							xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+							xhr.send("incoming_id=" + target_userid);
+						};
+						refreshChatRoom()
+						setInterval(refreshChatRoom, 60000);
+
+						function scrollToBottom() {
+							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
+						}
+						const incoming_id = '<?php echo $_SESSION["user_id"]; ?>',
+							inputField = form.querySelector(".wrap .input-field"),
+							sendBtn = form.querySelector(".wrap .submitbutton");
+						form.onsubmit = (e) => {
+							e.preventDefault();
+						}
+						inputField.onkeyup = (e) => {
+							if (e.keyCode === 13) {
+								e.preventDefault();
+								sendBtn.click();
 							}
-						
+						}
+
 						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
 
@@ -429,7 +432,7 @@ Website: http://emilcarlsson.se/
 						console.log(e);
 					}
 				})
-		}
+			}
 		});
 		/*
 		const form = document.querySelector(".content .message-input"),
