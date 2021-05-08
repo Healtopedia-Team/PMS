@@ -355,7 +355,7 @@ Website: http://emilcarlsson.se/
 						}
 						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
-						const incoming_id = $_SESSION["user_id"],
+						const incoming_id = 10,
 							inputField = form.querySelector(".wrap .input-field"),
 							sendBtn = form.querySelector(".wrap .submitbutton");
 						sendBtn.onclick = () => {
