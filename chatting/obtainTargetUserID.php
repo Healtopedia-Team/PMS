@@ -3,7 +3,7 @@
     include "dbconnect.php";
     $_SESSION["target_chat_user"] = $_POST['target_userid'];
     $outgoing_id = $_SESSION["user_id"];
-    echo $outgoing_id;
+    //echo $outgoing_id;
     //console_log($_POST['target_userid']);
     $output = '';
     $target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
@@ -27,8 +27,8 @@
                         <input type="text" class="incoming_id" name="incoming_id" hidden>
 
                         <input type="text" name="message" class="input-field" placeholder="Write your message..." />
-                        <button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        <button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
+                        <button type="button" class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                        <button type="button"class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
                     </div>
                 </form>
         ';

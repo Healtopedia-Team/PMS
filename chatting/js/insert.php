@@ -4,7 +4,7 @@
     $outgoing_id = $_SESSION['user_id'];
     $incoming_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
     $message = mysqli_real_escape_string($conn, $_POST['message']);
-    echo "The message is " . $message;
+    //echo "The message is " . $message;
     //console_log($message);
     //echo $message;
     if (!empty($message)) {
