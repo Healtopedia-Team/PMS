@@ -373,8 +373,8 @@ Website: http://emilcarlsson.se/
 								}
 							};
 							let formData = new FormData(form);
-							for (var key in formData) {
-								console.log(key, formData[key]);
+							for (let [key, value] of formData.entries()) {
+								console.log(`${key}: ${value}`);
 							}
 							//console.log(inputField)
 							xhr.send(formData);
