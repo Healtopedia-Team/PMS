@@ -355,7 +355,7 @@ Website: http://emilcarlsson.se/
 						}
 						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
-						const incoming_id = form.querySelector(".wrap .incoming-id").value,
+						const incoming_id = $_SESSION["user_id"],
 							inputField = form.querySelector(".wrap .input-field"),
 							sendBtn = form.querySelector(".wrap .submitbutton");
 						sendBtn.onclick = () => {
@@ -373,6 +373,7 @@ Website: http://emilcarlsson.se/
 								}
 							};
 							let formData = new FormData(form);
+							formData.append('incoming_id', incoming_id)
 							for (let [key, value] of formData.entries()) {
 								console.log(`${key}: ${value}`);
 							}

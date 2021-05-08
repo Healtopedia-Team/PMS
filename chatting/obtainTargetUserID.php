@@ -24,7 +24,7 @@
                 </div>
                 <form action="#" class="message-input">
                     <div class="wrap">
-                        <input type="text" class="incoming_id" name="incoming_id" value="' .$_SESSION["user_id"] . '" hidden>
+                        <input type="text" class="incoming_id" name="incoming_id" hidden>
 
                         <input type="text" name="message" class="input-field" placeholder="Write your message..." />
                         <button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
