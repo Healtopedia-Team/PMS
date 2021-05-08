@@ -359,13 +359,15 @@ Website: http://emilcarlsson.se/
 							inputField = form.querySelector(".wrap .input-field"),
 							sendBtn = form.querySelector(".wrap .submitbutton");
 						let formData = new FormData(form);
-						sendBtn.onclick = () =>{
+						sendBtn.onclick = () => {
 							$.ajax({
 								url: "js/insert-chat.php",
 								method: "POST",
 								data: {
 									"data": formData
 								},
+								contentType: false,
+								processData: false,
 								success: function(result) {
 									console.log("Insert chat function runs here!");
 									console.log(result);
