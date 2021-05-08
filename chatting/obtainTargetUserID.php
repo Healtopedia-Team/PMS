@@ -22,7 +22,7 @@
                 </div>
                 <form action="js/insert.php" class="message-input">
                     <div class="wrap">
-                        <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+                        <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $_SESSION["user_id"]; ?>" hidden>
 
                         <input type="text" class="input-field" placeholder="Write your message..." />
 
