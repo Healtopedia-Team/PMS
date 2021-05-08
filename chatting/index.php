@@ -356,7 +356,7 @@ Website: http://emilcarlsson.se/
 						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
 						const incoming_id = form.querySelector(".wrap .incoming-id"),
-							inputField = form.querySelector(".wrap .input-field"),
+							inputField = form.querySelector(".wrap .input-field").value,
 							sendBtn = form.querySelector(".wrap .submitbutton");
 						sendBtn.onclick = () => {
 							let xhr = new XMLHttpRequest();
@@ -367,7 +367,8 @@ Website: http://emilcarlsson.se/
 										refreshChatRoom();
 										inputField.value = ""; //clear the input once submitted
 										//scrollToBottom();
-										console.log("sendbtn running?");
+										console.log("sendbtn running!!!");
+										console.log(inputField)
 									}
 								}
 							};
@@ -439,7 +440,7 @@ Website: http://emilcarlsson.se/
 				})
 			}
 		});
-
+		/*
 		const form = document.querySelector(".content .message-input"),
 			incoming_id = target_userid,
 			//inputField = form.querySelector(".input-field"),
@@ -448,6 +449,7 @@ Website: http://emilcarlsson.se/
 			ChatBubbleBox = document.querySelector(".content .messages"),
 			personContactWith = document.querySelector(".content .contact-profile .person-received");
 		console.log("anything here");
+		*/
 		/*
 		form.onsubmit = (e) => {
 			e.preventDefault();
