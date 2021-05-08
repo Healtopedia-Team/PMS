@@ -358,7 +358,6 @@ Website: http://emilcarlsson.se/
 						const incoming_id = form.querySelector(".wrap .incoming-id"),
 							inputField = form.querySelector(".wrap .input-field"),
 							sendBtn = form.querySelector(".wrap .submitbutton");
-						let formData = new FormData(form);
 						sendBtn.onclick = () => {
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert.php", true);
