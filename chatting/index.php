@@ -337,6 +337,7 @@ Website: http://emilcarlsson.se/
 						}
 						form.onsubmit = (e) => {
 							e.preventDefault();
+							/*
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert-chat.php", true);
 							xhr.onload = () => {
@@ -352,6 +353,7 @@ Website: http://emilcarlsson.se/
 							let formData = new FormData(form);
 							console.log(formData)
 							xhr.send(formData);
+							*/
 						}
 						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
