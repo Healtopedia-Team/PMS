@@ -361,11 +361,9 @@ Website: http://emilcarlsson.se/
 						let formData = new FormData(form);
 						sendBtn.onclick = () => {
 							$.ajax({
-								url: "js/insert-chat.php",
+								url: "insert.php",
 								method: "POST",
-								data: {
-									"data": formData
-								},
+								data: formData,
 								contentType: false,
 								processData: false,
 								success: function(result) {
