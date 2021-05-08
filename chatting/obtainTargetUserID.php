@@ -20,7 +20,7 @@
                 </div>
                 <div class="messages">
                 </div>
-                <form action="#" class="message-input">
+                <form action="js/insert.php" class="message-input">
                     <div class="wrap">
                         <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
 
