@@ -25,7 +25,7 @@
                     <div class="wrap">
                         <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $outgoing_id; ?>" hidden>
 
-                        <input type="text" class="input-field" placeholder="Write your message..." />
+                        <input type="text" name="message" class="input-field" placeholder="Write your message..." autocomplete="off>
 
                         <button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         <button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
