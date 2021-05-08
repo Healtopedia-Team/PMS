@@ -21,7 +21,7 @@
                 </div>
                 <div class="messages">
                 </div>
-                <form action="js/insert.php" class="message-input">
+                <form action="#" class="message-input">
                     <div class="wrap">
                         <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $outgoing_id; ?>" hidden>
 
