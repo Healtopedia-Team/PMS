@@ -361,7 +361,7 @@ Website: http://emilcarlsson.se/
 						let formData = new FormData(form);
 						sendBtn.onclick = () => {
 							$.ajax({
-								url: "insert.php",
+								url: "js/insert.php",
 								method: "POST",
 								data: formData,
 								contentType: false,
