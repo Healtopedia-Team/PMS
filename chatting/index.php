@@ -373,8 +373,8 @@ Website: http://emilcarlsson.se/
 								}
 							};
 							let formData = new FormData(form);
-							console.log(form)
-							console.log(inputField)
+							console.log(formData)
+							//console.log(inputField)
 							xhr.send(formData);
 							/*
 									$.ajax({
