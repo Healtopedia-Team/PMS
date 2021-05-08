@@ -301,7 +301,7 @@ Website: http://emilcarlsson.se/
 					success: function(result) {
 						console.log("Obtain function runs here!");
 						chatBox.innerHTML = result;
-						const form = document.querySelector(".content form");
+						const form = document.querySelector(".content .message-input");
 						console.log(form);
 						const ChatBubbleBox = document.querySelector(".content .messages");
 
@@ -350,6 +350,7 @@ Website: http://emilcarlsson.se/
 							console.log(formData)
 							xhr.send(formData);
 						}
+						//might need to ajax version 研究一下是不是form取错了
 						//typingarea = document.querySelector(".content .message-input"),
 						const incoming_id = form.querySelector(".incoming-id"),
 							inputField = form.querySelector(".input-field"),
