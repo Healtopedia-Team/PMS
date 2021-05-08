@@ -1,6 +1,6 @@
 <?php include '../dbconnect.php';
-							error_reporting(E_ALL);
-							ini_set('display_errors', 'on');
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -358,6 +358,24 @@ Website: http://emilcarlsson.se/
 						const incoming_id = form.querySelector(".wrap .incoming-id"),
 							inputField = form.querySelector(".wrap .input-field"),
 							sendBtn = form.querySelector(".wrap .submitbutton");
+						let formData = new FormData(form);
+						sendBtn.onclick = () =>{
+							$.ajax({
+								url: "js/insert-chat.php",
+								method: "POST",
+								data: {
+									"data": formData
+								},
+								success: function(result) {
+									console.log("Insert chat function runs here!");
+									console.log(result);
+								},
+								error: function(e) {
+									console.log(e);
+								}
+							})
+						}
+						/*
 						sendBtn.onclick = () => {
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert-chat.php", true);
@@ -376,6 +394,7 @@ Website: http://emilcarlsson.se/
 							console.log(inputField)
 							xhr.send(formData);
 						}
+						*/
 
 						//ForChatting(target_userid);
 					},
