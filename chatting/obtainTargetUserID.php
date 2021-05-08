@@ -27,8 +27,8 @@
                         <input type="text" class="incoming_id" name="incoming_id" hidden>
 
                         <input type="text" name="message" class="input-field" placeholder="Write your message..." />
-                        <button type="button" class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                        <button type="button"class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
+                        <button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                        <button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
                     </div>
                 </form>
         ';

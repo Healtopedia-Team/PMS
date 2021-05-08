@@ -335,6 +335,26 @@ Website: http://emilcarlsson.se/
 						}
 						form.onsubmit = (e) => {
 							e.preventDefault();
+							let xhr = new XMLHttpRequest();
+							xhr.open("POST", "js/insert.php", true);
+							xhr.onload = () => {
+								if (xhr.readyState === XMLHttpRequest.DONE) {
+									if (xhr.status === 200) {
+										refreshChatRoom();
+										inputField.value = ""; //clear the input once submitted
+										//scrollToBottom();
+										console.log("inputarea running!!!");
+										console.log(inputField)
+									}
+								}
+							};
+							let formData = new FormData(form);
+							formData.append('incoming_id', incoming_id)
+							for (let [key, value] of formData.entries()) {
+								console.log(`${key}: ${value}`);
+							}
+							//console.log(inputField)
+							xhr.send(formData);
 							/*
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert-chat.php", true);
