@@ -2,6 +2,7 @@
     session_start();
     include "dbconnect.php";
     $_SESSION["target_chat_user"] = $_POST['target_userid'];
+    $outgoing_id = $_SESSION["user_id"];
     //console_log($_POST['target_userid']);
     $output = '';
     $target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
@@ -22,7 +23,7 @@
                 </div>
                 <form action="js/insert.php" class="message-input">
                     <div class="wrap">
-                        <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $_SESSION["user_id"]; ?>" hidden>
+                        <input type="text" class="incoming_id" name="incoming_id" value="<?php echo $outgoing_id; ?>" hidden>
 
                         <input type="text" class="input-field" placeholder="Write your message..." />
 
