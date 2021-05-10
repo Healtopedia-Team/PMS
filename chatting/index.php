@@ -304,9 +304,10 @@ Website: http://emilcarlsson.se/
 						chatBox.innerHTML = result;
 						const form = document.querySelector(".content .message-input");
 						const ChatBubbleBox = document.querySelector(".content .messages");
+						const ChatContent = document.querySelector(".content");
 
 						function scrollToBottom() { //Automatically scroll to the bottom of page as keep showing the latest messages
-							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
+							ChatContent.scrollTop = ChatContent.scrollHeight;
 						}
 
 						function refreshChatRoom() { //Refresh the chatroom while send message or select the user to chat to
