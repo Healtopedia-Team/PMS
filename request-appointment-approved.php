@@ -10,7 +10,7 @@ if (isset($_POST['updatedate'])) {
     $sql = "UPDATE requestappoint SET req_appdate = '$postponedate', req_status = 'postponed' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request date postponed.");</script>';
-        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+        echo '<script>window.location.href = "request-appointment-approved.php";</script>';
     }
 }
 ?>

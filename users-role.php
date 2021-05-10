@@ -28,7 +28,7 @@ $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <body>
     <div id="app">
         <?php include 'sidebar.php' ?>
-        <div id="main">
+        <div id="main" style="margin-top: -50px;">
             <div class="page-heading">
                 <div class="page-title">
                     <div class="row">

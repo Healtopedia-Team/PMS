@@ -8,15 +8,15 @@ if (isset($_POST['reqaccept'])) {
     $confirmid = $_POST['confirmid'];
     $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+        echo '<script>window.location.href = "request-appointment-pending.php";</script>';
     }
 }
 
 if (isset($_POST['reqreject'])) {
     $confirmid = $_POST['confirmid'];
-    $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$confirmid'";
+    $sql = "DELETE FROM requestappoint WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-all.php";</script>';
+        echo '<script>window.location.href = "request-appointment-pending.php";</script>';
     }
 }
 ?>

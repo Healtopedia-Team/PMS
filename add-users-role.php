@@ -25,7 +25,7 @@ $hospital = $_SESSION['hospital']; ?>
 <body>
     <div id="app">
         <?php include 'sidebar.php' ?>
-        <div id="main">
+        <div id="main" style="margin-top: -50px;">
 
             <div class="page-heading">
                 <form action="function.php" method="POST">
