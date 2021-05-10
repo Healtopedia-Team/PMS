@@ -321,9 +321,7 @@ Website: http://emilcarlsson.se/
 										//personContactWith.innerHTML=data;
 										console.log("getting chat data here!");
 										//refreshChatRoom();
-										if (!ChatBubbleBox.classList.contains("active")) {
-											scrollToBottom();
-										}
+										scrollToBottom();
 									}
 								}
 							};
