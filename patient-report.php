@@ -144,8 +144,8 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <div class="modal-body">
                                                         <table class="table table-borderless mb-0">
                                                             <colgroup>
-                                                                <col span="1" style="width: 20%;">
-                                                                <col span="1" style="width: 80%;">
+                                                                <col span="1" style="width: 10%;">
+                                                                <col span="1" style="width: 90%;">
                                                             </colgroup>
                                                             <tbody>
                                                                 <tr>
