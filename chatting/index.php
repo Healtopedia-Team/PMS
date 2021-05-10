@@ -331,7 +331,7 @@ Website: http://emilcarlsson.se/
 							xhr.send("incoming_id=" + target_userid);
 						};
 						refreshChatRoom()
-						setInterval(refreshChatRoom, 60000); //Refresh chatroom automatically per minute
+						setInterval(refreshChatRoom, 600000); //Refresh chatroom automatically per minute
 
 
 
@@ -415,7 +415,7 @@ Website: http://emilcarlsson.se/
 								if (xhr.readyState === XMLHttpRequest.DONE) {
 									if (xhr.status === 200) {
 										refreshChatRoom();
-										inputField.value = ""; //clear the input once submitted
+										fileUpload.value = ""; //clear the input once submitted
 										scrollToBottom();
 										console.log("attachmentbtn running!!!");
 										//console.log(inputField)
@@ -526,7 +526,7 @@ Website: http://emilcarlsson.se/
 			xhr.send()
 		}
 		refreshUserList();
-		setInterval(refreshUserList, 6000000);
+		setInterval(refreshUserList, 60000);
 
 
 
