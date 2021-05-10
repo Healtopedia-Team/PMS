@@ -331,7 +331,7 @@ Website: http://emilcarlsson.se/
 							xhr.send("incoming_id=" + target_userid);
 						};
 						refreshChatRoom()
-						setInterval(refreshChatRoom, 600000); //Refresh chatroom automatically per minute
+						setInterval(refreshChatRoom, 10000); //Refresh chatroom automatically every 10 sec
 
 
 
@@ -531,7 +531,7 @@ Website: http://emilcarlsson.se/
 			xhr.send()
 		}
 		refreshUserList();
-		setInterval(refreshUserList, 60000);
+		setInterval(refreshUserList, 15000);
 
 
 
