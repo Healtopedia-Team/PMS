@@ -28,22 +28,44 @@
                                     max-width: 205px;
                                     line-height: 130%;">' . $row['msg'] . '</p>
                             </li>';
-                } else {
-                $output .= '<li class="sent" 
-                            style="display: inline-block; clear: both;
-                                float: right; margin: 15px 15px 5px 15px;
-                                width: calc(100% - 25px); font-size: 0.9em;">
-                                <img id="profile-img" src="../assets/images/faces/2.jpg" 
-                                    class="online" alt="" style="margin: 6px 0 0 8px; width: 22px;
-                                    border-radius: 50%; float: right;"/>
-                                <p style="background: #d5ebff; color: #000000; display: inline-block; float:right;
-                                    padding: 10px 15px;
-                                    border-radius: 20px;
-                                    max-width: 205px;
-                                    line-height: 180%;"> 
-                                    <img style="max-width: 100%; max-height: 100%;" 
-                                    src="' . $row['uploadfile'] . '" alt=""> </p>
-                            </li>';
+                } else {//means the message is a file
+                    if($row['img_or_not']){//means that it is an image
+                        $output .= '<li class="sent" 
+                                    style="display: inline-block; clear: both;
+                                        float: right; margin: 15px 15px 5px 15px;
+                                        width: calc(100% - 25px); font-size: 0.9em;">
+                                        <img id="profile-img" src="../assets/images/faces/2.jpg" 
+                                            class="online" alt="" style="margin: 6px 0 0 8px; width: 22px;
+                                            border-radius: 50%; float: right;"/>
+                                        <p style="background: #d5ebff; color: #000000; display: inline-block; float:right;
+                                            padding: 10px 15px;
+                                            border-radius: 20px;
+                                            max-width: 205px;
+                                            line-height: 180%;"> 
+                                            <img style="max-width: 100%; max-height: 100%;" 
+                                            src="' . $row['uploadfile'] . '" alt=""> </p>
+                                    </li>';
+                    } else{
+                        $output .=
+                    '<li class="sent" 
+                                    style="display: inline-block; clear: both;
+                                        float: right; margin: 15px 15px 5px 15px;
+                                        width: calc(100% - 25px); font-size: 0.9em;">
+                                        <img id="profile-img" src="../assets/images/faces/2.jpg" 
+                                            class="online" alt="" style="margin: 6px 0 0 8px; width: 22px;
+                                            border-radius: 50%; float: right;"/>
+                                        <p style="background: #d5ebff; color: #000000; display: inline-block; float:right;
+                                            padding: 10px 15px;
+                                            border-radius: 20px;
+                                            max-width: 205px;
+                                            line-height: 180%;"> 
+                                            <a href="' . $row['uploadfile'] . '" download="' . $row['filename'] . '">
+                                            <i class="fa fa-download" aria-hidden="true"></i>
+                                            '. $row['filename'] . '</a>
+                                            </p>
+                                    </li>';
+                    }
+               
                 }
                 
             }else{ //message receiver
@@ -61,6 +83,7 @@
                                         max-width: 205px; line-height: 130%;">' . $row['msg'] . '</p>
                                 </li>';
                 } else{
+                if ($row['img_or_not']) {//means that it is an image
                     $output .= '<li class="replies" style="display: inline-block;
                                     clear: both; float: left;
                                     margin: 15px 15px 5px 15px; width: calc(100% - 25px);
@@ -76,7 +99,25 @@
                                             src="' . $row['uploadfile'] . '" alt="">
                                     </p>
                                 </li>';
+                } else {
+                    $output .= '<li class="replies" style="display: inline-block;
+                                    clear: both; float: left;
+                                    margin: 15px 15px 5px 15px; width: calc(100% - 25px);
+                                    font-size: 0.9em;">
+                                    <img id="profile-img" src="../assets/images/faces/1.jpg" 
+                                        class="online" alt=""  style="margin: 6px 8px 0 0; width: 22px;
+                                        border-radius: 50%; float: left;"/>
+                                    <p style="background: #000000; float: left; display: inline-block; 
+                                        color:white; float:left;
+                                        padding: 10px 15px; border-radius: 20px;
+                                        max-width: 205px; line-height: 180%;">
+                                        <a href="' . $row['uploadfile'] . '" download="' . $row['filename'] . '">
+                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                        ' . $row['filename'] . '</a>
+                                    </p>
+                                </li>';
                 }
+            }
                 
             }
         }

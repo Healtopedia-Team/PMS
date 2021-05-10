@@ -9,8 +9,15 @@ if(!empty($_FILES)){
         "jpg", "jpeg", "gif", "png", "7z", "rar", "zip", "tar.gz", "csv",
         "xlsx", "xls", "xlsm", "doc", "docx", "txt", "pdf"
     );
+    $imgExts = array("jpg", "jpeg", "gif", "png");
+    $isImgOrNot = true;
     $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
     $target_dir = "uploads/";
+    if (in_array($extension,$imgExts)){
+        $isImgOrNot = 1;
+    } else {
+        $isImgOrNot = 0;
+    }
 
     if (($_FILES["file"]["size"] < 250000000) && in_array($extension, $allowedExts)) {
         if ($_FILES["file"]["error"] > 0) {
@@ -18,10 +25,11 @@ if(!empty($_FILES)){
         } else {
             if(is_uploaded_file($_FILES["file"]["tmp_name"])){
                 $_source_path = $_FILES["file"]["tmp_name"];
+                $_filename = $_FILES['file']['name'];
                 $target_path = $target_dir . $_FILES["file"]["name"];
                 if(move_uploaded_file($_source_path, $target_path)){
-                    $sql = mysqli_query($conn, "INSERT INTO chat (incoming_msg_id, outgoing_msg_id, uploadfile)
-                    VALUES ('$incoming_id', '$outgoing_id', '$target_path')") or die("Cannot upload files!");
+                    $sql = mysqli_query($conn, "INSERT INTO chat (incoming_msg_id, outgoing_msg_id, uploadfile, img_or_not, filename)
+                    VALUES ('$incoming_id', '$outgoing_id', '$target_path','$isImgOrNot', '$_filename')") or die("Cannot upload files!");
                 }
             }
 
