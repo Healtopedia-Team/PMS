@@ -143,6 +143,10 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     </div>
                                                     <div class="modal-body">
                                                         <table class="table table-borderless mb-0">
+                                                            <colgroup>
+                                                                <col span="1" style="width: 20%;">
+                                                                <col span="1" style="width: 80%;">
+                                                            </colgroup>
                                                             <tbody>
                                                                 <tr>
                                                                     <td><b>Package Name</b></td>
@@ -153,7 +157,7 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                     <td>: <?php echo $row['req_custname']; ?></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><b>IC/Passport</b>></td>
+                                                                    <td><b>IC/Passport</b></td>
                                                                     <td>: <?php echo $row['req_custid']; ?></td>
                                                                 </tr>
                                                                 <tr>
@@ -182,23 +186,6 @@ $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                 </tr>
                                                             </tbody>
                                                         </table>
-                                                        <!--label><b>Package Name</b>: <?php echo $row['req_packname']; ?></label>
-                                                        <br>
-                                                        <label><b>Client Name</b>: <?php echo $row['req_custname']; ?></label>
-                                                        <br>
-                                                        <label><b>IC/Passport</b>: <?php echo $row['req_custid']; ?></label>
-                                                        <br>
-                                                        <label><b>No Phone</b>: <?php echo $row['req_custphone']; ?></label>
-                                                        <br>
-                                                        <label><b>Address</b>: <?php echo $row['req_custaddress']; ?></label>
-                                                        <br>
-                                                        <label><b>Nationalities</b>: <?php echo $row['req_custnational']; ?></label>
-                                                        <br>
-                                                        <label><b>Appointment Date</b>: <?php echo $row['req_appdate']; ?></label>
-                                                        <br>
-                                                        <label><b>Appointment Time</b>: <?php echo $row['req_apptime']; ?></label>
-                                                        <br>
-                                                        <label><b>Status</b>: <?php echo $row['req_status']; ?></label-->
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
