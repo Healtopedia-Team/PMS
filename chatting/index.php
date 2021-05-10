@@ -290,7 +290,7 @@ Website: http://emilcarlsson.se/
 			if ($(this).hasClass("active")) {
 				$(".nomessage").css("display", "none");
 				$(".content").css("display", "block");
-				target_userid = $(this).attr("id").split("info-").join("");
+				target_userid = $(this).attr("value").split("info-").join(""); //This is used to obtain the target user_id (user wanted to chat with) by saving the id in the li value attr (check userlist.php)
 				//alert(target_userid);
 				console.log(target_userid);
 				$.ajax({
@@ -303,10 +303,13 @@ Website: http://emilcarlsson.se/
 						console.log("Obtain function runs here!");
 						chatBox.innerHTML = result;
 						const form = document.querySelector(".content .message-input");
-						console.log(form);
 						const ChatBubbleBox = document.querySelector(".content .messages");
 
-						function refreshChatRoom() {
+						function scrollToBottom() { //Automatically scroll to the bottom of page as keep showing the latest messages
+							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
+						}
+
+						function refreshChatRoom() { //Refresh the chatroom while send message or select the user to chat to
 							let xhr = new XMLHttpRequest();
 							console.log('getting chat data here outside!')
 							xhr.open("POST", "js/get-chat.php", true);
@@ -328,28 +331,25 @@ Website: http://emilcarlsson.se/
 							xhr.send("incoming_id=" + target_userid);
 						};
 						refreshChatRoom()
-						setInterval(refreshChatRoom, 60000);
+						setInterval(refreshChatRoom, 60000); //Refresh chatroom automatically per minute
 
-						function scrollToBottom() {
-							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
-						}
-						const incoming_id = '<?php echo $_SESSION["user_id"]; ?>',
+
+
+						const incoming_id = '<?php echo $_SESSION["user_id"]; ?>', // get the current user_id
 							inputField = form.querySelector(".wrap .input-field"),
 							sendBtn = form.querySelector(".wrap .submitbutton");
+
 						form.onsubmit = (e) => {
 							e.preventDefault();
 						}
-						inputField.onkeyup = (e) => {
+						inputField.onkeyup = (e) => { //form will submit while clicking enter/return key
 							if (e.keyCode === 13) {
 								e.preventDefault();
 								sendBtn.click();
 							}
 						}
 
-						//might need to ajax version 研究一下是不是form取错了
-						//typingarea = document.querySelector(".content .message-input"),
-
-						sendBtn.onclick = () => {
+						sendBtn.onclick = () => { // Send the message to database
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "js/insert.php", true);
 							xhr.onload = () => {
@@ -363,9 +363,9 @@ Website: http://emilcarlsson.se/
 									}
 								}
 							};
-							let formData = new FormData(form);
-							formData.append('incoming_id', incoming_id)
-							for (let [key, value] of formData.entries()) {
+							let formData = new FormData(form); //Create the formdata to be submitted
+							formData.append('incoming_id', incoming_id) //Append the current user_id to the formData
+							for (let [key, value] of formData.entries()) { //log the value of formdata (debug use!)
 								console.log(`${key}: ${value}`);
 							}
 							//console.log(inputField)
@@ -426,7 +426,6 @@ Website: http://emilcarlsson.se/
 						}
 						*/
 
-						//ForChatting(target_userid);
 					},
 					error: function(e) {
 						console.log(e);
@@ -434,168 +433,7 @@ Website: http://emilcarlsson.se/
 				})
 			}
 		});
-		/*
-		const form = document.querySelector(".content .message-input"),
-			incoming_id = target_userid,
-			//inputField = form.querySelector(".input-field"),
-			//sendBtn = form.querySelector(".submitbutton"),
-			//attachBtn = form.querySelector(".attachmentbtn")
-			ChatBubbleBox = document.querySelector(".content .messages"),
-			personContactWith = document.querySelector(".content .contact-profile .person-received");
-		console.log("anything here");
-		*/
-		/*
-		form.onsubmit = (e) => {
-			e.preventDefault();
-		}
 
-		inputField.focus();
-		inputField.onkeyup = () => {
-			if (inputField.value != "") {
-				sendBtn.classList.add("active");
-			} else {
-				sendBtn.classList.remove("active");
-			}
-		};
-
-		//Not doing first
-		attachBtn.onclick = () => {
-		  let xhr = new XMLHttpRequest()
-		  xhr.open('POST', 'php/insert-attach.php', true)
-		  xhr.onload = () => {
-		    if (xhr.readyState === XMLHttpRequest.DONE) {
-		      if (xhr.status === 200) {
-		        inputField.value = '' //clear the input once submitted
-		        scrollToBottom()
-		      }
-		    }
-		  }
-		  let formData = new FormData(form)
-		  console.log(formData)
-		  xhr.send(formData)
-		}
-		ChatBubbleBox.onmouseenter = () => {
-		  ChatBubbleBox.classList.add('active')
-		}
-		*/
-		/*
-		sendBtn.onclick = () => {
-			let xhr = new XMLHttpRequest();
-			xhr.open("POST", "insert-chat.php", true);
-			xhr.onload = () => {
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						inputField.value = ""; //clear the input once submitted
-						scrollToBottom();
-					}
-				}
-			};
-			let formData = new FormData(form);
-			console.log(formData)
-			xhr.send(formData);
-		}
-		
-		ChatBubbleBox.onmouseenter = () => {
-			ChatBubbleBox.classList.add("active");
-		};
-
-		ChatBubbleBox.onmouseleave = () => {
-			ChatBubbleBox.classList.remove("active");
-		};
-		*/
-
-		function ForChatting(target_userid) {
-			const form = document.querySelector(".content .message-input"),
-				incoming_id = target_userid,
-				inputField = form.querySelector(".input-field"),
-				sendBtn = form.querySelector(".submitbutton"),
-				//attachBtn = form.querySelector(".attachmentbtn")
-				ChatBubbleBox = document.querySelector(".content .messages"),
-				personContactWith = document.querySelector(".content .contact-profile .person-received");
-			console.log("anything here")
-			form.onsubmit = (e) => {
-				e.preventDefault();
-			}
-			inputField.focus();
-			inputField.onkeyup = () => {
-				if (inputField.value != "") {
-					sendBtn.classList.add("active");
-				} else {
-					sendBtn.classList.remove("active");
-				}
-			};
-			/*
-			//Not doing first
-			attachBtn.onclick = () => {
-			  let xhr = new XMLHttpRequest()
-			  xhr.open('POST', 'php/insert-attach.php', true)
-			  xhr.onload = () => {
-			    if (xhr.readyState === XMLHttpRequest.DONE) {
-			      if (xhr.status === 200) {
-			        inputField.value = '' //clear the input once submitted
-			        scrollToBottom()
-			      }
-			    }
-			  }
-			  let formData = new FormData(form)
-			  console.log(formData)
-			  xhr.send(formData)
-			}
-			ChatBubbleBox.onmouseenter = () => {
-			  ChatBubbleBox.classList.add('active')
-			}
-			*/
-
-			sendBtn.onclick = () => {
-				let xhr = new XMLHttpRequest();
-				xhr.open("POST", "js/insert-chat.php", true);
-				xhr.onload = () => {
-					if (xhr.readyState === XMLHttpRequest.DONE) {
-						if (xhr.status === 200) {
-							inputField.value = ""; //clear the input once submitted
-							scrollToBottom();
-						}
-					}
-				};
-				let formData = new FormData(form);
-				console.log(formData)
-				xhr.send(formData);
-			}
-			ChatBubbleBox.onmouseenter = () => {
-				ChatBubbleBox.classList.add("active");
-			};
-
-			ChatBubbleBox.onmouseleave = () => {
-				ChatBubbleBox.classList.remove("active");
-			};
-
-			setInterval(function() {
-				let xhr = new XMLHttpRequest();
-				console.log('getting chat data here outside!')
-				xhr.open("POST", "js/get-chat.php", true);
-				xhr.onload = () => {
-					if (xhr.readyState === XMLHttpRequest.DONE) {
-						if (xhr.status === 200) {
-							let data = xhr.response;
-							ChatBubbleBox.innerHTML = data;
-							//personContactWith.innerHTML=data;
-							console.log("getting chat data here!");
-
-							if (!ChatBubbleBox.classList.contains("active")) {
-								scrollToBottom();
-							}
-						}
-					}
-				};
-				xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-				xhr.send("incoming_id=" + incoming_id);
-			}(), 5000);
-
-			function scrollToBottom() {
-				ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
-			}
-
-		}
 		$.ajax({
 			url: "obtainTargetUserID.php",
 			method: "POST",
@@ -639,28 +477,6 @@ Website: http://emilcarlsson.se/
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send("searchTerm=" + searchTerm);
 		};
-		const Contentbox = document.querySelector(".content");
-
-		function getUserChatRoom() {
-			let xhr = new XMLHttpRequest()
-			xhr.open('GET', "chatroom.php", true)
-			//console.log("Runs under xhr.open!")
-			xhr.onload = () => {
-				console.log("Runs inside xhr.onload chatroom!")
-				if (xhr.readyState === XMLHttpRequest.DONE) {
-					if (xhr.status === 200) {
-						let data = xhr.response
-						Contentbox.innerHTML = data;
-						//console.log('Connection issues inside!');
-						//console.log(data)
-					}
-				} else {
-					//console.log('Connection issues!');
-				}
-			}
-			//console.log("Runs under xhr.onload!")
-			xhr.send()
-		}
 
 		function refreshUserList() {
 			let xhr = new XMLHttpRequest()
