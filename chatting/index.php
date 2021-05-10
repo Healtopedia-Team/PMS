@@ -307,7 +307,7 @@ Website: http://emilcarlsson.se/
 						const ChatContent = document.querySelector(".content");
 
 						function scrollToBottom() { //Automatically scroll to the bottom of page as keep showing the latest messages
-							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight + ChatBubbleBox.clientHeight; 
+							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight + ChatBubbleBox.clientHeight;
 
 							console.log(ChatBubbleBox.scrollHeight)
 						}
@@ -411,7 +411,7 @@ Website: http://emilcarlsson.se/
 						const fileUpload = form.querySelector(".wrap #fileupload");
 						const attachmentBtn = form.querySelector(".wrap .attachmentbtn");
 						attachmentBtn.onclick = () => { // Send the message to database
-							fileUpload.click();
+
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "uploadfile.php", true);
 							xhr.onload = () => {
@@ -435,6 +435,7 @@ Website: http://emilcarlsson.se/
 							//refreshChatRoom();
 							//refreshUserList();
 							console.log("Send successfully");
+							fileUpload.click();
 						}
 						/*
 						sendBtn.onclick = () => {
