@@ -308,6 +308,7 @@ Website: http://emilcarlsson.se/
 
 						function scrollToBottom() { //Automatically scroll to the bottom of page as keep showing the latest messages
 							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
+							console.log(ChatBubbleBox.scrollHeight)
 						}
 
 						function refreshChatRoom() { //Refresh the chatroom while send message or select the user to chat to
