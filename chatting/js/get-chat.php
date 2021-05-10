@@ -24,7 +24,7 @@
                                     padding: 10px 15px;
                                     border-radius: 20px;
                                     max-width: 205px;
-                                    line-height: 130%;">'. $row['msg'] .'</p>
+                                    line-height: 130%;">'. ($row['msg'] !== null)?($row['msg']):($row['uploadfile']) .'</p>
                             </li>';
             }else{//message receiver
                 $output .= '<li class="replies" style="display: inline-block;
@@ -37,7 +37,7 @@
                                 <p style="background: #000000; float: left; display: inline-block; 
                                     color:white; float:left;
                                     padding: 10px 15px; border-radius: 20px;
-                                    max-width: 205px; line-height: 130%;">'. $row['msg'] .'</p>
+                                    max-width: 205px; line-height: 130%;">'. ($row['msg'] !== null) ? ($row['msg']) : ($row['uploadfile']) .'</p>
                             </li>';
             }
         }
