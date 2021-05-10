@@ -58,6 +58,7 @@
             } else{
                 $offoron = "offline";
             }
+            // the li tag which contains id and value attr are used to save the user_id then which i can later by using jquery in index.php(line 293)
             $output .= '
                     <!-- <a href="chat.php?user_id=' . $row['user_id'] . '"> -->
                     <li class="contact" id="info-' . $row['user_id'] . '" value="info-' . $row['user_id'] . '" " >

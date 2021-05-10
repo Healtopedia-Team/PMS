@@ -405,6 +405,30 @@ Website: http://emilcarlsson.se/
 										}
 									*/
 						}
+						const fileUpload = form.querySelector(".wrap #fileupload");
+						const attachmentBtn = form.querySelector(".wrap .attachmentbutton");
+						attachmentBtn.onclick = () => { // Send the message to database
+							let xhr = new XMLHttpRequest();
+							xhr.open("POST", "uploadfile.php", true);
+							xhr.onload = () => {
+								if (xhr.readyState === XMLHttpRequest.DONE) {
+									if (xhr.status === 200) {
+										refreshChatRoom();
+										inputField.value = ""; //clear the input once submitted
+										scrollToBottom();
+										console.log("attachmentbtn running!!!");
+										//console.log(inputField)
+									}
+								}
+							};
+							let formData = new FormData(form); //Create the formdata to be submitted
+							formData.append('incoming_id', incoming_id) //Append the current user_id to the formData
+							for (let [key, value] of formData.entries()) { //log the value of formdata (debug use!)
+								console.log(`${key}: ${value}`);
+							}
+							//console.log(inputField)
+							xhr.send(formData);
+						}
 						/*
 						sendBtn.onclick = () => {
 							let xhr = new XMLHttpRequest();

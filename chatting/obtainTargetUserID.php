@@ -25,8 +25,8 @@
                 <form action="#" class="message-input">
                     <div class="wrap">
                         <input type="text" class="incoming_id" name="incoming_id" hidden>
-
                         <input type="text" name="message" class="input-field" placeholder="Write your message..." />
+                        <input type="file" id="fileupload" name="file" hidden>
                         <button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         <button class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
                     </div>
