@@ -355,7 +355,7 @@ Website: http://emilcarlsson.se/
 							xhr.onload = () => {
 								if (xhr.readyState === XMLHttpRequest.DONE) {
 									if (xhr.status === 200) {
-										refreshChatRoom();
+										setInterval(refreshChatRoom(), 3000);
 										inputField.value = ""; //clear the input once submitted
 										scrollToBottom();
 										console.log("sendbtn running!!!");
