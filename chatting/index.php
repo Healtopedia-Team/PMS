@@ -307,7 +307,7 @@ Website: http://emilcarlsson.se/
 						const ChatContent = document.querySelector(".content");
 
 						function scrollToBottom() { //Automatically scroll to the bottom of page as keep showing the latest messages
-							ChatBubbleBox.scrollTop = ChatBubbleBox.offsetHeight;
+							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight; 
 
 							console.log(ChatBubbleBox.scrollHeight)
 						}
