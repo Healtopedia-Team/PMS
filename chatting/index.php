@@ -429,6 +429,7 @@ Website: http://emilcarlsson.se/
 							}
 							//console.log(inputField)
 							xhr.send(formData);
+							refreshChatRoom();
 						}
 						/*
 						sendBtn.onclick = () => {
