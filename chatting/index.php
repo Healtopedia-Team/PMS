@@ -369,6 +369,8 @@ Website: http://emilcarlsson.se/
 								console.log(`${key}: ${value}`);
 							}
 							//console.log(inputField)
+							refreshChatRoom();
+							refreshUserList();
 							xhr.send(formData);
 							/*
 									$.ajax({
@@ -430,6 +432,7 @@ Website: http://emilcarlsson.se/
 							//console.log(inputField)
 							xhr.send(formData);
 							refreshChatRoom();
+							refreshUserList();
 						}
 						/*
 						sendBtn.onclick = () => {
