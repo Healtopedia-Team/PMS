@@ -14,7 +14,7 @@ if (isset($_POST['reqaccept'])) {
 
 if (isset($_POST['reqreject'])) {
     $confirmid = $_POST['confirmid'];
-    $sql = "UPDATE requestappoint SET req_status = 'rejected' WHERE request_id = '$confirmid'";
+    $sql = "DELETE FROM requestappoint WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>window.location.href = "request-appointment-pending.php";</script>';
     }
