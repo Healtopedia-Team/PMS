@@ -433,6 +433,7 @@ Website: http://emilcarlsson.se/
 							xhr.send(formData);
 							refreshChatRoom();
 							refreshUserList();
+							console.log("Send successfully");
 						}
 						/*
 						sendBtn.onclick = () => {
