@@ -26,7 +26,7 @@
                                     padding: 10px 15px;
                                     border-radius: 20px;
                                     max-width: 205px;
-                                    line-height: 130%;">' . $row['msg'] . '</p>
+                                    line-height: 100%;">' . $row['msg'] . '</p>
                             </li>';
                 } else {//means the message is a file
                     if($row['img_or_not']){//means that it is an image
@@ -41,7 +41,7 @@
                                             padding: 10px 15px;
                                             border-radius: 20px;
                                             max-width: 205px;
-                                            line-height: 180%;"> 
+                                            line-height: 100%;"> 
                                             <img style="max-width: 100%; max-height: 100%;" 
                                             src="' . $row['uploadfile'] . '" alt=""> </p>
                                     </li>';
@@ -58,7 +58,7 @@
                                             padding: 10px 15px;
                                             border-radius: 20px;
                                             max-width: 205px;
-                                            line-height: 180%;"> 
+                                            line-height: 100%;"> 
                                             <a href="' . $row['uploadfile'] . '" download="' . $row['filename'] . '">
                                             <i class="fa fa-download" aria-hidden="true"></i>
                                             '. $row['filename'] . '</a>
@@ -80,7 +80,7 @@
                                     <p style="background: #000000; float: left; display: inline-block; 
                                         color:white; float:left;
                                         padding: 10px 15px; border-radius: 20px;
-                                        max-width: 205px; line-height: 130%;">' . $row['msg'] . '</p>
+                                        max-width: 205px; line-height: 100%;">' . $row['msg'] . '</p>
                                 </li>';
                 } else{
                 if ($row['img_or_not']) {//means that it is an image
