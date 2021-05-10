@@ -526,7 +526,7 @@ Website: http://emilcarlsson.se/
 			xhr.send()
 		}
 		refreshUserList();
-		setInterval(refreshUserList, 600000);
+		setInterval(refreshUserList, 6000000);
 
 
 
