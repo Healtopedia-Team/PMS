@@ -307,11 +307,8 @@ Website: http://emilcarlsson.se/
 						const ChatContent = document.querySelector(".content");
 
 						function scrollToBottom() { //Automatically scroll to the bottom of page as keep showing the latest messages
-							var height = 0;
-							ChatBubbleBox.each(function() {
-								height += $(this).height();
-							})
-							ChatBubbleBox.scrollTop = height;
+
+							ChatBubbleBox.scrollTop = ChatBubbleBox.scrollHeight;
 
 							console.log(ChatBubbleBox.scrollHeight)
 						}
@@ -328,7 +325,8 @@ Website: http://emilcarlsson.se/
 										//personContactWith.innerHTML=data;
 										console.log("getting chat data here!");
 										//refreshChatRoom();
-										scrollToBottom();
+										setInterval(scrollToBottom(), 3000);
+										//scrollToBottom();
 									}
 								}
 							};
@@ -362,7 +360,7 @@ Website: http://emilcarlsson.se/
 									if (xhr.status === 200) {
 										setInterval(refreshChatRoom(), 3000);
 										inputField.value = ""; //clear the input once submitted
-										scrollToBottom();
+										setInterval(scrollToBottom(), 3000);
 										console.log("sendbtn running!!!");
 										console.log(inputField)
 									}
@@ -423,7 +421,7 @@ Website: http://emilcarlsson.se/
 									if (xhr.status === 200) {
 										refreshChatRoom();
 										fileUpload.value = ""; //clear the input once submitted
-										scrollToBottom();
+										setInterval(scrollToBottom(), 3000);
 										console.log("attachmentbtn running!!!");
 										//console.log(inputField)
 									}
