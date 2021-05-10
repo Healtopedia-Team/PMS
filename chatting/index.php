@@ -406,7 +406,7 @@ Website: http://emilcarlsson.se/
 									*/
 						}
 						const fileUpload = form.querySelector(".wrap #fileupload");
-						const attachmentBtn = form.querySelector(".wrap .attachmentbutton");
+						const attachmentBtn = form.querySelector(".wrap .attachmentbtn");
 						attachmentBtn.onclick = () => { // Send the message to database
 							let xhr = new XMLHttpRequest();
 							xhr.open("POST", "uploadfile.php", true);
