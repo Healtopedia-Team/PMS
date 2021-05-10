@@ -40,8 +40,8 @@
                                     padding: 10px 15px;
                                     border-radius: 20px;
                                     max-width: 205px;
-                                    line-height: 130%;"> 
-                                    <img style="width: auto; max-height: 40%;" 
+                                    line-height: 180%;"> 
+                                    <img style="max-width: 100%; max-height: 100%;" 
                                     src="' . $row['uploadfile'] . '" alt=""> </p>
                             </li>';
                 }
