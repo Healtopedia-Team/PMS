@@ -290,7 +290,7 @@ Website: http://emilcarlsson.se/
 			if ($(this).hasClass("active")) {
 				$(".nomessage").css("display", "none");
 				$(".content").css("display", "block");
-				target_userid = $(this).attr("value").split("info-").join(""); //This is used to obtain the target user_id (user wanted to chat with) by saving the id in the li value attr (check userlist.php)
+				target_userid = $(this).attr("id").split("info-").join(""); //This is used to obtain the target user_id (user wanted to chat with) by saving the id in the li value attr (check userlist.php)
 				//alert(target_userid);
 				console.log(target_userid);
 				$.ajax({
