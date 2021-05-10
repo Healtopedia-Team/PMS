@@ -94,7 +94,7 @@
                                     <p style="background: #000000; float: left; display: inline-block; 
                                         color:white; float:left;
                                         padding: 10px 15px; border-radius: 20px;
-                                        max-width: 205px; line-height: 180%;">
+                                        max-width: 205px; line-height: 150%;">
                                         <img style="max-width: 100%; max-height: 100%;" 
                                             src="' . $row['uploadfile'] . '" alt="">
                                     </p>
@@ -110,7 +110,7 @@
                                     <p style="background: #000000; float: left; display: inline-block; 
                                         color:white; float:left;
                                         padding: 10px 15px; border-radius: 20px;
-                                        max-width: 205px; line-height: 180%;">
+                                        max-width: 205px; line-height: 150%;">
                                         <a href="' . $row['uploadfile'] . '" download="' . $row['filename'] . '">
                                         <i class="fa fa-download" aria-hidden="true"></i>
                                         ' . $row['filename'] . '</a>
