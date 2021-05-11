@@ -91,6 +91,7 @@ function check_user($conn)
         $_SESSION["hospital"] = $userdet["hospital"];
         $_SESSION["role"] = $userdet["role"];
         $_SESSION["pic"] = $userdet["user_profile"];
+        $_SESSION["email"] = $userdet["email"];
         header('location:index.php');
     } else {
 ?>
@@ -207,4 +208,157 @@ function add_role($conn)
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
     }
+}
+// Additional function for the chatting
+
+function get_user_data_by_email($conn)
+{
+    $email =$_SESSION["email"];
+    $query = "
+		SELECT * FROM user 
+		WHERE email = :user_email
+		";
+
+    $statement = $conn->prepare($query);
+
+    $statement->bind_param(':user_email', $email);
+
+    if ($statement->execute()) {
+        $user_data = $statement->fetch_assoc();
+    }
+    return $user_data;
+}
+
+function update_user_login_data($conn, $user_token)
+{
+    $user_login_status = $_SESSION["user_login_status"];
+    $user_id = $_SESSION["user_id"];
+    $query = "
+		UPDATE user 
+		SET user_login_status = :user_login_status, user_token = :user_token  
+		WHERE user_id = :user_id
+		";
+
+    $statement = $conn->prepare($query);
+
+    $statement->bind_param(':user_login_status', $user_login_status);
+
+    $statement->bind_param(':user_token', $user_token);
+
+    $statement->bind_param(':user_id', $user_id);
+
+    if ($statement->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function get_user_data_by_id($conn)
+{
+    $user_id = $_SESSION["user_id"];
+    $query = "
+		SELECT * FROM user 
+		WHERE user_id = :user_id";
+
+    $statement = $conn->prepare($query);
+
+    $statement->bind_param(':user_id', $user_id);
+
+    try {
+        if ($statement->execute()) {
+            $user_data = $statement->fetch_assoc();
+        } else {
+            $user_data = array();
+        }
+    } catch (Exception $error) {
+        echo $error->getMessage();
+    }
+    return $user_data;
+}
+/*
+function upload_image($user_profile)
+{
+    $extension = explode('.', $user_profile['name']);
+    $new_name = rand() . '.' . $extension[1];
+    $destination = 'images/' . $new_name;
+    move_uploaded_file($user_profile['tmp_name'], $destination);
+    return $destination;
+}
+*/
+
+
+function get_user_all_data($conn)
+{
+    $query = "
+		SELECT * FROM user
+		";
+
+    $statement = $conn->prepare($query);
+
+    $statement->execute();
+
+    $data = $statement->fetch_assoc();
+
+    return $data;
+}
+
+function get_user_all_data_with_status_count($conn)
+{
+    $user_id = $_SESSION["user_id"];
+    $query = "
+		SELECT user_id, user_name, user_profile, user_login_status, (SELECT COUNT(*) FROM chat_message WHERE to_user_id = :user_id AND from_user_id = chat_user_table.user_id AND status = 'No') AS count_status FROM chat_user_table
+		";
+
+    $statement = $conn->prepare($query);
+
+    $statement->bind_param(':user_id', $user_id);
+
+    $statement->execute();
+
+    $data = $statement->fetch_assoc();
+
+    return $data;
+}
+
+function update_user_connection_id($conn)
+{
+    $user_connection_id = $_SESSION["user_connection_id"];
+    $user_token = $_SESSION["user_token"];
+    $query = "
+		UPDATE user
+		SET user_connection_id = :user_connection_id 
+		WHERE user_token = :user_token
+		";
+
+    $statement = $conn->prepare($query);
+
+    $statement->bind_param(':user_connection_id', $user_connection_id);
+
+    $statement->bind_param(':user_token', $user_token);
+
+    $statement->execute();
+}
+
+function setUserToken($conn){
+
+}
+
+function get_user_id_from_token($conn)
+{
+    $user_token = $_SESSION["user_token"];
+    $query = "
+		SELECT user_id FROM user
+		WHERE user_token = :user_token
+		";
+
+    $statement = $conn->prepare($query);
+
+    $statement->bind_param(':user_token', $user_token);
+
+    $statement->execute();
+
+    $user_id = $statement->fetch_assoc();
+
+    return $user_id;
 }
