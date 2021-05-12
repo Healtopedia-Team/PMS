@@ -2,6 +2,7 @@
 session_start();
 
 include 'dbconnect.php';
+require('database/ChatUser.php');
 
 $theCommand = $_REQUEST['command'];
 switch ($theCommand) {
@@ -49,6 +50,22 @@ function add_user($conn)
         $role = $_POST['role'];
         $img = 'avatar.jpg';
 
+        //Create a new object (ChatUser) which is linked to another chat_user_database
+
+        $user_object = new ChatUser;
+    
+        $user_object->setUserName($_POST['username']);
+        $user_object->setFirstName($_POST["firstname"]);
+        $user_object->setLastName($_POST["lastname"]);
+        $user_object->setUserEmail($_POST['email']);
+        $user_object->setUserPassword($_POST['password']);
+        $user_object->setRole($_POST['role']);
+        $user_object->setHosptial($_POST["hospital"]);
+        $user_object->setUserProfile($user_object->make_avatar(strtoupper($_POST['user_name'][0])));
+        $user_object->setUserStatus('Enable');
+        $user_object->save_data();
+        //$user_data = $user_object->get_user_data_by_email();
+
 
         $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 
         username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img', status='online'";
@@ -64,6 +81,21 @@ function add_user($conn)
         $email = $_POST['email'];
         $role = $_POST['role'];
         $img = 'avatar.jpg';
+
+        //Create a new object (ChatUser) which is linked to another chat_user_database
+
+        $user_object = new ChatUser;
+
+        $user_object->setUserName($_POST['username']);
+        $user_object->setFirstName($_POST["firstname"]);
+        $user_object->setLastName($_POST["lastname"]);
+        $user_object->setUserEmail($_POST['email']);
+        $user_object->setUserPassword($_POST['password']);
+        $user_object->setRole($_POST['role']);
+        $user_object->setHosptial('-');
+        $user_object->setUserProfile($user_object->make_avatar(strtoupper($_POST['user_name'][0])));
+        $user_object->setUserStatus('Enable');
+        $user_object->save_data();
 
 
         $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 

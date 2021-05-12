@@ -179,7 +179,7 @@ class ChatUser
 	function get_user_data_by_email()
 	{
 		$query = "
-			SELECT * FROM user 
+			SELECT * FROM chat_user_table 
 			WHERE email = :user_email
 		";
 
@@ -196,7 +196,7 @@ class ChatUser
 	function save_data()
 	{
 		$query = "
-			INSERT INTO user (first_name, last_name, username, email, password, role, user_profile, status) 
+			INSERT INTO chat_user_table (first_name, last_name, username, email, password, role, user_profile, status) 
 			VALUES (:first_name, :last_name, :username, :email, :password, :role, :user_profile, :status)
 		";
 		$statement = $this->connect->prepare($query);
@@ -224,119 +224,10 @@ class ChatUser
 		}
 	}
 
-	function add_user() //might not need this
-	{
-		if (isset($_POST['hospital'])) {
-			$firstname = $_POST['firstname'];
-			$lastname = $_POST['lastname'];
-			$username = $_POST['username'];
-			$pass = $_POST['password'];
-			$email = $_POST['email'];
-			$hosp = $_POST['hospital'];
-			$role = $_POST['role'];
-			$img = 'avatar.jpg';
-
-			$query = "INSERT INTO user SET first_name=:firstname,last_name=:lastname,email=:email, 
-			username=:username, password=:password, role=:role, hospital=:hosp, user_profile=:user_profile, status='online'";
-			$statement = $this->connect->prepare($query);
-			$statement->bind_param(':username', $this->username);
-
-			$statement->bind_param(':email', $this->email);
-
-			$statement->bind_param(':password', $this->password);
-
-			$statement->bind_param(':user_profile', $this->user_profile);
-
-			$statement->bind_param(':status', $this->status);
-
-			$statement->bind_param(':user_connection_id', $this->user_connection_id);
-
-			$statement->bind_param(':user_token', $this->user_token);
-
-			$statement->execute();
-			if ($statement->execute()) {
-				header('location:users.php');
-			} else {
-				return false;
-			}
-		} else {
-			$hosp = '-';
-			$firstname = $_POST['firstname'];
-			$lastname = $_POST['lastname'];
-			$username = $_POST['username'];
-			$pass = $_POST['password'];
-			$email = $_POST['email'];
-			$role = $_POST['role'];
-			$img = 'avatar.jpg';
-
-
-			$sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 
-				username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img', status='online'";
-			if (mysqli_query($conn, $sql)) {
-				header('location:users.php');
-			}
-		}
-	}
-
-
-	function check_user($conn)
-	{
-		$username = $_POST['username'];
-		$pass = $_POST['password'];
-
-		$sql = "SELECT * FROM user WHERE username='$username' AND password='$pass'";
-		if (mysqli_query($conn, $sql)) {
-
-			$result = mysqli_query($conn, "SELECT * FROM user WHERE username='$username' AND password='$pass'");
-			$userdet = mysqli_fetch_array($result, MYSQLI_ASSOC);
-			$_SESSION["loggedin"] = true;
-			$_SESSION["name"] = $userdet["first_name"];
-			$_SESSION["hospital"] = $userdet["hospital"];
-			$_SESSION["role"] = $userdet["role"];
-			$_SESSION["pic"] = $userdet["user_profile"];
-			$_SESSION["email"] = $userdet["email"];
-			$_SESSION["user_login_status"] = "Online";
-			header('location:index.php');
-		} else {
-		?>
-
-			<div class="alert">
-				<span class="closebtn" onclick="location.href = 'auth-login.php';">&times;</span>
-				<strong>Invalid!</strong> Incorrect password!
-				<?php include 'auth-login.php'; ?>
-			</div>
-		<?php
-
-		}
-	}
-
-	function add_hospital($conn)
-	{
-
-		$hospname = $_POST['hospname'];
-		$hospcompany = $_POST['hospcomp'];
-		$hospphone = $_POST['hospphone'];
-		$hospaddress = $_POST['hospadd'];
-
-		$sql = "INSERT INTO hospital SET hosp_name='$hospname',hosp_company='$hospcompany',hosp_phone='$hospphone', hosp_address='$hospaddress'";
-		if (mysqli_query($conn, $sql)) {
-			header('location:hospitals.php');
-		}
-	}
-	function delete_user($conn)
-	{
-
-		$userid = $_REQUEST['id'];
-		$sql = "DELETE user FROM user WHERE user_id=$userid";
-		if (mysqli_multi_query($conn, $sql)) {
-			header('location:users.php');
-		}
-	}
-
 	function update_user_login_data()
 	{
 		$query = "
-		UPDATE user
+		UPDATE chat_user_table
 		SET user_login_status = :user_login_status, user_token = :user_token  
 		WHERE user_id = :user_id
 		";
@@ -359,7 +250,7 @@ class ChatUser
 	function get_user_data_by_id()
 	{
 		$query = "
-			SELECT * FROM user
+			SELECT * FROM chat_user_table
 			WHERE user_id = :user_id
 			";
 
@@ -391,7 +282,7 @@ class ChatUser
 	function update_data()
 	{
 		$query = "
-		UPDATE user
+		UPDATE chat_user_table
 		SET 
 		first_name = :first_name, 
 		last_name = :last_name,
@@ -432,7 +323,7 @@ class ChatUser
 	function get_user_all_data()
 	{
 		$query = "
-			SELECT * FROM user
+			SELECT * FROM chat_user_table
 		";
 
 		$statement = $this->connect->prepare($query);
@@ -448,8 +339,8 @@ class ChatUser
 	{
 		$query = "
 		SELECT user_id, concat(first_name, ' ',  last_name) as fullname, user_profile, user_login_status, 
-		(SELECT COUNT(*) FROM chat_message WHERE to_user_id = :user_id AND from_user_id = user.user_id AND status = 'No') 
-		AS count_status FROM user
+		(SELECT COUNT(*) FROM chat_message WHERE to_user_id = :user_id AND from_user_id = chat_user_table.user_id AND status = 'No') 
+		AS count_status FROM chat_user_table
 		";
 
 		$statement = $this->connect->prepare($query);
@@ -466,7 +357,7 @@ class ChatUser
 	function update_user_connection_id()
 	{
 		$query = "
-		UPDATE user
+		UPDATE chat_user_table
 		SET user_connection_id = :user_connection_id 
 		WHERE user_token = :user_token
 		";
@@ -483,7 +374,7 @@ class ChatUser
 	function get_user_id_from_token()
 	{
 		$query = "
-		SELECT user_id FROM user
+		SELECT user_id FROM chat_user_table
 		WHERE user_token = :user_token
 		";
 
