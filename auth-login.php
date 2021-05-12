@@ -73,8 +73,8 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right" style="text-align: center;">
-                    <center style= "vertical-align: middle;">
-                        <img src="doc.jpg" class="card-img-top img-fluid" alt="singleminded" style="height: auto;max-width: 50%;">
+                    <center>
+                        <img src="doc.jpg" class="card-img-top img-fluid" alt="singleminded" style="height: auto;max-width: 50%;margin-top: 50%;">
                     </center>
                 </div>
             </div>
