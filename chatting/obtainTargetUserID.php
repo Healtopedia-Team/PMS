@@ -3,7 +3,7 @@
     include "dbconnect.php";
     $_SESSION["target_chat_user"] = $_POST['target_userid'];
     $outgoing_id = $_SESSION["user_id"];
-    //echo $outgoing_id;
+    echo $outgoing_id;
     //console_log($_POST['target_userid']);
     $output = '';
     $target_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
