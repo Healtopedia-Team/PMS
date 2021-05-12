@@ -36,6 +36,8 @@ if (isset($_POST['updatedate'])) {
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#complete<?php echo $row['request_id']; ?>"><i class="bi bi-check2-circle"></i></button>
+
                                                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
 
                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
@@ -67,6 +69,36 @@ if (isset($_POST['updatedate'])) {
                                                                 <i class="bx bx-check d-block d-sm-none"></i>
                                                                 <span class="d-sm-block d-none">Submit</span>
                                                             </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <!--========================================== C O M P L E T E  == M O D A L =====================================-->
+                                        <div class="modal fade text-left" id="complete<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header bg-warning">
+                                                        <h5 class="modal-title white" id="myModalLabel140">
+                                                            Confirm complete the appointment?
+                                                        </h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <form method="POST">
+                                                        <div class="modal-body" style="text-align: center;">
+                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Close</span>
+                                                            </button>
+                                                            <form method="POST">
+                                                                <button type="submit" name="reqcomplete" class="btn btn-warning ml-1">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Confirm</span>
+                                                                </button>
+                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
+                                                            </form>
                                                         </div>
                                                     </form>
                                                 </div>
