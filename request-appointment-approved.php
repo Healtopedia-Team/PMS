@@ -13,6 +13,14 @@ if (isset($_POST['updatedate'])) {
         echo '<script>window.location.href = "request-appointment-approved.php";</script>';
     }
 }
+
+if (isset($_POST['reqcomplete'])) {
+    $confirmid = $_POST['confirmid'];
+    $sql = "UPDATE requestappoint SET req_status = 'completed' WHERE request_id = '$confirmid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>window.location.href = "request-appointment-approved.php";</script>';
+    }
+}
 ?>
 
                             <table class="table table-striped" id="table1">
