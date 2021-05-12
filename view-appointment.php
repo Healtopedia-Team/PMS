@@ -296,7 +296,7 @@ $data3 = json_decode($data3, true);
                                                                             <div class="ans"><?php echo $tickname; ?></div>
                                                                 <?php   } else { ?>
                                                                     <div class="quest">Attendee Name :</div>
-                                                                            <div class="ans"><?php echo $key['billing']['first_name'];echo $key['billing']['last_name']; ?></div>
+                                                                            <div class="ans"><?php echo $key['billing']['first_name']." ".$key['billing']['last_name']; ?></div>
                                                                 <?php   }
                                                                     foreach ($data3 as $key3) {
                                                                         if ($key3['order_id'] == $orderid && $key3['order_item_id'] == $key['line_items'][$q]['id']) {
