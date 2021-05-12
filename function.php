@@ -90,7 +90,7 @@ function check_user($conn)
         $_SESSION["role"] = $userdet["role"];
         $_SESSION["pic"] = $userdet["user_profile"];
         $_SESSION["email"] = $userdet["email"];
-        $_SESSION["user_login_status"] = "Online";
+        $_SESSION["user_login_status"] = "Login";
         header('location:index.php');
     } else {
 ?>
