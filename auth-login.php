@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right">
+                <div id="auth-right" style="text-align: center;">
                     <center>
                         <img src="doc.jpg" class="card-img-top img-fluid" alt="singleminded" style="height: auto;max-width: 50%">
                     </center>
