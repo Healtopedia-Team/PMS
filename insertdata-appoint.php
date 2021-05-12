@@ -7,16 +7,16 @@
     $data2 = file_get_contents('https://pms.healtopedia.com/productjson.php');
     $data2 = json_decode($data2, true);
 
-    foreach ( $data2 as $row2 ) {
-        foreach ( $data as $row ) {
-            if ($row['id'] == $row2['product_id']) {
-                $orderid = $row2['order_id'];
-                $appointid = $row2['id'];
-                $statusapp = $row2['status'];
-                $prodid = $row['id'];
-                $packagename = $row['name'];
-                $startappoint = $row2['start'];
-                $endappoint = $row2['end'];
+    foreach ( $data as $row ) {
+        foreach ( $data2 as $row2 ) {
+            if ($row2['id'] == $row['product_id']) {
+                $orderid = $row['order_id'];
+                $appointid = $row['id'];
+                $statusapp = $row['status'];
+                $prodid = $row2['id'];
+                $packagename = $row2['name'];
+                $startappoint = $row['start'];
+                $endappoint = $row['end'];
                                 
                 $result=mysqli_query($conn, "SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
                 $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
