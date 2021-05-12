@@ -302,15 +302,15 @@ $data3 = json_decode($data3, true);
                                                                     } ?>
                                                                     <div class="quest">IC/ Passport :</div>
                                                                     <div class="ans">
-                                                                        <?php if ($key['line_items'][$q]['meta_data'][1]['key'] == "IC / Passport No.") {
-                                                                            $icpass = $key['line_items'][$q]['meta_data'][1]['value'];
-                                                                            if ($icpass != '') {
+                                                                        <?php 
+                                                                            if ($key['line_items'][$q]['meta_data'][1]['key'] == "IC / Passport No.") {
+                                                                                $icpass = $key['line_items'][$q]['meta_data'][1]['value'];
                                                                                 echo $icpass;
                                                                             } else {
                                                                                 echo $key['billing']['first_name'] . " ";
-                                                                                echo $key['billing']['last_name'] . " - ";
+                                                                                echo $key['billing']['last_name'];
                                                                             }
-                                                                        } ?>
+                                                                        ?>
                                                                     </div>
                                                                     <div class="quest">Gender :</div>
                                                                     <div class="ans">
