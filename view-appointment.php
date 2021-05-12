@@ -254,10 +254,10 @@ $data3 = json_decode($data3, true);
                                                     </div>
 
                                                     <div class="quest">Package Fee :</div>
-                                                    <div class="ans">
-                                                        <?php $totalori = $key['line_items'][$q]['subtotal'];
-                                                        echo "RM " . $totalori;?>
-                                                    </div>
+                                                    <div class="ans"><?php
+                                                                        $totalori = $key['line_items'][$q]['subtotal'];
+                                                                        echo "RM " . $totalori;
+                                                                        ?></div>
 
                                                     <div class="quest">Payment via :</div>
                                                     <div class="ans"><?php echo $key['payment_method_title']; ?></div>
@@ -304,40 +304,132 @@ $data3 = json_decode($data3, true);
                                                                     <div class="ans">
                                                                         <?php if ($key['line_items'][$q]['meta_data'][1]['key'] == "IC / Passport No.") {
                                                                             $icpass = $key['line_items'][$q]['meta_data'][1]['value'];
-                                                                            if ($icpass != '') {
-                                                                                echo $icpass;
+                                                                            echo $icpass;
+                                                                        } else {
+                                                                            if ($key['meta_data'][0]['key'] == "_billing_ic_passport_no") {
+                                                                                echo $key['meta_data'][$q]['value'];
+                                                                            } elseif ($key['meta_data'][1]['key'] == "_billing_ic_passport_no") {
+                                                                                echo $key['meta_data'][1]['value'];
+                                                                            } elseif ($key['meta_data'][2]['key'] == "_billing_ic_passport_no") {
+                                                                                echo $key['meta_data'][2]['value'];
+                                                                            } elseif ($key['meta_data'][3]['key'] == "_billing_ic_passport_no") {
+                                                                                echo $key['meta_data'][3]['value'];
+                                                                            } elseif ($key['meta_data'][4]['key'] == "_billing_ic_passport_no") {
+                                                                                echo $key['meta_data'][4]['value'];
                                                                             } else {
-                                                                                echo $key['billing']['first_name'] . " ";
-                                                                                echo $key['billing']['last_name'] . " - ";
+                                                                                echo "No Data";
                                                                             }
                                                                         } ?>
                                                                     </div>
                                                                     <div class="quest">Gender :</div>
-                                                                    <div class="ans">
-                                                                        <?php if ($key['line_items'][$q]['meta_data'][2]['key'] == "Gender") {
-                                                                            echo $key['line_items'][$q]['meta_data'][2]['value'];
-                                                                        } ?>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][2]['key'] == "Gender") {
+                                                                                            echo $key['line_items'][$q]['meta_data'][2]['value'];
+                                                                                        
+                                                                                    } ?>
                                                                     </div>
                                                                     <div class="quest">Birth Date :</div>
-                                                                    <div class="ans">
-                                                                        <?php if ($key['line_items'][$q]['meta_data'][3]['key'] == "Date of Birth") {
-                                                                            echo $key['line_items'][$q]['meta_data'][3]['value'];
-                                                                        } ?>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][3]['key'] == "Date of Birth") {
+                                                                                            echo $key['line_items'][$q]['meta_data'][3]['value'];
+                                                                                        
+                                                                                    } ?>
                                                                     </div>
                                                                     <div class="quest">Nationality :</div>
-                                                                    <div class="ans">
-                                                                        <?php if ($key['line_items'][$q]['meta_data'][4]['key'] == "Nationality") {
-                                                                            echo $key['line_items'][$q]['meta_data'][4]['value'];
-                                                                        } ?>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][4]['key'] == "Nationality") {
+                                                                                            echo $key['line_items'][$q]['meta_data'][4]['value'];
+                                                                               
+                                                                                    } ?>
                                                                     </div>
                                                                     <div class="quest">Method :</div>
-                                                                    <div class="ans">
-                                                                        <?php if ($key['line_items'][$q]['meta_data'][5]['key'] == "Appointment Method") {
-                                                                            echo $key['line_items'][$q]['meta_data'][5]['value'];
-                                                                        } else {
-                                                                            echo "None";
-                                                                        } ?>
+                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][5]['key'] == "Appointment Method") {
+                                                                                            echo $key['line_items'][$q]['meta_data'][5]['value'];
+                                                                                        }
+                                                                        else echo "None";
+                                                                                    } ?>
                                                                     </div>
+
+                                                                    <!--div class="quest">IC/Passport :</div>
+                                                        <div class="ans">
+                                                            <?php
+                                                            if ($key['meta_data'][0]['key'] == "_billing_ic_passport_no") {
+                                                                echo $key['meta_data'][$q]['value'];
+                                                            } elseif ($key['meta_data'][1]['key'] == "_billing_ic_passport_no") {
+                                                                echo $key['meta_data'][1]['value'];
+                                                            } elseif ($key['meta_data'][2]['key'] == "_billing_ic_passport_no") {
+                                                                echo $key['meta_data'][2]['value'];
+                                                            } elseif ($key['meta_data'][3]['key'] == "_billing_ic_passport_no") {
+                                                                echo $key['meta_data'][3]['value'];
+                                                            } elseif ($key['meta_data'][4]['key'] == "_billing_ic_passport_no") {
+                                                                echo $key['meta_data'][4]['value'];
+                                                            } else {
+                                                                echo "No Data";
+                                                            } ?>
+                                                        </div>
+
+                                                        <div class="quest">Nationality :</div>
+                                                        <div class="ans">
+                                                            <?php
+                                                            if ($key['meta_data'][0]['key'] == "_billing_nationality_") {
+                                                                echo $key['meta_data'][$q]['value'];
+                                                            } elseif ($key['meta_data'][1]['key'] == "_billing_nationality_") {
+                                                                echo $key['meta_data'][1]['value'];
+                                                            } elseif ($key['meta_data'][2]['key'] == "_billing_nationality_") {
+                                                                echo $key['meta_data'][2]['value'];
+                                                            } elseif ($key['meta_data'][3]['key'] == "_billing_nationality_") {
+                                                                echo $key['meta_data'][3]['value'];
+                                                            } elseif ($key['meta_data'][4]['key'] == "_billing_nationality_") {
+                                                                echo $key['meta_data'][4]['value'];
+                                                            } else {
+                                                                echo "No Data";
+                                                            } ?>
+                                                        </div>
+
+                                                        <div class="quest">Gender :</div>
+                                                        <div class="ans">
+                                                            <?php
+                                                            if ($key['meta_data'][0]['key'] == "_billing_gender") {
+                                                                echo $key['meta_data'][$q]['value'];
+                                                            } elseif ($key['meta_data'][1]['key'] == "_billing_gender") {
+                                                                echo $key['meta_data'][1]['value'];
+                                                            } elseif ($key['meta_data'][2]['key'] == "_billing_gender") {
+                                                                echo $key['meta_data'][2]['value'];
+                                                            } elseif ($key['meta_data'][3]['key'] == "_billing_gender") {
+                                                                echo $key['meta_data'][3]['value'];
+                                                            } elseif ($key['meta_data'][4]['key'] == "_billing_gender") {
+                                                                echo $key['meta_data'][4]['value'];
+                                                            } else {
+                                                                echo "No Data";
+                                                            } ?>
+                                                        </div>
+
+                                                        <div class="quest">Birthdate :</div>
+                                                        <div class="ans">
+                                                            <?php
+                                                            if ($key['meta_data'][0]['key'] == "_billing_date_of_birth") {
+                                                                echo $key['meta_data'][$q]['value'];
+                                                            } elseif ($key['meta_data'][1]['key'] == "_billing_date_of_birth") {
+                                                                echo $key['meta_data'][1]['value'];
+                                                            } elseif ($key['meta_data'][2]['key'] == "_billing_date_of_birth") {
+                                                                echo $key['meta_data'][2]['value'];
+                                                            } elseif ($key['meta_data'][3]['key'] == "_billing_date_of_birth") {
+                                                                echo $key['meta_data'][3]['value'];
+                                                            } elseif ($key['meta_data'][4]['key'] == "_billing_date_of_birth") {
+                                                                echo $key['meta_data'][4]['value'];
+                                                            } else {
+                                                                echo "No Data";
+                                                            } ?>
+                                                        </div>
+
+                                                        <div class="quest">Email :</div>
+                                                        <div class="ans"><?php echo $key['billing']['email']; ?></div>
+
+                                                        <div class="quest">Billing Address :</div>
+                                                        <div class="ans">
+                                                            <?php echo $key['billing']['address_1'] . ", ";
+                                                            echo $key['billing']['address_2'] . ", ";
+                                                            echo $key['billing']['postcode'] . ", ";
+                                                            echo $key['billing']['city']; ?>
+                                                            <br><br>
+                                                        </div-->
                                                                     <?php
                                                                     $appdate = date("Y-m-d", $key2['start'] - 28800);
                                                                     $currdate = date("Y-m-d");
