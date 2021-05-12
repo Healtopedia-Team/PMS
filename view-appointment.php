@@ -95,7 +95,7 @@ $data3 = json_decode($data3, true);
 <body>
     <div id="app">
         <?php include 'sidebar.php'; ?>
-        <div id="main" style="margin-top: -50px;">
+        <div id="main" style="margin-top: -70px;">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
                     <i class="bi bi-justify fs-3"></i>
