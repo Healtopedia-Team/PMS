@@ -73,7 +73,7 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
-                    <img src="doc.jpg" class="card-img-top img-fluid" alt="singleminded" style="height: 150px;width: 100px;">
+                    <img src="doc.jpg" class="card-img-top img-fluid" alt="singleminded" style="height: auto;max-width: 50%">
                 </div>
             </div>
         </div>
