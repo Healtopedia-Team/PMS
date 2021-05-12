@@ -76,8 +76,6 @@ function add_user($conn)
 
 function check_user($conn)
 {
-
-
     $username = $_POST['username'];
     $pass = $_POST['password'];
 
@@ -92,6 +90,7 @@ function check_user($conn)
         $_SESSION["role"] = $userdet["role"];
         $_SESSION["pic"] = $userdet["user_profile"];
         $_SESSION["email"] = $userdet["email"];
+        $_SESSION["user_login_status"] = "Online";
         header('location:index.php');
     } else {
 ?>
@@ -209,11 +208,12 @@ function add_role($conn)
         header('location:hospitals.php');
     }
 }
+
 // Additional function for the chatting
 
-function get_user_data_by_email($conn)
+function get_user_data_by_email($conn, $user_email)
 {
-    $email =$_SESSION["email"];
+    $email = $user_email;
     $query = "
 		SELECT * FROM user 
 		WHERE email = :user_email
@@ -229,10 +229,10 @@ function get_user_data_by_email($conn)
     return $user_data;
 }
 
-function update_user_login_data($conn, $user_token)
+function update_user_login_data($conn, $user_login_status, $user_id, $user_token)
 {
-    $user_login_status = $_SESSION["user_login_status"];
-    $user_id = $_SESSION["user_id"];
+    //$user_login_status = $_SESSION["user_login_status"];
+    //$user_id = $_SESSION["user_id"];
     $query = "
 		UPDATE user 
 		SET user_login_status = :user_login_status, user_token = :user_token  
@@ -254,9 +254,9 @@ function update_user_login_data($conn, $user_token)
     }
 }
 
-function get_user_data_by_id($conn)
+function get_user_data_by_id($conn, $userid)
 {
-    $user_id = $_SESSION["user_id"];
+    $user_id = $userid;
     $query = "
 		SELECT * FROM user 
 		WHERE user_id = :user_id";
@@ -303,11 +303,13 @@ function get_user_all_data($conn)
     return $data;
 }
 
-function get_user_all_data_with_status_count($conn)
+function get_user_all_data_with_status_count($conn, $user_id)
 {
-    $user_id = $_SESSION["user_id"];
+    //$user_id = $_SESSION["user_id"];
     $query = "
-		SELECT user_id, user_name, user_profile, user_login_status, (SELECT COUNT(*) FROM chat_message WHERE to_user_id = :user_id AND from_user_id = chat_user_table.user_id AND status = 'No') AS count_status FROM chat_user_table
+		SELECT user_id, username, user_profile, user_login_status, (SELECT COUNT(*) 
+        FROM chat_message WHERE to_user_id = :user_id AND from_user_id = chat_user_table.user_id AND status = 'No') 
+        AS count_status FROM chat
 		";
 
     $statement = $conn->prepare($query);
@@ -321,10 +323,9 @@ function get_user_all_data_with_status_count($conn)
     return $data;
 }
 
-function update_user_connection_id($conn)
+function update_user_connection_id($conn, $connection_id, $user_token)
 {
-    $user_connection_id = $_SESSION["user_connection_id"];
-    $user_token = $_SESSION["user_token"];
+    $user_connection_id = $connection_id;
     $query = "
 		UPDATE user
 		SET user_connection_id = :user_connection_id 
@@ -340,13 +341,9 @@ function update_user_connection_id($conn)
     $statement->execute();
 }
 
-function setUserToken($conn){
-
-}
-
-function get_user_id_from_token($conn)
+function get_user_id_from_token($conn, $token)
 {
-    $user_token = $_SESSION["user_token"];
+    $user_token = $token;
     $query = "
 		SELECT user_id FROM user
 		WHERE user_token = :user_token

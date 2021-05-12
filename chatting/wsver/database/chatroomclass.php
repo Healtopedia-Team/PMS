@@ -1,7 +1,7 @@
 <?php
 session_start();
 //include "./dbconnect.php";
-class ChatRooms
+class PrivateChatRooms
 {
 	private $chat_message_id;
 	private $to_user_id;
