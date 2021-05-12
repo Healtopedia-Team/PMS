@@ -75,6 +75,7 @@
                 <div id="auth-right" style="text-align: center;">
                     <center>
                         <img src="doc.jpg" class="card-img-top img-fluid" alt="singleminded" style="height: auto;max-width: 50%;margin-top: 10%;">
+                        <img src="logo.png" class="card-img-top img-fluid" alt="singleminded">
                     </center>
                 </div>
             </div>
