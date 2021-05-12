@@ -294,9 +294,10 @@ $data3 = json_decode($data3, true);
                                                                             $tickname = $key['line_items'][$q]['meta_data'][0]['value']; ?>
                                                                             <div class="quest">Attendee Name :</div>
                                                                             <div class="ans"><?php echo $tickname; ?></div>
-                                                                <?php   } else { ?>
+                                                                <?php   } else { 
+                                                                            $tickname = $key['billing']['first_name']." ".$key['billing']['last_name']; ?>
                                                                     <div class="quest">Attendee Name :</div>
-                                                                            <div class="ans"><?php echo $key['billing']['first_name']." ".$key['billing']['last_name']; ?></div>
+                                                                            <div class="ans"><?php echo $tickname; ?></div>
                                                                 <?php   }
                                                                     foreach ($data3 as $key3) {
                                                                         if ($key3['order_id'] == $orderid && $key3['order_item_id'] == $key['line_items'][$q]['id']) {
@@ -310,15 +311,20 @@ $data3 = json_decode($data3, true);
                                                                             echo $icpass;
                                                                         } else {
                                                                             if ($key['meta_data'][0]['key'] == "_billing_ic_passport_no") {
-                                                                                echo $key['meta_data'][$q]['value'];
+                                                                                $icpass = $key['meta_data'][$q]['value'];
+                                                                                echo $icpass;
                                                                             } elseif ($key['meta_data'][1]['key'] == "_billing_ic_passport_no") {
-                                                                                echo $key['meta_data'][1]['value'];
+                                                                                $icpass = $key['meta_data'][1]['value'];
+                                                                                echo $icpass;
                                                                             } elseif ($key['meta_data'][2]['key'] == "_billing_ic_passport_no") {
-                                                                                echo $key['meta_data'][2]['value'];
+                                                                                $icpass = $key['meta_data'][2]['value'];
+                                                                                echo $icpass;
                                                                             } elseif ($key['meta_data'][3]['key'] == "_billing_ic_passport_no") {
-                                                                                echo $key['meta_data'][3]['value'];
+                                                                                $icpass = $key['meta_data'][3]['value'];
+                                                                                echo $icpass;
                                                                             } elseif ($key['meta_data'][4]['key'] == "_billing_ic_passport_no") {
-                                                                                echo $key['meta_data'][4]['value'];
+                                                                                $icpass = $key['meta_data'][4]['value'];
+                                                                                echo $icpass;
                                                                             } else {
                                                                                 echo "No Data";
                                                                             }
@@ -385,18 +391,18 @@ $data3 = json_decode($data3, true);
                                                                         } ?>
                                                                     </div>
                                                                     <div class="quest">Method :</div>
-                                                                    <div class="ans"><?php if ($key['line_items'][$q]['meta_data'][5]['key'] == "Appointment Method") {
-                                                                                            echo $key['line_items'][$q]['meta_data'][5]['value'];
-                                                                                        }
-                                                                        else echo "None";
-                                                                                    } ?>
+                                                                    <div class="ans">
+                                                                        <?php if ($key['line_items'][$q]['meta_data'][5]['key'] == "Appointment Method") {
+                                                                            echo $key['line_items'][$q]['meta_data'][5]['value'];
+                                                                        } else echo "None";
+                                                                    } ?>
                                                                     </div>
                                                                     <?php
                                                                     $appdate = date("Y-m-d", $key2['start'] - 28800);
                                                                     $currdate = date("Y-m-d");
                                                                     $yesterday = date('Y-m-d',strtotime("-1 days"));
                                                                     if ($appdate > $yesterday) { ?>
-                                                                    <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&appid=<?php echo $appid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
+                                                                    <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
                                                                     <?php } ?>
                                                                 </li>
                                                             </ul>
