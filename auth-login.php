@@ -73,7 +73,7 @@
             </div>
             <div class="col-lg-7 d-none d-lg-block">
                 <div id="auth-right">
- <a href="index.php"><img src="assets/images/logo/logo.png" alt="Logo"></a>
+                    <img src="doc.jpg" class="card-img-top img-fluid" alt="singleminded">
                 </div>
             </div>
         </div>
