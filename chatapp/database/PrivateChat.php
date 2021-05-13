@@ -1,7 +1,7 @@
 <?php
 session_start();
 //include "./dbconnect.php";
-class PrivateChatRooms
+class PrivateChat
 {
 	private $chat_message_id;
 	private $to_user_id;
@@ -131,6 +131,43 @@ class PrivateChatRooms
 		$statement->execute();
 
 		return $statement->fetch_assoc();
+	}
+
+	function check_upload_file(){
+		if (!empty($this->upload_file)) {
+			$allowedExts = array(
+				"jpg", "jpeg", "gif", "png", "7z", "rar", "zip", "tar.gz", "csv",
+				"xlsx", "xls", "xlsm", "doc", "docx", "txt", "pdf"
+			);
+			$imgExts = array("jpg", "jpeg", "gif", "png");
+			$isImgOrNot = true;
+			$extension = pathinfo($this->upload_file['file']['name'], PATHINFO_EXTENSION);
+			$target_dir = "uploads/";
+			if (in_array($extension, $imgExts)) {
+				$isImgOrNot = 1;
+			} else {
+				$isImgOrNot = 0;
+			}
+
+			if (($this->upload_file["file"]["size"] < 250000000) && in_array($extension, $allowedExts)) {
+				if ($this->upload_file["file"]["error"] > 0) {
+					echo "Return Code: " . $this->upload_file["file"]["error"] . "<br />";
+				} else {
+					if (is_uploaded_file($this->upload_file["file"]["tmp_name"])) {
+						$_source_path = $this->upload_file["file"]["tmp_name"];
+						$_filename = $this->upload_file['file']['name'];
+						$target_path = $target_dir . $this->upload_file["file"]["name"];
+						if (move_uploaded_file($_source_path, $target_path)) {
+							$this->setUpload_file($target_path);
+							$this->setImg_or_not($isImgOrNot);
+							$this->setFilename($_filename);
+						}
+					}
+				}
+			} else {
+				echo "Invalid file";
+			}
+		}
 	}
 
 	function save_chat()

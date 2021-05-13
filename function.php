@@ -155,6 +155,10 @@ function delete_user($conn)
 
     $userid = $_REQUEST['id'];
     $sql = "DELETE user FROM user WHERE user_id=$userid";
+    //chat user table modification here
+
+
+
     if (mysqli_multi_query($conn, $sql)) {
         header('location:users.php');
     }
@@ -171,7 +175,16 @@ function update_user($conn)
     $hosp = $_POST['hospital'];
     $role = $_POST['role'];
 
-
+    $user_object = new ChatUser;
+    $user_object->setUserId($_POST['id']);
+    $user_object->setUserName($_POST['username']);
+    $user_object->setFirstName($_POST["firstname"]);
+    $user_object->setLastName($_POST["lastname"]);
+    $user_object->setUserEmail($_POST['email']);
+    $user_object->setUserPassword($_POST['password']);
+    $user_object->setRole($_POST['role']);
+    $user_object->setHosptial($_POST["hospital"]);
+    $user_object->update_data();
     //hospital might be empty
 
     $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp' WHERE user_id='$id'";
@@ -179,7 +192,7 @@ function update_user($conn)
         header('location:users.php');
     }
 }
-
+//this is used to update the profile picture and the other info
 function update_profile($conn)
 {
     $id = $_POST['id'];
@@ -193,8 +206,22 @@ function update_profile($conn)
     $uploadOk = 1;
     $image_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 
+    $user_object = new ChatUser;
+    $user_object->setUserId($_POST['id']);
+    $user_object->setFirstName($_POST["firstname"]);
+    $user_object->setLastName($_POST["lastname"]);
+    $user_object->setUserEmail($_POST['email']);
+    $user_object->setHosptial($_POST["hospital"]);
+
     if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
-        $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', user_profile='$image' WHERE user_id='$id'";
+        $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', 
+        user_profile='$image' WHERE user_id='$id'";
+        $user_object->setUserProfile($image);
+        $user_object->upload_profile();
+        
+        //chat user table modification here
+        
+        
         if (mysqli_query($conn, $sql)) {
             $_SESSION["name"] = $firstname;
             $_SESSION["hospital"] = $lastname;

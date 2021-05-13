@@ -40,11 +40,10 @@
 
     if ($_POST['searchvalue'] === '') {
     $outgoing_id = $user_id;
-    $sql = "SELECT * FROM user WHERE NOT user_id = '$outgoing_id' ORDER BY user_id DESC";
+    $sql = "SELECT * FROM chat_user_table WHERE NOT user_id = '$outgoing_id' ORDER BY user_id DESC";
     $query = mysqli_query($conn, $sql);
     $output = "";
     ?>
-    <?= console_log(mysqli_fetch_assoc($query)); ?>
     <?php
     if (mysqli_num_rows($query) == 0) {
         $output .= '<li class="contact">

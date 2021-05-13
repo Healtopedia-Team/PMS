@@ -24,7 +24,7 @@ class ChatUser
 
 	public function __construct()
 	{
-		include_once "./dbconnect.php";
+		include_once "././dbconnect.php";
 		$this->connect = $conn;
 	}
 
@@ -196,8 +196,8 @@ class ChatUser
 	function save_data()
 	{
 		$query = "
-			INSERT INTO chat_user_table (first_name, last_name, username, email, password, role, user_profile, status) 
-			VALUES (:first_name, :last_name, :username, :email, :password, :role, :user_profile, :status)
+			INSERT INTO chat_user_table (first_name, last_name, username, email, password, role, hospital, user_profile, status) 
+			VALUES (:first_name, :last_name, :username, :email, :password, :role, :hospital, :user_profile, :status)
 		";
 		$statement = $this->connect->prepare($query);
 
@@ -212,6 +212,8 @@ class ChatUser
 		$statement->bind_param(':password', $this->password);
 
 		$statement->bind_param(':role', $this->role);
+
+		$statement->bind_param(':hospital', $this->hospital);
 
 		$statement->bind_param(':user_profile', $this->user_profile);
 
@@ -245,6 +247,30 @@ class ChatUser
 		} else {
 			return false;
 		}
+	}
+	
+	function upload_profile(){
+		$query = "
+		UPDATE user SET first_name=:first_name,last_name=:last_name,email=:email, hospital=:hospital, 
+		user_profile=:user_profile WHERE user_id=:user_id";
+		$statement = $this->connect->prepare($query);
+
+		$statement->bind_param(':first_name', $this->first_name);
+
+		$statement->bind_param(':last_name', $this->last_name);
+
+		$statement->bind_param(':email', $this->email);
+
+		$statement->bind_param(':hospital', $this->hospital);
+
+		$statement->bind_param(':user_profile', $this->user_profile);
+
+		if ($statement->execute()) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 	function get_user_data_by_id()
@@ -291,7 +317,6 @@ class ChatUser
 		password = :password, 
 		role = :role,
 		user_profile = :user_profile  
-
 		WHERE user_id = :user_id
 		";
 
