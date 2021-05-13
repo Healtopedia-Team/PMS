@@ -337,12 +337,12 @@ Website: http://emilcarlsson.se/
                     <div class="wrap">
                         <div style="float:left">
                             <input type="file" id="fileupload" name="file" hidden>
-                            <button class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                            <button type="submit" class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
                         </div>
                         <div>
                             <input type="text" class="incoming_id" name="incoming_id" hidden>
                             <input type="text" name="message" class="input-field" id="chat_message" placeholder="Write your message..." />
-                            <button type="submit" class="attachmentbtn"><i class="fa fa-paperclip attachment" aria-hidden="true"></i></button>
+                            <button type="submit" class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                         </div>
                     </div>
                     
