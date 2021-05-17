@@ -301,8 +301,7 @@
 		<td height="24" align="left" valign="middle"><font color="#000000"><br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
-		<td align="left" valign="middle"><b><font color="#000000">Benjamin Philip George</font></b></td>
-		<td align="left" valign="middle"><font color="#000000"><br></font></td>
+		<td align="left" valign="middle" colspan="2"><b><font color="#000000">Benjamin Philip George</font></b></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 		<td align="left" valign="middle"><font color="#000000"><br></font></td>
 	</tr>
