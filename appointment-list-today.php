@@ -3,15 +3,15 @@
 
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                 $appointsql = mysqli_query($conn, "SELECT * FROM appointwoo");
-                $user = mysqli_fetch_all($appointsql, MYSQLI_ASSOC);
+                $ansappoint = mysqli_fetch_all($appointsql, MYSQLI_ASSOC);
                 ?>
 
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary active" onclick="listall()">All</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="listtoday()">Today</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
+                                <button type="button" class="btn btn-outline-primary active" onclick="listtoday()">Today</button>
                                 <button type="button" class="btn btn-outline-primary" onclick="listupcoming()">Upcoming</button>
                                 <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
                             </div>
@@ -43,11 +43,14 @@
                                 </thead>
                                 <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach( $user as $row ){
+                                <?php foreach( $ansappoint as $row ){
                                     $appdate = date('Y-m-d', $row['start_appoint']);
                                     $todaydate = date("Y-m-d");
 
                                     if ($appdate == $todaydate) {
+                                        $orderid = $row['order_id'];
+                                        $ordersql = mysqli_query($conn, "SELECT * FROM orderwoo WHERE order_id = '$orderid'");
+                                        $ansorder = mysqli_fetch_all($ordersql, MYSQLI_ASSOC);
                                 ?>
                                     <tr>
                                         <td>
@@ -57,6 +60,10 @@
                                             <?php echo $row['order_id'];?>
                                         </td>
                                         <td>
+                                            <?php foreach ( $ansorder as $row2 ) {
+                                                echo $row2['firstname'];
+                                            }
+                                            ?>
                                         </td>
                                         <td>
                                         </td>
