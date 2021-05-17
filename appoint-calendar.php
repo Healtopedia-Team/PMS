@@ -63,6 +63,9 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                     <div class="section">
                         <div class="row">
                             <div class="card">
+                                <div class="card-body">
+                                    <div id="calendar"></div>
+                                </div>
                                 <div class="modal fade" id="detailinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
