@@ -2,7 +2,7 @@
                 include 'appointment-list-header.php';
 
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $appointsql = mysqli_query($conn, "SELECT * FROM appointwoo");
+                $appointsql = mysqli_query($conn, "SELECT appointwoo.start_appoint, appointwoo.order_id, orderwoo.firstname, orderwoo.lastname, orderwoo.status, SUBSTRING(orderwoo.order_date,1,10) AS orderwoo.order_date FROM appointwoo LEFT JOIN  orderwoo ON orderwoo.order_id=appointwoo.order_id");
                 $user = mysqli_fetch_all($appointsql, MYSQLI_ASSOC);
                 ?>
 
@@ -10,8 +10,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
-                                <button type="button" class="btn btn-outline-primary active" onclick="listtoday()">Today</button>
+                                <button type="button" class="btn btn-outline-primary active" onclick="listall()">All</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="listtoday()">Today</button>
                                 <button type="button" class="btn btn-outline-primary" onclick="listupcoming()">Upcoming</button>
                                 <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
                             </div>
@@ -54,6 +54,7 @@
                                             <?php echo $i; ?>
                                         </td>
                                         <td>
+                                            <?php echo $row['firstname'];?>
                                         </td>
                                         <td>
                                         </td>
