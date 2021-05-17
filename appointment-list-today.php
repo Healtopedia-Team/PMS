@@ -2,7 +2,8 @@
                 include 'appointment-list-header.php';
 
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $result = mysqli_query($conn, "SELECT firstname, lastname, order_id, cust_id, status, SUBSTRING(order_date,1,10) AS order_date FROM orderwoo ORDER BY order_id DESC");
+                $todaydate = date("Y-m-d");
+                $result = mysqli_query($conn, "SELECT firstname, lastname, order_id, cust_id, status, SUBSTRING(order_date,1,10) AS order_date FROM orderwoo WHERE order_date = '$todaydate' ORDER BY order_id DESC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
 
@@ -43,42 +44,43 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php 
+                                    <?php foreach ($user as $row) {
                                         $orderid = $row['order_id'];
                                         $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
                                         $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
-                                        foreach ($timee as $rows) {
-                                            $todayapp = date('Y-m-d', $rows['start_appoint']);
-                                            $todaydate = date("Y-m-d");
-
-                                            if ($todayapp == $todaydate) {
                                     ?>
-                                                <tr>
-                                                    <td>
-                                                        <?php echo $i; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['order_id']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['order_date']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $todayapp; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['status']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>    
+                                        <tr>
+                                            <td>
+                                                <?php echo $i; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['order_id']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['order_date']; ?>
+                                            </td>
+                                            <td>
+                                                <?php foreach ($timee as $rows) {
+                                                    $todayapp = date('Y-m-d', $rows['start_appoint']);
+                                                    $todaydate = date("Y-m-d");
+                                                    if ($todayapp == $todaydate) {
+                                                        echo $todayapp;
+                                                    }
+                                                } ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['status']; ?>
+                                            </td>
+                                            <td>
+                                                <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
+                                            </td>
+                                        </tr>
                                         <?php $i++; ?>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
