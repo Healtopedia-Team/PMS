@@ -51,6 +51,8 @@
                                         $orderid = $row['order_id'];
                                         $ordersql = mysqli_query($conn, "SELECT * FROM orderwoo WHERE order_id = '$orderid'");
                                         $ansorder = mysqli_fetch_all($ordersql, MYSQLI_ASSOC);
+
+                                        foreach ( $ansorder as $row2 ) {
                                 ?>
                                     <tr>
                                         <td>
@@ -60,10 +62,7 @@
                                             <?php echo $row['order_id'];?>
                                         </td>
                                         <td>
-                                            <?php foreach ( $ansorder as $row2 ) {
-                                                echo $row2['firstname'];
-                                            }
-                                            ?>
+                                            <?php echo $row2['firstname'];?>
                                         </td>
                                         <td>
                                         </td>
@@ -77,7 +76,7 @@
                                         </td>
                                     </tr>
                                 <?php $i++; ?>
-                                <?php } } ?>
+                                <?php } } } ?>
                                 </tbody>
                             </table>
                         </div>
