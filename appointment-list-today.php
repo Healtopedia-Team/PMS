@@ -65,9 +65,13 @@
                                             <td>
                                                 <?php echo $row['order_date']; ?>
                                             </td>
-                                            <!--td>
-                                                <?php echo date('Y-m-d', $rows['start_appoint']); ?>
-                                            </td-->
+                                            <td>
+                                                <?php foreach ($timee as $rows) {
+                                                    if (date('Y-m-d', $rows['start_appoint']) = $currdate) {
+                                                        echo date('Y-m-d', $rows['start_appoint']);
+                                                    }
+                                                } ?>
+                                            </td>
                                             <td>
                                                 <?php echo $row['status']; ?>
                                             </td>
