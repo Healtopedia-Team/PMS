@@ -49,7 +49,8 @@
                                         $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid");
                                         $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
-                                        if (date('Y-m-d', $rows['start_appoint']) = $currdate) {
+                                        foreach ($timee as $rows) {
+                                            if (date('Y-m-d', $rows['start_appoint']) = $currdate) {
                                     ?>
                                         <tr>
                                             <td>
@@ -65,9 +66,7 @@
                                                 <?php echo $row['order_date']; ?>
                                             </td>
                                             <td>
-                                                <?php foreach ($timee as $rows) :
-                                                    echo date('Y-m-d', $rows['start_appoint']);
-                                                endforeach; ?>
+                                                <?php echo date('Y-m-d', $rows['start_appoint']); ?>
                                             </td>
                                             <td>
                                                 <?php echo $row['status']; ?>
@@ -77,6 +76,7 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
+                                    <?php } ?>
                                     <?php } ?>
                                     <?php } ?>
                                 </tbody>
