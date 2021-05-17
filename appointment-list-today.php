@@ -49,7 +49,7 @@
 
                                     if ($appdate == $todaydate) {
                                         $orderid = $row['order_id'];
-                                        $ordersql = mysqli_query($conn, "SELECT * FROM orderwoo WHERE order_id = '$orderid'");
+                                        $ordersql = mysqli_query($conn, "SELECT firstname, lastname, cust_id, status, SUBSTRING(order_date,1,10) AS order_date FROM orderwoo WHERE order_id = '$orderid'");
                                         $ansorder = mysqli_fetch_all($ordersql, MYSQLI_ASSOC);
 
                                         foreach ( $ansorder as $row2 ) {
@@ -62,14 +62,16 @@
                                             <?php echo $row['order_id'];?>
                                         </td>
                                         <td>
-                                            <?php echo $row2['firstname'];?>
+                                            <?php echo $row2['firstname'];?> <?php echo $row2['lastname']; ?>
                                         </td>
                                         <td>
+                                            <?php echo $row2['order_date'];?>
                                         </td>
                                         <td>
                                             <?php echo $appdate; ?>
                                         </td>
                                         <td>
+                                            <?php echo $row2['status'];?>
                                         </td>
                                         <td>
                                             <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
