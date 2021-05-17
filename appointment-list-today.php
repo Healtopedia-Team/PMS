@@ -45,12 +45,8 @@
                                     <?php $i = 1; ?>
                                     <?php foreach ($user as $row) {
                                         $orderid = $row['order_id'];
-                                        $currdate = date('Y-m-d');
-                                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid");
+                                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
                                         $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
-
-                                        //foreach ($timee as $rows) {
-                                          //  if (date('Y-m-d', $rows['start_appoint']) = $currdate) {
                                     ?>
                                         <tr>
                                             <td>
@@ -67,10 +63,8 @@
                                             </td>
                                             <td>
                                                 <?php foreach ($timee as $rows) {
-                                                    $apptodaydate = date('Y-m-d', $rows['start_appoint']);
-                                                    if ($apptodaydate = date("Y-m-d")) {
-                                                        echo date('Y-m-d', $rows['start_appoint']);
-                                                    }
+                                                    //echo date('Y-m-d', $rows['start_appoint']);
+                                                    echo date("Y-m-d");
                                                 } ?>
                                             </td>
                                             <td>
