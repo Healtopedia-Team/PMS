@@ -152,7 +152,7 @@
 	</tr>
 	<tr>
 		<td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="24" align="left" valign="middle"><font color="#000000">CO19</font></td>
-		<td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle"><font color="#000000">SUNWAY MEDICAL CENTRE VELOCITY COVID-19 WALK IN TESTING</font></td>
+		<td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle"><font color="#000000">KUALA LUMPUR INTERNATIONAL HEALTHCARE CENTRE DRIVE THRU RTK-ANTIGEN TEST (23/01/2021) (1:30 PM) (SEOW SIEW YING)</font></td>
 		<td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle" sdval="3" sdnum="1033;"><font color="#000000">3</font></td>
 		<td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdval="351" sdnum="1033;0;#,##0.00;(#,##0.00)"><font color="#000000">351.00</font></td>
 		<td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3" sdval="1053" sdnum="1033;0;#,##0.00;(#,##0.00)"><font color="#000000">1,053.00</font></td>
