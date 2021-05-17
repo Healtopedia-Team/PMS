@@ -7,7 +7,7 @@
                 ?>
 
                 <section class="section">
-                    <div class="card">s
+                    <div class="card">
                         <div class="card-body">
                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
@@ -47,36 +47,37 @@
                                         $orderid = $row['order_id'];
                                         $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
                                         $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+
+                                        foreach ($timee as $rows) {
+                                            $todayapp = date('Y-m-d', $rows['start_appoint']);
+                                            $todaydate = date("Y-m-d");
+
+                                            if ($todayapp == $todaydate) {
                                     ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $i; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['order_id']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['order_date']; ?>
-                                            </td>
-                                            <td>
-                                                <?php foreach ($timee as $rows) {
-                                                    $todayapp = date('Y-m-d', $rows['start_appoint']);
-                                                    $todaydate = date("Y-m-d");
-                                                    if ($todayapp == $todaydate) {
-                                                        echo $todayapp;
-                                                    }
-                                                } ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['status']; ?>
-                                            </td>
-                                            <td>
-                                                <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
-                                            </td>
-                                        </tr>
+                                                <tr>
+                                                    <td>
+                                                        <?php echo $i; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['order_id']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['order_date']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $todayapp; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $row['status']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>    
                                         <?php $i++; ?>
                                     <?php } ?>
                                 </tbody>
