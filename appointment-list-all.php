@@ -62,9 +62,9 @@
                                                 <?php echo $row['order_date']; ?>
                                             </td>
                                             <td>
-                                                <?php foreach ($timee as $rows) :
+                                                <?php foreach ($timee as $rows) {
                                                     echo date('Y-m-d', $rows['start_appoint']);
-                                                endforeach; ?>
+                                                } ?>
                                             </td>
                                             <td>
                                                 <?php echo $row['status']; ?>
