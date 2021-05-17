@@ -2,7 +2,6 @@
 session_start();
 
 include 'dbconnect.php';
-require('database/ChatUser.php');
 
 $theCommand = $_REQUEST['command'];
 switch ($theCommand) {
