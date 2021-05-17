@@ -11,12 +11,16 @@
                         <div class="card-body">
                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-primary active" onclick="listall()">All</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="listtoday()">Today</button>
                                 <button type="button" class="btn btn-outline-primary" onclick="listupcoming()">Upcoming</button>
                                 <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
                             </div>
                             <script>
                                 function listall(){
                                     window.location.href="https://pms.healtopedia.com/appointment-list-all.php";
+                                }
+                                function listtoday(){
+                                    window.location.href="https://pms.healtopedia.com/appointment-list-today.php";
                                 }
                                 function listupcoming(){
                                     window.location.href="https://pms.healtopedia.com/appointment-list-upcoming.php";
@@ -38,40 +42,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                    <?php $i = 1; ?>
-                    <?php foreach ($user as $row) {
-                        $orderid = $row['order_id'];
-                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
-                        $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
-                    ?>
-                        <tr>
-                            <td>
-                                <?php echo $i; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['order_id']; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['order_date']; ?>
-                            </td>
-                            <td>
-                                <?php foreach ($timee as $rows) :
-                                    echo date('Y-m-d', $rows['start_appoint']);
-                                endforeach; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['status']; ?>
-                            </td>
-                            <td>
-                                <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
-                            </td>
-                        </tr>
-                        <?php $i++; ?>
-                    <?php } ?>
-                </tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($user as $row) {
+                                        $orderid = $row['order_id'];
+                                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
+                                        $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+                                    ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $i; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['order_id']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['order_date']; ?>
+                                            </td>
+                                            <td>
+                                                <?php foreach ($timee as $rows) :
+                                                    echo date('Y-m-d', $rows['start_appoint']);
+                                                endforeach; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['status']; ?>
+                                            </td>
+                                            <td>
+                                                <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye-fill"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    <?php } ?>
+                                </tbody>
                             </table>
                         </div>
                     </div>
