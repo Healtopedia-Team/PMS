@@ -4,20 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Application - Mazer Admin Dashboard</title>
-    
+    <title>Layout Vertical 1 Column - Mazer</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
-    
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
 </head>
 
-<body class="text-center">
-<table cellspacing="0" border="0">
+<body>
+    <nav class="navbar navbar-light">
+        <div class="container d-block">
+            <a href="index.html"><i class="bi bi-chevron-left"></i></a>
+            <a class="navbar-brand ms-4" href="index.html">
+                <img src="assets/images/logo/logo.png">
+            </a>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-body">
+            <table cellspacing="0" border="0">
 	<colgroup width="140"></colgroup>
 	<colgroup width="174"></colgroup>
 	<colgroup width="188"></colgroup>
@@ -338,10 +347,11 @@
 	<tr>
 		</tr>
 </tbody></table>
-<script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    
-    <script src="assets/js/main.js"></script>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
