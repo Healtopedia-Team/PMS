@@ -23,7 +23,7 @@
     </nav>
 
 
-    <div class="container">
+    <div class="container" style="margin: auto;">
         <div class="card mt-5">
             <div class="card-body">
             <table cellspacing="0" border="0">
