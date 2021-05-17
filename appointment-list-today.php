@@ -2,7 +2,7 @@
                 include 'appointment-list-header.php';
 
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $appointsql = mysqli_query($conn, "SELECT appointwoo.start_appoint, appointwoo.order_id, orderwoo.firstname, orderwoo.lastname, orderwoo.status, SUBSTRING(orderwoo.order_date,1,10) AS orderwoo.order_date FROM appointwoo LEFT JOIN  orderwoo ON orderwoo.order_id=appointwoo.order_id");
+                $appointsql = mysqli_query($conn, "SELECT * FROM appointwoo");
                 $user = mysqli_fetch_all($appointsql, MYSQLI_ASSOC);
                 ?>
 
@@ -54,7 +54,6 @@
                                             <?php echo $i; ?>
                                         </td>
                                         <td>
-                                            <?php echo $row['firstname'];?>
                                         </td>
                                         <td>
                                         </td>
