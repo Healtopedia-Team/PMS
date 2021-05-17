@@ -22,6 +22,6 @@ use Dompdf\Dompdf;
   $dompdf->render();
 
   // Output the generated PDF (1 = download and 0 = preview)
-  $dompdf->stream("Healtopedia-Passport-Verifier",array("Attachment"=> false));
+  $dompdf->stream("Webslesson", array("Attachment"=>0));
 
 ?>
