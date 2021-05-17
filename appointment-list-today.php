@@ -68,7 +68,7 @@
                                             <td>
                                                 <?php foreach ($timee as $rows) {
                                                     $apptodaydate = date('Y-m-d', $rows['start_appoint']);
-                                                    if ($apptodaydate = $currdate) {
+                                                    if ($apptodaydate = date("Y-m-d")) {
                                                         echo date('Y-m-d', $rows['start_appoint']);
                                                     }
                                                 } ?>
