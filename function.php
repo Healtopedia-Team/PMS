@@ -52,7 +52,7 @@ function add_user($conn)
         //Create a new object (ChatUser) which is linked to another chat_user_database
 
         $user_object = new ChatUser;
-    
+
         $user_object->setUserName($_POST['username']);
         $user_object->setFirstName($_POST["firstname"]);
         $user_object->setLastName($_POST["lastname"]);
@@ -217,10 +217,10 @@ function update_profile($conn)
         user_profile='$image' WHERE user_id='$id'";
         $user_object->setUserProfile($image);
         $user_object->upload_profile();
-        
+
         //chat user table modification here
-        
-        
+
+
         if (mysqli_query($conn, $sql)) {
             $_SESSION["name"] = $firstname;
             $_SESSION["hospital"] = $lastname;
