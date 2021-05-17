@@ -47,7 +47,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                 eventClick:function(event)
                 {
                   var title = event.title;
-                  alert(title);
+                  $('#modal').modal('show');
                 }
             });
         });
