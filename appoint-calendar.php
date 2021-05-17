@@ -65,7 +65,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                             <div class="card">
                                 <div class="card-body">
                                     <div id="calendar"></div>
-                                    <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Launch Modal</button>
+                                    <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#detailinfo">Launch Modal</button>
                                 </div>
                                 <div class="modal fade" id="detailinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
