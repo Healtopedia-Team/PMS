@@ -44,6 +44,11 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                 events: 'load.php',
                 selectable:true,
                 selectHelper:true,
+                eventClick:function(event)
+                {
+                  var title = event.title;
+                  alert("Event name is "+title);
+                }
             });
         });
     </script>
