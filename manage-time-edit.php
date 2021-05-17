@@ -77,6 +77,9 @@ if (isset($_POST['submit'])) {
     }
 }
 
+$fetchtime = mysqli_query($conn, "SELECT * FROM xtime WHERE timedisdate = $edittime");
+$resultfetch = mysqli_fetch_all($fetchtime, MYSQLI_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -151,6 +154,7 @@ if (isset($_POST['submit'])) {
                                 <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." value="<?php echo $_GET['date'];?>" style="display: none;">
                                     <label>Select Date:</label><br />
                                     <br>
+                                    <?php foreach ( $resultfetch as $fetchrow ) {?>
                                     <table>
                                         <tbody>
                                             <tr>
@@ -161,7 +165,10 @@ if (isset($_POST['submit'])) {
                                                                 <input type="checkbox" name="time" checked="true" value="09:00AM" style="display: none;">&nbsp;09:00AM
                                                             </div>
                                                         </div>
-                                                        <select name="dtime" class="custom-select" value="tryyyy">
+                                                        <select name="dtime" class="custom-select">
+                                                            <?php if($fetchrow['timedisable'] == '09:00AM'){?>
+                                                            <option value="<?php echo $fetchrow['timeonoff'];?>"></option>
+                                                            <?php } ?>
                                                             <option value="On">On</option>
                                                             <option value="Off">Off</option>
                                                         </select>
@@ -359,6 +366,7 @@ if (isset($_POST['submit'])) {
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <?php } ?>
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" name="submit" class="btn btn-primary">Close Slot</button>
                                     </div>
