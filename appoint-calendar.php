@@ -47,7 +47,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                 eventClick:function(event)
                 {
                   var title = event.title;
-                  $('#exampleModalCenter').modal('show');
+                  $('#detailinfo').modal('show');
                 }
             });
         });
@@ -67,11 +67,11 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                                     <div id="calendar"></div>
                                     <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Launch Modal</button>
                                 </div>
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal fade" id="detailinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle">Vertically Centered</h5>
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">Event Name</h5>
                                                 <button type="button" class="close" data-bs-dismiss="modal"
                                                 aria-label="Close">
                                                     <i data-feather="x"></i>
@@ -79,12 +79,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                                             </div>
                                             <div class="modal-body">
                                                 <p>
-                                                    Croissant jelly-o halvah chocolate sesame snaps. Brownie
-                                                    caramels candy
-                                                    canes chocolate cake
-                                                    marshmallow icing lollipop I love. Gummies macaroon donut
-                                                    caramels
-                                                    biscuit topping danish.
+                                                    Event detail here......
                                                 </p>
                                             </div>
                                             <div class="modal-footer">
