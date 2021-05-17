@@ -46,7 +46,7 @@
                                     <?php foreach ($user as $row) {
                                         $orderid = $row['order_id'];
                                         $currdate = date('Y-m-d');
-                                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid");
+                                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
                                         $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
                                         if (date('Y-m-d', $rows['start_appoint']) = $currdate) {
