@@ -9,7 +9,7 @@
 	<tbody><tr>
 		<td height="46" align="left" valign="middle"><font size="5" color="#000000"><br></font></td>
 		<td align="left" valign="middle"><font size="5" color="#000000"><br></font></td>
-		<td colspan="2" rowspan="2" align="left" valign="middle"><font size="5" color="#000000"><br><img src="./oevda-9gjm3_files/oevda-9gjm3_html_8e604e6f3332a8a5.png" width="229" height="66" hspace="25" vspace="14">
+		<td colspan="2" rowspan="2" align="left" valign="middle"><font size="5" color="#000000"><br><img src="images/header.png" width="229" height="66" hspace="25" vspace="14">
 		</font></td>
 		<td align="right" valign="middle"><b><font size="5" color="#8394C9"><br></font></b></td>
 		<td align="left" valign="bottom" bgcolor="#FFFFFF"><font color="#222222"><br></font></td>
@@ -303,7 +303,7 @@
 		<td colspan="7" height="24" align="center" valign="middle"><b><font color="#000000">Vignesh Menon, +6017-643-9928, vignesh@georgehealth.care</font></b></td>
 		</tr>
 	<tr>
-		<td colspan="7" rowspan="7" height="168" align="center" valign="middle"><b><font color="#000000"><br><img src="./oevda-9gjm3_files/oevda-9gjm3_html_57fe582c1c99d94f.png" width="809" height="129" hspace="44" vspace="22">
+		<td colspan="7" rowspan="7" height="168" align="center" valign="middle"><b><font color="#000000"><br><img src="images/footer.png" width="809" height="129" hspace="44" vspace="22">
 		</font></b></td>
 		</tr>
 	<tr>
