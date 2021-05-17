@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout Vertical 1 Column - Mazer</title>
+    <title>Purchase Order</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
@@ -26,7 +26,7 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-body">
-            <table cellspacing="0" border="0" style="width: 100%;">
+            <table cellspacing="0" border="0" style="width: 90%;">
 	<colgroup width="140"></colgroup>
 	<colgroup width="174"></colgroup>
 	<colgroup width="188"></colgroup>
