@@ -54,6 +54,7 @@
                                             <?php echo $i; ?>
                                         </td>
                                         <td>
+                                            <?php echo $row['order_id'];?>
                                         </td>
                                         <td>
                                         </td>
