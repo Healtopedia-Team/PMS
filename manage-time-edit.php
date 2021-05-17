@@ -161,7 +161,7 @@ if (isset($_POST['submit'])) {
                                                                 <input type="checkbox" name="time" checked="true" value="09:00AM" style="display: none;">&nbsp;09:00AM
                                                             </div>
                                                         </div>
-                                                        <select name="dtime" class="custom-select">
+                                                        <select name="dtime" class="custom-select" value="tryyyy">
                                                             <option value="On">On</option>
                                                             <option value="Off">Off</option>
                                                         </select>
