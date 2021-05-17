@@ -1,4 +1,6 @@
 <?php include 'dbconnect.php';
+include('database/ChatUser.php');
+
 
 session_start();
 
