@@ -25,8 +25,8 @@
 
     <div class="container">
         <div class="card mt-5">
-            <div class="card-body" style="margin: auto;">
-            <table cellspacing="0" border="0">
+            <div class="card-body">
+            <table cellspacing="0" border="0" style="width: 100%;">
 	<colgroup width="140"></colgroup>
 	<colgroup width="174"></colgroup>
 	<colgroup width="188"></colgroup>
