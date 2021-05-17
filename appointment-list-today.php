@@ -7,7 +7,7 @@
                 ?>
 
                 <section class="section">
-                    <div class="card">
+                    <div class="card">s
                         <div class="card-body">
                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
@@ -63,8 +63,11 @@
                                             </td>
                                             <td>
                                                 <?php foreach ($timee as $rows) {
-                                                    //echo date('Y-m-d', $rows['start_appoint']);
-                                                    echo date("Y-m-d");
+                                                    $todayapp = date('Y-m-d', $rows['start_appoint']);
+                                                    $todaydate = date("Y-m-d");
+                                                    if ($todayapp == $todaydate) {
+                                                        echo $todayapp;
+                                                    }
                                                 } ?>
                                             </td>
                                             <td>
