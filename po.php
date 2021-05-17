@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
 </head>
 
-<body>
+<body class="text-center">
 <table cellspacing="0" border="0">
 	<colgroup width="140"></colgroup>
 	<colgroup width="174"></colgroup>
