@@ -27,6 +27,13 @@
         <div class="card mt-5">
             <div class="card-body">
             <table cellspacing="0" border="0" style="width: 100%;">
+	<colgroup width="140"></colgroup>
+	<colgroup width="174"></colgroup>
+	<colgroup width="188"></colgroup>
+	<colgroup width="91"></colgroup>
+	<colgroup width="105"></colgroup>
+	<colgroup width="81"></colgroup>
+	<colgroup width="113"></colgroup>
 	<tbody><tr>
 		<td height="46" align="left" valign="middle"><font size="5" color="#000000"><br></font></td>
 		<td align="left" valign="middle"><font size="5" color="#000000"><br></font></td>
