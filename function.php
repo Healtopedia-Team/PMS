@@ -260,8 +260,20 @@ function add_role($conn)
 
     $displayname = $_POST['dispname'];
     $hospital = $_POST['hospital'];
-
-    $sql = "INSERT INTO roles SET role_name='$displayname',hospital='$hospital'";
+    $app_view = $_POST['view-appointment-list'];
+    $app_calendar = $_POST['view-appointment-calendar'];
+    $app_approve = $_POST['approve-appointment-attendance'];
+    $req_view = $_POST['view-appointment-request'];
+    $req_add = $_POST['add-appointment-request'];
+    $req_postpone = $_POST['postpone-appointment-request'];
+    $req_reject = $_POST['reject-appointment-request'];
+    $man_time = $_POST['manage-time'];
+    $man_date = $_POST['manage-date'];
+    $man_user = $_POST['manage-user'];
+    $man_role = $_POST['manage-user-role'];
+    $man_hospital = $_POST['manage-hospital'];
+    $finance_report = $_POST['view-financial-report'];
+    $sql = "INSERT INTO roles SET role_name='$displayname',hospital='$hospital',app_view='$app_view',app_calendar='$app_calendar',app_approve='$app_approve',req_view='$req_view',req_add='$req_add',man_date='$man_date',man_time='$man_time',man_user='$man_user',man_role='$man_role',req_reject='$req_reject',req_postpone='$req_postpone',man_hospital='$man_hospital',finance_report='$finance_report'";
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
     }
