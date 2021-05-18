@@ -4,7 +4,7 @@ $connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Heali
 
 $data = array();
 
-$query = "SELECT * FROM calendar ORDER BY calendar_id";
+$query = "SELECT * FROM appointwoo ORDER BY order_id DESC";
 
 $statement = $connect->prepare($query);
 
@@ -15,10 +15,10 @@ $result = $statement->fetchAll();
 foreach($result as $row)
 {
     $data[] = array(
-        'id'   => $row["calendar_id"],
-        'title'   => $row["event_title"],
-        'start'   => $row["start_event"],
-        'end'   => $row["end_event"]
+        'id'   => $row["order_id"],
+        'title'   => $row["pack_name"],
+        'start'   => date('Y-m-d H:i',$row['start_appoint']),
+        'end'   => date('Y-m-d H:i',$row['end_appoint'])
     );
 }
 
