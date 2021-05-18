@@ -41,6 +41,9 @@
   .requisitioner{
     margin-top: 0.2in;
   }
+  .biling>td{
+    border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7;
+  }
 
 
 
@@ -65,7 +68,7 @@
         <td align="left" valign="middle">
           <b><font color="#000000">DATE</font></b>
         </td>
-        <td align="center" valign="middle" bgcolor="#E4E8F3" sdval="44048" sdnum="1033;0;M/D/YYYY">
+        <td align="center" valign="middle" bgcolor="#E4E8F3">
           <font color="#000000">8/5/2020</font>
         </td>
       </tr>
@@ -74,7 +77,7 @@
           <b><font color="#000000">P.O #</font></td>
         <td 
           style="border-top: 1px solid #cccccc; border-bottom: 1px solid #cccccc; border-left: 1px solid #cccccc; border-right: 1px solid #cccccc"
-          align="center" valign="middle" sdval="98105" sdnum="1033;">
+          align="center" valign="middle">
           <font color="#000000">98105</font></td>
       </tr>
     </table>
@@ -119,10 +122,9 @@
     </table>
   </div>
 <div style="clear: both;"></div>
-<div style="clear: both;"></div>
 
 
-  <div class="requisitioner" style="margin-top: 0.2in;">
+  <div class="requisitioner" style="margin-top: 0.3in; margin-bottom: 0.3in;">
     <table cellspacing="0" cellpadding="0" width="100%">
       <tr bgcolor="#3B4E87">
         <td  height="15" align="center">
@@ -167,7 +169,7 @@
 
 
 
-  <table cellspacing="0" border="0" style="width: 100%; margin: auto;">
+  <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
     <tbody>
     <tr>
       <td height="24" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
@@ -186,7 +188,7 @@
         <b><font color="#FFFFFF">TOTAL</font></b>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -199,21 +201,21 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="center" valign="middle" sdval="3" sdnum="1033;">
+        align="center" valign="middle">
         <font color="#000000">3</font>
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" sdval="351" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle">
         <font color="#000000">351.00</font>
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="1053" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">1,053.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -236,11 +238,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -263,11 +265,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -290,11 +292,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -317,11 +319,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -344,11 +346,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -371,11 +373,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -398,11 +400,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -425,11 +427,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -452,11 +454,11 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
-    <tr>
+    <tr class="fill">
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
         height="2" align="left" valign="middle">
@@ -479,7 +481,7 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" bgcolor="#E4E8F3" sdval="0" sdnum="1033;0;#,##0.00;(#,##0.00)">
+        align="right" valign="middle" bgcolor="#E4E8F3">
         <font color="#000000">0.00</font>
       </td>
     </tr>
@@ -496,9 +498,8 @@
       <td align="left" valign="middle">
         <font color="#000000">SUBTOTAL</font>
       </td>
-      <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3" sdval="1053"
-        sdnum='1033;0;"$"#,##0.00;"$"(#,##0.00)'>
-        <font color="#000000">$1,053.00</font>
+      <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+        <font color="#000000">RM 1,053.00</font>
       </td>
     </tr>
     <tr>
@@ -515,7 +516,7 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" sdval="0" sdnum="1033;0;0.000%">
+        align="right" valign="middle">
         <font color="#000000">0.000%</font>
       </td>
     </tr>
@@ -530,9 +531,8 @@
       <td align="left" valign="middle">
         <font color="#000000">TAX</font>
       </td>
-      <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3" sdval="0"
-        sdnum='1033;0;"$"#,##0.00;"$"(#,##0.00)'>
-        <font color="#000000">$0.00</font>
+      <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3" >
+        <font color="#000000">0.00</font>
       </td>
     </tr>
     <tr>
@@ -548,8 +548,8 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" sdval="0" sdnum='1033;0;"$"#,##0.00;"$"(#,##0.00)'>
-        <font color="#000000">$0.00</font>
+        align="right" valign="middle" >
+        <font color="#000000">RM 0.00</font>
       </td>
     </tr>
     <tr>
@@ -569,8 +569,8 @@
       </td>
       <td
         style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #000000; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        align="right" valign="middle" sdval="0" sdnum='1033;0;"$"#,##0.00;"$"(#,##0.00)'>
-        <font color="#000000">$0.00</font>
+        align="right" valign="middle">
+        <font color="#000000">RM 0.00</font>
       </td>
     </tr>
     <tr>
@@ -586,8 +586,8 @@
         <b><font color="#000000">TOTAL</font></b>
       </td>
       <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle"
-        bgcolor="#E4E8F3" sdval="1053" sdnum='1033;0;"$"#,##0.00;"$"(#,##0.00)'>
-        <b><font color="#000000">$1,053.00</font></b>
+        bgcolor="#E4E8F3">
+        <b><font color="#000000">RM 1,053.00</font></b>
       </td>
     </tr>
     <tr>
@@ -649,8 +649,7 @@
       <td align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
-      <td style="border-bottom: 1px solid #000000" align="right" valign="middle" sdval="44048"
-        sdnum="1033;0;MM/DD/YYYY">
+      <td style="border-bottom: 1px solid #000000" align="right" valign="middle">
         <font color="#000000">08/05/2020</font>
       </td>
     </tr>
