@@ -10,7 +10,7 @@
 
     foreach ($result as $row) {
         foreach ($data2 as $row2) {
-            if ($row2['id'] == $row['prod_id']) {
+            if ($row2['id'] == "21135") {
                 echo $prodid = $row['prod_id'];
                 echo $prodname = $row2['name'];
                 echo $prodprice = $row2['price'];
