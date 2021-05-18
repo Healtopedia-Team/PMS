@@ -82,7 +82,7 @@
   <div style="clear: both;"></div>
   <div class="vendor">
     <table>
-      <tr height="15"><td height="24" bgcolor="#3B4E87"><font color="#FFFFFF"><b>VENDOR</b></font>
+      <tr height="15"><td height="15" bgcolor="#3B4E87"><font color="#FFFFFF"><b>VENDOR</b></font>
         </td>
       </tr>
       <tr>
