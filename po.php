@@ -39,7 +39,7 @@
     float: right;
   }
   .requisitioner{
-    margin-top: in;
+    margin-top: 0.2in;
   }
 
 
@@ -121,7 +121,7 @@
 <div style="clear: both;"></div>
 
 
-  <div class="requisitioner" style="margin-top: 60px;">
+  <div class="requisitioner" style="margin-top: 10px;">
     <table cellspacing="0" cellpadding="0" width="100%">
       <tr bgcolor="#3B4E87">
         <td  height="15" align="center">
