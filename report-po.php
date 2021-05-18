@@ -12,7 +12,7 @@ use Dompdf\Dompdf;
 
   //to put other html file
   $html = file_get_contents('https://pms.healtopedia.com/po.php');
-  $dompdf->setBasePath(realpath('assets/css/app.css'));
+  $dompdf->setBasePath(realpath('report-style.css'));
 
   $dompdf->loadHtml($html);
 
