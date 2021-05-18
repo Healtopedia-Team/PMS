@@ -9,19 +9,17 @@
         
     $sql = mysqli_query($conn, "SELECT prod_id FROM appointwoo ORDER BY order_id DESC");
     $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Product</title>
-</head>
-<body>
-    <?php foreach ($result as $row) {
+
+    foreach ($result as $row) {
         foreach ($data2 as $row2) {
             if ($row2['id'] == $row['prod_id']) {
-                echo $row['prod_id']; ?> -
-                <?php echo $row2['name']; ?> -<br>
-                <?php echo $row2['price']; ?> -<br>
-    <?php }}} ?>
-</body>
-</html>
+                $prodid = $row['prod_id'];
+                $prodname = $row2['name'];
+                $prodprice = $row2['price'];
+
+                $sql2 = "INSERT INTO packagewoo SET package_id = '$prodid', package_name = '$prodname', package_price = 'prodprice'";
+                mysqli_query($conn, $sql2);
+            }
+        }
+    }
+?>
