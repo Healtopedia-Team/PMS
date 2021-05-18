@@ -502,7 +502,7 @@
     </tr>
     <tr>
       <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        colspan="4" height="24" align="left" valign="middle">
+        colspan="4" height="2" align="left" valign="middle">
         <font color="#000000">Payment is contigent on the verification of testing.
         </font>
       </td>
@@ -519,7 +519,7 @@
       </td>
     </tr>
     <tr>
-      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="24" align="left"
+      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left"
         valign="middle">
         <font color="#000000"><br /></font>
       </td>
@@ -535,7 +535,7 @@
       </td>
     </tr>
     <tr>
-      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="24" align="left"
+      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left"
         valign="middle">
         <font color="#000000"><br /></font>
       </td>
@@ -552,7 +552,7 @@
       </td>
     </tr>
     <tr>
-      <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7" height="24" align="left" valign="middle"
+      <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7" height="2" align="left" valign="middle"
         bgcolor="#F3F3F3">
         <b><font color="#000000">Additional Comment:</font></b>
       </td>
@@ -574,7 +574,7 @@
     </tr>
     <tr>
       <td style="border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        colspan="4" height="24" align="left" valign="bottom" bgcolor="#F3F3F3">
+        colspan="4" height="2" align="left" valign="bottom" bgcolor="#F3F3F3">
         <font face="Cambria"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -590,7 +590,7 @@
       </td>
     </tr>
     <tr>
-      <td height="24" align="left" valign="middle">
+      <td height="2" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -613,7 +613,7 @@
       </td>
     </tr>
     <tr>
-      <td height="24" align="left" valign="middle">
+      <td height="2" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -636,7 +636,7 @@
       </td>
     </tr>
     <tr>
-      <td height="24" align="left" valign="middle">
+      <td height="2" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -654,7 +654,7 @@
       </td>
     </tr>
     <tr>
-      <td height="24" align="left" valign="middle">
+      <td height="2" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -674,7 +674,7 @@
       </td>
     </tr>
     <tr>
-      <td height="24" align="left" valign="middle">
+      <td height="2" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -694,7 +694,7 @@
       </td>
     </tr>
     <tr>
-      <td height="24" align="left" valign="middle">
+      <td height="2" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -717,7 +717,7 @@
       </td>
     </tr>
     <tr>
-      <td height="24" align="left" valign="middle">
+      <td height="2" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -740,13 +740,13 @@
       </td>
     </tr>
     <tr>
-      <td colspan="7" height="24" align="center" valign="middle">
+      <td colspan="7" height="2" align="center" valign="middle">
         <font color="#000000">If you have any questions about this purchase order, please
           contact</font>
       </td>
     </tr>
     <tr>
-      <td colspan="7" height="24" align="center" valign="middle">
+      <td colspan="7" height="2" align="center" valign="middle">
         <b
               ><font color="#000000"
                 >Vignesh Menon, +6017-643-9928, vignesh@georgehealth.care</font
