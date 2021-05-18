@@ -167,13 +167,6 @@
 
 
   <table cellspacing="0" border="0" style="width: 100%; margin: auto;">
-    <colgroup width="140"></colgroup>
-    <colgroup width="174"></colgroup>
-    <colgroup width="188"></colgroup>
-    <colgroup width="91"></colgroup>
-    <colgroup width="105"></colgroup>
-    <colgroup width="81"></colgroup>
-    <colgroup width="113"></colgroup>
     <tbody>
     <tr>
       <td height="24" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
