@@ -152,7 +152,7 @@
           style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center">Buyer
         </td>
          <td
-          style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center">Payment after testing
+          style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center">Payment before testing
         </td>
       </tr>
     </table>
@@ -493,7 +493,7 @@
               ></b>
       </td>
       <td align="left" valign="middle">
-        <font color="#FFFFFF">[42]</font>
+        <font color="#FFFFFF"></font>
       </td>
       <td align="left" valign="middle">
         <font color="#000000">SUBTOTAL</font>
