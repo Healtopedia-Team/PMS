@@ -29,8 +29,8 @@
                 $sql = mysqli_query($conn, "SELECT COUNT(package_id) as total FROM packagewoo WHERE package_id = '$id'");
                 $result = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
 
-                foreach ($result as $row) {
-                    if ($row['total'] < 1) {
+                foreach ($result as $row2) {
+                    if ($row2['total'] < 1) {
                         $sql2 = "INSERT INTO packagewoo SET package_id = '$id', package_name = '$name', package_price = '$price'";
                         mysqli_query($conn, $sql2);
                     }
