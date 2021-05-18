@@ -11,7 +11,7 @@
         $price = $row['price'];
 
         $sql = mysqli_query($conn, "SELECT COUNT(package_id) as total FROM packagewoo WHERE package_id = '$id'");
-        $result = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
+        $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
         foreach ($result as $row2) {
             if ($row2['total'] < 1) {
