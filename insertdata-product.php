@@ -17,7 +17,7 @@
                 $appointid = $row['appoint_id'];
 
                 $sql2 = mysqli_query($conn, "SELECT COUNT(appoint_id) as Total WHERE appoint_id = '$appointid'");
-                $result2 = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+                $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
 
                 foreach ($result2 as $key) {
                     if ($key['Total'] < 1) {
