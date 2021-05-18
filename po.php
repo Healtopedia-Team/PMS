@@ -82,7 +82,7 @@
   <div style="clear: both;"></div>
   <div class="vendor">
     <table>
-      <tr height="24"><td height="24" bgcolor="#3B4E87"><font color="#FFFFFF"><b>VENDOR</b></font>
+      <tr height="15"><td height="24" bgcolor="#3B4E87"><font color="#FFFFFF"><b>VENDOR</b></font>
         </td>
       </tr>
       <tr>
@@ -102,7 +102,7 @@
   <div class="payor">
     <table>
       <tr height="24">
-        <td height="24" bgcolor="#3B4E87">
+        <td height="15" bgcolor="#3B4E87">
           <font color="#FFFFFF"><b>PAYOR</b></font>
         </td>
       </tr>
@@ -121,17 +121,17 @@
 <div style="clear: both;"></div>
   <div class="requisitioner">
     <table cellspacing="0" cellpadding="0" width="100%">
-      <tr height="24" bgcolor="#3B4E87">
-        <td  height="24" align="center">
+      <tr bgcolor="#3B4E87">
+        <td  height="15" align="center">
           <b><font color="#FFFFFF">REQUISITIONER</font></b>
         </td>
-        <td height="24" align="center" >
+        <td height="15" align="center" >
           <b><font color="#FFFFFF">TESTING VIA</font></b>
         </td>
-        <td height="24" align="center">
+        <td height="15" align="center">
           <b><font color="#FFFFFF">F.O.B.</font></b>
         </td>
-        <td height="24" align="center" >
+        <td height="15" align="center" >
           <b><font color="#FFFFFF">PAYMENT TERMS</font></b>
         </td>
 
