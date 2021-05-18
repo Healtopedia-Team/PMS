@@ -2,7 +2,6 @@
 session_start();
 
 include 'dbconnect.php';
-require('database/ChatUser.php');
 
 $theCommand = $_REQUEST['command'];
 switch ($theCommand) {
@@ -53,7 +52,7 @@ function add_user($conn)
         //Create a new object (ChatUser) which is linked to another chat_user_database
 
         $user_object = new ChatUser;
-    
+
         $user_object->setUserName($_POST['username']);
         $user_object->setFirstName($_POST["firstname"]);
         $user_object->setLastName($_POST["lastname"]);
@@ -218,10 +217,10 @@ function update_profile($conn)
         user_profile='$image' WHERE user_id='$id'";
         $user_object->setUserProfile($image);
         $user_object->upload_profile();
-        
+
         //chat user table modification here
-        
-        
+
+
         if (mysqli_query($conn, $sql)) {
             $_SESSION["name"] = $firstname;
             $_SESSION["hospital"] = $lastname;
@@ -261,8 +260,20 @@ function add_role($conn)
 
     $displayname = $_POST['dispname'];
     $hospital = $_POST['hospital'];
-
-    $sql = "INSERT INTO roles SET role_name='$displayname',hospital='$hospital'";
+    $app_view = $_POST['view-appointment-list'];
+    $app_calendar = $_POST['view-appointment-calendar'];
+    $app_approve = $_POST['approve-appointment-attendance'];
+    $req_view = $_POST['view-appointment-request'];
+    $req_add = $_POST['add-appointment-request'];
+    $req_postpone = $_POST['postpone-appointment-request'];
+    $req_reject = $_POST['reject-appointment-request'];
+    $man_time = $_POST['manage-time'];
+    $man_date = $_POST['manage-date'];
+    $man_user = $_POST['manage-user'];
+    $man_role = $_POST['manage-user-role'];
+    $man_hospital = $_POST['manage-hospital'];
+    $finance_report = $_POST['view-financial-report'];
+    $sql = "INSERT INTO roles SET role_name='$displayname',hospital='$hospital',app_view='$app_view',app_calendar='$app_calendar',app_approve='$app_approve',req_view='$req_view',req_add='$req_add',man_date='$man_date',man_time='$man_time',man_user='$man_user',man_role='$man_role',req_reject='$req_reject',req_postpone='$req_postpone',man_hospital='$man_hospital',finance_report='$finance_report'";
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
     }
