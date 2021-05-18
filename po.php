@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
-<body style="font-family: Arial, Helvetica, sans-serif;">
+<body style="font-family: Arial, Helvetica, sans-serif;" style="font-size: 9px;">
     <table cellspacing="0" border="0" style="width: 100%;">
         <colgroup width="140"></colgroup>
         <colgroup width="174"></colgroup>
