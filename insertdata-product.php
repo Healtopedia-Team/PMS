@@ -30,7 +30,7 @@
                 $result = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
 
                 foreach ($result as $row) {
-                    if ($row2['total'] < 1) {
+                    if ($row['total'] < 1) {
                         $sql2 = "INSERT INTO packagewoo SET package_id = '$id', package_name = '$name', package_price = '$price'";
                         mysqli_query($conn, $sql2);
                     }
