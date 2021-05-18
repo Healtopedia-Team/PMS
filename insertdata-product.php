@@ -5,9 +5,6 @@
 
     $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
         
-    $sql = mysqli_query($conn, "SELECT appoint_id, prod_id FROM appointwoo ORDER BY order_id DESC");
-    $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,11 +21,21 @@
         <tbody>
             <?php foreach ($data2 as $row) { ?>
                 <tr>
-                    <td><?php echo $row['id'];?></td>
-                    <td><?php echo $row['name'];?></td>
-                    <td><?php echo $row['price'];?></td>
+                    <td><?php echo $id = $row['id'];?></td>
+                    <td><?php echo $name = $row['name'];?></td>
+                    <td><?php echo $price = $row['price'];?></td>
                 </tr>
-            <?php } ?>
+            <?php
+                $sql = mysqli_query($conn, "SELECT COUNT(package_id) as total FROM packagewoo WHERE package_id = '$id'");
+                $result = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
+
+                foreach ($result as $row) {
+                    if ($row2['total'] < 1) {
+                        $sql2 = "INSERT INTO packagewoo SET package_id = '$id', package_name = '$name', package_price = '$price'";
+                        mysqli_query($conn, $sql2);
+                    }
+                }
+            } ?>
         </tbody>
     </table>
 </body>
