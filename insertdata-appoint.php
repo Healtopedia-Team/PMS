@@ -18,32 +18,13 @@
                 $startappoint = $row['start'];
                 $endappoint = $row['end'];
                                 
-                $query=mysqli_query($conn, "SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
-                $result=mysqli_fetch_all($query, MYSQLI_ASSOC);
+                $result=mysqli_query($conn, "SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
+                $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-                foreach ($result as $key) {
+                foreach ($user as $key) {
                     if ($key['Total'] < 1) {
                         $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', statusapp = '$statusapp', start_appoint = '$startappoint', end_appoint = '$endappoint', prod_id = '$prodid'";
-
-                        if (mysqli_query($conn, $sql)) {
-                            $query2 = mysqli_query($conn, "SELECT * FROM appointwoo");
-                            $result2 = mysqli_fetch_all($query2, MYSQLI_ASSOC);
-
-                            foreach ($result2 as $key2) {
-                                $rowid = $key2['order_id'];
-                                $sql2 = "UPDATE appointwoo SET pack_name = '$packagename' WHERE order_id = '$rowid'";
-                                mysqli_query($conn, $sql2);
-                            }
-                        }else{
-                            $query2 = mysqli_query($conn, "SELECT * FROM appointwoo");
-                            $result2 = mysqli_fetch_all($query2, MYSQLI_ASSOC);
-
-                            foreach ($result2 as $key2) {
-                                $rowid = $key2['order_id'];
-                                $sql2 = "UPDATE appointwoo SET pack_name = '$packagename' WHERE order_id = '$rowid'";
-                                mysqli_query($conn, $sql2);
-                            }
-                        }
+                        mysqli_query($conn, $sql);
                     }
                 }
             }
