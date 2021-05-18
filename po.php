@@ -143,7 +143,7 @@
       </tr>
       <tr height="24">
         <td
-          style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center">VIGNESH
+          style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center">SELVEN
         </td>
          <td
           style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center">Walk-In
@@ -749,7 +749,7 @@
       <td colspan="7" height="2" align="center" valign="middle">
         <b
               ><font color="#000000"
-                >Vignesh Menon, +6017-643-9928, vignesh@georgehealth.care</font
+                >SELVEN BASKARAN, +6013-390-1105, selven@georgehealth.care</font
               ></b>
       </td>
     </tr>
