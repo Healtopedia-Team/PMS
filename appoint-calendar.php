@@ -85,16 +85,12 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
                                             </div>
                                             <div class="modal-body">
                                                 <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
-                                                <b>Appointment : </b><?php echo date('H:i',$row2['start_appoint']);?> to <?php echo date('H:i',$row2['end_appoint']);?><br>
+                                                <b>Appointment : </b><?php echo date('H:i',$row['start_appoint']);?> to <?php echo date('H:i',$row['end_appoint']);?><br>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Close</span>
-                                                </button>
-                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Accept</span>
                                                 </button>
                                             </div>
                                         </div>
