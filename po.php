@@ -548,7 +548,7 @@
       </td>
     </tr>
     <tr>
-      <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7" align="left" valign="middle"
+      <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7" height="24" align="left" valign="middle"
         bgcolor="#F3F3F3">
         <b><font color="#000000">Additional Comment:</font></b>
       </td>
