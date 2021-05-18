@@ -37,7 +37,7 @@
   .payor{
     width: 40%;
     float: right;
-    margin-top: -0.2in;
+    margin-top: -0.1in;
   }
   .requisitioner{
     margin-top: 0.2in;
