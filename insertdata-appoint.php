@@ -3,10 +3,10 @@
 
     error_reporting(0);
 
-    $data = file_get_contents('http://localhost:8080/migratewoo/productjson.php');
+    $data = file_get_contents('https://pms.healtopedia.com/productjson.php');
     $data = json_decode($data, true);
 
-    $data2 = file_get_contents('http://localhost:8080/migratewoo/slot.php');
+    $data2 = file_get_contents('https://pms.healtopedia.com/slot.php');
     $data2 = json_decode($data2, true);
 
     foreach ( $data2 as $row2 ) :
