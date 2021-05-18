@@ -11,6 +11,6 @@
     $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
     foreach ($result as $row) {
-        echo $row['order_id'];
+        echo $row['prod_id'];
     }
 ?>
