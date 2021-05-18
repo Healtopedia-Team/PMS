@@ -97,7 +97,7 @@
       </tr>
     </table>
   </div>
-
+  <div style="clear: both;"></div>
 
   <div class="payor">
     <table>
@@ -118,7 +118,6 @@
       </tr>
     </table>
   </div>
-<div style="clear: both;"></div>
 <div style="clear: both;"></div>
 
 
