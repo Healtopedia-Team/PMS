@@ -483,7 +483,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="4" height="24" align="left" valign="middle" bgcolor="#D9D9D9">
+      <td colspan="4" height="2" align="left" valign="middle" bgcolor="#D9D9D9">
         <b
               ><font color="#000000"
                 >Other Comments or Special Instructions</font
