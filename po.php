@@ -749,7 +749,7 @@
       <td colspan="7" height="2" align="center" valign="middle">
         <b
               ><font color="#000000"
-                >SELVEN BASKARAN, +6013-390-1105, selven@georgehealth.care</font
+                >SELVEN BASKARAN | +6013-3901105 | selven@georgehealth.care</font
               ></b>
       </td>
     </tr>
