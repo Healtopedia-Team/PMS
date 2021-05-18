@@ -21,14 +21,9 @@
         body{
             font-family: Arial, Helvetica, sans-serif;
         }
-
-
-
-
-
-
-
-
+        table{
+            font-size: 10px;
+        }
     </style>
   </head>
   <body>
