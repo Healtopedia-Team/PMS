@@ -19,9 +19,9 @@
                 $user=mysqli_fetch_all($query, MYSQLI_ASSOC);
 
                 foreach ($user as $key) {
-                    if ($key['Total'] < 1) {
+                    if ($key['Total'] < 2) {
                         $sql2 = "INSERT INTO packagewoo SET package_id = '$prodid', package_name = '$prodname', package_price = '$prodprice'";
-                        
+
                         mysqli_query($conn, $sql2);
                     }
                 }
