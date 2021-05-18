@@ -18,14 +18,14 @@
                 $prodprice = $row2['price'];
 
                 $query=mysqli_query($conn, "SELECT COUNT(package_id) as Total FROM packagewoo WHERE package_id = '$prodid'");
-                $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                $user=mysqli_fetch_all($query, MYSQLI_ASSOC);
 
                 foreach ($user as $key) {
                     if ($key['Total'] < 1) {
                         $prodid = $row['prod_id'];
                         $prodname = $row2['name'];
                         $prodprice = $row2['price'];
-                        
+
                         $sql2 = "INSERT INTO packagewoo SET package_id = '$prodid', package_name = '$prodname', package_price = 'prodprice'";
                         mysqli_query($conn, $sql2);
                     }
