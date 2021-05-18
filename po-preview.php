@@ -26,7 +26,7 @@
     <div class="container">
         <div class="card mt-5">
             <div class="card-body">
-                <iframe frameborder="0" scrolling="no" width="640" height="480" src="report-po.php">
+                <iframe frameborder="0" scrolling="no" width="100%" height="700" src="report-po.php">
                 </iframe>
             </div>
         </div>
