@@ -570,7 +570,7 @@
     </tr>
     <tr>
       <td style="border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        colspan="4" align="left" valign="bottom" bgcolor="#F3F3F3">
+        colspan="4" height="24" align="left" valign="bottom" bgcolor="#F3F3F3">
         <font face="Cambria"><br /></font>
       </td>
       <td align="left" valign="middle">
