@@ -254,7 +254,7 @@ Website: http://emilcarlsson.se/
 
             var receiver_userid = '';
 
-            var conn = new WebSocket('ws://localhost:8080?token=<?php echo $token; ?>');
+            var conn = new WebSocket('ws://0.0.0.0:8080?token=<?php echo $token; ?>');
 
             conn.onopen = function(event) {
                 console.log('Connection Established');
