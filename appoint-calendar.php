@@ -73,16 +73,16 @@ $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="detailinfo"><?php echo $row['title'];?></h5>
+                                                <h5 class="modal-title" id="detailinfo"><?php echo $row['hosp_name'];?></h5>
                                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                     <i data-feather="x"></i>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
                                                 <p>
-                                                    Start Time : <?php echo $row['start'];?>
+                                                    Start Time : <?php echo $row['start_appoint'];?>
                                                     <br>
-                                                    End Time : <?php echo $row['end'];?>
+                                                    End Time : <?php echo $row['end_appoint'];?>
                                                 </p>
                                             </div>
                                             <div class="modal-footer">
