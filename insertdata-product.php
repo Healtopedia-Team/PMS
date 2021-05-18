@@ -9,8 +9,15 @@
         
     $sql = mysqli_query($conn, "SELECT prod_id FROM appointwoo");
     $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
-
-    foreach ($result as $row) {
-        echo $row['prod_id'];
-    }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product</title>
+</head>
+<body>
+    <?php foreach ($result as $row) {
+        echo $row['prod_id']; ?><br>
+    <?php } ?>
+</body>
+</html>
