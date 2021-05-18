@@ -6,7 +6,7 @@
     $data = file_get_contents('https://pms.healtopedia.com/productjson.php');
     $data = json_decode($data, true);
 
-    $data2 = file_get_contents('https://pms.healtopedia.com/slot.php');
+    $data2 = file_get_contents('https://pms.healtopedia.com/slotjson.php');
     $data2 = json_decode($data2, true);
 
     foreach ( $data2 as $row2 ) :
