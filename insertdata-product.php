@@ -42,11 +42,17 @@
             <th>PRICE</th>
         </thead>
         <tbody>
-            <tr>
-                <td><?php echo $prodid?></td>
-                <td><?php echo $prodname?></td>
-                <td><?php echo $prodprice?></td>
-            </tr>
+            <?php foreach ($result as $row) {
+                foreach ($data2 as $row2) {
+                    if ($row['prod_id'] == $row2['id']) { ?>
+                        <tr>
+                            <td><?php echo $row['prod_id'];?></td>
+                            <td><?php echo $$row2['name'];?></td>
+                            <td><?php echo $row2['price'];?></td>
+                        </tr>
+                    <?php }
+                }
+            }?>
         </tbody>
     </table>
 </body>
