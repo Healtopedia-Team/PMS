@@ -17,7 +17,7 @@
     <script src="script.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
   </head>
-  <body>
+  <body style="font-family: Arial, Helvetica, sans-serif;">
     <table cellspacing="0" border="0" style="width: 90%; margin: auto;">
       <colgroup width="140"></colgroup>
       <colgroup width="174"></colgroup>
