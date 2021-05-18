@@ -609,7 +609,7 @@
       </td>
     </tr>
     <tr>
-      <td align="left" valign="middle">
+      <td height="24" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
