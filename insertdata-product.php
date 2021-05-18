@@ -23,3 +23,11 @@
         }
     }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert Product</title>
+</head>
+<body>
+</body>
+</html>
