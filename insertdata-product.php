@@ -11,13 +11,9 @@
     foreach ($result as $row) {
         foreach ($data2 as $row2) {
             if ($row['prod_id'] == $row2['id']) {
-                echo $prodid = $row['prod_id'];
-                echo $prodname = $row2['name'];
-                echo $prodprice = $row2['price'];
-
-                $sql2 = "INSERT INTO packagewoo SET package_id = '$prodid', package_name = '$prodname', package_price = '$prodprice'";
-
-                mysqli_query($conn, $sql2);
+                $prodid = $row['prod_id'];
+                $prodname = $row2['name'];
+                $prodprice = $row2['price'];
 
                 /*$query=mysqli_query($conn, "SELECT COUNT(package_id) as Total FROM packagewoo WHERE package_id = '$prodid'");
                 $user=mysqli_fetch_all($query, MYSQLI_ASSOC);
@@ -33,3 +29,25 @@
         }
     }
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>PRODUCT NAME</th>
+            <th>PRICE</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?php echo $prodid?></td>
+                <td><?php echo $prodname?></td>
+                <td><?php echo $prodprice?></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
