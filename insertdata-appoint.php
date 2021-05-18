@@ -26,7 +26,9 @@
                         $sql = " INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', statusapp = '$statusapp', start_appoint = '$startappoint', end_appoint = '$endappoint', prod_id = '$prodid'";
 
                         if (mysqli_query($conn, $sql)) {
-                            $sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$startappoint', end_event = '$endappoint'";
+                            $start = date('Y-m-d H:i'$row['start']);
+                            $end = date('Y-m-d H:i'$row['end']);
+                            $sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$start', end_event = '$end'";
 
                             mysqli_query($conn, $sql2);
                         }
