@@ -119,6 +119,7 @@
     </table>
   </div>
 <div style="clear: both;"></div>
+<div style="clear: both;"></div>
 
 
   <div class="requisitioner" style="margin-top: 0.2in;">
