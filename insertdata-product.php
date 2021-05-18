@@ -22,7 +22,7 @@
             <th>PRICE</th>
         </thead>
         <tbody>
-            <?php foreach ($data2 as $row2) { ?>
+            <?php foreach ($data2 as $row) { ?>
                 <tr>
                     <td><?php echo $row['id'];?></td>
                     <td><?php echo $row['name'];?></td>
