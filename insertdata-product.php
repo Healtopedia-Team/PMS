@@ -7,7 +7,7 @@
 
     $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
         
-    $sql = mysqli_query($conn, "SELECT prod_id FROM appointwoo");
+    $sql = mysqli_query($conn, "SELECT prod_id FROM appointwoo ORDER BY order_id DESC");
     $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
