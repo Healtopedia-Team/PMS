@@ -1,7 +1,5 @@
 <?php
-    
-    header("refresh: 60");
-    
+        
     $data2 = file_get_contents('https://pms.healtopedia.com/productjson.php');
     $data2 = json_decode($data2, true);
 
@@ -17,7 +15,10 @@
                 $prodname = $row2['name'];
                 $prodprice = $row2['price'];
 
-                $query=mysqli_query($conn, "SELECT COUNT(package_id) as Total FROM packagewoo WHERE package_id = '$prodid'");
+                $sql2 = "INSERT INTO packagewoo SET package_id = '$prodid', package_name = '$prodname', package_price = 'prodprice'";
+                mysqli_query($conn, $sql2);
+
+                /*$query=mysqli_query($conn, "SELECT COUNT(package_id) as Total FROM packagewoo WHERE package_id = '$prodid'");
                 $user=mysqli_fetch_all($query, MYSQLI_ASSOC);
 
                 foreach ($user as $key) {
@@ -29,7 +30,7 @@
                         $sql2 = "INSERT INTO packagewoo SET package_id = '$prodid', package_name = '$prodname', package_price = 'prodprice'";
                         mysqli_query($conn, $sql2);
                     }
-                }
+                }*/
             }
         }
     }
