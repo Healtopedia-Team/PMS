@@ -27,13 +27,13 @@
 
                         mysqli_query($conn, $sql);
                     }
-                    
-                    $start = date('Y-m-d H:i',$row['start']);
-                    $end = date('Y-m-d H:i',$row['end']);
-                    $sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$start', end_event = '$end'";
-
-                    mysqli_query($conn, $sql2);
                 }
+
+                $start = date('Y-m-d H:i',$row['start']);
+                $end = date('Y-m-d H:i',$row['end']);
+                $sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$start', end_event = '$end'";
+
+                mysqli_query($conn, $sql2);
             }
         }
     }
