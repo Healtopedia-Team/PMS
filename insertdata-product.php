@@ -17,7 +17,9 @@
 </head>
 <body>
     <?php foreach ($result as $row) {
-        echo $row['prod_id']; ?><br>
-    <?php } ?>
+        foreach ($data2 as $row2) {
+            if ($row2['id'] == $row['prod_id']) {
+                echo $row['prod_id']." - ".echo $row2['name']; ?><br>
+    <?php }}} ?>
 </body>
 </html>
