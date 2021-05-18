@@ -80,9 +80,9 @@ $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
                                             </div>
                                             <div class="modal-body">
                                                 <p>
-                                                    Start Time : <?php echo $row['start_appoint'];?>
+                                                    Start Time : <?php echo date('Y-m-d H:i',$row['start_appoint']);?>
                                                     <br>
-                                                    End Time : <?php echo $row['end_appoint'];?>
+                                                    End Time : <?php echo date('Y-m-d H:i',$row['end_appoint']);?>
                                                 </p>
                                             </div>
                                             <div class="modal-footer">
