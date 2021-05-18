@@ -5,6 +5,7 @@ $outgoing_id = $_SESSION['user_id'];
 $incoming_id = mysqli_real_escape_string($conn, $_SESSION["target_chat_user"]);
 //File upload part below
 if(!empty($_FILES)){
+    print_r($_FILES);
     $allowedExts = array(
         "jpg", "jpeg", "gif", "png", "7z", "rar", "zip", "tar.gz", "csv",
         "xlsx", "xls", "xlsm", "doc", "docx", "txt", "pdf"
