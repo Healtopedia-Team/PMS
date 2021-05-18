@@ -17,7 +17,8 @@
 <body>
     <table>
         <thead>
-            <th>ID</th>
+            <th>PRODUCT ID</th>
+            <th>ORDER ID</th>
             <th>PRODUCT NAME</th>
             <th>PRICE</th>
         </thead>
@@ -27,6 +28,7 @@
                     if ($row['prod_id'] == $row2['id']) { ?>
                         <tr>
                             <td><?php echo $row['prod_id'];?></td>
+                            <td><?php echo $row['order_id'];?></td>
                             <td><?php echo $row2['name'];?></td>
                             <td><?php echo $row2['price'];?></td>
                         </tr>
