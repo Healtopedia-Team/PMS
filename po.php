@@ -97,7 +97,7 @@
       </tr>
     </table>
   </div>
-  <div style="clear: both;"></div>
+
 
   <div class="payor">
     <table>
@@ -119,9 +119,10 @@
     </table>
   </div>
 <div style="clear: both;"></div>
+<div style="clear: both;"></div>
 
 
-  <div class="requisitioner" style="margin-top: 10px;">
+  <div class="requisitioner" style="margin-top: 0.2in;">
     <table cellspacing="0" cellpadding="0" width="100%">
       <tr bgcolor="#3B4E87">
         <td  height="15" align="center">
