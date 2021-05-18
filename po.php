@@ -89,7 +89,7 @@
         <td>Nurul Nadia</td>
       </tr>
       <tr>
-        <td>Sunway Velocity Sdn. Bhd</td>
+        <td><b>Sunway Velocity Sdn. Bhd</b></td>
       </tr>
       <tr>
         <td>Pusat Perubatan Sunway Velocity, Lingkaran SV, Sunway Velocity, 55100 Kuala Lumpur, Malaysia<br>6012-6498655
@@ -110,7 +110,7 @@
         <td>Benjamin Philip George</td>
       </tr>
       <tr>
-        <td>George Medical Getaway Sdn. Bhd</td>
+        <td><b>George Medical Getaway Sdn. Bhd</b></td>
       </tr>
       <tr>
         <td>6-3 Oval Damansara, 685 Jalan Damansara TTDI, 60000 Kuala Lumpur, Malaysia<br>603-7731-2696
