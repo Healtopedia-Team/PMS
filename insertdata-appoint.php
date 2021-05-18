@@ -33,7 +33,6 @@
                     $sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$start', end_event = '$end'";
 
                     mysqli_query($conn, $sql2);
-                    }
                 }
             }
         }
