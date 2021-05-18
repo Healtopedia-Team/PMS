@@ -24,7 +24,12 @@
                 foreach ($user as $key) {
                     if ($key['Total'] < 1) {
                         $sql = " INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', statusapp = '$statusapp', start_appoint = '$startappoint', end_appoint = '$endappoint', prod_id = '$prodid'";
-                        mysqli_query($conn, $sql);
+
+                        if (mysqli_query($conn, $sql)) {
+                            $sql2 = "INSERT INTO calendar SET event_title = '$packagename', start_event = '$startappoint', end_event = '$endappoint'";
+
+                            mysqli_query($conn, $sql2);
+                        }
                     }
                 }
             }
