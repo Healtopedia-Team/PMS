@@ -194,8 +194,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000">CO19</font>
       </td>
       <td
@@ -221,8 +220,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -248,8 +246,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -275,8 +272,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -302,8 +298,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -329,8 +324,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -356,8 +350,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -383,8 +376,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -410,8 +402,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -437,8 +428,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -464,8 +454,7 @@
     </tr>
     <tr>
       <td
-        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        height="24" align="left" valign="middle">
+        style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td
@@ -490,7 +479,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="4" height="24" align="left" valign="middle" bgcolor="#D9D9D9">
+      <td colspan="4" align="left" valign="middle" bgcolor="#D9D9D9">
         <b
               ><font color="#000000"
                 >Other Comments or Special Instructions</font
@@ -509,7 +498,7 @@
     </tr>
     <tr>
       <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        colspan="4" height="24" align="left" valign="middle">
+        colspan="4" align="left" valign="middle">
         <font color="#000000">Payment is contigent on the verification of testing.
         </font>
       </td>
@@ -526,7 +515,7 @@
       </td>
     </tr>
     <tr>
-      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="24" align="left"
+      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" align="left"
         valign="middle">
         <font color="#000000"><br /></font>
       </td>
@@ -542,7 +531,7 @@
       </td>
     </tr>
     <tr>
-      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="24" align="left"
+      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" align="left"
         valign="middle">
         <font color="#000000"><br /></font>
       </td>
@@ -559,7 +548,7 @@
       </td>
     </tr>
     <tr>
-      <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7" height="24" align="left" valign="middle"
+      <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7" align="left" valign="middle"
         bgcolor="#F3F3F3">
         <b><font color="#000000">Additional Comment:</font></b>
       </td>
@@ -581,7 +570,7 @@
     </tr>
     <tr>
       <td style="border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7"
-        colspan="4" height="24" align="left" valign="bottom" bgcolor="#F3F3F3">
+        colspan="4" align="left" valign="bottom" bgcolor="#F3F3F3">
         <font face="Cambria"><br /></font>
       </td>
       <td align="left" valign="middle">
@@ -597,7 +586,7 @@
       </td>
     </tr>
     <tr>
-      <td height="24" align="left" valign="middle">
+      <td align="left" valign="middle">
         <font color="#000000"><br /></font>
       </td>
       <td align="left" valign="middle">
