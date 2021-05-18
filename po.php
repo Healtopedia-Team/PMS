@@ -33,7 +33,6 @@
   .vendor{
     width: 35%;
     float: left;
-    margin-top: 0.2in;
   }
   .payor{
     width: 40%;
