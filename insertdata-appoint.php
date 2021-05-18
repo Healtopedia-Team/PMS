@@ -40,7 +40,7 @@
 
                             foreach ($result2 as $key2) {
                                 $rowid = $key2['order_id'];
-                                $sql2 = "UPDATE appointwoo SET pack_name = '$packagename' WHERE order_id' = '$rowid'";
+                                $sql2 = "UPDATE appointwoo SET pack_name = '$packagename' WHERE order_id = '$rowid'";
                                 mysqli_query($conn, $sql2);
                             }
                         }
