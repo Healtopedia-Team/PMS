@@ -22,6 +22,10 @@
 
                 foreach ($user as $key) {
                     if ($key['Total'] < 1) {
+                        $prodid = $row['prod_id'];
+                        $prodname = $row2['name'];
+                        $prodprice = $row2['price'];
+                        
                         $sql2 = "INSERT INTO packagewoo SET package_id = '$prodid', package_name = '$prodname', package_price = 'prodprice'";
                         mysqli_query($conn, $sql2);
                     }
