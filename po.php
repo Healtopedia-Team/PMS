@@ -531,7 +531,7 @@
       </td>
     </tr>
     <tr>
-      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" align="left"
+      <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="24" align="left"
         valign="middle">
         <font color="#000000"><br /></font>
       </td>
