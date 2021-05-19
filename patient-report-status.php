@@ -84,7 +84,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         </div>
                                         <div class="col-md-4">
                                             <i class="bi bi-caret-right-fill">
-                                                <p style="margin:0; font-size: 0.9rem;">+15.97%</p>
+                                                <span style="margin:0; font-size: 0.9rem;">+15.97%</span>
                                             </i>
 
                                         </div>
