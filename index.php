@@ -1,5 +1,5 @@
 <?php include 'dbconnect.php';
-include('database/ChatUser.php');
+//include('database/ChatUser.php');
 
 
 session_start();
@@ -10,6 +10,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 // Load the data for chat_user once logged in and then saved into session
+/*
 if ($_SESSION["loggedin"] === true) {
 
     $user_object = new ChatUser;
@@ -49,7 +50,7 @@ if ($_SESSION["loggedin"] === true) {
         } 
     } 
 }
-
+*/
 
 //get all appointments in range from now(1 hour early) to tomorrow
 $timestamp = strtotime('today midnight +8 hour');

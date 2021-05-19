@@ -1,7 +1,7 @@
 <?php
 session_start();
-require dirname(__DIR__) . "/database/ChatUser.php";
-require dirname(__DIR__) . "/database/PrivateChat.php";
+//require dirname(__DIR__) . "/database/ChatUser.php";
+//require dirname(__DIR__) . "/database/PrivateChat.php";
 include 'dbconnect.php';
 
 $theCommand = $_REQUEST['command'];
@@ -51,7 +51,7 @@ function add_user($conn)
         $img = 'avatar.jpg';
 
         //Create a new object (ChatUser) which is linked to another chat_user_database
-
+        /*
         $user_object = new ChatUser;
 
         $user_object->setUserName($_POST['username']);
@@ -66,7 +66,7 @@ function add_user($conn)
         $user_object->setUserStatus('online');
         $user_object->save_data();
         //$user_data = $user_object->get_user_data_by_email();
-
+        */
 
         $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 
         username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img', status='online'";
@@ -84,7 +84,7 @@ function add_user($conn)
         $img = 'avatar.jpg';
 
         //Create a new object (ChatUser) which is linked to another chat_user_database
-
+        /*
         $user_object = new ChatUser;
 
         $user_object->setUserName($_POST['username']);
@@ -98,7 +98,7 @@ function add_user($conn)
         $user_object->setUserProfile('./assets/images/faces/1.jpg');
         $user_object->setUserStatus('online');
         $user_object->save_data();
-
+        */
 
         $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 
         username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img', status='online'";
@@ -158,10 +158,12 @@ function delete_user($conn)
     $userid = $_REQUEST['id'];
     $sql = "DELETE user FROM user WHERE user_id=$userid";
     //chat user table modification here
+    /*
     $user_object = new ChatUser;
 
     $user_object->setUserId($userid);
     $user_object->delete_user();
+    */
 
     if (mysqli_multi_query($conn, $sql)) {
         header('location:users.php');
@@ -178,7 +180,7 @@ function update_user($conn)
     $email = $_POST['email'];
     $hosp = $_POST['hospital'];
     $role = $_POST['role'];
-
+    /*
     $user_object = new ChatUser;
     $user_object->setUserId($_POST['id']);
     $user_object->setUserName($_POST['username']);
@@ -190,6 +192,7 @@ function update_user($conn)
     $user_object->setHosptial($_POST["hospital"]);
     $user_object->update_data();
     //hospital might be empty
+    */
 
     $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp' WHERE user_id='$id'";
     if (mysqli_query($conn, $sql)) {
@@ -209,7 +212,7 @@ function update_profile($conn)
     $target_file = $target_dir . basename($image);
     $uploadOk = 1;
     $image_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
-
+    /*
     $user_object = new ChatUser;
     $user_object->setUserId($_POST['id']);
     $user_object->setFirstName($_POST["firstname"]);
@@ -219,7 +222,7 @@ function update_profile($conn)
     $user_profile = $user_object->upload_image($_FILES["file_to_upload"]["name"]);
     $user_object->setUserProfile($user_profile);
     $user_object->upload_profile();
-
+    */
     if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
         $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', 
         user_profile='$image' WHERE user_id='$id'";
