@@ -67,7 +67,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <div class="row">
                                                 <h5 class="text-muted font-semibold">Gross Revenue</h5>
                                             </div>
@@ -82,7 +82,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
 
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <i class="bi bi-graph-up">
                                                 <span style="margin:0; font-size: 0.9rem; font-style: normal;">+15.97%</span>
                                             </i>
@@ -97,7 +97,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <div class="row">
                                                 <h5 class="text-muted font-semibold">Refunds</h5>
                                             </div>
@@ -112,7 +112,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
 
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <i class="bi bi-graph-up">
                                                 <span style="margin:0; font-size: 0.9rem; font-style: normal;">+102.00%</span>
                                             </i>
@@ -127,7 +127,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
-                                        <div class="col-md-8">
+                                        <div class="col-md-7">
                                             <div class="row">
                                                 <h5 class="text-muted font-semibold">Net Revenue</h5>
                                             </div>
@@ -142,7 +142,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
 
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-5">
                                             <i class="bi bi-graph-up">
                                                 <span style="margin:0; font-size: 0.9rem; font-style: normal;">+16.69%</span>
                                             </i>
@@ -171,7 +171,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <div class="row">
                                         <h5 class="font-bold">Daily Revenue</h6>
                                     </div>
-                                    <div class="row px-3 py-1" style="position: relative; height: 400px; overflow: auto; display: block;">
+                                    <div class="row px-3 py-1" style="position: relative; height: 380px; overflow: auto; display: block;">
                                         <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
                                             <thead class="thead-light">
                                                 <tr>
