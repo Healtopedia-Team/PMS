@@ -12,12 +12,9 @@ foreach ($product as $row) {
     foreach ($validate as $row2) {
         if ($row2['Total'] < 1) {
             $sql = "INSERT INTO packagewoo SET package_id = '$prodid'";
-            
-            if (mysqli_query($conn, $sql)){
-                echo $prodid;
-            }else{
-                echo $prodid;
-            }
+            mysqli_query($conn, $sql);
+        }else{
+            echo $prodid;
         }
     }
 }
