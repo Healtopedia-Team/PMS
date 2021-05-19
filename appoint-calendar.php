@@ -86,24 +86,32 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                             </div>
                                             <div class="modal-body">
                                                 <table class="table table-borderless mb-0">
+                                                    <colgroup>
+                                                        <col span="1" style="width: 15%;">
+                                                        <col span="1" style="width: 5%;">
+                                                        <col span="1" style="width: 70%;">
+                                                    </colgroup>
                                                     <tbody>
                                                         <tr>
                                                         <?php foreach ($result2 as $row2) { ?>
                                                             <?php if ($row2['order_id'] == $row['order_id']) { ?>
-                                                                <td class="text-bold-500">Name</td>
-                                                                <td> : <?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?></td>
+                                                                <td>Name</td>
+                                                                <td>:</td>
+                                                                <td><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?></td>
                                                         <?php } } ?>
                                                         </tr>
                                                         <tr>
                                                         <?php foreach ($sql3 as $row3) { ?>
                                                             <?php if ($row3['package_id'] == $row['prod_id']) { ?>
-                                                                <td class="text-bold-500">Package</td>
-                                                                <td> : <?php echo $row3['package_name'];?></td>
+                                                                <td>Package</td>
+                                                                <td>:</td>
+                                                                <td><?php echo $row3['package_name'];?></td>
                                                         <?php } } ?>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-bold-500">Time</td>
-                                                            <td> : <?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?></td>
+                                                            <td>Time</td>
+                                                            <td>:</td>
+                                                            <td><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
