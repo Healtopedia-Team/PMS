@@ -14,8 +14,8 @@ $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 $sql2 = mysqli_query($conn, "SELECT * FROM orderwoo");
 $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
 
-$product = file_get_contents('https://pms.healtopedia.com/productjson.php');
-$product = json_decode($product, true);
+$sql3 = mysqli_query($conn, "SELECT * FROM packagewoo");
+$result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,11 +89,11 @@ $product = json_decode($product, true);
                                                     <?php if ($row2['order_id'] == $row['order_id']) { ?>
                                                     <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
                                                 <?php } } ?>
-                                                <b>Appointment : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?><br>
-                                                <?php foreach ($product as $row3) { ?>
-                                                    <?php if ($row3['id'] == $row['prod_id']) { ?>
-                                                    <b>Package : </b><?php echo $row3['name'];?>
-                                                <?php } } ?>
+                                                <?php foreach ($sql3 as $row3) { ?>
+                                                    <?php if ($row3['package_id'] == $row['prod_id']) { ?>
+                                                    <b>Package : </b><?php echo $row3['package_name'];?>
+                                                <?php } } ?><br>
+                                                <b>Time : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
