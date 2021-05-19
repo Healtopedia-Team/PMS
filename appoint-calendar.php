@@ -74,7 +74,7 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
                                 <?php foreach ($result as $row) { ?>
                                     <?php foreach ($result2 as $row2) { ?>
                                         <?php if ($row['appoint_id'] == $row2['cust_id']) { ?>
-                                <div class="modal fade" id="detailinfo<?php echo $row['order_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal fade" id="detailinfo<?php echo $row['appoint_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
