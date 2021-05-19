@@ -15,6 +15,8 @@ foreach ($product as $row) {
             
             if (mysqli_query($conn, $sql)){
                 echo $prodid;
+            }else{
+                echo $prodid;
             }
         }
     }
