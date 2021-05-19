@@ -87,6 +87,7 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
                                                     <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
                                                 <?php } } ?>
                                                 <b>Appointment : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?><br>
+                                                <b>Appoint ID : </b><?php echo $row['appoint_id'];?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
