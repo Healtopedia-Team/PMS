@@ -11,7 +11,7 @@ $error = '';
 $success_message = '';
 
 if (isset($_POST["register"])) {
-    session_start();
+    //session_start();
 
     if (isset($_SESSION['user_data'])) {
         header('location:privatechat.php');
