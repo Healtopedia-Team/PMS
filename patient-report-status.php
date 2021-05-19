@@ -82,8 +82,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
 
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="stats-icon purple align-middle">
+                                        <div class="col-md-3 align-items-center">
+                                            <div class="stats-icon purple">
                                                 <i class="iconly-boldShow"></i>
                                             </div>
                                         </div>
