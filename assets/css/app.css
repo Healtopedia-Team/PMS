@@ -1285,8 +1285,11 @@ a {
   vertical-align: middle;
 }
 #report_table tbody tr th {
-  padding: 0.7rem;
+  padding: 0.65rem;
+  text-align: center;
+
 }
 #report_table tbody tr td {
-  padding: 0.7rem;
+  padding: 0.65rem;
+  text-align: center;
 }
