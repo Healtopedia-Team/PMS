@@ -13,6 +13,9 @@ $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
 $sql2 = mysqli_query($conn, "SELECT * FROM orderwoo");
 $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
+
+$product = file_get_contents('https://pms.healtopedia.com/productjson.php');
+$product = json_decode($product, true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,9 +75,7 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
                                     <div id="calendar"></div>
                                 </div>
                                 <?php foreach ($result as $row) { ?>
-                                    <?php foreach ($result2 as $row2) { ?>
-                                        <?php if ($row['appoint_id'] == $row2['cust_id']) { ?>
-                                <div class="modal fade" id="detailinfo<?php echo $row['order_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal fade" id="detailinfo<?php echo $row['appoint_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -84,8 +85,15 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
-                                                <b>Appointment : </b><?php echo date('H:i',$row['start_appoint']);?> to <?php echo date('H:i',$row['end_appoint']);?><br>
+                                                <?php foreach ($result2 as $row2) { ?>
+                                                    <?php if ($row2['order_id'] == $row['order_id']) { ?>
+                                                    <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
+                                                <?php } } ?>
+                                                <b>Appointment : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?><br>
+                                                <?php foreach ($product as $row3) { ?>
+                                                    <?php if ($row3['id'] == $row['prod_id']) { ?>
+                                                    <b>Package : </b><?php echo $row3['name'];?>
+                                                <?php } } ?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
@@ -96,7 +104,7 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
                                         </div>
                                     </div>
                                 </div>
-                                <?php } } } ?>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
