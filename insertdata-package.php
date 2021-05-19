@@ -5,7 +5,6 @@ $product = json_decode($product, true);
 
 foreach ($product as $row) {
     $prodid = $row['id'];
-    $name = $row['name'];
     $price = $row['price'];
     
     $validate = mysqli_query($conn, "SELECT COUNT(package_id) as Total FROM packagewoo WHERE package_id = '$prodid'");
@@ -14,15 +13,8 @@ foreach ($product as $row) {
     foreach ($validate as $row2) {
         if ($row2['Total'] < 1) {
             $sql = "INSERT INTO packagewoo SET package_id = '$prodid', package_price = '$price'";
-            
-            if (mysqli_query($conn, $sql)){
-                $sql2 = "UPDATE packagewoo SET package_name = '$name' WHERE package_id = '$prodid'";
-                mysqli_query($conn, $sql2);
-            }
+            mysqli_query($conn, $sql);
         }
-
-        $sql3 = "UPDATE packagewoo SET package_name = '$name' WHERE package_id = '$prodid'";
-        mysqli_query($conn, $sql3);
     }
 }
 
