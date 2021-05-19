@@ -89,11 +89,11 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                     <?php if ($row2['order_id'] == $row['order_id']) { ?>
                                                     <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
                                                 <?php } } ?>
-                                                <b>Appointment : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?><br>
                                                 <?php foreach ($sql3 as $row3) { ?>
                                                     <?php if ($row3['package_id'] == $row['prod_id']) { ?>
                                                     <b>Package : </b><?php echo $row3['package_name'];?>
                                                 <?php } } ?>
+                                                <b>Time : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?><br>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
