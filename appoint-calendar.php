@@ -83,7 +83,7 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
                                             </div>
                                             <div class="modal-body">
                                                 <?php foreach ( $result2 as $row2) { ?>
-                                                    <?php if ($row2['order_id'] == $row['order_id'];) { ?>
+                                                    <?php if ($row2['order_id'] == $row['order_id']) { ?>
                                                     <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
                                                 <?php } } ?>
                                                 <b>Appointment : </b><?php echo date('H:i',$row['start_appoint']);?> to <?php echo date('H:i',$row['end_appoint']);?><br>
