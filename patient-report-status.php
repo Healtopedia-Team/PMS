@@ -83,7 +83,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-4">
-                                            <i class="bi bi-caret-right-fill">
+                                            <i class="bi bi-graph-up">
                                                 <span style="margin:0; font-size: 0.9rem; font-style: normal;">+15.97%</span>
                                             </i>
 
@@ -113,7 +113,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-4">
-                                            <i class="bi bi-caret-right-fill">
+                                            <i class="bi bi-graph-up">
                                                 <span style="margin:0; font-size: 0.9rem; font-style: normal;">+102.00%</span>
                                             </i>
 
@@ -143,7 +143,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-4">
-                                            <i class="bi bi-caret-right-fill">
+                                            <i class="bi bi-graph-up">
                                                 <span style="margin:0; font-size: 0.9rem; font-style: normal;">+16.69%</span>
                                             </i>
                                         </div>
@@ -172,7 +172,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         <h6 class="font-bold">Daily Revenue</h6>
                                     </div>
                                     <div class="row px-3 py-1">
-                                        <table class="table" style="font-size: 0.9rem;">
+                                        <table class="table" style="font-size: 0.9rem; max-height: 40%;overflow: scroll;">
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th scope="col">Date</th>
@@ -183,6 +183,34 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <tr>
+                                                    <th scope="row">22nd</th>
+                                                    <td>RM 500.00</td>
+                                                    <td>RM 0</td>
+                                                    <td>RM 500.00</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">23rd</th>
+                                                    <td>RM 1000.00</td>
+                                                    <td>RM 0</td>
+                                                    <td>RM 1000.00</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">24th</th>
+                                                    <td>RM 500.00</td>
+                                                    <td>RM 100</td>
+                                                    <td>RM 400.00</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">25th</th>
+                                                    <td>RM 1500.00</td>
+                                                    <td>RM 0</td>
+                                                    <td>RM 1500.00</td>
+                                                    <td>4</td>
+                                                </tr>
                                                 <tr>
                                                     <th scope="row">22nd</th>
                                                     <td>RM 500.00</td>
