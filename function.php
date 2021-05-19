@@ -62,7 +62,7 @@ function add_user($conn)
         $user_object->setRole($_POST['role']);
         $user_object->setHosptial($_POST["hospital"]);
         //$user_object->setUserProfile($user_object->make_avatar(strtoupper($_POST['user_name'][0])));
-        $user_object->setUserProfile($img);
+        $user_object->setUserProfile('./assets/images/faces/1.jpg');
         $user_object->setUserStatus('online');
         $user_object->save_data();
         //$user_data = $user_object->get_user_data_by_email();
@@ -95,7 +95,7 @@ function add_user($conn)
         $user_object->setRole($_POST['role']);
         $user_object->setHosptial('-');
         //$user_object->setUserProfile($user_object->make_avatar(strtoupper($_POST['user_name'][0])));
-        $user_object->setUserProfile($img);
+        $user_object->setUserProfile('./assets/images/faces/1.jpg');
         $user_object->setUserStatus('online');
         $user_object->save_data();
 
