@@ -48,7 +48,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <div class="page-heading">
                 <div class="page-title">
                     <div class="row">
-                        <div class="col-12 col-md-6 order-md-1 order-last">
+                        <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
                             <h3>Patient Report</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
@@ -158,7 +158,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <div class="row">
-                                        <h6 class="font-bold">Chart</h6>
+                                        <h5 class="font-bold">Chart</h6>
                                     </div>
                                     <div class="row"></div>
                                 </div>
