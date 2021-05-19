@@ -85,15 +85,28 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <?php foreach ($result2 as $row2) { ?>
-                                                    <?php if ($row2['order_id'] == $row['order_id']) { ?>
-                                                    <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
-                                                <?php } } ?>
-                                                <?php foreach ($sql3 as $row3) { ?>
-                                                    <?php if ($row3['package_id'] == $row['prod_id']) { ?>
-                                                    <b>Package : </b><?php echo $row3['package_name'];?>
-                                                <?php } } ?><br>
-                                                <b>Time : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?>
+                                                <table class="table table-borderless mb-0">
+                                                    <tbody>
+                                                        <tr>
+                                                        <?php foreach ($result2 as $row2) { ?>
+                                                            <?php if ($row2['order_id'] == $row['order_id']) { ?>
+                                                                <td class="text-bold-500">Name</td>
+                                                                <td> : <?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?></td>
+                                                        <?php } } ?>
+                                                        </tr>
+                                                        <tr>
+                                                        <?php foreach ($sql3 as $row3) { ?>
+                                                            <?php if ($row3['package_id'] == $row['prod_id']) { ?>
+                                                                <td class="text-bold-500">Package</td>
+                                                                <td> : <?php echo $row3['package_name'];?></td>
+                                                        <?php } } ?>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold-500">Time</td>
+                                                            <td> : <?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
