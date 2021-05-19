@@ -7,7 +7,7 @@ $data = array();
 $date = date('Y-m-d',strtotime("-1 days"));
 $yesterday = strtotime($date);
 
-$query = "SELECT * FROM appointwoo WHERE statusapp = 'complete' OR statusapp = 'paid' AND start_appoint > '$yesterday' ORDER BY order_id DESC";
+$query = "SELECT * FROM appointwoo WHERE start_appoint > '$yesterday' AND (statusapp = 'paid' OR statusapp = 'complete') ORDER BY order_id DESC";
 
 $statement = $connect->prepare($query);
 
