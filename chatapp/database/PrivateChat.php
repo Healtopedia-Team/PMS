@@ -1,6 +1,8 @@
 <?php
 session_start();
 //include "./dbconnect.php";
+header('Content-type: text/html; charset=utf-8');
+
 class PrivateChat
 {
 	private $chat_message_id;
@@ -8,7 +10,7 @@ class PrivateChat
 	private $from_user_id;
 	private $chat_message;
 	private $timestamp;
-	private $status;
+	private $chat_status;
 	protected $connect;
 	private $upload_file;
 	private $img_or_not;
@@ -64,14 +66,14 @@ class PrivateChat
 		return $this->timestamp;
 	}
 
-	function setStatus($status)
+	function setStatus($chat_status)
 	{
-		$this->status = $status;
+		$this->chat_status = $chat_status;
 	}
 
 	function getStatus()
 	{
-		return $this->status;
+		return $this->chat_status;
 	}
 
 	function setUpload_file($upload_file)
@@ -104,15 +106,19 @@ class PrivateChat
 
 	public function __construct()
 	{
-        include_once "./dbconnect.php";
-		$this->connect = $conn;
+		require_once('Database_connection.php');
+
+		$db = new Database_connection();
+
+		$this->connect = $db->connect();
 	}
 
 	function get_all_chat_data()
 	{
+		/*
 		$query = "
-		SELECT concat(a.first_name, ' ',  a.last_name) as from_user_name, concat(b.first_name, ' ',  b.last_name) as to_user_name, 
-			chat_message, timestamp, status, to_user_id, from_user_id, upload_file, img_or_not, filename  
+		SELECT concat(a.first_name, ' ',  a.last_name)  as from_user_name, concat(b.first_name, ' ',  b.last_name) as to_user_name, 
+			chat_message, timestamp, chat_status, to_user_id, from_user_id, upload_file, img_or_not, filename  
 			FROM chat_message 
 			INNER JOIN user a 
 				ON chat_message.from_user_id = a.user_id 
@@ -121,16 +127,29 @@ class PrivateChat
 			WHERE (chat_message.from_user_id = :from_user_id AND chat_message.to_user_id = :to_user_id) 
 			OR (chat_message.from_user_id = :to_user_id AND chat_message.to_user_id = :from_user_id)
 		";
+		*/
+		$query = "
+		SELECT a.username as from_user_name, b.username as to_user_name, chat_message, timestamp, chat_status, to_user_id, from_user_id  
+			FROM chat_message 
+		INNER JOIN chat_user_table a 
+			ON chat_message.from_user_id = a.user_id 
+		INNER JOIN chat_user_table b 
+			ON chat_message.to_user_id = b.user_id 
+		WHERE (chat_message.from_user_id = :from_user_id AND chat_message.to_user_id = :to_user_id) 
+		OR (chat_message.from_user_id = :to_user_id AND chat_message.to_user_id = :from_user_id)
+		";
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':from_user_id', $this->from_user_id);
+		$statement->bindParam(':from_user_id', $this->from_user_id);
 
-		$statement->bind_param(':to_user_id', $this->to_user_id);
+		$statement->bindParam(':to_user_id', $this->to_user_id);
 
 		$statement->execute();
 
-		return $statement->fetch_assoc();
+		//return $statement->errorInfo();
+
+		return $statement->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	function check_upload_file(){
@@ -169,30 +188,58 @@ class PrivateChat
 			}
 		}
 	}
+		/*
+	function save_chat()
+	{
+		$query = "
+		INSERT INTO chat_message 
+			(to_user_id, from_user_id, chat_message, timestamp, chat_status) 
+			VALUES (:to_user_id, :from_user_id, :chat_message, :timestamp, :status)
+		";
+
+		$statement = $this->connect->prepare($query);
+
+		$statement->bindParam(':to_user_id', $this->to_user_id);
+
+		$statement->bindParam(':from_user_id', $this->from_user_id);
+
+		$statement->bindParam(':chat_message', $this->chat_message);
+
+		$statement->bindParam(':timestamp', $this->timestamp);
+
+		$statement->bindParam(':status', $this->chat_status);
+
+		$statement->execute();
+		//echo $statement->errorInfo();
+
+		return $this->connect->lastInsertId();
+	}
+	*/
+
 
 	function save_chat()
 	{
 		$query = "
 		INSERT INTO chat_message 
-			(to_user_id, from_user_id, chat_message, timestamp, status, upload_file, img_or_not, filename ) 
-			VALUES (:to_user_id, :from_user_id, :chat_message, :timestamp, :status, :upload_file, :img_or_not, :filename )
+			(to_user_id, from_user_id, chat_message, timestamp, chat_status, upload_file, img_or_not, filename ) 
+			VALUES (:to_user_id, :from_user_id, :chat_message, :timestamp, :chat_status, :upload_file, :img_or_not, :filename )
 		";
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':to_user_id', $this->to_user_id);
+		$statement->bindParam(':to_user_id', $this->to_user_id);
 
-		$statement->bind_param(':from_user_id', $this->from_user_id);
+		$statement->bindParam(':from_user_id', $this->from_user_id);
 
-		$statement->bind_param(':chat_message', $this->chat_message);
+		$statement->bindParam(':chat_message', $this->chat_message);
 
-		$statement->bind_param(':timestamp', $this->timestamp);
+		$statement->bindParam(':timestamp', $this->timestamp);
 
-		$statement->bind_param(':status', $this->status);
+		$statement->bindParam(':chat_status', $this->chat_status);
 
-		$statement->bind_param(':upload_file', $this->upload_file);
-		$statement->bind_param(':img_or_not', $this->img_or_not);
-		$statement->bind_param(':filename', $this->filename);
+		$statement->bindParam(':upload_file', $this->upload_file);
+		$statement->bindParam(':img_or_not', $this->img_or_not);
+		$statement->bindParam(':filename', $this->filename);
 
 		$statement->execute();
 
@@ -203,15 +250,15 @@ class PrivateChat
 	{
 		$query = "
 		UPDATE chat_message 
-			SET status = :status 
+			SET chat_status = :chat_status 
 			WHERE chat_message_id = :chat_message_id
 		";
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':status', $this->status);
+		$statement->bindParam(':chat_status', $this->chat_status);
 
-		$statement->bind_param(':chat_message_id', $this->chat_message_id);
+		$statement->bindParam(':chat_message_id', $this->chat_message_id);
 
 		$statement->execute();
 	}
@@ -220,18 +267,69 @@ class PrivateChat
 	{
 		$query = "
 		UPDATE chat_message 
-			SET status = 'Yes' 
+			SET chat_status = 'Yes' 
 			WHERE from_user_id = :from_user_id 
 			AND to_user_id = :to_user_id 
-			AND status = 'No'
+			AND chat_status = 'No'
 		";
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':from_user_id', $this->from_user_id);
+		$statement->bindParam(':from_user_id', $this->from_user_id);
 
-		$statement->bind_param(':to_user_id', $this->to_user_id);
+		$statement->bindParam(':to_user_id', $this->to_user_id);
 
 		$statement->execute();
+	}
+
+	function get_last_message()
+	{
+		$last_message = "SELECT * FROM chat_message WHERE (to_user_id = :to_user_id
+                                            OR from_user_id = :to_user_id) AND (from_user_id = :from_user_id
+                                            OR to_user_id = :from_user_id) ORDER BY chat_message_id DESC LIMIT 1";
+		
+		$statement = $this->connect->prepare($last_message);
+
+		$statement->bindParam(':from_user_id', $this->from_user_id);
+
+		$statement->bindParam(':to_user_id', $this->to_user_id);
+
+		$statement->execute();
+
+		return $statement->fetch(PDO::FETCH_ASSOC);
+
+	}
+	function upload_files($file){
+		$allowedExts = array(
+			"jpg", "jpeg", "gif", "png", "7z", "rar", "zip", "tar.gz", "csv",
+			"xlsx", "xls", "xlsm", "doc", "docx", "txt", "pdf"
+		);
+		$imgExts = array("jpg", "jpeg", "gif", "png");
+		$isImgOrNot = true;
+		$extension = pathinfo($file['file']['name'], PATHINFO_EXTENSION);
+		$target_dir = "uploads/";
+		if (in_array($extension, $imgExts)) {
+			$isImgOrNot = 1;
+		} else {
+			$isImgOrNot = 0;
+		}
+
+		if (($file["file"]["size"] < 250000000) && in_array($extension, $allowedExts)) {
+			if ($file["file"]["error"] > 0) {
+				echo "Return Code: " . $file["file"]["error"] . "<br />";
+			} else {
+				if (is_uploaded_file($file["file"]["tmp_name"])) {
+					$_source_path = $file["file"]["tmp_name"];
+					$_filename = $file['file']['name'];
+					$target_path = $target_dir . $file["file"]["name"];
+					if (move_uploaded_file($_source_path, $target_path)) {
+						return array($target_path, $isImgOrNot,$_filename);
+					} else {
+						return array();					
+					}
+				}
+
+			}
+		}
 	}
 }

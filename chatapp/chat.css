@@ -3,7 +3,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #f2f7ff;
+  background-color: #f2f7ff !important;
   font-family: 'proxima-nova', 'Source Sans Pro', sans-serif;
   font-size: 1em;
   letter-spacing: 0.1px;
@@ -459,7 +459,7 @@ body {
     width: 100%;
   }
 }
-#frame #sidepanel #contacts ul li.contact .wrap span {
+#frame #sidepanel #contacts ul li.contact .wrap .contact-status {
   position: absolute;
   left: 0;
   margin: -2px 0 0 -2px;
@@ -469,13 +469,13 @@ body {
   border: 2px solid #ccf1ff;
   background: #95a5a6;
 }
-#frame #sidepanel #contacts ul li.contact .wrap span.online {
+#frame #sidepanel #contacts ul li.contact .wrap .contact-status.online {
   background: #2ecc71;
 }
-#frame #sidepanel #contacts ul li.contact .wrap span.away {
+#frame #sidepanel #contacts ul li.contact .wrap .contact-status.away {
   background: #f1c40f;
 }
-#frame #sidepanel #contacts ul li.contact .wrap span.busy {
+#frame #sidepanel #contacts ul li.contact .wrap .contact-status.busy {
   background: #e74c3c;
 }
 #frame #sidepanel #contacts ul li.contact .wrap img {
@@ -499,6 +499,7 @@ body {
 }
 #frame #sidepanel #contacts ul li.contact .wrap .meta .name {
   font-weight: 600;
+  margin-bottom: 0;
 }
 #frame #sidepanel #contacts ul li.contact .wrap .meta .preview {
   margin: 5px 0 0 0;
@@ -511,6 +512,7 @@ body {
   -o-transition: 1s all ease;
   -webkit-transition: 1s all ease;
   transition: 1s all ease;
+  margin-bottom: 0;
 }
 #frame #sidepanel #contacts ul li.contact .wrap .meta .preview span {
   position: initial;
@@ -665,6 +667,9 @@ body {
   max-height: calc(100% - 93px);
   overflow-y: scroll;
   overflow-x: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 @media screen and (max-width: 735px) {
   #frame .content .messages {
@@ -681,7 +686,6 @@ body {
 #frame .content .messages ul li {
   display: inline-block;
   clear: both;
-  float: left;
   margin: 15px 15px 5px 15px;
   width: calc(100% - 25px);
   font-size: 0.9em;
@@ -734,7 +738,7 @@ body {
   font-family: 'proxima-nova', 'Source Sans Pro', sans-serif;
   float: left;
   border: none;
-  width: calc(100% - 80px);
+  width: calc(100% - 40px);
   padding: 11px 32px 10px 8px;
   font-size: 0.8em;
   color: #000000;
@@ -747,6 +751,18 @@ body {
 #frame .content .message-input .wrap input:focus {
   outline: none;
 }
+#frame .content .message-input .fileuploadbtn input[type=file]{
+  font-size: 100px;
+  width:40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+
 #frame .content .message-input .wrap .attachment {
   z-index: 4;
   font-size: 1.3em;

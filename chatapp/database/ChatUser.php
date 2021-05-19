@@ -24,8 +24,11 @@ class ChatUser
 
 	public function __construct()
 	{
-		include_once "././dbconnect.php";
-		$this->connect = $conn;
+		require_once('Database_connection.php');
+
+		$database_object = new Database_connection;
+
+		$this->connect = $database_object->connect();
 	}
 
 	function setUserId($user_id)
@@ -185,10 +188,10 @@ class ChatUser
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':user_email', $this->email);
+		$statement->bindParam(':user_email', $this->email);
 
 		if ($statement->execute()) {
-			$user_data = $statement->fetch_assoc();
+			$user_data = $statement->fetch(PDO::FETCH_ASSOC);
 		}
 		return $user_data;
 	}
@@ -201,23 +204,23 @@ class ChatUser
 		";
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':first_name', $this->first_name);
+		$statement->bindParam(':first_name', $this->first_name);
 
-		$statement->bind_param(':last_name', $this->last_name);
+		$statement->bindParam(':last_name', $this->last_name);
 
-		$statement->bind_param(':username', $this->username);
+		$statement->bindParam(':username', $this->username);
 
-		$statement->bind_param(':email', $this->email);
+		$statement->bindParam(':email', $this->email);
 
-		$statement->bind_param(':password', $this->password);
+		$statement->bindParam(':password', $this->password);
 
-		$statement->bind_param(':role', $this->role);
+		$statement->bindParam(':role', $this->role);
 
-		$statement->bind_param(':hospital', $this->hospital);
+		$statement->bindParam(':hospital', $this->hospital);
 
-		$statement->bind_param(':user_profile', $this->user_profile);
+		$statement->bindParam(':user_profile', $this->user_profile);
 
-		$statement->bind_param(':status', $this->status);
+		$statement->bindParam(':status', $this->status);
 
 		if ($statement->execute()) {
 			return true;
@@ -230,17 +233,19 @@ class ChatUser
 	{
 		$query = "
 		UPDATE chat_user_table
-		SET user_login_status = :user_login_status, user_token = :user_token  
+		SET status = :status, user_login_status = :user_login_status, user_token = :user_token  
 		WHERE user_id = :user_id
 		";
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':user_login_status', $this->user_login_status);
+		$statement->bindParam(':status', $this->status);
 
-		$statement->bind_param(':user_token', $this->user_token);
+		$statement->bindParam(':user_login_status', $this->user_login_status);
 
-		$statement->bind_param(':user_id', $this->user_id);
+		$statement->bindParam(':user_token', $this->user_token);
+
+		$statement->bindParam(':user_id', $this->user_id);
 
 		if ($statement->execute()) {
 			return true;
@@ -251,19 +256,19 @@ class ChatUser
 	
 	function upload_profile(){
 		$query = "
-		UPDATE user SET first_name=:first_name,last_name=:last_name,email=:email, hospital=:hospital, 
+		UPDATE chat_user_table SET first_name=:first_name,last_name=:last_name,email=:email, hospital=:hospital, 
 		user_profile=:user_profile WHERE user_id=:user_id";
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':first_name', $this->first_name);
+		$statement->bindParam(':first_name', $this->first_name);
 
-		$statement->bind_param(':last_name', $this->last_name);
+		$statement->bindParam(':last_name', $this->last_name);
 
-		$statement->bind_param(':email', $this->email);
+		$statement->bindParam(':email', $this->email);
 
-		$statement->bind_param(':hospital', $this->hospital);
+		$statement->bindParam(':hospital', $this->hospital);
 
-		$statement->bind_param(':user_profile', $this->user_profile);
+		$statement->bindParam(':user_profile', $this->user_profile);
 
 		if ($statement->execute()) {
 			return true;
@@ -282,11 +287,12 @@ class ChatUser
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':user_id', $this->user_id);
+		$statement->bindParam(':user_id', $this->user_id);
 
 		try {
 			if ($statement->execute()) {
-				$user_data = $statement->fetch_assoc();
+				$user_data = $statement->fetch(PDO::FETCH_ASSOC);
+				//print_r($user_data);
 			} else {
 				$user_data = array();
 			}
@@ -322,21 +328,21 @@ class ChatUser
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':first_name', $this->first_name);
+		$statement->bindParam(':first_name', $this->first_name);
 
-		$statement->bind_param(':last_name', $this->last_name);
+		$statement->bindParam(':last_name', $this->last_name);
 
-		$statement->bind_param(':username', $this->username);
+		$statement->bindParam(':username', $this->username);
 
-		$statement->bind_param(':email', $this->email);
+		$statement->bindParam(':email', $this->email);
 
-		$statement->bind_param(':password', $this->password);
+		$statement->bindParam(':password', $this->password);
 
-		$statement->bind_param(':user_profile', $this->user_profile);
+		$statement->bindParam(':user_profile', $this->user_profile);
 
-		$statement->bind_param(':role', $this->role);
+		$statement->bindParam(':role', $this->role);
 
-		$statement->bind_param(':user_id', $this->user_id);
+		$statement->bindParam(':user_id', $this->user_id);
 
 		if ($statement->execute()) {
 			return true;
@@ -355,7 +361,7 @@ class ChatUser
 
 		$statement->execute();
 
-		$data = $statement->fetch_assoc();
+		$data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 		return $data;
 	}
@@ -363,18 +369,18 @@ class ChatUser
 	function get_user_all_data_with_status_count()
 	{
 		$query = "
-		SELECT user_id, concat(first_name, ' ',  last_name) as fullname, user_profile, user_login_status, 
-		(SELECT COUNT(*) FROM chat_message WHERE to_user_id = :user_id AND from_user_id = chat_user_table.user_id AND status = 'No') 
+		SELECT user_id, concat(first_name, ' ',  last_name) as fullname, user_profile, user_login_status, status,
+		(SELECT COUNT(*) FROM chat_message WHERE to_user_id = :user_id AND from_user_id = chat_user_table.user_id AND chat_status = 'No') 
 		AS count_status FROM chat_user_table
 		";
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':user_id', $this->user_id);
+		$statement->bindParam(':user_id', $this->user_id);
 
 		$statement->execute();
 
-		$data = $statement->fetch_assoc();
+		$data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 		return $data;
 	}
@@ -389,9 +395,9 @@ class ChatUser
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':user_connection_id', $this->user_connection_id);
+		$statement->bindParam(':user_connection_id', $this->user_connection_id);
 
-		$statement->bind_param(':user_token', $this->user_token);
+		$statement->bindParam(':user_token', $this->user_token);
 
 		$statement->execute();
 	}
@@ -405,13 +411,69 @@ class ChatUser
 
 		$statement = $this->connect->prepare($query);
 
-		$statement->bind_param(':user_token', $this->user_token);
+		$statement->bindParam(':user_token', $this->user_token);
 
 		$statement->execute();
 
-		$user_id = $statement->fetch_assoc();
+		$user_id = $statement->fetch(PDO::FETCH_ASSOC);
 
 		return $user_id;
+	}
+
+	function search_user($searchTerm){
+		$query = "SELECT * FROM chat_user WHERE first_name LIKE '%$searchTerm%' OR last_name LIKE '%$searchTerm%'";
+		$statement = $this->connect->prepare($query);
+		$statement->execute();
+		$user_data = $statement->fetchAll(PDO::FETCH_ASSOC);
+		return $user_data;
+	}
+	function get_selected_user_all_data_with_status_count()
+	{
+		$query = "
+		SELECT user_id, concat(first_name, ' ',  last_name) as fullname, user_profile, user_login_status, status,
+		(SELECT COUNT(*) FROM chat_message WHERE to_user_id = :user_id AND from_user_id = chat_user_table.user_id AND chat_status = 'No') 
+		AS count_status FROM chat_user_table
+		";
+
+		$statement = $this->connect->prepare($query);
+
+		$statement->bindParam(':user_id', $this->user_id);
+
+		$statement->execute();
+
+		$data = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		return $data;
+	}
+	function delete_user(){
+		$query = "
+		DELETE FROM chat_user_table WHERE user_id=:user_id
+		";
+
+		$statement = $this->connect->prepare($query);
+
+		$statement->bindParam(':user_id', $this->user_id);
+
+		if ($statement->execute()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	function get_userid_of_hospital_admin(){
+		$query = "
+			SELECT user_id FROM chat_user_table WHERE role=:role, hospital=:hospital;
+		";
+		$statement = $this->connect->prepare($query);
+
+		$statement->bindParam(':role', $this->role);
+
+		$statement->bindParam(':hospital', $this->hospital);
+
+		$data = $statement->fetch(PDO::FETCH_ASSOC);
+
+		return $data;
+
 	}
 }
 

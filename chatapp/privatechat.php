@@ -1,430 +1,836 @@
-<?php 
+<?php
+header('Content-type: text/html; charset=utf-8');
 
-//privatechat.php
+require('database/ChatUser.php');
 
-session_start();
+require('database/PrivateChat.php');
+if (!isset($_SESSION['user_data'])) {
+    header('location:index.php');
+}
 
+/*
 if(!isset($_SESSION['user_data']))
 {
 	header('location:index.php');
 }
 
-require('database/ChatUser.php');
 
-require('database/ChatRooms.php');
+$user_object = new ChatUser;
+
+$user_object->setUserEmail("root@qq.com");
+
+$user_data = $user_object->get_user_data_by_email();
+
+print_r($_SESSION['user_data']);
+
+if (!isset($_SESSION['name']) || $_SESSION["loggedin"] !== true) {
+    header('location:index.php');
+}
+
+//this one might not be here but the root directory
+if (isset($_SESSION['loggedin'])) {
+    $user_object = new ChatUser;
+    $user_object->setUserEmail($_SESSION['email']);
+    $user_data = $user_object->get_user_data_by_email();
+    //$user_token = md5(uniqid());
+    //put the token into the session
+    //$_SESSION["user_token"] = $user_token;
+    if (is_array($user_data) && count($user_data) > 0) {
+        $user_object->setUserId($user_data['user_id']);
+        $user_object->setUserLoginStatus('Login');
+        $user_token = md5(uniqid());
+        $user_object->setUserToken($user_token);
+        if ($user_object->update_user_login_data()) {
+            $_SESSION['user_data'][$user_data['user_id']] = [
+                'id'    =>  $user_data['user_id'],
+                'name'  =>  $user_data['username'],
+                'fullname' => $user_data['first_name'] . $user_data['last_name'],
+                'profile'   =>  $user_data['user_profile'],
+                'token' =>  $user_token
+            ];
+
+            //header('location:chatroom.php');
+        }
+    }
+    // this is for further use (more complicated)
+    if (update_user_login_data($conn, $user_token, $user_data['user_id'], $user_data['user_login_status'])) {
+        $_SESSION['user_data'][$user_data['user_id']] = [
+            'id'    =>  $user_data['user_id'],
+            'name'  =>  $user_data['username'],
+            'profile'   =>  $user_data['user_profile'],
+            'token' =>  $user_token,
+        ];
+    }
+    
+}
+*/
+
+
 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html class=''>
+
 <head>
-	<title>Chat application in php using web scocket programming</title>
-	<!-- Bootstrap core CSS -->
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+    <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+    <link rel="canonical" href="https://codepen.io/emilcarlsson/pen/ZOQZaV?limit=all&page=74&q=contact+" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
+
+    <script src="https://use.typekit.net/hoy3lrg.js"></script>
+    <script>
+        try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+    </script>
+    <link rel='stylesheet prefetch' type="text/css" href='../assets/vendors/fontawesome/all.min.js'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+    <link rel="stylesheet" type="text/css" href="chat.css">
     <link href="vendor-front/bootstrap/bootstrap.min.css" rel="stylesheet">
-
-    <link href="vendor-front/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" type="text/css" href="vendor-front/parsley/parsley.css"/>
-
-    <!-- Bootstrap core JavaScript -->
     <script src="vendor-front/jquery/jquery.min.js"></script>
     <script src="vendor-front/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor-front/jquery-easing/jquery.easing.min.js"></script>
-
-    <script type="text/javascript" src="vendor-front/parsley/dist/parsley.min.js"></script>
-	<style type="text/css">
-		html,
-		body {
-		  height: 100%;
-		  width: 100%;
-		  margin: 0;
-		}
-		#wrapper
-		{
-			display: flex;
-		  	flex-flow: column;
-		  	height: 100%;
-		}
-		#remaining
-		{
-			flex-grow : 1;
-		}
-		#messages {
-			height: 200px;
-			background: whitesmoke;
-			overflow: auto;
-		}
-		#chat-room-frm {
-			margin-top: 10px;
-		}
-		#user_list
-		{
-			height:450px;
-			overflow-y: auto;
-		}
-
-		#messages_area
-		{
-			height: 75vh;
-			overflow-y: auto;
-			/*background-color:#e6e6e6;*/
-			/*background-color: #EDE6DE;*/
-		}
-
-	</style>
 </head>
+
 <body>
-	<div class="container-fluid">
-		
-		<div class="row">
+    <!-- 
 
-			<div class="col-lg-3 col-md-4 col-sm-5" style="background-color: #f1f1f1; height: 100vh; border-right:1px solid #ccc;">
-				<?php
-				
-				$login_user_id = '';
+A concept for a chat interface. 
 
-				$token = '';
+Try writing a new message! :)
 
-				foreach($_SESSION['user_data'] as $key => $value)
-				{
-					$login_user_id = $value['id'];
 
-					$token = $value['token'];
+Follow me here:
+Twitter: https://twitter.com/thatguyemil
+Codepen: https://codepen.io/emilcarlsson/
+Website: http://emilcarlsson.se/
 
-				?>
-				<input type="hidden" name="login_user_id" id="login_user_id" value="<?php echo $login_user_id; ?>" />
+-->
 
-				<input type="hidden" name="is_active_chat" id="is_active_chat" value="No" />
+    <div id="frame">
+        <div id="sidepanel">
+            <div id="profile">
+                <div class="wrap">
+                    <?php
+                    /*
+                    $login_user_id = '';
+                    $token = '';
+                    $fullname = '';
+                    $user_profile = '';
+                    //$status = '';
+                    */
+                    //print_r($_SESSION['user_data'][18]);
+                    foreach ($_SESSION['user_data'] as $key => $value) {
+                        //print_r($value['id']);
+                        $login_user_id = $value['id'];
+                        $token = $value['token'];
+                        $firstname = $value['first_name'];
+                        $lastname = $value['last_name'];
+                        $user_profile = $value['profile'];
+                        //$status = $value['status']
 
-				<div class="mt-3 mb-3 text-center">
-					<img src="<?php echo $value['profile']; ?>" class="img-fluid rounded-circle img-thumbnail" width="150" />
-					<h3 class="mt-2"><?php echo $value['name']; ?></h3>
-					<a href="profile.php" class="btn btn-secondary mt-2 mb-2">Edit</a>
-					<input type="button" class="btn btn-primary mt-2 mb-2" id="logout" name="logout" value="Logout" />
-				</div>
-				<?php
-				}
+                    ?>
+                        <input type="hidden" name="login_user_id" id="login_user_id" value="<?php echo $login_user_id; ?>" />
+                        <input type="hidden" name="is_active_chat" id="is_active_chat" value="No" />
+                        <img id="profile-img" src="<?php echo $user_profile ?>" class="online" alt="" />
+                        <p><?php echo $firstname . " " . $lastname ?></p>
+                        <i class="fa fa-chevron-down expand-button" aria-hidden="true"></i>
+                        <input type="button" class="btn btn-primary mt-2 mb-2" id="logout" name="logout" value="Logout" />
+                        <input type="button" class="btn btn-primary mt-1 mb-1" id="ref_userlist" name="ref" value="ref" hidden/>
+                        <!-- this status options might be cancelled -->
+                    <?php
+                    }
+                    ?>
+                    <div id="status-options">
+                        <ul>
+                            <li id="status-online" class="active"><span class="status-circle"></span>
+                                <p>Online</p>
+                            </li>
+                            <li id="status-offline"><span class="status-circle"></span>
+                                <p>Offline</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="expanded">
+                        <label for="twitter"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></label>
+                        <input name="twitter" type="text" value="mikeross" />
+                        <label for="twitter"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></label>
+                        <input name="twitter" type="text" value="ross81" />
+                        <label for="twitter"><i class="fa fa-instagram fa-fw" aria-hidden="true"></i></label>
+                        <input name="twitter" type="text" value="mike.ross" />
+                    </div>
+                </div>
+            </div>
+            <div id="search">
 
-				$user_object = new ChatUser;
+                <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+                <input type="text" placeholder="Search contacts..." id="search" name="searchvalue">
+            </div>
+            <div id="contacts">
 
-				$user_object->setUserId($login_user_id);
+                <!-- till here is the userlist part -->
+                <ul class="users-list">
+                    <?php
+                    /*
+                    $chat = new PrivateChat;
+                    $chat->setFromUserId(17);
+                    $chat->setToUserId(18);
+                    $result = $chat->get_all_chat_data();
+                    print_r($result);
+                    */
 
-				$user_data = $user_object->get_user_all_data_with_status_count();
+                    $user_object = new ChatUser;
 
-				?>
-				<div class="list-group" style=" max-height: 100vh; margin-bottom: 10px; overflow-y:scroll; -webkit-overflow-scrolling: touch;">
-					<?php
-					
-					foreach($user_data as $key => $user)
-					{
-						$icon = '<i class="fa fa-circle text-danger"></i>';
+                    $user_object->setUserId($login_user_id);
 
-						if($user['user_login_status'] == 'Login')
-						{
-							$icon = '<i class="fa fa-circle text-success"></i>';
-						}
+                    $user_data = $user_object->get_user_all_data_with_status_count();
+                    //print_r($user_data[0]['count_status']);
 
-						if($user['user_id'] != $login_user_id)
-						{
-							if($user['count_status'] > 0)
-							{
-								$total_unread_message = '<span class="badge badge-danger badge-pill">' . $user['count_status'] . '</span>';
-							}
-							else
-							{
-								$total_unread_message = '';
-							}
+                    //$user_con =$user_object->get_user_data_by_id();
+                    //print_r($user_con);
+                    //print_r($user_data);
 
-							echo "
-							<a class='list-group-item list-group-item-action select_user' style='cursor:pointer' data-userid = '".$user['user_id']."'>
-								<img src='".$user["user_profile"]."' class='img-fluid rounded-circle img-thumbnail' width='50' />
+                    $output = '';
+
+                    //Only list the users that are not current user
+                    /*
+                    if ($user_data['user_id'] != $login_user_id) {
+                        if ($user_data['count_status'] > 0) {
+                            $total_unread_message = '<span class="badge badge-danger badge-pill">' . $user_data['count_status'] . '</span>';
+                        } else {
+                            $total_unread_message = '';
+                        }
+
+                        $chat_object = new PrivateChat;
+
+                        $chat_object->setFromUserId($login_user_id);
+
+                        $chat_object->setToUserId($user_data['user_id']);
+
+                        $last_msg = $chat_object->get_last_message();
+
+                        //print_r($last_msg);
+
+                        if ($last_msg) {
+                            $result = $last_msg['chat_message'];
+                        } else {
+                            $result = "No message available";
+                        }
+                        if (strlen($result) > 28) {
+                            $msg =  substr($result, 0, 28) . '...';
+                        } else {
+                            $msg = $result;
+                        }
+                        if (isset($last_msg['outgoing_msg_id'])) {
+                            ($outgoing_id == $last_msg['outgoing_msg_id']) ? $you = "You: " : $you = "";
+                        } else {
+                            $you = "";
+                        }
+                        $output .= '
+                                <!-- <a href="chat.php?user_id=' . $user_data['user_id'] . '"> -->
+                                <li class="contact select_user" data-userid = "' . $user_data['user_id'] . '" value="info-' . $user_data['user_id'] . '" " >
+                                    <div class="wrap">
+                                        <span class="contact-status offline"></span>
+                                        <img src= "../assets/images/faces/1.jpg" alt="" />
+                                        <div class="meta">
+                                            <p class="name" id="list_user_name_' . $user_data['user_id'] . '">' . $user_data['fullname'] . '</p>
+                                            <p class="preview"> ' . $you . $msg . '</p>
+                                        </div>
+                                        <span style="float:right !important; background:red" id="userid_' . $user_data['user_id'] . '">' . $total_unread_message . '</span>
+                                    </div>
+                                </li>';
+                        echo $output;
+                    }
+                    */
+
+                    foreach ($user_data as $key => $user) {
+                        //print_r($user['user_login_status']);
+                        $icon = '<i class="fa fa-circle text-danger"></i>';
+
+                        if ($user['user_login_status'] === 'Login') {
+                            $icon = '<i class="fa fa-circle text-success"></i>';
+                        }
+                        //Only list the users that are not current user
+
+                        if ($user['user_id'] != $login_user_id) {
+
+                            if ($user['count_status'] > 0) {
+                                $total_unread_message = '<span class="badge badge-danger badge-pill" style="float:right">New unread messages</span>';
+                            } else {
+                                $total_unread_message = '';
+                            }
+
+                            $chat_object = new PrivateChat;
+
+                            $chat_object->setFromUserId($login_user_id);
+
+                            $chat_object->setToUserId($user['user_id']);
+
+                            $last_msg = $chat_object->get_last_message();
+
+                            //print_r($last_msg);
+
+                            if ($last_msg) {
+                                $result = $last_msg['chat_message'];
+                            } else {
+                                $result = "No message available";
+                            }
+                            if (strlen($result) > 28) {
+                                $msg =  substr($result, 0, 28) . '...';
+                            } else {
+                                $msg = $result;
+                            }
+                            if (isset($last_msg['from_user_id'])) {
+                                ($login_user_id == $last_msg['from_user_id']) ? $you = "You: " : $you = "";
+                            } else {
+                                $you = "";
+                            }
+                            $output .= '
+                                <!-- <a href="chat.php?user_id=' . $user['status'] . '"> -->
+                                <li class="contact select_user" data-userid = "' . $user['user_id'] . '" value="info-' . $user['user_id'] . '" " >
+                                    <div class="wrap">
+                                        <span class="contact-status ' . $user['status'] . '"></span>
+                                        <img src= "../assets/images/faces/1.jpg" alt="" />
+                                        <div class="meta">
+                                             <p class="name" id="list_user_name_' . $user['user_id'] . '">' . $user['fullname'] . '</p>
+                                            <p class="preview"> ' . $you . $msg . '</p>
+                                           
+                                        </div>
+                                        <span id="userid_' . $user['user_id'] . '">' . $total_unread_message . '</span>
+                                    </div>
+                                </li>';
+                            echo $output;
+                            /*
+                            echo "
+							<a class='list-group-item list-group-item-action select_user' style='cursor:pointer' data-userid = '" . $user['user_id'] . "'>
+								<img src='" . $user["user_profile"] . "' class='img-fluid rounded-circle img-thumbnail' width='50' />
 								<span class='ml-1'>
 									<strong>
-										<span id='list_user_name_".$user["user_id"]."'>".$user['user_name']."</span>
-										<span id='userid_".$user['user_id']."'>".$total_unread_message."</span>
+										<span id='list_user_name_" . $user["user_id"] . "'>" . $user['user_name'] . "</span>
+										<span id='userid_" . $user['user_id'] . "'>" . $total_unread_message . "</span>
 									</strong>
 								</span>
-								<span class='mt-2 float-right' id='userstatus_".$user['user_id']."'>".$icon."</span>
+								<span class='mt-2 float-right' id='userstatus_" . $user['user_id'] . "'>" . $icon . "</span>
 							</a>
 							";
-						}
-					}
+                            */
+                        }
+                    }
 
 
-					?>
-				</div>
-			</div>
-			
-			<div class="col-lg-9 col-md-8 col-sm-7">
-				<br />
-		        <h3 class="text-center">Realtime One to One Chat App using Ratchet WebSockets with PHP Mysql - Online Offline Status - 8</h3>
-		        <hr />
-		        <br />
-		        <div id="chat_area"></div>
-			</div>
-			
-		</div>
-	</div>
-</body>
-<script type="text/javascript">
-	$(document).ready(function(){
+                    ?>
+                </ul>
+            </div>
+            <div id="bottom-bar">
+                <button id="addcontact"><i class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span>Add contact</span></button>
+                <button id="settings"><i class="fa fa-cog fa-fw" aria-hidden="true"></i> <span>Settings</span></button>
+            </div>
+        </div>
 
-		var receiver_userid = '';
+        <div class="content">
 
-		var conn = new WebSocket('ws://localhost:8080?token=<?php echo $token; ?>');
+        </div>
+        <div class="nomessage">
+            <img id="chatboximg" src="../assets/chatmsg.png" alt="" />
+            <div class="startchat">
+                <h1>Start new chat now!</h1>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const searchBar = document.querySelector("#frame #search input");
+        const usersList = document.querySelector('.users-list');
+        const invisible_refresh = document.querySelector("#ref_userlist");
+        var from_user_id = $('#login_user_id').val();
+        invisible_refresh.onclick = () => {
+            console.log("refresh userlist here")
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "userlist.php", true);
+            xhr.onload = () => {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        let data = xhr.response;
+                        //console.log(data);
+                        usersList.innerHTML = data;
+                        console.log("refresh userlist")
 
-		conn.onopen = function(event)
-		{
-			console.log('Connection Established');
-		};
+                    }
+                }
+            };
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("login_user_id=" + from_user_id);
+        };
+        searchBar.onkeyup = () => {
+            let searchTerm = searchBar.value;
+            if (searchTerm != "") {
+                searchBar.classList.add("active");
+            } else {
+                searchBar.classList.remove("active");
+            }
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "search.php", true);
+            xhr.onload = () => {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        let data = xhr.response;
+                        //console.log(data);
+                        if (searchBar.classList.contains("active")) {
+                            usersList.innerHTML = data;
+                            console.log(searchTerm)
+                        } else {
+                            invisible_refresh.click();
+                        }
+                    }
+                }
+            };
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("searchTerm=" + searchTerm);
+        };
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('storefile');
+                output.value = reader.result;
+                console.log(reader.result)
+                console.log(output.value)
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+        $(document).ready(function() {
 
-		conn.onmessage = function(event)
-		{
-			var data = JSON.parse(event.data);
 
-			if(data.status_type == 'Online')
-			{
-				$('#userstatus_'+data.user_id_status).html('<i class="fa fa-circle text-success"></i>');
-			}
-			else if(data.status_type == 'Offline')
-			{
-				$('#userstatus_'+data.user_id_status).html('<i class="fa fa-circle text-danger"></i>');
-			}
-			else
-			{
 
-				var row_class = '';
-				var background_class = '';
+            var receiver_userid = '';
 
-				if(data.from == 'Me')
-				{
-					row_class = 'row justify-content-start';
-					background_class = 'alert-primary';
-				}
-				else
-				{
-					row_class = 'row justify-content-end';
-					background_class = 'alert-success';
-				}
+            var conn = new WebSocket('ws://localhost:8180?token=<?php echo $token; ?>');
+            //console.log("Token is here");
+            //console.log('<?php echo $token; ?>')
+            conn.onopen = function(event) {
+                console.log('Connection Established');
+            };
 
-				if(receiver_userid == data.userId || data.from == 'Me')
-				{
-					if($('#is_active_chat').val() == 'Yes')
-					{
-						var html_data = `
-						<div class="`+row_class+`">
-							<div class="col-sm-10">
-								<div class="shadow-sm alert `+background_class+`">
-									<b>`+data.from+` - </b>`+data.msg+`<br />
-									<div class="text-right">
-										<small><i>`+data.datetime+`</i></small>
-									</div>
-								</div>
-							</div>
-						</div>
-						`;
+            conn.onmessage = function(event) {
+                //$('.select_user.active').click();
+                var data = JSON.parse(event.data);
 
-						$('#messages_area').append(html_data);
+                if (data.status_type == 'online') {
+                    $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-success"></i>');
+                } else if (data.status_type == 'offline') {
+                    $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-danger"></i>');
+                } else {
 
-						$('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
+                    var row_class = '';
+                    var background_class = '';
 
-						$('#chat_message').val("");
-					}
-				}
-				else
-				{
-					var count_chat = $('#userid'+data.userId).text();
+                    if (data.from == 'Me') {
+                        row_class = 'row justify-content-end';
+                        style = "float:right; padding: 0px 10px 0px 10px;margin-right: -5px; margin-left: -5px;";
+                        background_class = 'alert-success';
+                    } else {
+                        row_class = 'row justify-content-start';
+                        style = "float:left; padding: 0px 10px 0px 10px;margin-right: -5px; margin-left: -5px;";
+                        background_class = 'alert-primary';
+                    }
 
-					if(count_chat == '')
-					{
-						count_chat = 0;
-					}
+                    if (receiver_userid == data.userId || data.from == 'Me') {
+                        if ($('#is_active_chat').val() == 'Yes') {
+                            var html_data = `
+                                <div class="` + row_class + `" style="` + style + `">
+                                    <div class="col-sm-9">
+                                        <div class="shadow-sm alert ` + background_class + `">
+                                            <b>` + data.from + ` - </b>` + data.msg + `<br />
+                                            <div class="text-right">
+                                                <small><i>` + data.datetime + `</i></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
 
-					count_chat++;
+                            $('#messages_area').append(html_data);
 
-					$('#userid_'+data.userId).html('<span class="badge badge-danger badge-pill">'+count_chat+'</span>');
-				}
-			}
-		};
+                            $('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
 
-		conn.onclose = function(event)
-		{
-			console.log('connection close');
-		};
+                            $('#chat_message').val("");
+                        }
+                    } else {
+                        var count_chat = $('#userid' + data.userId).text();
 
-		function make_chat_area(user_name)
-		{
-			var html = `
-			<div class="card">
-				<div class="card-header">
-					<div class="row">
-						<div class="col col-sm-6">
-							<b>Chat with <span class="text-danger" id="chat_user_name">`+user_name+`</span></b>
-						</div>
-						<div class="col col-sm-6 text-right">
-							<a href="chatroom.php" class="btn btn-success btn-sm">Group Chat</a>&nbsp;&nbsp;&nbsp;
-							<button type="button" class="close" id="close_chat_area" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="card-body" id="messages_area">
+                        if (count_chat == '') {
+                            count_chat = 0;
+                        }
 
-				</div>
-			</div>
+                        count_chat = 'New unread messages';
 
-			<form id="chat_form" method="POST" data-parsley-errors-container="#validation_error">
-				<div class="input-group mb-3" style="height:7vh">
-					<textarea class="form-control" id="chat_message" name="chat_message" placeholder="Type Message Here" data-parsley-maxlength="1000" data-parsley-pattern="/^[a-zA-Z0-9 ]+$/" required></textarea>
-					<div class="input-group-append">
-						<button type="submit" name="send" id="send" class="btn btn-primary"><i class="fa fa-paper-plane"></i></button>
-					</div>
-				</div>
-				<div id="validation_error"></div>
-				<br />
-			</form>
+                        $('#userid_' + data.userId).html('<span class="badge badge-danger badge-pill" style="float: right;">' + count_chat + '</span>');
+                    }
+                }
+            };
+            /*
+            conn.onmessage = function(event) {
+                var data = JSON.parse(event.data);
+                // wondering if these two if is necessary or not , as it is to show the online/offline one
+                //might need to change
+                console.log(data)
+                if (data.status_type === 'online') {
+                    $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-success"></i>');
+                } else if (data.status_type === 'offline') {
+                    $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-danger"></i>');
+                } else {
+                    //chat room chatbubblebox part
+                    var row_class = '';
+                    var background_class = '';
+
+                    if (data.from == 'Me') {
+                        row_class = 'row justify-content-end';
+                        style = "float:right";
+                        background_class = 'alert-success';
+                    } else {
+                        row_class = 'row justify-content-start';
+                        style = "float:left";
+                        background_class = 'alert-primary';
+                    }
+
+                    if (receiver_userid == data.userId || data.from == 'Me') {
+                        if ($('#is_active_chat').val() == 'Yes') {
+                            var html_data = `
+                                <div class="` + row_class + `" style="` + style + `">
+                                    <div class="col-sm-10">
+                                        <div class="shadow-sm alert ` + background_class + `">
+                                            <b>` + data.from + `-</b>` + data.msg + `<br />
+                                            <div class="text-right">
+                                                <small><i>` + data.datetime + `</i></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `;
+                            var output = `
+                                    <li class="sent">
+                                        <p> ` + data.msg + ` </p>
+                                        <span>` + data.datetime + `</span>
+                                    </li>`;
+
+                            $('#messages_area').append(html_data);
+
+                            $('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
+
+                            $('#chat_message').val("");
+                        }
+                    } else {
+                        var count_chat = $('#userid' + data.userId).text();
+
+                        if (count_chat == '') {
+                            count_chat = 0;
+                        }
+
+                        count_chat++;
+
+                        $('#userid_' + data.userId).html('<span class="badge badge-danger badge-pill">' + count_chat + '</span>');
+                    }
+                }
+            };
+            */
+            conn.onclose = function(event) {
+                console.log('connection close');
+            };
+
+            function make_chat_area(user_name) {
+                var html = `
+                <div class="contact-profile">
+                    <img src="../assets/images/faces/1.jpg" alt="" />
+                    <p class="person_received">` + user_name + `</p>
+                    <div class="social-media">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="messages" id="messages_area">
+
+                </div>
+                <div class="message-input">
+                    <form id="file_form" method="POST" action="uploadfile.php">
+                        <div class="wrap fileuploadbtn">
+                            <input type="text" name="from_user_id" hidden>
+                            <input type="text" name="to_user_id" hidden>
+                            <!-- <input type="file" id="fileupload" name="file" onchange="loadFile(event)"> -->
+                            <input type="file" id="fileupload" name="file">
+                            <p id="storefile" hidden></p>
+                            <button style="float:left" type="submit" class="attachmentbtn" name="files">
+                            <i class="fa fa-paperclip attachment" aria-hidden="true"> </i></button>
+                        </div>
+                    </form>
+                    <form id="chat_form" method="POST">
+                    <div class="wrap">
+                        <input type="text" class="incoming_id" name="incoming_id" hidden>
+                        <input style="float:left" type="text" name="message" class="input-field" id="chat_message" placeholder="Write your message..." />
+                        <button style="float:right" type="submit" class="submitbutton"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    </div>
+                    </form>
+                </div>
+                    
 			`;
 
-			$('#chat_area').html(html);
+                $('.content').html(html);
+                //$(".content").trigger("create");
+                $(".nomessage").css("display", "none");
+                $(".content").css("display", "block");
 
-			$('#chat_form').parsley();
-		}
+                //$('#chat_form').parsley();
+            }
 
-		$(document).on('click', '.select_user', function(){
+            //userlist onclick part
+            $(document).on('click', '.select_user', function() {
 
-			receiver_userid = $(this).data('userid');
+                receiver_userid = $(this).data('userid');
+                //console.log(receiver_userid)
 
-			var from_user_id = $('#login_user_id').val();
+                var from_user_id = $('#login_user_id').val();
+                //console.log(from_user_id)
+                var receiver_user_name = $('#list_user_name_' + receiver_userid).text();
 
-			var receiver_user_name = $('#list_user_name_'+receiver_userid).text();
+                $('.select_user.active').removeClass('active');
 
-			$('.select_user.active').removeClass('active');
+                $(this).addClass('active');
 
-			$(this).addClass('active');
+                make_chat_area(receiver_user_name);
 
-			make_chat_area(receiver_user_name);
+                $('#is_active_chat').val('Yes');
 
-			$('#is_active_chat').val('Yes');
+                //load the history message
+                $.ajax({
+                    url: "action.php",
+                    method: "POST",
+                    data: {
+                        action: 'fetch_chat',
+                        to_user_id: receiver_userid,
+                        from_user_id: from_user_id,
+                    },
+                    //dataType: 'json',
+                    //dataType: 'json',
+                    //contentType: 'application/json; charset=utf-8',
+                    cache: false,
+                    success: function(result) {
+                        data = jQuery.parseJSON(result);
+                        if (data.length > 0) {
+                            var html_data = '';
 
-			$.ajax({
-				url:"action.php",
-				method:"POST",
-				data:{action:'fetch_chat', to_user_id:receiver_userid, from_user_id:from_user_id},
-				dataType:"JSON",
-				success:function(data)
-				{
-					if(data.length > 0)
-					{
-						var html_data = '';
+                            for (var count = 0; count < data.length; count++) {
+                                var row_class = '';
+                                var background_class = '';
+                                var user_name = '';
 
-						for(var count = 0; count < data.length; count++)
-						{
-							var row_class= ''; 
-							var background_class = '';
-							var user_name = '';
+                                if (data[count].from_user_id == from_user_id) {
+                                    row_class = 'row justify-content-end';
 
-							if(data[count].from_user_id == from_user_id)
-							{
-								row_class = 'row justify-content-start';
+                                    background_class = 'alert-success';
 
-								background_class = 'alert-primary';
+                                    user_name = 'Me';
+                                } else {
+                                    row_class = 'row justify-content-start';
 
-								user_name = 'Me';
-							}
-							else
-							{
-								row_class = 'row justify-content-end';
+                                    background_class = 'alert-primary';
+                                    user_name = data[count].from_user_name;
+                                }
 
-								background_class = 'alert-success';
+                                html_data += `
+                                                <div class="` + row_class + `" style="padding: 0px 10px 0px 10px; margin-right: -5px;
+                                                margin-left: -5px;">
+                                                    <div class="col-sm-9">
+                                                        <div class="shadow alert ` + background_class + `" style="border-color:none">
+                                                            <b>` + user_name + ` - </b>
+                                                            ` + data[count].chat_message + `<br />
+                                                            <div class="text-right">
+                                                                <small><i>` + data[count].timestamp + `</i></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                `;
+                            }
+                            //this line is for letting the unread message be read then no notice
+                            $('#userid_' + receiver_userid).html('');
 
-								user_name = data[count].from_user_name;
-							}
+                            $('#messages_area').html(html_data);
 
-							html_data += `
-							<div class="`+row_class+`">
-								<div class="col-sm-10">
-									<div class="shadow alert `+background_class+`">
-										<b>`+user_name+` - </b>
-										`+data[count].chat_message+`<br />
-										<div class="text-right">
-											<small><i>`+data[count].timestamp+`</i></small>
-										</div>
-									</div>
-								</div>
-							</div>
-							`;
-						}
+                            $('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
 
-						$('#userid_'+receiver_userid).html('');
 
-						$('#messages_area').html(html_data);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(jqXHR)
+                        console.log(errorThrown)
+                        console.log(textStatus)
+                    }
+                })
+            });
 
-						$('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
-					}
-				}
-			})
 
-		});
 
-		$(document).on('click', '#close_chat_area', function(){
+            $(document).on('submit', '#chat_form', function(event) {
 
-			$('#chat_area').html('');
+                event.preventDefault();
+                var user_id = parseInt($('#login_user_id').val());
 
-			$('.select_user.active').removeClass('active');
+                var message = $('#chat_message').val();
 
-			$('#is_active_chat').val('No');
+                //var file = $("#fileupload").val();
 
-			receiver_userid = '';
+                var file = '';
 
-		});
+                var data = {
+                    userId: user_id,
+                    msg: message,
+                    //file: fileupload,
+                    receiver_userid: receiver_userid,
+                    command: 'private'
+                };
 
-		$(document).on('submit', '#chat_form', function(event){
+                conn.send(JSON.stringify(data));
 
-			event.preventDefault();
+            });
+            $(document).on('click', '#fileupload', function(event) {
+                var user_id = parseInt($('#login_user_id').val());
+                const form = document.querySelector("#file_form");
+                var file = $("#fileupload").val();
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "uploadfile.php", true);
+                xhr.onload = () => {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            console.log("attachmentbtn running!!!");
+                            //console.log(inputField)
+                        }
+                    }
+                };
+                let formData = new FormData(form); //Create the formdata to be submitted
+                formData.append('from_user_id', user_id) //Append the current user_id to the formData
+                formData.append('to_user_id', receiver_userid)
+                for (let [key, value] of formData.entries()) { //log the value of formdata (debug use!)
+                    console.log(`${key}: ${value}`);
+                }
+                xhr.send(formData);
 
-			if($('#chat_form').parsley().isValid())
-			{
-				var user_id = parseInt($('#login_user_id').val());
+                console.log("Send successfully");
+            })
 
-				var message = $('#chat_message').val();
+            $(document).on('submit', '#file_form', function(event) {
 
-				var data = {
-					userId: user_id,
-					msg: message,
-					receiver_userid:receiver_userid,
-					command:'private'
-				};
+                event.preventDefault();
 
-				conn.send(JSON.stringify(data));
-			}
+                console.log("filebtn runninghere!")
+                /*
+                var user_id = parseInt($('#login_user_id').val());
+                var fileupload = $("#fileupload").val();
+                var data = {
+                    userId: user_id,
+                    file: fileupload,
+                    receiver_userid: receiver_userid,
+                    command: 'private'
+                };
 
-		});
+                conn.send(JSON.stringify(data));
+*/
 
-		$('#logout').click(function(){
+            });
+            /*
+            $('.attachmentbtn').click(function() {
+            $('#fileupload').click()
+            file_val = $('#fileupload').val()
+            $.ajax({
+            url: "uploadfile.php",
+            method: "POST",
+            data: {
+            filedata: file_val,
+            to_user_id: receiver_userid,
+            from_user_id: from_user_id,
+            },
+            //dataType: 'json',
+            //dataType: 'json',
+            //contentType: 'application/json; charset=utf-8',
+            cache: false,
+            success: function(result) {
+            console.log(result)
+            data = jQuery.parseJSON(result);
 
-			user_id = $('#login_user_id').val();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR)
+            console.log(errorThrown)
+            console.log(textStatus)
+            }
+            })
+            })
+            */
 
-			$.ajax({
-				url:"action.php",
-				method:"POST",
-				data:{user_id:user_id, action:'leave'},
-				success:function(data)
-				{
-					var response = JSON.parse(data);
-					if(response.status == 1)
-					{
-						conn.close();
+            $('#logout').click(function() {
 
-						location = 'index.php';
-					}
-				}
-			})
+                user_id = $('#login_user_id').val();
 
-		});
+                $.ajax({
+                    url: "action.php",
+                    method: "POST",
+                    data: {
+                        user_id: user_id,
+                        action: 'leave'
+                    },
+                    success: function(result) {
+                        console.log(result)
+                        data = jQuery.parseJSON(result);
 
-	})
-</script>
+                        var response = data;
+                        if (response.status == 1) {
+                            conn.close();
+                            console.log("Successfully log out")
+                            location = 'index.php';
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(jqXHR)
+                        console.log(errorThrown)
+                        console.log(textStatus)
+                    }
+                })
+
+            });
+        })
+        /* dont know how to write search function yet
+        const searchBar = document.querySelector("#frame #search input");
+        const usersList = document.querySelector('.users-list');
+        searchBar.onkeyup = () => {
+        let searchTerm = searchBar.value;
+        if (searchTerm != "") {
+        searchBar.classList.add("active");
+        } else {
+        searchBar.classList.remove("active");
+        }
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "search.php", true);
+        xhr.onload = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+        let data = xhr.response;
+        //console.log(data);
+        if (searchBar.classList.contains("active")) {
+        usersList.innerHTML = data;
+        console.log(searchTerm)
+        } else {
+        refreshUserList();
+        }
+        }
+        }
+        };
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("searchTerm=" + searchTerm);
+        };
+        */
+    </script>
+
 </html>

@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+require dirname(__DIR__) . "/database/ChatUser.php";
+require dirname(__DIR__) . "/database/PrivateChat.php";
 include 'dbconnect.php';
 
 $theCommand = $_REQUEST['command'];
@@ -60,8 +61,9 @@ function add_user($conn)
         $user_object->setUserPassword($_POST['password']);
         $user_object->setRole($_POST['role']);
         $user_object->setHosptial($_POST["hospital"]);
-        $user_object->setUserProfile($user_object->make_avatar(strtoupper($_POST['user_name'][0])));
-        $user_object->setUserStatus('Enable');
+        //$user_object->setUserProfile($user_object->make_avatar(strtoupper($_POST['user_name'][0])));
+        $user_object->setUserProfile($img);
+        $user_object->setUserStatus('online');
         $user_object->save_data();
         //$user_data = $user_object->get_user_data_by_email();
 
@@ -92,8 +94,9 @@ function add_user($conn)
         $user_object->setUserPassword($_POST['password']);
         $user_object->setRole($_POST['role']);
         $user_object->setHosptial('-');
-        $user_object->setUserProfile($user_object->make_avatar(strtoupper($_POST['user_name'][0])));
-        $user_object->setUserStatus('Enable');
+        //$user_object->setUserProfile($user_object->make_avatar(strtoupper($_POST['user_name'][0])));
+        $user_object->setUserProfile($img);
+        $user_object->setUserStatus('online');
         $user_object->save_data();
 
 
@@ -155,8 +158,10 @@ function delete_user($conn)
     $userid = $_REQUEST['id'];
     $sql = "DELETE user FROM user WHERE user_id=$userid";
     //chat user table modification here
+    $user_object = new ChatUser;
 
-
+    $user_object->setUserId($userid);
+    $user_object->delete_user();
 
     if (mysqli_multi_query($conn, $sql)) {
         header('location:users.php');
@@ -211,16 +216,13 @@ function update_profile($conn)
     $user_object->setLastName($_POST["lastname"]);
     $user_object->setUserEmail($_POST['email']);
     $user_object->setHosptial($_POST["hospital"]);
+    $user_profile = $user_object->upload_image($_FILES["file_to_upload"]["name"]);
+    $user_object->setUserProfile($user_profile);
+    $user_object->upload_profile();
 
     if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
         $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', 
         user_profile='$image' WHERE user_id='$id'";
-        $user_object->setUserProfile($image);
-        $user_object->upload_profile();
-
-        //chat user table modification here
-
-
         if (mysqli_query($conn, $sql)) {
             $_SESSION["name"] = $firstname;
             $_SESSION["hospital"] = $lastname;
@@ -277,155 +279,4 @@ function add_role($conn)
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
     }
-}
-
-// Additional function for the chatting
-
-function get_user_data_by_email($conn, $user_email)
-{
-    $email = $user_email;
-    $query = "
-		SELECT * FROM user 
-		WHERE email = :user_email
-		";
-
-    $statement = $conn->prepare($query);
-
-    $statement->bind_param(':user_email', $email);
-
-    if ($statement->execute()) {
-        $user_data = $statement->fetch_assoc();
-    }
-    return $user_data;
-}
-
-function update_user_login_data($conn, $user_login_status, $user_id, $user_token)
-{
-    //$user_login_status = $_SESSION["user_login_status"];
-    //$user_id = $_SESSION["user_id"];
-    $query = "
-		UPDATE user 
-		SET user_login_status = :user_login_status, user_token = :user_token  
-		WHERE user_id = :user_id
-		";
-
-    $statement = $conn->prepare($query);
-
-    $statement->bind_param(':user_login_status', $user_login_status);
-
-    $statement->bind_param(':user_token', $user_token);
-
-    $statement->bind_param(':user_id', $user_id);
-
-    if ($statement->execute()) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function get_user_data_by_id($conn, $userid)
-{
-    $user_id = $userid;
-    $query = "
-		SELECT * FROM user 
-		WHERE user_id = :user_id";
-
-    $statement = $conn->prepare($query);
-
-    $statement->bind_param(':user_id', $user_id);
-
-    try {
-        if ($statement->execute()) {
-            $user_data = $statement->fetch_assoc();
-        } else {
-            $user_data = array();
-        }
-    } catch (Exception $error) {
-        echo $error->getMessage();
-    }
-    return $user_data;
-}
-/*
-function upload_image($user_profile)
-{
-    $extension = explode('.', $user_profile['name']);
-    $new_name = rand() . '.' . $extension[1];
-    $destination = 'images/' . $new_name;
-    move_uploaded_file($user_profile['tmp_name'], $destination);
-    return $destination;
-}
-*/
-
-
-function get_user_all_data($conn)
-{
-    $query = "
-		SELECT * FROM user
-		";
-
-    $statement = $conn->prepare($query);
-
-    $statement->execute();
-
-    $data = $statement->fetch_assoc();
-
-    return $data;
-}
-
-function get_user_all_data_with_status_count($conn, $user_id)
-{
-    //$user_id = $_SESSION["user_id"];
-    $query = "
-		SELECT user_id, username, user_profile, user_login_status, (SELECT COUNT(*) 
-        FROM chat_message WHERE to_user_id = :user_id AND from_user_id = chat_user_table.user_id AND status = 'No') 
-        AS count_status FROM chat
-		";
-
-    $statement = $conn->prepare($query);
-
-    $statement->bind_param(':user_id', $user_id);
-
-    $statement->execute();
-
-    $data = $statement->fetch_assoc();
-
-    return $data;
-}
-
-function update_user_connection_id($conn, $connection_id, $user_token)
-{
-    $user_connection_id = $connection_id;
-    $query = "
-		UPDATE user
-		SET user_connection_id = :user_connection_id 
-		WHERE user_token = :user_token
-		";
-
-    $statement = $conn->prepare($query);
-
-    $statement->bind_param(':user_connection_id', $user_connection_id);
-
-    $statement->bind_param(':user_token', $user_token);
-
-    $statement->execute();
-}
-
-function get_user_id_from_token($conn, $token)
-{
-    $user_token = $token;
-    $query = "
-		SELECT user_id FROM user
-		WHERE user_token = :user_token
-		";
-
-    $statement = $conn->prepare($query);
-
-    $statement->bind_param(':user_token', $user_token);
-
-    $statement->execute();
-
-    $user_id = $statement->fetch_assoc();
-
-    return $user_id;
 }
