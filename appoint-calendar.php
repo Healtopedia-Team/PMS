@@ -88,14 +88,14 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                 <table class="table table-borderless mb-0">
                                                     <colgroup>
                                                         <col span="1" style="width: 15%;">
-                                                        <col span="1" style="width: 5%;">
-                                                        <col span="1" style="width: 70%;">
+                                                        <col span="1" style="width: 3%;">
+                                                        <col span="1" style="width: 72%;">
                                                     </colgroup>
                                                     <tbody>
                                                         <tr>
                                                         <?php foreach ($result2 as $row2) { ?>
                                                             <?php if ($row2['order_id'] == $row['order_id']) { ?>
-                                                                <td>Name</td>
+                                                                <td><b>Name</b></td>
                                                                 <td>:</td>
                                                                 <td><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?></td>
                                                         <?php } } ?>
@@ -103,13 +103,13 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                         <tr>
                                                         <?php foreach ($sql3 as $row3) { ?>
                                                             <?php if ($row3['package_id'] == $row['prod_id']) { ?>
-                                                                <td>Package</td>
+                                                                <td><b>Package</b></td>
                                                                 <td>:</td>
                                                                 <td><?php echo $row3['package_name'];?></td>
                                                         <?php } } ?>
                                                         </tr>
                                                         <tr>
-                                                            <td>Time</td>
+                                                            <td><b>Time</b></td>
                                                             <td>:</td>
                                                             <td><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?></td>
                                                         </tr>
