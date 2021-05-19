@@ -83,9 +83,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="stats-icon purple">
-                                                <i class="iconly-boldShow"></i>
-                                            </div>
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            <p>+15.97%</p>
                                         </div>
                                     </div>
                                 </div>
@@ -95,16 +94,25 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <div class="row">
+                                    <div class="row align-items-center">
                                         <div class="col-md-9">
-                                            <h6 class="text-muted font-semibold">Refunds</h6>
-                                            <h6 class="font-extrabold mb-0">
-                                            </h6>
+                                            <div class="row">
+                                                <h5 class="text-muted font-semibold">Refunds</h5>
+                                            </div>
+                                            <div class="row">
+                                                <h5 class="font-bold">RM 0.00</h5>
+                                            </div>
+                                            <div class="row">
+                                                <h6 class="text-muted font-semibold">Previous Month</h6>
+                                            </div>
+                                            <div class="row">
+                                                <h6 class="font-bold">RM 102.00</h6>
+                                            </div>
+
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="stats-icon purple">
-                                                <i class="iconly-boldShow"></i>
-                                            </div>
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            <p>+102.00%</p>
                                         </div>
                                     </div>
                                 </div>
@@ -114,16 +122,25 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <div class="row">
+                                    <div class="row align-items-center">
                                         <div class="col-md-9">
-                                            <h6 class="text-muted font-semibold">Net Revenue</h6>
-                                            <h6 class="font-extrabold mb-0">
-                                            </h6>
+                                            <div class="row">
+                                                <h5 class="text-muted font-semibold">Net Revenue</h5>
+                                            </div>
+                                            <div class="row">
+                                                <h5 class="font-bold">RM 19023.00</h5>
+                                            </div>
+                                            <div class="row">
+                                                <h6 class="text-muted font-semibold">Previous Month</h6>
+                                            </div>
+                                            <div class="row">
+                                                <h6 class="font-bold">RM 16302.00</h6>
+                                            </div>
+
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="stats-icon purple">
-                                                <i class="iconly-boldShow"></i>
-                                            </div>
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            <p>+16.69%</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +152,10 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <div class="col-6">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-
+                                    <div class="row">
+                                        <h6 class="font-bold">Chart</h6>
+                                    </div>
+                                    <div class="row"></div>
                                 </div>
 
                             </div>
@@ -143,7 +163,52 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <div class="col-6">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-
+                                    <div class="row">
+                                        <h6 class="font-bold">Daily Revenue</h6>
+                                    </div>
+                                    <div class="row">
+                                        <table class="table">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Gross Revenue</th>
+                                                    <th scope="col">Refund</th>
+                                                    <th scope="col">Net Revenue</th>
+                                                    <th scope="col">Appointment</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">22nd</th>
+                                                    <td>RM 500.00</td>
+                                                    <td>RM 0</td>
+                                                    <td>RM 500.00</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">23rd</th>
+                                                    <td>RM 1000.00</td>
+                                                    <td>RM 0</td>
+                                                    <td>RM 1000.00</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">24th</th>
+                                                    <td>RM 500.00</td>
+                                                    <td>RM 100</td>
+                                                    <td>RM 400.00</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">25th</th>
+                                                    <td>RM 1500.00</td>
+                                                    <td>RM 0</td>
+                                                    <td>RM 1500.00</td>
+                                                    <td>4</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
 
                             </div>
