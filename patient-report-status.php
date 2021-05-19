@@ -169,9 +169,9 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <div class="row">
-                                        <h6 class="font-bold">Daily Revenue</h6>
+                                        <h5 class="font-bold">Daily Revenue</h6>
                                     </div>
-                                    <div class="row px-3 py-1" style="position: relative; height: 200px; overflow: auto; display: block;">
+                                    <div class="row px-3 py-1" style="position: relative; height: 400px; overflow: auto; display: block;">
                                         <table id="dtVerticalScrollExample" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
                                             <thead class="thead-light">
                                                 <tr>
@@ -249,13 +249,5 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                 </section>
             </div>
-            <script>
-                $(document).ready(function() {
-                    $('#dtVerticalScrollExample').DataTable({
-                        "scrollY": "30vh",
-                        "scrollCollapse": true,
-                    });
-                    $('.dataTables_length').addClass('bs-select');
-                });
-            </script>
+
             <?php include 'request-appointment-footer.php'; ?>
