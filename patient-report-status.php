@@ -65,7 +65,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body px-3 py-2">
+                                <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
                                         <div class="col-md-8">
                                             <div class="row">
@@ -93,7 +93,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body px-3 py-2">
+                                <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
                                         <div class="col-md-8">
                                             <div class="row">
@@ -121,7 +121,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body px-3 py-2">
+                                <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
                                         <div class="col-md-8">
                                             <div class="row">
@@ -151,7 +151,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="row">
                         <div class="col-6">
                             <div class="card">
-                                <div class="card-body px-3 py-2">
+                                <div class="card-body px-3 py-3">
                                     <div class="row">
                                         <h6 class="font-bold">Chart</h6>
                                     </div>
@@ -162,12 +162,12 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="col-6">
                             <div class="card">
-                                <div class="card-body px-3 py-2">
+                                <div class="card-body px-3 py-3">
                                     <div class="row">
                                         <h6 class="font-bold">Daily Revenue</h6>
                                     </div>
-                                    <div class="row px-3 py-2">
-                                        <table class="table">
+                                    <div class="row px-3 py-3">
+                                        <table class="table" style="font-size: 0.9rem;">
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th scope="col">Date</th>
