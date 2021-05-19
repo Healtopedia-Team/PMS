@@ -83,8 +83,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-4">
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                            <p style="margin:0;">+15.97%</p>
+                                            <i class="bi bi-caret-right-fill"></i>
+                                            <p style="margin:0; font-size: 0.9rem;">+15.97%</p>
                                         </div>
                                     </div>
                                 </div>
@@ -111,8 +111,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-4">
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                            <p style="margin:0;">+102.00%</p>
+                                            <i class="bi bi-caret-right-fill"></i>
+                                            <p style="margin:0; font-size: 0.9rem;">+102.00%</p>
                                         </div>
                                     </div>
                                 </div>
@@ -139,8 +139,8 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-4">
-                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                            <p style="margin:0;">+16.69%</p>
+                                            <i class="bi bi-caret-right-fill"></i>
+                                            <p style="margin:0; font-size: 0.9rem;">+16.69%</p>
                                         </div>
                                     </div>
                                 </div>
