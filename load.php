@@ -4,7 +4,7 @@ $connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Heali
 
 $data = array();
 
-$query = "SELECT * FROM appointwoo ORDER BY order_id DESC";
+$query = "SELECT * FROM appointwoo WHERE statusapp = 'complete' OR statusapp = 'paid' ORDER BY order_id DESC";
 
 $statement = $connect->prepare($query);
 
