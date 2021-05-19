@@ -15,11 +15,11 @@ foreach ($product as $row) {
             $sql = "INSERT INTO packagewoo SET package_id = '$prodid'";
             
             if (mysqli_query($conn, $sql)){
-                $sql2 = "UPDATE packagewoo SET package_name = '$name'";
+                $sql2 = "UPDATE packagewoo SET package_name = '$name' WHERE package_id = '$prodid'";
                 mysqli_query($conn, $sql2);
             }
         }else{
-            $sql3 = "UPDATE packagewoo SET package_name = '$name'";
+            $sql3 = "UPDATE packagewoo SET package_name = '$name' WHERE package_id = '$prodid'";
             mysqli_query($conn, $sql3);
         }
     }
