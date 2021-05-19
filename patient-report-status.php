@@ -69,7 +69,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="row">
-                                                <h4 class="text-muted font-semibold">Gross Revenue</h4>
+                                                <h5 class="text-muted font-semibold">Gross Revenue</h5>
                                             </div>
                                             <div class="row">
                                                 <h5 class="font-bold">RM 19023.00</h5>
@@ -83,7 +83,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="stats-icon purple">
+                                            <div class="stats-icon purple align-middle">
                                                 <i class="iconly-boldShow"></i>
                                             </div>
                                         </div>
