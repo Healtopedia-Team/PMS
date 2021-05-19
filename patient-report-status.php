@@ -67,7 +67,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
-                                        <div class="col-md-9">
+                                        <div class="col-md-8">
                                             <div class="row">
                                                 <h5 class="text-muted font-semibold">Gross Revenue</h5>
                                             </div>
@@ -82,7 +82,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
 
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                                             <p>+15.97%</p>
                                         </div>
@@ -95,7 +95,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
-                                        <div class="col-md-9">
+                                        <div class="col-md-8">
                                             <div class="row">
                                                 <h5 class="text-muted font-semibold">Refunds</h5>
                                             </div>
@@ -110,7 +110,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
 
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                                             <p>+102.00%</p>
                                         </div>
@@ -123,7 +123,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <div class="row align-items-center">
-                                        <div class="col-md-9">
+                                        <div class="col-md-8">
                                             <div class="row">
                                                 <h5 class="text-muted font-semibold">Net Revenue</h5>
                                             </div>
@@ -138,7 +138,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             </div>
 
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <i class="fa fa-angle-right" aria-hidden="true"></i>
                                             <p>+16.69%</p>
                                         </div>
