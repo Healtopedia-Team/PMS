@@ -15,7 +15,7 @@ $result = $statement->fetchAll();
 foreach($result as $row)
 {
     $data[] = array(
-        'id'   => $row["order_id"],
+        'id'   => $row["appoint_id"],
         'title'   => $row["hosp_name"],
         'start'   => date('Y-m-d H:i',$row['start_appoint']),
         'end'   => date('Y-m-d H:i',$row['end_appoint'])
