@@ -6,6 +6,7 @@ $product = json_decode($product, true);
 foreach ($product as $row) {
     $prodid = $row['id'];
     $price = $row['price'];
+    $name = $row['name'];
     
     $validate = mysqli_query($conn, "SELECT COUNT(package_id) as Total FROM packagewoo WHERE package_id = '$prodid'");
     $validate = mysqli_fetch_all($validate, MYSQLI_ASSOC);
