@@ -92,8 +92,8 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                 <?php foreach ($sql3 as $row3) { ?>
                                                     <?php if ($row3['package_id'] == $row['prod_id']) { ?>
                                                     <b>Package : </b><?php echo $row3['package_name'];?>
-                                                <?php } } ?>
-                                                <b>Time : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?><br>
+                                                <?php } } ?><br>
+                                                <b>Time : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
