@@ -172,7 +172,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         <h5 class="font-bold">Daily Revenue</h6>
                                     </div>
                                     <div class="row px-3 py-1" style="position: relative; height: 400px; overflow: auto; display: block;">
-                                        <table id="dtVerticalScrollExample" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
+                                        <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th scope="col">Date</th>
