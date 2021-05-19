@@ -172,7 +172,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                         <h6 class="font-bold">Daily Revenue</h6>
                                     </div>
                                     <div class="row px-3 py-1">
-                                        <table class="table" style="font-size: 0.9rem; max-height: 40%;overflow: scroll;">
+                                        <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" style="font-size: 0.9rem;">
                                             <thead class="thead-light">
                                                 <tr>
                                                     <th scope="col">Date</th>
@@ -249,4 +249,13 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     </div>
                 </section>
             </div>
+            <script>
+                $(document).ready(function() {
+                    $('#dtVerticalScrollExample').DataTable({
+                        "scrollY": "200px",
+                        "scrollCollapse": true,
+                    });
+                    $('.dataTables_length').addClass('bs-select');
+                });
+            </script>
             <?php include 'request-appointment-footer.php'; ?>
