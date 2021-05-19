@@ -73,7 +73,7 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
                                 </div>
                                 <?php foreach ($result2 as $row2) { ?>
                                     <?php foreach ($result as $row) { ?>
-                                        <?php if ($row2['order_id'] == $row['order_id'];) { ?>
+                                        <?php if ($row2['order_id'] == $row2['order_id'];) { ?>
                                 <div class="modal fade" id="detailinfo<?php echo $row['order_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
