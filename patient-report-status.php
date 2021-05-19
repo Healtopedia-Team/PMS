@@ -69,16 +69,16 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <div class="row">
                                         <div class="col-md-9">
                                             <div class="row">
-                                                <h6 class="text-muted font-semibold">Gross Revenue</h6>
+                                                <h4 class="text-muted font-semibold">Gross Revenue</h4>
                                             </div>
                                             <div class="row">
                                                 <h5 class="font-bold">RM 19023.00</h5>
                                             </div>
                                             <div class="row">
-                                                <h6 class="font-extrabold mb-0">Previous Month</h6>
+                                                <h6 class="text-muted font-semibold">Previous Month</h6>
                                             </div>
                                             <div class="row">
-                                                <h5 class="font-bold">RM 16402.00</h5>
+                                                <h6 class="font-bold">RM 16402.00</h6>
                                             </div>
 
                                         </div>
