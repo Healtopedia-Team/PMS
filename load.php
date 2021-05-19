@@ -4,7 +4,9 @@ $connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Heali
 
 $data = array();
 
-$query = "SELECT * FROM appointwoo WHERE statusapp = 'complete' OR statusapp = 'paid' ORDER BY order_id DESC";
+$yesterday = json_decode(date('Y-m-d',strtotime("-1 days")));
+
+$query = "SELECT * FROM appointwoo WHERE statusapp = 'complete' OR statusapp = 'paid' AND start_appoint > '$yesterday' ORDER BY order_id DESC";
 
 $statement = $connect->prepare($query);
 
