@@ -18,8 +18,6 @@ foreach ($product as $row) {
             mysqli_query($conn, $sql);
         }
     }
-    $sql = "INSERT INTO packagewoo SET package_id = '$prodid'";
-    mysqli_query($conn, $sql);
 }
 
 ?>
