@@ -68,9 +68,19 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 <div class="card-body px-3 py-3">
                                     <div class="row">
                                         <div class="col-md-9">
-                                            <h6 class="text-muted font-semibold">Gross Revenue</h6>
-                                            <h6 class="font-extrabold mb-0">
-                                            </h6>
+                                            <div class="row">
+                                                <h6 class="text-muted font-semibold">Gross Revenue</h6>
+                                            </div>
+                                            <div class="row">
+                                                <h5 class="font-bold">RM 19023.00</h5>
+                                            </div>
+                                            <div class="row">
+                                                <h6 class="font-extrabold mb-0">Previous Month</h6>
+                                            </div>
+                                            <div class="row">
+                                                <h5 class="font-bold">RM 16402.00</h5>
+                                            </div>
+
                                         </div>
                                         <div class="col-md-3">
                                             <div class="stats-icon purple">
