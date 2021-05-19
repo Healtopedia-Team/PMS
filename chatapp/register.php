@@ -86,6 +86,7 @@ if (isset($_POST["register"])) {
             */
         } else {
             $error = 'Something went wrong try again';
+            echo $error;
         }
     }
 }
