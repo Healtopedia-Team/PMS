@@ -11,10 +11,14 @@ foreach ($product as $row) {
     $validate = mysqli_fetch_all($validate, MYSQLI_ASSOC);
 
     foreach ($validate as $row2) {
-        if ($row2['Total'] < 1) {
-            $sql = "INSERT INTO packagewoo SET package_id = '$prodid', package_price = '$price'";
-            mysqli_query($conn, $sql);
+        if (mysqli_query($conn, $sql)){
+                $sql2 = "UPDATE packagewoo SET package_name = '$name' WHERE package_id = '$prodid'";
+                mysqli_query($conn, $sql2);
+            }
         }
+
+        $sql3 = "UPDATE packagewoo SET package_name = '$name' WHERE package_id = '$prodid'";
+        mysqli_query($conn, $sql3);
     }
 }
 
