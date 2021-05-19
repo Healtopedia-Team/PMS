@@ -166,7 +166,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     <div class="row">
                                         <h6 class="font-bold">Daily Revenue</h6>
                                     </div>
-                                    <div class="row px-3 py-3">
+                                    <div class="row px-3 py-1">
                                         <table class="table" style="font-size: 0.9rem;">
                                             <thead class="thead-light">
                                                 <tr>
