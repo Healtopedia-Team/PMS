@@ -1,3 +1,11 @@
+var month_cnt = []
+$.getJSON('month_app_chart.php', function (jsonObject) {
+  for(let x in jsonObject){
+	  month_cnt.push(jsonObject[x]);
+  }
+})
+
+
 var optionsProfileVisit = {
 	annotations: {
 		position: 'back'
@@ -16,11 +24,11 @@ var optionsProfileVisit = {
 	},
 	series: [{
 		name: 'Appointments',
-		data: [9,20,30,20,10,20,30]
+		data: month_cnt,
 	}],
 	colors: '#435ebe',
 	xaxis: {
-		categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+		categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"],
 	},
 }
 let optionsVisitorsProfile  = {
