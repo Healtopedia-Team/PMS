@@ -22,6 +22,7 @@
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Appointment Date</th>
                                         <th>Total Number of Appointments</th>
                                         <th>Details</th>
