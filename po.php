@@ -430,7 +430,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <font color="#FFFFFF"></font>
           </td>
           <td align="left" valign="middle">
-            <font color="#000000"><?php echo $total_price ?></font>
+            <font color="#000000">SUBTOTAL</font>
           </td>
           <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
             <font color="#000000">RM <?php echo $total_price ?></font>
