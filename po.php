@@ -10,7 +10,7 @@ $query = "SELECT a.order_id, a.appoint_id, a.start_appoint, a.hosp_name, b.first
             WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')='$current_date' AND a.hosp_name='$hosp' ";
 $result = mysqli_query($conn, $query);
 $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
-//var_dump($result->error);
+var_dump($result->error);
 ?>
 
 <html>
