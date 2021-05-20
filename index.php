@@ -57,7 +57,7 @@ $timestamp = strtotime('today midnight +8 hour');
 $timestamp2 = strtotime('tomorrow midnight +8 hour');
 
 
-$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.hosp_name FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id");
+$result = mysqli_query($conn, "SELECT * FROM requestappoint");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $hosp = $_SESSION["hospital"];
 $result2 = mysqli_query($conn, "SELECT packagename, COUNT(*) FROM appointwoo GROUP BY packagename ORDER BY 2 DESC");
@@ -214,25 +214,15 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <?php
                                                 if (mysqli_num_rows($result) > 0) {
                                                     foreach ($appointment as $rows) {
-                                                        $appdate = date('Y-m-d', $rows['start_appoint']);
-                                                        $todaydate = date("Y-m-d"); 
+                                                        $appdate = date('m-d-Y', $rows['req_appdate']);
+                                                        $todaydate = date("m-d-Y"); 
                                                         if ($appdate == $todaydate) { ?>
                                                         <tr>
                                                             <td class="text-bold-500">
-                                                                <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
+                                                                <strong>#<?php echo $rows['request_id']; ?> <?php echo $rows['req_custname']; ?> <?php echo $rows['lastname']; ?></strong><br>
 
-                                                                <?php echo $rows['packagename']; ?><br>
-                                                                <?php
-                                                                $atime = strtotime('-8 hour', $rows['start_appoint']);
-                                                                echo date('h:i A', $atime); ?><br>
-
-                                                                <?php
-
-                                                                $status = $rows['statusapp'];
-                                                                if ($status == "paid") {
-                                                                ?>
-                                                                    <span class="badge bg-primary">Booked</span>
-
+                                                                <?php echo $rows['req_packname']; ?><br>
+                                                                <?php echo $rows['req_apptime']; ?><br>
                                                             </td>
                                                             <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
                                                                     Check-In
