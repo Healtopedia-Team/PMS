@@ -279,7 +279,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                             <div class="col-12 col-md-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4>Weekly Appointment List</h4>
+                                        <h4>Monthly Appointment List</h4>
                                     </div>
                                     <div class="card-body">
                                         <div id="chart-profile-visit"></div>
@@ -377,14 +377,16 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
         var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
         $.getJSON('month_app_chart.php', function(jsonObject) {
+            let i = 0
             for (let x in months) {
-                if (month_cnt.length <= 12) {
-                    month_cnt.push(jsonObject[x])
-                } 
+                if (i < 12) {
+                    month_cnt.push(parseInt(jsonObject[x]))
+                }
+                i += 1;
             }
             //
         })
-        console.log(month_cnt)
+        console.log(month_cnt.slice(0, 12))
 
         var optionsProfileVisit = {
             annotations: {
