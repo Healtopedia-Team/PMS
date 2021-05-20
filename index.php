@@ -213,7 +213,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             <tbody>
                                                 <?php
                                                 if (mysqli_num_rows($result) > 0) {
-                                                    foreach ($appointment as $rows) :
+                                                    foreach ($appointment as $rows) {
                                                         $appdate = date('Y-m-d', $rows['start_appoint']);
                                                         $todaydate = date("Y-m-d"); 
                                                         if ($appdate == $todaydate) { ?>
@@ -266,7 +266,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                         ?>
                                                         </tr>
                                                         <?php } ?>
-                                                    <?php endforeach;
+                                                    <?php 
                                                 } else { ?>
 
                                                     <tr>
