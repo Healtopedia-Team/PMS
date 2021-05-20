@@ -291,7 +291,7 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                             </div>
                         </div>
                     </section>
-
+            <!--==================== M O D A L == C H E C K == I N ====================-->
                     <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                             <div class="modal-content">
@@ -324,6 +324,7 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                             </div>
                         </div>
                     </div>
+            <!--=======================================================================-->
 
             </div>
 
