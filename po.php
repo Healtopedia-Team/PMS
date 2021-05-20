@@ -107,7 +107,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <div style="clear: both;"></div>
   <div class="vendor">
     <table>
-      <tr height="15">
+      <tr height="20">
         <td height="15" bgcolor="#3B4E87" style="padding-left:10px">
           <font color="#FFFFFF"><b>VENDOR</b></font>
         </td>
@@ -128,7 +128,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   <div class="payor">
     <table>
-      <tr height="24">
+      <tr height="20">
         <td height="15" bgcolor="#3B4E87" style="padding-left:10px">
           <font color="#FFFFFF"><b>PAYOR</b></font>
         </td>
@@ -196,38 +196,39 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 
-  <?php
-  foreach ($res as $row) {
-  ?>
-    <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
-      <tbody>
-        <tr>
-          <td height="24" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
-            <b>
-              <font color="#FFFFFF">ITEM #</font>
-            </b>
-          </td>
-          <td colspan="3" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
-            <b>
-              <font color="#FFFFFF">DESCRIPTION</font>
-            </b>
-          </td>
-          <td align="center" valign="middle" bgcolor="#3B4E87">
-            <b>
-              <font color="#FFFFFF">QTY</font>
-            </b>
-          </td>
-          <td align="center" valign="middle" bgcolor="#3B4E87">
-            <b>
-              <font color="#FFFFFF">UNIT PRICE</font>
-            </b>
-          </td>
-          <td align="center" valign="middle" bgcolor="#3B4E87">
-            <b>
-              <font color="#FFFFFF">TOTAL</font>
-            </b>
-          </td>
-        </tr>
+
+  <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
+    <tbody>
+      <tr>
+        <td height="24" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
+          <b>
+            <font color="#FFFFFF">ITEM #</font>
+          </b>
+        </td>
+        <td colspan="3" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
+          <b>
+            <font color="#FFFFFF">DESCRIPTION</font>
+          </b>
+        </td>
+        <td align="center" valign="middle" bgcolor="#3B4E87">
+          <b>
+            <font color="#FFFFFF">QTY</font>
+          </b>
+        </td>
+        <td align="center" valign="middle" bgcolor="#3B4E87">
+          <b>
+            <font color="#FFFFFF">UNIT PRICE</font>
+          </b>
+        </td>
+        <td align="center" valign="middle" bgcolor="#3B4E87">
+          <b>
+            <font color="#FFFFFF">TOTAL</font>
+          </b>
+        </td>
+      </tr>
+      <?php
+      foreach ($res as $row) {
+      ?>
         <tr class="fill">
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
             <font color="#000000">CO19</font>
@@ -511,7 +512,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
           </td>
           <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
             <b>
-              <font color="#000000">RM 1,053.00</font>
+              <font color="#000000">RM <?php echo $total_price ?></font>
             </b>
           </td>
         </tr>
@@ -694,8 +695,8 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <tr></tr>
         <tr></tr>
 
-      </tbody>
-    </table>
+    </tbody>
+  </table>
 </body>
 
 </html>
