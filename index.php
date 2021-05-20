@@ -367,7 +367,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
     </div>
     <script>
         function load_chart() {
-
+            var month_cnt = []
             var optionsProfileVisit = {
                 annotations: {
                     position: 'back'
@@ -380,7 +380,6 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                     height: 300,
                     events: {
                         beforeMount: function(chartContext, config) {
-                            var month_cnt = []
                             var months = [
                                 'Jan',
                                 'Feb',
