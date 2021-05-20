@@ -225,33 +225,6 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                 <?php echo $rows['req_apptime']; ?><br>
 
                                                             </td>
-                                                            <!--td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                                                    Check-In
-                                                                </button></td>
-                                                        <?php } elseif ($status == "complete") {
-                                                        ?>
-                                                            <span class="badge bg-success">Checked-In</span>
-
-                                                            </td>
-                                                            <td class="text-bold-500"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                                                    Check-In
-                                                                </button></td>
-                                                        <?php
-                                                                } elseif ($status == "cancelled") { ?>
-                                                            <span class="badge bg-danger">Canceled</span>
-
-                                                            </td>
-                                                            <td class="text-bold-500"></td>
-                                                        <?php
-                                                                } else { ?>
-
-                                                            <span class="badge bg-warning">Waiting Payment</span>
-
-                                                            </td>
-                                                            <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                                                    Pay Now
-                                                                </button></td-->
-                                                      
                                                         </tr>
                                                         <?php } ?>
                                                     <?php }
