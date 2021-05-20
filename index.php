@@ -266,7 +266,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                         ?>
                                                         </tr>
                                                         <?php } ?>
-                                                    <?php 
+                                                    <?php }
                                                 } else { ?>
 
                                                     <tr>
