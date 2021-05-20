@@ -92,7 +92,6 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
 
         <div id="main" style="margin-top: -90px;">
 
-
             <div class="page-heading">
                 <h3>Dashboard</h3>
             </div>
@@ -136,8 +135,7 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Appointments This Week</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
-                                                    $query = "SELECT COUNT(id) AS this_week_cnt FROM appointwoo WHERE 
-                                                        statusapp='paid' AND hosp_name='$hosp' AND WEEK(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) 
+                                                    $query = "SELECT COUNT(request_id) AS this_week_cnt FROM requestappoint WHERE req_status='approved' AND req_status='complete' AND WEEK(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) 
                                                         BETWEEN WEEK(CURDATE())-1 AND WEEK(CURDATE())+1";
                                                     $res1 = mysqli_query($conn, $query);
                                                     $appointment_this_week = mysqli_fetch_assoc($res1);
