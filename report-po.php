@@ -1,6 +1,6 @@
 <?php
 require_once 'dompdf/autoload.inc.php';
-$date = $_GET['date'];
+$cur_date = $_GET['date'];
 
 // reference the Dompdf namespace
 use Dompdf\Dompdf;
@@ -12,7 +12,7 @@ use Dompdf\Dompdf;
 
 
   //to put other html file
-  $html = file_get_contents('https://pms.healtopedia.com/po.php?date='.$date);
+  $html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
   $dompdf->setBasePath(realpath('report-style.css'));
 
   $dompdf->loadHtml($html);
