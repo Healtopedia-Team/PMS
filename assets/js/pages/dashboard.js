@@ -1,5 +1,5 @@
 var month_cnt = []
-$.getJSON('month_app_chart.php', function (jsonObject) {
+$.getJSON('/../../../../month_app_chart.php', function (jsonObject) {
   for(let x in jsonObject){
 	  month_cnt.push(jsonObject[x]);
   }
