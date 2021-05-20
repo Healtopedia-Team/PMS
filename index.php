@@ -374,11 +374,13 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
     <script src="assets/js/main.js"></script>
     <script>
         var month_cnt = []
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
         $.getJSON('month_app_chart.php', function(jsonObject) {
-            for (let x in jsonObject) {
+            for (let x in months) {
                 month_cnt.push(jsonObject[x]);
             }
-            console.log(jsonObject)
+            console.log(month_cnt)
         })
 
 
