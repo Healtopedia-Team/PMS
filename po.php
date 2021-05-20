@@ -90,7 +90,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
           </b>
         </td>
         <td align="center" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000"><?php echo date("d/m/Y", $current_date) ?></font>
+          <font color="#000000"><?php echo date("d/m/Y", strtotime($current_date)) ?></font>
         </td>
       </tr>
       <tr>
@@ -233,7 +233,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <font color="#000000">CO19</font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-            <font color="#000000"><?php echo $row['hosp_name'] . "---" . $row['package_name'] . "---" . date("(d/m/Y)(h:ia)", $row['datetime']) . " (" . $row['first_name'] . " " . $row['lastname'] . ")" ?></font>
+            <font color="#000000"><?php echo $row['hosp_name'] . " --- " . $row['package_name'] . " --- " . date("(d/m/Y)(h:ia)", $row['datetime']) . " (" . $row['first_name'] . " " . $row['lastname'] . ")" ?></font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
             <font color="#000000">1</font>
@@ -242,7 +242,10 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <font color="#000000"><?php echo $row['package_price'] ?></font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-            <font color="#000000"><?php echo $row['package_price'] ?></font>
+            <font color="#000000"><?php echo $row['package_price']; ?></font>
+            <?php
+              $total_price += $row['package_price'];
+            ?>
           </td>
         <?php } ?>
         </tr>
@@ -426,7 +429,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <font color="#FFFFFF"></font>
           </td>
           <td align="left" valign="middle">
-            <font color="#000000">SUBTOTAL</font>
+            <font color="#000000"><?php echo $total_price ?></font>
           </td>
           <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
             <font color="#000000">RM 1,053.00</font>
@@ -571,7 +574,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <font color="#000000"><br /></font>
           </td>
           <td style="border-bottom: 1px solid #000000" align="right" valign="middle">
-            <font color="#000000"><?php echo date("d/m/Y", $current_date) ?></font>
+            <font color="#000000"><?php echo date("d/m/Y", strtotime($current_date)) ?></font>
           </td>
         </tr>
         <tr>
