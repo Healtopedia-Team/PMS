@@ -231,7 +231,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
       ?>
         <tr class="fill">
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-            <font color="#000000">CO19</font>
+            <font color="#000000"><?php echo $row['order_id'] . "/" . $row['appoint_id']?></font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
             <font color="#000000"><?php echo $row['hosp_name'] . " --- " . $row['package_name'] . " --- " . date("(d/m/Y)(h:ia)", $row['datetime']) . " (" . $row['first_name'] . " " . $row['lastname'] . ")" ?></font>
