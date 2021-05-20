@@ -21,7 +21,7 @@
         <div class="page-heading">
             <div class="page-title">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 order-md-1 order-last">
                         <center><h3>QR Scanner</h3></center>
                     </div>
                 </div>
