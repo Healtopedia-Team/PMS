@@ -18,44 +18,42 @@
 
 <body>
     <div id="app">
-        <div id="main">
-            <div class="page-heading">
-                <div class="page-title">
-                    <div class="row">
-                        <div class="col-12 col-md-6 order-md-1 order-last">
-                            <center><h3>QR Scanner</h3></center>
-                        </div>
+        <div class="page-heading">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <center><h3>QR Scanner</h3></center>
                     </div>
                 </div>
-                <section class="section">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="frm-grp txt-cntr">
-                                        <label class="disp-blck">Choose camera:</label>
-                                        <select id="webcameraChanger" onchange="cameraChange($(this).val());" class="frm-ctrl mar-btm-2"></select>
-                                    </div>
+            </div>
+            <section class="section">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="frm-grp txt-cntr">
+                                    <label class="disp-blck">Choose camera:</label>
+                                    <select id="webcameraChanger" onchange="cameraChange($(this).val());" class="frm-ctrl mar-btm-2"></select>
                                 </div>
-                                <div class="card-body">
-                                    <video id="webcameraPreview" style="width: 100%;"></video>
-                                </div>
+                            </div>
+                            <div class="card-body">
+                                <video id="webcameraPreview" style="width: 100%;"></video>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            <footer>
-                <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
-                    </div>
                 </div>
-            </footer>
+            </section>
         </div>
+        <footer>
+            <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                    <p>2021 &copy; Mazer</p>
+                </div>
+                <div class="float-end">
+                    <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
