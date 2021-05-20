@@ -437,8 +437,10 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 name: 'Appointments',
                 data: month_cnt
             }])
+            window.dispatchEvent(new Event('resize'))
+
         })
-        
+
         //console.log(month_cnt)
 
 
