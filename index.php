@@ -214,12 +214,12 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <?php
                                                 if (mysqli_num_rows($result) > 0) {
                                                     foreach ($appointment as $rows) {
-                                                        $appdate = date('m-d-Y', $rows['req_appdate']);
-                                                        $todaydate = date("m-d-Y"); 
+                                                        $appdate = $rows['req_appdate'];
+                                                        $todaydate = date("m/d/Y"); 
                                                         if ($appdate == $todaydate) { ?>
                                                         <tr>
                                                             <td class="text-bold-500">
-                                                                <strong>#<?php echo $rows['request_id']; ?> <?php echo $rows['req_custname']; ?> <?php echo $rows['lastname']; ?></strong><br>
+                                                                <strong>#<?php echo $rows['request_id']; ?> <?php echo $rows['req_custname']; ?></strong><br>
 
                                                                 <?php echo $rows['req_packname']; ?><br>
                                                                 <?php echo $rows['req_apptime']; ?><br>
