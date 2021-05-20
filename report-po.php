@@ -1,6 +1,6 @@
 <?php
 require_once 'dompdf/autoload.inc.php';
-$cur_date = $_GET['date'];
+$cur_date = $_GET['curr_date'];
 
 // reference the Dompdf namespace
 use Dompdf\Dompdf;
