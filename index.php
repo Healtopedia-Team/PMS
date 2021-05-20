@@ -425,21 +425,20 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             }
         }
 
-        function load_chart() {
-            $.getJSON('month_app_chart.php', function(jsonObject) {
-                let i = 0
-                for (let x in months) {
-                    if (i < 12) {
-                        month_cnt.push(parseInt(jsonObject[x]))
-                    }
-                    i += 1
+        $.getJSON('month_app_chart.php', function(jsonObject) {
+            let i = 0
+            for (let x in months) {
+                if (i < 12) {
+                    month_cnt.push(parseInt(jsonObject[x]))
                 }
-                optionsProfileVisit.updateSeries([{
-                    name: 'Appointments',
-                    data: month_cnt
-                }])
-            })
-        }
+                i += 1
+            }
+            optionsProfileVisit.updateSeries([{
+                name: 'Appointments',
+                data: month_cnt
+            }])
+        })
+        
         //console.log(month_cnt)
 
 
