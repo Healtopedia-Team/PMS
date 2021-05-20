@@ -409,7 +409,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 plotOptions: {},
                 series: [{
                     name: 'Appointments',
-                    data: setTimeout(load_chart, 500)
+                    data: load_chart
                 }],
                 colors: '#435ebe',
                 xaxis: {
@@ -417,7 +417,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 },
             }
             var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
-            chartProfileVisit.render();
+            setTimeOut(chartProfileVisit.render(),500);
     </script>
 </body>
 
