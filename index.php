@@ -57,7 +57,7 @@ $timestamp = strtotime('today midnight +8 hour');
 $timestamp2 = strtotime('tomorrow midnight +8 hour');
 
 
-$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND '$timestamp2'");
+$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 $hosp = $_SESSION["hospital"];
 $result2 = mysqli_query($conn, "SELECT packagename, COUNT(*) FROM appointwoo GROUP BY packagename ORDER BY 2 DESC");
@@ -213,7 +213,10 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             <tbody>
                                                 <?php
                                                 if (mysqli_num_rows($result) > 0) {
-                                                    foreach ($appointment as $rows) : ?>
+                                                    foreach ($appointment as $rows) :
+                                                        $appdate = date('Y-m-d', $row['start_appoint']);
+                                                        $todaydate = date("Y-m-d"); 
+                                                        if ($appdate == $todaydate) { ?>
                                                         <tr>
                                                             <td class="text-bold-500">
                                                                 <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
@@ -262,6 +265,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                 }
                                                         ?>
                                                         </tr>
+                                                        <?php } ?>
                                                     <?php endforeach;
                                                 } else { ?>
 
