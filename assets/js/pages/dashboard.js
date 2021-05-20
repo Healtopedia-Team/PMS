@@ -111,7 +111,7 @@ let optionsIndonesia = {
 
 
 
-var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
+//var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
 
 
 
@@ -123,5 +123,5 @@ var chartIndonesia = new ApexCharts(document.querySelector("#chart-indonesia"), 
 chartIndonesia.render();
 chartAmerica.render();
 chartEurope.render();
-chartProfileVisit.render();
+//chartProfileVisit.render();
 chartVisitorsProfile.render()

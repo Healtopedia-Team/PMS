@@ -372,6 +372,42 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
     <script src="assets/js/pages/dashboard.js"></script>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        var month_cnt = []
+        $.getJSON('month_app_chart.php', function(jsonObject) {
+            for (let x in jsonObject) {
+                month_cnt.push(jsonObject[x]);
+            }
+        })
+
+
+        var optionsProfileVisit = {
+            annotations: {
+                position: 'back'
+            },
+            dataLabels: {
+                enabled: false
+            },
+            chart: {
+                type: 'bar',
+                height: 300
+            },
+            fill: {
+                opacity: 1
+            },
+            plotOptions: {},
+            series: [{
+                name: 'Appointments',
+                data: month_cnt,
+            }],
+            colors: '#435ebe',
+            xaxis: {
+                categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            },
+        }
+        var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
+        chartProfileVisit.render();
+    </script>
 </body>
 
 </html>
