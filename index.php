@@ -419,7 +419,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             plotOptions: {},
             series: [{
                 name: 'Appointments',
-                data: setTimeout(load_chart(), 100)
+                data: load_chart()
             }],
             colors: '#435ebe',
             xaxis: {
@@ -443,7 +443,8 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             document.querySelector('#chart-profile-visit'),
             optionsProfileVisit
         )
-        chartProfileVisit.render()
+        setTimeout(chartProfileVisit.render(),500)
+
         //setTimeout(load_chart(), 500)
         //window.onload = load_chart()
         //console.log(month_cnt)
