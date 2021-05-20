@@ -137,7 +137,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                     <?php
                                                     $res1 = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='paid' AND hospname='$hosp' ");
                                                     $appointment_this_week = mysqli_fetch_assoc($res1);
-                                                    print_r($appointment_this_week['cnt']);
+                                                    print_r($conn->error_list);
                                                     ?>
                                                 </h6>
                                             </div>
@@ -160,7 +160,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                     <?php
                                                     $res2 = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='complete' AND hospname='$hosp'");
                                                     $complete_appointments = mysqli_fetch_assoc($res2);
-                                                    print_r($complete_appointments['cnt']);
+                                                    print_r($conn->error);
                                                     ?>
                                                 </h6>
                                             </div>
