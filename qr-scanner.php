@@ -18,10 +18,15 @@
 
 <body>
     <div id="app">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
         <div class="page-heading">
             <div class="page-title">
                 <div class="row">
-                    <div class="col-12 order-md-1 order-last">
+                    <div class="col-12 mb-3">
                         <center><h3>QR Scanner</h3></center>
                     </div>
                 </div>
