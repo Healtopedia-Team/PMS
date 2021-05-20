@@ -65,14 +65,14 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body px-3 py-3">
+                                <div class="card-body px-4 py-3">
                                     <div class="row align-items-center">
                                         <div class="col-md-7">
                                             <div class="row">
-                                                <h5 class="text-muted font-semibold">Gross Revenue</h5>
+                                                <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                             </div>
                                             <div class="row">
-                                                <h5 class="font-bold">RM 19023.00</h5>
+                                                <h5 class="font-bold" style="font-size: 1.1rem;">RM 19023.00</h5>
                                             </div>
                                             <div class="row">
                                                 <h6 class="text-muted font-semibold">Previous Month</h6>
@@ -95,14 +95,14 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body px-3 py-3">
+                                <div class="card-body px-4 py-3">
                                     <div class="row align-items-center">
                                         <div class="col-md-7">
                                             <div class="row">
-                                                <h5 class="text-muted font-semibold">Refunds</h5>
+                                                <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Refunds</h5>
                                             </div>
                                             <div class="row">
-                                                <h5 class="font-bold">RM 0.00</h5>
+                                                <h5 class="font-bold" style="font-size: 1.1rem;">RM 0.00</h5>
                                             </div>
                                             <div class="row">
                                                 <h6 class="text-muted font-semibold">Previous Month</h6>
@@ -125,14 +125,14 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="col-md-4">
                             <div class="card">
-                                <div class="card-body px-3 py-3">
+                                <div class="card-body px-4 py-3">
                                     <div class="row align-items-center">
                                         <div class="col-md-7">
                                             <div class="row">
-                                                <h5 class="text-muted font-semibold">Net Revenue</h5>
+                                                <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Net Revenue</h5>
                                             </div>
                                             <div class="row">
-                                                <h5 class="font-bold">RM 19023.00</h5>
+                                                <h5 class="font-bold" style="font-size: 1.1rem;">RM 19023.00</h5>
                                             </div>
                                             <div class="row">
                                                 <h6 class="text-muted font-semibold">Previous Month</h6>
@@ -156,9 +156,9 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                     <div class="row">
                         <div class="col-md-6">
                             <div class="card">
-                                <div class="card-body px-3 py-3">
+                                <div class="card-body px-4 py-3">
                                     <div class="row">
-                                        <h5 class="font-bold">Chart</h6>
+                                        <h5 class="font-bold" style="font-size: 1.1rem;">Chart</h6>
                                     </div>
                                     <div class="row"></div>
                                 </div>
@@ -167,11 +167,11 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                         <div class="col-md-6">
                             <div class="card">
-                                <div class="card-body px-3 py-3">
+                                <div class="card-body px-4 py-3">
                                     <div class="row">
                                         <h5 class="font-bold">Daily Revenue</h6>
                                     </div>
-                                    <div class="row px-3 py-1" style="position: relative; height: 380px; overflow: auto; display: block;">
+                                    <div class="row px-4 py-1" style="position: relative; height: 380px; overflow: auto; display: block;">
                                         <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
                                             <thead class="thead-light">
                                                 <tr>
