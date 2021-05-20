@@ -83,11 +83,9 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                         </div>
                                         <div class="col-md-5">
-                                            <div class="alert alert-success" role="alert">
-                                                <i class="bi bi-graph-up">
-                                                    <span style="margin:0; font-style: bold;">+15.97%</span>
-                                                </i>
-                                            </div>
+                                            <i class="bi bi-graph-up">
+                                                <span style="margin:0; font-style: normal;">+15.97%</span>
+                                            </i>
                                         </div>
                                     </div>
                                 </div>
