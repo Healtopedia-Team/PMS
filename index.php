@@ -99,7 +99,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 <section class="row">
                     <div class="section">
                         <div class="row">
-                            <div class="col-6 col-lg-3 col-md-4">
+                            <div class="col-lg-3 col-md-4">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
@@ -122,7 +122,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-3 col-md-4">
+                            <div class="col-lg-3 col-md-4">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
@@ -146,7 +146,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-3 col-md-4">
+                            <div class="col-lg-3 col-md-4">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
@@ -170,7 +170,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-3 col-md-4">
+                            <div class="col-lg-3 col-md-4">
                                 <div class="card">
                                     <div class="card-body px-3 py-4-5">
                                         <div class="row">
