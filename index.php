@@ -52,15 +52,11 @@ if ($_SESSION["loggedin"] === true) {
 }
 */
 
-//get all appointments in range from now(1 hour early) to tomorrow
-$timestamp = strtotime('today midnight +8 hour');
-$timestamp2 = strtotime('tomorrow midnight +8 hour');
-
-
 $result = mysqli_query($conn, "SELECT * FROM requestappoint");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 $hosp = $_SESSION["hospital"];
-$result2 = mysqli_query($conn, "SELECT packagename, COUNT(*) FROM appointwoo GROUP BY packagename ORDER BY 2 DESC");
+$result2 = mysqli_query($conn, "SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
 $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 ?>
@@ -234,14 +230,10 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                         <?php } ?>
                                                     <?php }
                                                 } else { ?>
-
                                                     <tr>
                                                         <td>No appointments today</td>
                                                     </tr>
-
-
                                                 <?php } ?>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -277,7 +269,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                             <tbody>
                                                 <?php foreach ($hospital_list as $rows) : ?>
                                                     <tr>
-                                                        <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/', '', $rows['packagename']); ?>
+                                                        <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/', '', $rows['prod_id']); ?>
                                                         <td class="text-bold-500"><?php echo $package_name; ?></td>
                                                         <td class="text-bold-500"><?php echo $rows['COUNT(*)']; ?></td>
                                                     </tr>
