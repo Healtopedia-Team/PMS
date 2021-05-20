@@ -374,19 +374,23 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
     <script src="assets/js/main.js"></script>
     <script>
         $(document).ready(function() {
-            var month_cnt = []
-            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-            $.getJSON('month_app_chart.php', function(jsonObject) {
-                let i = 0
-                for (let x in months) {
-                    if (i < 12) {
-                        month_cnt.push(parseInt(jsonObject[x]))
+
+            function load_chart() {
+                var month_cnt = []
+                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+                $.getJSON('month_app_chart.php', function(jsonObject) {
+                    let i = 0
+                    for (let x in months) {
+                        if (i < 12) {
+                            month_cnt.push(parseInt(jsonObject[x]))
+                        }
+                        i += 1;
                     }
-                    i += 1;
-                }
-                //
-            })
+                    //
+                })
+                return month_cnt
+            }
             //console.log(month_cnt)
 
             var optionsProfileVisit = {
@@ -406,7 +410,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 plotOptions: {},
                 series: [{
                     name: 'Appointments',
-                    data: month_cnt
+                    data: load_chart()
                 }],
                 colors: '#435ebe',
                 xaxis: {
