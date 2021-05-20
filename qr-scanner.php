@@ -70,7 +70,7 @@
         var options = {};
         //init options for scanner
         options = initVideoObjectOptions("webcameraPreview");
-        var cameraId = 0;
+        var cameraId = 1;
 
         initScanner(options);
 
