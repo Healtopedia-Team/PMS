@@ -59,6 +59,11 @@ $hosp = $_SESSION["hospital"];
 $result2 = mysqli_query($conn, "SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
 $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
+$result3 = mysqli_query($conn, "SELECT * FROM packagewoo");
+$hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -267,13 +272,18 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($hospital_list as $rows) : ?>
+                                                <?php foreach ($hospital_list as $rows) { 
+                                                    $id = $rows['prod_id']; ?>
                                                     <tr>
-                                                        <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/', '', $rows['prod_id']); ?>
-                                                        <td class="text-bold-500"><?php echo $package_name; ?></td>
+                                                        <?php foreach ($hospital_list2 as $rows2) { 
+                                                            $id2 = $rows2['package_id'];
+                                                            if ($id2 == $id) { ?>
+                                                            <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/', '', $rows2['package_name']); ?>
+                                                            <td class="text-bold-500"><?php echo $package_name; ?></td>
+                                                        <?php } } ?>
                                                         <td class="text-bold-500"><?php echo $rows['COUNT(*)']; ?></td>
                                                     </tr>
-                                                <?php endforeach; ?>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
