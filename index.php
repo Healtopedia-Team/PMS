@@ -224,15 +224,8 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                 <?php echo $rows['req_packname']; ?><br>
                                                                 <?php echo $rows['req_apptime']; ?><br>
 
-                                                                <?php
-
-                                                                $status = $rows['statusapp'];
-                                                                if ($status == "paid") {
-                                                                ?>
-                                                                    <span class="badge bg-primary">Booked</span>
-
                                                             </td>
-                                                            <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
+                                                            <!--td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
                                                                     Check-In
                                                                 </button></td>
                                                         <?php } elseif ($status == "complete") {
@@ -257,11 +250,8 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                             </td>
                                                             <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm">
                                                                     Pay Now
-                                                                </button></td>
-                                                        <?php
-
-                                                                }
-                                                        ?>
+                                                                </button></td-->
+                                                      
                                                         </tr>
                                                         <?php } ?>
                                                     <?php }
