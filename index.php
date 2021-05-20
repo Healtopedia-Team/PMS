@@ -425,6 +425,12 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             }
         }
 
+        var chartProfileVisit = new ApexCharts(
+            document.querySelector('#chart-profile-visit'),
+            optionsProfileVisit
+        )
+        chartProfileVisit.render()
+
         $.getJSON('month_app_chart.php', function(jsonObject) {
             let i = 0
             for (let x in months) {
@@ -433,7 +439,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 }
                 i += 1
             }
-            optionsProfileVisit.updateSeries([{
+            chartProfileVisit.updateSeries([{
                 name: 'Appointments',
                 data: month_cnt
             }])
@@ -441,14 +447,6 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
         })
 
-        //console.log(month_cnt)
-
-
-        var chartProfileVisit = new ApexCharts(
-            document.querySelector('#chart-profile-visit'),
-            optionsProfileVisit
-        )
-        chartProfileVisit.render()
         //setTimeout(load_chart(), 500)
         //window.onload = load_chart()
         //console.log(month_cnt)
