@@ -135,9 +135,12 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Appointments This Week</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
-                                                    $res1 = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='paid' AND hosp_name='$hosp' ");
+                                                    $query = "SELECT COUNT(id) AS this_week_cnt FROM appointwoo WHERE 
+                                                        statusapp='paid' AND hosp_name='$hosp' AND WEEK(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) 
+                                                        BETWEEN WEEK(CURDATE())-1 AND WEEK(CURDATE())+1";
+                                                    $res1 = mysqli_query($conn, $query);
                                                     $appointment_this_week = mysqli_fetch_assoc($res1);
-                                                    echo $appointment_this_week['cnt'];
+                                                    echo $appointment_this_week['this_week_cnt'];
                                                     //print_r($conn->error_list);
                                                     ?>
                                                 </h6>
