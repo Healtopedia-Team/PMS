@@ -27,7 +27,7 @@ $statement = $connect->prepare($query);
 
 $statement->execute();
 
-$result = $statement->fetchAll();
+$result = $statement->fetch();
 
 echo json_encode($result);
 
