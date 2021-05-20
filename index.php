@@ -378,6 +378,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             for (let x in jsonObject) {
                 month_cnt.push(jsonObject[x]);
             }
+            console.log("getting data")
         })
 
 
