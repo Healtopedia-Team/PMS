@@ -419,7 +419,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             plotOptions: {},
             series: [{
                 name: 'Appointments',
-                data: load_chart()
+                data: setTimeout(load_chart(), 100)
             }],
             colors: '#435ebe',
             xaxis: {
