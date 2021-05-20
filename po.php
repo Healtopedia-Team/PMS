@@ -107,8 +107,8 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
   <div style="clear: both;"></div>
   <div class="vendor">
     <table>
-      <tr height="15" style="padding-left:10px">
-        <td height="15" bgcolor="#3B4E87">
+      <tr height="15">
+        <td height="15" bgcolor="#3B4E87" style="padding-left:10px">
           <font color="#FFFFFF"><b>VENDOR</b></font>
         </td>
       </tr>
@@ -244,7 +244,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
             <font color="#000000"><?php echo $row['package_price']; ?></font>
             <?php
-              $total_price += $row['package_price'];
+            $total_price += $row['package_price'];
             ?>
           </td>
         <?php } ?>
