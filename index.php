@@ -417,7 +417,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 },
             }
             var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
-            setTimeOut(chartProfileVisit.render(),500);
+            chartProfileVisit.render();
     </script>
 </body>
 
