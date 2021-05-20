@@ -444,7 +444,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             optionsProfileVisit
         )
         chartProfileVisit.render()
-        setTimeout(load_chart(), 500)
+        //setTimeout(load_chart(), 500)
         //window.onload = load_chart()
         //console.log(month_cnt)
         /*
