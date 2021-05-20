@@ -405,7 +405,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             plotOptions: {},
             series: [{
                 name: 'Appointments',
-                data: month_cnt,
+                data: month_cnt.slice(0,12),
             }],
             colors: '#435ebe',
             xaxis: {
