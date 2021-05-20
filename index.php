@@ -383,11 +383,10 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 } else {
                     break
                 }
-                console.log(month_cnt)
             }
-            //console.log(month_cnt)
+            //
         })
-
+        console.log(month_cnt)
 
         var optionsProfileVisit = {
             annotations: {
