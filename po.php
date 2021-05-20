@@ -3,7 +3,7 @@ $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
 $hosp = $_SESSION['hospital'];
 $current_date = $_GET['cur_date'];
-//var_dump($current_date);
+var_dump($current_date);
 $query = "SELECT a.order_id, a.appoint_id, a.start_appoint, a.hosp_name, b.firstname, b.lastname, c.package_name, c.package_price 
             , DATE(FROM_UNIXTIME(a.start_appoint, '%Y-%m-%d')) AS c_date
             FROM appointwoo a LEFT JOIN orderwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON a.prod_id=c.package_id 
@@ -199,499 +199,500 @@ var_dump($result->error);
   <?php
   foreach ($res as $row) {
   ?>
-  <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
-    <tbody>
-      <tr>
-        <td height="24" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
-          <b>
-            <font color="#FFFFFF">ITEM #</font>
-          </b>
-        </td>
-        <td colspan="3" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
-          <b>
-            <font color="#FFFFFF">DESCRIPTION</font>
-          </b>
-        </td>
-        <td align="center" valign="middle" bgcolor="#3B4E87">
-          <b>
-            <font color="#FFFFFF">QTY</font>
-          </b>
-        </td>
-        <td align="center" valign="middle" bgcolor="#3B4E87">
-          <b>
-            <font color="#FFFFFF">UNIT PRICE</font>
-          </b>
-        </td>
-        <td align="center" valign="middle" bgcolor="#3B4E87">
-          <b>
-            <font color="#FFFFFF">TOTAL</font>
-          </b>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000">CO19</font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><?php echo $row['hosp_name'] . "---" . $row['package_name'] . "---" . date("(d/m/Y)(h:ia)", $row['datetime']) . " (" . $row['first_name'] . " " . $row['lastname'] . ")" ?></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000">1</font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
-          <font color="#000000"><?php echo $row['package_price'] ?></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000"><?php echo $row['package_price'] ?></font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="4" height="2" align="left" valign="middle" bgcolor="#D9D9D9">
-          <b>
-            <font color="#000000">Other Comments or Special Instructions</font>
-          </b>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#FFFFFF"></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000">SUBTOTAL</font>
-        </td>
-        <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">RM 1,053.00</font>
-        </td>
-      </tr>
-      <tr>
-        <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
-          <font color="#000000">Request of refund will be issued if there is a cancelation of appointment by patient to KUALA LUMPUR INTERNATIONAL HEALTHCARE CENTRE
-          </font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000">TAX RATE</font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
-          <font color="#000000">0.000%</font>
-        </td>
-      </tr>
-      <tr>
-        <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000">TAX</font>
-        </td>
-        <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
-      <tr>
-        <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000">S &amp; H</font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
-          <font color="#000000">RM 0.00</font>
-        </td>
-      </tr>
-      <tr>
-        <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7" height="2" align="left" valign="middle" bgcolor="#F3F3F3">
-          <b>
-            <font color="#000000">Additional Comment:</font>
-          </b>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle" bgcolor="#F3F3F3">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-bottom: 1px solid #000000" align="left" valign="middle">
-          <font color="#000000">OTHER</font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #000000; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
-          <font color="#000000">RM 0.00</font>
-        </td>
-      </tr>
-      <tr>
-        <td style="border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="bottom" bgcolor="#F3F3F3">
-          <font face="Cambria"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle" bgcolor="#E4E8F3">
-          <b>
-            <font color="#000000">TOTAL</font>
-          </b>
-        </td>
-        <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <b>
+    <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
+      <tbody>
+        <tr>
+          <td height="24" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
+            <b>
+              <font color="#FFFFFF">ITEM #</font>
+            </b>
+          </td>
+          <td colspan="3" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
+            <b>
+              <font color="#FFFFFF">DESCRIPTION</font>
+            </b>
+          </td>
+          <td align="center" valign="middle" bgcolor="#3B4E87">
+            <b>
+              <font color="#FFFFFF">QTY</font>
+            </b>
+          </td>
+          <td align="center" valign="middle" bgcolor="#3B4E87">
+            <b>
+              <font color="#FFFFFF">UNIT PRICE</font>
+            </b>
+          </td>
+          <td align="center" valign="middle" bgcolor="#3B4E87">
+            <b>
+              <font color="#FFFFFF">TOTAL</font>
+            </b>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000">CO19</font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><?php echo $row['hosp_name'] . "---" . $row['package_name'] . "---" . date("(d/m/Y)(h:ia)", $row['datetime']) . " (" . $row['first_name'] . " " . $row['lastname'] . ")" ?></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000">1</font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+            <font color="#000000"><?php echo $row['package_price'] ?></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000"><?php echo $row['package_price'] ?></font>
+          </td>
+        <?php } ?>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr class="fill">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4" height="2" align="left" valign="middle" bgcolor="#D9D9D9">
+            <b>
+              <font color="#000000">Other Comments or Special Instructions</font>
+            </b>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#FFFFFF"></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000">SUBTOTAL</font>
+          </td>
+          <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
             <font color="#000000">RM 1,053.00</font>
-          </b>
-        </td>
-      </tr>
-      <tr>
-        <td height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-      </tr>
-      <tr>
-        <td height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-bottom: 1px solid #000000" colspan="2" rowspan="2" align="left" valign="middle">
-          <i>
-            <font color="#000000">(this is a electronic copy - no signature required)</font>
-          </i>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-      </tr>
-      <tr>
-        <td height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-bottom: 1px solid #000000" align="right" valign="middle">
-          <font color="#000000"><?php echo date("d/m/Y", $current_date) ?></font>
-        </td>
-      </tr>
-      <tr>
-        <td height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle" colspan="2">
-          <font color="#000000">Authorized by</font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #000000" align="left" valign="middle">
-          <font color="#000000">Date</font>
-        </td>
-      </tr>
-      <tr>
-        <td height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle" colspan="2">
-          <b>
-            <font color="#000000">Benjamin Philip George</font>
-          </b>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-      </tr>
-      <tr>
-        <td height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <b>
-            <font color="#000000">Director</font>
-          </b>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-      </tr>
-      <tr>
-        <td height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="7" height="2" align="center" valign="middle">
-          <font color="#000000">If you have any questions about this purchase order, please
-            contact</font>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="7" height="2" align="center" valign="middle">
-          <b>
-            <font color="#000000">SELVEN BASKARAN | +6013-3901105 | selven@georgehealth.care</font>
-          </b>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="7" rowspan="7" height="168" align="center" valign="middle">
-          <b>
-            <font color="#000000"><br /><img src="data:image/png;base64,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" width="90%" hspace="44" vspace="22" /> </font>
-          </b>
-        </td>
-      </tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <?php } ?>
-    </tbody>
-  </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+            <font color="#000000">Request of refund will be issued if there is a cancelation of appointment by patient to KUALA LUMPUR INTERNATIONAL HEALTHCARE CENTRE
+            </font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000">TAX RATE</font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+            <font color="#000000">0.000%</font>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000">TAX</font>
+          </td>
+          <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <font color="#000000">0.00</font>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000">S &amp; H</font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+            <font color="#000000">RM 0.00</font>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7" height="2" align="left" valign="middle" bgcolor="#F3F3F3">
+            <b>
+              <font color="#000000">Additional Comment:</font>
+            </b>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle" bgcolor="#F3F3F3">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-bottom: 1px solid #000000" align="left" valign="middle">
+            <font color="#000000">OTHER</font>
+          </td>
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #000000; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+            <font color="#000000">RM 0.00</font>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="bottom" bgcolor="#F3F3F3">
+            <font face="Cambria"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle" bgcolor="#E4E8F3">
+            <b>
+              <font color="#000000">TOTAL</font>
+            </b>
+          </td>
+          <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+            <b>
+              <font color="#000000">RM 1,053.00</font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+        </tr>
+        <tr>
+          <td height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-bottom: 1px solid #000000" colspan="2" rowspan="2" align="left" valign="middle">
+            <i>
+              <font color="#000000">(this is a electronic copy - no signature required)</font>
+            </i>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+        </tr>
+        <tr>
+          <td height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-bottom: 1px solid #000000" align="right" valign="middle">
+            <font color="#000000"><?php echo date("d/m/Y", $current_date) ?></font>
+          </td>
+        </tr>
+        <tr>
+          <td height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle" colspan="2">
+            <font color="#000000">Authorized by</font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td style="border-top: 1px solid #000000" align="left" valign="middle">
+            <font color="#000000">Date</font>
+          </td>
+        </tr>
+        <tr>
+          <td height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle" colspan="2">
+            <b>
+              <font color="#000000">Benjamin Philip George</font>
+            </b>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+        </tr>
+        <tr>
+          <td height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <b>
+              <font color="#000000">Director</font>
+            </b>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+        </tr>
+        <tr>
+          <td height="2" align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+          <td align="left" valign="middle">
+            <font color="#000000"><br /></font>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="7" height="2" align="center" valign="middle">
+            <font color="#000000">If you have any questions about this purchase order, please
+              contact</font>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="7" height="2" align="center" valign="middle">
+            <b>
+              <font color="#000000">SELVEN BASKARAN | +6013-3901105 | selven@georgehealth.care</font>
+            </b>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="7" rowspan="7" height="168" align="center" valign="middle">
+            <b>
+              <font color="#000000"><br /><img src="data:image/png;base64,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" width="90%" hspace="44" vspace="22" /> </font>
+            </b>
+          </td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+
+      </tbody>
+    </table>
 </body>
 
 </html>
