@@ -365,6 +365,12 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
         </footer>
     </div>
     </div>
+
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <!-- <script src="assets/js/pages/dashboard.js"></script> -->
     <script>
         function load_chart() {
             var month_cnt = []
@@ -432,12 +438,6 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
         });
         */
     </script>
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-
-    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-    <!-- <script src="assets/js/pages/dashboard.js"></script> -->
-
     <script src="assets/js/main.js"></script>
 
 </body>
