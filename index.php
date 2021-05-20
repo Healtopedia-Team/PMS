@@ -380,14 +380,11 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             for (let x in months) {
                 if (month_cnt.length <= 12) {
                     month_cnt.push(jsonObject[x])
-                } else {
-                    break
-                }
+                } 
             }
             //
         })
-        month_data = month_cnt.slice(0, 12);
-        console.log(month_data)
+        console.log(month_cnt)
 
         var optionsProfileVisit = {
             annotations: {
@@ -406,7 +403,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             plotOptions: {},
             series: [{
                 name: 'Appointments',
-                data: month_data,
+                data: month_cnt,
             }],
             colors: '#435ebe',
             xaxis: {
