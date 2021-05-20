@@ -386,7 +386,8 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             }
             //
         })
-        console.log(month_cnt)
+        month_data = month_cnt.slice(0, 12);
+        console.log(month_data)
 
         var optionsProfileVisit = {
             annotations: {
@@ -405,7 +406,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             plotOptions: {},
             series: [{
                 name: 'Appointments',
-                data: month_cnt.slice(0,12),
+                data: month_data,
             }],
             colors: '#435ebe',
             xaxis: {
