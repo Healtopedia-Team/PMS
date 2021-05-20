@@ -367,31 +367,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
     </div>
     <script>
         function load_chart() {
-            var month_cnt = []
-            var months = [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
-            ]
-            $.getJSON('month_app_chart.php', function(jsonObject) {
-                let i = 0
-                for (let x in months) {
-                    if (i < 12) {
-                        month_cnt.push(parseInt(jsonObject[x]))
-                    }
-                    i += 1
-                }
-                //
-            })
+
             var optionsProfileVisit = {
                 annotations: {
                     position: 'back'
@@ -401,7 +377,36 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 },
                 chart: {
                     type: 'bar',
-                    height: 300
+                    height: 300,
+                    events: {
+                        beforeMount: function(chartContext, config) {
+                            var month_cnt = []
+                            var months = [
+                                'Jan',
+                                'Feb',
+                                'Mar',
+                                'Apr',
+                                'May',
+                                'Jun',
+                                'Jul',
+                                'Aug',
+                                'Sep',
+                                'Oct',
+                                'Nov',
+                                'Dec'
+                            ]
+                            $.getJSON('month_app_chart.php', function(jsonObject) {
+                                let i = 0
+                                for (let x in months) {
+                                    if (i < 12) {
+                                        month_cnt.push(parseInt(jsonObject[x]))
+                                    }
+                                    i += 1
+                                }
+                                //
+                            })
+                        }
+                    }
                 },
                 fill: {
                     opacity: 1
