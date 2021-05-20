@@ -223,18 +223,13 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
                                                                 <?php echo $rows['req_packname']; ?><br>
                                                                 <?php echo $rows['req_apptime']; ?><br>
-
-                                                                <?php
-
-                                                                $status = $rows['req_status'];
-                                                                if ($status == "approved") {
-                                                                ?>
-                                                                    <span class="badge bg-primary">Booked</span>
-
                                                             </td>
+                                                            <?php $status = $rows['req_status'];
+                                                            if ($status == "approved") { ?>
                                                             <td class="text-bold-500">
                                                                 <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">Check-In</button>
                                                             </td>
+                                                            <?php } ?>
                                                         </tr>
                                                         <?php } ?>
                                                     <?php }
