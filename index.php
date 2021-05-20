@@ -378,7 +378,11 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
         $.getJSON('month_app_chart.php', function(jsonObject) {
             for (let x in months) {
-                month_cnt.push(jsonObject[x]);
+                if (month_cnt.length <= 12) {
+                    month_cnt.push(jsonObject[x])
+                } else{
+                    break
+                }
             }
             console.log(month_cnt)
         })
