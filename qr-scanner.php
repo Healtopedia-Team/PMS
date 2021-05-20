@@ -21,7 +21,9 @@
         <div class="page-heading">
             <div class="page-title">
                 <div class="row">
-                    <center><h3>QR Scanner</h3></center>
+                    <div class="col-12">
+                        <center><h3>QR Scanner</h3></center>
+                    </div>
                 </div>
             </div>
             <section class="section">
@@ -29,10 +31,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <div class="frm-grp txt-cntr">
-                                    <label class="disp-blck">Choose camera:</label>
-                                    <select id="webcameraChanger" onchange="cameraChange($(this).val());" class="frm-ctrl mar-btm-2"></select>
-                                </div>
+                                <label class="disp-blck">Scan QR to check-in</label>
                             </div>
                             <div class="card-body">
                                 <video id="webcameraPreview" playsinline style="width: 100%;"></video>
