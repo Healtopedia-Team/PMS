@@ -52,16 +52,17 @@ if ($_SESSION["loggedin"] === true) {
 }
 */
 
-//get all appointments in range from now(1 hour early) to tomorrow
-$timestamp = strtotime('today midnight +8 hour');
-$timestamp2 = strtotime('tomorrow midnight +8 hour');
-
-
 $result = mysqli_query($conn, "SELECT * FROM requestappoint");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
 $hosp = $_SESSION["hospital"];
-$result2 = mysqli_query($conn, "SELECT packagename, COUNT(*) FROM appointwoo GROUP BY packagename ORDER BY 2 DESC");
+$result2 = mysqli_query($conn, "SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
 $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+
+$result3 = mysqli_query($conn, "SELECT * FROM packagewoo");
+$hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
+
+
 
 ?>
 <!DOCTYPE html>
@@ -90,7 +91,6 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
         <?php include 'sidebar.php'; ?>
 
         <div id="main" style="margin-top: -90px;">
-
 
             <div class="page-heading">
                 <h3>Dashboard</h3>
@@ -135,9 +135,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Appointments This Week</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
-                                                    $query = "SELECT COUNT(id) AS this_week_cnt FROM appointwoo WHERE 
-                                                        statusapp='paid' AND hosp_name='$hosp' AND WEEK(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) 
-                                                        BETWEEN WEEK(CURDATE())-1 AND WEEK(CURDATE())+1";
+                                                    $query = "SELECT req_appdate, COUNT(*) AS this_week_cnt FROM requestappoint WHERE req_status='approved' OR req_status='completed' AND WEEK(FROM_UNIXTIME(req_appdate, '%m/%d/%Y')) BETWEEN WEEK(CURDATE())-1 AND WEEK(CURDATE())+1";
                                                     $res1 = mysqli_query($conn, $query);
                                                     $appointment_this_week = mysqli_fetch_assoc($res1);
                                                     echo $appointment_this_week['this_week_cnt'];
@@ -214,56 +212,30 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <?php
                                                 if (mysqli_num_rows($result) > 0) {
                                                     foreach ($appointment as $rows) {
-                                                        $appdate = date('m-d-Y', $rows['req_appdate']);
-                                                        $todaydate = date("m-d-Y"); 
+                                                        $appdate = $rows['req_appdate'];
+                                                        $todaydate = date("m/d/Y"); 
                                                         if ($appdate == $todaydate) { ?>
                                                         <tr>
                                                             <td class="text-bold-500">
-                                                                <strong>#<?php echo $rows['request_id']; ?> <?php echo $rows['req_custname']; ?> <?php echo $rows['lastname']; ?></strong><br>
+                                                                <strong>#<?php echo $rows['request_id']; ?> <?php echo $rows['req_custname']; ?></strong><br>
 
                                                                 <?php echo $rows['req_packname']; ?><br>
                                                                 <?php echo $rows['req_apptime']; ?><br>
-
                                                             </td>
-                                                            <!--td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                                                    Check-In
-                                                                </button></td>
-                                                        <?php } elseif ($status == "complete") {
-                                                        ?>
-                                                            <span class="badge bg-success">Checked-In</span>
-
+                                                            <?php $status = $rows['req_status'];
+                                                            if ($status == "approved") { ?>
+                                                            <td class="text-bold-500">
+                                                                <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">Check-In</button>
                                                             </td>
-                                                            <td class="text-bold-500"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                                                    Check-In
-                                                                </button></td>
-                                                        <?php
-                                                                } elseif ($status == "cancelled") { ?>
-                                                            <span class="badge bg-danger">Canceled</span>
-
-                                                            </td>
-                                                            <td class="text-bold-500"></td>
-                                                        <?php
-                                                                } else { ?>
-
-                                                            <span class="badge bg-warning">Waiting Payment</span>
-
-                                                            </td>
-                                                            <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                                                    Pay Now
-                                                                </button></td-->
-                                                      
+                                                            <?php } ?>
                                                         </tr>
                                                         <?php } ?>
                                                     <?php }
                                                 } else { ?>
-
                                                     <tr>
                                                         <td>No appointments today</td>
                                                     </tr>
-
-
                                                 <?php } ?>
-
                                             </tbody>
                                         </table>
                                     </div>
@@ -297,13 +269,18 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($hospital_list as $rows) : ?>
+                                                <?php foreach ($hospital_list as $rows) { 
+                                                    $id = $rows['prod_id']; ?>
                                                     <tr>
-                                                        <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/', '', $rows['packagename']); ?>
-                                                        <td class="text-bold-500"><?php echo $package_name; ?></td>
+                                                        <?php foreach ($hospital_list2 as $rows2) { 
+                                                            $id2 = $rows2['package_id'];
+                                                            if ($id2 == $id) { ?>
+                                                            <?php $package_name = preg_replace('/[^(\x20-\x7F)\x0A\x0D]*/', '', $rows2['package_name']); ?>
+                                                            <td class="text-bold-500"><?php echo $package_name; ?></td>
+                                                        <?php } } ?>
                                                         <td class="text-bold-500"><?php echo $rows['COUNT(*)']; ?></td>
                                                     </tr>
-                                                <?php endforeach; ?>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -311,7 +288,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                             </div>
                         </div>
                     </section>
-
+            <!--==================== M O D A L == C H E C K == I N ====================-->
                     <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                             <div class="modal-content">
@@ -344,6 +321,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                             </div>
                         </div>
                     </div>
+            <!--=======================================================================-->
 
             </div>
 
