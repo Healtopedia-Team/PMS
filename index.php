@@ -439,11 +439,11 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 ]
             }
         }
-        var chartProfileVisit = new ApexCharts(
+        var chartProfileVisit = new setTimeout(ApexCharts(
             document.querySelector('#chart-profile-visit'),
             optionsProfileVisit
-        )
-        setTimeout(chartProfileVisit.render(),2000)
+        ), 1000)
+        chartProfileVisit.render()
 
         //setTimeout(load_chart(), 500)
         //window.onload = load_chart()
