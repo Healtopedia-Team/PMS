@@ -443,7 +443,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             document.querySelector('#chart-profile-visit'),
             optionsProfileVisit
         )
-        setTimeout(chartProfileVisit.render(),500)
+        setTimeout(chartProfileVisit.render(),2000)
 
         //setTimeout(load_chart(), 500)
         //window.onload = load_chart()
