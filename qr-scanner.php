@@ -85,7 +85,7 @@
 
 
         scanStart(function (data){
-            alert(data);
+            window.location.href = data;
         });
 
     </script>
