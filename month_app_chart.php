@@ -1,7 +1,8 @@
 <?php
 //count the appointments number per month
 $connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Healit20.');
-
+session_start();
+$hosp = $_SESSION['hospital'];
 $data = array();
 
 $date = date('Y-m-d',strtotime("-1 days"));
@@ -20,7 +21,7 @@ $query = "SELECT
     SUM(IF(MONTH(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = 10 , 1 , 0)) AS 'Oct',
     SUM(IF(MONTH(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = 11 , 1 , 0)) AS Nov,
     SUM(IF(MONTH(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = 12 , 1 , 0)) AS 'Dec'
-FROM `appointwoo` WHERE YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE()) AND NOT statusapp='cancelled' ";
+FROM `appointwoo` WHERE YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE()) AND NOT statusapp='cancelled' AND hosp_name='$hosp";
 
 
 $statement = $connect->prepare($query);
