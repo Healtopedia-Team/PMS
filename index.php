@@ -372,36 +372,21 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
     <script src="assets/vendors/apexcharts/apexcharts.js"></script>
     <!-- <script src="assets/js/pages/dashboard.js"></script> -->
     <script>
-        function load_chart() {
-            var month_cnt = []
-            var months = [
-                'Jan',
-                'Feb',
-                'Mar',
-                'Apr',
-                'May',
-                'Jun',
-                'Jul',
-                'Aug',
-                'Sep',
-                'Oct',
-                'Nov',
-                'Dec'
-            ]
-            $.getJSON('month_app_chart.php', function(jsonObject) {
-                let i = 0
-                for (let x in months) {
-                    if (i < 12) {
-                        month_cnt.push(parseInt(jsonObject[x]))
-                    }
-                    i += 1
-                }
-                //
-            })
-            return month_cnt
-        }
-        //console.log(month_cnt)
-
+        var month_cnt = []
+        var months = [
+            'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'May',
+            'Jun',
+            'Jul',
+            'Aug',
+            'Sep',
+            'Oct',
+            'Nov',
+            'Dec'
+        ]
         var optionsProfileVisit = {
             annotations: {
                 position: 'back'
@@ -419,7 +404,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             plotOptions: {},
             series: [{
                 name: 'Appointments',
-                data: load_chart()
+                data: month_cnt
             }],
             colors: '#435ebe',
             xaxis: {
@@ -439,12 +424,30 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                 ]
             }
         }
-        var chartProfileVisit = new setTimeout(ApexCharts(
+
+        function load_chart() {
+            $.getJSON('month_app_chart.php', function(jsonObject) {
+                let i = 0
+                for (let x in months) {
+                    if (i < 12) {
+                        month_cnt.push(parseInt(jsonObject[x]))
+                    }
+                    i += 1
+                }
+                optionsProfileVisit.updateSeries([{
+                    name: 'Appointments',
+                    data: month_cnt
+                }])
+            })
+        }
+        //console.log(month_cnt)
+
+
+        var chartProfileVisit = new ApexCharts(
             document.querySelector('#chart-profile-visit'),
             optionsProfileVisit
-        ), 1000)
+        )
         chartProfileVisit.render()
-
         //setTimeout(load_chart(), 500)
         //window.onload = load_chart()
         //console.log(month_cnt)
