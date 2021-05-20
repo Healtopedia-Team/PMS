@@ -15,12 +15,12 @@ var optionsProfileVisit = {
 	plotOptions: {
 	},
 	series: [{
-		name: 'sales',
-		data: [9,20,30,20,10,20,30,20,10,20,30,20]
+		name: 'Appointments',
+		data: [9,20,30,20,10,20,30]
 	}],
 	colors: '#435ebe',
 	xaxis: {
-		categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"],
+		categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
 	},
 }
 let optionsVisitorsProfile  = {
@@ -104,6 +104,9 @@ let optionsIndonesia = {
 
 
 var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
+
+
+
 var chartVisitorsProfile = new ApexCharts(document.getElementById('chart-visitors-profile'), optionsVisitorsProfile)
 var chartEurope = new ApexCharts(document.querySelector("#chart-europe"), optionsEurope);
 var chartAmerica = new ApexCharts(document.querySelector("#chart-america"), optionsAmerica);
