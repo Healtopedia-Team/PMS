@@ -369,7 +369,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
     <script src="assets/js/bootstrap.bundle.min.js"></script>
 
     <script src="assets/vendors/apexcharts/apexcharts.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <!-- <script src="assets/js/pages/dashboard.js"></script> -->
 
     <script src="assets/js/main.js"></script>
     <script>
@@ -386,7 +386,7 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             }
             //
         })
-        console.log(month_cnt.slice(0, 12))
+        console.log(month_cnt)
 
         var optionsProfileVisit = {
             annotations: {
