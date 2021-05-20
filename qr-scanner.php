@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <video id="webcameraPreview" style="width: 100%;"></video>
+                                <video id="webcameraPreview" playsinline style="width: 100%;"></video>
                             </div>
                         </div>
                     </div>
