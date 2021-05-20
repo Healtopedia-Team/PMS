@@ -380,11 +380,12 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
             for (let x in months) {
                 if (month_cnt.length <= 12) {
                     month_cnt.push(jsonObject[x])
-                } else{
+                } else {
                     break
                 }
+                console.log(month_cnt)
             }
-            console.log(month_cnt)
+            //console.log(month_cnt)
         })
 
 
