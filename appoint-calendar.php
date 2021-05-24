@@ -53,23 +53,6 @@ $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
                     center:'title',
                     right:'agendaWeek,month,agendaDay'
                 },
-                events: 'loadpms.php',
-                selectable:true,
-                selectHelper:true,
-                eventClick:function(event){
-                    var id = event.id;
-                    $('#detailinfo'+id).modal('show');
-                },
-            });
-        });
-        $(document).ready(function() {
-            var calendar = $('#calendar').fullCalendar({
-                editable:true,
-                header:{
-                    left:'prev,next today',
-                    center:'title',
-                    right:'agendaWeek,month,agendaDay'
-                },
                 events: 'loadhealtopedia.php',
                 selectable:true,
                 selectHelper:true,
