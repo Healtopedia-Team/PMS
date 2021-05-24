@@ -50,7 +50,7 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                     center:'title',
                     right:'agendaWeek,month,agendaDay'
                 },
-                events: 'load.php',
+                events: 'loadhealtopedia.php',
                 selectable:true,
                 selectHelper:true,
                 eventClick:function(event){
