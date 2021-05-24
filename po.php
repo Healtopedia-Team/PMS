@@ -6,7 +6,7 @@ $current_date = $_GET['cur_date'];
 //var_dump($current_date);
 $query = "SELECT a.order_id, a.appoint_id, a.start_appoint, a.hosp_name, b.firstname, b.lastname, c.package_name, c.package_price, DATE(FROM_UNIXTIME(a.start_appoint, '%Y-%m-%d')) AS c_date FROM appointwoo a LEFT JOIN orderwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON a.prod_id=c.package_id WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')='$current_date' AND a.hosp_name='$hosp' ";
 $result = mysqli_query($conn, $query);
-//$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 var_dump($res);
 ?>
 
@@ -86,9 +86,7 @@ var_dump($res);
             <font color="#000000">DATE</font>
           </b>
         </td>
-        <td align="center" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000"><?php echo date("d/m/Y", strtotime($current_date)) ?></font>
-        </td>
+        <td align="center" valign="middle" bgcolor="#E4E8F3"><font color="#000000"><?php echo date("d/m/Y", strtotime($current_date)) ?></font></td>
       </tr>
       <tr>
         <td align="left" valign="middle">
@@ -213,19 +211,19 @@ var_dump($res);
           </b>
         </td>
       </tr>
-      <?php
-      while ($row = mysqli_fetch_all($result,MYSQLI_ASSOC)) {
+      <?php 
+      foreach ($res as $row) {
         $appoint_id = $row['appoint_id'];
         $order_id = $row['order_id'];
-
-
-      ?>
+        
+        
+        ?>
         <tr class="fill">
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
             <font color="#000000"><?php echo $order_id . "/" . $appoint_id ?></font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-            <font color="#000000"><?php echo $row['hosp_name'] . " --- " . $row['package_name'] . " --- " . date("(d/m/Y)(h:ia)", $row['start_appoint'] - 28800) . " (" . $row['firstname'] . " " . $row['lastname'] . ")" ?></font>
+            <font color="#000000"><?php echo $row['hosp_name'] . " --- " . $row['package_name'] . " --- " . date("(d/m/Y)(h:ia)", $row['start_appoint']-28800) . " (" . $row['firstname'] . " " . $row['lastname'] . ")" ?></font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
             <font color="#000000">1</font>
