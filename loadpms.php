@@ -21,7 +21,7 @@ foreach($result as $row)
         'id'   => $row["request_id"],
         'title'   => $row["req_custname"],
         'start'   => $row["req_appdate"],
-        'end'   => $row["req_appdate"]
+        'end'   => $row["req_appdate"] + 3600
     );
 }
 

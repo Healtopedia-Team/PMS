@@ -16,9 +16,6 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
 
 $sql3 = mysqli_query($conn, "SELECT * FROM packagewoo");
 $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
-
-$sql4 = mysqli_query($conn, "SELECT * FROM requestappoint");
-$result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +51,6 @@ $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
                     right:'agendaWeek,month,agendaDay'
                 },
                 events: 'loadhealtopedia.php',
-                events: 'loadpms.php',
                 selectable:true,
                 selectHelper:true,
                 eventClick:function(event){
@@ -98,31 +94,6 @@ $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
                                                     <b>Package : </b><?php echo $row3['package_name'];?>
                                                 <?php } } ?><br>
                                                 <b>Time : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Close</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php } ?>
-                                <?php foreach ($result4 as $row4) { ?>
-                                <div class="modal fade" id="detailinfo<?php echo $row4['request_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="detailinfo"><?php echo $row4['req_custname'];?></h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <b>Name : </b><?php echo $row4['req_custname'];?><br>
-                                                <b>Package : </b><?php echo $row4['req_packname'];?><br>
-                                                <b>Time : </b><?php echo $row4['req_apptime'];?> to <?php echo $row4['req_apptime'];?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
