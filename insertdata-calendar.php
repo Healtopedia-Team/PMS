@@ -67,4 +67,5 @@ foreach ($result2 as $row2) {
             mysqli_query($conn, $sql2);
         }
     }
+}
 ?>
