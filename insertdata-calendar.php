@@ -8,11 +8,11 @@ $data2 = mysqli_query($conn, "SELECT * FROM requestappoint");
 $result2 = mysqli_fetch_all($data2, MYSQLI_ASSOC);
 
 foreach ($result as $row) {
-    $appointid = $row['appoint_id'];
-    $hospname = $row['hosp_name'];
-    $startapp = $row['start_appoint'];
-    $endapp = $row['end_appoint'];
-    $statusapp = $row['statusapp'];
+    $appointid = echo $row['appoint_id'];
+    $hospname = echo $row['hosp_name'];
+    $startapp = echo $row['start_appoint'];
+    $endapp = echo $row['end_appoint'];
+    $statusapp = echo $row['statusapp'];
 
     $valid = mysqli_query($conn, "SELECT COUNT(*) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
     $ans = mysqli_fetch_all($valid, MYSQLI_ASSOC);
