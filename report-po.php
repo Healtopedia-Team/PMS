@@ -5,6 +5,7 @@ $cur_date = $_GET['cur_date'];
 // reference the Dompdf namespace
 use Dompdf\Dompdf;
 
+define('DOMPDF_ENABLE_PHP', true);
 
   // instantiate and use the dompdf class
   $dompdf = new Dompdf();
