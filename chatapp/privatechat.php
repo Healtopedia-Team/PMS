@@ -146,7 +146,7 @@ Website: http://emilcarlsson.se/
                     <?php
                     }
                     ?>
-                    
+
                 </div>
             </div>
             <div id="search">
@@ -349,80 +349,80 @@ Website: http://emilcarlsson.se/
             xhr.send("login_user_id=" + from_user_id);
         };
         searchBar.onkeyup = () => {
-                let searchTerm = searchBar.value;
-                if (searchTerm != "") {
-                    searchBar.classList.add("active");
-                } else {
-                    searchBar.classList.remove("active");
-                }
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", "search.php", true);
-                xhr.onload = () => {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            let data = xhr.response;
-                            //console.log(data);
-                            if (searchBar.classList.contains("active")) {
-                                usersList.innerHTML = data;
-                                console.log(searchTerm)
-                            } else {
-                                invisible_refresh.click();
-                            }
+            let searchTerm = searchBar.value;
+            if (searchTerm != "") {
+                searchBar.classList.add("active");
+            } else {
+                searchBar.classList.remove("active");
+            }
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "search.php", true);
+            xhr.onload = () => {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        let data = xhr.response;
+                        //console.log(data);
+                        if (searchBar.classList.contains("active")) {
+                            usersList.innerHTML = data;
+                            console.log(searchTerm)
+                        } else {
+                            invisible_refresh.click();
                         }
                     }
-                };
-                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhr.send("searchTerm=" + searchTerm + "& login_user_id=" + from_user_id );
-                };
-                var loadFile = function(event) {
-                    var reader = new FileReader();
-                    reader.onload = function() {
-                        var output = document.getElementById('storefile');
-                        output.value = reader.result;
-                        console.log(reader.result)
-                        console.log(output.value)
-                    };
-                    reader.readAsDataURL(event.target.files[0]);
-                };
-                $(document).ready(function() {
+                }
+            };
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("searchTerm=" + searchTerm + "& login_user_id=" + from_user_id);
+        };
+        var loadFile = function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('storefile');
+                output.value = reader.result;
+                console.log(reader.result)
+                console.log(output.value)
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        };
+        $(document).ready(function() {
 
 
 
-                    var receiver_userid = '';
+            var receiver_userid = '';
 
-                    var conn = new WebSocket('wss://206.189.46.179:5555?token=<?php echo $token; ?>');
-                    //console.log("Token is here");
-                    //console.log('<?php echo $token; ?>')
-                    conn.onopen = function(event) {
-                        console.log('Connection Established');
-                    };
+            var conn = new WebSocket('wss://206.189.46.179:5555?token=<?php echo $token; ?>');
+            //console.log("Token is here");
+            //console.log('<?php echo $token; ?>')
+            conn.onopen = function(event) {
+                console.log('Connection Established');
+            };
 
-                    conn.onmessage = function(event) {
-                        //$('.select_user.active').click();
-                        var data = JSON.parse(event.data);
+            conn.onmessage = function(event) {
+                //$('.select_user.active').click();
+                var data = JSON.parse(event.data);
 
-                        if (data.status_type == 'online') {
-                            $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-success"></i>');
-                        } else if (data.status_type == 'offline') {
-                            $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-danger"></i>');
-                        } else {
+                if (data.status_type == 'online') {
+                    $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-success"></i>');
+                } else if (data.status_type == 'offline') {
+                    $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-danger"></i>');
+                } else {
 
-                            var row_class = '';
-                            var background_class = '';
+                    var row_class = '';
+                    var background_class = '';
 
-                            if (data.from == 'Me') {
-                                row_class = 'row justify-content-end';
-                                style = "float:right; padding: 0px 10px 0px 10px;margin-right: -5px; margin-left: -5px;";
-                                background_class = 'alert-success';
-                            } else {
-                                row_class = 'row justify-content-start';
-                                style = "float:left; padding: 0px 10px 0px 10px;margin-right: -5px; margin-left: -5px;";
-                                background_class = 'alert-primary';
-                            }
+                    if (data.from == 'Me') {
+                        row_class = 'row justify-content-end';
+                        style = "float:right; padding: 0px 10px 0px 10px;margin-right: -5px; margin-left: -5px;";
+                        background_class = 'alert-success';
+                    } else {
+                        row_class = 'row justify-content-start';
+                        style = "float:left; padding: 0px 10px 0px 10px;margin-right: -5px; margin-left: -5px;";
+                        background_class = 'alert-primary';
+                    }
 
-                            if (receiver_userid == data.userId || data.from == 'Me') {
-                                if ($('#is_active_chat').val() == 'Yes') {
-                                    var html_data = `
+                    if (receiver_userid == data.userId || data.from == 'Me') {
+                        if ($('#is_active_chat').val() == 'Yes') {
+                            var html_data = `
                                 <div class="` + row_class + `" style="` + style + `">
                                     <div class="col-sm-9">
                                         <div class="shadow-sm alert ` + background_class + `">
@@ -435,96 +435,34 @@ Website: http://emilcarlsson.se/
                                 </div>
                             `;
 
-                                    $('#messages_area').append(html_data);
+                            $('#messages_area').append(html_data);
 
-                                    $('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
+                            $('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
 
-                                    $('#chat_message').val("");
-                                }
-                            } else {
-                                var count_chat = $('#userid' + data.userId).text();
-
-                                if (count_chat == '') {
-                                    count_chat = 0;
-                                }
-
-                                count_chat = 'New unread messages';
-
-                                $('#userid_' + data.userId).html('<span class="badge badge-danger badge-pill" style="float: right;">' + count_chat + '</span>');
-                            }
+                            $('#chat_message').val("");
                         }
-                    };
-                    /*
-                    conn.onmessage = function(event) {
-                        var data = JSON.parse(event.data);
-                        // wondering if these two if is necessary or not , as it is to show the online/offline one
-                        //might need to change
-                        console.log(data)
-                        if (data.status_type === 'online') {
-                            $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-success"></i>');
-                        } else if (data.status_type === 'offline') {
-                            $('#userstatus_' + data.user_id_status).html('<i class="fa fa-circle text-danger"></i>');
-                        } else {
-                            //chat room chatbubblebox part
-                            var row_class = '';
-                            var background_class = '';
+                    } else {
+                        var count_chat = $('#userid' + data.userId).text();
 
-                            if (data.from == 'Me') {
-                                row_class = 'row justify-content-end';
-                                style = "float:right";
-                                background_class = 'alert-success';
-                            } else {
-                                row_class = 'row justify-content-start';
-                                style = "float:left";
-                                background_class = 'alert-primary';
-                            }
-
-                            if (receiver_userid == data.userId || data.from == 'Me') {
-                                if ($('#is_active_chat').val() == 'Yes') {
-                                    var html_data = `
-                                        <div class="` + row_class + `" style="` + style + `">
-                                            <div class="col-sm-10">
-                                                <div class="shadow-sm alert ` + background_class + `">
-                                                    <b>` + data.from + `-</b>` + data.msg + `<br />
-                                                    <div class="text-right">
-                                                        <small><i>` + data.datetime + `</i></small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        `;
-                                    var output = `
-                                            <li class="sent">
-                                                <p> ` + data.msg + ` </p>
-                                                <span>` + data.datetime + `</span>
-                                            </li>`;
-
-                                    $('#messages_area').append(html_data);
-
-                                    $('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
-
-                                    $('#chat_message').val("");
-                                }
-                            } else {
-                                var count_chat = $('#userid' + data.userId).text();
-
-                                if (count_chat == '') {
-                                    count_chat = 0;
-                                }
-
-                                count_chat++;
-
-                                $('#userid_' + data.userId).html('<span class="badge badge-danger badge-pill">' + count_chat + '</span>');
-                            }
+                        if (count_chat == '') {
+                            count_chat = 0;
                         }
-                    };
-                    */
-                    conn.onclose = function(event) {
-                        console.log('connection close');
-                    };
 
-                    function make_chat_area(user_name) {
-                        var html = `
+                        count_chat = 'New unread messages';
+
+                        $('#userid_' + data.userId).html('<span class="badge badge-danger badge-pill" style="float: right;">' + count_chat + '</span>');
+                    }
+                }
+            };
+            conn.onclose = function(event) {
+                console.log('connection close');
+            };
+            conn.onerror = function(event) {
+                console.error("WebSocket error observed:", event);
+            };
+
+            function make_chat_area(user_name) {
+                var html = `
                 <div class="contact-profile">
                     <img src="../assets/images/faces/1.jpg" alt="" />
                     <p class="person_received">` + user_name + `</p>
@@ -545,69 +483,69 @@ Website: http://emilcarlsson.se/
                     
 			`;
 
-                        $('.content').html(html);
-                        //$(".content").trigger("create");
-                        $(".nomessage").css("display", "none");
-                        $(".content").css("display", "block");
+                $('.content').html(html);
+                //$(".content").trigger("create");
+                $(".nomessage").css("display", "none");
+                $(".content").css("display", "block");
 
-                        //$('#chat_form').parsley();
-                    }
+                //$('#chat_form').parsley();
+            }
 
-                    //userlist onclick part
-                    $(document).on('click', '.select_user', function() {
+            //userlist onclick part
+            $(document).on('click', '.select_user', function() {
 
-                        receiver_userid = $(this).data('userid');
-                        //console.log(receiver_userid)
+                receiver_userid = $(this).data('userid');
+                //console.log(receiver_userid)
 
-                        var from_user_id = $('#login_user_id').val();
-                        //console.log(from_user_id)
-                        var receiver_user_name = $('#list_user_name_' + receiver_userid).text();
+                var from_user_id = $('#login_user_id').val();
+                //console.log(from_user_id)
+                var receiver_user_name = $('#list_user_name_' + receiver_userid).text();
 
-                        $('.select_user.active').removeClass('active');
+                $('.select_user.active').removeClass('active');
 
-                        $(this).addClass('active');
+                $(this).addClass('active');
 
-                        make_chat_area(receiver_user_name);
+                make_chat_area(receiver_user_name);
 
-                        $('#is_active_chat').val('Yes');
+                $('#is_active_chat').val('Yes');
 
-                        //load the history message
-                        $.ajax({
-                            url: "action.php",
-                            method: "POST",
-                            data: {
-                                action: 'fetch_chat',
-                                to_user_id: receiver_userid,
-                                from_user_id: from_user_id,
-                            },
-                            //dataType: 'json',
-                            //dataType: 'json',
-                            //contentType: 'application/json; charset=utf-8',
-                            cache: false,
-                            success: function(result) {
-                                data = jQuery.parseJSON(result);
-                                if (data.length > 0) {
-                                    var html_data = '';
+                //load the history message
+                $.ajax({
+                    url: "action.php",
+                    method: "POST",
+                    data: {
+                        action: 'fetch_chat',
+                        to_user_id: receiver_userid,
+                        from_user_id: from_user_id,
+                    },
+                    //dataType: 'json',
+                    //dataType: 'json',
+                    //contentType: 'application/json; charset=utf-8',
+                    cache: false,
+                    success: function(result) {
+                        data = jQuery.parseJSON(result);
+                        if (data.length > 0) {
+                            var html_data = '';
 
-                                    for (var count = 0; count < data.length; count++) {
-                                        var row_class = '';
-                                        var background_class = '';
-                                        var user_name = '';
+                            for (var count = 0; count < data.length; count++) {
+                                var row_class = '';
+                                var background_class = '';
+                                var user_name = '';
 
-                                        if (data[count].from_user_id == from_user_id) {
-                                            row_class = 'row justify-content-end';
+                                if (data[count].from_user_id == from_user_id) {
+                                    row_class = 'row justify-content-end';
 
-                                            background_class = 'alert-success';
+                                    background_class = 'alert-success';
 
-                                            user_name = 'Me';
-                                        } else {
-                                            row_class = 'row justify-content-start';
+                                    user_name = 'Me';
+                                } else {
+                                    row_class = 'row justify-content-start';
 
-                                            background_class = 'alert-primary';
-                                            user_name = data[count].from_user_name;
-                                        }
+                                    background_class = 'alert-primary';
+                                    user_name = data[count].from_user_name;
+                                }
 
-                                        html_data += `
+                                html_data += `
                                                 <div class="` + row_class + `" style="padding: 0px 10px 0px 10px; margin-right: -5px;
                                                 margin-left: -5px;">
                                                     <div class="col-sm-9">
@@ -621,80 +559,80 @@ Website: http://emilcarlsson.se/
                                                     </div>
                                                 </div>
                                                 `;
-                                    }
-                                    //this line is for letting the unread message be read then no notice
-                                    $('#userid_' + receiver_userid).html('');
-
-                                    $('#messages_area').html(html_data);
-
-                                    $('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
-
-
-                                }
-                            },
-                            error: function(jqXHR, textStatus, errorThrown) {
-                                console.log(jqXHR)
-                                console.log(errorThrown)
-                                console.log(textStatus)
                             }
-                        })
-                    });
+                            //this line is for letting the unread message be read then no notice
+                            $('#userid_' + receiver_userid).html('');
+
+                            $('#messages_area').html(html_data);
+
+                            $('#messages_area').scrollTop($('#messages_area')[0].scrollHeight);
 
 
-
-                    $(document).on('submit', '#chat_form', function(event) {
-
-                        event.preventDefault();
-                        var user_id = parseInt($('#login_user_id').val());
-
-                        var message = $('#chat_message').val();
-
-                        //var file = $("#fileupload").val();
-
-                        var file = '';
-
-                        var data = {
-                            userId: user_id,
-                            msg: message,
-                            //file: fileupload,
-                            receiver_userid: receiver_userid,
-                            command: 'private'
-                        };
-
-                        conn.send(JSON.stringify(data));
-
-                    });
-                    $(document).on('click', '#fileupload', function(event) {
-                        var user_id = parseInt($('#login_user_id').val());
-                        const form = document.querySelector("#file_form");
-                        var file = $("#fileupload").val();
-                        let xhr = new XMLHttpRequest();
-                        xhr.open("POST", "uploadfile.php", true);
-                        xhr.onload = () => {
-                            if (xhr.readyState === XMLHttpRequest.DONE) {
-                                if (xhr.status === 200) {
-                                    console.log("attachmentbtn running!!!");
-                                    //console.log(inputField)
-                                }
-                            }
-                        };
-                        let formData = new FormData(form); //Create the formdata to be submitted
-                        formData.append('from_user_id', user_id) //Append the current user_id to the formData
-                        formData.append('to_user_id', receiver_userid)
-                        for (let [key, value] of formData.entries()) { //log the value of formdata (debug use!)
-                            console.log(`${key}: ${value}`);
                         }
-                        xhr.send(formData);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(jqXHR)
+                        console.log(errorThrown)
+                        console.log(textStatus)
+                    }
+                })
+            });
 
-                        console.log("Send successfully");
-                    })
 
-                    $(document).on('submit', '#file_form', function(event) {
 
-                        event.preventDefault();
+            $(document).on('submit', '#chat_form', function(event) {
 
-                        console.log("filebtn runninghere!")
-                        /*
+                event.preventDefault();
+                var user_id = parseInt($('#login_user_id').val());
+
+                var message = $('#chat_message').val();
+
+                //var file = $("#fileupload").val();
+
+                var file = '';
+
+                var data = {
+                    userId: user_id,
+                    msg: message,
+                    //file: fileupload,
+                    receiver_userid: receiver_userid,
+                    command: 'private'
+                };
+
+                conn.send(JSON.stringify(data));
+
+            });
+            $(document).on('click', '#fileupload', function(event) {
+                var user_id = parseInt($('#login_user_id').val());
+                const form = document.querySelector("#file_form");
+                var file = $("#fileupload").val();
+                let xhr = new XMLHttpRequest();
+                xhr.open("POST", "uploadfile.php", true);
+                xhr.onload = () => {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            console.log("attachmentbtn running!!!");
+                            //console.log(inputField)
+                        }
+                    }
+                };
+                let formData = new FormData(form); //Create the formdata to be submitted
+                formData.append('from_user_id', user_id) //Append the current user_id to the formData
+                formData.append('to_user_id', receiver_userid)
+                for (let [key, value] of formData.entries()) { //log the value of formdata (debug use!)
+                    console.log(`${key}: ${value}`);
+                }
+                xhr.send(formData);
+
+                console.log("Send successfully");
+            })
+
+            $(document).on('submit', '#file_form', function(event) {
+
+                event.preventDefault();
+
+                console.log("filebtn runninghere!")
+                /*
                 var user_id = parseInt($('#login_user_id').val());
                 var fileupload = $("#fileupload").val();
                 var data = {
@@ -707,98 +645,98 @@ Website: http://emilcarlsson.se/
                 conn.send(JSON.stringify(data));
 */
 
-                    });
-                    /*
-                    $('.attachmentbtn').click(function() {
-                    $('#fileupload').click()
-                    file_val = $('#fileupload').val()
-                    $.ajax({
-                    url: "uploadfile.php",
+            });
+            /*
+            $('.attachmentbtn').click(function() {
+            $('#fileupload').click()
+            file_val = $('#fileupload').val()
+            $.ajax({
+            url: "uploadfile.php",
+            method: "POST",
+            data: {
+            filedata: file_val,
+            to_user_id: receiver_userid,
+            from_user_id: from_user_id,
+            },
+            //dataType: 'json',
+            //dataType: 'json',
+            //contentType: 'application/json; charset=utf-8',
+            cache: false,
+            success: function(result) {
+            console.log(result)
+            data = jQuery.parseJSON(result);
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR)
+            console.log(errorThrown)
+            console.log(textStatus)
+            }
+            })
+            })
+            */
+
+            $('#logout').click(function() {
+
+                user_id = $('#login_user_id').val();
+
+                $.ajax({
+                    url: "action.php",
                     method: "POST",
                     data: {
-                    filedata: file_val,
-                    to_user_id: receiver_userid,
-                    from_user_id: from_user_id,
+                        user_id: user_id,
+                        action: 'leave'
                     },
-                    //dataType: 'json',
-                    //dataType: 'json',
-                    //contentType: 'application/json; charset=utf-8',
-                    cache: false,
                     success: function(result) {
-                    console.log(result)
-                    data = jQuery.parseJSON(result);
+                        console.log(result)
+                        data = jQuery.parseJSON(result);
 
+                        var response = data;
+                        if (response.status == 1) {
+                            conn.close();
+                            console.log("Successfully log out")
+                            location = 'index.php';
+                        }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(jqXHR)
-                    console.log(errorThrown)
-                    console.log(textStatus)
+                        console.log(jqXHR)
+                        console.log(errorThrown)
+                        console.log(textStatus)
                     }
-                    })
-                    })
-                    */
-
-                    $('#logout').click(function() {
-
-                        user_id = $('#login_user_id').val();
-
-                        $.ajax({
-                            url: "action.php",
-                            method: "POST",
-                            data: {
-                                user_id: user_id,
-                                action: 'leave'
-                            },
-                            success: function(result) {
-                                console.log(result)
-                                data = jQuery.parseJSON(result);
-
-                                var response = data;
-                                if (response.status == 1) {
-                                    conn.close();
-                                    console.log("Successfully log out")
-                                    location = 'index.php';
-                                }
-                            },
-                            error: function(jqXHR, textStatus, errorThrown) {
-                                console.log(jqXHR)
-                                console.log(errorThrown)
-                                console.log(textStatus)
-                            }
-                        })
-
-                    });
                 })
-                /* dont know how to write search function yet
-                const searchBar = document.querySelector("#frame #search input");
-                const usersList = document.querySelector('.users-list');
-                searchBar.onkeyup = () => {
-                let searchTerm = searchBar.value;
-                if (searchTerm != "") {
-                searchBar.classList.add("active");
-                } else {
-                searchBar.classList.remove("active");
-                }
-                let xhr = new XMLHttpRequest();
-                xhr.open("POST", "search.php", true);
-                xhr.onload = () => {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
-                let data = xhr.response;
-                //console.log(data);
-                if (searchBar.classList.contains("active")) {
-                usersList.innerHTML = data;
-                console.log(searchTerm)
-                } else {
-                refreshUserList();
-                }
-                }
-                }
-                };
-                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                xhr.send("searchTerm=" + searchTerm);
-                };
-                */
+
+            });
+        })
+        /* dont know how to write search function yet
+        const searchBar = document.querySelector("#frame #search input");
+        const usersList = document.querySelector('.users-list');
+        searchBar.onkeyup = () => {
+        let searchTerm = searchBar.value;
+        if (searchTerm != "") {
+        searchBar.classList.add("active");
+        } else {
+        searchBar.classList.remove("active");
+        }
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "search.php", true);
+        xhr.onload = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+        let data = xhr.response;
+        //console.log(data);
+        if (searchBar.classList.contains("active")) {
+        usersList.innerHTML = data;
+        console.log(searchTerm)
+        } else {
+        refreshUserList();
+        }
+        }
+        }
+        };
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.send("searchTerm=" + searchTerm);
+        };
+        */
     </script>
 
 </html>
