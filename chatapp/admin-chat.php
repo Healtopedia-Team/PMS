@@ -19,12 +19,12 @@ if (!isset($_SESSION['user_data'])) {
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
 
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/x-icon">
 
     <!-- from private chat -->
     <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
@@ -44,9 +44,9 @@ if (!isset($_SESSION['user_data'])) {
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
     <link rel="stylesheet" type="text/css" href="admin-chat.css">
-    <link href="chatapp/vendor-front/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <script src="chatapp/vendor-front/jquery/jquery.min.js"></script>
-    <script src="chatapp/vendor-front/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="vendor-front/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <script src="vendor-front/jquery/jquery.min.js"></script>
+    <script src="vendor-front/bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -312,7 +312,7 @@ if (!isset($_SESSION['user_data'])) {
 
             var receiver_userid = '';
 
-            var conn = new WebSocket('ws://0.0.0.0:8180?token=<?php echo $token; ?>');
+            var conn = new WebSocket('ws://0.0.0.0:5555 ?token=<?php echo $token; ?>');
 
             conn.onopen = function(event) {
                 console.log('Connection Established');
