@@ -421,7 +421,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </tr>
         <tr>
           <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
-            <font color="#000000">Request of refund will be issued if there is a cancelation of appointment by patient to KUALA LUMPUR INTERNATIONAL HEALTHCARE CENTRE
+            <font color="#000000">Request of refund will be issued if there is a cancelation of appointment by patient to <?php echo $hosp ?>
             </font>
           </td>
           <td align="left" valign="middle">
@@ -558,7 +558,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <font color="#000000"><br /></font>
           </td>
           <td style="border-bottom: 1px solid #000000" align="right" valign="middle">
-            <font color="#000000"><?php echo date("d/m/Y", strtotime($current_date)) ?></font>
+            <font color="#000000"><?php echo $hosp ?></font>
           </td>
         </tr>
         <tr>

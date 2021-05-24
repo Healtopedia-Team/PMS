@@ -44,11 +44,12 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
     <script>
         $(document).ready(function() {
             var calendar = $('#calendar').fullCalendar({
-                editable:true,
+                //editable:true,
                 header:{
-                    left:'prev,next today',
-                    center:'title',
-                    right:'agendaWeek,month,agendaDay'
+                    left:'title',
+                    center:'',
+                    right:'prev,next today'
+                    //right:'agendaWeek,month,agendaDay'
                 },
                 events: 'loadhealtopedia.php',
                 selectable:true,
