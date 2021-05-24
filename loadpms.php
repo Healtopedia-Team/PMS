@@ -4,6 +4,8 @@ $connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Heali
 
 $data = array();
 
+$data2 = array();
+
 $date = date('Y-m-d',strtotime("-1 days"));
 $yesterday = strtotime($date);
 
