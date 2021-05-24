@@ -44,7 +44,6 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
     <script>
         $(document).ready(function() {
             var calendar = $('#calendar').fullCalendar({
-                editable:true,
                 header:{
                     left:'prev,next today',
                     center:'title',
