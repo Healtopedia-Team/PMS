@@ -78,7 +78,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                     if (isset($_POST['submitdate'])) {
                         $sql = "DELETE FROM `requestappoint` WHERE req_packname IS NULL";
                         if(mysqli_query($conn,$sql)){
-                            $appdate = $_POST['datecheck'];
+                            $appdate = date('Y-m-d',strtotime($_POST['datecheck']));
                             $_SESSION['appdate'] = $appdate;
                             $sql2 = "INSERT INTO requestappoint SET req_appdate = '$appdate'";
                             if (mysqli_query($conn,$sql2)) {
