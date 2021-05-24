@@ -238,13 +238,13 @@ $role = $_SESSION['role'];
                         </a>
                         <!-- Here not done -->
                         <ul class="dropdown-menu dropdown-menu-end w-100" aria-labelledby="dropdownMenuButton" style="
-                        width: calc(0.2*100vw + 200px) !important; max-height: 400px !important; overflow-y:scroll; right:0 !important;">
+                        width: calc(0.2*100vw + 100px) !important; max-height: 400px !important; overflow-y:scroll; right:0 !important;">
                             <li style="word-wrap: break-word;">
                                 <h6 class=" dropdown-header">Notifications</h6>
                             </li>
 
                             <?php
-                            $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE name='$username' ORDER BY 'date' DESC");
+                            $not_list = mysqli_query($conn, "SELECT * FROM notification WHERE name='$username' ORDER BY 'date' DESC LIMIT 5");
                             $notifications = mysqli_fetch_all($not_list);
                             if ($cnt_not >= 0) {
                                 foreach ($notifications as $rows) {
