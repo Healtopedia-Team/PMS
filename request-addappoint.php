@@ -98,6 +98,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         $phoneno=$_POST['phoneno'];
                         $national=$_POST['national'];
                         $apptime=$_POST['apptime'];
+                        $unixdate=date('Y-m-d',$_POST['appdate'])." ".substr("09:00AM",0,5);
                         $latestid=$_POST['latestid'];
 
                         $dateapp = $_SESSION['appdate'];
@@ -109,7 +110,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         $reservedTime = $finalDateD . ' ' . $finalDateT;
                         $message = 'Inserting...';
 
-                        $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime', req_status = 'pending' WHERE  request_id = '$latestid'";
+                        $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$unixdate', req_status = 'pending' WHERE  request_id = '$latestid'";
                         $query = "INSERT INTO notification (`id`, `name`, `type`, `message`, `status`, `date`, `reserved_date`) VALUES (NULL, '$register_name', 'request-appointment', '$message', 'unread', '$current_timestamp', '$reservedTime')";
                         if (mysqli_query($conn,$sql) and mysqli_query($conn, $query)) {
                             echo '<script>
