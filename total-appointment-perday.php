@@ -45,7 +45,7 @@
                                             </td>
                                             <td>
                                                 <!-- The link to pdf preview is not available yet. Please modify here! -->
-                                                <a href='report-po.php?curr_date=<?php echo $row['unique_date'] ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
+                                                <a href='po.php?cur_date=<?php echo $row['unique_date'] ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
