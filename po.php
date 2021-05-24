@@ -1,5 +1,6 @@
 <?php
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
+session_start();
 $hosp = $_SESSION['hospital'];
 $current_date = $_GET['cur_date'];
 //var_dump($current_date);
