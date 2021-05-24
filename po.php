@@ -214,7 +214,7 @@ var_dump($res);
         </td>
       </tr>
       <?php
-      while ($row = mysqli_fetch_all($result)) {
+      while ($row = mysqli_fetch_all($result,MYSQLI_ASSOC)) {
         $appoint_id = $row['appoint_id'];
         $order_id = $row['order_id'];
 
