@@ -1,15 +1,3 @@
-<?php
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
-session_start();
-$hosp = $_SESSION['hospital'];
-$current_date = $_GET['cur_date'];
-//var_dump($current_date);
-$query = "SELECT a.order_id, a.appoint_id, a.start_appoint, a.hosp_name, b.firstname, b.lastname, c.package_name, c.package_price, DATE(FROM_UNIXTIME(a.start_appoint, '%Y-%m-%d')) AS c_date FROM appointwoo a LEFT JOIN orderwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON a.prod_id=c.package_id WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')='$current_date' AND a.hosp_name='$hosp' ";
-$result = mysqli_query($conn, $query);
-$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
-//var_dump($result->error);
-?>
-
 <html>
 
 <head>
@@ -211,10 +199,9 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
           </b>
         </td>
       </tr>
-      <?php foreach ($res as $row) {?>
         <tr class="fill">
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-            <font color="#000000"><?php echo $row['order_id'] . "/" . $row['appoint_id']?></font>
+            <font color="#000000">FATIHAH AMEERA</font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
             <font color="#000000"><?php echo $row['hosp_name'] . " --- " . $row['package_name'] . " --- " . date("(d/m/Y)(h:ia)", $row['start_appoint']) . " (" . $row['firstname'] . " " . $row['lastname'] . ")" ?></font>
@@ -229,7 +216,6 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <font color="#000000"><?php echo $row['package_price']; ?></font>
             <?php $total_price += $row['package_price']; ?>
           </td>
-        <?php } ?>
         </tr>
         <tr class="fill">
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
