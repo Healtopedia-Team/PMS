@@ -44,7 +44,7 @@
                                                                                     <?php }} ?>>
                                                                                 </td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time10" class="btn btn-success" value="19:00PM" onclick="myTime10()" <?php
+                                                                                    <input type="button" id="time10" class="btn btn-success" value="07:00PM" onclick="myTime10()" <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '07:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                         foreach($user as $row){
@@ -64,7 +64,7 @@
                                                                                             <?php }} ?>>
                                                                                 </td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time4" class="btn btn-success" value="13:00PM" onclick="myTime4()" <?php
+                                                                                    <input type="button" id="time4" class="btn btn-success" value="01:00PM" onclick="myTime4()" <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '01:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                         foreach($user as $row){
@@ -73,7 +73,7 @@
                                                                                     <?php }} ?>>
                                                                                 </td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time11" class="btn btn-success" value="20:00PM" onclick="myTime11()" <?php
+                                                                                    <input type="button" id="time11" class="btn btn-success" value="08:00PM" onclick="myTime11()" <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '08:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                         foreach($user as $row){
@@ -93,7 +93,7 @@
                                                                                     <?php }} ?>>
                                                                                 </td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time5" class="btn btn-success" value="14:00PM" onclick="myTime5()" <?php
+                                                                                    <input type="button" id="time5" class="btn btn-success" value="02:00PM" onclick="myTime5()" <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '02:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                         foreach($user as $row){
@@ -102,7 +102,7 @@
                                                                                     <?php }} ?>>
                                                                                 </td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time12" class="btn btn-success" value="21:00PM" onclick="myTime12()" <?php
+                                                                                    <input type="button" id="time12" class="btn btn-success" value="09:00PM" onclick="myTime12()" <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '09:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                         foreach($user as $row){
@@ -114,7 +114,7 @@
                                                                             <tr>
                                                                                 <td></td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time6" class="btn btn-success" value="15:00PM" onclick="myTime6()" <?php
+                                                                                    <input type="button" id="time6" class="btn btn-success" value="03:00PM" onclick="myTime6()" <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '03:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                         foreach($user as $row){
@@ -127,7 +127,7 @@
                                                                             <tr>
                                                                                 <td></td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time7" class="btn btn-success" value="14:00PM" onclick="myTime7()"
+                                                                                    <input type="button" id="time7" class="btn btn-success" value="04:00PM" onclick="myTime7()"
                                                                                     <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '04:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -141,7 +141,7 @@
                                                                             <tr>
                                                                                 <td></td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time8" class="btn btn-success" value="17:00PM" onclick="myTime8()" <?php
+                                                                                    <input type="button" id="time8" class="btn btn-success" value="05:00PM" onclick="myTime8()" <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '05:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                         foreach($user as $row){
@@ -154,7 +154,7 @@
                                                                             <tr>
                                                                                 <td></td>
                                                                                 <td align="center">
-                                                                                    <input type="button" id="time9" class="btn btn-success" value="18:00PM" onclick="myTime9()" <?php
+                                                                                    <input type="button" id="time9" class="btn btn-success" value="06:00PM" onclick="myTime9()" <?php
                                                                                         $result=mysqli_query($conn, "SELECT timeonoff FROM xtime WHERE timeonoff = 'Off' AND timedisdate = '$appdate' AND timedisable = '06:00PM'");
                                                                                         $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                         foreach($user as $row){
