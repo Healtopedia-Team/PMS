@@ -421,7 +421,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
         </tr>
         <tr>
           <td style="border-top: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
-            <font color="#000000">Request of refund will be issued if there is a cancelation of appointment by patient to KUALA LUMPUR INTERNATIONAL HEALTHCARE CENTRE
+            <font color="#000000">Request of refund will be issued if there is a cancelation of appointment by patient to <?php echo $hosp ?>
             </font>
           </td>
           <td align="left" valign="middle">
