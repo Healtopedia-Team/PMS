@@ -15,7 +15,7 @@ $server = IoServer::factory(
             new Chat()
         )
     ),
-    5555
+    22
 );
 
 $server->run();
