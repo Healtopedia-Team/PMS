@@ -211,10 +211,15 @@ var_dump($result->error);
           </b>
         </td>
       </tr>
-      <?php foreach ($res as $row) {?>
+      <?php foreach ($res as $row) {
+        $appoint_id = $row['appoint_id'];
+        $appoint_order = $row['order_id'];
+        
+        
+        ?>
         <tr class="fill">
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-            <font color="#000000"><?php echo $row['order_id'] . "/" . $row['appoint_id']?></font>
+            <font color="#000000"><?php echo $appoint_order . "/" . $appoint_id ?></font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
             <font color="#000000"><?php echo $row['hosp_name'] . " --- " . $row['package_name'] . " --- " . date("(d/m/Y)(h:ia)", $row['start_appoint']-28800) . " (" . $row['firstname'] . " " . $row['lastname'] . ")" ?></font>
