@@ -21,7 +21,7 @@ foreach ($result as $row) {
         if ($key['Total'] < 1) {
             $sql = "INSERT INTO calendar SET cal_id = '$appointid', cal_name = '$hospname', cal_start = '$startapp', cal_end = '$endapp', cal_status = '$statusapp'";
             if(mysqli_query($conn, $sql)){
-                echo "<script>alert('Success');</script>"
+                echo "<script>alert('Success');</script>";
             }
         }
     }
