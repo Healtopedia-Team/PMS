@@ -87,7 +87,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
           </b>
         </td>
         <td align="center" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000"><?php echo date("d/m/Y", strtotime($current_date)) ?></font>
+          <font color="#000000"><?php echo $hosp ?></font>
         </td>
       </tr>
       <tr>
