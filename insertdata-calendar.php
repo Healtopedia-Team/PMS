@@ -8,11 +8,11 @@ $data2 = mysqli_query($conn, "SELECT * FROM requestappoint");
 $result2 = mysqli_fetch_all($data2, MYSQLI_ASSOC);
 
 foreach ($result as $row) {
-    $appointid = echo $row['appoint_id'];
-    $hospname = echo $row['hosp_name'];
-    $startapp = echo $row['start_appoint'];
-    $endapp = echo $row['end_appoint'];
-    $statusapp = echo $row['statusapp'];
+    $appointid = $row['appoint_id'];
+    $hospname = $row['hosp_name'];
+    $startapp = $row['start_appoint'];
+    $endapp = $row['end_appoint'];
+    $statusapp = $row['statusapp'];
 
     $valid = mysqli_query($conn, "SELECT COUNT(*) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
     $ans = mysqli_fetch_all($valid, MYSQLI_ASSOC);
@@ -20,7 +20,9 @@ foreach ($result as $row) {
     foreach ($ans as $key) {
         if ($key['Total'] < 1) {
             $sql = "INSERT INTO calendar SET cal_id = '$appointid', cal_name = '$hospname', cal_start = '$startapp', cal_end = '$endapp', cal_status = '$statusapp'";
-            mysqli_query($conn, $sql);
+            if(mysqli_query($conn, $sql)){
+                echo "<script>alert('Success');</script>"
+            }
         }
     }
 }
