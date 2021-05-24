@@ -70,7 +70,7 @@ $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
                     center:'title',
                     right:'agendaWeek,month,agendaDay'
                 },
-                events: 'loadpms.php',
+                events: 'loadhealtopedia.php',
                 selectable:true,
                 selectHelper:true,
                 eventClick:function(event){
