@@ -47,8 +47,7 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                 //editable:true,
                 header:{
                     left:'prev,next today',
-                    center:'title',
-                    right:'month'
+                    center:'title'
                     //right:'agendaWeek,month,agendaDay'
                 },
                 events: 'loadhealtopedia.php',
