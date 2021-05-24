@@ -86,9 +86,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <font color="#000000">DATE</font>
           </b>
         </td>
-        <td align="center" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000"><?php echo $hosp; ?></font>
-        </td>
+        <td align="center" valign="middle" bgcolor="#E4E8F3"><font color="#000000"><?php echo $hosp; ?></font></td>
       </tr>
       <tr>
         <td align="left" valign="middle">
