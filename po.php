@@ -223,9 +223,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
           </b>
         </td>
       </tr>
-      <?php
-      foreach ($res as $row) {
-      ?>
+      <?php foreach ($res as $row) {?>
         <tr class="fill">
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
             <font color="#000000"><?php echo $row['order_id'] . "/" . $row['appoint_id']?></font>
@@ -241,9 +239,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
             <font color="#000000"><?php echo $row['package_price']; ?></font>
-            <?php
-            $total_price += $row['package_price'];
-            ?>
+            <?php $total_price += $row['package_price']; ?>
           </td>
         <?php } ?>
         </tr>
