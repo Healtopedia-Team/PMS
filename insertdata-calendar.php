@@ -7,7 +7,7 @@ $result = mysqli_fetch_all($data, MYSQLI_ASSOC);
 $data2 = mysqli_query($conn, "SELECT * FROM requestappoint");
 $result2 = mysqli_fetch_all($data2, MYSQLI_ASSOC);
 
-/*foreach ($result as $row) {
+foreach ($result as $row) {
     $appointid = $row['appoint_id'];
     $hospname = $row['hosp_name'];
     $startapp = $row['start_appoint'];
@@ -23,9 +23,9 @@ $result2 = mysqli_fetch_all($data2, MYSQLI_ASSOC);
             mysqli_query($conn, $sql);
         }
     }
-}*/
+}
 
-foreach ($result2 as $row2) {
+/*foreach ($result2 as $row2) {
     $reqid = $row2['request_id'];
     $packname = $row2['req_packname'];
     $appdate = $row2['req_appdate'];
@@ -67,5 +67,5 @@ foreach ($result2 as $row2) {
             mysqli_query($conn, $sql2);
         }
     }
-}
+}*/
 ?>
