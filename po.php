@@ -226,7 +226,7 @@ $name = 'karen';
             <font color="#000000">1</font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
-            <font color="#000000"><?php $name ?></font>
+            <font color="#000000"><?php $name; ?></font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
             <font color="#000000"><?php echo $row['package_price']; ?></font>
