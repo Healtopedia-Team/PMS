@@ -390,7 +390,7 @@ Website: http://emilcarlsson.se/
 
                     var receiver_userid = '';
 
-                    var conn = new WebSocket('ws://localhost:81?token=<?php echo $token; ?>');
+                    var conn = new WebSocket('ws://206.189.46.179:81?token=<?php echo $token; ?>');
                     //console.log("Token is here");
                     //console.log('<?php echo $token; ?>')
                     conn.onopen = function(event) {
