@@ -54,6 +54,7 @@ $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
                     right:'agendaWeek,month,agendaDay'
                 },
                 events: 'loadhealtopedia.php',
+                events: 'loadpms.php',
                 selectable:true,
                 selectHelper:true,
                 eventClick:function(event){
