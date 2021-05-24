@@ -20,8 +20,8 @@ foreach($result as $row)
     $data[] = array(
         'id'   => $row["request_id"],
         'title'   => $row["req_custname"],
-        'start'   => $row["req_appdate"],
-        'end'   => $row["req_appdate"]
+        'start'   => date('Y-m-d H:i',1621969200),
+        'end'   => date('Y-m-d H:i',1621972800)
     );
 }
 
