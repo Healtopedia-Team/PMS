@@ -98,7 +98,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         $phoneno=$_POST['phoneno'];
                         $national=$_POST['national'];
                         $apptime=$_POST['apptime'];
-                        $unixdate=date('Y-m-d',$_POST['appdate']) substr("09:00AM",0,5);
+                        //$unixdate=date('Y-m-d',$_POST['appdate']) substr("09:00AM",0,5);
                         $latestid=$_POST['latestid'];
 
                         $dateapp = $_SESSION['appdate'];
