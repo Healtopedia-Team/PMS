@@ -15,13 +15,13 @@ $statement->execute();
 
 $result = $statement->fetchAll();
 
-foreach($result2 as $row2)
+foreach($result as $row)
 {
     $data[] = array(
-        'id'   => $row2["request_id"],
-        'title'   => $row2["req_custname"],
-        'start'   => $row2["req_appdate"],
-        'end'   => $row2["req_appdate"]
+        'id'   => $row["request_id"],
+        'title'   => $row["req_custname"],
+        'start'   => $row["req_appdate"],
+        'end'   => $row["req_appdate"]
     );
 }
 
