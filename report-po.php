@@ -13,11 +13,12 @@ define('DOMPDF_ENABLE_PHP', true);
   //require_once 'https://pms.healtopedia.com/po.php?cur_date='. $cur_date ;
   //ob_start();
   //require('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
-  $html = ob_get_contents();
+  //$html = ob_get_contents();
   //ob_get_clean();
 
   //to put other html file
-  $html = file_get_contents('po.php?cur_date='.$cur_date);
+  /*
+  $html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
   $dompdf->setBasePath(realpath('report-style.css'));
 
   $dompdf->loadHtml($html);
@@ -30,5 +31,15 @@ define('DOMPDF_ENABLE_PHP', true);
 
   // Output the generated PDF (1 = download and 0 = preview)
   $dompdf->stream("Purchase Order", array("Attachment"=>0));
+*/
+  require_once 'https://pms.healtopedia.com/po.php?cur_date=' . $cur_date ;
+  $dompdf->setBasePath(realpath('report-style.css'));
+  $dompdf->setPaper('A4', 'portrait');
+  $dompdf->loadHtml($html);
+  $dompdf->render();
+  $output = $dompdf->output();
+  file_put_contents('/files/report.pdf', $output);
+  $dompdf->stream("Purchase Order", array("Attachment" => 0));
+
 
 ?>
