@@ -9,14 +9,16 @@ define('DOMPDF_ENABLE_PHP', true);
 
   // instantiate and use the dompdf class
   $dompdf = new Dompdf();
- 
+  ob_start();
+  include 'https://pms.healtopedia.com/po.php?cur_date=' . $cur_date;
+  $contents = ob_get_clean();
 
 
   //to put other html file
   $html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
   $dompdf->setBasePath(realpath('report-style.css'));
 
-  $dompdf->loadHtml($html);
+  $dompdf->loadHtml($contents);
 
   // (Optional) Setup the paper size and orientation
   $dompdf->setPaper('A4','portrait');
