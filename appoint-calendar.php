@@ -16,6 +16,9 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
 
 $sql3 = mysqli_query($conn, "SELECT * FROM packagewoo");
 $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
+
+$sql4 = mysqli_query($conn, "SELECT * FROM calendar");
+$result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +78,7 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                 <div class="card-body">
                                     <div id="calendar"></div>
                                 </div>
-                                <?php foreach ($result as $row) { ?>
+                                <?php foreach ($result4 as $row4) { ?>
                                 <div class="modal fade" id="detailinfo<?php echo $row['appoint_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
@@ -86,15 +89,10 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <?php foreach ($result2 as $row2) { ?>
-                                                    <?php if ($row2['order_id'] == $row['order_id']) { ?>
-                                                    <b>Name : </b><?php echo $row2['firstname'];?> <?php echo $row2['lastname'];?><br>
+                                                <?php foreach ($result4 as $row4) { ?>
+                                                    <b>Name : </b><?php echo $row4['cal_id'];?><br>
+                                                    <b>Package : </b><?php echo $row4['cal_name'];?><br>
                                                 <?php } } ?>
-                                                <?php foreach ($sql3 as $row3) { ?>
-                                                    <?php if ($row3['package_id'] == $row['prod_id']) { ?>
-                                                    <b>Package : </b><?php echo $row3['package_name'];?>
-                                                <?php } } ?><br>
-                                                <b>Time : </b><?php echo date('H:i',$row['start_appoint']-28800);?> to <?php echo date('H:i',$row['end_appoint']-28800);?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
