@@ -46,27 +46,29 @@ $role = $_SESSION['role'];
                                                     } ?>">
                                 <a href="request-appointment-all.php">Request List</a>
                             </li>
-                            <li class="submenu-item <?php if ($your_variable == "request-addappoint") {
-                                                        echo "active";
-                                                    } else {
-                                                        echo "noactive";
-                                                    } ?>">
-                                <a href="request-addappoint.php">Add Request</a>
-                            </li>
-                            <li class="submenu-item <?php if ($your_variable == "manage-date") {
-                                                        echo "active";
-                                                    } else {
-                                                        echo "noactive";
-                                                    } ?>">
-                                <a href="manage-date.php">Manage Date</a>
-                            </li>
-                            <li class="submenu-item <?php if ($your_variable == "manage-time") {
-                                                        echo "active";
-                                                    } else {
-                                                        echo "noactive";
-                                                    } ?>">
-                                <a href="manage-time.php">Manage Time</a>
-                            </li>
+                            <?php if ($role == "admin") { ?>
+                                <li class="submenu-item <?php if ($your_variable == "request-addappoint") {
+                                                            echo "active";
+                                                        } else {
+                                                            echo "noactive";
+                                                        } ?>">
+                                    <a href="request-addappoint.php">Add Request</a>
+                                </li>
+                                <li class="submenu-item <?php if ($your_variable == "manage-date") {
+                                                            echo "active";
+                                                        } else {
+                                                            echo "noactive";
+                                                        } ?>">
+                                    <a href="manage-date.php">Manage Date</a>
+                                </li>
+                                <li class="submenu-item <?php if ($your_variable == "manage-time") {
+                                                            echo "active";
+                                                        } else {
+                                                            echo "noactive";
+                                                        } ?>">
+                                    <a href="manage-time.php">Manage Time</a>
+                                </li>
+                            <?php } ?>
                         </ul>
                     </li>
                 <?php } ?>
