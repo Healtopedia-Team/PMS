@@ -46,7 +46,7 @@ $role = $_SESSION['role'];
                                                     } ?>">
                                 <a href="request-appointment-all.php">Request List</a>
                             </li>
-                            <?php if ($role == "admin") { ?>
+                            <?php if ($role == "admin"|| $role == "hospital admin") { ?>
                                 <li class="submenu-item <?php if ($your_variable == "request-addappoint") {
                                                             echo "active";
                                                         } else {
