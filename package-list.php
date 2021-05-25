@@ -114,9 +114,11 @@ if (isset($_POST['updateprice'])) {
                         </div>
                         <form method="POST">
                             <div class="modal-body">
-                                <label>Package Price :</label>
+                                <label>Package :</label>
+                                <?php echo $row['package_name'];?>
+                                <label>Price :</label>
                                 <input type="text" name="newprice" class="form-control" value="<?php echo $row['package_price']; ?>">
-                                <input type="text" name="packageid" class="form-control" value="<?php echo $row['package_id']; ?>">
+                                <input type="text" name="packageid" class="form-control" value="<?php echo $row['package_id']; ?>" style="display: none;">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
