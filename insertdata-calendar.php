@@ -55,37 +55,34 @@ foreach ($result2 as $row2) {
     {
         $start = $appdate." ".date('H:i', strtotime('14:00:00'));
     }
-    /*elseif ($row25'req_apptime'] == "03:00PM")
+    elseif ($row2['req_apptime'] == "03:00PM")
     {
-        $start = date('H:i', strtotime('15:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('15:00:00'));
     }
     elseif ($row2['req_apptime'] == "04:00PM")
     {
-        $start = date('H:i', strtotime('16:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('16:00:00'));
     }
     elseif ($row2['req_apptime'] == "05:00PM")
     {
-        $start = date('H:i', strtotime('17:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('17:00:00'));
     }
     elseif ($row2['req_apptime'] == "06:00PM")
     {
-        $start = date('H:i', strtotime('18:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('18:00:00'));
     }
     elseif ($row2['req_apptime'] == "07:00PM")
     {
-        $start = date('H:i', strtotime('19:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('19:00:00'));
     }
     elseif ($row2['req_apptime'] == "08:00PM")
     {
-        $start = date('H:i', strtotime('20:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('20:00:00'));
     }
     elseif ($row2['req_apptime'] == "09:00PM")
     {
-        $start = date('H:i', strtotime('21:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('21:00:00'));
     }
-    else{
-        $start = '';
-    }*/
 
     $valid2 = mysqli_query($conn, "SELECT COUNT(*) as Total FROM calendar WHERE cal_id = '$reqid'");
     $ans2 = mysqli_fetch_all($valid2, MYSQLI_ASSOC);
