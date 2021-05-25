@@ -14,7 +14,7 @@ foreach ($result as $row) {
     $endapp = $row['end_appoint'];
     $statusapp = $row['statusapp'];
 
-    $valid = mysqli_query($conn, "SELECT COUNT(*) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
+    $valid = mysqli_query($conn, "SELECT COUNT(*) as Total FROM calendar WHERE cal_id = '$appointid'");
     $ans = mysqli_fetch_all($valid, MYSQLI_ASSOC);
 
     foreach ($ans as $key) {
