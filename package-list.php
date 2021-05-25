@@ -54,36 +54,14 @@ $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary active" onclick="listall()">All</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="listtoday()">Today</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="listupcoming()">Upcoming</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
-                            </div>
-                            <script>
-                                function listall(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-all.php";
-                                }
-                                function listtoday(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-today.php";
-                                }
-                                function listupcoming(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-upcoming.php";
-                                }
-                                function listpending(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-processing.php";
-                                }
-                            </script>
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Order ID</th>
-                                        <th>Customer Name</th>
-                                        <th>Order Date</th>
-                                        <th>Appointment Date</th>
-                                        <th>Payment Status</th>
-                                        <th>Order Details</th>
+                                        <th>Package ID</th>
+                                        <th>Package Name</th>
+                                        <th>Price</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
