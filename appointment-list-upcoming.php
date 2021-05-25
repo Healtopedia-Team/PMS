@@ -10,8 +10,8 @@
                         <div class="card-body">
                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
-                                <button type="button" class="btn btn-outline-primary active" onclick="listtoday()">Today</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="listupcoming()">Upcoming</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="listtoday()">Today</button>
+                                <button type="button" class="btn btn-outline-primary active" onclick="listupcoming()">Upcoming</button>
                                 <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
                             </div>
                             <script>
