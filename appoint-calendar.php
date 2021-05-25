@@ -90,7 +90,7 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                             <div class="modal-body">
                                                 <?php foreach ($result2 as $row2) {
                                                     if ($row['cal_id'] == $row2['cust_id']) {?>
-                                                        <b>Name : </b><?php echo $row2['firstname'];?><br>
+                                                        <b>Name : </b><?php echo $row2['firstname']."" .$row2['lastname'];?><br>
                                                 <?php } }?>
                                                 <?php foreach ($result3 as $row3) {
                                                     if ($row['cal_id'] == $row3['request_id']) {?>
