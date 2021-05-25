@@ -9,6 +9,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 }
 
 $date = date('Y-m-d',strtotime("-1 days"));
+
 $sql = mysqli_query($conn, "SELECT * FROM calendar WHERE cal_start > '$date'");
 $result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
@@ -23,11 +24,13 @@ $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
 
 $sql5 = mysqli_query($conn, "SELECT * FROM packagewoo");
 $result5 = mysqli_fetch_all($sql5, MYSQLI_ASSOC);
+
+$sql1 = $conn->prepare("SELECT * FROM calendar WHERE cal_start > ?");
+$sql1->bind_param("s", $date);
+$sql1->execute();
+$result1 = $sql1->get_result()->fetch_all(MYSQLI_ASSOC);
+var_dump($result1);
 /*
-$sql = $conn->prepare("SELECT * FROM calendar WHERE cal_start > ?");
-$sql->bind_param("s", $date);
-$sql->execute();
-$result = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
 
 $sql2 = $conn->prepare("SELECT * FROM orderwoo");
 $sql2->execute();
