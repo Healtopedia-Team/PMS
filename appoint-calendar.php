@@ -93,7 +93,7 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                         <b>Name : </b><?php echo $row2['firstname'];?><br>
                                                 <?php }else{ ?>
                                                     <b>Name : </b><?php echo $row['cal_id'];?><br>
-                                                <?php }?>
+                                                <?php } }?>
                                                 <b>Package : </b><?php echo $row['cal_name'];?><br>
                                             </div>
                                             <div class="modal-footer">
