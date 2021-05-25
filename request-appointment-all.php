@@ -1,5 +1,5 @@
 <?php
-include 'request-appointment-header.php';
+include 'appointment-list-header.php';
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status != 'completed' AND req_status != 'rejected' ORDER BY request_id");
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
