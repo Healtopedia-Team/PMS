@@ -153,7 +153,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-">
                             <div class="card">
                                 <div class="card-body px-4 py-3">
                                     <div class="row">
@@ -164,7 +164,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div class="card">
                                 <div class="card-body px-4 py-3">
                                     <div class="row">
