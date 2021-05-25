@@ -18,6 +18,12 @@ $result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
 
 $sql3 = mysqli_query($conn, "SELECT * FROM requestappoint");
 $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
+
+$sql4 = mysqli_query($conn, "SELECT * FROM appointwoo");
+$result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
+
+$sql5 = mysqli_query($conn, "SELECT * FROM packagewoo");
+$result5 = mysqli_fetch_all($sql5, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,17 +97,19 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                 <?php foreach ($result2 as $row2) {
                                                     if ($row['cal_id'] == $row2['cust_id']) {?>
                                                         <b>Name : </b><?php echo $row2['firstname']." ".$row2['lastname'];?><br>
-                                                        <b>Package : </b><?php echo $row['cal_name'];?><br>
-                                                        <b>Time : </b><?php echo substr($row['cal_start'],11,16);?><br>
-                                                <?php } }?>
+                                                        <?php foreach ($result4 as $row4) {
+                                                            if ($row['cal_id'] == $row4['appoint_id']) {
+                                                                foreach ($result5 as $row5) {
+                                                                    if ($row4['prod_id'] == $row5['package_id']) {?>
+                                                                        <b>Package : </b><?php echo $row5['package_name'];?><br>
+                                                                    
+                                                <?php } } } } } }?>
                                                 <?php foreach ($result3 as $row3) {
                                                     if ($row['cal_id'] == $row3['request_id']) {?>
                                                         <b>Name : </b><?php echo $row3['req_custname'];?><br>
                                                         <b>Package : </b><?php echo $row['cal_name'];?><br>
                                                         <b>Time : </b><?php echo substr($row['cal_start'],11,16);?><br>
                                                 <?php } }?>
-
-                                                <b>Package : </b><?php echo $row['cal_name'];?><br>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
