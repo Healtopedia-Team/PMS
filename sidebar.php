@@ -74,7 +74,7 @@ $role = $_SESSION['role'];
                 <?php if ($role == "admin" || $role == "financial manager") { ?>
                     <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-person-check-fill"></i>
+                            <i class="bi bi-file-earmark-text-fill"></i>
                             <span>Reports</span>
                         </a>
                         <ul class="submenu">
@@ -102,26 +102,7 @@ $role = $_SESSION['role'];
                             <span>Appointment List</span>
                         </a>
                     </li>
-                    <li class="sidebar-item <?php if ($your_variable == "appoint-calendar") {
-                                                echo "active";
-                                            } else {
-                                                echo "noactive";
-                                            } ?>">
-                        <a href="appoint-calendar.php" class='sidebar-link'>
-                            <i class="bi bi-calendar3-week-fill"></i>
-                            <span>Appointment Calendar</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item <?php if ($your_variable == "patient-report") {
-                                                echo "active";
-                                            } else {
-                                                echo "noactive";
-                                            } ?>">
-                        <a href="patient-report.php" class='sidebar-link'>
-                            <i class="bi bi-file-earmark-text-fill"></i>
-                            <span>Patient Report</span>
-                        </a>
-                    </li>
+
                 <?php } ?>
                 <li class="sidebar-item has-sub">
                     <a href="#" class='sidebar-link'>
@@ -161,6 +142,16 @@ $role = $_SESSION['role'];
 
                 </li>
                 <?php if ($role == "admin") { ?>
+                    <li class="sidebar-item <?php if ($your_variable == "appoint-calendar") {
+                                                echo "active";
+                                            } else {
+                                                echo "noactive";
+                                            } ?>">
+                        <a href="appoint-calendar.php" class='sidebar-link'>
+                            <i class="bi bi-calendar3-week-fill"></i>
+                            <span>Appointment Calendar</span>
+                        </a>
+                    </li>
                     <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-person-fill"></i>
