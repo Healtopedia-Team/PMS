@@ -92,8 +92,9 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             <form action="function.php" method="POST">
                                                                 <input type="hidden" name="command" value="UPDATE_ROLE">
                                                                 <input type="hidden" name="id" value="<?php echo $rows['user_id']; ?>">
-                                                                <div class="modal-body">
+                                                                <div class="modal-body" style="overflow: scroll;">
                                                                     <div class="form-group">
+                                                                        <p>Role Name</p>
                                                                         <input type="text" placeholder="Role Name" class="form-control" name="firstname" value="<?php echo $rows['role_name']; ?>">
                                                                     </div>
                                                                     <div class="card">
