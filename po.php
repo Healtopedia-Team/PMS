@@ -187,10 +187,10 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   </div>
 
-  <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto; margin-top: 0">
+  <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
     <tbody>
       <tr>
-        <td height="24" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
+        <td height="18" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
           <b>
             <font color="#FFFFFF">ITEM #</font>
           </b>
