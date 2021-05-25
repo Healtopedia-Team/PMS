@@ -55,15 +55,15 @@ foreach ($result2 as $row2) {
     {
         $start = $appdate." ".date('H:i', strtotime('14:00:00'));
     }
-    /*elseif ($row25'req_apptime'] == "03:00PM")
+    elseif ($row25'req_apptime'] == "03:00PM")
     {
-        $start = date('H:i', strtotime('15:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('15:00:00'));
     }
     elseif ($row2['req_apptime'] == "04:00PM")
     {
-        $start = date('H:i', strtotime('16:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('16:00:00'));
     }
-    elseif ($row2['req_apptime'] == "05:00PM")
+    /*elseif ($row2['req_apptime'] == "05:00PM")
     {
         $start = date('H:i', strtotime('17:00:00'));
     }
