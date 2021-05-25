@@ -14,9 +14,9 @@ $options = new \Dompdf\Options();
 $options->setIsPhpEnabled(true);
 $dompdf = new Dompdf($options);
 //require_once 'https://pms.healtopedia.com/po.php?cur_date='. $cur_date ;
-ob_start();
 print ob_get_level();
 
+ob_start();
 require 'po.php';
 $html = ob_get_contents();
 var_dump($html);
