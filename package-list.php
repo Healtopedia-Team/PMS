@@ -10,6 +10,12 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 
 $data = mysqli_query($conn, "SELECT * FROM packagewoo");
 $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
+
+if (isset($_POST['updateprice'])) {
+    $newprice = $_POST['newprice'];
+
+    $sql = "UPDATE packagewoo SET package_price = '$newprice' WHERE package_id = ''"
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,7 +87,7 @@ $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
                                                 <?php echo "RM ".$row['package_price']; ?>
                                             </td>
                                             <td>
-                                                <button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#package<?php echo $row['package_id']; ?>"><i class="bi bi-pencil-square"></i></button>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -92,6 +98,37 @@ $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
                     </div>
                 </section>
             </div>
+            <?php foreach ($data as $row) {?>
+            <div class="modal fade text-left" id="package<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel1">Edit Package</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                        <form method="POST">
+                            <div class="modal-body">
+                                <label>Package Price :</label>
+                                <input type="text" name="newprice" class="form-control" autocomplete="off">
+                                <input type="text" name="packageid" class="form-control" autocomplete="off" value="<?php echo $row['request_id']; ?>">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-sm-block d-none">Close</span>
+                                </button>
+                                <button type="submit" name="updateprice" class="btn btn-primary ml-1">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-sm-block d-none">Update</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <?php }?>
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
