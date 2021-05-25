@@ -20,14 +20,12 @@ foreach ($result as $row) {
     foreach ($ans as $key) {
         if ($key['Total'] < 1) {
             $sql = "INSERT INTO calendar SET cal_id = '$appointid', cal_name = '$hospname', cal_start = '$startapp', cal_end = '$endapp', cal_status = '$statusapp'";
-            if(mysqli_query($conn, $sql)){
-                echo "<script>alert('Success');</script>";
-            }
+            mysqli_query($conn, $sql);
         }
     }
 }
 
-/*foreach ($result2 as $row2) {
+foreach ($result2 as $row2) {
     $reqid = $row2['request_id'];
     $packname = $row2['req_packname'];
     $appdate = $row2['req_appdate'];
@@ -60,7 +58,7 @@ foreach ($result as $row) {
         $start = date('H:i', strtotime('21:00:00'));
     }
 
-    $valid2 = mysqli_query($conn, "SELECT COUNT(*) as Total FROM requestappoint HWERE request_id = '$reqid'");
+    $valid2 = mysqli_query($conn, "SELECT COUNT(*) as Total FROM calendar WHERE request_id = '$reqid'");
     $ans2 = mysqli_fetch_all($valid2, MYSQLI_ASSOC);
 
     foreach ($ans2 as $key2) {
@@ -69,5 +67,5 @@ foreach ($result as $row) {
             mysqli_query($conn, $sql2);
         }
     }
-}*/
+}
 ?>
