@@ -19,7 +19,8 @@ print ob_get_level();
 ob_start();
 require('po.php');
 $html = ob_get_contents();
-ob_get_clean();
+var_dump($html);
+ob_end_clean();
 
 
 //to put other html file
