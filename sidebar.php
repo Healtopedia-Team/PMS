@@ -237,7 +237,7 @@ $role = $_SESSION['role'];
                             </span>
                         </a>
                         <!-- Here not done -->
-                        <ul class="dropdown-menu dropdown-menu-end w-50" aria-labelledby="dropdownMenuButton" style="
+                        <ul class="dropdown-menu dropdown-menu-end w-80" aria-labelledby="dropdownMenuButton" style="
                          overflow-y:scroll; right:0 !important;">
                             <li style="word-wrap: break-word;">
                                 <h6 class=" dropdown-header">Notifications</h6>
@@ -267,7 +267,7 @@ $role = $_SESSION['role'];
                                                     -->
                                                     <?php echo $rows[5] ?>
                                                 </i></small><br />
-                                            <?php echo "You just successfully reserved an" ?> <br /> <?php echo "appointment on {$rows[6]}" ?>
+                                            <?php echo "You just successfully reserved an appointment on {$rows[6]}" ?>
                                         </a>
                                     </li>
                                 <?php
