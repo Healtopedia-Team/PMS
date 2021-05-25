@@ -13,8 +13,12 @@ $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
 
 if (isset($_POST['updateprice'])) {
     $newprice = $_POST['newprice'];
+    $packageid = $_POST['packageid'];
 
-    $sql = "UPDATE packagewoo SET package_price = '$newprice' WHERE package_id = ''"
+    $sql = "UPDATE packagewoo SET package_price = '$newprice' WHERE package_id = '$packageid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>window.location.href = "package-list.php";</script>';
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -99,20 +103,20 @@ if (isset($_POST['updateprice'])) {
                 </section>
             </div>
             <?php foreach ($data as $row) {?>
-            <div class="modal fade text-left" id="package<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+            <div class="modal fade text-left" id="package<?php echo $row['package_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="myModalLabel1">Edit Package</h5>
+                            <h5 class="modal-title" id="myModalLabel1"><?php echo $row['package_name'];?></h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <i data-feather="x"></i>
                             </button>
                         </div>
                         <form method="POST">
                             <div class="modal-body">
-                                <label>Package Price :</label>
-                                <input type="text" name="newprice" class="form-control" autocomplete="off">
-                                <input type="text" name="packageid" class="form-control" autocomplete="off" value="<?php echo $row['request_id']; ?>">
+                                <label>Price :</label>
+                                <input type="text" name="newprice" class="form-control" value="<?php echo $row['package_price']; ?>">
+                                <input type="text" name="packageid" class="form-control" value="<?php echo $row['package_id']; ?>" style="display: none;">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
