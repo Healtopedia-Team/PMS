@@ -9,7 +9,7 @@ use Dompdf\Dompdf;
 define('DOMPDF_ENABLE_PHP', true);
 
   // instantiate and use the dompdf class
-  $dompdf = new Dompdf();
+  //$dompdf = new Dompdf();
   //require_once 'https://pms.healtopedia.com/po.php?cur_date='. $cur_date ;
   //ob_start();
   //require('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
@@ -33,10 +33,14 @@ define('DOMPDF_ENABLE_PHP', true);
   $dompdf->stream("Purchase Order", array("Attachment"=>0));
 */
   ob_start();
-  require 'https://pms.healtopedia.com/po.php?cur_date=' . $cur_date ;
+  include 'https://pms.healtopedia.com/po.php?cur_date=' . $cur_date ;
   $dompdf->setBasePath(realpath('report-style.css'));
   $dompdf->setPaper('A4', 'portrait');
+  $options = new \Dompdf\Options();
+  $options->setIsPhpEnabled(true);
+  $dompdf = new Dompdf($options);
   $html = ob_get_clean();
+  ob_end_clean();
   $dompdf->loadHtml($html);
   $dompdf->render();
   //$output = $dompdf->output();
