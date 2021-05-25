@@ -23,7 +23,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Report - Healtopedia Digital</title>
+    <title>Financial Report - Healtopedia Digital</title>
 
     <link rel="stylesheet" href="assets/vendors/choices.js/choices.min.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -49,7 +49,7 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
-                            <h3>Patient Report</h3>
+                            <h3>Financial Report</h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">

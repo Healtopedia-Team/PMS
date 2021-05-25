@@ -23,8 +23,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Appointment Date</th>
-                                        <th>Total Number of Appointments</th>
+                                        <th>Date</th>
+                                        <th>Total Number of Orders</th>
                                         <th>Details</th>
                                     </tr>
                                 </thead>
@@ -45,7 +45,7 @@
                                             </td>
                                             <td>
                                                 <!-- The link to pdf preview is not available yet. Please modify here! -->
-                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
+                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-file-earmark-pdf-fill"></i></button></a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
