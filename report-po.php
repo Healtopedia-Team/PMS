@@ -24,7 +24,8 @@ $html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_da
 $dompdf->setBasePath(realpath('report-style.css'));
 
 //$dompdf->load_html_file('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
-$dompdf->loadHtmlFile('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
+//$dompdf->loadHtmlFile('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
+$dompdf->loadHtml($html);
 
 // (Optional) Setup the paper size and orientation
 $dompdf->setPaper('A4','portrait');
