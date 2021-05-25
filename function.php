@@ -36,6 +36,9 @@ switch ($theCommand) {
     case "DELETE_ROLE":
         delete_role($conn);
         break;
+    case "UPDATE_ROLE":
+        update_role($conn);
+        break;
     default:
         echo "System Error!";
 }
