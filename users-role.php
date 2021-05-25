@@ -7,9 +7,10 @@ $result = mysqli_query($conn, "SELECT * FROM hospital");
 $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
 session_start();
 $hosp = $_SESSION['hospital'];
-$query = "SELECT * FROM users WHERE hospital='$hosp'";
+$query = "SELECT * FROM roles WHERE hospital='$hosp'";
 $result = mysqli_query($conn, $query);
 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//var_dump($user);
 
 ?>
 <head>
@@ -43,7 +44,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Users List</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Role List</li>
                                 </ol>
                             </nav>
                         </div>
@@ -56,9 +57,6 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
                                         <th>Role</th>
                                         <th>Hospital</th>
                                         <th>Action</th>
@@ -72,10 +70,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                     ?>
                                         <tr>
-                                            <td><?php echo $rows["first_name"]; ?> <?php echo $rows["last_name"]; ?></td>
-                                            <td><?php echo $rows["username"]; ?></td>
-                                            <td><?php echo $rows["email"]; ?></td>
-                                            <td><?php echo $rows["role"]; ?></td>
+                                            <td><?php echo $rows["role_name"]; ?></td>
                                             <td><?php echo $rows["hospital"]; ?></td>
                                             <td>
                                                 <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
