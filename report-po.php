@@ -1,34 +1,29 @@
 <?php
 require_once 'dompdf/autoload.inc.php';
 $cur_date = $_GET['cur_date'];
-error_reporting(E_ALL);
-header("X-Accel-Buffering: no");
+//error_reporting(E_ALL);
+//header("X-Accel-Buffering: no");
 
 // reference the Dompdf namespace
 use Dompdf\Dompdf;
 
 define('DOMPDF_ENABLE_PHP', true);
-
-// instantiate and use the dompdf class
-//$dompdf = new Dompdf();
-$options = new \Dompdf\Options();
-$options->setIsPhpEnabled(true);
-$dompdf = new Dompdf($options);
-//require_once 'https://pms.healtopedia.com/po.php?cur_date='. $cur_date ;
-//print ob_get_level();
-
 ob_start();
 include_once 'po.php';
 $html = ob_get_clean();
 //var_dump($html);
 ob_end_clean();
 
+// instantiate and use the dompdf class
+//$dompdf = new Dompdf();
+$dompdf = new Dompdf();
+//require_once 'https://pms.healtopedia.com/po.php?cur_date='. $cur_date ;
+//print ob_get_level();
 
 //to put other html file
 //$html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
 $dompdf->setBasePath(realpath('report-style.css'));
 
-//$dompdf->load_html_file('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
 //$dompdf->loadHtmlFile('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
 $dompdf->loadHtml($html);
 
