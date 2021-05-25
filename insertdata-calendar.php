@@ -33,7 +33,7 @@ foreach ($result2 as $row2) {
 
     if ($row2['req_apptime'] == "09:00AM")
     {
-        $start = date('H:i', strtotime('09:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('09:00:00'));
     }
     /*elseif ($row2['req_apptime'] == "10:00AM")
     {
@@ -92,7 +92,7 @@ foreach ($result2 as $row2) {
 
     foreach ($ans2 as $key2) {
         if ($key2['Total'] < 1) {
-            $sql2 = "INSERT INTO calendar SET cal_id = '$reqid', cal_name = '$packname', cal_start = '$appdate $start', cal_status = '$status'";
+            $sql2 = "INSERT INTO calendar SET cal_id = '$reqid', cal_name = '$packname', cal_start = 'start', cal_status = '$status'";
             mysqli_query($conn, $sql2);
         }
     }
