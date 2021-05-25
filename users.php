@@ -6,10 +6,11 @@ include 'dbconnect.php';
 $result = mysqli_query($conn, "SELECT hosp_id, hosp_name FROM hospital");
 $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-$result2 = mysqli_query($conn,"SELECT * FROM user");
+$result2 = mysqli_query($conn, "SELECT * FROM user");
 $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,9 +82,8 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                 <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
                                                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm<?php echo $count; ?>"><i class=" bi bi-pencil-square"></i></button>
                                                     <a href="function.php?id=<?php echo $rows['user_id']; ?>
-                                                    &command=DELETE_USER" class="btn btn-danger" 
-                                                    onclick="return confirm('Are you sure you want to delete this user?')">
-                                                    <i class="bi bi-x-octagon"></i></a>
+                                                    &command=DELETE_USER" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')">
+                                                        <i class="bi bi-x-octagon"></i></a>
 
                                                 </div>
 
@@ -118,6 +118,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                                             <option value="admin">Admin</option>
                                                                             <option value="receptionist">Receptionist</option>
                                                                             <option value="financial manager">Financial Manager</option>
+                                                                            <option value="hospital admin">Hospital Admin</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
@@ -152,10 +153,10 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
                                             </td>
                                         </tr>
-                                        
-                                    <?php 
-                                $count++;
-                                endforeach; ?>
+
+                                    <?php
+                                        $count++;
+                                    endforeach; ?>
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;margin-top: 8px;" data-bs-toggle="modal" data-bs-target="#inlineForm">
@@ -188,7 +189,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                     <input type="text" placeholder="Email" class="form-control" name="email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <select class="choices form-select" name="role" required >
+                                                    <select class="choices form-select" name="role" required>
                                                         <option value="">Role</option>
                                                         <option value="admin">Admin</option>
                                                         <option value="receptionist">Receptionist</option>
@@ -253,10 +254,9 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
-        
-
     </script>
 
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>

@@ -28,7 +28,7 @@ $role = $_SESSION['role'];
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <?php if ($role == "admin" || $role == "receptionist") { ?>
+                <?php if ($role == "admin" || $role =="receptionist" || $role == "hospital admin") { ?>
                     <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-person-check-fill"></i>
@@ -73,7 +73,7 @@ $role = $_SESSION['role'];
                     </li>
                 <?php } ?>
 
-                <?php if ($role == "admin" || $role == "financial manager") { ?>
+                <?php if ($role == "admin" || $role =="financial manager" || $role == "hospital admin") { ?>
                     <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-earmark-text-fill"></i>
