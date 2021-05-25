@@ -81,8 +81,8 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 </div>
 
                                                 <div class="modal fade text-left" id="inlineForm<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document" style="overflow: scroll;">
-                                                        <div class="modal-content">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                                        <div class="modal-content" style="overflow: scroll;">
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title" id="myModalLabel55">Role Update</h4>
                                                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
