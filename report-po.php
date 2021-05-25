@@ -10,7 +10,7 @@ use Dompdf\Dompdf;
 define('DOMPDF_ENABLE_PHP', true);
 ob_start();
 include_once 'po.php';
-$html = ob_get_clean();
+$html = ob_get_contents();
 //var_dump($html);
 ob_end_clean();
 
