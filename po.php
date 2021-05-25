@@ -2,8 +2,8 @@
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
 $hosp = $_SESSION['hospital'];
-//$current_date = $_GET['cur_date'];
-$current_date = $cur_date;
+$current_date = $_GET['cur_date'];
+//$current_date = $cur_date;
 //var_dump($current_date);
 $query = "SELECT a.order_id, a.appoint_id, a.start_appoint, a.hosp_name, b.firstname, b.lastname, c.package_name, c.package_price, DATE(FROM_UNIXTIME(a.start_appoint, '%Y-%m-%d')) AS c_date FROM appointwoo a LEFT JOIN orderwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON a.prod_id=c.package_id WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')='$current_date' AND a.hosp_name='$hosp' ";
 $result = mysqli_query($conn, $query);
