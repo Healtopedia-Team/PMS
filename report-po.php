@@ -17,7 +17,7 @@ define('DOMPDF_ENABLE_PHP', true);
   //ob_get_clean();
 
   //to put other html file
-  $html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
+  $html = file_get_contents('po.php?cur_date='.$cur_date);
   $dompdf->setBasePath(realpath('report-style.css'));
 
   $dompdf->loadHtml($html);
