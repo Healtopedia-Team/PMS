@@ -110,9 +110,7 @@ $result5 = mysqli_fetch_all($sql5, MYSQLI_ASSOC);
                                                     if ($row['cal_id'] == $row3['request_id']) {?>
                                                         <b>Name : </b><?php echo $row3['req_custname'];?><br>
                                                         <b>Package : </b><?php echo $row['cal_name'];?><br>
-                                                        <b>Time : </b><?php if(substr($row['cal_start'],11,16) > 10){
-                                                            echo "0".substr($row['cal_start'],11,16)-10;
-                                                        }
+                                                        <b>Time : </b><?php echo date('h:i A',$row['cal_start']);
                                                     }
                                                 }?>
                                             </div>
