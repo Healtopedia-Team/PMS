@@ -13,8 +13,12 @@ $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
 
 if (isset($_POST['updateprice'])) {
     $newprice = $_POST['newprice'];
+    $packageid = $_POST['packageid'];
 
-    $sql = "UPDATE packagewoo SET package_price = '$newprice' WHERE package_id = ''"
+    $sql = "UPDATE packagewoo SET package_price = '$newprice' WHERE package_id = '$packageid'";
+    if (mysqli_query($conn,$sql)) {
+        echo '<script>window.location.href = "package-list.php";</script>';
+    }
 }
 ?>
 <!DOCTYPE html>
