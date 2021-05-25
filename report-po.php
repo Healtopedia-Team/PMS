@@ -17,7 +17,7 @@ $dompdf = new Dompdf($options);
 ob_start();
 print ob_get_level();
 
-require('po.php');
+require 'po.php';
 $html = ob_get_contents();
 var_dump($html);
 ob_end_clean();
