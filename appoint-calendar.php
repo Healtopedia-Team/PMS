@@ -113,8 +113,7 @@ $result5 = mysqli_fetch_all($sql5, MYSQLI_ASSOC);
                                                         <b>Time : </b><?php if(substr($row['cal_start'],11,16) > 10){
                                                             echo substr($row['cal_start'],11,16)-10." PM";
                                                         }
-                                                    }
-                                                }?>
+                                                    }?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
