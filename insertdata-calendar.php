@@ -7,7 +7,7 @@ $result = mysqli_fetch_all($data, MYSQLI_ASSOC);
 $data2 = mysqli_query($conn, "SELECT * FROM requestappoint");
 $result2 = mysqli_fetch_all($data2, MYSQLI_ASSOC);
 
-foreach ($result as $row) {
+/*foreach ($result as $row) {
     $appointid = $row['appoint_id'];
     $hospname = $row['hosp_name'];
     $startapp = $row['start_appoint'];
@@ -23,14 +23,15 @@ foreach ($result as $row) {
             mysqli_query($conn, $sql);
         }
     }
-}
+}*/
 
 foreach ($result2 as $row2) {
     $reqid = $row2['request_id'];
     $packname = $row2['req_packname'];
     $appdate = $row2['req_appdate'];
     $status = $row2['req_status'];
-    if ($row2['req_apptime'] == "09:00AM") {
+
+    /*if ($row2['req_apptime'] == "09:00AM") {
         $start = date('H:i', strtotime('09:00:00'));
     }elseif ($row2['req_apptime'] == "10:00AM") {
         $start = date('H:i', strtotime('10:00:00'));
@@ -56,7 +57,7 @@ foreach ($result2 as $row2) {
         $start = date('H:i', strtotime('20:00:00'));
     }elseif ($row2['req_apptime'] == "09:00PM") {
         $start = date('H:i', strtotime('21:00:00'));
-    }
+    }*/
 
     $valid2 = mysqli_query($conn, "SELECT COUNT(*) as Total FROM calendar WHERE request_id = '$reqid'");
     $ans2 = mysqli_fetch_all($valid2, MYSQLI_ASSOC);
