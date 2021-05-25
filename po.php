@@ -32,6 +32,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   table {
     font-size: 10px;
+    margin-top: 0 !important;
   }
 
   .purchase-order>table {
