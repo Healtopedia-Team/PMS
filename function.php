@@ -291,10 +291,10 @@ function add_role($conn)
 }
 function delete_role($conn)
 {
-    $roleid = $_REQUEST['id'];
-    $sql = "DELETE roles FROM roles WHERE user_id=$roleid";
+    $roleid = $_REQUEST['role_id'];
+    $sql = "DELETE roles FROM roles WHERE role_id=$roleid";
 
-    if (mysqli_query($conn, $sql)) {
+    if (mysqli_multi_query($conn, $sql)) {
         header('location:users-role.php');
     }
 }
