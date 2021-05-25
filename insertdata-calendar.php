@@ -35,11 +35,11 @@ foreach ($result2 as $row2) {
     {
         $start = $appdate." ".date('H:i', strtotime('09:00:00'));
     }
-    /*elseif ($row2['req_apptime'] == "10:00AM")
+    elseif ($row2['req_apptime'] == "10:00AM")
     {
-        $start = date('H:i', strtotime('10:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('10:00:00'));
     }
-    elseif ($row2['req_apptime'] == "11:00AM")
+    /*elseif ($row2['req_apptime'] == "11:00AM")
     {
         $start = date('H:i', strtotime('11:00:00'));
     }
