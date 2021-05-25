@@ -91,8 +91,9 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                 <?php foreach ($result2 as $row2) {
                                                     if ($row['cal_id'] == $row2['cust_id']) {?>
                                                         <b>Name : </b><?php echo $row2['firstname'];?><br>
-                                                <?php } }?>
-                                                <b>Name : </b><?php echo $row['cal_id'];?><br>
+                                                <?php }else{ ?>
+                                                    <b>Name : </b><?php echo $row['cal_id'];?><br>
+                                                <?php }?>
                                                 <b>Package : </b><?php echo $row['cal_name'];?><br>
                                             </div>
                                             <div class="modal-footer">
