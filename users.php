@@ -194,6 +194,7 @@ $user = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                                         <option value="admin">Admin</option>
                                                         <option value="receptionist">Receptionist</option>
                                                         <option value="financial manager">Financial Manager</option>
+                                                        <option value="hospital admin">Hospital Admin</option>
                                                     </select>
                                                 </div>
                                                 <div id="text"></div>
