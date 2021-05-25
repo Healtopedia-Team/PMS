@@ -92,7 +92,7 @@ $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
                                                 <?php foreach ($result4 as $row4) { ?>
                                                     <b>Name : </b><?php echo $row4['cal_id'];?><br>
                                                     <b>Package : </b><?php echo $row4['cal_name'];?><br>
-                                                <?php } } ?>
+                                                <?php } ?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
