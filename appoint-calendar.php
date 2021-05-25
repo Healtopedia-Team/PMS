@@ -8,16 +8,9 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-$sql = mysqli_query($conn, "SELECT * FROM appointwoo");
-$result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+$date = date('Y-m-d',strtotime("-1 days"));
 
-$sql2 = mysqli_query($conn, "SELECT * FROM orderwoo");
-$result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
-
-$sql3 = mysqli_query($conn, "SELECT * FROM packagewoo");
-$result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
-
-$sql4 = mysqli_query($conn, "SELECT * FROM calendar");
+$sql4 = mysqli_query($conn, "SELECT * FROM calendar WHERE cal_start > '$date'");
 $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
