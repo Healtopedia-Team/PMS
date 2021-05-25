@@ -77,7 +77,7 @@ $role = $_SESSION['role'];
                     <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
                             <i class="bi bi-file-earmark-text-fill"></i>
-                            <span>Reports</span>
+                            <span>Finance</span>
                         </a>
                         <ul class="submenu <?php if ($your_variable == "po-list" || $your_variable == "financial-report-status") {
                                                 echo "active";
@@ -89,7 +89,7 @@ $role = $_SESSION['role'];
                                                         } else {
                                                             echo "noactive";
                                                         } ?>">
-                            <a href="po-list.php">Appointment Reports List</a>
+                            <a href="po-list.php">Purchase Order</a>
                     </li>
                     <li class="submenu-item  <?php if ($your_variable == "financial-report-status") {
                                                     echo "active";

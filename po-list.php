@@ -1,5 +1,5 @@
                 <?php
-                include 'appointment-list-header.php';
+                include 'finance-header.php';
 
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                 session_start();
