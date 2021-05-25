@@ -14,13 +14,14 @@ $options = new \Dompdf\Options();
 $options->setIsPhpEnabled(true);
 $dompdf = new Dompdf($options);
 //require_once 'https://pms.healtopedia.com/po.php?cur_date='. $cur_date ;
-//ob_start();
-//require('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
-//$html = ob_get_contents();
-//ob_get_clean();
+ob_start();
+require('po.php');
+$html = ob_get_contents();
+ob_get_clean();
+
 
 //to put other html file
-$html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
+//$html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
 $dompdf->setBasePath(realpath('report-style.css'));
 
 //$dompdf->load_html_file('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
