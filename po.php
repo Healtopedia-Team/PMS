@@ -145,8 +145,8 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
   </div>
   <div style="clear: both;"></div>
 
-  <div class="requisitioner" style="margin-top: 0.2in; margin-bottom: 0.2in;">
-    <table cellspacing="0" cellpadding="0" width="95%">
+  <div class="requisitioner" style="margin-top: 0.3in; margin-bottom: 0.2in;">
+    <table cellspacing="0" cellpadding="0" width="100%">
       <tr bgcolor="#3B4E87">
         <td height="15" align="center">
           <b>
@@ -184,7 +184,7 @@ $res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   </div>
 
-  <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
+  <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto; margin-top: 0">
     <tbody>
       <tr>
         <td height="24" align="center" valign="middle" bgcolor="#3B4E87" sdnum="1033;0;0.00%">
