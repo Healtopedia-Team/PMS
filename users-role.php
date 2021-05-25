@@ -81,7 +81,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                 </div>
 
                                                 <div class="modal fade text-left" id="inlineForm<?php echo $count; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document" style="overflow: scroll;">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title" id="myModalLabel55">Role Update</h4>
@@ -92,9 +92,9 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             <form action="function.php" method="POST">
                                                                 <input type="hidden" name="command" value="UPDATE_ROLE">
                                                                 <input type="hidden" name="id" value="<?php echo $rows['user_id']; ?>">
-                                                                <div class="modal-body" style="overflow: scroll;">
-                                                                    <div class="form-group">
-                                                                        <p>Role Name</p>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group card-header">
+                                                                        <h4 class="card-title">Role Name</h4>
                                                                         <input type="text" placeholder="Role Name" class="form-control" name="firstname" value="<?php echo $rows['role_name']; ?>">
                                                                     </div>
                                                                     <div class="card-header">
@@ -195,90 +195,90 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                                                     </div>
                                                                     <div class="card-header">
-                                                                            <h4 class="card-title">Management Settings</h4>
-                                                                            <label><strong>Manage</strong> Time</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-time" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-time" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>Manage</strong> Date</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-date" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-date" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>Manage</strong> User</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-user" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-user" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>Manage</strong> User Role</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-user-role" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-user-role" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>Manage</strong> Hospital</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-hospital" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="manage-hospital" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <br>
-                                                                            <h4 class="card-title">Finance Management</h4>
-                                                                            <label><strong>View/Download</strong> Financial Report</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="view-financial-report" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="view-financial-report" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
+                                                                        <h4 class="card-title">Management Settings</h4>
+                                                                        <label><strong>Manage</strong> Time</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-time" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-time" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>Manage</strong> Date</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-date" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-date" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>Manage</strong> User</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-user" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-user" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>Manage</strong> User Role</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-user-role" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-user-role" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>Manage</strong> Hospital</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-hospital" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="manage-hospital" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <br>
+                                                                        <h4 class="card-title">Finance Management</h4>
+                                                                        <label><strong>View/Download</strong> Financial Report</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="view-financial-report" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="view-financial-report" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
 
-                                                                            <br>
-                                                                            <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
+                                                                        <br>
+                                                                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
 
 
                                                                     </div>
