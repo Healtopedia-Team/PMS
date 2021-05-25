@@ -28,47 +28,69 @@ $role = $_SESSION['role'];
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item has-sub">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-person-check-fill"></i>
-                        <span>Request Appointment</span>
-                    </a>
-                    <ul class="submenu <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-addappoint" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved" || $your_variable == "manage-date" || $your_variable == "manage-time") {
-                                            echo "active";
-                                        } else {
-                                            echo "noactive";
-                                        } ?>">
-                        <li class="submenu-item <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="request-appointment-all.php">Request List</a>
-                        </li>
-                        <li class="submenu-item <?php if ($your_variable == "request-addappoint") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="request-addappoint.php">Add Request</a>
-                        </li>
-                        <li class="submenu-item <?php if ($your_variable == "manage-date") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="manage-date.php">Manage Date</a>
-                        </li>
-                        <li class="submenu-item <?php if ($your_variable == "manage-time") {
-                                                    echo "active";
-                                                } else {
-                                                    echo "noactive";
-                                                } ?>">
-                            <a href="manage-time.php">Manage Time</a>
-                        </li>
-                    </ul>
-                </li>
-                <?php if ($role == "admin" || $role == "receptionisit") {
+                <?php if ($role == "admin" || $role == "receptionist") { ?>
+                    <li class="sidebar-item has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person-check-fill"></i>
+                            <span>Request Appointment</span>
+                        </a>
+                        <ul class="submenu <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-addappoint" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved" || $your_variable == "manage-date" || $your_variable == "manage-time") {
+                                                echo "active";
+                                            } else {
+                                                echo "noactive";
+                                            } ?>">
+                            <li class="submenu-item <?php if ($your_variable == "request-appointment-all" || $your_variable == "request-appointment-pending" || $your_variable == "request-appointment-postponed" || $your_variable == "request-appointment-approved") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="request-appointment-all.php">Request List</a>
+                            </li>
+                            <li class="submenu-item <?php if ($your_variable == "request-addappoint") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="request-addappoint.php">Add Request</a>
+                            </li>
+                            <li class="submenu-item <?php if ($your_variable == "manage-date") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="manage-date.php">Manage Date</a>
+                            </li>
+                            <li class="submenu-item <?php if ($your_variable == "manage-time") {
+                                                        echo "active";
+                                                    } else {
+                                                        echo "noactive";
+                                                    } ?>">
+                                <a href="manage-time.php">Manage Time</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
+
+                <?php if ($role == "admin" || $role == "financial manager") { ?>
+                    <li class="sidebar-item has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i class="bi bi-person-check-fill"></i>
+                            <span>Reports</span>
+                        </a>
+                        <ul class="submenu">
+                            <li class="submenu-item">
+                                <a href="po-list.php">Appointment Reports List</a>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="financial-report-status.php">Financial Report</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                <?php } ?>
+
+
+                <?php if ($role == "admin" || $role == "receptionist") {
                 ?>
                     <li class="sidebar-item <?php if ($your_variable == "appointment-list-all" || $your_variable == "view-appointment") {
                                                 echo "active";
@@ -166,7 +188,7 @@ $role = $_SESSION['role'];
                         </ul>
 
                     </li><?php } ?>
-                    <li class="sidebar-item  ">
+                <li class="sidebar-item  ">
                     <a href="#" class='sidebar-link' data-bs-toggle="modal" data-bs-target="#logoutModal">
                         <i class="bi bi-box-arrow-up-right"></i>
                         <span>Logout</span>
