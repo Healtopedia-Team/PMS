@@ -10,8 +10,14 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 
 $date = date('Y-m-d',strtotime("-1 days"));
 
-$sql4 = mysqli_query($conn, "SELECT * FROM calendar WHERE cal_start > '$date'");
-$result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
+$sql = mysqli_query($conn, "SELECT * FROM calendar WHERE cal_start > '$date'");
+$result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
+
+$sql2 = mysqli_query($conn, "SELECT * FROM orderwoo");
+$result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
+
+$sql3 = mysqli_query($conn, "SELECT * FROM requestappoint");
+$result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,19 +77,23 @@ $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
                                 <div class="card-body">
                                     <div id="calendar"></div>
                                 </div>
-                                <?php foreach ($result4 as $row4) { ?>
-                                <div class="modal fade" id="detailinfo<?php echo $row4['cal_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <?php foreach ($result as $row) { ?>
+                                <div class="modal fade" id="detailinfo<?php echo $row['cal_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="detailinfo"><?php echo $row['hosp_name'];?></h5>
+                                                <h5 class="modal-title" id="detailinfo">Event Details</h5>
                                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                     <i data-feather="x"></i>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <b>Name : </b><?php echo $row4['cal_id'];?><br>
-                                                <b>Package : </b><?php echo $row4['cal_name'];?><br>
+                                                <?php foreach ($result2 as $row2) {
+                                                    if ($row['cal_id'] == $row2['cust_id']) {?>
+                                                        <b>Name : </b><?php echo $row2['firstname'];?><br>
+                                                <?php } }?>
+                                                <b>Name : </b><?php echo $row['cal_id'];?><br>
+                                                <b>Package : </b><?php echo $row['cal_name'];?><br>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
