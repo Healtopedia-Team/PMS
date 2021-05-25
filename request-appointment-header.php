@@ -67,9 +67,6 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-approved") {echo "active"; }else{echo"noactive";}?>" onclick="requestapproved()">Approved</button>
                                 <button type="button" class="btn btn-outline-primary <?php if ($your_variable=="request-appointment-postponed") {echo "active"; }else{echo"noactive";}?>" onclick="requestpostponed()">Postponed</button>
                             </div>
-                            <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;z-index: 597;" onclick="addappoint()">
-                                Add Request
-                            </button>
                             <script>
                                 function requestall(){
                                      window.location.href="https://pms.healtopedia.com/request-appointment-all.php";
