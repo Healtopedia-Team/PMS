@@ -78,10 +78,18 @@ $role = $_SESSION['role'];
                             <span>Reports</span>
                         </a>
                         <ul class="submenu">
-                            <li class="submenu-item">
+                            <li class="submenu-item  <?php if ($your_variable == "po-list") {
+                                                            echo "active";
+                                                        } else {
+                                                            echo "noactive";
+                                                        } ?>">
                                 <a href="po-list.php">Appointment Reports List</a>
                             </li>
-                            <li class="submenu-item">
+                            <li class="submenu-item  <?php if ($your_variable == "financial-report-status") {
+                                                            echo "active";
+                                                        } else {
+                                                            echo "noactive";
+                                                        } ?>">
                                 <a href="financial-report-status.php">Financial Report</a>
                             </li>
 
