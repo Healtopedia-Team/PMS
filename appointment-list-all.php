@@ -2,7 +2,14 @@
                 include 'appointment-list-header.php';
 
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $result = mysqli_query($conn, "SELECT firstname, lastname, order_id, cust_id, status, SUBSTRING(order_date,1,10) AS order_date FROM orderwoo ORDER BY order_id DESC");
+                session_start();
+                $hosp = $_SESSION['hospital'];
+                $query = "SELECT a.firstname, a.lastname, a.order_id, a.cust_id, a.status, SUBSTRING(a.order_date,1,10) 
+                            AS order_date FROM orderwoo a LEFT JOIN appointwoo b 
+                            ON a.order_id=b.order_id 
+                            WHERE b.hosp_name='$hosp'
+                            ORDER BY a.order_id DESC";
+                $result = mysqli_query($conn, $query);
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 ?>
 
