@@ -33,6 +33,9 @@ switch ($theCommand) {
     case "ADD_ROLE":
         add_role($conn);
         break;
+    case "DELETE_ROLE":
+        delete_role($conn);
+        break;
     default:
         echo "System Error!";
 }
@@ -281,5 +284,37 @@ function add_role($conn)
     $sql = "INSERT INTO roles SET role_name='$displayname',hospital='$hospital',app_view='$app_view',app_calendar='$app_calendar',app_approve='$app_approve',req_view='$req_view',req_add='$req_add',man_date='$man_date',man_time='$man_time',man_user='$man_user',man_role='$man_role',req_reject='$req_reject',req_postpone='$req_postpone',man_hospital='$man_hospital',finance_report='$finance_report'";
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
+    }
+}
+function delete_role($conn)
+{
+
+    $roleid = $_REQUEST['id'];
+    $sql = "DELETE roles FROM roles WHERE user_id=$roleid";
+
+    if (mysqli_multi_query($conn, $sql)) {
+        header('location:users-role.php');
+    }
+}
+function update_role($conn)
+{
+
+    $displayname = $_POST['rolename'];
+    $app_view = $_POST['view-appointment-list'];
+    $app_calendar = $_POST['view-appointment-calendar'];
+    $app_approve = $_POST['approve-appointment-attendance'];
+    $req_view = $_POST['view-appointment-request'];
+    $req_add = $_POST['add-appointment-request'];
+    $req_postpone = $_POST['postpone-appointment-request'];
+    $req_reject = $_POST['reject-appointment-request'];
+    $man_time = $_POST['manage-time'];
+    $man_date = $_POST['manage-date'];
+    $man_user = $_POST['manage-user'];
+    $man_role = $_POST['manage-user-role'];
+    $man_hospital = $_POST['manage-hospital'];
+    $finance_report = $_POST['view-financial-report'];
+    $sql = "UPDATE roles SET role_name='$displayname',app_view='$app_view',app_calendar='$app_calendar',app_approve='$app_approve',req_view='$req_view',req_add='$req_add',man_date='$man_date',man_time='$man_time',man_user='$man_user',man_role='$man_role',req_reject='$req_reject',req_postpone='$req_postpone',man_hospital='$man_hospital',finance_report='$finance_report'";
+    if (mysqli_query($conn, $sql)) {
+        header('location:users-role.php');
     }
 }

@@ -76,7 +76,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td>
                                                 <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
                                                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm<?php echo $count; ?>"><i class=" bi bi-pencil-square"></i></button>
-                                                    <a href="function.php?id=<?php echo $rows['user_id']; ?>&command=DELETE_USER" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this user?')"><i class="bi bi-x-octagon"></i></a>
+                                                    <a href="function.php?id=<?php echo $rows['role_id']; ?>&command=DELETE_ROLE" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this role?')"><i class="bi bi-x-octagon"></i></a>
 
                                                 </div>
 
@@ -91,11 +91,11 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                             </div>
                                                             <form action="function.php" method="POST">
                                                                 <input type="hidden" name="command" value="UPDATE_ROLE">
-                                                                <input type="hidden" name="id" value="<?php echo $rows['user_id']; ?>">
+                                                                <input type="hidden" name="id" value="<?php echo $rows['role_id']; ?>">
                                                                 <div class="modal-body">
                                                                     <div class="form-group card-header">
                                                                         <h4 class="card-title">Role Name</h4>
-                                                                        <input type="text" placeholder="Role Name" class="form-control" name="firstname" value="<?php echo $rows['role_name']; ?>">
+                                                                        <input type="text" placeholder="Role Name" class="form-control" name="rolename" value="<?php echo $rows['role_name']; ?>">
                                                                     </div>
                                                                     <div class="card-header">
                                                                         <h4 class="card-title">Appointment</h4>
@@ -307,72 +307,6 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                 Add Role
                             </button>
                             </a>
-
-                            <!-- THIS IS FOR ADD USER! -->
-                            <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel33">Hospital Form </h4>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <form action="function.php" method="POST">
-                                            <input type="hidden" name="command" value="ADD_USER">
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <input type="text" placeholder="First Name" class="form-control" name="firstname">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" placeholder="Last Name" class="form-control" name="lastname">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" placeholder="Username" class="form-control" name="username">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="text" placeholder="Email" class="form-control" name="email">
-                                                </div>
-                                                <div class="form-group">
-                                                    <select class="choices form-select" name="role" required>
-                                                        <option value="">Role</option>
-                                                        <option value="admin">Admin</option>
-                                                        <option value="receptionist">Receptionist</option>
-                                                        <option value="financial manager">Financial Manager</option>
-                                                    </select>
-                                                </div>
-                                                <div id="text"></div>
-                                                <div class="form-group" id="hospital">
-                                                    <select class="choices form-select" name="hospital" required>
-                                                        <option value="">Select Hospital</option>
-                                                        <?php foreach ($hospital as $rows) : ?>
-                                                            <option value="<?php echo $rows["hosp_name"]; ?>"><?php echo $rows["hosp_name"]; ?></option>
-
-
-                                                        <?php endforeach; ?>
-                                                    </select>
-
-                                                </div>
-                                                <p data-bs-toggle="modal" data-bs-target="#inlineForm" class="font-bold">Hospital Not Listed? Please Register the hospital first</p>
-                                                <div class="form-group">
-                                                    <input type="password" placeholder="Password" class="form-control" name="password">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Close</span>
-                                                </button>
-                                                <button type="submit" class="btn btn-primary ml-1">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Submit</span>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- THIS IS FOR UPDATE USER -->
                         </div>
                     </div>
 
