@@ -92,7 +92,7 @@ foreach ($result2 as $row2) {
 
     foreach ($ans2 as $key2) {
         if ($key2['Total'] < 1) {
-            $sql2 = "INSERT INTO calendar SET cal_id = '$reqid', cal_name = '$packname', cal_start = 'start', cal_status = '$status'";
+            $sql2 = "INSERT INTO calendar SET cal_id = '$reqid', cal_name = '$packname', cal_start = '$start', cal_status = '$status'";
             mysqli_query($conn, $sql2);
         }
     }
