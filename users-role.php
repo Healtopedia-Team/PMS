@@ -9,7 +9,7 @@ session_start();
 $hosp = $_SESSION['hospital'];
 $query = "SELECT * FROM roles WHERE hospital='$hosp'";
 $result = mysqli_query($conn, $query);
-$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$roles = mysqli_fetch_all($result, MYSQLI_ASSOC);
 //var_dump($user);
 
 ?>
@@ -67,7 +67,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                     <?php
                                     $count = 0;
-                                    foreach ($user as $rows) :
+                                    foreach ($roles as $rows) :
 
                                     ?>
                                         <tr>
@@ -76,7 +76,10 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td>
                                                 <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
                                                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm<?php echo $count; ?>"><i class=" bi bi-pencil-square"></i></button>
-                                                    <a href="function.php?id=<?php echo $rows['role_id']; ?>&command=DELETE_ROLE" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this role?')"><i class="bi bi-x-octagon"></i></a>
+                                                    <a href="function.php?id=<?php echo $rows['role_id']; ?>
+                                                    &command=DELETE_ROLE" class="btn btn-danger" 
+                                                    onclick="return confirm('Are you sure you want to delete this role?')">
+                                                    <i class="bi bi-x-octagon"></i></a>
 
                                                 </div>
 
