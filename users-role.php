@@ -13,6 +13,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 //var_dump($user);
 
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,49 +84,208 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title" id="myModalLabel33">User Update</h4>
+                                                                <h4 class="modal-title" id="myModalLabel55">Role Update</h4>
                                                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                                     <i data-feather="x"></i>
                                                                 </button>
                                                             </div>
                                                             <form action="function.php" method="POST">
-                                                                <input type="hidden" name="command" value="UPDATE_USER">
+                                                                <input type="hidden" name="command" value="UPDATE_ROLE">
                                                                 <input type="hidden" name="id" value="<?php echo $rows['user_id']; ?>">
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
-                                                                        <input type="text" placeholder="First Name" class="form-control" name="firstname" value="<?php echo $rows['first_name']; ?>">
+                                                                        <input type="text" placeholder="Role Name" class="form-control" name="firstname" value="<?php echo $rows['role_name']; ?>">
                                                                     </div>
-                                                                    <div class="form-group">
-                                                                        <input type="text" placeholder="Last Name" class="form-control" name="lastname" value="<?php echo $rows['last_name']; ?>">
+                                                                    <div class="card">
+                                                                        <div class="card-header">
+                                                                            <h4 class="card-title">Appointment</h4>
+                                                                            <label><strong>View</strong> Appointment List</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="view-appointment-list" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="view-appointment-list" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>View</strong> Appointment Calendar</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="view-appointment-calendar" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="view-appointment-calendar" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>Approve</strong> Appointment Attendance</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="approve-appointment-attendance" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="approve-appointment-attendance" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <br>
+                                                                            <h4 class="card-title">Appointment Request</h4>
+                                                                            <label><strong>View</strong> Appointment Request</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="view-appointment-request" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="view-appointment-request" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>Add</strong> Appointment Request</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="add-appointment-request" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="add-appointment-request" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>Postpone</strong> Appointment Request</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="postpone-appointment-request" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="postpone-appointment-request" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>Reject</strong> Appointment Request</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="reject-appointment-request" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="reject-appointment-request" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="form-group">
-                                                                        <input type="text" placeholder="Username" class="form-control" name="username" value="<?php echo $rows['username']; ?>">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <input type="text" placeholder="Email" class="form-control" name="email" value="<?php echo $rows['email']; ?>">
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <select class="choices form-select" name="role" disabled="disabled">
-                                                                            <option value="<?php echo $rows['role']; ?>"><?php echo $rows['role']; ?></option>
-                                                                            <option value="admin">Admin</option>
-                                                                            <option value="receptionist">Receptionist</option>
-                                                                            <option value="financial manager">Financial Manager</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <select class="choices form-select" name="hospital" required>
-                                                                            <option value="<?php echo $rows['hospital']; ?>"><?php echo $rows['hospital']; ?></option>
-                                                                            <?php foreach ($hospital as $rows) : ?>
-                                                                                <option value="<?php echo $rows["hosp_name"]; ?>"><?php echo $rows["hosp_name"]; ?></option>
+                                                                    <div class="card">
+                                                                        <div class="card-header">
+                                                                            <h4 class="card-title">Management Settings</h4>
+                                                                            <label><strong>Manage</strong> Time</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-time" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-time" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>Manage</strong> Date</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-date" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-date" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>Manage</strong> User</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-user" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-user" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>Manage</strong> User Role</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-user-role" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-user-role" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <label><strong>Manage</strong> Hospital</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-hospital" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="manage-hospital" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+                                                                            <br>
+                                                                            <h4 class="card-title">Finance Management</h4>
+                                                                            <label><strong>View/Download</strong> Financial Report</label>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="view-financial-report" id="flexRadioDefault1" value="1">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    Yes
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-check">
+                                                                                <input class="form-check-input" type="radio" name="view-financial-report" id="flexRadioDefault2" checked value="0">
+                                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                                    No
+                                                                                </label>
+                                                                            </div>
+
+                                                                            <br>
+                                                                            <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
 
 
-                                                                            <?php endforeach; ?>
-                                                                        </select>
+                                                                        </div>
+                                                                    </div>
 
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <input type="password" placeholder="Password" class="form-control" name="password">
-                                                                    </div>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
@@ -144,10 +304,10 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                                             </td>
                                         </tr>
-                                        
-                                    <?php 
-                                $count++;
-                                endforeach; ?>
+
+                                    <?php
+                                        $count++;
+                                    endforeach; ?>
                                 </tbody>
                             </table>
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;margin-top: 8px;" data-bs-toggle="modal" data-bs-target="#inlineForm">
@@ -180,7 +340,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                     <input type="text" placeholder="Email" class="form-control" name="email">
                                                 </div>
                                                 <div class="form-group">
-                                                    <select class="choices form-select" name="role" required >
+                                                    <select class="choices form-select" name="role" required>
                                                         <option value="">Role</option>
                                                         <option value="admin">Admin</option>
                                                         <option value="receptionist">Receptionist</option>
@@ -245,10 +405,9 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
         // Simple Datatable
         let table1 = document.querySelector('#table1');
         let dataTable = new simpleDatatables.DataTable(table1);
-        
-
     </script>
 
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
