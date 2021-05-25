@@ -20,7 +20,7 @@ $dompdf = new Dompdf($options);
 ob_start();
 include_once 'po.php';
 $html = ob_get_clean();
-var_dump($html);
+//var_dump($html);
 ob_end_clean();
 
 
