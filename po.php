@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
 $hosp = $_SESSION['hospital'];
