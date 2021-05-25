@@ -276,12 +276,7 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                                 No
                                                                             </label>
                                                                         </div>
-
-                                                                        <br>
-                                                                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-
-
-                                                                    </div>
+                                                                </div>
 
                                                                 </div>
                                                                 <div class="modal-footer">
