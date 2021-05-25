@@ -107,15 +107,13 @@ if (isset($_POST['updateprice'])) {
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="myModalLabel1">Edit Package</h5>
+                            <h5 class="modal-title" id="myModalLabel1"><?php echo $row['package_name'];?></h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <i data-feather="x"></i>
                             </button>
                         </div>
                         <form method="POST">
                             <div class="modal-body">
-                                <label>Package :</label>
-                                <?php echo $row['package_name'];?><br>
                                 <label>Price :</label>
                                 <input type="text" name="newprice" class="form-control" value="<?php echo $row['package_price']; ?>">
                                 <input type="text" name="packageid" class="form-control" value="<?php echo $row['package_id']; ?>" style="display: none;">
