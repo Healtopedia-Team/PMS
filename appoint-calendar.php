@@ -92,13 +92,13 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
                                                     if ($row['cal_id'] == $row2['cust_id']) {?>
                                                         <b>Name : </b><?php echo $row2['firstname']." ".$row2['lastname'];?><br>
                                                         <b>Package : </b><?php echo $row['cal_name'];?><br>
-                                                        <b>Time : </b><?php echo substr($row['cal_start'],12,16);?><br>
+                                                        <b>Time : </b><?php echo substr($row['cal_start'],11,16);?><br>
                                                 <?php } }?>
                                                 <?php foreach ($result3 as $row3) {
                                                     if ($row['cal_id'] == $row3['request_id']) {?>
                                                         <b>Name : </b><?php echo $row3['req_custname'];?><br>
                                                         <b>Package : </b><?php echo $row['cal_name'];?><br>
-                                                        <b>Time : </b><?php echo $row['cal_name'];?><br>
+                                                        <b>Time : </b><?php echo substr($row['cal_start'],11,16);?><br>
                                                 <?php } }?>
 
                                                 <b>Package : </b><?php echo $row['cal_name'];?><br>
