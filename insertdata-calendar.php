@@ -35,27 +35,27 @@ foreach ($result2 as $row2) {
     {
         $start = $appdate." ".date('H:i', strtotime('09:00:00'));
     }
-    /*elseif ($row2['req_apptime'] == "10:00AM")
+    elseif ($row2['req_apptime'] == "10:00AM")
     {
-        $start = date('H:i', strtotime('10:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('10:00:00'));
     }
     elseif ($row2['req_apptime'] == "11:00AM")
     {
-        $start = date('H:i', strtotime('11:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('11:00:00'));
     }
     elseif ($row2['req_apptime'] == "12:00PM")
     {
-        $start = date('H:i', strtotime('12:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('12:00:00'));
     }
     elseif ($row2['req_apptime'] == "01:00PM")
     {
-        $start = date('H:i', strtotime('13:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('13:00:00'));
     }
     elseif ($row2['req_apptime'] == "02:00PM")
     {
-        $start = date('H:i', strtotime('14:00:00'));
+        $start = $appdate." ".date('H:i', strtotime('14:00:00'));
     }
-    elseif ($row25'req_apptime'] == "03:00PM")
+    /*elseif ($row25'req_apptime'] == "03:00PM")
     {
         $start = date('H:i', strtotime('15:00:00'));
     }
