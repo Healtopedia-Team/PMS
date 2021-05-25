@@ -104,7 +104,7 @@ $result5 = mysqli_fetch_all($sql5, MYSQLI_ASSOC);
                                                                         <b>Package : </b><?php echo $row5['package_name'];?><br>
                                                                     
                                                         <?php } }?>
-                                                        <b>Time : </b><?php echo date('H:i',$row4['start_appoint']);?>
+                                                        <b>Time : </b><?php echo date('h:i A',$row4['start_appoint']);?>
                                                 <?php } } } }?>
                                                 <?php foreach ($result3 as $row3) {
                                                     if ($row['cal_id'] == $row3['request_id']) {?>
