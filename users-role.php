@@ -76,8 +76,8 @@ $roles = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                             <td>
                                                 <div class="btn-group mb-3 btn-group-sm" role="group" aria-label="Basic example">
                                                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm<?php echo $count; ?>"><i class=" bi bi-pencil-square"></i></button>
-                                                    <a href="function.php?id=<?php echo $rows['role_id']; ?>
-                                                    &command=DELETE_ROLE" class="btn btn-danger" 
+                                                    <a href="function.php?id=<?php echo $rows['role_id']; ?>&command=DELETE_ROLE" 
+                                                    class="btn btn-danger" 
                                                     onclick="return confirm('Are you sure you want to delete this role?')">
                                                     <i class="bi bi-x-octagon"></i></a>
 
