@@ -6,6 +6,10 @@ include 'dbconnect.php';
 $result = mysqli_query($conn, "SELECT * FROM hospital");
 $hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+$hosp = $_SESSION['hospital'];
+$query = "SELECT * FROM role WHERE hospital='$hosp'";
+$result = mysqli_query($conn, $query);
+$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
 <head>
