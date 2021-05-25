@@ -207,7 +207,7 @@ $role = $_SESSION['role'];
                                         echo "noactive";
                                     } ?>">
                 <a href="package-list.php" class='sidebar-link'>
-                    <i class="bi bi-list-ul"></i>
+                    <i class="bi bi-journal-text"></i>
                     <span>Package List</span>
                 </a>
             </li>
