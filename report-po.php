@@ -2,6 +2,7 @@
 require_once 'dompdf/autoload.inc.php';
 $cur_date = $_GET['cur_date'];
 error_reporting(E_ALL);
+header("X-Accel-Buffering: no");
 
 // reference the Dompdf namespace
 use Dompdf\Dompdf;
