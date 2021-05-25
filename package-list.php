@@ -103,7 +103,7 @@ if (isset($_POST['updateprice'])) {
                 </section>
             </div>
             <?php foreach ($data as $row) {?>
-            <div class="modal fade text-left" id="package<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
+            <div class="modal fade text-left" id="package<?php echo $row['package_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
