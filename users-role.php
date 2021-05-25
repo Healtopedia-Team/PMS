@@ -97,107 +97,104 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                         <p>Role Name</p>
                                                                         <input type="text" placeholder="Role Name" class="form-control" name="firstname" value="<?php echo $rows['role_name']; ?>">
                                                                     </div>
-                                                                    <div class="card">
-                                                                        <div class="card-header">
-                                                                            <h4 class="card-title">Appointment</h4>
-                                                                            <label><strong>View</strong> Appointment List</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="view-appointment-list" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="view-appointment-list" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>View</strong> Appointment Calendar</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="view-appointment-calendar" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="view-appointment-calendar" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>Approve</strong> Appointment Attendance</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="approve-appointment-attendance" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="approve-appointment-attendance" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <br>
-                                                                            <h4 class="card-title">Appointment Request</h4>
-                                                                            <label><strong>View</strong> Appointment Request</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="view-appointment-request" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="view-appointment-request" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>Add</strong> Appointment Request</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="add-appointment-request" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="add-appointment-request" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>Postpone</strong> Appointment Request</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="postpone-appointment-request" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="postpone-appointment-request" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-                                                                            <label><strong>Reject</strong> Appointment Request</label>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="reject-appointment-request" id="flexRadioDefault1" value="1">
-                                                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    Yes
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input" type="radio" name="reject-appointment-request" id="flexRadioDefault2" checked value="0">
-                                                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                                                    No
-                                                                                </label>
-                                                                            </div>
-
+                                                                    <div class="card-header">
+                                                                        <h4 class="card-title">Appointment</h4>
+                                                                        <label><strong>View</strong> Appointment List</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="view-appointment-list" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
                                                                         </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="view-appointment-list" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>View</strong> Appointment Calendar</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="view-appointment-calendar" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="view-appointment-calendar" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>Approve</strong> Appointment Attendance</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="approve-appointment-attendance" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="approve-appointment-attendance" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <br>
+                                                                        <h4 class="card-title">Appointment Request</h4>
+                                                                        <label><strong>View</strong> Appointment Request</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="view-appointment-request" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="view-appointment-request" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>Add</strong> Appointment Request</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="add-appointment-request" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="add-appointment-request" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>Postpone</strong> Appointment Request</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="postpone-appointment-request" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="postpone-appointment-request" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+                                                                        <label><strong>Reject</strong> Appointment Request</label>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="reject-appointment-request" id="flexRadioDefault1" value="1">
+                                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                                Yes
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input" type="radio" name="reject-appointment-request" id="flexRadioDefault2" checked value="0">
+                                                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                                                No
+                                                                            </label>
+                                                                        </div>
+
                                                                     </div>
-                                                                    <div class="card">
-                                                                        <div class="card-header">
+                                                                    <div class="card-header">
                                                                             <h4 class="card-title">Management Settings</h4>
                                                                             <label><strong>Manage</strong> Time</label>
                                                                             <div class="form-check">
@@ -284,7 +281,6 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                                                             <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
 
 
-                                                                        </div>
                                                                     </div>
 
                                                                 </div>
