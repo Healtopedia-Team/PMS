@@ -302,9 +302,11 @@ $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     endforeach; ?>
                                 </tbody>
                             </table>
+                            <a href="add-users-role.php">
                             <button type="button" class="btn btn-primary mb-3" style="position: relative;float: right;margin-top: 8px;" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                Add User
+                                Add Role
                             </button>
+                            </a>
 
                             <!-- THIS IS FOR ADD USER! -->
                             <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
