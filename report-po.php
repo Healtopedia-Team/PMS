@@ -10,7 +10,7 @@ define('DOMPDF_ENABLE_PHP', true);
   // instantiate and use the dompdf class
   $dompdf = new Dompdf();
   ob_start();
-  include 'https://pms.healtopedia.com/po.php?cur_date=' . $cur_date;
+  require_once 'https://pms.healtopedia.com/po.php?cur_date=' . $cur_date;
   $contents = ob_get_clean();
 
 
