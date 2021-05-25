@@ -8,23 +8,26 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <div class="card-body">
                             <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
-                            <button type="button" class="btn btn-outline-primary active" onclick="listupcoming()">Upcoming</button>
-                            <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
-                        </div>
-                        <script>
-                            function listall(){
-                                window.location.href="https://pms.healtopedia.com/appointment-list-all.php";
-                            }
-                            function listupcoming(){
-                                window.location.href="https://pms.healtopedia.com/appointment-list-upcoming.php";
-                            }
-                            function listpending(){
-                                window.location.href="https://pms.healtopedia.com/appointment-list-processing.php";
-                            }
-                        </script>
+                                <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="listtoday()">Today</button>
+                                <button type="button" class="btn btn-outline-primary active" onclick="listupcoming()">Upcoming</button>
+                                <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
+                            </div>
+                            <script>
+                                function listall(){
+                                    window.location.href="https://pms.healtopedia.com/appointment-list-all.php";
+                                }
+                                function listtoday(){
+                                    window.location.href="https://pms.healtopedia.com/appointment-list-today.php";
+                                }
+                                function listupcoming(){
+                                    window.location.href="https://pms.healtopedia.com/appointment-list-upcoming.php";
+                                }
+                                function listpending(){
+                                    window.location.href="https://pms.healtopedia.com/appointment-list-processing.php";
+                                }
+                            </script>
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
