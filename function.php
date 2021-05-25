@@ -298,7 +298,7 @@ function delete_role($conn)
 }
 function update_role($conn)
 {
-
+    $roleid = $_POST['id'];
     $displayname = $_POST['rolename'];
     $app_view = $_POST['view-appointment-list'];
     $app_calendar = $_POST['view-appointment-calendar'];
@@ -313,7 +313,11 @@ function update_role($conn)
     $man_role = $_POST['manage-user-role'];
     $man_hospital = $_POST['manage-hospital'];
     $finance_report = $_POST['view-financial-report'];
-    $sql = "UPDATE roles SET role_name='$displayname',app_view='$app_view',app_calendar='$app_calendar',app_approve='$app_approve',req_view='$req_view',req_add='$req_add',man_date='$man_date',man_time='$man_time',man_user='$man_user',man_role='$man_role',req_reject='$req_reject',req_postpone='$req_postpone',man_hospital='$man_hospital',finance_report='$finance_report'";
+    $sql = "UPDATE roles SET role_name='$displayname',app_view='$app_view',app_calendar='$app_calendar',
+        app_approve='$app_approve',req_view='$req_view',req_add='$req_add',man_date='$man_date',man_time='$man_time',
+        man_user='$man_user',man_role='$man_role',req_reject='$req_reject',req_postpone='$req_postpone',
+        man_hospital='$man_hospital',finance_report='$finance_report' 
+        WHERE role_id='$roleid'";
     if (mysqli_query($conn, $sql)) {
         header('location:users-role.php');
     }
