@@ -15,7 +15,11 @@
             if ($row['id'] == $row2['product_id']){
                 $orderid = $row2['order_id'];
                 $appointid = $row2['id'];
-                $statusapp = $row2['status'];
+
+                if ($row2['status'] == "paid" || $row2['status'] == "complete" || $row2['status'] == "confirmed") {
+                    $statusapp = $row2['status'];
+                }
+                
                 $prodid = $row['id'];
 
                 if (strpos("'".$row['categories'][5]['name']."'",'KPJ') != false || 
@@ -172,7 +176,7 @@
 
                 foreach ($user as $key) {
                 if ($key['Total'] < 1) {
-                    $sql = " INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', statusapp = '$statusapp', start_appoint = '$startappoint', end_appoint = '$endappoint', prod_id = '$prodid', hosp_name = '$hospname'";
+                    $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', statusapp = '$statusapp', start_appoint = '$startappoint', end_appoint = '$endappoint', prod_id = '$prodid', hosp_name = '$hospname'";
                     mysqli_query($conn, $sql);
                 }
             }
