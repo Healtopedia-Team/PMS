@@ -1,288 +1,210 @@
-<?php
-include 'request-appointment-header.php';
-$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-$result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status != 'completed' AND req_status != 'rejected' ORDER BY request_id");
-$data=mysqli_fetch_all($result, MYSQLI_ASSOC);
+<?php include 'dbconnect.php';
 
-if (isset($_POST['reqaccept'])) {
-    $confirmid = $_POST['confirmid'];
-    $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$confirmid'";
-    if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-all.php";</script>';
-    }
+session_start();
+
+// Check if the user is logged in, if not then redirect him to login page
+if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
+    header("location: auth-login.php");
+    exit;
 }
 
-if (isset($_POST['reqreject'])) {
-    $confirmid = $_POST['confirmid'];
-    $sql = "DELETE FROM requestappoint WHERE request_id = '$confirmid'";
-    if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-all.php";</script>';
-    }
-}
+$date = date('Y-m-d',strtotime("-1 days"));
+/*
+$sql = mysqli_query($conn, "SELECT * FROM calendar WHERE cal_start > '$date'");
+$result = mysqli_fetch_all($sql, MYSQLI_ASSOC);
 
-if (isset($_POST['updatedate'])) {
-    $postponedate = $_POST['postponedate'];
-    $postponeid = $_POST['postponeid'];
-    $sql = "UPDATE requestappoint SET req_appdate = '$postponedate', req_status = 'postponed' WHERE request_id = '$postponeid'";
-    if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-all.php";</script>';
-    }
-}
+$sql2 = mysqli_query($conn, "SELECT * FROM orderwoo");
+$result2 = mysqli_fetch_all($sql2, MYSQLI_ASSOC);
 
-if (isset($_POST['reqcomplete'])) {
-    $confirmid = $_POST['confirmid'];
-    $sql = "UPDATE requestappoint SET req_status = 'completed' WHERE request_id = '$confirmid'";
-    if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-all.php";</script>';
-    }
+$sql3 = mysqli_query($conn, "SELECT * FROM requestappoint");
+$result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
+
+$sql4 = mysqli_query($conn, "SELECT * FROM appointwoo");
+$result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
+
+$sql5 = mysqli_query($conn, "SELECT * FROM packagewoo");
+$result5 = mysqli_fetch_all($sql5, MYSQLI_ASSOC);
+*/
+$sql1 = $conn->prepare("SELECT * FROM calendar WHERE cal_start > ?");
+$sql1->bind_param("s", $date);
+$sql1->execute();
+$result1 = $sql1->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql2 = $conn->prepare("SELECT * FROM orderwoo");
+$sql2->execute();
+$result2 = $sql2->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql3 = $conn->prepare("SELECT * FROM requestappoint");
+$sql3->execute();
+$result3 = $sql3->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql4 = $conn->prepare("SELECT * FROM appointwoo");
+$sql4->execute();
+$result4 = $sql4->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql5 = $conn->prepare("SELECT * FROM packagewoo");
+$sql5->execute();
+$result5 = $sql5->get_result()->fetch_all(MYSQLI_ASSOC);
+/*
+
+$sql2 = $conn->prepare("SELECT * FROM orderwoo");
+$sql2->execute();
+$result2 = $sql2->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql3 = $conn->prepare("SELECT * FROM requestappoint");
+$sql3->execute();
+$result3 = $sql3->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql4 = $conn->prepare("SELECT * FROM appointwoo");
+$sql4->execute();
+$result4 = $sql4->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql5 = $conn->prepare("SELECT * FROM packagewoo");
+$sql5->execute();
+$result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+*/
+
+if (isset($_POST['updatepms'])) {
+    $name = $_POST['calcustomer'];
+    $package = $_POST['calname'];
+    $time = $_POST['calstart'];
+    $pmsid = $_POST['pmsid'];
+
+    $query = "UPDATE requestappoint SET req_custname = '$name' WHERE request_id = '$pmsid'";
+    if (mysqli_query($conn, $query)) {
+        echo '<script>>window.location.href = "appoint-calendar.php;"</script>';
+     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
-                            <table class="table table-striped" id="table1">
-                                <colgroup>
-                                    <col span="1" style="width: 15%;">
-                                    <col span="1" style="width: 45%;">
-                                    <col span="1" style="width: 10%;">
-                                    <col span="1" style="width: 10%;">
-                                    <col span="1" style="width: 10%;">
-                                    <col span="1" style="width: 10%;">
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Package</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($data as $row) { ?>
-                                        <tr>
-                                            <td><?php echo $row['req_custname']; ?></td>
-                                            <td><?php echo $row['req_packname']; ?></td>
-                                            <td><?php echo $row['req_appdate']; ?></td>
-                                            <td><?php echo $row['req_apptime']; ?></td>
-                                            <td><?php echo $row['req_status']; ?></td>
-                                            <td>
-                                                <form method="POST">
-                                                    <div class="btn-group mb-3" role="group" aria-label="Basic example">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - Patient Management System</title>
 
-                                                        <?php if ($row['req_status'] == "pending") {?>
-                                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accept<?php echo $row['request_id']; ?>"><i class="bi bi-plus-circle"></i></button>
-                                                        <?php } ?>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
 
-                                                        <?php if ($row['req_status'] == "pending") {?>
-                                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reject<?php echo $row['request_id']; ?>"><i class="bi bi-x-circle"></i></button>
-                                                        <?php } ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Added for the notification system use-->
 
-                                                        <?php if ($row['req_status'] == "approved" || $row['req_status'] == "postponed") {?>
-                                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#complete<?php echo $row['request_id']; ?>"><i class="bi bi-check2-circle"></i></button>
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var calendar = $('#calendar').fullCalendar({
+                //editable:true,
+                header:{
+                    left:'title',
+                    center:'',
+                    right:'prev,next today'
+                    //right:'agendaWeek,month,agendaDay'
+                },
+                events: 'loadhealtopedia.php',
+                selectable:true,
+                selectHelper:true,
+                eventClick:function(event){
+                    var id = event.id;
+                    $('#detailinfo'+id).modal('show');
+                },
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="app">
+        <?php include 'sidebar.php'; ?>
 
-                                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
-                                                        <?php } ?>
-
-                                                        <input type="text" name="requestid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                </form>
-                                                         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#patient<?php echo $row['request_id']; ?>"><i class="bi bi-search"></i></button>
-                                                    </div>
-                                            </td>
-                                        </tr>
-                            <!--========================================== M O D A L == D A T E =====================================-->
-                                        <div class="modal fade text-left" id="postpone<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="myModalLabel1">Postpone Request</h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <form method="POST">
-                                                        <div class="modal-body">
-                                                            <label>Select Date :</label>
-                                                            <input type="text" name="postponedate" class="form-control datepicker" autocomplete="off">
-                                                            <input type="text" name="postponeid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-sm-block d-none">Close</span>
-                                                            </button>
-                                                            <button type="submit" name="updatedate" class="btn btn-primary ml-1">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-sm-block d-none">Submit</span>
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+        <div id="main" style="margin-top: -40px;">
+            <div class="page-content">
+                <section class="row">
+                    <div class="section">
+                        <div class="row">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div id="calendar"></div>
+                                </div>
+                                <?php foreach ($result1 as $row) { ?>
+                                <div class="modal fade" id="detailinfo<?php echo $row['cal_id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="detailinfo">Event Details</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                    <i data-feather="x"></i>
+                                                </button>
                                             </div>
-                                        </div>
-                            <!--========================================== A C C E P T == M O D A L =====================================-->
-                                        <div class="modal fade text-left" id="accept<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header bg-warning">
-                                                        <h5 class="modal-title white" id="myModalLabel140">
-                                                            Confirm accepting the request?
-                                                        </h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <form method="POST">
-                                                        <div class="modal-body" style="text-align: center;">
-                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Close</span>
-                                                            </button>
-                                                            <form method="POST">
-                                                                <button type="submit" name="reqaccept" class="btn btn-warning ml-1">
-                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Confirm</span>
-                                                                </button>
-                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                            </form>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                            <div class="modal-body">
+                                                <?php foreach ($result2 as $row2) {
+                                                    if ($row['cal_id'] == $row2['cust_id']) {?>
+                                                        <b>Name : </b><?php echo $row2['firstname']." ".$row2['lastname'];?><br>
+                                                        <?php foreach ($result4 as $row4) {
+                                                            if ($row['cal_id'] == $row4['appoint_id']) {
+                                                                foreach ($result5 as $row5) {
+                                                                    if ($row4['prod_id'] == $row5['package_id']) {?>
+                                                                        <b>Package : </b><?php echo $row5['package_name'];?><br>
+                                                                    
+                                                        <?php } }?>
+                                                        <b>Time : </b><?php echo date('h:i A',$row4['start_appoint']);?>
+                                                <?php } } } }?>
+                                                <?php foreach ($result3 as $row3) {
+                                                    if ($row['cal_id'] == $row3['request_id']) {?>
+                                                        <form method="POST">
+                                                            <input type="text" name="pmsid" value="<?php echo $row3['request_id'];?>" style="display: none;">
+                                                            <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
+                                                            <b>Package : </b><input type="text" name="calname" class="form-control" value="<?php echo $row['cal_name'];?>"><br>
+                                                            <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:i A',strtotime($row['cal_start']));?>">
+                                                <?php } }?>
                                             </div>
-                                        </div>
-                            <!--========================================== R E J E C T == M O D A L =====================================-->
-                                        <div class="modal fade text-left" id="reject<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header bg-warning">
-                                                        <h5 class="modal-title white" id="myModalLabel140">
-                                                            Confirm rejecting the request?
-                                                        </h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <form method="POST">
-                                                        <div class="modal-body" style="text-align: center;">
-                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Close</span>
-                                                            </button>
-                                                            <form method="POST">
-                                                                <button type="submit" name="reqreject" class="btn btn-warning ml-1">
-                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Confirm</span>
-                                                                </button>
-                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                            </form>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Close</span>
+                                                </button>
+                                                <button type="submit" name="updatepms" class="btn btn-light-primary">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Update</span>
+                                                </button>
+                                                        </form>
                                             </div>
-                                        </div>
-                            <!--========================================== C O M P L E T E  == M O D A L =====================================-->
-                                        <div class="modal fade text-left" id="complete<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel19" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-sm" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header bg-warning">
-                                                        <h5 class="modal-title white" id="myModalLabel140">
-                                                            Confirm complete the appointment?
-                                                        </h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <form method="POST">
-                                                        <div class="modal-body" style="text-align: center;">
-                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Close</span>
-                                                            </button>
-                                                            <form method="POST">
-                                                                <button type="submit" name="reqcomplete" class="btn btn-warning ml-1">
-                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Confirm</span>
-                                                                </button>
-                                                                <input type="text" name="confirmid" value="<?php echo $row['request_id']; ?>" style="display: none;">
-                                                            </form>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                            <!--========================================== E N D == O F == M O D A L =====================================-->
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                            <!--========================================== M O D A L == I N F O =====================================-->
-                            <?php foreach ($data as $row) { ?>
-                            <div class="modal fade text-left" id="patient<?php echo $row['request_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel17">Request Appointment Detail</h4>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table class="table table-borderless mb-0">
-                                                <colgroup>
-                                                    <col span="1" style="width: 25%;">
-                                                    <col span="1" style="width: 75%;">
-                                                </colgroup>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><b>Package Name</b></td>
-                                                        <td>: <?php echo $row['req_packname']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Client Name</b></td>
-                                                        <td>: <?php echo $row['req_custname']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>IC/Passport</b></td>
-                                                        <td>: <?php echo $row['req_custid']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>No Phone</b></td>
-                                                        <td>: <?php echo $row['req_custphone']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Address</b></td>
-                                                        <td>: <?php echo $row['req_custaddress']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Nationalities</b></td>
-                                                        <td>: <?php echo $row['req_custnational']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Appointment Date</b></td>
-                                                        <td>: <?php echo $row['req_appdate']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Appointment Time</b></td>
-                                                        <td>: <?php echo $row['req_apptime']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Status</b></td>
-                                                        <td>: <?php echo $row['req_status']; ?></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Close</span>
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
+                                <?php } ?>
                             </div>
-                            <?php } ?>
-                            <!--========================================== E N D == O F == M O D A L =====================================-->
                         </div>
                     </div>
                 </section>
             </div>
-            <?php include 'request-appointment-footer.php';?>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; Mazer</p>
+                    </div>
+                    <div class="float-end">
+                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="http://ahmadsaugi.com">A. Saugi</a></p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
