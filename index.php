@@ -54,6 +54,7 @@ if ($_SESSION["loggedin"] === true) {
 
 $timestamp = strtotime('today midnight +8 hour');
 $timestamp2 = strtotime('tomorrow midnight +8 hour');
+/*
 $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,FROM_UNIXTIME(appointwoo.start_appoint) AS start_appoint,appointwoo.statusapp,appointwoo.order_id FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND '$timestamp2'");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -63,7 +64,24 @@ $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 $result3 = mysqli_query($conn, "SELECT * FROM packagewoo");
 $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
+*/
 
+$result = $conn->prepare("SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,
+    FROM_UNIXTIME(appointwoo.start_appoint) AS start_appoint,appointwoo.statusapp,appointwoo.order_id 
+    FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id 
+    WHERE appointwoo.start_appoint BETWEEN ? AND ? ");
+$result->bind_param("ss", $timestamp, $timestamp2);
+$result->execute();
+$appointment = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$hosp = $_SESSION["hospital"];
+$result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
+$result2->execute();
+$hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$result3 = $conn->prepare("SELECT * FROM packagewoo");
+$result3->execute();
+$hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
 
 
 ?>
@@ -114,8 +132,14 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Request In-Waiting</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
+                                                    /*
                                                     $res = mysqli_query($conn, "SELECT COUNT(request_id) as 'cnt' FROM requestappoint WHERE req_status='pending'");
                                                     $req_in_wait = mysqli_fetch_assoc($res);
+                                                    echo $req_in_wait['cnt'];
+                                                    */
+                                                    $res = $conn->prepare("SELECT COUNT(request_id) as 'cnt' FROM requestappoint WHERE req_status='pending'");
+                                                    $res->execute();
+                                                    $req_in_wait = $res->get_result()->fetch_assoc();
                                                     echo $req_in_wait['cnt'];
                                                     ?>
                                                 </h6>
@@ -137,11 +161,17 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Appointments This Week</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
+                                                    /*
                                                     $query = "SELECT req_appdate, COUNT(*) AS this_week_cnt FROM requestappoint WHERE req_status='approved' OR req_status='completed' AND WEEK(FROM_UNIXTIME(req_appdate, '%m/%d/%Y')) BETWEEN WEEK(CURDATE())-1 AND WEEK(CURDATE())+1";
                                                     $res1 = mysqli_query($conn, $query);
                                                     $appointment_this_week = mysqli_fetch_assoc($res1);
                                                     echo $appointment_this_week['this_week_cnt'];
                                                     //print_r($conn->error_list);
+                                                    */
+                                                    $res1 = $conn->prepare("SELECT req_appdate, COUNT(*) AS this_week_cnt FROM requestappoint WHERE req_status='approved' OR req_status='completed' AND WEEK(FROM_UNIXTIME(req_appdate, '%m/%d/%Y')) BETWEEN WEEK(CURDATE())-1 AND WEEK(CURDATE())+1");
+                                                    $res1->execute();
+                                                    $appointment_this_week = $res1->get_result()->fetch_assoc();
+                                                    echo $appointment_this_week['this_week_cnt'];
                                                     ?>
                                                 </h6>
                                             </div>
@@ -162,10 +192,17 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                                                 <h6 class="text-muted font-semibold">Completed Appointments</h6>
                                                 <h6 class="font-extrabold mb-0">
                                                     <?php
+                                                    /*
                                                     $res2 = mysqli_query($conn, "SELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='complete' AND hosp_name='$hosp'");
                                                     $complete_appointments = mysqli_fetch_assoc($res2);
                                                     echo  $complete_appointments['cnt'];
                                                     //print_r($conn->error);
+                                                    */
+                                                    $res2 = $conn->prepare("SSELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='complete' AND hosp_name=?");
+                                                    $res2->bind_param("s", $hosp);
+                                                    $res2->execute();
+                                                    $complete_appointments = $res2->get_result()->fetch_assoc();
+                                                    echo $complete_appointments['cnt'];
                                                     ?>
                                                 </h6>
                                             </div>
@@ -212,7 +249,7 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                if (mysqli_num_rows($result) > 0) {
+                                                if ($result->num_rows() > 0) {
                                                     foreach ($appointment as $rows) : ?>
                                                         <tr>
                                                             <td class="text-bold-500">
