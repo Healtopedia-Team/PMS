@@ -38,7 +38,7 @@ foreach ($product as $row) {
         //$sql3 = "UPDATE packagewoo SET package_name = '$name' WHERE package_id = '$prodid'";
         //mysqli_query($conn, $sql3);
 
-        $sql3 = $conn->prepare("UPDATE packagewoo SET package_name = ? WHERE package_id = ?");
+        $sql3 = $conn->prepare("UPDATE packagewoo SET package_name = ? WHERE package_id = ? ");
         $sql3->bind_param("si", $prodid, $price);
         $sql3->execute();
     }
