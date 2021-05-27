@@ -72,11 +72,19 @@ function add_user($conn)
         $user_object->setUserStatus('online');
         $user_object->save_data();
         //$user_data = $user_object->get_user_data_by_email();
-        */
+        
 
         $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 
         username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img', status='online'";
         if (mysqli_query($conn, $sql)) {
+            header('location:users.php');
+        }
+        */
+        $sql = "INSERT INTO user SET first_name=?,last_name=?,email=?, 
+        username=?, password=?, role=?, hospital=?, user_profile=?, status='online'";
+        $result = $conn->prepare($sql);
+        $result->bind_param('ssssssss', $firstname, $lastname, $email, $username, $pass, $role, $hosp, $img);
+        if ($result->execute()) {
             header('location:users.php');
         }
     } else {
@@ -104,11 +112,19 @@ function add_user($conn)
         $user_object->setUserProfile('./assets/images/faces/1.jpg');
         $user_object->setUserStatus('online');
         $user_object->save_data();
-        */
 
         $sql = "INSERT INTO user SET first_name='$firstname',last_name='$lastname',email='$email', 
         username='$username', password='$pass', role='$role', hospital='$hosp', user_profile='$img', status='online'";
         if (mysqli_query($conn, $sql)) {
+            header('location:users.php');
+        }
+        */
+
+        $sql = "INSERT INTO user SET first_name=?,last_name=?,email=?, 
+        username=?, password=?, role=?, hospital=?, user_profile=?, status='online'";
+        $result = $conn->prepare($sql);
+        $result->bind_param('ssssssss', $firstname, $lastname, $email, $username, $pass, $role, $hosp, $img);
+        if ($result->execute()) {
             header('location:users.php');
         }
     }
@@ -152,9 +168,17 @@ function add_hospital($conn)
     $hospcompany = $_POST['hospcomp'];
     $hospphone = $_POST['hospphone'];
     $hospaddress = $_POST['hospadd'];
-
+    /*
     $sql = "INSERT INTO hospital SET hosp_name='$hospname',hosp_company='$hospcompany',hosp_phone='$hospphone', hosp_address='$hospaddress'";
     if (mysqli_query($conn, $sql)) {
+        header('location:hospitals.php');
+    }
+    */
+
+    $sql = "INSERT INTO hospital SET hosp_name=?,hosp_company=?,hosp_phone=?, hosp_address=?";
+    $result = $conn->prepare($sql);
+    $result->bind_param('ssss', $hospname, $hospcompany, $hospphone, $hospaddress);
+    if ($result->execute()) {
         header('location:hospitals.php');
     }
 }
@@ -198,10 +222,18 @@ function update_user($conn)
     $user_object->setHosptial($_POST["hospital"]);
     $user_object->update_data();
     //hospital might be empty
-    */
 
-    $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', password='$pass', role='$role', hospital='$hosp' WHERE user_id='$id'";
+    $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', username='$username', 
+        password='$pass', role='$role', hospital='$hosp' WHERE user_id='$id'";
     if (mysqli_query($conn, $sql)) {
+        header('location:users.php');
+    }
+    */
+    $sql = "UPDATE user SET first_name=?,last_name=?,email=?, 
+        username=?, password=?, role=?, hospital=?, WHERE user_id=? ";
+    $result = $conn->prepare($sql);
+    $result->bind_param('sssssssi', $firstname, $lastname, $email, $username, $pass, $role, $hosp, $id);
+    if ($result->execute()) {
         header('location:users.php');
     }
 }
@@ -230,9 +262,21 @@ function update_profile($conn)
     $user_object->upload_profile();
     */
     if (move_uploaded_file($_FILES["file_to_upload"]["tmp_name"], $target_file)) {
+        /*
         $sql = "UPDATE user SET first_name='$firstname',last_name='$lastname',email='$email', hospital='$hosp', 
         user_profile='$image' WHERE user_id='$id'";
         if (mysqli_query($conn, $sql)) {
+            $_SESSION["name"] = $firstname;
+            $_SESSION["hospital"] = $lastname;
+            $_SESSION["pic"] = $image;
+            header('location:user-profile.php');
+        }
+        */
+        $sql = "UPDATE user SET first_name=?,last_name=?,email=?, 
+        hospital=?, user_profile=? WHERE user_id=? ";
+        $result = $conn->prepare($sql);
+        $result->bind_param('sssssi', $firstname, $lastname, $email, $hosp, $image, $id);
+        if ($result->execute()) {
             $_SESSION["name"] = $firstname;
             $_SESSION["hospital"] = $lastname;
             $_SESSION["pic"] = $image;
@@ -260,11 +304,22 @@ function update_hospital($conn)
     $hospcompany = $_POST['hospcomp'];
     $hospphone = $_POST['hospphone'];
     $hospaddress = $_POST['hospadd'];
-
-    $sql = "UPDATE hospital SET hosp_name='$hospname',hosp_company='$hospcompany',hosp_phone='$hospphone', hosp_address='$hospaddress' WHERE hosp_id='$id'";
+    /*
+    $sql = "UPDATE hospital SET hosp_name='$hospname',hosp_company='$hospcompany',hosp_phone='$hospphone', 
+        hosp_address='$hospaddress' WHERE hosp_id='$id'";
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
     }
+    */
+    $sql = "UPDATE hospital SET hosp_name=?,hosp_company=?,hosp_phone=?, 
+        hosp_address=? WHERE hosp_id=? ";
+    $result = $conn->prepare($sql);
+    $result->bind_param('ssssi', $hospname, $hospcompany, $hospphone, $hospaddress, $id);
+    if ($result->execute()) {
+        header('location:hospitals.php');
+    }
+
+
 }
 function add_role($conn)
 {
@@ -284,10 +339,27 @@ function add_role($conn)
     $man_role = $_POST['manage-user-role'];
     $man_hospital = $_POST['manage-hospital'];
     $finance_report = $_POST['view-financial-report'];
-    $sql = "INSERT INTO roles SET role_name='$displayname',hospital='$hospital',app_view='$app_view',app_calendar='$app_calendar',app_approve='$app_approve',req_view='$req_view',req_add='$req_add',man_date='$man_date',man_time='$man_time',man_user='$man_user',man_role='$man_role',req_reject='$req_reject',req_postpone='$req_postpone',man_hospital='$man_hospital',finance_report='$finance_report'";
+    /*
+    $sql = "INSERT INTO roles SET role_name='$displayname',hospital='$hospital',app_view='$app_view',
+    app_calendar='$app_calendar',app_approve='$app_approve',req_view='$req_view',req_add='$req_add',
+    man_date='$man_date',man_time='$man_time',man_user='$man_user',man_role='$man_role',req_reject='$req_reject',
+    req_postpone='$req_postpone',man_hospital='$man_hospital',finance_report='$finance_report'";
     if (mysqli_query($conn, $sql)) {
         header('location:hospitals.php');
     }
+    */
+
+    $sql = "INSERT INTO roles SET role_name=?,hospital=?,app_view=?,
+    app_calendar=?,app_approve=?,req_view=?,req_add=?,
+    man_date=?,man_time=?,man_user=?,man_role=?,req_reject=?,
+    req_postpone=?,man_hospital=?,finance_report=?";
+    $result = $conn->prepare($sql);
+    $result->bind_param('ssiiiiiiiiiiiii', $displayname, $hospital, $app_view, $app_calendar, $app_approve, $req_view, $req_add, $man_date,
+        $man_time, $man_user, $man_role, $req_reject, $req_postpone, $man_hospital, $finance_report);
+    if ($result->execute()) {
+        header('location:hospitals.php');
+    }
+
 }
 function delete_role($conn)
 {
@@ -315,12 +387,40 @@ function update_role($conn)
     $man_role = $_POST['manage-user-role'];
     $man_hospital = $_POST['manage-hospital'];
     $finance_report = $_POST['view-financial-report'];
+    /*
     $sql = "UPDATE roles SET role_name='$displayname',app_view='$app_view',app_calendar='$app_calendar',
         app_approve='$app_approve',req_view='$req_view',req_add='$req_add',man_date='$man_date',man_time='$man_time',
         man_user='$man_user',man_role='$man_role',req_reject='$req_reject',req_postpone='$req_postpone',
         man_hospital='$man_hospital',finance_report='$finance_report' 
         WHERE role_id='$roleid'";
     if (mysqli_query($conn, $sql)) {
+        header('location:users-role.php');
+    }
+    */
+    $sql = "UPDATE roles SET role_name=?,app_view=?,
+    app_calendar=?,app_approve=?,req_view=?,req_add=?,
+    man_date=?,man_time=?,man_user=?,man_role=?,req_reject=?,
+    req_postpone=?,man_hospital=?,finance_report=? WHERE role_id=? ";
+    $result = $conn->prepare($sql);
+    $result->bind_param(
+        'siiiiiiiiiiiiii',
+        $displayname,
+        $app_view,
+        $app_calendar,
+        $app_approve,
+        $req_view,
+        $req_add,
+        $man_date,
+        $man_time,
+        $man_user,
+        $man_role,
+        $req_reject,
+        $req_postpone,
+        $man_hospital,
+        $finance_report,
+        $roleid
+    );
+    if ($result->execute()) {
         header('location:users-role.php');
     }
 }
