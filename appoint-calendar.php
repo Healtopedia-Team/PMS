@@ -146,11 +146,10 @@ $result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
                                                         <b>Time : </b><?php echo date('h:i A',$row4['start_appoint']);?>
                                                 <?php } } } }?>
                                                 <?php foreach ($result3 as $row3) {
-                                                    if ($row['cal_id'] == $row3['request_id']) {
-                                                        $timeapp = date('h:i A',strtotime($row['cal_start']));?>
+                                                    if ($row['cal_id'] == $row3['request_id']) {?>
                                                         <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
                                                         <b>Package : </b><input type="text" name="calname" class="form-control" value="<?php echo $row['cal_name'];?>"><br>
-                                                        <b>Time : </b><input type="text" name="calstart" value="<?php echo $timeapp;?>">
+                                                        <b>Time : </b><?php echo date('h:i A',strtotime($row['cal_start']));
                                                     }
                                                 }?>
                                             </div>
