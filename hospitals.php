@@ -3,8 +3,12 @@
 <?php
 include 'dbconnect.php';
 
-$result = mysqli_query($conn, "SELECT * FROM hospital");
-$hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
+//$result = mysqli_query($conn, "SELECT * FROM hospital");
+//$hospital = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$result = $conn->prepare("SELECT * FROM hospital");
+$result->execute();
+$hospital = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
 ?>
 <head>
