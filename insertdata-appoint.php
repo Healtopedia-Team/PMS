@@ -1,7 +1,8 @@
 <?php
-    $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-
+    header("refresh: 60");
     error_reporting(0);
+
+    $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
     $data = file_get_contents('https://pms.healtopedia.com/productjson.php');
     $data = json_decode($data, true);
