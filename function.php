@@ -230,7 +230,7 @@ function update_user($conn)
     }
     */
     $sql = "UPDATE user SET first_name=?,last_name=?,email=?, 
-        username=?, password=?, role=?, hospital=?, WHERE user_id=? ";
+        username=?, password=?, role=?, hospital=? WHERE user_id=? ";
     $result = $conn->prepare($sql);
     $result->bind_param('sssssssi', $firstname, $lastname, $email, $username, $pass, $role, $hosp, $id);
     if ($result->execute()) {
