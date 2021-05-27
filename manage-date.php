@@ -16,9 +16,17 @@ if (isset($_POST['submit'])) {
     $date3 = $_POST['ddate3'];
     $date4 = $_POST['ddate4'];
 
+    /*
     $sql = "INSERT INTO xdate(datedisable) VALUES('$date'),('$date1'),('$date2'),('$date3'),('$date4')";
 
     if (mysqli_query($conn,$sql)) {
+        echo '<script>alert("Successfully close date");</script>';
+    }
+    */
+
+    $sql = $conn->prepare("INSERT INTO xdate(datedisable) VALUES(?),(?),(?),(?),(?) ");
+    $sql->bind_param("sssss", $date, $date1, $date2, $date3, $date4);
+    if ($sql->execute()) {
         echo '<script>alert("Successfully close date");</script>';
     }
 }
@@ -26,16 +34,26 @@ if (isset($_POST['submit'])) {
 if (isset($_POST['deletedate'])) {
     
     $deletedate = $_POST['deletedate'];
-
+    /*
     $sql = "DELETE FROM xdate WHERE id = '$deletedate'";
 
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Success delete closed data");</script>';
     }
+    */
+    $sql = $conn->prepare("DELETE FROM xdate WHERE id = ? ");
+    $sql->bind_param("i", $deletedate);
+    if ($sql->execute()) {
+        echo '<script>alert("Success delete closed data");</script>';
+    }
 }
-
+/*
 $result=mysqli_query($conn, "SELECT * FROM xdate WHERE datedisable != ''");
 $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+*/
+$result = $conn->prepare("SELECT * FROM xdate WHERE datedisable != ''");
+$result->execute();
+$user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
 ?>
 <head>
@@ -161,13 +179,14 @@ $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
     </script>
     <script src="assets/js/main.js"></script>
 </body>
-</html>
 <?php
-
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
-
+/*
 $result=mysqli_query($conn, "SELECT datedisable FROM xdate");
 $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+*/
+$result = $conn->prepare("SELECT datedisable FROM xdate");
+$result->execute();
+$user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
 ?>
 <script type="text/javascript">
