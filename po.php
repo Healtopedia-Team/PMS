@@ -17,9 +17,14 @@ $query = "SELECT a.order_id, a.appoint_id, a.start_appoint, a.hosp_name,
             DATE(FROM_UNIXTIME(a.start_appoint, '%Y-%m-%d')) AS c_date 
             FROM appointwoo a LEFT JOIN orderwoo b ON a.order_id=b.order_id 
             LEFT JOIN packagewoo c ON a.prod_id=c.package_id 
-            WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')='$current_date' AND a.hosp_name='$hosp' ";
-$result = mysqli_query($conn, $query);
-$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')=? AND a.hosp_name=? ";
+//$result = mysqli_query($conn, $query);
+//$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+$result = $conn->prepare($query);
+$result->bind_param("ss", $current_date, $hosp);
+$result->execute();
+$res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 //var_dump($res);
 ?>
 
