@@ -26,10 +26,10 @@ foreach ($product as $row) {
             }
             */
 
-            $sql = $conn->prepare("INSERT INTO packagewoo SET package_id = ?, package_price = ?");
+            $sql = $conn->prepare("INSERT INTO packagewoo SET package_id = ?, package_price = ? ");
             $sql->bind_param("ii", $prodid, $price);
             if ($sql->execute()) {
-                $sql2 = $conn->prepare("UPDATE packagewoo SET package_name = ? WHERE package_id = ?");
+                $sql2 = $conn->prepare("UPDATE packagewoo SET package_name = ? WHERE package_id = ? ");
                 $sql2->bind_param("si", $prodid, $price);
                 $sql2->execute();
             }
