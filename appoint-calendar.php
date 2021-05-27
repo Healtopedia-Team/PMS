@@ -149,9 +149,8 @@ $result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
                                                     if ($row['cal_id'] == $row3['request_id']) {?>
                                                         <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
                                                         <b>Package : </b><input type="text" name="calname" class="form-control" value="<?php echo $row['cal_name'];?>"><br>
-                                                        <b>Time : </b><?php echo date('h:i A',strtotime($row['cal_start']));?>
-                                                    }
-                                                }?>
+                                                        <b>Time : </b><input type="text" name="calstart" value="<?php echo date('h:i A',strtotime($row['cal_start']));?>">
+                                                <?php } }?>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
