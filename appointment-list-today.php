@@ -1,8 +1,17 @@
                 <?php
                 include 'appointment-list-header.php';
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-                $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,SUBSTRING(orderwoo.order_date,1,10) AS order_date,appointwoo.appoint_id,appointwoo.start_appoint FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY order_id ORDER BY orderwoo.order_id DESC");
+                /*
+                $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,
+                SUBSTRING(orderwoo.order_date,1,10) AS order_date,appointwoo.appoint_id,appointwoo.start_appoint FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY order_id ORDER BY orderwoo.order_id DESC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                */
+                $result = $conn->prepare("SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,
+                    SUBSTRING(orderwoo.order_date,1,10) AS order_date,appointwoo.appoint_id,appointwoo.start_appoint 
+                    FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id 
+                    GROUP BY order_id ORDER BY orderwoo.order_id DESC");
+                $result->execute();
+                $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                 ?>
 
                 <section class="section">
@@ -48,8 +57,14 @@
 
                                     if ($appdate == $todaydate) {
                                         $orderid = $row['order_id'];
+                                        /*
                                         $ordersql = mysqli_query($conn, "SELECT firstname, lastname, cust_id, status, SUBSTRING(order_date,1,10) AS order_date FROM orderwoo WHERE order_id = '$orderid'");
                                         $ansorder = mysqli_fetch_all($ordersql, MYSQLI_ASSOC);
+                                        */
+                                        $ordersql = $conn->prepare("SELECT firstname, lastname, cust_id, status, SUBSTRING(order_date,1,10) AS order_date FROM orderwoo WHERE order_id =? ");
+                                        $ordersql->bind_param("i", $orderid);
+                                        $ordersql->execute();
+                                        $ansorder = $ordersql->get_result()->fetch_all(MYSQLI_ASSOC);
 
                                         foreach ( $ansorder as $row2 ) {
                                 ?>
