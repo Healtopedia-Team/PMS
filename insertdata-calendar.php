@@ -12,8 +12,8 @@ $result2 = mysqli_fetch_all($data2, MYSQLI_ASSOC);
 foreach ($result as $row) {
     $appointid = $row['appoint_id'];
     $hospname = $row['hosp_name'];
-    $startapp = date('Y-m-d H:i',$row['start_appoint']);
-    $endapp = date('Y-m-d H:i',$row['end_appoint']);
+    $startapp = date('Y-m-d H:i',$row['start_appoint']-28800);
+    $endapp = date('Y-m-d H:i',$row['end_appoint']-28800);
     $statusapp = $row['statusapp'];
 
     $valid = mysqli_query($conn, "SELECT COUNT(*) as Total FROM calendar WHERE cal_id = '$appointid'");
