@@ -11,8 +11,13 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
 }else{
     $name = $_SESSION["name"];
 
-    $query = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$name'");
-    $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    //$query = mysqli_query($conn, "SELECT * FROM user WHERE first_name = '$name'");
+    //$data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+    $query = $conn->prepare("SELECT * FROM user WHERE first_name = ?");
+    $query->bind_param("s", $name);
+    $query->execute();
+    $data = $query->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 ?>
 <!DOCTYPE html>
