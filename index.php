@@ -219,7 +219,7 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                                                                 <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
                                                                 <?php echo $rows['prod_id']; ?><br>
                                                                 <?php
-                                                                echo date('h:i A', $rows['start_appoint']); ?><br>
+                                                                echo $rows['start_appoint']; ?><br>
                                                                 <?php
                                                                 $status = $rows['statusapp'];
                                                                 if ($status == "paid") {
