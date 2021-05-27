@@ -161,7 +161,7 @@ if (isset($_POST['updatepms'])) {
                                                             <input type="text" name="pmsid" value="<?php echo $row3['request_id'];?>" style="display: none;">
                                                             <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
                                                             <b>Package : </b><input type="text" name="calname" class="form-control" value="<?php echo $row['cal_name'];?>"><br>
-                                                            <b>Time : </b><input type="time" name="calstart" class="form-control" value="<?php echo date('h:i A',strtotime($row['cal_start']));?>">
+                                                            <b>Time : </b><input type="datetime-local" name="calstart" class="form-control" value="<?php echo date('c',strtotime($row['cal_start']));?>">
                                                 <?php } }?>
                                             </div>
                                             <div class="modal-footer">
