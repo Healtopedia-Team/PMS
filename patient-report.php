@@ -14,8 +14,13 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
     header("location: auth-login.php");
     exit;
 }
+/*
 $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'completed' ORDER BY request_id");
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
+*/
+$res = $conn->prepare("SELECT * FROM requestappoint WHERE req_status = 'completed' ORDER BY request_id");
+$res->execute();
+$data = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 ?> 
 <!DOCTYPE html>
 <html lang="en">
