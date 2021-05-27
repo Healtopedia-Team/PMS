@@ -72,7 +72,7 @@ if (isset($_POST['updatepms'])) {
 
     $query = "UPDATE requestappoint SET req_custname = '$name' WHERE request_id = '$pmsid'";
     if (mysqli_query($conn, $query)) {
-        echo '<script>>window.location.href = "appoint-calendar.php;"</script>';
+        header("location: appoint-calendar.php");
      }
 }
 ?>
