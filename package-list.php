@@ -7,16 +7,26 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
     exit;
 }
-
+/*
 $data = mysqli_query($conn, "SELECT * FROM packagewoo");
 $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
+*/
+$res = $conn->prepare("SELECT * FROM packagewoo");
+$res->execute();
+$data = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 
 if (isset($_POST['updateprice'])) {
     $newprice = $_POST['newprice'];
     $packageid = $_POST['packageid'];
-
+    /*
     $sql = "UPDATE packagewoo SET package_price = '$newprice' WHERE package_id = '$packageid'";
     if (mysqli_query($conn,$sql)) {
+        echo '<script>window.location.href = "package-list.php";</script>';
+    }
+    */
+    $sql = $conn->prepare("UPDATE packagewoo SET package_price = ? WHERE package_id = ?");
+    $sql->bind_param("si", $newprice, $packageid);
+    if ($sql->execute()) {
         echo '<script>window.location.href = "package-list.php";</script>';
     }
 }
