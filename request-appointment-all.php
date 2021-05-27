@@ -39,6 +39,14 @@ if (isset($_POST['reqcomplete'])) {
 ?>
 
                             <table class="table table-striped" id="table1">
+                                <colgroup>
+                                    <col span="1" style="width: 20%;">
+                                    <col span="1" style="width: 40%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                    <col span="1" style="width: 10%;">
+                                </colgroup>
                                 <thead>
                                     <tr>
                                         <th>Name</th>
