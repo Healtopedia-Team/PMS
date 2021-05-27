@@ -21,10 +21,10 @@ $result3 = mysqli_fetch_all($sql3, MYSQLI_ASSOC);
 
 $sql4 = mysqli_query($conn, "SELECT * FROM appointwoo");
 $result4 = mysqli_fetch_all($sql4, MYSQLI_ASSOC);
-*/
+
 $sql5 = mysqli_query($conn, "SELECT * FROM packagewoo");
 $result5 = mysqli_fetch_all($sql5, MYSQLI_ASSOC);
-
+*/
 $sql1 = $conn->prepare("SELECT * FROM calendar WHERE cal_start > ?");
 $sql1->bind_param("s", $date);
 $sql1->execute();
@@ -41,6 +41,10 @@ $result3 = $sql3->get_result()->fetch_all(MYSQLI_ASSOC);
 $sql4 = $conn->prepare("SELECT * FROM appointwoo");
 $sql4->execute();
 $result4 = $sql4->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql5 = $conn->prepare("SELECT * FROM packagewoo");
+$sql5->execute();
+$result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
 /*
 
 $sql2 = $conn->prepare("SELECT * FROM orderwoo");
