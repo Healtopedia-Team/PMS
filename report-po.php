@@ -5,6 +5,7 @@ $cur_date = $_GET['cur_date'];
 //header("X-Accel-Buffering: no");
 
 // reference the Dompdf namespace
+ini_set("memory_limit", "800M");
 use Dompdf\Dompdf;
 
 define('DOMPDF_ENABLE_PHP', true);
