@@ -69,6 +69,10 @@ if (isset($_POST['updatedate'])) {
                                             <td><?php echo $row['req_status']; ?></td>
                                             <td>
                                                     <div class="btn-group mb-3" role="group" aria-label="Basic example">
+                                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accept<?php echo $row['request_id']; ?>"><i class="bi bi-plus-circle"></i></button>
+
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#reject<?php echo $row['request_id']; ?>"><i class="bi bi-x-circle"></i></button>
+                                                        
                                                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#complete<?php echo $row['request_id']; ?>"><i class="bi bi-check2-circle"></i></button>
 
                                                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postpone<?php echo $row['request_id']; ?>"><i class="bi bi-calendar3-week"></i></button>
