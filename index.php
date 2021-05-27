@@ -54,7 +54,7 @@ if ($_SESSION["loggedin"] === true) {
 
 $timestamp = strtotime('today midnight +8 hour');
 $timestamp2 = strtotime('tomorrow midnight +8 hour');
-$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND '$timestamp2'");
+$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,FROM_UNIXTIME(appointwoo.start_appoint) AS start_appoint,appointwoo.statusapp,appointwoo.order_id FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND '$timestamp2'");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $hosp = $_SESSION["hospital"];
@@ -217,10 +217,9 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                                                         <tr>
                                                             <td class="text-bold-500">
                                                                 <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
-                                                                <?php echo $rows['packagename']; ?><br>
+                                                                <?php echo $rows['prod_id']; ?><br>
                                                                 <?php
-                                                                $atime = strtotime('-8 hour', $rows['start_appoint']);
-                                                                echo date('h:i A', $atime); ?><br>
+                                                                echo date('h:i A', $rows['start_appoint']); ?><br>
                                                                 <?php
                                                                 $status = $rows['statusapp'];
                                                                 if ($status == "paid") {
