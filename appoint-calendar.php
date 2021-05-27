@@ -71,7 +71,9 @@ if (isset($_POST['updatepms'])) {
     $pmsid = $_POST['pmsid'];
 
     $query = "UPDATE requestappoint SET req_custname = '$name' WHERE request_id = '$pmsid'";
-    mysqli_query($conn, $query);
+    if (mysqli_query($conn, $query)) {
+        header("Location: appoint-calendar.php");
+     }
 }
 ?>
 <!DOCTYPE html>
@@ -169,7 +171,7 @@ if (isset($_POST['updatepms'])) {
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Close</span>
                                                 </button>
-                                                <button type="submit" name="updatepms" class="btn btn-light-primary">
+                                                <button type="submit" name="updatepms" class="btn btn-primary">
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Update</span>
                                                 </button>
