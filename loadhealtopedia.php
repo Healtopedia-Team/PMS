@@ -7,7 +7,7 @@ $data = array();
 $date = date('Y-m-d',strtotime("-1 days"));
 $yesterday = strtotime($date);
 
-$query = "SELECT * FROM calendar WHERE cal_start > '$date'";
+$query = "SELECT * FROM calendar WHERE cal_start > '$date' AND (cal_status = 'complete' OR cal_status = 'paid')";
 
 $statement = $connect->prepare($query);
 
