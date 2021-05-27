@@ -198,7 +198,7 @@ $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
                                                     echo  $complete_appointments['cnt'];
                                                     //print_r($conn->error);
                                                     */
-                                                    $res2 = $conn->prepare("SSELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='complete' AND hosp_name=?");
+                                                    $res2 = $conn->prepare("SELECT COUNT(id) as 'cnt' FROM appointwoo WHERE statusapp='complete' AND hosp_name=?");
                                                     $res2->bind_param("s", $hosp);
                                                     $res2->execute();
                                                     $complete_appointments = $res2->get_result()->fetch_assoc();
