@@ -44,7 +44,7 @@ $result4 = $sql4->get_result()->fetch_all(MYSQLI_ASSOC);
 
 $sql5 = $conn->prepare("SELECT * FROM packagewoo");
 $sql5->execute();
-$result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+$result5 = $sql5->get_result()->fetch_all(MYSQLI_ASSOC);
 /*
 
 $sql2 = $conn->prepare("SELECT * FROM orderwoo");
