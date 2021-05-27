@@ -52,7 +52,9 @@ if ($_SESSION["loggedin"] === true) {
 }
 */
 
-$result = mysqli_query($conn, "SELECT * FROM requestappoint");
+$timestamp = strtotime('today midnight +8 hour');
+$timestamp2 = strtotime('tomorrow midnight +8 hour');
+$result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,appointwoo.start_appoint,appointwoo.statusapp,appointwoo.packagename FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND '$timestamp2'");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $hosp = $_SESSION["hospital"];
@@ -211,26 +213,47 @@ $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
                                             <tbody>
                                                 <?php
                                                 if (mysqli_num_rows($result) > 0) {
-                                                    foreach ($appointment as $rows) {
-                                                        $appdate = $rows['req_appdate'];
-                                                        $todaydate = date("m/d/Y"); 
-                                                        if ($appdate == $todaydate) { ?>
+                                                    foreach ($appointment as $rows) : ?>
                                                         <tr>
                                                             <td class="text-bold-500">
-                                                                <strong>#<?php echo $rows['request_id']; ?> <?php echo $rows['req_custname']; ?></strong><br>
-
-                                                                <?php echo $rows['req_packname']; ?><br>
-                                                                <?php echo $rows['req_apptime']; ?><br>
+                                                                <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
+                                                                <?php echo $rows['packagename']; ?><br>
+                                                                <?php
+                                                                $atime = strtotime('-8 hour', $rows['start_appoint']);
+                                                                echo date('h:i A', $atime); ?><br>
+                                                                <?php
+                                                                $status = $rows['statusapp'];
+                                                                if ($status == "paid") {
+                                                                ?>
+                                                                    <span class="badge bg-primary">Booked</span>
                                                             </td>
-                                                            <?php $status = $rows['req_status'];
-                                                            if ($status == "approved") { ?>
-                                                            <td class="text-bold-500">
-                                                                <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">Check-In</button>
+                                                            <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
+                                                                    Check-In
+                                                                </button></td>
+                                                        <?php } elseif ($status == "complete") {
+                                                        ?>
+                                                            <span class="badge bg-success">Checked-In</span>
                                                             </td>
-                                                            <?php } ?>
+                                                            <td class="text-bold-500"><button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#inlineForm">
+                                                                    Check-In
+                                                                </button></td>
+                                                        <?php
+                                                                } elseif ($status == "cancelled") { ?>
+                                                            <span class="badge bg-danger">Canceled</span>
+                                                            </td>
+                                                            <td class="text-bold-500"></td>
+                                                        <?php
+                                                                } else { ?>
+                                                            <span class="badge bg-warning">Waiting Payment</span>
+                                                            </td>
+                                                            <td class="text-bold-500"> <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#inlineForm">
+                                                                    Pay Now
+                                                                </button></td>
+                                                        <?php
+                                                                }
+                                                        ?>
                                                         </tr>
-                                                        <?php } ?>
-                                                    <?php }
+                                                    <?php endforeach;
                                                 } else { ?>
                                                     <tr>
                                                         <td>No appointments today</td>
