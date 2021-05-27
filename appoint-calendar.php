@@ -63,6 +63,16 @@ $sql5 = $conn->prepare("SELECT * FROM packagewoo");
 $sql5->execute();
 $result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
 */
+
+if (isset($_POST['updatepms'])) {
+    $name = $_POST['calcustomer'];
+    $package = $_POST['calname'];
+    $time = $_POST['calstart'];
+    $pmsid = $_POST['pmsid'];
+
+    $query = "UPDATE requestappoint SET req_custname = '$name' WHERE request_id = '$pmsid'";
+    mysqli_query($conn, $query);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -147,9 +157,11 @@ $result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
                                                 <?php } } } }?>
                                                 <?php foreach ($result3 as $row3) {
                                                     if ($row['cal_id'] == $row3['request_id']) {?>
-                                                        <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
-                                                        <b>Package : </b><input type="text" name="calname" class="form-control" value="<?php echo $row['cal_name'];?>"><br>
-                                                        <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:i A',strtotime($row['cal_start']));?>">
+                                                        <form method="POST">
+                                                            <input type="text" name="pmsid" value="<?php echo $row3['request_id'];?>" style="display: none;">
+                                                            <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
+                                                            <b>Package : </b><input type="text" name="calname" class="form-control" value="<?php echo $row['cal_name'];?>"><br>
+                                                            <b>Time : </b><input type="time" name="calstart" class="form-control" value="<?php echo date('h:i A',strtotime($row['cal_start']));?>">
                                                 <?php } }?>
                                             </div>
                                             <div class="modal-footer">
@@ -157,6 +169,11 @@ $result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Close</span>
                                                 </button>
+                                                <button type="submit" name="updatepms" class="btn btn-light-primary">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Update</span>
+                                                </button>
+                                                        </form>
                                             </div>
                                         </div>
                                     </div>
