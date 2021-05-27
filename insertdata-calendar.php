@@ -1,4 +1,6 @@
 <?php
+header("refresh: 60");
+
 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
 $data = mysqli_query($conn, "SELECT * FROM appointwoo");
