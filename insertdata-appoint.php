@@ -168,13 +168,22 @@
                     $startappoint = $row2['start'];
                     $endappoint = $row2['end'];
 
-                    $result=mysqli_query($conn, "SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
-                    $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    //$result=mysqli_query($conn, "SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id = '$appointid'");
+                    //$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    $result = $conn->prepare("SELECT COUNT(appoint_id) as Total FROM appointwoo WHERE appoint_id =? ");
+                    $result->bind_param("i", $appointid);
+                    $result->execute();
+                    $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
                     foreach ($user as $key) {
                     if ($key['Total'] < 1) {
-                        $sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', statusapp = '$statusapp', start_appoint = '$startappoint', end_appoint = '$endappoint', prod_id = '$prodid', hosp_name = '$hospname'";
-                        mysqli_query($conn, $sql);
+                        //$sql = "INSERT INTO appointwoo SET order_id = '$orderid', appoint_id = '$appointid', statusapp = '$statusapp', start_appoint = '$startappoint', end_appoint = '$endappoint', prod_id = '$prodid', hosp_name = '$hospname'";
+                        //mysqli_query($conn, $sql);
+                        $query = $conn->prepare("INSERT INTO appointwoo SET order_id = ?, appoint_id = ?, statusapp = ?, 
+                            start_appoint = ?, end_appoint = ?, prod_id = ?, hosp_name = ?");
+                        $query->bind_param("iisiiis", $orderid, $appointid, $statusapp, $startappoint, $endappoint, $prodid, $hospname);
+                        $query->execute();
+
                     }
                 }
             }
