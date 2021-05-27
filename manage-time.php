@@ -58,7 +58,14 @@ if (isset($_POST['submit'])) {
     $limit11 = $_POST['limit11'];
     $limit12 = $_POST['limit12'];
 
-    $sql = "INSERT INTO xtime(timedisdate,timedisable,timeonoff,totalappoint,limitapp) VALUES('$date','$time','$dtime','0','$limit'),('$date','$time1','$dtime1','0','$limit1'),('$date','$time2','$dtime2','0','$limit2'),('$date','$time3','$dtime3','0','$limit4'),('$date','$time4','$dtime4','0','$limit4'),('$date','$time5','$dtime5','0','$limit5'),('$date','$time6','$dtime6','0','$limit6'),('$date','$time7','$dtime7','0','$limit7'),('$date','$time8','$dtime8','0','$limit8'),('$date','$time9','$dtime9','0','$limit9'),('$date','$time10','$dtime10','0','$limit10'),('$date','$time11','$dtime11','0','$limit11'),('$date','$time12','$dtime12','0','$limit12')";
+    $sql = "INSERT INTO xtime(timedisdate,timedisable,timeonoff,totalappoint,limitapp) 
+    VALUES('$date','$time','$dtime','0','$limit'),('$date','$time1','$dtime1','0','$limit1'),
+    ('$date','$time2','$dtime2','0','$limit2'),('$date','$time3','$dtime3','0','$limit4'),
+    ('$date','$time4','$dtime4','0','$limit4'),('$date','$time5','$dtime5','0','$limit5'),
+    ('$date','$time6','$dtime6','0','$limit6'),('$date','$time7','$dtime7','0','$limit7'),
+    ('$date','$time8','$dtime8','0','$limit8'),('$date','$time9','$dtime9','0','$limit9'),
+    ('$date','$time10','$dtime10','0','$limit10'),('$date','$time11','$dtime11','0','$limit11'),
+    ('$date','$time12','$dtime12','0','$limit12')";
 
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Successfully close time slot");</script>';

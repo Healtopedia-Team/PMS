@@ -21,11 +21,11 @@ $query = "SELECT
     SUM(IF(MONTH(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = 10 , 1 , 0)) AS 'Oct',
     SUM(IF(MONTH(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = 11 , 1 , 0)) AS Nov,
     SUM(IF(MONTH(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = 12 , 1 , 0)) AS 'Dec'
-FROM `appointwoo` WHERE YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE()) AND NOT statusapp='cancelled' AND hosp_name='$hosp'";
+FROM `appointwoo` WHERE YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE()) AND NOT statusapp='cancelled' AND hosp_name=?";
 
 
 $statement = $connect->prepare($query);
-
+$statement->bindParam("s", $hosp);
 $statement->execute();
 
 $result = $statement->fetch();
