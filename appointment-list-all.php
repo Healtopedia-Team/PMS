@@ -44,8 +44,17 @@
                                     <?php $i = 1; ?>
                                     <?php foreach ($user as $row) {
                                         $orderid = $row['order_id'];
-                                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint, orderwoo.cust_id FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
+                                        /*
+                                        $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint, orderwoo.cust_id 
+                                        FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
                                         $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+                                        */
+                                        $result2 = $conn->prepare("SELECT appointwoo.start_appoint, orderwoo.cust_id 
+                                        FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=? LIMIT 1");
+                                        $result2->bind_param("i", $orderid);
+                                        $result2->execute();
+                                        $timee = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+
                                     ?>
                                         <tr>
                                             <td>
