@@ -24,14 +24,21 @@
                 }
             }
 
-            $result=mysqli_query($conn, "SELECT COUNT(cust_id) as Total FROM orderwoo WHERE cust_id = '$custid'");
-            $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+            //$result=mysqli_query($conn, "SELECT COUNT(cust_id) as Total FROM orderwoo WHERE cust_id = '$custid'");
+            //$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $result = $conn->prepare("SELECT COUNT(cust_id) as Total FROM orderwoo WHERE cust_id =? ");
+            $result->bind_param("i", $custid);
+            $result->execute();
+            $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
             foreach ($user as $key) {
                 if ($key['Total'] < 1) {
-                    $sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status', order_date = '$orderdate'";
+                    //$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status', order_date = '$orderdate'";
+                    //mysqli_query($conn, $sql);
 
-                mysqli_query($conn, $sql);
+                    $sql = $conn->prepare("INSERT INTO orderwoo SET firstname = ?, lastname = ?, order_id = ?, cust_id = ?, status = ?, order_date = ? ");
+                    $sql->bind_param("ssiiss", $firstname, $lastname, $orderid, $custid, $status, $orderdate);
+                    $sql->execute();
                 }
             }
         }
