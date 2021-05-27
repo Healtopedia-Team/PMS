@@ -85,6 +85,7 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                                 $last_id = mysqli_insert_id($conn);
                                 include 'req-addpatient.php';
                             }
+
                         }else{
                             echo "Failed";
                         }
@@ -108,19 +109,42 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
                         $finalDateT = date('H:i', strtotime($apptime));
                         $reservedTime = $finalDateD . ' ' . $finalDateT;
                         $message = 'Inserting...';
-
-                        $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime', req_status = 'pending' WHERE  request_id = '$latestid'";
-                        $query = "INSERT INTO notification (`id`, `name`, `type`, `message`, `status`, `date`, `reserved_date`) VALUES (NULL, '$register_name', 'request-appointment', '$message', 'unread', '$current_timestamp', '$reservedTime')";
-                        if (mysqli_query($conn,$sql) and mysqli_query($conn, $query)) {
-                            echo '<script>
+                        /*
+                    $sql = "UPDATE requestappoint SET req_packname = '$packname', req_custname = '$name', req_custid = '$passport', req_custaddress = '$address', req_custphone = '$phoneno', req_custnational = '$national', req_apptime = '$apptime', req_status = 'pending' WHERE  request_id = '$latestid'";
+                    $query = "INSERT INTO notification (`id`, `name`, `type`, `message`, `status`, `date`, `reserved_date`) VALUES (NULL, '$register_name', 'request-appointment', '$message', 'unread', '$current_timestamp', '$reservedTime')";
+                    if (mysqli_query($conn, $sql) and mysqli_query($conn, $query)) {
+                        echo '<script>
                             alert("Successfully request an appointment !!");
                             </script>';
-                        }else{
-                            $var_error = mysqli_error($conn);
-                            echo '<script>
+                    } else {
+                        $var_error = mysqli_error($conn);
+                        echo '<script>
                             alert($var_error);
                             </script>';
+                    }
+                    */
+                        $sql = "UPDATE requestappoint SET req_packname = ?, req_custname = ?, req_custid = ?, 
+                            req_custaddress = ?, req_custphone = ?, req_custnational = ?, 
+                            req_apptime = ?, req_status = 'pending' WHERE  request_id = ?";
+                        $rqa = $conn->prepare($sql);
+                        $rqa->bind_param("sssssssi", $packname, $name, $passport, $address, $phoneno, $national, $apptime, $latestid);
+
+                        $query = "INSERT INTO notification (`id`, `name`, `type`, `message`, `status`, `date`, `reserved_date`) 
+                            VALUES (NULL, ?, 'request-appointment', ?, 'unread', ?, ?)";
+                        $not = $conn->prepare($query);
+                        $not->bind_param("ssss", $register_name, $message, $current_timestamp, $reservedTime);
+
+                        if ($rqa->execute() && $not->execute()) {
+                            echo '<script>
+                                alert("Successfully request an appointment !!");
+                                </script>';
+                        } else {
+                            $var_error = $rqa->error . " ". $not->error;
+                            echo '<script>
+                                alert($var_error);
+                                </script>';
                         }
+                       
                     }
                 ?>                    
             </div>
@@ -151,10 +175,14 @@ if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
     <script src='script.js'></script>
 
     <?php
-
+    /*
     $result=mysqli_query($conn, "SELECT datedisable FROM xdate");
     $user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+    */
 
+    $result = $conn->prepare("SELECT datedisable FROM xdate");
+    $result->execute();
+    $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
     ?>
     <script type="text/javascript">
         var disableDates = [<?php foreach ($user as $row){echo "'".$row['datedisable']."'".",";}?>];
