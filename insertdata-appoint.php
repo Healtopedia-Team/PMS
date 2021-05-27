@@ -15,11 +15,10 @@
             if ($row['id'] == $row2['product_id']){
                 $orderid = $row2['order_id'];
                 $appointid = $row2['id'];
-                $statusapp = $row2['status'];
 
-                //if ($row2['status'] == "paid" || $row2['status'] == "complete" || $row2['status'] == "confirmed") {
-                //    $statusapp = $row2['status'];
-                //}
+                if ($row2['status'] == "paid" || $row2['status'] == "complete") {
+                    $statusapp = $row2['status'];
+                }
 
                 $prodid = $row['id'];
 
