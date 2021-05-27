@@ -1,8 +1,16 @@
                 <?php
                 include 'appointment-list-header.php';
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+                /*
                 $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,SUBSTRING(orderwoo.order_date,1,10) AS order_date,appointwoo.appoint_id,appointwoo.start_appoint FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY order_id ORDER BY orderwoo.order_id DESC");
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                */
+                $result = $conn->prepare("SELECT orderwoo.firstname,orderwoo.lastname,orderwoo.order_id,orderwoo.status,
+                    SUBSTRING(orderwoo.order_date,1,10) AS order_date,appointwoo.appoint_id,appointwoo.start_appoint 
+                    FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY order_id 
+                    ORDER BY orderwoo.order_id DESC");
+                $result->execute();
+                $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                 ?>
 
                 <section class="section">
@@ -44,8 +52,15 @@
                                 <?php $i = 1; ?>
                                 <?php foreach ($user as $row){
                                     $orderid = $row['order_id'];
+                                    /*
                                     $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
                                     $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+                                    */
+                                    $result2 = $conn->prepare("SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=? LIMIT 1");
+                                    $result2->bind_param("i", $orderid);
+                                    $result2->execute();
+                                    $timee = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+                                    
                                     $currdate = date("Y-m-d");
                                     $appdate = date("Y-m-d",$row['start_appoint']);
                                 if ($appdate > $currdate){ ?>
