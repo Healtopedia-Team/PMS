@@ -25,7 +25,7 @@ if (isset($_POST['updateprice'])) {
     }
     */
     $sql = $conn->prepare("UPDATE packagewoo SET package_price = ? WHERE package_id = ?");
-    $sql->bind_param("si", $newprice, $packageid);
+    $sql->bind_param("ii", $newprice, $packageid);
     if ($sql->execute()) {
         echo '<script>window.location.href = "package-list.php";</script>';
     }
