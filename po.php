@@ -50,7 +50,7 @@ $total_price = 0;
   table {
     font-size: 10px;
     margin-top: 0 !important;
-    page-break-inside: auto;
+    page-break-inside: avoid;
   }
 
   .purchase-order>table {
