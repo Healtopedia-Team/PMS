@@ -67,10 +67,11 @@ $result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
 if (isset($_POST['updatepms'])) {
     $name = $_POST['calcustomer'];
     $package = $_POST['calname'];
-    $time = date('H:i', strtotime($_POST['calstart']));
+    $time = $_POST['calstart'];
+    $time2 = date('H:i', strtotime($_POST['calstart']));
     $pmsid = $_POST['pmsid'];
 
-    $query = "UPDATE requestappoint SET req_custname = '$name' WHERE request_id = '$pmsid'";
+    $query = "UPDATE requestappoint SET req_custname = '$name', req_apptime = '$time' WHERE request_id = '$pmsid'";
     if (mysqli_query($conn, $query)) {
         header("Location: appoint-calendar.php");
      }
@@ -167,13 +168,13 @@ $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
                                                             <input type="text" name="pmsid" value="<?php echo $row3['request_id'];?>" style="display: none;">
                                                             <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
                                                             <b>Package : </b>
-                                                            <select class="choices form-select" name="packname" required>
+                                                            <select class="choices form-select" name="packname" value="<?php echo $row3['req_packname'];?>" required>
                                                                 <option value="">Select Package</option>
                                                                 <?php foreach($data as $key){ ?>
                                                                     <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
                                                                     <?php } ?>
                                                                 </select><br>
-                                                            <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:i A',strtotime($row['cal_start']));?>">
+                                                            <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:iA',strtotime($row['cal_start']));?>">
                                                 <?php } }?>
                                             </div>
                                             <div class="modal-footer">
