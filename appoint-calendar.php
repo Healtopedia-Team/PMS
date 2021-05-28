@@ -69,7 +69,7 @@ if (isset($_POST['updatepms'])) {
     $package = $_POST['calname'];
     $time = $_POST['calstart'];
     $newtime = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']));
-    $newtime2 = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']));
+    $newtime2 = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']+3600));
     $pmsid = $_POST['pmsid'];
 
     $query = "UPDATE requestappoint SET req_custname = '$name', req_apptime = '$time' WHERE request_id = '$pmsid'";
