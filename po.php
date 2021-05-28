@@ -234,6 +234,7 @@ $total_price = 0;
           </b>
         </td>
       </tr>
+      <?php $n = 1; ?>
       <?php foreach ($res as $row) {
         $appoint_id = $row['appoint_id'];
         $order_id = $row['order_id']; ?>
@@ -255,7 +256,10 @@ $total_price = 0;
           </td>
 
         </tr>
-      <?php } ?>
+        <?php if ( $n % 10 == 0 ) { ?>
+        <div style="page-break-before:always;"> </div>
+
+      <?php $n++; }} ?>
 
       <tr>
         <td colspan="4" height="2" align="left" valign="middle" bgcolor="#D9D9D9">
