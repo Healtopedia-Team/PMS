@@ -46,7 +46,7 @@ foreach ($result as $row) {
 
 foreach ($result2 as $row2) {
     $reqid = $row2['request_id'];
-    $order = $row2['request_id'];
+    $reqorder = $row2['request_id'];
     $packname = $row2['req_packname'];
     $appdate = $row2['req_appdate'];
     $status = $row2['req_status'];
@@ -130,7 +130,7 @@ foreach ($result2 as $row2) {
             //$sql2 = "INSERT INTO calendar SET cal_id = '$reqid', cal_name = '$packname', cal_start = '$start', cal_end = '$end', cal_status = '$status'";
             //mysqli_query($conn, $sql2);
             $sql2 = $conn->prepare("INSERT INTO calendar SET cal_id = ?, cal_orderid = ?, cal_name =?, cal_start = ?, cal_end = ?, cal_status = ?");
-            $sql2->bind_param("isssss", $appointid, $order, $hospname, $startapp, $endapp, $statusapp);
+            $sql2->bind_param("isssss", $appointid, $reqorder, $hospname, $startapp, $endapp, $statusapp);
             $sql2->execute();
         }
     }
