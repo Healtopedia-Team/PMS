@@ -54,17 +54,17 @@ if ($_SESSION["loggedin"] === true) {
 
 $timestamp = strtotime('today midnight +8 hour');
 $timestamp2 = strtotime('tomorrow midnight +8 hour');
-/*
+
 $result = mysqli_query($conn, "SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,FROM_UNIXTIME(appointwoo.start_appoint) AS start_appoint,appointwoo.statusapp,appointwoo.order_id FROM orderwoo LEFT JOIN appointwoo ON orderwoo.order_id=appointwoo.order_id WHERE appointwoo.start_appoint BETWEEN '$timestamp' AND '$timestamp2'");
 $appointment = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
+/*
 $hosp = $_SESSION["hospital"];
 $result2 = mysqli_query($conn, "SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
 $hospital_list = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
 $result3 = mysqli_query($conn, "SELECT * FROM packagewoo");
 $hospital_list2 = mysqli_fetch_all($result3, MYSQLI_ASSOC);
-*/
+
 
 $result = $conn->prepare("SELECT orderwoo.firstname,orderwoo.lastname,appointwoo.appoint_id,
     FROM_UNIXTIME(appointwoo.start_appoint) AS start_appoint,appointwoo.statusapp,appointwoo.order_id 
@@ -73,7 +73,7 @@ $result = $conn->prepare("SELECT orderwoo.firstname,orderwoo.lastname,appointwoo
 $result->bind_param("ss", $timestamp, $timestamp2);
 $result->execute();
 $appointment = $result->get_result()->fetch_all(MYSQLI_ASSOC);
-
+*/
 $hosp = $_SESSION["hospital"];
 $result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
 $result2->execute();
