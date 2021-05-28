@@ -68,12 +68,16 @@ if (isset($_POST['updatepms'])) {
     $name = $_POST['calcustomer'];
     $package = $_POST['calname'];
     $time = $_POST['calstart'];
-    $time2 = date('H:i', strtotime($_POST['calstart']));
+    $newtime = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']));
+    $newtime2 = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']+3600));
     $pmsid = $_POST['pmsid'];
 
     $query = "UPDATE requestappoint SET req_custname = '$name', req_apptime = '$time' WHERE request_id = '$pmsid'";
     if (mysqli_query($conn, $query)) {
-        header("Location: appoint-calendar.php");
+        $query2 = "UPDATE calendar SET cal_start = '$newtime', cal_end = '$newtime2' WHERE cal_id = '$pmsid'";
+        if (mysqli_query($conn, $query2)) {
+            header("Location: appoint-calendar.php");
+        }
      }
 }
 
@@ -175,6 +179,7 @@ $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
                                                                 <?php } ?>
                                                             </select><br>
                                                             <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:iA',strtotime($row['cal_start']));?>">
+                                                            <input type="text" name="caldate" class="form-control" value="<?php echo date('Y-m-d',strtotime($row['cal_start']));?>">
                                                 <?php } }?>
                                             </div>
                                             <div class="modal-footer">
