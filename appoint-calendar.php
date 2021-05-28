@@ -69,7 +69,7 @@ if (isset($_POST['updatepms'])) {
     $package = $_POST['calname'];
     $time = $_POST['calstart'];
     $newtime = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']));
-    $newtime2 = date('Y-m-d H:i', strtotime($newtime + 3600));
+    $newtime2 = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']));
     $pmsid = $_POST['pmsid'];
 
     $query = "UPDATE requestappoint SET req_custname = '$name', req_apptime = '$time' WHERE request_id = '$pmsid'";
@@ -77,7 +77,6 @@ if (isset($_POST['updatepms'])) {
         $query2 = "UPDATE calendar SET cal_start = '$newtime', cal_end = '$newtime2' WHERE cal_id = '$pmsid'";
         if (mysqli_query($conn, $query2)) {
             header("Location: appoint-calendar.php");
-        }
      }
 }
 
