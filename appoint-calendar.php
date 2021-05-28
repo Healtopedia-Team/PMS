@@ -155,7 +155,7 @@ if (isset($_POST['updatepms'])) {
                                                                         <b>Package : </b><?php echo $row5['package_name'];?><br>
                                                                     
                                                         <?php } }?>
-                                                        <b>Time : </b><?php echo date('h:i A',$row4['start_appoint']);?>
+                                                        <b>Time : </b><?php echo date('h:i A',$row4['start_appoint']-28800);?>
                                                 <?php } } } }?>
                                                 <?php foreach ($result3 as $row3) {
                                                     if ($row['cal_id'] == $row3['request_id']) {?>
