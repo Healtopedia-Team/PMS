@@ -73,6 +73,15 @@ $result3 = $conn->prepare("SELECT * FROM packagewoo");
 $result3->execute();
 $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
 
+$sql = "SELECT SUM(c.package_price) AS month_rev
+  FROM `orderwoo` a 
+  LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+  WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE()) 
+  AND MONTH(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = MONTH(CURDATE())";
+$res = $conn->prepare($sql);
+$res->bind_param("s", $hosp);
+$res->execute();
+$month_gross_revenue = $res->get_result()->fetch_assoc();
 
 ?>
 <!DOCTYPE html>
@@ -210,8 +219,8 @@ $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
                         </div>
                       </div>
                       <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">Monthly Revenue</h6>
-                        <h6 class="font-extrabold mb-0">RM112.38</h6>
+                        <h6 class="text-muted font-semibold">Monthly Gross Revenue</h6>
+                        <h6 class="font-extrabold mb-0"><?php echo $month_gross_revenue['month_rev'];?></h6>
                       </div>
                     </div>
                   </div>
@@ -248,7 +257,7 @@ $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
                                 $p_name =  $rows['prod_id'];
                                 $r1 = mysqli_query($conn, "SELECT packagewoo.package_name FROM packagewoo WHERE packagewoo.package_id='$p_name'");
                                 $r2 = mysqli_fetch_array($r1, MYSQLI_ASSOC);
-                                echo  $r2['package_name'];?><br>
+                                echo  $r2['package_name']; ?><br>
                                 <?php echo $rows['start_appoint']; ?><br>
                                 <?php
                                 $status = $rows['statusapp'];
