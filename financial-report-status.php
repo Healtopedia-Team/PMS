@@ -257,6 +257,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
 
                 </section>
             </div>
+            <script src="assets/vendors/apexcharts/apexcharts.js"></script>
             <script>
                 var month_revenue = []
                 var months = [
