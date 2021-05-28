@@ -1,7 +1,7 @@
 <?php
 
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
-
+session_start();
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
@@ -24,7 +24,6 @@ $data = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 $sql= "SELECT SUM(c.package_price) AS gross_revenue FROM `orderwoo` a 
 LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
 WHERE b.hosp_name=? ";
-print_r($hosp);
 $res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
 $res->execute();
