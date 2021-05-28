@@ -112,11 +112,11 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
                                             $up_or_down = $month[$current_month] / $month[$previous_month];
                                             if ($up_or_down >= 1) {
                                                 $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
-                                                $style = "color:green; font-weight:900; font-size:1.5 rem;";
+                                                $style = "color:green; font-weight:900; font-size:1.4rem;";
                                                 $arrow = "up";
                                             } else {
                                                 $res = '-' .  sprintf('%.2f', $up_or_down * 100) . '%';
-                                                $style = "color:red; font-weight:900; font-size:1.5 rem;";
+                                                $style = "color:red; font-weight:900; font-size:1.4rem;";
                                                 $arrow = "down";
                                             }
                                             ?>
