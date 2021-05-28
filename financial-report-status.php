@@ -209,7 +209,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         <div class="col-md-5">
                             <div class="card">
                                 <div class="card-header">
-                                    <h5 class="font-bold" style="font-size: 1.1rem;"> Monthly Chart</h6>
+                                    <h5 class="font-bold" style="font-size: 1.1rem;"> Monthly Chart</h5>
                                 </div>
                                 <div class="card-body">
                                     <div id="chart-monthly-revenue"></div>
@@ -220,9 +220,9 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         <div class="col-md-7">
                             <div class="card-header">
                                 <div class="card-header">
-                                    <h5 class="font-bold">Monthly Revenue</h6>
+                                    <h5 class="font-bold">Monthly Revenue</h5>
                                 </div>
-                                <div class="card-body" style="position: relative; height: 380px; overflow: auto; display: block;">
+                                <div class="card-body" style="overflow: auto; display: block;">
                                     <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;">
                                         <thead class="thead-light">
                                             <tr>
