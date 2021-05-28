@@ -41,6 +41,18 @@ $res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
 $res->execute();
 $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql2 = "SELECT
+SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
+SUM(c.package_price) AS Gross_revenue,
+COUNT(b.order_id) AS Appointments_per_mth
+FROM `orderwoo` a 
+LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())
+GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d'))";
+$res2->bind_param("s", $hosp);
+$res2->execute();
+$monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -222,17 +234,15 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($gross_revenue as $value){ 
-                                                    foreach(array_keys($value) as $month){?>
+                                                <?php foreach ($monthly_revenue as $value) { ?>
                                                     <tr>
-                                                        <th scope="row"><?php echo $month ?></th>
-                                                        <td>RM <?php echo $value[$month] ?>.00</td>
+                                                        <th scope="row"><?php echo $value['Month'] ?></th>
+                                                        <td>RM <?php echo $value['Gross_revenue'] ?>.00</td>
                                                         <td>RM 0</td>
                                                         <td>RM 500.00</td>
-                                                        <td>4</td>
-                                                        <?php print_r($month);?>
+                                                        <td><?php echo $value['Appointments_per_mth'] ?></td>
                                                     </tr>
-                                                <?php }} ?>
+                                                <?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
