@@ -8,7 +8,10 @@ if (isset($_POST['reqaccept'])) {
     $confirmid = $_POST['confirmid'];
     $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-pending.php";</script>';
+        $sql2 = "UPDATE calendar SET cal_status = 'approved' WHERE cal_id = '$confirmid'";
+        if (mysqli_query($conn,$sql2)) {
+            echo '<script>window.location.href = "request-appointment-all.php";</script>';
+        }
     }
 }
 
@@ -16,7 +19,10 @@ if (isset($_POST['reqreject'])) {
     $confirmid = $_POST['confirmid'];
     $sql = "DELETE FROM requestappoint WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-pending.php";</script>';
+        $sql2 = "DELETE FROM calendar WHERE cal_id = '$confirmid'";
+        if (mysqli_query($conn,$sql2)) {
+            echo '<script>window.location.href = "request-appointment-all.php";</script>';
+        }
     }
 }
 if (isset($_POST['updatedate'])) {
@@ -25,7 +31,7 @@ if (isset($_POST['updatedate'])) {
     $sql = "UPDATE requestappoint SET req_appdate = '$postponedate', req_status = 'postponed' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request date postponed.");</script>';
-        echo '<script>window.location.href = "request-appointment-approved.php";</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
 
@@ -33,7 +39,10 @@ if (isset($_POST['reqcomplete'])) {
     $confirmid = $_POST['confirmid'];
     $sql = "UPDATE requestappoint SET req_status = 'completed' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
-        echo '<script>window.location.href = "request-appointment-approved.php";</script>';
+        $sql2 = "UPDATE calendar SET cal_status = 'completed' WHERE cal_id = '$confirmid'";
+        if (mysqli_query($conn,$sql2)) {
+            echo '<script>window.location.href = "request-appointment-all.php";</script>';
+        }
     }
 }
 
@@ -43,7 +52,7 @@ if (isset($_POST['updatedate'])) {
     $sql = "UPDATE requestappoint SET req_appdate = '$postponedate' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request date postponed.");</script>';
-        echo '<script>window.location.href = "request-appointment-postponed.php";</script>';
+        echo '<script>window.location.href = "request-appointment-all.php";</script>';
     }
 }
 ?>
