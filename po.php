@@ -523,13 +523,6 @@ $total_price=0;
           </b>
         </td>
       </tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-
     </tbody>
   </table>
 </body>
