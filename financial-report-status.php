@@ -109,22 +109,22 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 
                                             </div>
                                             <?php
-                                            $up_or_down =$month[$current_month] / $month[$previous_month];
+                                            $up_or_down = $month[$current_month] / $month[$previous_month];
                                             if ($up_or_down >= 1) {
                                                 $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
-                                                $style = "color:green; font-weight:900;";
+                                                $style = "color:green; font-weight:900; font-size:1.5 rem;";
                                                 $arrow = "up";
                                             } else {
                                                 $res = '-' .  sprintf('%.2f', $up_or_down * 100) . '%';
-                                                $style = "color:red; font-weight:900;";
+                                                $style = "color:red; font-weight:900; font-size:1.5 rem;";
                                                 $arrow = "down";
                                             }
                                             ?>
                                             <div class="col-md-5">
                                                 <i class="fa-4x bi bi-graph-<?php echo $arrow; ?>" style="<?php echo $style; ?>">
-                                                    
+
                                                 </i>
-                                                <span style="margin:0; font-style: normal;"><?php echo $res; ?></span>
+                                                <span style="margin:0; font-style: normal; <?php echo $style; ?>"><?php echo $res; ?></span>
                                             </div>
                                         </div>
                                     </div>
