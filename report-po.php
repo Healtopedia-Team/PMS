@@ -21,7 +21,7 @@ ob_end_clean();
 $dompdf = new Dompdf();
 //require_once 'https://pms.healtopedia.com/po.php?cur_date='. $cur_date ;
 //print ob_get_level();
-
+$dompdf->set_option('isHtml5ParserEnabled', TRUE);
 //to put other html file
 //$html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
 $dompdf->setBasePath(realpath('report-style.css'));
