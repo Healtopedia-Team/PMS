@@ -21,7 +21,7 @@ $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.packa
     FROM `orderwoo` a 
     LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
     WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())";
-$res = $connect->prepare($sql);
+$res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
 $res->execute();
 $result = $res->get_result()->fetch_all(MYSQLI_ASSOC);
