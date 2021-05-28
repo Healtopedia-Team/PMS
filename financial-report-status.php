@@ -8,7 +8,9 @@ $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 $hosp = $_SESSION['hospital'];
 session_start();
-
+$current_month = date("F");
+$previous_month = date('F', strtotime(date('Y-m')." -1 month"));
+print_r($previous_month);
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
@@ -21,13 +23,25 @@ $result = $conn->prepare("SELECT * FROM requestappoint WHERE req_status = 'compl
 $result->execute();
 $data = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
-$sql= "SELECT SUM(c.package_price) AS gross_revenue FROM `orderwoo` a 
-LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-WHERE b.hosp_name=? ";
+$sql= "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 3 , c.package_price, 0)) AS Mar,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 4 , c.package_price, 0)) AS Apr,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 5 , c.package_price, 0)) AS May,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 6 , c.package_price, 0)) AS Jun,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 7 , c.package_price, 0)) AS Jul,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 8 , c.package_price, 0)) AS Aug,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 9 , c.package_price, 0)) AS Sep,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 10 , c.package_price, 0)) AS 'Oct',
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 11, c.package_price, 0)) AS Nov,
+    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12 , c.package_price, 0)) AS 'Dec' 
+    FROM `orderwoo` a 
+    LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+    WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())";
 $res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
 $res->execute();
-$gross_revenue = $res->get_result()->fetch_assoc();
+$gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 //print_r($gross_revenue);
 ?>
 <!DOCTYPE html>
@@ -85,7 +99,7 @@ $gross_revenue = $res->get_result()->fetch_assoc();
                                                 <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                             </div>
                                             <div class="row">
-                                                <h5 class="font-bold" style="font-size: 1.1rem;"><?php echo $gross_revenue['gross_revenue']?></h5>
+                                                <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $gross_revenue[$current_month]?>.00</h5>
                                             </div>
                                             <div class="row">
                                                 <h6 class="text-muted font-semibold">Previous Month</h6>
