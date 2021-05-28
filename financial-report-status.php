@@ -10,6 +10,7 @@ $hosp = $_SESSION['hospital'];
 session_start();
 $current_month = date("F");
 $previous_month = date('F', strtotime(date('Y-m')." -1 month"));
+print_r($current_month);
 print_r($previous_month);
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
