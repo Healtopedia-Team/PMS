@@ -5,7 +5,7 @@ session_start();
 $hosp = $_SESSION['hospital'];
 
 //$current_date = $_GET['cur_date'];
-if ($cur_date != ''){
+if ($cur_date != '') {
   $current_date = $cur_date;
 } else {
   $current_date = $_GET['cur_date'];
@@ -26,7 +26,7 @@ $result->bind_param("ss", $current_date, $hosp);
 $result->execute();
 $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
-$total_price=0;
+$total_price = 0;
 //var_dump($res);
 ?>
 
@@ -50,6 +50,7 @@ $total_price=0;
   table {
     font-size: 10px;
     margin-top: 0 !important;
+    page-break-inside: auto;
   }
 
   .purchase-order>table {
