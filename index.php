@@ -249,7 +249,9 @@ $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
                                 $r1 = mysqli_query($conn, "SELECT packagewoo.package_name FROM packagewoo WHERE packagewoo.package_id='$p_name'");
                                 $r2 = mysqli_fetch_array($r1, MYSQLI_ASSOC);
                                 echo  $r2['package_name'];?><br>
-                                <?php echo $rows['start_appoint']; ?><br>
+                                <?php
+                          $start_time = date("h:i a", $rows['start_appoint']);
+                          echo $start_time ?><br>
                                 <?php
                                 $status = $rows['statusapp'];
                                 if ($status == "paid") {
