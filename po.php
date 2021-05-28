@@ -255,23 +255,6 @@ $total_price=0;
 
         </tr>
       <?php } ?>
-      <tr class="fill">
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="3" align="left" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" sdnum="1033;0;#,##0.00;(#,##0.00)">
-          <font color="#000000"><br /></font>
-        </td>
-        <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-          <font color="#000000">0.00</font>
-        </td>
-      </tr>
 
       <tr>
         <td colspan="4" height="2" align="left" valign="middle" bgcolor="#D9D9D9">
