@@ -28,7 +28,7 @@ $dompdf = new Dompdf();
 //$html = file_get_contents('https://pms.healtopedia.com/po.php?cur_date='.$cur_date);
 $dompdf->setBasePath(realpath('report-style.css'));
 
-$html = preg_replace('/>\s+</', '><', $html);
+//$html = preg_replace('/>\s+</', '><', $html);
 
 //$dompdf->loadHtmlFile('https://pms.healtopedia.com/po.php?cur_date=' . $cur_date);
 $dompdf->loadHtml($html);
