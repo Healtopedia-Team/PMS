@@ -84,7 +84,7 @@ $gross_revenue = $res->get_result()->fetch_assoc();
                                                 <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                             </div>
                                             <div class="row">
-                                                <h5 class="font-bold" style="font-size: 1.1rem;"><?php echo $gross_revenue?></h5>
+                                                <h5 class="font-bold" style="font-size: 1.1rem;"><?php echo $gross_revenue['gross_revenue']?></h5>
                                             </div>
                                             <div class="row">
                                                 <h6 class="text-muted font-semibold">Previous Month</h6>
