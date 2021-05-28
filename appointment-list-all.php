@@ -51,8 +51,8 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php foreach ($user as $row) {
-                                        /*
-                                        $orderid = $row['order_id'];
+                                        
+                                        $orderid = $row['order_id'];/*
                                         $result2 = mysqli_query($conn, "SELECT appointwoo.start_appoint FROM appointwoo LEFT JOIN orderwoo ON orderwoo.order_id=appointwoo.order_id WHERE orderwoo.order_id=$orderid LIMIT 1");
                                         $timee = mysqli_fetch_all($result2, MYSQLI_ASSOC);
                                         */
@@ -78,7 +78,7 @@
                                             </td>
                                             <td>
                                                 <?php foreach ($timee as $rows) {
-                                                    echo $rows['start_appoint'];
+                                                    echo date('Y-m-d', $rows['start_appoint']);
                                                 } ?>
                                             </td>
                                             <td>
