@@ -218,37 +218,34 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <div class="card">
-                                <div class="card-body px-4 py-3">
-                                    <div class="row">
-                                        <h5 class="font-bold">Monthly Revenue</h6>
-                                    </div>
-                                    <div class="row px-4 py-1" style="position: relative; height: 380px; overflow: auto; display: block;">
-                                        <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th scope="col">Month</th>
-                                                    <th scope="col">Gross Revenue</th>
-                                                    <th scope="col">Refund</th>
-                                                    <th scope="col">Net Revenue</th>
-                                                    <th scope="col">Appointment</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <?php foreach ($monthly_revenue as $value) { ?>
-                                                    <tr>
-                                                        <th scope="row"><?php echo $value['Month'] ?></th>
-                                                        <td>RM <?php echo $value['Gross_revenue'] ?>.00</td>
-                                                        <td>RM 0</td>
-                                                        <td>RM 500.00</td>
-                                                        <td><?php echo $value['Appointments_per_mth'] ?></td>
-                                                    </tr>
-                                                <?php } ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                            <div class="card-header">
+                                <div class="card-header">
+                                    <h5 class="font-bold">Monthly Revenue</h6>
                                 </div>
-
+                                <div class="card-body" style="position: relative; height: 380px; overflow: auto; display: block;">
+                                    <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">Month</th>
+                                                <th scope="col">Gross Revenue</th>
+                                                <th scope="col">Refund</th>
+                                                <th scope="col">Net Revenue</th>
+                                                <th scope="col">Appointment</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($monthly_revenue as $value) { ?>
+                                                <tr>
+                                                    <th scope="row"><?php echo $value['Month'] ?></th>
+                                                    <td>RM <?php echo $value['Gross_revenue'] ?>.00</td>
+                                                    <td>RM 0</td>
+                                                    <td>RM 500.00</td>
+                                                    <td><?php echo $value['Appointments_per_mth'] ?></td>
+                                                </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
