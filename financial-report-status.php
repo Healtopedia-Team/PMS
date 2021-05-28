@@ -219,7 +219,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         </div>
                         <div class="col-md-7">
                             <div class="card-header">
-                                <div class="card-header" style="border-bottom: none;">
+                                <div class="card-header" style="border-bottom: none; padding: 1.0rem;">
                                     <h5 class="font-bold">Monthly Revenue</h5>
                                 </div>
                                 <div class="card-body" style="overflow: auto; padding: 0rem;  max-height:360px;">
