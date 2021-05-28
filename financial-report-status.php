@@ -54,7 +54,6 @@ $res2 = $conn->prepare($sql2);
 $res2->bind_param("s", $hosp);
 $res2->execute();
 $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
-print_r($monthly_revenue);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -210,10 +209,12 @@ print_r($monthly_revenue);
                         <div class="col-md-5">
                             <div class="card">
                                 <div class="card-body px-4 py-3">
-                                    <div class="row">
+                                    <div class="card-header">
                                         <h5 class="font-bold" style="font-size: 1.1rem;"> Monthly Chart</h6>
                                     </div>
-                                    <div class="row"></div>
+                                    <div class="card-body">
+                                        <div id="chart-monthly-revenue"></div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -256,5 +257,90 @@ print_r($monthly_revenue);
 
                 </section>
             </div>
+            <script>
+                var month_revenue = []
+                var months = [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun',
+                    'Jul',
+                    'Aug',
+                    'Sep',
+                    'Oct',
+                    'Nov',
+                    'Dec'
+                ]
+                var MonthlyRevenue = {
+                    annotations: {
+                        position: 'back'
+                    },
+                    dataLabels: {
+                        enabled: false
+                    },
+                    chart: {
+                        type: 'bar',
+                        height: 300
+                    },
+                    fill: {
+                        opacity: 1
+                    },
+                    plotOptions: {},
+                    series: [{
+                        name: 'Gross Revenue',
+                        data: month_revenue
+                    }],
+                    colors: '#435ebe',
+                    xaxis: {
+                        categories: [
+                            'Jan',
+                            'Feb',
+                            'Mar',
+                            'Apr',
+                            'May',
+                            'Jun',
+                            'Jul',
+                            'Aug',
+                            'Sep',
+                            'Oct',
+                            'Nov',
+                            'Dec'
+                        ]
+                    }
+                }
+
+                var ChartMonthlyRevenue = new ApexCharts(
+                    document.querySelector('#chart-monthly-revenue'),
+                    MonthlyRevenue
+                )
+                ChartMonthlyRevenue.render()
+
+                $.getJSON('month_revenue_chart.php', function(jsonObject) {
+                    let i = 0
+                    for (let x in months) {
+                        if (i < 12) {
+                            month_revenue.push(parseInt(jsonObject[x]))
+                        }
+                        i += 1
+                    }
+                    ChartMonthlyRevenue.updateSeries([{
+                        name: 'Gross Revenue',
+                        data: month_revenue
+                    }])
+                    window.dispatchEvent(new Event('resize'))
+
+                })
+
+                //setTimeout(load_chart(), 500)
+                //window.onload = load_chart()
+                //console.log(month_revenue)
+                /*
+                $(document).ready(function() {
+                    load_chart()
+                });
+                */
+            </script>
 
             <?php include 'request-appointment-footer.php'; ?>
