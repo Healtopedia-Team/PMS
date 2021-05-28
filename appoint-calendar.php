@@ -179,7 +179,7 @@ $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
                                                                 <?php } ?>
                                                             </select><br>
                                                             <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:iA',strtotime($row['cal_start']));?>">
-                                                            <input type="text" name="caldate" class="form-control" value="<?php echo date('Y-m-d',strtotime($row['cal_start']));?>">
+                                                            <input type="text" name="caldate" class="form-control" value="<?php echo date('Y-m-d',strtotime($row['cal_start']));?>" style="display: none;">
                                                 <?php } }?>
                                             </div>
                                             <div class="modal-footer">
