@@ -123,13 +123,13 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                                             </div>
                                             <?php
                                             $up_or_down = $value[$current_month] / $value[$previous_month];
-                                            if ($up_or_down >= 1) {
+                                            if ($up_or_down < 1) {
                                                 $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
-                                                $style = "color:green; font-weight:900; font-size:1.4rem;";
+                                                $style = "color:green; font-weight:900; font-size:1.4rem; text-align: center;";
                                                 $arrow = "up";
                                             } else {
                                                 $res = '-' .  sprintf('%.2f', $up_or_down * 100) . '%';
-                                                $style = "color:red; font-weight:900; font-size:1.4rem;";
+                                                $style = "color:red; font-weight:900; font-size:1.4rem; text-align: center;";
                                                 $arrow = "down";
                                             }
                                             ?>
