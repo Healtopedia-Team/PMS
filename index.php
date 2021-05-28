@@ -247,7 +247,7 @@ $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
                                 <?php
                                 $p_name =  $rows['prod_id'];
                                 $r1 = mysqli_query($conn, "SELECT packagewoo.package_name FROM packagewoo WHERE packagewoo.package_id='$p_name'");
-                                $r2 = mysqli_fetch_all($r1, MYSQLI_ASSOC);
+                                $r2 = mysqli_fetch_array($r1, MYSQLI_ASSOC);
                                 echo  $r2['package_name'];?><br>
                                 <?php echo $rows['start_appoint']; ?><br>
                                 <?php
