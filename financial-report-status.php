@@ -8,8 +8,8 @@ $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 $hosp = $_SESSION['hospital'];
 session_start();
-$current_month = date("F");
-$previous_month = date('F', strtotime(date('Y-m')." -1 month"));
+$current_month = substr(date("F"),0,3);
+$previous_month = substr(date('F', strtotime(date('Y-m')." -1 month")), 0, 3);
 print_r($current_month);
 print_r($previous_month);
 // Check if the user is logged in, if not then redirect him to login page
@@ -43,7 +43,7 @@ $res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
 $res->execute();
 $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
-//print_r($gross_revenue);
+print_r($gross_revenue);
 ?>
 <!DOCTYPE html>
 <html lang="en">
