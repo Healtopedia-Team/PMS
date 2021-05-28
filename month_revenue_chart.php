@@ -1,6 +1,6 @@
 <?php
 //count the appointments number per month
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
+$connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Healit20.');
 session_start();
 $hosp = $_SESSION['hospital'];
 $data = array();
@@ -20,11 +20,11 @@ $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.packa
     SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12 , c.package_price, 0)) AS 'Dec' 
     FROM `orderwoo` a 
     LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-    WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())";
-$res = $conn->prepare($sql);
-$res->bind_param("s", $hosp);
+    WHERE b.hosp_name=:hosp AND a.status='completed' AND YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())";
+$res = $connect->prepare($sql);
+$res->bindParam(":hosp", $hosp);
 $res->execute();
-$result = $res->get_result()->fetch_assoc();
+$result = $res->fetch();
 
 echo json_encode($result);
 
