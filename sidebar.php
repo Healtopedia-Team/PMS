@@ -81,7 +81,7 @@ $role = $_SESSION['role'];
                             <i class="bi bi-file-earmark-text-fill"></i>
                             <span>Finance</span>
                         </a>
-                        <ul class="submenu <?php if ($your_variable == "po-list" || $your_variable == "financial-report-status") {
+                        <ul class="submenu <?php if ($your_variable == "po-list" || $your_variable == "financial-report-status" || $your_variable == "request-refund") {
                                                 echo "active";
                                             } else {
                                                 echo "noactive";
@@ -99,6 +99,13 @@ $role = $_SESSION['role'];
                                                             echo "noactive";
                                                         } ?>">
                                 <a href="financial-report-status.php">Financial Report</a>
+                            </li>
+                            <li class="submenu-item  <?php if ($your_variable == "request-refund") {
+                                                            echo "active";
+                                                        } else {
+                                                            echo "noactive";
+                                                        } ?>">
+                                <a href="request-refund.php">Request Refund</a>
                             </li>
 
                         </ul>
