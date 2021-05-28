@@ -242,7 +242,7 @@ $total_price = 0;
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
             <font color="#000000"><?php echo $order_id . "/" . $appoint_id ?></font>
           </td>
-          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7; max-width: 60%;" colspan="3" align="left" valign="middle">
+          <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7; max-width: 50%;" colspan="3" align="left" valign="middle">
             <font color="#000000"><?php echo $row['hosp_name'] . " --- " . $row['package_name'] . " --- " . date("(d/m/Y)(h:ia)", $row['start_appoint'] - 28800) . " (" . $row['firstname'] . " " . $row['lastname'] . ")" ?></font>
           </td>
           <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
