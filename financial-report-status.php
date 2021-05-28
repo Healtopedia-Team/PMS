@@ -208,13 +208,11 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <div class="row">
                         <div class="col-md-5">
                             <div class="card">
-                                <div class="card-body px-4 py-3">
-                                    <div class="card-header">
-                                        <h5 class="font-bold" style="font-size: 1.1rem;"> Monthly Chart</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div id="chart-monthly-revenue"></div>
-                                    </div>
+                                <div class="card-header">
+                                    <h5 class="font-bold" style="font-size: 1.1rem;"> Monthly Chart</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart-monthly-revenue"></div>
                                 </div>
 
                             </div>
