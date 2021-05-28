@@ -27,7 +27,7 @@ WHERE b.hosp_name=? ";
 $res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
 $gross_revenue = $res->get_result()->fetch_assoc();
-
+print_r($gross_revenue);
 ?>
 <!DOCTYPE html>
 <html lang="en">
