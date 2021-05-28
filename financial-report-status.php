@@ -26,6 +26,7 @@ LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod
 WHERE b.hosp_name=? ";
 $res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
+$res->execute();
 $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 print_r($gross_revenue);
 ?>
