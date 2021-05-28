@@ -109,19 +109,19 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 
                                             </div>
                                             <?php
-                                            $up_or_down = sprintf('%.2f', $month[$current_month] / $month[$previous_month]);
+                                            $up_or_down =$month[$current_month] / $month[$previous_month];
                                             if ($up_or_down >= 1) {
-                                                $res = '+' . $up_or_down * 100 . '%';
-                                                $style = "color:green;";
+                                                $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
+                                                $style = "color:green; font-weight:900;";
                                                 $arrow = "up";
                                             } else {
-                                                $res = '-' . $up_or_down * 100 . '%';
-                                                $style = "color:red;";
+                                                $res = '-' .  sprintf('%.2f', $up_or_down * 100) . '%';
+                                                $style = "color:red; font-weight:900;";
                                                 $arrow = "down";
                                             }
                                             ?>
                                             <div class="col-md-5">
-                                                <i class="bi bi-graph-<?php echo $arrow; ?>" style="<?php echo $style; ?>">
+                                                <i class="fa-2x bi bi-graph-<?php echo $arrow; ?>" style="<?php echo $style; ?>">
                                                     <span style="margin:0; font-style: normal;"><?php echo $res; ?></span>
                                                 </i>
                                             </div>
