@@ -75,6 +75,9 @@ if (isset($_POST['updatepms'])) {
         header("Location: appoint-calendar.php");
      }
 }
+
+$query = mysqli_query($conn,"SELECT package_name FROM packagewoo ORDER BY package_id DESC");
+$data = mysqli_fetch_all($query,MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -162,7 +165,13 @@ if (isset($_POST['updatepms'])) {
                                                         <form method="POST">
                                                             <input type="text" name="pmsid" value="<?php echo $row3['request_id'];?>" style="display: none;">
                                                             <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
-                                                            <b>Package : </b><input type="text" name="calname" class="form-control" value="<?php echo $row['cal_name'];?>"><br>
+                                                            <b>Package : </b>
+                                                            <select class="choices form-select" name="packname" required>
+                                                                <option value="">Select Package</option>
+                                                                <?php foreach($data as $key){ ?>
+                                                                    <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
+                                                                    <?php } ?>
+                                                                </select><br>
                                                             <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:i A',strtotime($row['cal_start']));?>">
                                                 <?php } }?>
                                             </div>
