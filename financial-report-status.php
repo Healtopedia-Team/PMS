@@ -8,10 +8,8 @@ $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 $hosp = $_SESSION['hospital'];
 session_start();
-$current_month = substr(date("F"),0,3);
-$previous_month = substr(date('F', strtotime(date('Y-m')." -1 month")), 0, 3);
-print_r($current_month);
-print_r($previous_month);
+$current_month = substr(date("F"), 0, 3);
+$previous_month = substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
@@ -22,9 +20,9 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 
 $result = $conn->prepare("SELECT * FROM requestappoint WHERE req_status = 'completed' ORDER BY request_id");
 $result->execute();
-$data = $result->get_result()->fetch_array();
+$data = $result->get_result()->fetch_assoc();
 
-$sql= "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
+$sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
     SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
     SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 3 , c.package_price, 0)) AS Mar,
     SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 4 , c.package_price, 0)) AS Apr,
@@ -90,190 +88,192 @@ print_r($gross_revenue);
                     </div>
                 </div>
                 <section class="section">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body px-4 py-3">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-7">
-                                            <div class="row">
-                                                <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
-                                            </div>
-                                            <div class="row">
-                                                <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $gross_revenue[$current_month]?>.00</h5>
-                                            </div>
-                                            <div class="row">
-                                                <h6 class="text-muted font-semibold">Previous Month</h6>
-                                            </div>
-                                            <div class="row">
-                                                <h6 class="font-bold">RM 16402.00</h6>
-                                            </div>
+                    <?php foreach ($gross_revenue as $month) : ?>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body px-4 py-3">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-7">
+                                                <div class="row">
+                                                    <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $month[$current_month] ?>.00</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <h6 class="text-muted font-semibold">Previous Month</h6>
+                                                </div>
+                                                <div class="row">
+                                                    <h6 class="font-bold">RM <?php echo $month[$previous_month] ?>.00</h6>
+                                                </div>
 
-                                        </div>
-                                        <div class="col-md-5">
-                                            <i class="bi bi-graph-up">
-                                                <span style="margin:0; font-style: normal;">+15.97%</span>
-                                            </i>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <i class="bi bi-graph-up">
+                                                    <span style="margin:0; font-style: normal;">+15.97%</span>
+                                                </i>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body px-4 py-3">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-7">
+                                                <div class="row">
+                                                    <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Refunds</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM 0.00</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <h6 class="text-muted font-semibold">Previous Month</h6>
+                                                </div>
+                                                <div class="row">
+                                                    <h6 class="font-bold">RM 102.00</h6>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-5">
+                                                <i class="bi bi-graph-up">
+                                                    <span style="margin:0; font-style: normal;">+102.00%</span>
+                                                </i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body px-4 py-3">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-7">
+                                                <div class="row">
+                                                    <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Net Revenue</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM 19023.00</h5>
+                                                </div>
+                                                <div class="row">
+                                                    <h6 class="text-muted font-semibold">Previous Month</h6>
+                                                </div>
+                                                <div class="row">
+                                                    <h6 class="font-bold">RM 16302.00</h6>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-5">
+                                                <i class="bi bi-graph-up">
+                                                    <span style="margin:0; font-style: normal;">+16.69%</span>
+                                                </i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body px-4 py-3">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-7">
-                                            <div class="row">
-                                                <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Refunds</h5>
-                                            </div>
-                                            <div class="row">
-                                                <h5 class="font-bold" style="font-size: 1.1rem;">RM 0.00</h5>
-                                            </div>
-                                            <div class="row">
-                                                <h6 class="text-muted font-semibold">Previous Month</h6>
-                                            </div>
-                                            <div class="row">
-                                                <h6 class="font-bold">RM 102.00</h6>
-                                            </div>
-
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body px-4 py-3">
+                                        <div class="row">
+                                            <h5 class="font-bold" style="font-size: 1.1rem;">Chart</h6>
                                         </div>
-                                        <div class="col-md-5">
-                                            <i class="bi bi-graph-up">
-                                                <span style="margin:0; font-style: normal;">+102.00%</span>
-                                            </i>
+                                        <div class="row"></div>
+                                    </div>
 
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-body px-4 py-3">
+                                        <div class="row">
+                                            <h5 class="font-bold">Daily Revenue</h6>
+                                        </div>
+                                        <div class="row px-4 py-1" style="position: relative; height: 380px; overflow: auto; display: block;">
+                                            <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
+                                                <thead class="thead-light">
+                                                    <tr>
+                                                        <th scope="col">Date</th>
+                                                        <th scope="col">Gross Revenue</th>
+                                                        <th scope="col">Refund</th>
+                                                        <th scope="col">Net Revenue</th>
+                                                        <th scope="col">Appointment</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">22nd</th>
+                                                        <td>RM 500.00</td>
+                                                        <td>RM 0</td>
+                                                        <td>RM 500.00</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">23rd</th>
+                                                        <td>RM 1000.00</td>
+                                                        <td>RM 0</td>
+                                                        <td>RM 1000.00</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">24th</th>
+                                                        <td>RM 500.00</td>
+                                                        <td>RM 100</td>
+                                                        <td>RM 400.00</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">25th</th>
+                                                        <td>RM 1500.00</td>
+                                                        <td>RM 0</td>
+                                                        <td>RM 1500.00</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">22nd</th>
+                                                        <td>RM 500.00</td>
+                                                        <td>RM 0</td>
+                                                        <td>RM 500.00</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">23rd</th>
+                                                        <td>RM 1000.00</td>
+                                                        <td>RM 0</td>
+                                                        <td>RM 1000.00</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">24th</th>
+                                                        <td>RM 500.00</td>
+                                                        <td>RM 100</td>
+                                                        <td>RM 400.00</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">25th</th>
+                                                        <td>RM 1500.00</td>
+                                                        <td>RM 0</td>
+                                                        <td>RM 1500.00</td>
+                                                        <td>4</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body px-4 py-3">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-7">
-                                            <div class="row">
-                                                <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Net Revenue</h5>
-                                            </div>
-                                            <div class="row">
-                                                <h5 class="font-bold" style="font-size: 1.1rem;">RM 19023.00</h5>
-                                            </div>
-                                            <div class="row">
-                                                <h6 class="text-muted font-semibold">Previous Month</h6>
-                                            </div>
-                                            <div class="row">
-                                                <h6 class="font-bold">RM 16302.00</h6>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-md-5">
-                                            <i class="bi bi-graph-up">
-                                                <span style="margin:0; font-style: normal;">+16.69%</span>
-                                            </i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body px-4 py-3">
-                                    <div class="row">
-                                        <h5 class="font-bold" style="font-size: 1.1rem;">Chart</h6>
-                                    </div>
-                                    <div class="row"></div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-body px-4 py-3">
-                                    <div class="row">
-                                        <h5 class="font-bold">Daily Revenue</h6>
-                                    </div>
-                                    <div class="row px-4 py-1" style="position: relative; height: 380px; overflow: auto; display: block;">
-                                        <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
-                                            <thead class="thead-light">
-                                                <tr>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Gross Revenue</th>
-                                                    <th scope="col">Refund</th>
-                                                    <th scope="col">Net Revenue</th>
-                                                    <th scope="col">Appointment</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">22nd</th>
-                                                    <td>RM 500.00</td>
-                                                    <td>RM 0</td>
-                                                    <td>RM 500.00</td>
-                                                    <td>4</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">23rd</th>
-                                                    <td>RM 1000.00</td>
-                                                    <td>RM 0</td>
-                                                    <td>RM 1000.00</td>
-                                                    <td>4</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">24th</th>
-                                                    <td>RM 500.00</td>
-                                                    <td>RM 100</td>
-                                                    <td>RM 400.00</td>
-                                                    <td>4</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">25th</th>
-                                                    <td>RM 1500.00</td>
-                                                    <td>RM 0</td>
-                                                    <td>RM 1500.00</td>
-                                                    <td>4</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">22nd</th>
-                                                    <td>RM 500.00</td>
-                                                    <td>RM 0</td>
-                                                    <td>RM 500.00</td>
-                                                    <td>4</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">23rd</th>
-                                                    <td>RM 1000.00</td>
-                                                    <td>RM 0</td>
-                                                    <td>RM 1000.00</td>
-                                                    <td>4</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">24th</th>
-                                                    <td>RM 500.00</td>
-                                                    <td>RM 100</td>
-                                                    <td>RM 400.00</td>
-                                                    <td>4</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">25th</th>
-                                                    <td>RM 1500.00</td>
-                                                    <td>RM 0</td>
-                                                    <td>RM 1500.00</td>
-                                                    <td>4</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach ?>
                 </section>
             </div>
 
