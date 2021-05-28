@@ -67,10 +67,11 @@ $result5 = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
 if (isset($_POST['updatepms'])) {
     $name = $_POST['calcustomer'];
     $package = $_POST['calname'];
-    $time = date('H:i', strtotime($_POST['calstart']));
+    $time = $_POST['calstart'];
+    $time2 = date('H:i', strtotime($_POST['calstart']));
     $pmsid = $_POST['pmsid'];
 
-    $query = "UPDATE requestappoint SET req_custname = '$name' WHERE request_id = '$pmsid'";
+    $query = "UPDATE requestappoint SET req_custname = '$name', req_apptime = '$time' WHERE request_id = '$pmsid'";
     if (mysqli_query($conn, $query)) {
         header("Location: appoint-calendar.php");
      }
