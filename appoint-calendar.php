@@ -146,7 +146,7 @@ if (isset($_POST['updatepms'])) {
                                             </div>
                                             <div class="modal-body">
                                                 <?php foreach ($result2 as $row2) {
-                                                    if ($row['cal_id'] == $row2['cust_id']) {?>
+                                                    if ($row['cal_orderid'] == $row2['order_id']) {?>
                                                         <b>Name : </b><?php echo $row2['firstname']." ".$row2['lastname'];?><br>
                                                         <?php foreach ($result4 as $row4) {
                                                             if ($row['cal_id'] == $row4['appoint_id']) {
