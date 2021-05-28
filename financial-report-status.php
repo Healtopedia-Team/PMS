@@ -287,10 +287,13 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         opacity: 1
                     },
                     plotOptions: {
+                        /*
+                        Uncomment this line if want horizontal bar
                         bar: {
                             borderRadius: 4,
                             horizontal: true,
                         }
+                        */
                     },
                     series: [{
                         name: 'Gross Revenue(RM)',
