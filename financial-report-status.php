@@ -222,10 +222,10 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($gross_revenue as $month => $value): ?>
+                                                <?php foreach (array_keys($gross_revenue) as $month): ?>
                                                     <tr>
                                                         <th scope="row"><?php echo $month ?></th>
-                                                        <td>RM <?php echo $value[$month] ?>.00</td>
+                                                        <td>RM <?php echo $gross_revenue[$month] ?>.00</td>
                                                         <td>RM 0</td>
                                                         <td>RM 500.00</td>
                                                         <td>4</td>
