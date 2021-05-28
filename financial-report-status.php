@@ -6,7 +6,7 @@ $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
-
+$hosp = $_SESSION['hospital'];
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -20,6 +20,14 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 $result = $conn->prepare("SELECT * FROM requestappoint WHERE req_status = 'completed' ORDER BY request_id");
 $result->execute();
 $data = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$sql= "SELECT SUM(c.package_price) AS gross_revenue FROM `orderwoo` a 
+LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+WHERE b.hosp_name=? ";
+$res = $conn->prepare($sql);
+$res->bind_param("s", $hosp);
+$gross_revenue = $res->get_result()->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +84,7 @@ $data = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                                                 <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                             </div>
                                             <div class="row">
-                                                <h5 class="font-bold" style="font-size: 1.1rem;">RM 19023.00</h5>
+                                                <h5 class="font-bold" style="font-size: 1.1rem;"><?php echo $gross_revenue?></h5>
                                             </div>
                                             <div class="row">
                                                 <h6 class="text-muted font-semibold">Previous Month</h6>
