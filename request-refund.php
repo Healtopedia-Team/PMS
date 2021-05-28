@@ -14,7 +14,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendar - Patient Management System</title>
+    <title>Refund - Patient Management System</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Purchase Order</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Request Refund</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -60,7 +60,6 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                     </div>
                 </section>
             </div>
-
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
