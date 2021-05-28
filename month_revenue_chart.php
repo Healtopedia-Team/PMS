@@ -24,7 +24,7 @@ $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.packa
 $res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
 $res->execute();
-$result = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+$result = $res->get_result()->fetch_assoc();
 
 echo json_encode($result);
 
