@@ -220,7 +220,7 @@ $month_gross_revenue = $res->get_result()->fetch_assoc();
                       </div>
                       <div class="col-md-8">
                         <h6 class="text-muted font-semibold">Monthly Gross Revenue</h6>
-                        <h6 class="font-extrabold mb-0"><?php echo $month_gross_revenue['month_rev'];?></h6>
+                        <h6 class="font-extrabold mb-0">RM <?php echo $month_gross_revenue['month_rev'];?>.00</h6>
                       </div>
                     </div>
                   </div>
