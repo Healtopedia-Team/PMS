@@ -286,13 +286,18 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                     fill: {
                         opacity: 1
                     },
-                    plotOptions: {},
+                    plotOptions: {
+                        bar: {
+                            borderRadius: 4,
+                            horizontal: true,
+                        }
+                    },
                     series: [{
                         name: 'Gross Revenue(RM)',
                         data: month_revenue
                     }],
                     colors: '#435ebe',
-                    yaxis: {
+                    xaxis: {
                         categories: [
                             'Jan',
                             'Feb',
@@ -307,8 +312,8 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                             'Nov',
                             'Dec'
                         ]
-                    },
-                    horizontal: true,
+                    }
+
                 }
 
                 var ChartMonthlyRevenue = new ApexCharts(
