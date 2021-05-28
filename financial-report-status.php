@@ -120,7 +120,7 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
                                             ?>
                                             <div class="col-md-5">
                                                 <i class="bi bi-graph-up" style="<?php echo $style;?>">
-                                                    <span style="margin:0; font-style: normal;"><?php echo $up_or_down; ?></span>
+                                                    <span style="margin:0; font-style: bold;"><?php echo $res; ?></span>
                                                 </i>
                                             </div>
                                         </div>
