@@ -109,12 +109,12 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 
                                             </div>
                                             <?php 
-                                            $up_or_down = round($month[$current_month] / $month[$previous_month],2);
+                                            $up_or_down = number_format($month[$current_month] / $month[$previous_month], 2, '.', '');
                                                 if ($up_or_down >= 1){
-                                                    $res = '+'. $up_or_down*100 . '%'; 
+                                                    $res = '+ '. $up_or_down*100 . '%'; 
                                                     $style = "color:green;";
                                                 } else {
-                                                    $res = '-' . $up_or_down*100 . '%';
+                                                    $res = '- ' . $up_or_down*100 . '%';
                                                     $style = "color:red;";
                                                 }
                                             ?>
