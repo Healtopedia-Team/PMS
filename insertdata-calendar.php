@@ -19,6 +19,7 @@ $result2 = $data2->get_result()->fetch_all(MYSQLI_ASSOC);
 
 foreach ($result as $row) {
     $appointid = $row['appoint_id'];
+    $orderid = $row['order_id'];
     $hospname = $row['hosp_name'];
     $startapp = date('Y-m-d H:i',$row['start_appoint']-28800);
     $endapp = date('Y-m-d H:i',$row['end_appoint']-28800);
@@ -36,8 +37,8 @@ foreach ($result as $row) {
         if ($key['Total'] < 1) {
             //$sql = "INSERT INTO calendar SET cal_id = '$appointid', cal_name = '$hospname', cal_start = '$startapp', cal_end = '$endapp', cal_status = '$statusapp'";
             //mysqli_query($conn, $sql);
-            $sql = $conn->prepare("INSERT INTO calendar SET cal_id = ?, cal_name =?, cal_start = ?, cal_end = ?, cal_status = ?");
-            $sql->bind_param("issss", $appointid, $hospname, $startapp, $endapp, $statusapp);
+            $sql = $conn->prepare("INSERT INTO calendar SET cal_id = ?, cal_orderid = ?, cal_name =?, cal_start = ?, cal_end = ?, cal_status = ?");
+            $sql->bind_param("isssss", $appointid, $orderid, $hospname, $startapp, $endapp, $statusapp);
             $sql->execute();
         }
     }
@@ -45,6 +46,7 @@ foreach ($result as $row) {
 
 foreach ($result2 as $row2) {
     $reqid = $row2['request_id'];
+    $order = $row2['request_id'];
     $packname = $row2['req_packname'];
     $appdate = $row2['req_appdate'];
     $status = $row2['req_status'];
@@ -127,8 +129,8 @@ foreach ($result2 as $row2) {
         if ($key2['Total'] < 1) {
             //$sql2 = "INSERT INTO calendar SET cal_id = '$reqid', cal_name = '$packname', cal_start = '$start', cal_end = '$end', cal_status = '$status'";
             //mysqli_query($conn, $sql2);
-            $sql2 = $conn->prepare("INSERT INTO calendar SET cal_id = ?, cal_name = ?, cal_start = ?, cal_end = ?, cal_status = ?");
-            $sql2->bind_param("issss", $appointid, $hospname, $startapp, $endapp, $statusapp);
+            $sql2 = $conn->prepare("INSERT INTO calendar SET cal_id = ?, cal_orderid = ?, cal_name =?, cal_start = ?, cal_end = ?, cal_status = ?");
+            $sql2->bind_param("issss", $appointid, $order, $hospname, $startapp, $endapp, $statusapp);
             $sql2->execute();
         }
     }
