@@ -214,7 +214,7 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
                                         <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
                                             <thead class="thead-light">
                                                 <tr>
-                                                    <th scope="col">Date</th>
+                                                    <th scope="col">Month</th>
                                                     <th scope="col">Gross Revenue</th>
                                                     <th scope="col">Refund</th>
                                                     <th scope="col">Net Revenue</th>
@@ -222,14 +222,14 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($gross_revenue as $month => $value) : ?>
+                                                <?php foreach ($gross_revenue as $month => $value): ?>
                                                     <tr>
-                                                        <?php ?>
                                                         <th scope="row"><?php echo $month ?></th>
                                                         <td>RM <?php echo $value[$month] ?>.00</td>
                                                         <td>RM 0</td>
                                                         <td>RM 500.00</td>
                                                         <td>4</td>
+                                                        <?php print_r($month);?>
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>
