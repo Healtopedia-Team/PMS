@@ -77,7 +77,8 @@ if (isset($_POST['updatepms'])) {
         $query2 = "UPDATE calendar SET cal_start = '$newtime', cal_end = '$newtime2' WHERE cal_id = '$pmsid'";
         if (mysqli_query($conn, $query2)) {
             header("Location: appoint-calendar.php");
-     }
+        }
+    }
 }
 
 $query = mysqli_query($conn,"SELECT package_name FROM packagewoo ORDER BY package_id DESC");
