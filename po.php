@@ -3,6 +3,8 @@
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
 $hosp = $_SESSION['hospital'];
+error_reporting(E_ALL);
+ini_set('display_errors', true); 
 //$current_date = $_GET['cur_date'];
 if ($cur_date != ''){
   $current_date = $cur_date;
