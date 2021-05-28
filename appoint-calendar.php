@@ -68,20 +68,13 @@ if (isset($_POST['updatepms'])) {
     $name = $_POST['calcustomer'];
     $package = $_POST['calname'];
     $time = $_POST['calstart'];
-    $newtime = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']));
-    $newtime2 = $_POST['caldate']." ".date('H:i', strtotime($_POST['calstart']+3600));
     $pmsid = $_POST['pmsid'];
 
-    $query = "UPDATE requestappoint SET req_custname = '$name', req_apptime = '$time' WHERE request_id = '$pmsid'";
+    $query = "UPDATE requestappoint SET req_custname = '$name' WHERE request_id = '$pmsid'";
     if (mysqli_query($conn, $query)) {
-        $query2 = "UPDATE calendar SET cal_start = '$newtime', cal_end = '$newtime2' WHERE cal_id = '$pmsid'";
-        if (mysqli_query($conn, $query2)) {
-            header("Location: appoint-calendar.php");
+        header("Location: appoint-calendar.php");
      }
 }
-
-$query = mysqli_query($conn,"SELECT package_name FROM packagewoo ORDER BY package_id DESC");
-$data = mysqli_fetch_all($query,MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +88,6 @@ $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/vendors/iconly/bold.css">
-    <link rel="stylesheet" href="assets/vendors/choices.js/choices.min.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Added for the notification system use-->
 
@@ -170,15 +162,8 @@ $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
                                                         <form method="POST">
                                                             <input type="text" name="pmsid" value="<?php echo $row3['request_id'];?>" style="display: none;">
                                                             <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
-                                                            <b>Package : </b>
-                                                            <select class="choices form-select" name="packname" required>
-                                                                <option value="<?php echo $row3['req_packname'];?>"><?php echo $row3['req_packname'];?></option>
-                                                                <?php foreach($data as $key){ ?>
-                                                                    <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
-                                                                <?php } ?>
-                                                            </select><br>
-                                                            <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:iA',strtotime($row['cal_start']));?>">
-                                                            <input type="text" name="caldate" class="form-control" value="<?php echo date('Y-m-d',strtotime($row['cal_start']));?>">
+                                                            <b>Package : </b><input type="text" name="calname" class="form-control" value="<?php echo $row['cal_name'];?>"><br>
+                                                            <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:i A',strtotime($row['cal_start']));?>">
                                                 <?php } }?>
                                             </div>
                                             <div class="modal-footer">
@@ -216,13 +201,10 @@ $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
     </div>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
-    <script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table1');
-        let dataTable = new simpleDatatables.DataTable(table1);
-    </script>
-    <script src="assets/vendors/choices.js/choices.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
     <script src="assets/js/main.js"></script>
 </body>
 </html>
