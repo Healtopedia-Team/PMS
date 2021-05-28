@@ -22,7 +22,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
 
 $result = $conn->prepare("SELECT * FROM requestappoint WHERE req_status = 'completed' ORDER BY request_id");
 $result->execute();
-$data = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+$data = $result->get_result()->fetch_assoc();
 
 $sql= "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
     SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
