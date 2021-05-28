@@ -122,8 +122,9 @@ $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
                                             ?>
                                             <div class="col-md-5">
                                                 <i class="fa-4x bi bi-graph-<?php echo $arrow; ?>" style="<?php echo $style; ?>">
-                                                    <span style="margin:0; font-style: normal;"><?php echo $res; ?></span>
+                                                    
                                                 </i>
+                                                <span style="margin:0; font-style: normal;"><?php echo $res; ?></span>
                                             </div>
                                         </div>
                                     </div>
