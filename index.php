@@ -65,7 +65,7 @@ $result->execute();
 $appointment = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 */
 $hosp = $_SESSION["hospital"];
-$result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo WHERE hosp_name=$hosp GROUP BY prod_id ORDER BY 2 DESC");
+$result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
 $result2->execute();
 $hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
 
