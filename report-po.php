@@ -1,5 +1,6 @@
 <?php
 require_once 'dompdf/autoload.inc.php';
+$cur_date = '';
 $cur_date = $_GET['cur_date'];
 //error_reporting(E_ALL);
 //header("X-Accel-Buffering: no");
