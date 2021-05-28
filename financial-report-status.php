@@ -330,6 +330,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         name: 'Gross Revenue',
                         data: month_revenue
                     }])
+                    console.log(month_revenue);
                     window.dispatchEvent(new Event('resize'))
 
                 })
