@@ -231,6 +231,7 @@ $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
           </b>
         </td>
       </tr>
+      <?php $total_price=0; ?>
       <?php foreach ($res as $row) {
         $appoint_id = $row['appoint_id'];
         $order_id = $row['order_id']; ?>
