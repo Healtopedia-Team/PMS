@@ -254,9 +254,7 @@ $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
                                                         <tr>
                                                             <td class="text-bold-500">
                                                                 <strong>#<?php echo $rows['appoint_id']; ?> <?php echo $rows['firstname']; ?> <?php echo $rows['lastname']; ?></strong><br>
-                                                                <?php 
-                                                        echo $packagename['prod_id']; ?><br>
-                                                                <?php
+                                                                 <?php
                                                                 echo $rows['start_appoint']; ?><br>
                                                                 <?php
                                                                 $status = $rows['statusapp'];
