@@ -25,6 +25,8 @@ $result = $conn->prepare($query);
 $result->bind_param("ss", $current_date, $hosp);
 $result->execute();
 $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$total_price=0;
 //var_dump($res);
 ?>
 
@@ -231,7 +233,6 @@ $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
           </b>
         </td>
       </tr>
-      <?php $total_price=0; ?>
       <?php foreach ($res as $row) {
         $appoint_id = $row['appoint_id'];
         $order_id = $row['order_id']; ?>
