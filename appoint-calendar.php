@@ -168,12 +168,12 @@ $data = mysqli_fetch_all($query,MYSQLI_ASSOC);
                                                             <input type="text" name="pmsid" value="<?php echo $row3['request_id'];?>" style="display: none;">
                                                             <b>Name : </b><input type="text" name="calcustomer" class="form-control" value="<?php echo $row3['req_custname'];?>"><br>
                                                             <b>Package : </b>
-                                                            <select class="choices form-select" name="packname" value="<?php echo $row3['req_packname'];?>" required>
-                                                                <option value="">Select Package</option>
+                                                            <select class="choices form-select" name="packname" required>
+                                                                <option value="<?php echo $row3['req_packname'];?>"><?php echo $row3['req_packname'];?></option>
                                                                 <?php foreach($data as $key){ ?>
                                                                     <option value="<?php echo $key['package_name'];?>"><?php echo $key['package_name'];?></option>
-                                                                    <?php } ?>
-                                                                </select><br>
+                                                                <?php } ?>
+                                                            </select><br>
                                                             <b>Time : </b><input type="text" name="calstart" class="form-control" value="<?php echo date('h:iA',strtotime($row['cal_start']));?>">
                                                 <?php } }?>
                                             </div>
