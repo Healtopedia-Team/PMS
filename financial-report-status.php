@@ -223,7 +223,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                                     <h5 class="font-bold">Monthly Revenue</h6>
                                 </div>
                                 <div class="card-body" style="position: relative; height: 380px; overflow: auto; display: block;">
-                                    <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;padding: 0.5rem;">
+                                    <table id="report_table" cellspacing="0" class="table table-striped table-sm" style="font-size: 0.9rem;">
                                         <thead class="thead-light">
                                             <tr>
                                                 <th scope="col">Month</th>
