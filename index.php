@@ -249,7 +249,7 @@ $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                if ($result->num_rows() > 0) {
+                                                if (mysqli_num_rows($result) > 0) {
                                                     foreach ($appointment as $rows) : ?>
                                                         <tr>
                                                             <td class="text-bold-500">
