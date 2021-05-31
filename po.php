@@ -24,7 +24,7 @@ if (strpos($hosp, $heal) !== false) {
   //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   $result = $conn->prepare($query);
-  $result->bind_param("ss", $current_date);
+  $result->bind_param("s", $current_date);
   $result->execute();
   $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 } else {
