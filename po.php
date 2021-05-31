@@ -49,7 +49,7 @@ $query = "SELECT a.order_id, a.appoint_id, a.start_appoint, a.hosp_name,
             DATE(FROM_UNIXTIME(a.start_appoint, '%Y-%m-%d')) AS c_date 
             FROM appointwoo a LEFT JOIN orderwoo b ON a.order_id=b.order_id 
             LEFT JOIN packagewoo c ON a.prod_id=c.package_id 
-            WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')=? AND a.hosp_name=? ";
+            WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')=? AND a.hosp_name=? AND statusapp='complete'";
 //$result = mysqli_query($conn, $query);
 //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
