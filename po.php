@@ -59,7 +59,7 @@ $result->execute();
 $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
 $total_price = 0;
-var_dump($result->error_log);
+var_dump($res);
 ?>
 
 <html>
