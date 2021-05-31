@@ -61,9 +61,6 @@ if (!$err2) {
 $data3 = file_get_contents('https://pms.healtopedia.com/appointmentjson.php');
 $data3 = json_decode($data3, true);
 
-if (isset($_POST['refund'])) {
-    $sql
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
