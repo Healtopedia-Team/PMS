@@ -1,7 +1,5 @@
 <?php
 
-$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
-
 $custid = $_GET['custid'];
 $orderid = $_GET['orderid'];
 
@@ -62,9 +60,6 @@ if (!$err2) {
 
 $data3 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/appointmentjson.php');
 $data3 = json_decode($data3, true);
-
-$data4 = mysqli_query($conn, "SELECT * FROM appointwoo WHERE order_id = '$orderid'");
-$data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -397,9 +392,6 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                                                                     <?php } ?>
                                                                     <form method="POST">
                                                                         <button type="submit" name="btnrefund" class="btn rounded-pill btn-warning" style="margin-top: 10px; float: left;color: black;">Request Refund</button>
-                                                                        <?php foreach ($data4 as $key4) {?>
-                                                                        <input type="text" name="reqrefund" value="<?php echo $key4['apooint_id']; ?>">
-                                                                        <?php } ?>
                                                                     </form>
                                                                 </li>
                                                             </ul>
