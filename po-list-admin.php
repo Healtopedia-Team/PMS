@@ -27,7 +27,6 @@
                     </div>
                     <?php
                     if (isset($_POST['submit'])) {
-
                         $keywords = $_POST['keywords'];
                         if ($keywords !== 'Healtopedia'){
                             $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
@@ -125,7 +124,7 @@
                                                 <?php echo $keywords; ?>
                                             </td>
                                             <td>
-                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&hosp=<?php $keywords?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
+                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&hosp="<?php $keywords?>"' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
