@@ -170,7 +170,7 @@ $month_gross_revenue = $res->get_result()->fetch_assoc();
                         </div>
                       </div>
                       <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">Appointments This Week</h6>
+                        <h6 class="text-muted font-semibold">Appointments This Week <?php echo $hosp?></h6>
                         <h6 class="font-extrabold mb-0">
                           <?php
                           /*
