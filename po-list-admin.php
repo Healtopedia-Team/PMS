@@ -72,8 +72,9 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php foreach ($res as $row) {
-
+                                    <?php 
+                                    if (!isset($_POST['submit']) || $_POST['submit'] == "Healtopedia"){
+                                        foreach ($res as $row) {
                                     ?>
                                         <tr>
                                             <td>
@@ -93,7 +94,30 @@
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
-                                    <?php } ?>
+                                    <?php } 
+                                    } else { 
+                                        foreach ($res as $row) {
+                                    ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $i; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['unique_date']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['amount']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $keywords; ?>
+                                            </td>
+                                            <td>
+                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&hosp=<?php $keywords?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    <?php } 
+                                    }?>
                                 </tbody>
                             </table>
                         </div>
