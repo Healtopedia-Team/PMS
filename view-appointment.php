@@ -269,18 +269,6 @@ $data3 = json_decode($data3, true);
                                                         <div class="quest">Appointment Time :</div>
                                                         <div class="ans">
                                                             <?php date("h:i A", $key2['start'] - 28800);
-                                                            ob_start();
-                                                            $date = date("H:i", $key2['start'] - 28800);
-                                                            ob_end_clean();
-                                                            if ($date > 12) {
-                                                                error_reporting(0);
-                                                                $newdate = date("H:i", $key2['start'] - 72000);
-                                                                echo $newdate . " PM";
-                                                            } else if ($date == "12:00") {
-                                                                echo $date . " PM";
-                                                            } else {
-                                                                echo $date . " AM";
-                                                            }
                                                             $prodid = $key2['product_id'];
                                                             } ?>
                                                                 
