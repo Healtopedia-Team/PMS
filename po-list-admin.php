@@ -89,7 +89,7 @@
                                                 <?php echo $row['hosp_name']; ?>
                                             </td>
                                             <td>
-                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
+                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&hosp=<?php $row['hosp_name']?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
