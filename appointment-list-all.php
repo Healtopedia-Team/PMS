@@ -98,7 +98,15 @@
                 </section>
             </div>
     <!--========================================== M O D A L == I N F O =====================================-->
-                            <?php foreach ($user as $row2) { ?>
+                            <?php foreach ($user as $row2) {
+                                $refid = $row2['order_id'];
+
+                                $data = mysqli_query($conn, "SELECT * FROM appointwoo WHERE order_id = '$refid'");
+                                $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
+
+                                $data2 = mysqli_query($conn, "SELECT * FROM packagewoo");
+                                $data2 = mysqli_fetch_all($data2, MYSQLI_ASSOC);
+                            ?>
                             <div class="modal fade text-left" id="refund<?php echo $row2['order_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                                     <div class="modal-content">
@@ -109,15 +117,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <?php
-                                            $refid = $row2['order_id'];
-                                            $data = mysqli_query($conn, "SELECT * FROM appointwoo WHERE order_id = '$refid'");
-                                            $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
-
-                                            foreach ($data as $key) {
-                                                echo $key['appoint_id'];
-                                            }
-                                            ?>
+                                            <?php foreach ($data as $key) {echo $key['prod_id'];}?>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
