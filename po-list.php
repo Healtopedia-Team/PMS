@@ -5,8 +5,8 @@
                 session_start();
                 $role = $_SESSION['role'];
                 //print_r($role);
-                if($role === 'admin'){
-                    echo '<script>alert("Welcome ' . $role .'");window.location.href="po-list-admin.php";</script>';
+                if ($role === 'admin') {
+                    echo '<script>alert("Welcome ' . $role . '");window.location.href="po-list-admin.php";</script>';
                 }
                 $hosp = $_SESSION["hospital"];
                 $heal = "Healtopedia";
@@ -72,7 +72,7 @@
                                                 <?php echo $row['amount']; ?>
                                             </td>
                                             <td>
-                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
+                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&<?php echo $hosp ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
