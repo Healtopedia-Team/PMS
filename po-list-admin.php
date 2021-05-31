@@ -26,16 +26,36 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <form method="post" action="#">
+                            <form method="post" action="#" style="float:right" class="form-select">
                                 <select name="keywords">
                                     <?php foreach ($hosp_list as $hospital) { ?>
                                         <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                     <?php } ?>
                                 </select>
-                                <input type="submit">
+                                <input type="submit" hidden>
                             </form>
                         </div>
                     </div>
+                    <?php print_r($_POST); 
+                    if(isset($_GET['keywords'])) {
+                        $keywords = $conn->escape_string($_GET['keywords']);
+                        $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
+                            AS unique_date, COUNT(*) AS amount
+                            FROM `appointwoo`
+                            WHERE DATEDIFF(NOW(), FROM_UNIXTIME(appointwoo.end_appoint, '%Y-%m-%d')) > 1 
+                            AND hosp_name = ? 
+                            AND statusapp='complete'
+                            GROUP BY unique_date
+                            ORDER BY unique_date DESC";
+                        //$result = mysqli_query($conn, $query);
+                        //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+                        $result = $conn->prepare($query);
+                        $result->bind_param("s", $keywords);
+                        $result->execute();
+                        $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+                        } 
+                    ?>
                     <div class="card">
                         <div class="card-body">
                             <table class="table table-striped" id="table1">
