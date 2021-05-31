@@ -54,7 +54,6 @@
                             $result = $conn->prepare($query);
                             $result->execute();
                             $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
-                            print_r($res);
                         }
                     } else {
                         $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) AS unique_date, 
@@ -68,6 +67,7 @@
                         //$result->bind_param("s", $hosp);
                         $result->execute();
                         $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+                        print_r($res);
                     }
                     ?>
                     <div class="card">
