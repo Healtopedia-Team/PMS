@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <?php
-                    if (isset($_POST['submit']) || $_POST['keywords'] !== 'Healtopedia') {
+                    if (isset($_POST['submit']) or $_POST['keywords'] !== 'Healtopedia') {
                         $keywords = $_POST['keywords'];
                         $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
                             AS unique_date, COUNT(*) AS amount
@@ -73,7 +73,7 @@
                                     <?php $i = 1; ?>
                                     <?php
                                     //print_r($res);
-                                    if (!isset($_POST['submit']) || $_POST['keywords'] == "Healtopedia"){
+                                    if (!isset($_POST['submit']) or $_POST['keywords'] == "Healtopedia"){
                                         foreach ($res as $row) {
                                     ?>
                                         <tr>
