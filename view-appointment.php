@@ -63,11 +63,11 @@ $data3 = file_get_contents('https://pms.healtopedia.com/appointmentjson.php');
 $data3 = json_decode($data3, true);
 
 if (isset($_POST['refund'])) {
-    $price = $_POST['refprice'];
+    $refprice = $_POST['refprice'];
     $refid = $_POST['refid'];
     $refname = $_POST['refname'];
 
-    $sql = "INSERT INTO refund SET order_id = '$order_id', prod_id = '$refid', prod_name = '$refname', prod_price = '$refprice'";
+    $sql = "INSERT INTO refund SET order_id = '$orderid', prod_id = '$refid', prod_name = '$refname', prod_price = '$refprice'";
     mysqli_query($conn, $sql);
 }
 
