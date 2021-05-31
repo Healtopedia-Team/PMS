@@ -26,8 +26,8 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <form method="post" action="#" style="float:right" class="form-select">
-                                <select name="keywords">
+                            <form method="post" action="#" style="float:right">
+                                <select name="keywords" class="form-select">
                                     <?php foreach ($hosp_list as $hospital) { ?>
                                         <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                     <?php } ?>
@@ -36,8 +36,8 @@
                             </form>
                         </div>
                     </div>
-                    <?php print_r($_POST); 
-                    if(isset($_GET['keywords'])) {
+                    <?php print_r($_POST);
+                    if (isset($_GET['keywords'])) {
                         $keywords = $conn->escape_string($_GET['keywords']);
                         $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
                             AS unique_date, COUNT(*) AS amount
@@ -54,7 +54,7 @@
                         $result->bind_param("s", $keywords);
                         $result->execute();
                         $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
-                        } 
+                    }
                     ?>
                     <div class="card">
                         <div class="card-body">
