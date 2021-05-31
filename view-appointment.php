@@ -391,7 +391,7 @@ $data3 = json_decode($data3, true);
                                                                     <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
                                                                     <?php } ?>
                                                                     <form method="POST">
-                                                                        <button type="submit" name="refund" class="btn btn-warning" style="color: black">Request Refund</button>
+                                                                        <button class="btn rounded-pill btn-primary" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
                                                                         <input type="text" name="refund" value="<?php echo $totalori;?>">
                                                                     </form>
                                                                 </li>
