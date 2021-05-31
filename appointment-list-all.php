@@ -111,7 +111,7 @@
                                         <div class="modal-body">
                                             <?php
                                             $refid = $row2['order_id'];
-                                            $data = mysqli_query($conn, "SELECT * FROM appointwoo WHERE order_id = ' $row2['order_id']'");
+                                            $data = mysqli_query($conn, "SELECT * FROM appointwoo WHERE order_id = '$refid'");
                                             $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
 
                                             foreach ($data as $key) {
