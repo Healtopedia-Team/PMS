@@ -102,7 +102,7 @@
             </div>
     <!--========================================== M O D A L == I N F O =====================================-->
                             <?php foreach ($data as $key) { ?>
-                            <div class="modal fade text-left" id="refund<?php echo $row['order_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+                            <div class="modal fade text-left" id="refund<?php echo $key['order_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
