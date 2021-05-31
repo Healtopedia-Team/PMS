@@ -5,7 +5,7 @@
                 session_start();
                 $hosp = $_SESSION['hospital'];
 
-                if ($hosp == "Healtopeda"){
+                if ($hosp == "Healtopedia"){
                     $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
                             AS unique_date, COUNT(*) AS amount
                             FROM `appointwoo`
