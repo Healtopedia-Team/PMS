@@ -20,7 +20,7 @@
                                     <?php } ?>
                                 </select>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">Go</button>
+                                    <button class="btn btn-default" type="submit" name="submit">Go</button>
                                 </span>
                             </form>
                         </div>
