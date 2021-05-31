@@ -66,6 +66,7 @@ $appointment = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 */
 $hosp = $_SESSION["hospital"];
 if($hosp == "Healtopedia"){
+  echo "HEALTOPEDIA IS HERE!";
   $result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
   $result2->execute();
   $hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
