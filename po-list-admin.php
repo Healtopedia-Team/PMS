@@ -28,7 +28,7 @@
                     <?php
                     if (isset($_POST['submit'])) {
                         $keywords = $_POST['keywords'];
-                        if ($keywords !== 'Healtopedia'){
+                        if ($keywords != 'Healtopedia'){
                             $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
                                 AS unique_date, COUNT(*) AS amount
                                 FROM `appointwoo`
@@ -63,10 +63,10 @@
                         //$result = mysqli_query($conn, $query);
                         //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-                        $result = $conn->prepare($query);
+                        $result1 = $conn->prepare($query);
                         //$result->bind_param("s", $hosp);
-                        $result->execute();
-                        $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+                        $result1->execute();
+                        $res = $result1->get_result()->fetch_all(MYSQLI_ASSOC);
                     }
                     ?>
                     <div class="card">
