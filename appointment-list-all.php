@@ -86,6 +86,7 @@
                                             </td>
                                             <td>
                                                 <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-primary"><i class="bi bi-eye-fill"></i></button></a>
+                                                <button class="btn btn-secondary"><i class="bi bi-cash-stack"></i></button>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
