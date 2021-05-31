@@ -11,9 +11,6 @@
                 FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY order_id ORDER BY orderwoo.order_id DESC");
                 $result->execute();
                 $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
-
-                $data = mysqli_query($conn, "SELECT * FROM appointwoo");
-                $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
                 ?>
 
                 <section class="section">
@@ -112,8 +109,15 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
+                                            <?php
+                                            $refid = $row2['order_id'];
+                                            $data = mysqli_query($conn, "SELECT * FROM appointwoo WHERE order_id = ' $row2['order_id']'");
+                                            $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
 
-                                            <?php echo $row2['order_id']?>
+                                            foreach ($data as $key) {
+                                                echo $key['appoint_id'];
+                                            }
+                                            ?>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
