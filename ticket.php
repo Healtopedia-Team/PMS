@@ -166,7 +166,7 @@ if (!$err3) {
                         $state = strtoupper($key3['categories'][2]['name']);
                     }
 
-                    if ($key3['categories'][1]['name'] != "COVID-19 Test") {
+                    if ($key3['categories'][1]['name'] != "COVID-19 Test" || $key3['categories'][1]['name'] != "Covid-19 Test Walk-In") {
                         echo "HS / ".$state." / ".$orderid;
                     }else{
                         echo "CV19 / ".$state." / ".$orderid;
