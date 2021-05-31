@@ -61,6 +61,15 @@ if (!$err2) {
 $data3 = file_get_contents('https://pms.healtopedia.com/appointmentjson.php');
 $data3 = json_decode($data3, true);
 
+if (isset($_POST['refund'])) {
+    $price = $_POST['refprice'];
+    $refid = $_POST['refid'];
+    $refname = $_POST['refname'];
+
+    $sql = "INSERT INTO refund SET order_id = '$order_id', prod_name = '$refname', prod_price = '$refprice'";
+    mysqli_query($conn, $sql);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -251,7 +260,7 @@ $data3 = json_decode($data3, true);
                                                 <div class="card-body" style="margin-top: -40px;">
 
                                                     <div>
-                                                        <h5><span class="badge bg-light-primary"><?php echo $key['line_items'][$q]['name']; ?></span><br></h5>
+                                                        <h5><span class="badge bg-light-primary"><?php echo $prodname = $key['line_items'][$q]['name']; ?></span><br></h5>
                                                     </div>
 
                                                     <div class="quest">Package Fee :</div>
@@ -393,7 +402,9 @@ $data3 = json_decode($data3, true);
                                                                     <?php } ?>
                                                                     <form method="POST">
                                                                         <button type="submit" class="btn rounded-pill btn-warning" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
-                                                                        <input type="text" name="refund" value="<?php echo $totalori;?>">
+                                                                        <input type="text" name="refprice" value="<?php echo $totalori;?>">
+                                                                        <input type="text" name="refid" value="<?php echo $prodid;?>">
+                                                                        <input type="text" name="refname" value="<?php echo $prodname;?>">
                                                                     </form>
                                                                 </li>
                                                             </ul>
