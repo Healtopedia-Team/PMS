@@ -24,8 +24,8 @@
 
                 <section class="section">
                     <div class="card">
-                        <div class="card-body" style="padding: 0;">
-                            <form method="post" action="hosp_filter.php">
+                        <div class="card-body" style="padding: 0.5rem;">
+                            <form method="post" action="hosp_filter.php" style="display:flex; float:right;" class="input-group">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button" type="submit">Go!</button>
                                 </span>
