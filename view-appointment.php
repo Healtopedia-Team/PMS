@@ -1,4 +1,5 @@
 <?php
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
 
 $custid = $_GET['custid'];
 $orderid = $_GET['orderid'];
