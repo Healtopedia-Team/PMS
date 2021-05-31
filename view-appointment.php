@@ -244,7 +244,6 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                             </div>
                             <?php foreach ($data as $key) {
                                 for ($q = 0; $q < 10; $q++) {
-                                    foreach ($data4 as $key4) {
                                     if ($key['line_items'][$q]['name'] != "") { ?>
                                     <div class="col-12">
                                         <div class="card">
@@ -398,7 +397,9 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                                                                     <?php } ?>
                                                                     <form method="POST">
                                                                         <button type="submit" name="btnrefund" class="btn rounded-pill btn-warning" style="margin-top: 10px; float: left;color: black;">Request Refund</button>
+                                                                        <?php foreach ($data4 as $key4) {?>
                                                                         <input type="text" name="reqrefund" value="<?php echo $key4['apooint_id']; ?>">
+                                                                        <?php } ?>
                                                                     </form>
                                                                 </li>
                                                             </ul>
@@ -406,7 +407,6 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?php } ?>
                                             <?php } ?>
                                         <?php } ?>
                                     <?php } ?>
