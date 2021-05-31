@@ -24,7 +24,7 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body" style="padding: 0.5rem;">
-                            <form method="post" action="hosp_filter.php" style="display:flex; float:right;">
+                            <form method="post" action="" style="display:flex; float:right;">
                                 <select name="keywords" class="form-select" style="width: auto;">
                                     <?php foreach ($hosp_list as $hospital) { ?>
                                         <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
