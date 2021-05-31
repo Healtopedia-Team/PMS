@@ -243,8 +243,8 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                                 <?php }} ?>
                             </div>
                             <?php foreach ($data as $key) {
-                                foreach ($data4 as $key4) {
                                 for ($q = 0; $q < 10; $q++) {
+                                    foreach ($data4 as $key4) {
                                     if ($key['line_items'][$q]['name'] != "") { ?>
                                     <div class="col-12">
                                         <div class="card">
