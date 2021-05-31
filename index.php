@@ -65,14 +65,28 @@ $result->execute();
 $appointment = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 */
 $hosp = $_SESSION["hospital"];
-$result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo WHERE hosp_name=? GROUP BY prod_id ORDER BY 2 DESC");
-$result2->bind_param("s", $hosp);
-$result2->execute();
-$hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+$heal = "Healtopedia";
+if(strpos($hosp, $heal) !== false){
+  echo "HEALTOPEDIA IS HERE!";
+  $result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
+  $result2->execute();
+  $hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+  
+  $result3 = $conn->prepare("SELECT * FROM packagewoo");
+  $result3->execute();
+  $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+else{
+  $result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo WHERE hosp_name=? GROUP BY prod_id ORDER BY 2 DESC");
+  $result2->bind_param("s", $hosp);
+  $result2->execute();
+  $hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+  
+  $result3 = $conn->prepare("SELECT * FROM packagewoo");
+  $result3->execute();
+  $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
+}
 
-$result3 = $conn->prepare("SELECT * FROM packagewoo");
-$result3->execute();
-$hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
 
 $sql = "SELECT SUM(c.package_price) AS month_rev
   FROM `orderwoo` a 
@@ -158,7 +172,7 @@ $month_gross_revenue = $res->get_result()->fetch_assoc();
                         </div>
                       </div>
                       <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">Appointments This Week</h6>
+                        <h6 class="text-muted font-semibold">Appointments This Week <?php echo $hosp?></h6>
                         <h6 class="font-extrabold mb-0">
                           <?php
                           /*

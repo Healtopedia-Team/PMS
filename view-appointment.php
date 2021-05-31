@@ -1,5 +1,7 @@
 <?php
 
+$conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
+
 $custid = $_GET['custid'];
 $orderid = $_GET['orderid'];
 
@@ -60,6 +62,9 @@ if (!$err2) {
 
 $data3 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/appointmentjson.php');
 $data3 = json_decode($data3, true);
+
+$data4 = mysqli_query($conn, "SELECT * FROM appointwoo WHERE order_id = '$orderid'");
+$data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -254,10 +259,8 @@ $data3 = json_decode($data3, true);
                                                     </div>
 
                                                     <div class="quest">Package Fee :</div>
-                                                    <div class="ans"><?php
-                                                                        $totalori = $key['line_items'][$q]['subtotal'];
-                                                                        echo "RM " . $totalori;
-                                                                        ?></div>
+                                                    <div class="ans"><?php $totalori = $key['line_items'][$q]['subtotal'];
+                                                    echo "RM " . $totalori; ?></div>
 
                                                     <div class="quest">Payment via :</div>
                                                     <div class="ans"><?php echo $key['payment_method_title']; ?></div>
@@ -268,19 +271,7 @@ $data3 = json_decode($data3, true);
 
                                                         <div class="quest">Appointment Time :</div>
                                                         <div class="ans">
-                                                            <?php date("H:i", $key2['start'] - 28800);
-                                                            ob_start();
-                                                            $date = date("H:i", $key2['start'] - 28800);
-                                                            ob_end_clean();
-                                                            if ($date > 12) {
-                                                                error_reporting(0);
-                                                                $newdate = date("H:i", $key2['start'] - 72000);
-                                                                echo $newdate . " PM";
-                                                            } else if ($date == "12:00") {
-                                                                echo $date . " PM";
-                                                            } else {
-                                                                echo $date . " AM";
-                                                            }
+                                                            <?php echo date("h:i A", $key2['start'] - 28800);
                                                             $prodid = $key2['product_id'];
                                                             } ?>
                                                                 
@@ -404,6 +395,12 @@ $data3 = json_decode($data3, true);
                                                                     if ($appdate > $yesterday) { ?>
                                                                     <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
                                                                     <?php } ?>
+                                                                    <form method="POST">
+                                                                        <button type="submit" name="btnrefund" class="btn rounded-pill btn-warning" style="margin-top: 10px; float: left;color: black;">Request Refund</button>
+                                                                        <?php foreach ($data4 as $key4) {?>
+                                                                        <input type="text" name="reqrefund" value="<?php echo $key4['apooint_id']; ?>">
+                                                                        <?php } ?>
+                                                                    </form>
                                                                 </li>
                                                             </ul>
                                                         </div>
