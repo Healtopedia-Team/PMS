@@ -158,7 +158,7 @@ if (!$err3) {
                 <span class="cls_008">
                 <?php
                 foreach ($data3 as $key3){
-                    if ($key3['categories'][1]['name'] == "Kuala Lumpur"){
+                    if ($key3['categories'][1]['name'] == "Kuala Lumpur" || $key3['categories'][1]['name'] == "Sunway Medical Centre Velocity"){
                         $state = "KL";
                     }elseif ($key3['categories'][1]['name'] == "Johor Bahru") {
                         $state = "JB";
