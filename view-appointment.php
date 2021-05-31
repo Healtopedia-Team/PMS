@@ -58,8 +58,12 @@ if (!$err2) {
     echo "cURL Error #:" . $err2;
 }
 
-$data3 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/appointmentjson.php');
+$data3 = file_get_contents('https://pms.healtopedia.com/appointmentjson.php');
 $data3 = json_decode($data3, true);
+
+if (isset($_POST['refund'])) {
+    $sql
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -391,7 +395,7 @@ $data3 = json_decode($data3, true);
                                                                     <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
                                                                     <?php } ?>
                                                                     <form method="POST">
-                                                                        <button class="btn rounded-pill btn-primary" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
+                                                                        <button type="submit" class="btn rounded-pill btn-warning" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
                                                                         <input type="text" name="refund" value="<?php echo $totalori;?>">
                                                                     </form>
                                                                 </li>
