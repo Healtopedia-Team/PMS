@@ -66,7 +66,7 @@ if (isset($_POST['refund'])) {
     $refid = $_POST['refid'];
     $refname = $_POST['refname'];
 
-    $sql = "INSERT INTO refund SET order_id = '$order_id', prod_name = '$refname', prod_price = '$refprice'";
+    $sql = "INSERT INTO refund SET order_id = '$order_id', prod_id = '$refid', prod_name = '$refname', prod_price = '$refprice'";
     mysqli_query($conn, $sql);
 }
 
