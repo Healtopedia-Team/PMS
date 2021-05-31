@@ -26,14 +26,14 @@
                     <div class="card">
                         <div class="card-body" style="padding: 0.5rem;">
                             <form method="post" action="hosp_filter.php" style="display:flex; float:right;">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" type="submit">Go!</button>
-                                </span>
                                 <select name="keywords" class="form-select" style="width: auto;">
                                     <?php foreach ($hosp_list as $hospital) { ?>
                                         <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                     <?php } ?>
                                 </select>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" type="submit">Go</button>
+                                </span>
                             </form>
                         </div>
                     </div>
