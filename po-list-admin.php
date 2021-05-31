@@ -36,7 +36,7 @@
                             $result2 = $conn->prepare($query);
                             $result2->execute();
                             $res = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
-                            print_r($result2->error_list);
+                            //print_r($result2->error_list);
                             //echo "Runs here";
                         } else {
                             $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
