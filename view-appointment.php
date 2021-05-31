@@ -60,6 +60,9 @@ if (!$err2) {
 
 $data3 = file_get_contents('http://app-pms.eopm4g7bxo-jqp3vpjlj350.p.runcloud.link/appointmentjson.php');
 $data3 = json_decode($data3, true);
+
+$data4 = mysqli_query($conn, "SELECT * FROM appointwoo WHERE order_id = '$orderid'");
+$data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -239,7 +242,8 @@ $data3 = json_decode($data3, true);
                             </div>
                             <?php foreach ($data as $key) {
                                 for ($q = 0; $q < 10; $q++) {
-                                    if ($key['line_items'][$q]['name'] != "") { ?>
+                                    if ($key['line_items'][$q]['name'] != "") {
+                                        foreach ($data4 as $key4) { ?>
                                     <div class="col-12">
                                         <div class="card">
                                             <div class="card-header">
@@ -392,7 +396,7 @@ $data3 = json_decode($data3, true);
                                                                     <?php } ?>
                                                                     <form method="POST">
                                                                         <button type="submit" name="btnrefund" class="btn rounded-pill btn-warning" style="margin-top: 10px; float: left;color: black;">Request Refund</button>
-                                                                        <input type="text" name="reqrefund" value="<?php echo $totalori ?>">
+                                                                        <input type="text" name="reqrefund" value="<?php echo $key4['appoint_id'];?>">
                                                                     </form>
                                                                 </li>
                                                             </ul>
@@ -400,6 +404,7 @@ $data3 = json_decode($data3, true);
                                                     </div>
                                                 </div>
                                             </div>
+                                                <?php } ?>
                                             <?php } ?>
                                         <?php } ?>
                                     <?php } ?>
