@@ -117,7 +117,13 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <?php foreach ($data as $key) {echo $key['prod_id'];}?>
+                                            <?php foreach ($data as $key) {
+                                                foreach ($data2 as $key2) {
+                                                    if ($key2['package_id'] == $key['prod_id']) {
+                                                        echo $key2['package_name']." ".$key2['package_price']."<br>";
+                                                    }
+                                                }
+                                            }?>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
