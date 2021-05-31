@@ -406,7 +406,7 @@ $data3 = json_decode($data3, true);
                                                                     <?php } ?>
                                                                     <form method="POST">
                                                                         <button type="submit" name="btnrefund" class="btn rounded-pill btn-warning" style="margin-top: 10px; float: left;color: black;">Request Refund</button>
-                                                                        <input type="text" name="reqrefund" value="<?php echo $custid ?>">
+                                                                        <input type="text" name="reqrefund" value="<?php echo $tickname ?>">
                                                                     </form>
                                                                 </li>
                                                             </ul>
