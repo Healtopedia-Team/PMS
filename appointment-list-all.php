@@ -112,7 +112,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <?php echo $key['orderid']?>
+                                            <?php echo $key['order_id']?>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
