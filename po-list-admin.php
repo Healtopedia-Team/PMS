@@ -24,15 +24,17 @@
                 ?>
 
                 <section class="section">
-                    <div class="card-body">
-                        <form method="post" action="#" style="float:right">
-                            <select name="keywords" class="form-select">
-                                <?php foreach ($hosp_list as $hospital) { ?>
-                                    <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
-                                <?php } ?>
-                            </select>
-                            <input type="submit" hidden>
-                        </form>
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post" action="#" style="float:right">
+                                <select name="keywords" class="form-select">
+                                    <?php foreach ($hosp_list as $hospital) { ?>
+                                        <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                                <input type="submit">
+                            </form>
+                        </div>
                     </div>
                     <?php print_r($_POST);
                     if (isset($_GET['keywords'])) {
