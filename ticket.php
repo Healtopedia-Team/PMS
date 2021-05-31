@@ -158,15 +158,15 @@ if (!$err3) {
                 <span class="cls_008">
                 <?php
                 foreach ($data3 as $key3){
-                    if ($key3['categories'][2]['name'] == "Kuala Lumpur"){
+                    if ($key3['categories'][1]['name'] == "Kuala Lumpur"){
                         $state = "KL";
-                    }elseif ($key3['categories'][2]['name'] == "Johor Bahru") {
+                    }elseif ($key3['categories'][1]['name'] == "Johor Bahru") {
                         $state = "JB";
                     }else{
-                        $state = strtoupper($key3['categories'][2]['name']);
+                        $state = strtoupper($key3['categories'][1]['name']);
                     }
 
-                    if ($key3['categories'][1]['name'] == "COVID-19 Test" || $key3['categories'][1]['name'] == "Covid-19 Test Walk-In") {
+                    if ($key3['categories'][0]['name'] == "COVID-19 Test" || $key3['categories'][0]['name'] == "Covid-19 Test Walk-In") {
                         echo "CV19 / ".$state." / ".$orderid;
                     }else{
                         echo "HS / ".$state." / ".$orderid;
