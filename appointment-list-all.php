@@ -11,6 +11,9 @@
                 FROM orderwoo INNER JOIN appointwoo ON orderwoo.order_id = appointwoo.order_id GROUP BY order_id ORDER BY orderwoo.order_id DESC");
                 $result->execute();
                 $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+
+                $data = mysqli_query($conn, "SELECT * FROM appointwoo");
+                $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
                 ?>
 
                 <section class="section">
@@ -86,7 +89,7 @@
                                             </td>
                                             <td>
                                                 <a href='view-appointment.php?orderid=<?php echo $row['order_id']; ?>&custid=<?php echo $row['cust_id']; ?>' target='_blank'><button class="btn btn-primary"><i class="bi bi-eye-fill"></i></button></a>
-                                                <button class="btn btn-secondary"><i class="bi bi-cash-stack"></i></button>
+                                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#refund<?php echo $row['order_id']; ?>"><i class="bi bi-cash-stack"></i></button>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -97,6 +100,31 @@
                     </div>
                 </section>
             </div>
+    <!--========================================== M O D A L == I N F O =====================================-->
+                            <?php foreach ($data as $key) { ?>
+                            <div class="modal fade text-left" id="refund<?php echo $row['order_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel17">Request Refund</h4>
+                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                <i data-feather="x"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <?php echo $key['orderid']?>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Close</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+    <!--========================================== E N D == O F == M O D A L =====================================-->
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
