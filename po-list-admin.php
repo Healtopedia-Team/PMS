@@ -67,7 +67,6 @@
                         //$result->bind_param("s", $hosp);
                         $result->execute();
                         $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
-                        print_r($res);
                     }
                     ?>
                     <div class="card">
@@ -84,7 +83,8 @@
                                 </thead>
                                 <tbody>
                                     <?php $i = 1; ?>
-                                    <?php 
+                                    <?php
+                                    print_r($res);
                                     if (!isset($_POST['submit']) || $_POST['keywords'] == "Healtopedia"){
                                         foreach ($res as $row) {
                                     ?>
