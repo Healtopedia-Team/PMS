@@ -268,7 +268,7 @@ $data3 = json_decode($data3, true);
 
                                                         <div class="quest">Appointment Time :</div>
                                                         <div class="ans">
-                                                            <?php date("H:i", $key2['start'] - 28800);
+                                                            <?php date("h:i A", $key2['start'] - 28800);
                                                             ob_start();
                                                             $date = date("H:i", $key2['start'] - 28800);
                                                             ob_end_clean();
