@@ -4,9 +4,10 @@
                 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
                 session_start();
                 $role = $_SESSION['role'];
-                print_r($role);
-                if($role == 'admin'){
+                //print_r($role);
+                if($role === 'admin'){
                     header("location: po-list-admin.php");
+                    echo "hi admin!";
                 }
                 $hosp = $_SESSION["hospital"];
                 $heal = "Healtopedia";
