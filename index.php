@@ -76,7 +76,6 @@ if($hosp == "Healtopedia"){
   $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 else{
-  echo "If statement should be here";
   $result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo WHERE hosp_name=? GROUP BY prod_id ORDER BY 2 DESC");
   $result2->bind_param("s", $hosp);
   $result2->execute();
