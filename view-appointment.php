@@ -404,6 +404,9 @@ $data3 = json_decode($data3, true);
                                                                     if ($appdate > $yesterday) { ?>
                                                                     <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
                                                                     <?php } ?>
+                                                                    <form method="POST">
+                                                                        <button class="btn rounded-pill btn-warning" style="margin-top: 10px; float: left;color: black;">Request Refund</button>
+                                                                    </form>
                                                                 </li>
                                                             </ul>
                                                         </div>
