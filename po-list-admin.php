@@ -25,14 +25,18 @@
 
                 <section class="section">
                     <div class="card">
-                        <form method="post" action="#">
-                            <select name="keywords">
-                                <?php foreach ($hosp_list as $hospital) {?>
-                                <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
-                                <?php } ?>
-                            </select>
-                            <input type="submit">
-                        </form>
+                        <div class="card-body">
+                            <form method="post" action="#">
+                                <select name="keywords">
+                                    <?php foreach ($hosp_list as $hospital) { ?>
+                                        <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                                <input type="submit">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card">
                         <div class="card-body">
                             <table class="table table-striped" id="table1">
                                 <thead>
