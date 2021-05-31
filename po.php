@@ -45,7 +45,7 @@ if (strpos($hosp, $heal) !== false) {
 
 
 $total_price = 0;
-//var_dump($res);
+var_dump($res);
 ?>
 
 <html>
