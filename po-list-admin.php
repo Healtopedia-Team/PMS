@@ -3,12 +3,11 @@
 
                 $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
                 session_start();
-                $hosp = $_SESSION['hospital'];
+                //$hosp = $_SESSION['hospital'];
                 $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
                             AS unique_date, COUNT(*) AS amount
                             FROM `appointwoo`
                             WHERE DATEDIFF(NOW(), FROM_UNIXTIME(appointwoo.end_appoint, '%Y-%m-%d')) > 1 
-                            AND hosp_name = ? 
                             AND statusapp='complete'
                             GROUP BY unique_date
                             ORDER BY unique_date DESC";
@@ -16,7 +15,7 @@
                 //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
                 $result = $conn->prepare($query);
-                $result->bind_param("s", $hosp);
+                //$result->bind_param("s", $hosp);
                 $result->execute();
                 $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                 
