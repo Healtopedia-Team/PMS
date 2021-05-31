@@ -37,11 +37,6 @@
                     $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                 }
 
-
-
-
-
-
                 ?>
 
                 <section class="section">
