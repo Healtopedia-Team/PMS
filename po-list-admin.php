@@ -41,6 +41,8 @@
                                 //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             $result = $conn->prepare($query);
                             $result->bind_param("s", $keywords);
+                            $result->execute();
+                            $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                         } else {
                             $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
                                 AS unique_date, COUNT(*) AS amount
@@ -50,12 +52,10 @@
                                 GROUP BY unique_date
                                 ORDER BY unique_date DESC";
                             $result = $conn->prepare($query);
-                            print_r($result);
+                            $result->execute();
+                            $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+                            print_r($res);
                         }
-                        
-                        $result->execute();
-                        $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
-                        
                     } else {
                         $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) AS unique_date, 
                             COUNT(*) AS amount, hosp_name FROM `appointwoo` WHERE DATEDIFF(NOW(), 
