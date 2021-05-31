@@ -254,10 +254,8 @@ $data3 = json_decode($data3, true);
                                                     </div>
 
                                                     <div class="quest">Package Fee :</div>
-                                                    <div class="ans"><?php
-                                                                        $totalori = $key['line_items'][$q]['subtotal'];
-                                                                        echo "RM " . $totalori;
-                                                                        ?></div>
+                                                    <div class="ans"><?php $totalori = $key['line_items'][$q]['subtotal'];
+                                                    echo "RM " . $totalori; ?></div>
 
                                                     <div class="quest">Payment via :</div>
                                                     <div class="ans"><?php echo $key['payment_method_title']; ?></div>
@@ -394,7 +392,7 @@ $data3 = json_decode($data3, true);
                                                                     <?php } ?>
                                                                     <form method="POST">
                                                                         <button type="submit" name="btnrefund" class="btn rounded-pill btn-warning" style="margin-top: 10px; float: left;color: black;">Request Refund</button>
-                                                                        <input type="text" name="reqrefund" value="<?php echo $tickname ?>">
+                                                                        <input type="text" name="reqrefund" value="<?php echo $totalori ?>">
                                                                     </form>
                                                                 </li>
                                                             </ul>
