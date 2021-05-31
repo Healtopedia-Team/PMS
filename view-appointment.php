@@ -115,10 +115,8 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
-                                    <?php foreach ($data4 as $key4) {?>
                                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Setting</li>
-                                    <?php } ?>
                                 </ol>
                             </nav>
                         </div>
@@ -244,6 +242,7 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                                     </div>
                                 <?php }} ?>
                             </div>
+                            <?php foreach ($data4 as $key4) {?>
                             <?php foreach ($data as $key) {
                                 for ($q = 0; $q < 10; $q++) {
                                     if ($key['line_items'][$q]['name'] != "") { ?>
@@ -399,7 +398,7 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                                                                     <?php } ?>
                                                                     <form method="POST">
                                                                         <button type="submit" name="btnrefund" class="btn rounded-pill btn-warning" style="margin-top: 10px; float: left;color: black;">Request Refund</button>
-                                                                        <input type="text" name="reqrefund" value="<?php echo $totalori ?>">
+                                                                        <input type="text" name="reqrefund" value="<?php echo $key4['apooint_id']; ?>">
                                                                     </form>
                                                                 </li>
                                                             </ul>
@@ -407,6 +406,7 @@ $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php } ?>
                                             <?php } ?>
                                         <?php } ?>
                                     <?php } ?>
