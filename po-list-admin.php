@@ -28,7 +28,16 @@
                     <?php
                     if (isset($_POST['submit'])) {
                         $keywords = $_POST['keywords'];
-                        if ($keywords != 'Healtopedia'){
+                        if ($keywords === 'Healtopedia'){
+                            $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) AS unique_date, 
+                                COUNT(*) AS amount, hosp_name FROM `appointwoo` WHERE DATEDIFF(NOW(), 
+                                FROM_UNIXTIME(appointwoo.end_appoint, '%Y-%m-%d')) > 1 AND statusapp='complete' 
+                                GROUP BY unique_date,hosp_name ORDER BY unique_date DESC";
+                            $result2 = $conn->prepare($query);
+                            $result2->execute();
+                            $res = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+                            //echo "Runs here";
+                        } else {
                             $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
                                 AS unique_date, COUNT(*) AS amount
                                 FROM `appointwoo`
@@ -37,24 +46,12 @@
                                 AND statusapp='complete'
                                 GROUP BY unique_date
                                 ORDER BY unique_date DESC";
-                                //$result = mysqli_query($conn, $query);
-                                //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                            //$result = mysqli_query($conn, $query);
+                            //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
                             $result = $conn->prepare($query);
                             $result->bind_param("s", $keywords);
                             $result->execute();
                             $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
-                        } else {
-                            $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
-                                AS unique_date, COUNT(*) AS amount, hosp_name
-                                FROM `appointwoo`
-                                WHERE DATEDIFF(NOW(), FROM_UNIXTIME(appointwoo.end_appoint, '%Y-%m-%d')) > 1 
-                                AND statusapp='complete'
-                                GROUP BY unique_date, hosp_name
-                                ORDER BY unique_date DESC";
-                            $result2 = $conn->prepare($query);
-                            $result2->execute();
-                            $res = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
-                            //echo "Runs here";
                         }
                     } else {
                         $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) AS unique_date, 
