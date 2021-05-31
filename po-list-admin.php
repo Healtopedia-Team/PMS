@@ -54,7 +54,7 @@
                             $result2 = $conn->prepare($query);
                             $result2->execute();
                             $res = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
-                            echo "Runs here";
+                            //echo "Runs here";
                         }
                     } else {
                         $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) AS unique_date, 
@@ -85,7 +85,7 @@
                                 <tbody>
                                     <?php $i = 1; ?>
                                     <?php
-                                    print_r($res);
+                                    //print_r($res);
                                     if (!isset($_POST['submit']) || $_POST['keywords'] == "Healtopedia"){
                                         foreach ($res as $row) {
                                     ?>
