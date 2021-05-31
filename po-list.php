@@ -6,7 +6,7 @@
                 $role = $_SESSION['role'];
                 print_r($role);
                 if($role == 'admin'){
-                    header('location: po-list-admin.php');
+                    header("location: po-list-admin.php");
                 }
                 $hosp = $_SESSION["hospital"];
                 $heal = "Healtopedia";
