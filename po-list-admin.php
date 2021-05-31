@@ -45,11 +45,11 @@
                             $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                         } else {
                             $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) 
-                                AS unique_date, COUNT(*) AS amount
+                                AS unique_date, COUNT(*) AS amount, hosp_name
                                 FROM `appointwoo`
                                 WHERE DATEDIFF(NOW(), FROM_UNIXTIME(appointwoo.end_appoint, '%Y-%m-%d')) > 1 
                                 AND statusapp='complete'
-                                GROUP BY unique_date
+                                GROUP BY unique_date, hosp_name
                                 ORDER BY unique_date DESC";
                             $result = $conn->prepare($query);
                             $result->execute();
