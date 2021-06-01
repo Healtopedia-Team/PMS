@@ -250,8 +250,8 @@ $formattedMonthArray = array(
                                                 $current_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month], 0, 3) : $cur_month;
                                                 if ($sel_month == 1) {
                                                     $previous_month = 'Dec';
-                                                    var_dump($gross_revenue_prev[$previous_month]);
-                                                    //$prev_month_gross = $gross_revenue_prev[$previous_month];
+                                                    //var_dump($gross_revenue_prev[$previous_month]);
+                                                    $prev_month_gross = $gross_revenue_prev[$previous_month];
                                                 } else {
                                                     $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : $prev_month;
                                                     $prev_month_gross = $value[$previous_month];
@@ -272,7 +272,7 @@ $formattedMonthArray = array(
 
                                             </div>
                                             <?php
-                                            $up_or_down = $value[$current_month] / $prev_month_gross;
+                                            $up_or_down = $value[$current_month] / (int)$prev_month_gross;
                                             if ($up_or_down >= 1) {
                                                 $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
                                                 $style = "color:green; font-weight:900; font-size:1.4rem;";
