@@ -29,7 +29,17 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
     $_SESSION['sel_year'] = $_POST['sel_year'];
     $_SESSION['sel_month'] = $_POST['sel_month'];
 
-
+    if($sel_month == 1){
+        $decsql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12 , c.package_price, 0)) AS 'Dec' 
+                                FROM `orderwoo` a 
+                                LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+                                WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ?
+                                ";
+        $res1 = $conn->prepare($sql);
+        $res1->bind_param("ss", $hosp, $sel_year-1);
+        $res1->execute();
+        $gross_revenue_prev = $res1->get_result()->fetch_assoc();
+    }
     $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
                                 SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
                                 SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 3 , c.package_price, 0)) AS Mar,
@@ -235,10 +245,12 @@ $formattedMonthArray = array(
                                                 $current_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month], 0, 3) : $cur_month;
                                                 if ($sel_month == 1) {
                                                     $previous_month = 'Dec';
+                                                    print_r($gross_revenue_prev);
                                                 } else {
                                                     $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
                                                 }
                                                 //print_r($previous_month);
+                                                
 
                                                 ?>
                                                 <div class="row">
