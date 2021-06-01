@@ -57,6 +57,7 @@
                         <div class="card-body" style="padding: 0.5rem;">
                             <form method="post" action="" style="display:flex; float:right;" id="choosehosp" name="formhosp">
                                 <select name="keywords" class="form-select" style="width: auto;" onchange=selectChange(this.value)>
+                                    <option value="">Select Hospital</option>
                                     <?php foreach ($hosp_list as $hospital) { ?>
                                         <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                     <?php } ?>
@@ -66,7 +67,7 @@
                         </div>
                     </div>
                     <?php
-                    
+
                     ?>
                     <div class="card">
                         <div class="card-body">

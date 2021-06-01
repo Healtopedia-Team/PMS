@@ -54,6 +54,15 @@ $res2 = $conn->prepare($sql2);
 $res2->bind_param("s", $hosp);
 $res2->execute();
 $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
+
+
+
+
+//For Year and month filter here
+$a_year = $conn->prepare("SELECT DISTINCT(YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d'))) FROM appointwoo");
+$a_year->execute();
+$available_year = $a_year->get_result()->fetch_all(MYSQLI_ASSOC);
+
 $monthArray = range(1, 12);
 $cur_mth = date("n");
 $formattedMonthArray = array(
@@ -119,14 +128,14 @@ $formattedMonthArray = array(
                                 <div class="card-body px-3 py-3">
                                     <form method="post" action="" style="display: flex;">
                                         <select name="keywords" class="form-select" style="width:50%">
-                                            <option value="">Select Month</option>
+                                            <option value="">Select Year</option>
                                             <?php
-                                            foreach ($monthArray as $month) {
+                                            foreach ($available_year as $year) {
                                                 // if you want to select a particular month
-                                                $selected = ($month == $cur_mth) ? 'selected' : '';
+                                                $selected = ($year == $cur_mth) ? 'selected' : '';
                                                 // if you want to add extra 0 before the month uncomment the line below
                                                 //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
-                                                echo '<option ' . $selected . ' value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
+                                                echo '<option ' . $selected . ' value="' . $year . '">' . $year . '</option>';
                                             }
                                             ?>
                                         </select>
@@ -151,6 +160,7 @@ $formattedMonthArray = array(
                                 <div class="card-body px-3 py-3">
                                     <form method="post" action="" style="display: flex;">
                                         <select name="keywords" class="form-select" style="width:100%">
+                                            <option value="">Select Hospital</option>
                                             <?php foreach ($hosp_list as $hospital) { ?>
                                                 <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                             <?php } ?>
