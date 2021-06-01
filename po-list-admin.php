@@ -9,7 +9,7 @@
                 $hosps->execute();
                 $hosp_list = $hosps->get_result()->fetch_all(MYSQLI_ASSOC);
 
-                if (isset($_POST['submit'])) {
+                if (isset($_POST['formhosp'])) {
                     $keywords = $_POST['keywords'];
                     if ($keywords === 'Healtopedia') {
                         $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) AS unique_date, 
@@ -55,8 +55,8 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body" style="padding: 0.5rem;">
-                            <form method="post" action="" style="display:flex; float:right;" id="choosehosp">
-                                <select name="keywords" class="form-select" style="width: auto;" onChange=selectChange(this.value)>
+                            <form method="post" action="" style="display:flex; float:right;" id="choosehosp" name="formhosp">
+                                <select name="keywords" class="form-select" style="width: auto;" onchange=selectChange(this.value)>
                                     <?php foreach ($hosp_list as $hospital) { ?>
                                         <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                     <?php } ?>
