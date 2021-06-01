@@ -84,7 +84,7 @@
                                     <?php $i = 1; ?>
                                     <?php
                                     //print_r($res);
-                                    if (!isset($_POST['submit']) || $_POST['keywords'] == "Healtopedia") {
+                                    if (!isset($_POST['keywords']) || $_POST['keywords'] == "Healtopedia") {
                                         foreach ($res as $row) {
                                     ?>
                                             <tr>
