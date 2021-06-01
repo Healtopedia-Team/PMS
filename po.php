@@ -12,7 +12,7 @@ if ($cur_date != '') {
 }
 if ($hosp == '') {
   $hosp = $_GET['hosp'];
-} 
+}
 //var_dump($current_date);
 /*
 $heal = "Healtopedia";
@@ -66,6 +66,7 @@ $total_price = 0;
 <html>
 
 <head>
+  <meta http-equiv="Content-Type" content="charset=utf-8" />
   <meta charset="UTF-8" />
   <script src="script.js"></script>
   <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
