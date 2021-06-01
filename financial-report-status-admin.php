@@ -7,6 +7,8 @@ $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 $hosp = $_SESSION['hospital'];
+$cur_month = substr(date("F"), 0, 3);
+
 session_start();
 
 // Check if the user is logged in, if not then redirect him to login page
@@ -226,7 +228,7 @@ $formattedMonthArray = array(
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                                 </div>
                                                 <?php
-                                                    $current_month = ($sel_month != '')? substr($formattedMonthArray[$sel_month-1], 0, 3) : substr(date("F"), 0, 3);
+                                                    $current_month = ($sel_month != '')? substr($formattedMonthArray[$sel_month-1], 0, 3) :$cur_month;
                                                     if ($sel_month == 1){
                                                         $previous_month = 'Dec';
             
@@ -237,7 +239,7 @@ $formattedMonthArray = array(
 
                                                 ?>
                                                 <div class="row">
-                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $value[$current_month] ?>.00</h5>
+                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $sel_year . $value[$current_month] ?>.00</h5>
                                                 </div>
                                                 <div class="row">
                                                     <h6 class="text-muted font-semibold">Previous Month</h6>
