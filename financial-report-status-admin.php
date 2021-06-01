@@ -108,10 +108,10 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         ?>
                         <div class="col">
                             <div class="card">
-                                <div class="card-body" style="padding: 0.5rem;">
+                                <div class="card-body">
                                     <form method="post" action="">
                                         <div style="max-width:50%">
-                                            <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here..">
+                                            <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" autocomplete="off" placeholder="click here..">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default" type="submit" name="submitdate">Go</button>
                                             </span>
