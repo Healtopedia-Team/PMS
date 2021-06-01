@@ -9,7 +9,7 @@
                 $hosps->execute();
                 $hosp_list = $hosps->get_result()->fetch_all(MYSQLI_ASSOC);
 
-                if (isset($_POST['formhosp'])) {
+                if (isset($_POST['keywords'])) {
                     $keywords = $_POST['keywords'];
                     if ($keywords === 'Healtopedia') {
                         $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) AS unique_date, 
