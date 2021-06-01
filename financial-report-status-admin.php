@@ -114,7 +114,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                                             <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" style="padding: 6px" autocomplete="off" placeholder="click here..">
                                         </div>
                                         <span class="input-group-btn" style="max-width:20%">
-                                            <button class="btn btn-outline-dark" type="submit" name="submitdate" style="margin-left:10px; float: right;">Check</button>
+                                            <button class="btn btn-outline-dark" type="submit" name="submitdate" style="margin-left:20px;">Check</button>
                                         </span>
                                     </form>
                                 </div>
