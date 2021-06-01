@@ -110,12 +110,12 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <form method="post" action="" style="display: flex;">
-                                        <div style="max-width:80%">
+                                        <div style="max-width:80%" class="form-select">
                                             <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" autocomplete="off" placeholder="click here..">
                                         </div>
-                                        <div class="input-group-btn" style="max-width:20%">
+                                        <span class="input-group-btn" style="max-width:20%">
                                             <button class="btn btn-outline-dark" type="submit" name="submitdate" style="float: right;">Check</button>
-                                        </div>
+                                        </span>
                                     </form>
                                 </div>
                             </div>
