@@ -8,8 +8,7 @@ $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 $hosp = $_SESSION['hospital'];
 session_start();
-$current_month = substr(date("F"), 0, 3);
-$previous_month = substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
+
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
@@ -228,6 +227,15 @@ $formattedMonthArray = array(
                                                 <div class="row">
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                                 </div>
+                                                <?php
+                                                    $current_month = ($sel_month != '')? substr($formattedMonthArray[$sel_month], 0, 3) : substr(date("F"), 0, 3);
+                                                    if ($sel_month == 1){
+                                                        $previous_month = 'Dec';
+                                                    } else{
+                                                        $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 2], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
+                                                    }
+                                                    
+                                                ?>
                                                 <div class="row">
                                                     <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $value[$current_month] ?>.00</h5>
                                                 </div>
