@@ -230,12 +230,12 @@ $formattedMonthArray = array(
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                                 </div>
                                                 <?php
-                                                    $current_month = ($sel_month != '')? substr($formattedMonthArray[$sel_month-1], 0, 3) :$cur_month;
+                                                    $current_month = ($sel_month != '')? substr($formattedMonthArray[$sel_month], 0, 3) :$cur_month;
                                                     if ($sel_month == 1){
                                                         $previous_month = 'Dec';
             
                                                     } else{
-                                                        $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 2], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
+                                                        $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
                                                     }
                                                     print_r($previous_month);
 
