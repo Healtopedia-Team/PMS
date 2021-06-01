@@ -128,7 +128,7 @@ $formattedMonthArray = array(
                         <div class="col-md-5">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <form method="post" action="" style="display: flex;">
+                                    <form method="post" action="" style="display: flex; margin-right: 10px">
                                         <select name="keywords" class="form-select" style="width:50%">
                                             <option value="">Select Year</option>
                                             <?php
