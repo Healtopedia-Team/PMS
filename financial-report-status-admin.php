@@ -149,7 +149,7 @@ $formattedMonthArray = array(
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
-                            <h3>Financial Report</h3>
+                            <h3>Financial Report <?php echo $sel_year. $formattedMonthArray[$sel_month]?></h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -224,9 +224,7 @@ $formattedMonthArray = array(
                             <div class="card">
                                 <div class="card-body px-4 py-3">
                                     <div class="row align-items-center">
-                                        <?php 
-                                        print_r($gross_revenue);
-                                        foreach ($gross_revenue as $month => $value) : ?>
+                                        <?php foreach ($gross_revenue as $month => $value) : ?>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
@@ -239,11 +237,11 @@ $formattedMonthArray = array(
                                                     } else{
                                                         $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
                                                     }
-                                                    print_r($previous_month);
+                                                    //print_r($previous_month);
 
                                                 ?>
                                                 <div class="row">
-                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $sel_year . $value[$current_month] ?>.00</h5>
+                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $value[$current_month] ?>.00</h5>
                                                 </div>
                                                 <div class="row">
                                                     <h6 class="text-muted font-semibold">Previous Month</h6>
