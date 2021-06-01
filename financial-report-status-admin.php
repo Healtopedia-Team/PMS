@@ -40,6 +40,7 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
     $res2->bind_param("sss", $hosp, $sel_year);
     $res2->execute();
     $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
+    print_r($monthly_revenue);
 
 
 } else {
