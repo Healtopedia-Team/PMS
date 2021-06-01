@@ -118,7 +118,19 @@ $formattedMonthArray = array(
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <form method="post" action="" style="display: flex;">
-                                        <select name="keywords" class="form-select" style="width:100%">
+                                        <select name="keywords" class="form-select" style="width:50%">
+                                            <option value="">Select Month</option>
+                                            <?php
+                                            foreach ($monthArray as $month) {
+                                                // if you want to select a particular month
+                                                $selected = ($month == $cur_mth) ? 'selected' : '';
+                                                // if you want to add extra 0 before the month uncomment the line below
+                                                //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
+                                                echo '<option ' . $selected . ' value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
+                                        <select name="keywords" class="form-select" style="width:50%">
                                             <option value="">Select Month</option>
                                             <?php
                                             foreach ($monthArray as $month) {
