@@ -28,7 +28,7 @@ $statement = $connect->prepare($query);
 $statement->bind_param("s", $hosp);
 $statement->execute();
 
-$result = $statement->get_result()->fetch_assoc();
+$result = $statement->get_result()->fetch_array();
 
 echo json_encode($result);
 
