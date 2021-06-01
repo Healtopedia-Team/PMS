@@ -29,12 +29,13 @@ $result->execute();
 $data = $result->get_result()->fetch_assoc();
 
 if (isset($_POST['sel_year']) or isset($_POST['sel_month']) or isset($_POST['sel_hosp'])) {
-    $sel_year = ($_POST['sel_year'] != '') ? $_POST['sel_year'] : $_SESSION['sel_year'];
-    $sel_month = ($_POST['sel_month'] != '') ? $_POST['sel_month'] : $_SESSION['sel_month'];
-    $sel_hosp = ($_POST['sel_hosp'] != '') ? $_POST['sel_hosp'] : $_SESSION['sel_hosp'];
+    
     $_SESSION['sel_year'] = ($_POST['sel_year'] != '') ? $_POST['sel_year'] : $_SESSION['sel_year'];
     $_SESSION['sel_month'] = ($_POST['sel_month'] != '') ? $_POST['sel_month'] : $_SESSION['sel_month'];
     $_SESSION['sel_hosp'] = ($_POST['sel_hosp'] != '') ? $_POST['sel_hosp'] : $_SESSION['sel_hosp'];
+    $sel_year = ($_POST['sel_year'] != '') ? $_POST['sel_year'] : $_SESSION['sel_year'];
+    $sel_month = ($_POST['sel_month'] != '') ? $_POST['sel_month'] : $_SESSION['sel_month'];
+    $sel_hosp = ($_POST['sel_hosp'] != '') ? $_POST['sel_hosp'] : $_SESSION['sel_hosp'];
 
     if ($sel_month == 1) {
         $decsql = "SELECT SUM(c.package_price) AS 'Dec' 
@@ -171,7 +172,7 @@ $formattedMonthArray = array(
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
                             <h3>Financial Report</h3>
-                            <h6><?php echo $formattedMonthArray[$sel_month] . " of " . $sel_year . " at " . $sel_hosp ?></h6>
+                            <h6><?php echo $formattedMonthArray[$sel_month] . $sel_year . " at " . $sel_hosp ?></h6>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
