@@ -59,6 +59,13 @@ $result->bind_param("ss", $current_date, $hosp);
 $result->execute();
 $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 $total_price = 0;
+
+$query2 = "SELECT pic,hosp_company,hosp_address,hosp_phone FROM hospital WHERE hosp_name=?";
+$result2 = $conn->prepare($query2);
+$result2->bind_param("s",$hosp);
+$result2->execute();
+$hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
 <html>
@@ -156,6 +163,10 @@ $total_price = 0;
   </div>
   <div style="clear: both;"></div>
   <div class="vendor">
+
+
+  <?php foreach ($hs as $rows) {?>
+
     <table>
       <tr height="20">
         <td height="15" bgcolor="#3B4E87" style="padding-left:10px">
@@ -163,16 +174,20 @@ $total_price = 0;
         </td>
       </tr>
       <tr>
-        <td>Nurul Nadia</td>
+        <td><?php echo $rows['pic'] ?></td>
       </tr>
       <tr>
-        <td><b>Sunway Velocity Sdn. Bhd</b></td>
+        <td><b><?php echo $rows['hosp_company'] ?></b></td>
       </tr>
       <tr>
-        <td>Pusat Perubatan Sunway Velocity, Lingkaran SV, Sunway Velocity, 55100 Kuala Lumpur, Malaysia<br>6012-6498655
+        <td><?php echo $rows['hosp_address'] ?><br><?php echo $rows['hosp_phone'] ?>
         </td>
       </tr>
     </table>
+<?php } ?>
+
+
+
   </div>
 
 
