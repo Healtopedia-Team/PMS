@@ -67,7 +67,7 @@ $appointment = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 $hosp = $_SESSION["hospital"];
 $heal = "Healtopedia";
 if(strpos($hosp, $heal) !== false){
-  echo "HEALTOPEDIA IS HERE!";
+  
   $result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
   $result2->execute();
   $hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -172,7 +172,7 @@ $month_gross_revenue = $res->get_result()->fetch_assoc();
                         </div>
                       </div>
                       <div class="col-md-8">
-                        <h6 class="text-muted font-semibold">Appointments This Week <?php echo $hosp?></h6>
+                        <h6 class="text-muted font-semibold">Appointments This Week</h6>
                         <h6 class="font-extrabold mb-0">
                           <?php
                           /*
