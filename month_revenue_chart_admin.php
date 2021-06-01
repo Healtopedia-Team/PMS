@@ -3,8 +3,7 @@
 $conn = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Healit20.');
 session_start();
 $hosp = $_SESSION['hospital'];
-$data = array();
-$sel_year = ($_SESSION['sel_year'] != '') ? $_SESSION['sel_year']:date("Y");
+$sel_year = ($_SESSION['sel_year'] != '') ? $_SESSION['sel_year']: date("Y");
 
 $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
     SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
@@ -23,7 +22,8 @@ $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.packa
     WHERE b.hosp_name=:hosp AND a.status='completed' AND YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = :sel_year";
 
 $res = $conn->prepare($sql);
-$res->bindParam(":hosp, :sel_year", $hosp, $sel_year);
+$res->bindParam(":hosp", $hosp);
+$res->bindParam(":sel_year", $sel_year);
 $res->execute();
 $result = $res->fetch();
 echo json_encode($result);

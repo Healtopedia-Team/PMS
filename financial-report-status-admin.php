@@ -486,7 +486,6 @@ $formattedMonthArray = array(
                     }])
                     console.log(month_revenue);
                     window.dispatchEvent(new Event('resize'))
-
                 })
 
                 //setTimeout(load_chart(), 500)
