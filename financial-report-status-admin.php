@@ -224,7 +224,9 @@ $formattedMonthArray = array(
                             <div class="card">
                                 <div class="card-body px-4 py-3">
                                     <div class="row align-items-center">
-                                        <?php foreach ($gross_revenue as $month => $value) : ?>
+                                        <?php 
+                                        print_r($gross_revenue);
+                                        foreach ($gross_revenue as $month => $value) : ?>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
