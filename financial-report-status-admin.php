@@ -250,6 +250,7 @@ $formattedMonthArray = array(
                                                 $current_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month], 0, 3) : $cur_month;
                                                 if ($sel_month == 1) {
                                                     $previous_month = 'Dec';
+                                                    var_dump($gross_revenue_prev[$previous_month]);
                                                     //$prev_month_gross = $gross_revenue_prev[$previous_month];
                                                 } else {
                                                     $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : $prev_month;
