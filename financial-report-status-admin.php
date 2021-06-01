@@ -192,7 +192,7 @@ $formattedMonthArray = array(
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <h6>Please select month then select year</h6>
-                                    <div class="col">
+                                    <div class="col-sm-6">
                                         <form method="post" action="" style="display: flex;" id="year_form">
                                             <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange1(this.value)>
                                                 <option value="">Select Month</option>
@@ -209,7 +209,7 @@ $formattedMonthArray = array(
                                             </select>
                                         </form>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-sm-6">
                                         <form method="post" action="" style="display: flex;" id="month_form">
                                             <select name="sel_year" class="form-select" style="width:50%;margin-right: 10px" onchange=selectChange(this.value)>
                                                 <option value="">Select Year</option>
