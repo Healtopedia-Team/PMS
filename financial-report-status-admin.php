@@ -233,7 +233,7 @@ $formattedMonthArray = array(
                                                     } else{
                                                         $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 2], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
                                                     }
-                                                    echo $previous_month;
+                                                    print_r($previous_month);
 
                                                 ?>
                                                 <div class="row">
