@@ -4,6 +4,8 @@ $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");;
 session_start();
 $hosp = $_SESSION['hospital'];
 $data = array();
+$sel_year = $_SESSION['sel_year'];
+$sel_month = $_SESSION['sel_month'];
 if ($sel_month == 1) { //print last year december information
     $sql = "SELECT SUM(c.package_price) AS Jan,
                         FROM `orderwoo` a 
@@ -35,6 +37,8 @@ if ($sel_month == 1) { //print last year december information
     $prev_y->bind_param("ss", $hosp, $sel_year - 1);
     $prev_y->execute();
     $gross_revenue_prev = $prev_y->get_result()->fetch_all(MYSQLI_ASSOC);
+    $gross_revenue_prev[0] += ['Jan' => $gross_revenue_jan[0]['Jan']];
+    echo json_encode($gross_revenue_prev);
 
 } else {
     $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
@@ -57,9 +61,10 @@ if ($sel_month == 1) { //print last year december information
     $res->bind_param("sss", $hosp, $sel_year, $sel_month);
     $res->execute();
     $result = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($result);
+
 }
 
 
-echo json_encode($result);
 
 ?>

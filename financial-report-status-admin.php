@@ -25,91 +25,31 @@ $data = $result->get_result()->fetch_assoc();
 if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
     $sel_year = $_POST['sel_year'];
     $sel_month = $_POST['sel_month'];
-    if ($sel_month == 1) { //print last year december information
-        $sql = "SELECT SUM(c.package_price),
-                        FROM `orderwoo` a 
-                        LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-                        WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ? 
-                        AND MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1";
-        $res = $conn->prepare($sql);
-        $res->bind_param("ss", $hosp, $sel_year);
-        $res->execute();
-        $gross_revenue_jan = $res->get_result()->fetch_all(MYSQLI_ASSOC);
-
-        $prev =
-            "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 3 , c.package_price, 0)) AS Mar,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 4 , c.package_price, 0)) AS Apr,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 5 , c.package_price, 0)) AS May,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 6 , c.package_price, 0)) AS Jun,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 7 , c.package_price, 0)) AS Jul,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 8 , c.package_price, 0)) AS Aug,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 9 , c.package_price, 0)) AS Sep,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 10 , c.package_price, 0)) AS 'Oct',
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 11, c.package_price, 0)) AS Nov,
-                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12 , c.package_price, 0)) AS 'Dec' 
-                FROM `orderwoo` a 
-                LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-                WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ? 
-                ";
-        $prev_y = $conn->prepare($prev);
-        $prev_y->bind_param("ss", $hosp, $sel_year - 1);
-        $prev_y->execute();
-        $gross_revenue_prev = $prev_y->get_result()->fetch_all(MYSQLI_ASSOC);
-
-    } else {
-        $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 3 , c.package_price, 0)) AS Mar,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 4 , c.package_price, 0)) AS Apr,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 5 , c.package_price, 0)) AS May,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 6 , c.package_price, 0)) AS Jun,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 7 , c.package_price, 0)) AS Jul,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 8 , c.package_price, 0)) AS Aug,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 9 , c.package_price, 0)) AS Sep,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 10 , c.package_price, 0)) AS 'Oct',
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 11, c.package_price, 0)) AS Nov,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12 , c.package_price, 0)) AS 'Dec' 
-                                FROM `orderwoo` a 
-                                LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-                                WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ? 
-                                AND MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ?";
-        $res = $conn->prepare($sql);
-        $res->bind_param("sss", $hosp, $sel_year, $sel_month);
-    }
-
-
-    $res->execute();
-    $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
-} else {
-    $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 3 , c.package_price, 0)) AS Mar,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 4 , c.package_price, 0)) AS Apr,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 5 , c.package_price, 0)) AS May,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 6 , c.package_price, 0)) AS Jun,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 7 , c.package_price, 0)) AS Jul,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 8 , c.package_price, 0)) AS Aug,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 9 , c.package_price, 0)) AS Sep,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 10 , c.package_price, 0)) AS 'Oct',
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 11, c.package_price, 0)) AS Nov,
-                                SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12 , c.package_price, 0)) AS 'Dec' 
-                                FROM `orderwoo` a 
-                                LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-                                WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())";
-    $res = $conn->prepare($sql);
-    $res->bind_param("s", $hosp);
-    $res->execute();
-    $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
-
+    $_SESSION['sel_year'] = $_POST['sel_year'];
+    $_SESSION['sel_month'] = $_POST['sel_month'];
     $sql2 = "SELECT
-                            SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
-                            SUM(c.package_price) AS Gross_revenue,
-                            COUNT(b.order_id) AS Appointments_per_mth
-                            FROM `orderwoo` a 
-                            LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-                            WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())
-                            GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d'))";
+            SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
+            SUM(c.package_price) AS Gross_revenue,
+            COUNT(b.order_id) AS Appointments_per_mth
+            FROM `orderwoo` a 
+            LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+            WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = ?  
+            GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) = ?";
+    $res2 = $conn->prepare($sql2);
+    $res2->bind_param("sss", $hosp, $sel_year);
+    $res2->execute();
+    $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
+
+
+} else {
+    $sql2 = "SELECT
+            SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
+            SUM(c.package_price) AS Gross_revenue,
+            COUNT(b.order_id) AS Appointments_per_mth
+            FROM `orderwoo` a 
+            LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+            WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())
+            GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d'))";
     $res2 = $conn->prepare($sql2);
     $res2->bind_param("s", $hosp);
     $res2->execute();
@@ -240,24 +180,23 @@ $formattedMonthArray = array(
                             <div class="card">
                                 <div class="card-body px-4 py-3">
                                     <div class="row align-items-center">
-                                        <?php foreach ($gross_revenue as $month => $value) : ?>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                                 </div>
                                                 <div class="row">
-                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $value[$current_month] ?>.00</h5>
+                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $monthly_revenue[$current_month] ?>.00</h5>
                                                 </div>
                                                 <div class="row">
                                                     <h6 class="text-muted font-semibold">Previous Month</h6>
                                                 </div>
                                                 <div class="row">
-                                                    <h6 class="font-bold">RM <?php echo $value[$previous_month] ?>.00</h6>
+                                                    <h6 class="font-bold">RM <?php echo $monthly_revenue[$previous_month] ?>.00</h6>
                                                 </div>
 
                                             </div>
                                             <?php
-                                            $up_or_down = $value[$current_month] / $value[$previous_month];
+                                            $up_or_down = $monthly_revenue[$current_month] / $monthly_revenue[$previous_month];
                                             if ($up_or_down >= 1) {
                                                 $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
                                                 $style = "color:green; font-weight:900; font-size:1.4rem;";
@@ -268,7 +207,6 @@ $formattedMonthArray = array(
                                                 $arrow = "down";
                                             }
                                             ?>
-                                        <?php endforeach ?>
                                         <div class="col-md-5" style="text-align: center;">
                                             <i class="fa-4x bi bi-graph-<?php echo $arrow; ?>" style="<?php echo $style; ?>">
 
