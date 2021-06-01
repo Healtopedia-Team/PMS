@@ -196,7 +196,7 @@ $formattedMonthArray = array(
                                     <div class="row">
                                         <div class="col">
                                             <form method="post" action="" style="display: flex;" id="year_form">
-                                                <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange1(this.value)>
+                                                <select name="sel_month" class="form-select" id="month_form" onchange=selectChange1(this.value)>
                                                     <option value="">Select Month</option>
                                                     <?php
                                                     foreach ($monthArray as $month) {
@@ -213,7 +213,7 @@ $formattedMonthArray = array(
                                         </div>
                                         <div class="col">
                                             <form method="post" action="" style="display: flex;" id="month_form">
-                                                <select name="sel_year" class="form-select" style="width:50%" onchange=selectChange(this.value)>
+                                                <select name="sel_year" class="form-select" onchange=selectChange(this.value)>
                                                     <option value="">Select Year</option>
                                                     <?php
                                                     foreach ($available_year as $year) {
