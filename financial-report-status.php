@@ -46,7 +46,6 @@ $res->bind_param("s", $hosp);
 $res->execute();
 $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 $resans = $res->fetch();
-print_r($resans);
 
 $sql2 = "SELECT
 SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
@@ -94,6 +93,8 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
                             <h3>Financial Report</h3>
+                            <?php print_r($resans);
+            ?>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
