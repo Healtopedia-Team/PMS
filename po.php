@@ -66,8 +66,7 @@ $total_price = 0;
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="charset=utf-8" />
-  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <script src="script.js"></script>
   <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
 </head>

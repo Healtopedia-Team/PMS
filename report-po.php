@@ -3,12 +3,12 @@ require_once 'dompdf/autoload.inc.php';
 $cur_date = '';
 $cur_date = $_GET['cur_date'];
 $hosp = $_GET['hosp'];
-//error_reporting(E_ALL);
+error_reporting(E_ALL);
 //header("X-Accel-Buffering: no");
 
 // reference the Dompdf namespace
 ini_set("memory_limit", "1000M");
-ini_set("max_execution_time", "900");
+ini_set("max_execution_time", "1000");
 
 
 use Dompdf\Dompdf;
