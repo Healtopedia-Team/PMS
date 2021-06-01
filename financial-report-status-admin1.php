@@ -29,7 +29,7 @@ $result->execute();
 $data = $result->get_result()->fetch_assoc();
 
 if (isset($_POST['sel_year']) or isset($_POST['sel_month']) or isset($_POST['sel_hosp'])) {
-
+    
     $_SESSION['sel_year'] = ($_POST['sel_year'] != '') ? $_POST['sel_year'] : $_SESSION['sel_year'];
     $_SESSION['sel_month'] = ($_POST['sel_month'] != '') ? $_POST['sel_month'] : $_SESSION['sel_month'];
     $_SESSION['sel_hosp'] = ($_POST['sel_hosp'] != '') ? $_POST['sel_hosp'] : $_SESSION['sel_hosp'];
@@ -193,12 +193,14 @@ $formattedMonthArray = array(
 
 
                         ?>
-                        <div class="col">
+                        <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
+                                    <h6>Please select month then select year</h6>
+
                                     <div class="row">
-                                        <form method="post" action="" style="display: flex;" id="month_form">
-                                            <div class="col">
+                                        <div class="col">
+                                            <form method="post" action="" style="display: flex;" id="month_form">
                                                 <select name="sel_month" class="form-select" onchange=selectChange1(this.value)>
                                                     <option value="">Select Month</option>
                                                     <?php
@@ -212,8 +214,10 @@ $formattedMonthArray = array(
                                                     }
                                                     ?>
                                                 </select>
-                                            </div>
-                                            <div class="col">
+                                            </form>
+                                        </div>
+                                        <div class="col">
+                                            <form method="post" action="" style="display: flex;" id="year_form">
                                                 <select name="sel_year" class="form-select" onchange=selectChange(this.value)>
                                                     <option value="">Select Year</option>
                                                     <?php
@@ -227,20 +231,9 @@ $formattedMonthArray = array(
                                                     }
                                                     ?>
                                                 </select>
-                                            </div>
-                                            <div class="col">
-                                                <div class="card-body px-3 py-3">
-                                                    <h6>Please select desired hospital</h6>
-                                                    <select name="sel_hosp" class="form-select" style="width:100%" onchange=selectChange2(this.value)>
-                                                        <option value="">Select Hospital</option>
-                                                        <?php foreach ($hosp_list as $hospital) { ?>
-                                                            <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
-                                                        <?php } ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </form>
 
+                                            </form>
+                                        </div>
 
                                     </div>
 
@@ -248,7 +241,21 @@ $formattedMonthArray = array(
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body px-3 py-3">
+                                    <h6>Please select desired hospital</h6>
+                                    <form method="post" action="" style="display: flex;" id="hosp_form">
+                                        <select name="sel_hosp" class="form-select" style="width:100%" onchange=selectChange2(this.value)>
+                                            <option value="">Select Hospital</option>
+                                            <?php foreach ($hosp_list as $hospital) { ?>
+                                                <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class=" row">
                         <div class="col-md-4">
