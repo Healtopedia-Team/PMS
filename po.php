@@ -10,7 +10,9 @@ if ($cur_date != '') {
 } else {
   $current_date = $_GET['cur_date'];
 }
-
+if ($hosp == '') {
+  $hosp = $_GET['hosp'];
+} 
 //var_dump($current_date);
 /*
 $heal = "Healtopedia";
