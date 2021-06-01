@@ -57,7 +57,7 @@ $result = $conn->prepare($query);
 $result->bind_param("ss", $current_date, $hosp);
 $result->execute();
 $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
-
+print_r($res);
 $total_price = 0;
 ?>
 
