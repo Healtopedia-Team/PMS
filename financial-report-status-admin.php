@@ -196,6 +196,8 @@ $formattedMonthArray = array(
                         <div class="col">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
+                                    <h6>Please select month then select year</h6>
+
                                     <div class="row">
                                         <form method="post" action="" style="display: flex;" id="month_form">
                                             <div class="col">
@@ -227,17 +229,16 @@ $formattedMonthArray = array(
                                                     }
                                                     ?>
                                                 </select>
+
                                             </div>
                                             <div class="col">
-                                                <div class="card-body px-3 py-3">
-                                                    <h6>Please select desired hospital</h6>
-                                                    <select name="sel_hosp" class="form-select" style="width:100%" onchange=selectChange2(this.value)>
-                                                        <option value="">Select Hospital</option>
-                                                        <?php foreach ($hosp_list as $hospital) { ?>
-                                                            <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
-                                                        <?php } ?>
-                                                    </select>
-                                                </div>
+                                                <select name="sel_hosp" class="form-select" style="width:100%" onchange=selectChange2(this.value)>
+                                                    <option value="">Select Hospital</option>
+                                                    <?php foreach ($hosp_list as $hospital) { ?>
+                                                        <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
+                                                    <?php } ?>
+                                                </select>
+
                                             </div>
                                         </form>
 
