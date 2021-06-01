@@ -35,7 +35,7 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
             FROM `orderwoo` a 
             LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
             WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = ?  
-            GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) = ?";
+            GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d'))";
     $res2 = $conn->prepare($sql2);
     $res2->bind_param("sss", $hosp, $sel_year);
     $res2->execute();
