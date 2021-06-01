@@ -1,6 +1,6 @@
 <?php
 //count the appointments number per month
-$connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Healit20.');
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");;
 session_start();
 $hosp = $_SESSION['hospital'];
 $data = array();
@@ -13,7 +13,7 @@ if ($sel_month == 1) { //print last year december information
     $res = $conn->prepare($sql);
     $res->bind_param("ss", $hosp, $sel_year);
     $res->execute();
-    $gross_revenue_jan = $res->get_result()->fetch();
+    $gross_revenue_jan = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 
     $prev =
         "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
@@ -34,7 +34,8 @@ if ($sel_month == 1) { //print last year december information
     $prev_y = $conn->prepare($prev);
     $prev_y->bind_param("ss", $hosp, $sel_year - 1);
     $prev_y->execute();
-    $gross_revenue_prev = $prev_y->get_result()->fetch();
+    $gross_revenue_prev = $prev_y->get_result()->fetch_all(MYSQLI_ASSOC);
+
 } else {
     $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
                                 SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
@@ -55,7 +56,7 @@ if ($sel_month == 1) { //print last year december information
     $res = $conn->prepare($sql);
     $res->bind_param("sss", $hosp, $sel_year, $sel_month);
     $res->execute();
-    $result = $res->fetch();
+    $result = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 
 
