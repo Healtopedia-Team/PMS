@@ -106,30 +106,30 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         $hosps->execute();
                         $hosp_list = $hosps->get_result()->fetch_all(MYSQLI_ASSOC);
                         ?>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <form method="post" action="">
-                                        <div style="max-width:30%; line-height: 1.5;">
+                                        <div style="max-width:80%">
                                             <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" autocomplete="off" placeholder="click here..">
                                         </div>
-                                        <span class="input-group-btn">
+                                        <span class="input-group-btn" style="max-width:20%">
                                             <button class="btn btn-default" type="submit" name="submitdate">Check</button>
                                         </span>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <form method="post" action="">
-                                        <select name="keywords" class="form-select" style="max-width:50%">
+                                        <select name="keywords" class="form-select" style="max-width:80%">
                                             <?php foreach ($hosp_list as $hospital) { ?>
                                                 <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                             <?php } ?>
                                         </select>
-                                        <span class="input-group-btn">
+                                        <span class="input-group-btn" style="max-width:20%">
                                             <button class="btn btn-default" type="submit" name="submithosp">Go</button>
                                         </span>
                                     </form>
