@@ -1,5 +1,4 @@
 <?php
-ini_set ('display_errors', 'on');
 ini_set ('log_errors', 'on');
 ini_set ('error_reporting', E_ALL);
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
