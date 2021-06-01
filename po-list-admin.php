@@ -4,7 +4,7 @@
                 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
                 session_start();
                 $hosp = $_SESSION['hospital'];
-                
+
                 $hosps = $conn->prepare("SELECT hosp_name FROM hospital");
                 $hosps->execute();
                 $hosp_list = $hosps->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -13,22 +13,20 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body" style="padding: 0.5rem;">
-                            <form method="post" action="" style="display:flex; float:right;">
-                                <select name="keywords" class="form-select" style="width: auto;">
+                            <form method="post" action="" style="display:flex; float:right;" id="choosehosp">
+                                <select name="keywords" class="form-select" style="width: auto;" onChange=selectChange(this.value)>
                                     <?php foreach ($hosp_list as $hospital) { ?>
                                         <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                     <?php } ?>
                                 </select>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit" name="submit">Go</button>
-                                </span>
+
                             </form>
                         </div>
                     </div>
                     <?php
                     if (isset($_POST['submit'])) {
                         $keywords = $_POST['keywords'];
-                        if ($keywords === 'Healtopedia'){
+                        if ($keywords === 'Healtopedia') {
                             $query = "SELECT DISTINCT (DATE(FROM_UNIXTIME(start_appoint, '%Y-%m-%d'))) AS unique_date, 
                             COUNT(*) AS amount, hosp_name FROM `appointwoo` WHERE DATEDIFF(NOW(), 
                             FROM_UNIXTIME(appointwoo.end_appoint, '%Y-%m-%d')) > 1 AND statusapp='complete' 
@@ -84,51 +82,51 @@
                                     <?php $i = 1; ?>
                                     <?php
                                     //print_r($res);
-                                    if (!isset($_POST['submit']) || $_POST['keywords'] == "Healtopedia"){
+                                    if (!isset($_POST['submit']) || $_POST['keywords'] == "Healtopedia") {
                                         foreach ($res as $row) {
                                     ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $i; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['unique_date']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['amount']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['hosp_name']; ?>
-                                            </td>
-                                            <td>
-                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&hosp=<?php echo $row['hosp_name']?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
-                                            </td>
-                                        </tr>
-                                        <?php $i++; ?>
-                                    <?php } 
-                                    } else { 
+                                            <tr>
+                                                <td>
+                                                    <?php echo $i; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['unique_date']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['amount']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['hosp_name']; ?>
+                                                </td>
+                                                <td>
+                                                    <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&hosp=<?php echo $row['hosp_name'] ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
+                                                </td>
+                                            </tr>
+                                            <?php $i++; ?>
+                                        <?php }
+                                    } else {
                                         foreach ($res as $row) {
-                                    ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $i; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['unique_date']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['amount']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $keywords; ?>
-                                            </td>
-                                            <td>
-                                                <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&hosp=<?php echo $keywords?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
-                                            </td>
-                                        </tr>
-                                        <?php $i++; ?>
-                                    <?php } 
-                                    }?>
+                                        ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo $i; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['unique_date']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['amount']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $keywords; ?>
+                                                </td>
+                                                <td>
+                                                    <a href='report-po.php?cur_date=<?php echo $row['unique_date'] ?>&hosp=<?php echo $keywords ?>' target='_blank'><button class="btn btn-info"><i class="bi bi-eye"></i></button></a>
+                                                </td>
+                                            </tr>
+                                            <?php $i++; ?>
+                                    <?php }
+                                    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -156,7 +154,14 @@
                     // Simple Datatable
                     let table1 = document.querySelector('#table1');
                     let dataTable = new simpleDatatables.DataTable(table1);
+
+                    function selectChange(val) {
+                        //Set the value of action in action attribute of form element.
+                        //Submit the form
+                        $('#choosehosp').submit();
+                    }
                 </script>
+
 
                 <script src="assets/js/main.js"></script>
                 </body>
