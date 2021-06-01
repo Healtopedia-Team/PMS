@@ -59,9 +59,10 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
 
 
 //For Year and month filter here
-$a_year = $conn->prepare("SELECT DISTINCT(YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d'))) FROM appointwoo");
+$cur_year = date("Y");
+$a_year = $conn->prepare("SELECT DISTINCT(YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d'))) AS year FROM appointwoo");
 $a_year->execute();
-$available_year = $a_year->get_result()->fetch_assoc();
+$available_year = $a_year->get_result()->fetch_all(MYSQLI_ASSOC);
 print_r($available_year);
 
 $monthArray = range(1, 12);
@@ -133,10 +134,10 @@ $formattedMonthArray = array(
                                             <?php
                                             foreach ($available_year as $year) {
                                                 // if you want to select a particular month
-                                                $selected = ($year == $cur_mth) ? 'selected' : '';
+                                                $selected = ($year['year'] == $cur_year) ? 'selected' : '';
                                                 // if you want to add extra 0 before the month uncomment the line below
                                                 //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
-                                                echo '<option ' . $selected . ' value="' . $year . '">' . $year . '</option>';
+                                                echo '<option ' . $selected . ' value="' . $year['year'] . '">' . $year['year'] . '</option>';
                                             }
                                             ?>
                                         </select>
