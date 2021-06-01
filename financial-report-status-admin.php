@@ -472,7 +472,7 @@ $formattedMonthArray = array(
                 )
                 ChartMonthlyRevenue.render()
 
-                $.getJSON('month_revenue_chart.php', function(jsonObject) {
+                $.getJSON('month_revenue_chart_admin.php', function(jsonObject) {
                     let i = 0
                     for (let x in months) {
                         if (i < 12) {
