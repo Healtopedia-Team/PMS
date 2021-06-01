@@ -11,6 +11,9 @@ $cur_month = substr(date("F"), 0, 3);
 $prev_month = substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
 $sel_year =  date("Y");
 $sel_month = date("M");
+$_SESSION['sel_year'] = date("Y");
+$_SESSION['sel_month'] = date("M");
+$_SESSION['sel_hosp'] = $hosp;
 
 session_start();
 
@@ -27,12 +30,12 @@ $result->execute();
 $data = $result->get_result()->fetch_assoc();
 
 if (isset($_POST['sel_year']) or isset($_POST['sel_month']) or isset($_POST['sel_hosp'])) {
-    $sel_year = ($_POST['sel_year'] != '') ? $_POST['sel_year'] : date("Y");
-    $sel_month = ($_POST['sel_month'] != '') ? $_POST['sel_month'] : date("n");
-    $sel_hosp = ($_POST['sel_hosp'] != '') ? $_POST['sel_hosp'] : $hosp;
-    $_SESSION['sel_year'] = $_POST['sel_year'];
-    $_SESSION['sel_month'] = $_POST['sel_month'];
-    $_SESSION['sel_hosp'] = $_POST['sel_month'];
+    $sel_year = ($_POST['sel_year'] != '') ? $_POST['sel_year'] : $_SESSION['sel_year'];
+    $sel_month = ($_POST['sel_month'] != '') ? $_POST['sel_month'] : $_SESSION['sel_month'];
+    $sel_hosp = ($_POST['sel_hosp'] != '') ? $_POST['sel_hosp'] : $_SESSION['sel_hosp'];
+    $_SESSION['sel_year'] = ($_POST['sel_year'] != '') ? $_POST['sel_year'] : $_SESSION['sel_year'];
+    $_SESSION['sel_month'] = ($_POST['sel_month'] != '') ? $_POST['sel_month'] : $_SESSION['sel_month'];
+    $_SESSION['sel_hosp'] = ($_POST['sel_hosp'] != '') ? $_POST['sel_hosp'] : $_SESSION['sel_hosp'];
 
     if ($sel_month == 1) {
         $decsql = "SELECT SUM(c.package_price) AS 'Dec' 
