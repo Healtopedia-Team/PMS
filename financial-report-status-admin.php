@@ -61,7 +61,6 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
     $res2->bind_param("ss", $hosp, $sel_year);
     $res2->execute();
     $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
-    print_r($monthly_revenue);
 } else {
     $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
                                 SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
@@ -106,7 +105,6 @@ $cur_year = date("Y");
 $a_year = $conn->prepare("SELECT DISTINCT(YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d'))) AS year FROM appointwoo");
 $a_year->execute();
 $available_year = $a_year->get_result()->fetch_all(MYSQLI_ASSOC);
-print_r($available_year);
 
 $monthArray = range(1, 12);
 $cur_mth = date("n");
@@ -236,7 +234,7 @@ $formattedMonthArray = array(
                                                         $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 2], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
                                                     }
                                                     echo $previous_month;
-                                                    
+
                                                 ?>
                                                 <div class="row">
                                                     <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $value[$current_month] ?>.00</h5>
