@@ -27,6 +27,7 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
     $sel_month = $_POST['sel_month'];
     $_SESSION['sel_year'] = $_POST['sel_year'];
     $_SESSION['sel_month'] = $_POST['sel_month'];
+    
     $sql2 = "SELECT
             SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
             SUM(c.package_price) AS Gross_revenue,
@@ -185,13 +186,15 @@ $formattedMonthArray = array(
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                                 </div>
                                                 <div class="row">
-                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $monthly_revenue[$current_month] ?>.00</h5>
+                                                    <h5 class="font-bold" style="font-size: 1.1rem;">
+                                                    RM <?php echo $monthly_revenue[$current_month-1]['Gross_revenue'] ?>.00</h5>
                                                 </div>
                                                 <div class="row">
                                                     <h6 class="text-muted font-semibold">Previous Month</h6>
                                                 </div>
                                                 <div class="row">
-                                                    <h6 class="font-bold">RM <?php echo $monthly_revenue[$previous_month] ?>.00</h6>
+                                                    <h6 class="font-bold">RM 
+                                                        <?php echo $monthly_revenue[$previous_month-1]['Gross_revenue'] ?>.00</h6>
                                                 </div>
 
                                             </div>
