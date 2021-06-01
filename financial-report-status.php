@@ -15,7 +15,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
     exit;
 }
-if ($role === 'admin') {
+if ($_SESSION["role"] === 'admin') {
     echo '<script>alert("Welcome ' . $role . '");window.location.href="financial-report-status-admin.php";</script>';
 }
 
