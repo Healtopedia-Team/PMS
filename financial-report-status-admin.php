@@ -15,8 +15,6 @@ $_SESSION['sel_year'] = date("Y");
 $_SESSION['sel_month'] = date("M");
 $_SESSION['sel_hosp'] = $hosp;
 
-session_start();
-
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
@@ -171,7 +169,7 @@ $formattedMonthArray = array(
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
-                            <h3>Financial Report <?php echo $formattedMonthArray[$sel_month] . " of " . $sel_year ?></h3>
+                            <h3>Financial Report <?php echo $formattedMonthArray[$sel_month] . " of " . $sel_year . " at " . $sel_hosp?></h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
