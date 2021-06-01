@@ -32,6 +32,7 @@ if (isset($_POST['sel_year']) or isset($_POST['sel_month']) or isset($_POST['sel
     $sel_hosp = ($_POST['sel_hosp'] != '') ? $_POST['sel_hosp'] : $hosp;
     $_SESSION['sel_year'] = $_POST['sel_year'];
     $_SESSION['sel_month'] = $_POST['sel_month'];
+    $_SESSION['sel_hosp'] = $_POST['sel_month'];
 
     if ($sel_month == 1) {
         $decsql = "SELECT SUM(c.package_price) AS 'Dec' 
@@ -195,8 +196,8 @@ $formattedMonthArray = array(
 
                                     <div class="row">
                                         <div class="col">
-                                            <form method="post" action="" style="display: flex;" id="year_form">
-                                                <select name="sel_month" class="form-select" id="month_form" onchange=selectChange1(this.value)>
+                                            <form method="post" action="" style="display: flex;" id="month_form">
+                                                <select name="sel_month" class="form-select" onchange=selectChange1(this.value)>
                                                     <option value="">Select Month</option>
                                                     <?php
                                                     foreach ($monthArray as $month) {
@@ -212,7 +213,7 @@ $formattedMonthArray = array(
                                             </form>
                                         </div>
                                         <div class="col">
-                                            <form method="post" action="" style="display: flex;" id="month_form">
+                                            <form method="post" action="" style="display: flex;" id="year_form">
                                                 <select name="sel_year" class="form-select" onchange=selectChange(this.value)>
                                                     <option value="">Select Year</option>
                                                     <?php
