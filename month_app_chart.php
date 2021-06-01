@@ -28,7 +28,7 @@ $statement = $connect->prepare($query);
 $statement->bind_param("s", $hosp);
 $statement->execute();
 
-$result = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+$result = $statement->get_result()->fetch_assoc();
 
 echo json_encode($result);
 
