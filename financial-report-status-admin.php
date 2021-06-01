@@ -274,11 +274,11 @@ $formattedMonthArray = array(
                                             <?php
                                             $up_or_down = $value[$current_month] / (int)$prev_month_gross;
                                             if ($up_or_down >= 1) {
-                                                $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
+                                                $res = '+' .  sprintf('%.2f', $up_or_down * 100 - 100) . '%';
                                                 $style = "color:green; font-weight:900; font-size:1.4rem;";
                                                 $arrow = "up";
                                             } else {
-                                                $res = '-' .  sprintf('%.2f', $up_or_down * 100) . '%';
+                                                $res = '-' .  sprintf('%.2f', 1/$up_or_down * 100) . '%';
                                                 $style = "color:red; font-weight:900; font-size:1.4rem;";
                                                 $arrow = "down";
                                             }
