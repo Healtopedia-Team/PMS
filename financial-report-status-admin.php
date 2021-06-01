@@ -11,9 +11,10 @@ $cur_month = substr(date("F"), 0, 3);
 $prev_month = substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
 $sel_year =  date("Y");
 $sel_month = date("M");
+$sel_hosp = $hosp;
 $_SESSION['sel_year'] = date("Y");
 $_SESSION['sel_month'] = date("M");
-$_SESSION['sel_hosp'] = $hosp;
+$_SESSION['sel_hosp'] = $sel_hosp;
 
 // Check if the user is logged in, if not then redirect him to login page
 if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
