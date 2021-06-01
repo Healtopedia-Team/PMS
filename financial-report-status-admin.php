@@ -15,10 +15,6 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
     exit;
 }
-if ($role === 'admin' and $hosp == 'Healtopedia') {
-    echo '<script>alert("Welcome ' . $role . '");window.location.href="financial-report-status-admin.php";</script>';
-}
-
 //$result = mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'completed' ORDER BY request_id");
 //$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
@@ -104,6 +100,35 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </div>
                 </div>
                 <section class="section">
+                    <div class="row">
+                        <?php
+                        $hosps = $conn->prepare("SELECT hosp_name FROM hospital");
+                        $hosps->execute();
+                        $hosp_list = $hosps->get_result()->fetch_all(MYSQLI_ASSOC);
+                        ?>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body" style="padding: 0.5rem;">
+                                    <form method="post" action="" style="display:flex; float:right;">
+                                        <div>
+                                            <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here..">
+                                            <br>
+                                            <button type="submit" name="submitdate" class="btn btn-primary">Check Based on Month&nbsp;&nbsp;<i class="bi bi-chevron-double-down"></i></button>
+                                            <br><br>
+                                        </div>
+                                        <select name="keywords" class="form-select" style="width: auto;">
+                                            <?php foreach ($hosp_list as $hospital) { ?>
+                                                <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit" name="submit">Go</button>
+                                        </span>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card">
@@ -352,5 +377,31 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                 });
                 */
             </script>
+            <?php
 
+            $result = $conn->prepare("SELECT datedisable FROM xdate");
+            $result->execute();
+            $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
+            ?>
+            <script type="text/javascript">
+                var disableDates = [<?php foreach ($user as $row) {
+                                        echo "'" . $row['datedisable'] . "'" . ",";
+                                    } ?>];
+
+                $('.datepicker').datepicker({
+                    startDate: new Date(),
+                    format: 'mm/dd/yyyy',
+                    daysOfWeekDisabled: [0, 6],
+                    beforeShowDay: function(date) {
+                        dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+                        if (disableDates.indexOf(dmy) != -1) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+                });
+            </script>
+            <script src="assets/vendors/choices.js/choices.min.js"></script>
+            <script src="assets/js/main.js"></script>
             <?php include 'request-appointment-footer.php'; ?>

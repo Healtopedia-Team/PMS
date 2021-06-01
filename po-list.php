@@ -5,7 +5,7 @@
                 session_start();
                 $role = $_SESSION['role'];
                 //print_r($role);
-                if ($role === 'admin') {
+                if ($role === 'admin' and $hosp == 'Healtopedia') {
                     echo '<script>alert("Welcome ' . $role . '");window.location.href="po-list-admin.php";</script>';
                 }
                 $hosp = $_SESSION["hospital"];
