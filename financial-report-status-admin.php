@@ -24,13 +24,14 @@ $result = $conn->prepare("SELECT * FROM requestappoint WHERE req_status = 'compl
 $result->execute();
 $data = $result->get_result()->fetch_assoc();
 
-if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
-    $sel_year = $_POST['sel_year'];
-    $sel_month = $_POST['sel_month'];
+if (isset($_POST['sel_year']) or isset($_POST['sel_month']) or isset($_POST['sel_hosp'])) {
+    $sel_year = ($_POST['sel_year'] != '')? $_POST['sel_year']: date("Y");
+    $sel_month = ($_POST['sel_month'] != '')? $_POST['sel_month']: date("n");
+    $sel_hosp = ($_POST['sel_hosp'] != '')? $_POST['sel_hosp']: $hosp;
     $_SESSION['sel_year'] = $_POST['sel_year'];
     $_SESSION['sel_month'] = $_POST['sel_month'];
 
-    if($sel_month == 1){
+    if ($sel_month == 1) {
         $decsql = "SELECT SUM(c.package_price) AS 'Dec' 
                                 FROM `orderwoo` a 
                                 LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
@@ -39,7 +40,7 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
                                 ";
         $prev_year = (int)$sel_year - 1;
         $res1 = $conn->prepare($decsql);
-        $res1->bind_param("ss", $hosp, $prev_year);
+        $res1->bind_param("ss", $sel_hosp, $prev_year);
         $res1->execute();
         $gross_revenue_prev = $res1->get_result()->fetch_assoc();
     }
@@ -60,11 +61,11 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
                             WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ? 
                             ";
     $res = $conn->prepare($sql);
-    $res->bind_param("ss", $hosp, $sel_year);
+    $res->bind_param("ss", $sel_hosp, $sel_year);
     $res->execute();
     $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
 
-    
+
 
     $sql2 = "SELECT
             SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
@@ -75,7 +76,7 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
             WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = ?  
             GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d'))";
     $res2 = $conn->prepare($sql2);
-    $res2->bind_param("ss", $hosp, $sel_year);
+    $res2->bind_param("ss", $sel_hosp, $sel_year);
     $res2->execute();
     $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
 } else {
@@ -188,7 +189,7 @@ $formattedMonthArray = array(
                         <div class="col-md-5">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <p>Please select month then select year</p>
+                                    <h4>Please select month then select year</h4>
                                     <form method="post" action="" style="display: flex;" id="year_form">
                                         <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange1(this.value)>
                                             <option value="">Select Month</option>
@@ -203,6 +204,8 @@ $formattedMonthArray = array(
                                             }
                                             ?>
                                         </select>
+                                    </form>
+                                    <form method="post" action="" style="display: flex;" id="month_form">
                                         <select name="sel_year" class="form-select" style="width:50%;margin-right: 10px" onchange=selectChange(this.value)>
                                             <option value="">Select Year</option>
                                             <?php
@@ -224,8 +227,9 @@ $formattedMonthArray = array(
                         <div class="col-md-7">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <form method="post" action="" style="display: flex;">
-                                        <select name="keywords" class="form-select" style="width:100%">
+                                    <h4>Please select desired hospital</h4>
+                                    <form method="post" action="" style="display: flex;" id="hosp_form">
+                                        <select name="sel_hosp" class="form-select" style="width:100%" onchange=selectChange2(this.value)>
                                             <option value="">Select Hospital</option>
                                             <?php foreach ($hosp_list as $hospital) { ?>
                                                 <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
@@ -257,7 +261,7 @@ $formattedMonthArray = array(
                                                     $prev_month_gross = $value[$previous_month];
                                                 }
                                                 //print_r($previous_month);
-                                                
+
 
                                                 ?>
                                                 <div class="row">
@@ -278,7 +282,7 @@ $formattedMonthArray = array(
                                                 $style = "color:green; font-weight:900; font-size:1.4rem;";
                                                 $arrow = "up";
                                             } else {
-                                                $res = '-' .  sprintf('%.2f', 1/$up_or_down * 100) . '%';
+                                                $res = '-' .  sprintf('%.2f', 1 / $up_or_down * 100) . '%';
                                                 $style = "color:red; font-weight:900; font-size:1.4rem;";
                                                 $arrow = "down";
                                             }
@@ -515,6 +519,13 @@ $formattedMonthArray = array(
                     //Set the value of action in action attribute of form element.
                     //Submit the form
                     $('#month_form').submit();
+
+                }
+
+                function selectChange2(val) {
+                    //Set the value of action in action attribute of form element.
+                    //Submit the form
+                    $('#hosp_form').submit();
 
                 }
             </script>
