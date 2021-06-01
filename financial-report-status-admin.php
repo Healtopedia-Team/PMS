@@ -36,7 +36,7 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
                                 WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ?
                                 AND MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12
                                 ";
-        $res1 = $conn->prepare($sql);
+        $res1 = $conn->prepare($decsql);
         $res1->bind_param("ss", $hosp, $sel_year-1);
         $res1->execute();
         $gross_revenue_prev = $res1->get_result()->fetch_assoc();
