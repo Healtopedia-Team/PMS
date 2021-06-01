@@ -111,12 +111,9 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                                 <div class="card-body px-3" style="padding-top: 0.9rem!important;
     padding-bottom: .4rem!important;">
                                     <form method="post" action="" style="display: flex;">
-                                        <div style="width:75%" class="form-group">
+                                        <div style="width:auto" class="form-group">
                                             <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" style="padding: 6px;" autocomplete="off" placeholder="Please click here to select">
                                         </div>
-                                        <span class="input-group-btn" style="max-width:20%">
-                                            <button class="btn btn-outline-dark" type="submit" name="submitdate">Check</button>
-                                        </span>
                                     </form>
                                 </div>
                             </div>
@@ -125,14 +122,11 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <form method="post" action="" style="display: flex;">
-                                        <select name="keywords" class="form-select" style="max-width:80%">
+                                        <select name="keywords" class="form-select" style="max-width:auto">
                                             <?php foreach ($hosp_list as $hospital) { ?>
                                                 <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                             <?php } ?>
                                         </select>
-                                        <span class="input-group-btn" style="max-width:20%">
-                                            <button class="btn btn-outline-dark" type="submit" name="submithosp" style="float: right;">Go</button>
-                                        </span>
                                     </form>
                                 </div>
                             </div>
@@ -410,6 +404,13 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         }
                     }
                 });
+            </script>
+            <script>
+                function selectChange(val) {
+                    //Set the value of action in action attribute of form element.
+                    //Submit the form
+                    $('#choosehosp').submit();
+                }
             </script>
             <script src="assets/vendors/choices.js/choices.min.js"></script>
             <script src="assets/js/main.js"></script>
