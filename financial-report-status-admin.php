@@ -149,7 +149,7 @@ $formattedMonthArray = array(
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
-                            <h3>Financial Report <?php echo $sel_year. $formattedMonthArray[$sel_month]?></h3>
+                            <h3>Financial Report <?php echo $sel_year . $formattedMonthArray[$sel_month] ?></h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -187,7 +187,7 @@ $formattedMonthArray = array(
                                             }
                                             ?>
                                         </select>
-                                        <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange(this.value)>
+                                        <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange1(this.value)>
                                             <option value="">Select Month</option>
                                             <?php
                                             foreach ($monthArray as $month) {
@@ -230,14 +230,13 @@ $formattedMonthArray = array(
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                                 </div>
                                                 <?php
-                                                    $current_month = ($sel_month != '')? substr($formattedMonthArray[$sel_month], 0, 3) :$cur_month;
-                                                    if ($sel_month == 1){
-                                                        $previous_month = 'Dec';
-            
-                                                    } else{
-                                                        $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
-                                                    }
-                                                    //print_r($previous_month);
+                                                $current_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month], 0, 3) : $cur_month;
+                                                if ($sel_month == 1) {
+                                                    $previous_month = 'Dec';
+                                                } else {
+                                                    $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
+                                                }
+                                                //print_r($previous_month);
 
                                                 ?>
                                                 <div class="row">
@@ -489,8 +488,16 @@ $formattedMonthArray = array(
                     //Set the value of action in action attribute of form element.
                     //Submit the form
                     $('#year_form').submit();
-                    $('#month_form').submit();
+
                 }
+
+                function selectChange1(val) {
+                    //Set the value of action in action attribute of form element.
+                    //Submit the form
+                    $('#month_form').submit();
+
+                }
+                
             </script>
             <script src="assets/vendors/choices.js/choices.min.js"></script>
             <script src="assets/js/main.js"></script>
