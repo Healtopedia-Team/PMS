@@ -55,6 +55,7 @@ $res2->bind_param("s", $hosp);
 $res2->execute();
 $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
 $monthArray = range(1, 12);
+$cur_mth = date("n");
 $formattedMonthArray = array(
     "1" => "January", "2" => "February", "3" => "March", "4" => "April",
     "5" => "May", "6" => "June", "7" => "July", "8" => "August",
@@ -122,7 +123,7 @@ $formattedMonthArray = array(
                                             <?php
                                             foreach ($monthArray as $month) {
                                                 // if you want to select a particular month
-                                                $selected = ($month == 5) ? 'selected' : '';
+                                                $selected = ($month == $cur_mth) ? 'selected' : '';
                                                 // if you want to add extra 0 before the month uncomment the line below
                                                 //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
                                                 echo '<option ' . $selected . ' value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
