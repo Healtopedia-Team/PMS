@@ -30,10 +30,11 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
     $_SESSION['sel_month'] = $_POST['sel_month'];
 
     if($sel_month == 1){
-        $decsql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12 , c.package_price, 0)) AS 'Dec' 
+        $decsql = "SELECT SUM(c.package_price) AS 'Dec' 
                                 FROM `orderwoo` a 
                                 LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
                                 WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ?
+                                AND MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12
                                 ";
         $res1 = $conn->prepare($sql);
         $res1->bind_param("ss", $hosp, $sel_year-1);
