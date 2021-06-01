@@ -188,7 +188,7 @@ $formattedMonthArray = array(
 
 
                         ?>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <h6>Please select month then select year</h6>
@@ -232,7 +232,7 @@ $formattedMonthArray = array(
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-6">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <h6>Please select desired hospital</h6>
