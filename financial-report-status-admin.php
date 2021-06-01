@@ -179,10 +179,11 @@ $formattedMonthArray = array(
                                             <?php
                                             foreach ($available_year as $year) {
                                                 // if you want to select a particular month
-                                                $selected = ($year['year'] == $cur_year) ? 'selected' : '';
+                                                //$selected = ($year['year'] == $cur_year) ? 'selected' : '';
                                                 // if you want to add extra 0 before the month uncomment the line below
                                                 //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
-                                                echo '<option ' . $selected . ' value="' . $year['year'] . '">' . $year['year'] . '</option>';
+                                                //echo '<option ' . $selected . ' value="' . $year['year'] . '">' . $year['year'] . '</option>';
+                                                echo '<option value="' . $year['year'] . '">' . $year['year'] . '</option>';
                                             }
                                             ?>
                                         </select>
@@ -191,10 +192,11 @@ $formattedMonthArray = array(
                                             <?php
                                             foreach ($monthArray as $month) {
                                                 // if you want to select a particular month
-                                                $selected = ($month == $cur_mth) ? 'selected' : '';
+                                                //$selected = ($month == $cur_mth) ? 'selected' : '';
                                                 // if you want to add extra 0 before the month uncomment the line below
                                                 //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
-                                                echo '<option ' . $selected . ' value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
+                                                //echo '<option ' . $selected . ' value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
+                                                echo '<option value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
                                             }
                                             ?>
                                         </select>
