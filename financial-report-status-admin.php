@@ -106,10 +106,10 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         $hosps->execute();
                         $hosp_list = $hosps->get_result()->fetch_all(MYSQLI_ASSOC);
                         ?>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <form method="post" action="">
+                                    <form method="post" action="" style="display: flex;">
                                         <div style="max-width:80%">
                                             <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" autocomplete="off" placeholder="click here..">
                                         </div>
@@ -120,10 +120,10 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <form method="post" action="">
+                                    <form method="post" action="" style="display: flex;">
                                         <select name="keywords" class="form-select" style="max-width:80%">
                                             <?php foreach ($hosp_list as $hospital) { ?>
                                                 <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
