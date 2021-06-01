@@ -45,7 +45,7 @@ $res = $conn->prepare($sql);
 $res->bind_param("s", $hosp);
 $res->execute();
 $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
-
+print_r($gross_revenue);
 $sql2 = "SELECT
 SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
 SUM(c.package_price) AS Gross_revenue,
@@ -327,7 +327,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                 ChartMonthlyRevenue.render()
 
                 $.getJSON('month_revenue_chart.php', function(jsonObject) {
-                    let i = 0
+                    let i = 0;
                     for (let x in months) {
                         if (i < 12) {
                             month_revenue.push(parseInt(jsonObject[x]))

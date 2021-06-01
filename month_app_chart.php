@@ -1,6 +1,6 @@
 <?php
 //count the appointments number per month
-$connect = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Healit20.');
+$connect = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
 $hosp = $_SESSION['hospital'];
 $data = array();
@@ -25,10 +25,10 @@ FROM `appointwoo` WHERE YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CU
 
 
 $statement = $connect->prepare($query);
-$statement->bindParam(":hosp", $hosp);
+$statement->bind_param("s", $hosp);
 $statement->execute();
 
-$result = $statement->fetch();
+$result = $statement->get_result()->fetch_all(MYSQLI_ASSOC);
 
 echo json_encode($result);
 

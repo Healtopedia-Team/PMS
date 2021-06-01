@@ -22,38 +22,39 @@ $result = $conn->prepare("SELECT * FROM requestappoint WHERE req_status = 'compl
 $result->execute();
 $data = $result->get_result()->fetch_assoc();
 
-$sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 3 , c.package_price, 0)) AS Mar,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 4 , c.package_price, 0)) AS Apr,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 5 , c.package_price, 0)) AS May,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 6 , c.package_price, 0)) AS Jun,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 7 , c.package_price, 0)) AS Jul,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 8 , c.package_price, 0)) AS Aug,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 9 , c.package_price, 0)) AS Sep,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 10 , c.package_price, 0)) AS 'Oct',
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 11, c.package_price, 0)) AS Nov,
-    SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 12 , c.package_price, 0)) AS 'Dec' 
-    FROM `orderwoo` a 
-    LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-    WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())";
-$res = $conn->prepare($sql);
-$res->bind_param("s", $hosp);
-$res->execute();
-$gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
+    $sel_year = $_POST['sel_year'];
+    $sel_month = $_POST['sel_month'];
+    $_SESSION['sel_year'] = $_POST['sel_year'];
+    $_SESSION['sel_month'] = $_POST['sel_month'];
+    $sql2 = "SELECT
+            SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
+            SUM(c.package_price) AS Gross_revenue,
+            COUNT(b.order_id) AS Appointments_per_mth
+            FROM `orderwoo` a 
+            LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+            WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = ?  
+            GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) = ?";
+    $res2 = $conn->prepare($sql2);
+    $res2->bind_param("sss", $hosp, $sel_year);
+    $res2->execute();
+    $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
 
-$sql2 = "SELECT
-SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
-SUM(c.package_price) AS Gross_revenue,
-COUNT(b.order_id) AS Appointments_per_mth
-FROM `orderwoo` a 
-LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
-WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())
-GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d'))";
-$res2 = $conn->prepare($sql2);
-$res2->bind_param("s", $hosp);
-$res2->execute();
-$monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
+
+} else {
+    $sql2 = "SELECT
+            SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
+            SUM(c.package_price) AS Gross_revenue,
+            COUNT(b.order_id) AS Appointments_per_mth
+            FROM `orderwoo` a 
+            LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
+            WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(b.start_appoint, '%Y-%m-%d')) = YEAR(CURDATE())
+            GROUP BY MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d'))";
+    $res2 = $conn->prepare($sql2);
+    $res2->bind_param("s", $hosp);
+    $res2->execute();
+    $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
+}
 
 
 
@@ -124,12 +125,14 @@ $formattedMonthArray = array(
                         $hosps = $conn->prepare("SELECT hosp_name FROM hospital");
                         $hosps->execute();
                         $hosp_list = $hosps->get_result()->fetch_all(MYSQLI_ASSOC);
+
+
                         ?>
                         <div class="col-md-5">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <form method="post" action="" style="display: flex; margin-right: 10px">
-                                        <select name="keywords" class="form-select" style="width:50%">
+                                    <form method="post" action="" style="display: flex;" id="year_form">
+                                        <select name="sel_year" class="form-select" style="width:50%;margin-right: 10px" onchange=selectChange(this.value)>
                                             <option value="">Select Year</option>
                                             <?php
                                             foreach ($available_year as $year) {
@@ -141,7 +144,7 @@ $formattedMonthArray = array(
                                             }
                                             ?>
                                         </select>
-                                        <select name="keywords" class="form-select" style="width:50%">
+                                        <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange(this.value)>
                                             <option value="">Select Month</option>
                                             <?php
                                             foreach ($monthArray as $month) {
@@ -177,24 +180,23 @@ $formattedMonthArray = array(
                             <div class="card">
                                 <div class="card-body px-4 py-3">
                                     <div class="row align-items-center">
-                                        <?php foreach ($gross_revenue as $month => $value) : ?>
                                             <div class="col-md-7">
                                                 <div class="row">
                                                     <h5 class="text-muted font-semibold" style="font-size: 1.1rem;">Gross Revenue</h5>
                                                 </div>
                                                 <div class="row">
-                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $value[$current_month] ?>.00</h5>
+                                                    <h5 class="font-bold" style="font-size: 1.1rem;">RM <?php echo $monthly_revenue[$current_month] ?>.00</h5>
                                                 </div>
                                                 <div class="row">
                                                     <h6 class="text-muted font-semibold">Previous Month</h6>
                                                 </div>
                                                 <div class="row">
-                                                    <h6 class="font-bold">RM <?php echo $value[$previous_month] ?>.00</h6>
+                                                    <h6 class="font-bold">RM <?php echo $monthly_revenue[$previous_month] ?>.00</h6>
                                                 </div>
 
                                             </div>
                                             <?php
-                                            $up_or_down = $value[$current_month] / $value[$previous_month];
+                                            $up_or_down = $monthly_revenue[$current_month] / $monthly_revenue[$previous_month];
                                             if ($up_or_down >= 1) {
                                                 $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
                                                 $style = "color:green; font-weight:900; font-size:1.4rem;";
@@ -205,7 +207,6 @@ $formattedMonthArray = array(
                                                 $arrow = "down";
                                             }
                                             ?>
-                                        <?php endforeach ?>
                                         <div class="col-md-5" style="text-align: center;">
                                             <i class="fa-4x bi bi-graph-<?php echo $arrow; ?>" style="<?php echo $style; ?>">
 
@@ -426,30 +427,12 @@ $formattedMonthArray = array(
             $result->execute();
             $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
             ?>
-            <script type="text/javascript">
-                var disableDates = [<?php foreach ($user as $row) {
-                                        echo "'" . $row['datedisable'] . "'" . ",";
-                                    } ?>];
-
-                $('.datepicker').datepicker({
-                    startDate: new Date(),
-                    format: 'mm/dd/yyyy',
-                    daysOfWeekDisabled: [0, 6],
-                    beforeShowDay: function(date) {
-                        dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-                        if (disableDates.indexOf(dmy) != -1) {
-                            return false;
-                        } else {
-                            return true;
-                        }
-                    }
-                });
-            </script>
             <script>
                 function selectChange(val) {
                     //Set the value of action in action attribute of form element.
                     //Submit the form
-                    $('#choosehosp').submit();
+                    $('#year_form').submit();
+                    $('#month_form').submit();
                 }
             </script>
             <script src="assets/vendors/choices.js/choices.min.js"></script>
