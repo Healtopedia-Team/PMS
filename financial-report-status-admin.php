@@ -8,6 +8,7 @@ $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 $hosp = $_SESSION['hospital'];
 $cur_month = substr(date("F"), 0, 3);
+$prev_month = substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
 
 session_start();
 
@@ -41,8 +42,8 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
         $res1->bind_param("ss", $hosp, $prev_year);
         $res1->execute();
         $gross_revenue_prev = $res1->get_result()->fetch_assoc();
-    }
-    $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
+    } else{
+        $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
                                 SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 2 , c.package_price, 0)) AS Feb,
                                 SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 3 , c.package_price, 0)) AS Mar,
                                 SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 4 , c.package_price, 0)) AS Apr,
@@ -58,10 +59,12 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
                                 LEFT JOIN appointwoo b ON a.order_id=b.order_id LEFT JOIN packagewoo c ON b.prod_id=c.package_id  
                                 WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = ? 
                                 ";
-    $res = $conn->prepare($sql);
-    $res->bind_param("ss", $hosp, $sel_year);
-    $res->execute();
-    $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+        $res = $conn->prepare($sql);
+        $res->bind_param("ss", $hosp, $sel_year);
+        $res->execute();
+        $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+    
 
     $sql2 = "SELECT
             SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
@@ -249,7 +252,7 @@ $formattedMonthArray = array(
                                                     $previous_month = 'Dec';
                                                     $prev_month_gross = $gross_revenue_prev[$previous_month];
                                                 } else {
-                                                    $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
+                                                    $previous_month = ($sel_month != '') ? substr($formattedMonthArray[$sel_month - 1], 0, 3) : $prev_month;
                                                     $prev_month_gross = $gross_revenue[$previous_month];
                                                 }
                                                 //print_r($previous_month);
