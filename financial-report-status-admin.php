@@ -62,6 +62,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
 $a_year = $conn->prepare("SELECT DISTINCT(YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d'))) FROM appointwoo");
 $a_year->execute();
 $available_year = $a_year->get_result()->fetch_assoc();
+print_r($available_year);
 
 $monthArray = range(1, 12);
 $cur_mth = date("n");
