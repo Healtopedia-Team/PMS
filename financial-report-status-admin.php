@@ -114,7 +114,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                                             <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" autocomplete="off" placeholder="click here..">
                                         </div>
                                         <span class="input-group-btn" style="max-width:20%">
-                                            <button class="btn btn-default" type="submit" name="submitdate">Check</button>
+                                            <button class="btn btn-outline-dark" type="submit" name="submitdate" style="float: right;">Check</button>
                                         </span>
                                     </form>
                                 </div>
@@ -130,14 +130,14 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                                             <?php } ?>
                                         </select>
                                         <span class="input-group-btn" style="max-width:20%">
-                                            <button class="btn btn-default" type="submit" name="submithosp">Go</button>
+                                            <button class="btn btn-outline-dark" type="submit" name="submithosp" style="float: right;">Go</button>
                                         </span>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class=" row">
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body px-4 py-3">
