@@ -54,7 +54,7 @@ $res2 = $conn->prepare($sql2);
 $res2->bind_param("s", $hosp);
 $res2->execute();
 $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
-
+$monthArray = range(1, 12);
 $formattedMonthArray = array(
     "1" => "January", "2" => "February", "3" => "March", "4" => "April",
     "5" => "May", "6" => "June", "7" => "July", "8" => "August",
