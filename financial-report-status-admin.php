@@ -109,14 +109,12 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         <div class="col">
                             <div class="card">
                                 <div class="card-body" style="padding: 0.5rem;">
-                                    <form method="post" action="" style="display:flex; float:right;">
-                                        <div>
+                                    <form method="post" action="">
+                                        <div style="max-width:50%">
                                             <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" size="5" autocomplete="off" placeholder="click here..">
-                                            <br>
-                                            <button type="submit" name="submitdate" class="btn btn-primary">Check Based on Month&nbsp;&nbsp;<i class="bi bi-chevron-double-down"></i></button>
-                                            <br><br>
+                                            <button type="submit" name="submitdate" class="btn btn-primary">Check Based on Month<i class="bi bi-chevron-double-down"></i></button>
                                         </div>
-                                        <select name="keywords" class="form-select" style="width: auto;">
+                                        <select name="keywords" class="form-select" style="max-width:50%">
                                             <?php foreach ($hosp_list as $hospital) { ?>
                                                 <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                             <?php } ?>
