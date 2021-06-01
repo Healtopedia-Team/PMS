@@ -172,7 +172,7 @@ $formattedMonthArray = array(
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
                             <h3>Financial Report</h3>
-                            <h6><?php echo $formattedMonthArray[$sel_month] . $sel_year . " at " . $sel_hosp ?></h6>
+                            <h6><?php echo $formattedMonthArray[$sel_month] . " " . $sel_year . " at " . $sel_hosp ?></h6>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
