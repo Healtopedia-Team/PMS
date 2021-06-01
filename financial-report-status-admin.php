@@ -9,6 +9,8 @@ $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 $hosp = $_SESSION['hospital'];
 $cur_month = substr(date("F"), 0, 3);
 $prev_month = substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
+$sel_year =  date("Y");
+$sel_month = date("M");
 
 session_start();
 
@@ -165,7 +167,7 @@ $formattedMonthArray = array(
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last" style="padding: 10px;">
-                            <h3>Financial Report <?php echo $sel_year . $formattedMonthArray[$sel_month] ?></h3>
+                            <h3>Financial Report <?php echo $formattedMonthArray[$sel_month] . " of " . $sel_year ?></h3>
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -189,7 +191,7 @@ $formattedMonthArray = array(
                         <div class="col-md-5">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <h4>Please select month then select year</h4>
+                                    <h6>Please select month then select year</h6>
                                     <form method="post" action="" style="display: flex;" id="year_form">
                                         <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange1(this.value)>
                                             <option value="">Select Month</option>
@@ -227,7 +229,7 @@ $formattedMonthArray = array(
                         <div class="col-md-7">
                             <div class="card">
                                 <div class="card-body px-3 py-3">
-                                    <h4>Please select desired hospital</h4>
+                                    <h6>Please select desired hospital</h6>
                                     <form method="post" action="" style="display: flex;" id="hosp_form">
                                         <select name="sel_hosp" class="form-select" style="width:100%" onchange=selectChange2(this.value)>
                                             <option value="">Select Hospital</option>
