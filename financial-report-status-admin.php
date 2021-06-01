@@ -108,7 +108,8 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         ?>
                         <div class="col-md-5">
                             <div class="card">
-                                <div class="card-body px-3 py-2">
+                                <div class="card-body px-3" style="padding-top: 0.9rem!important;
+    padding-bottom: .4rem!important;">
                                     <form method="post" action="" style="display: flex;">
                                         <div style="width:75%" class="form-group">
                                             <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" style="padding: 6px;" autocomplete="off" placeholder="Please click here to select">
