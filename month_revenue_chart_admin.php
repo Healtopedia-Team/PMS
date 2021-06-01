@@ -2,7 +2,7 @@
 //count the appointments number per month
 $conn = new PDO('mysql:host=localhost;dbname=db_pms', 'myhealtopedia', 'Healit20.');
 session_start();
-$hosp = $_SESSION['hospital'];
+$hosp = ($_SESSION['hospital'] != '') ? $_SESSION['hospital'] : "Healtopedia";
 $sel_year = ($_SESSION['sel_year'] != '') ? $_SESSION['sel_year']: date("Y");
 
 $sql = "SELECT SUM(IF(MONTH(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = 1, c.package_price, 0)) AS Jan,
