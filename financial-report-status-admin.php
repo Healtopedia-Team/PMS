@@ -187,19 +187,19 @@ $formattedMonthArray = array(
                                                 </div>
                                                 <div class="row">
                                                     <h5 class="font-bold" style="font-size: 1.1rem;">
-                                                    RM <?php echo $monthly_revenue[$current_month-1]['Gross_revenue'] ?>.00</h5>
+                                                    RM <?php echo $monthly_revenue[$cur_mth-1]['Gross_revenue'] ?>.00</h5>
                                                 </div>
                                                 <div class="row">
                                                     <h6 class="text-muted font-semibold">Previous Month</h6>
                                                 </div>
                                                 <div class="row">
                                                     <h6 class="font-bold">RM 
-                                                        <?php echo $monthly_revenue[$previous_month-1]['Gross_revenue'] ?>.00</h6>
+                                                        <?php echo $monthly_revenue[$cur_mth-2]['Gross_revenue'] ?>.00</h6>
                                                 </div>
 
                                             </div>
                                             <?php
-                                            $up_or_down = $monthly_revenue[$current_month] / $monthly_revenue[$previous_month];
+                                            $up_or_down = $monthly_revenue[$cur_mth-1]['Gross_revenue'] / $monthly_revenue[$cur_mth - 2]['Gross_revenue'];
                                             if ($up_or_down >= 1) {
                                                 $res = '+' .  sprintf('%.2f', $up_or_down * 100) . '%';
                                                 $style = "color:green; font-weight:900; font-size:1.4rem;";
