@@ -329,7 +329,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
 
                 $.getJSON('month_revenue_chart.php', function(jsonObject) {
                     let i = 0
-                    console.log(jsonObject)
+                    console.log(parseInt(jsonObject))
                     for (let x in months) {
                         if (i < 12) {
                             month_revenue.push(parseInt(jsonObject[x]))
