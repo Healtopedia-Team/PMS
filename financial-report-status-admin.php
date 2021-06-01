@@ -192,40 +192,44 @@ $formattedMonthArray = array(
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <h6>Please select month then select year</h6>
-                                    <div class="col">
-                                        <form method="post" action="" style="display: flex;" id="year_form">
-                                            <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange1(this.value)>
-                                                <option value="">Select Month</option>
-                                                <?php
-                                                foreach ($monthArray as $month) {
-                                                    // if you want to select a particular month
-                                                    //$selected = ($month == $cur_mth) ? 'selected' : '';
-                                                    // if you want to add extra 0 before the month uncomment the line below
-                                                    //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
-                                                    //echo '<option ' . $selected . ' value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
-                                                    echo '<option value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
-                                                }
-                                                ?>
-                                            </select>
-                                        </form>
-                                    </div>
-                                    <div class="col">
-                                        <form method="post" action="" style="display: flex;" id="month_form">
-                                            <select name="sel_year" class="form-select" style="width:50%" onchange=selectChange(this.value)>
-                                                <option value="">Select Year</option>
-                                                <?php
-                                                foreach ($available_year as $year) {
-                                                    // if you want to select a particular month
-                                                    //$selected = ($year['year'] == $cur_year) ? 'selected' : '';
-                                                    // if you want to add extra 0 before the month uncomment the line below
-                                                    //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
-                                                    //echo '<option ' . $selected . ' value="' . $year['year'] . '">' . $year['year'] . '</option>';
-                                                    echo '<option value="' . $year['year'] . '">' . $year['year'] . '</option>';
-                                                }
-                                                ?>
-                                            </select>
 
-                                        </form>
+                                    <div class="row">
+                                        <div class="col">
+                                            <form method="post" action="" style="display: flex;" id="year_form">
+                                                <select name="sel_month" class="form-select" style="width:50%" id="month_form" onchange=selectChange1(this.value)>
+                                                    <option value="">Select Month</option>
+                                                    <?php
+                                                    foreach ($monthArray as $month) {
+                                                        // if you want to select a particular month
+                                                        //$selected = ($month == $cur_mth) ? 'selected' : '';
+                                                        // if you want to add extra 0 before the month uncomment the line below
+                                                        //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
+                                                        //echo '<option ' . $selected . ' value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
+                                                        echo '<option value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class="col">
+                                            <form method="post" action="" style="display: flex;" id="month_form">
+                                                <select name="sel_year" class="form-select" style="width:50%" onchange=selectChange(this.value)>
+                                                    <option value="">Select Year</option>
+                                                    <?php
+                                                    foreach ($available_year as $year) {
+                                                        // if you want to select a particular month
+                                                        //$selected = ($year['year'] == $cur_year) ? 'selected' : '';
+                                                        // if you want to add extra 0 before the month uncomment the line below
+                                                        //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
+                                                        //echo '<option ' . $selected . ' value="' . $year['year'] . '">' . $year['year'] . '</option>';
+                                                        echo '<option value="' . $year['year'] . '">' . $year['year'] . '</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+
+                                            </form>
+                                        </div>
+
                                     </div>
 
 
