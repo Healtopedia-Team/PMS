@@ -54,6 +54,13 @@ $res2 = $conn->prepare($sql2);
 $res2->bind_param("s", $hosp);
 $res2->execute();
 $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$formattedMonthArray = array(
+    "1" => "January", "2" => "February", "3" => "March", "4" => "April",
+    "5" => "May", "6" => "June", "7" => "July", "8" => "August",
+    "9" => "September", "10" => "October", "11" => "November", "12" => "December",
+);
+?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,12 +115,20 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                         ?>
                         <div class="col-md-5">
                             <div class="card">
-                                <div class="card-body px-3" style="padding-top: 0.9rem!important;
-    padding-bottom: .4rem!important;">
+                                <div class="card-body px-3 py-3">
                                     <form method="post" action="" style="display: flex;">
-                                        <div style="width:auto" class="form-group">
-                                            <input type="text" id="datecheck" name="datecheck" class="form-control datepicker" style="padding: 6px;" autocomplete="off" placeholder="Please click here to select">
-                                        </div>
+                                        <select name="keywords" class="form-select" style="width:100%">
+                                            <option value="">Select Month</option>
+                                            <?php
+                                            foreach ($monthArray as $month) {
+                                                // if you want to select a particular month
+                                                $selected = ($month == 5) ? 'selected' : '';
+                                                // if you want to add extra 0 before the month uncomment the line below
+                                                //$month = str_pad($month, 2, "0", STR_PAD_LEFT);
+                                                echo '<option ' . $selected . ' value="' . $month . '">' . $formattedMonthArray[$month] . '</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </form>
                                 </div>
                             </div>
@@ -122,7 +137,7 @@ $monthly_revenue = $res2->get_result()->fetch_all(MYSQLI_ASSOC);
                             <div class="card">
                                 <div class="card-body px-3 py-3">
                                     <form method="post" action="" style="display: flex;">
-                                        <select name="keywords" class="form-select" style="max-width:auto">
+                                        <select name="keywords" class="form-select" style="width:100%">
                                             <?php foreach ($hosp_list as $hospital) { ?>
                                                 <option value="<?php echo $hospital['hosp_name'] ?>"><?php echo $hospital['hosp_name'] ?></option>
                                             <?php } ?>

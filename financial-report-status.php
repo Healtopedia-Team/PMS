@@ -16,7 +16,7 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 if ($_SESSION["role"] === 'admin') {
-    echo '<script>alert("Welcome ' . $role . '");window.location.href="financial-report-status-admin.php";</script>';
+    echo '<script>alert("Welcome ' . $_SESSION["role"] . '");window.location.href="financial-report-status-admin.php";</script>';
 }
 
 //$result = mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'completed' ORDER BY request_id");
