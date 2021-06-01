@@ -81,10 +81,10 @@ if (isset($_POST['sel_year']) and isset($_POST['sel_month'])) {
                                 WHERE b.hosp_name=? AND a.status='completed' AND YEAR(FROM_UNIXTIME(end_appoint, '%Y-%m-%d')) = YEAR(CURDATE())
                                 ";
     $res = $conn->prepare($sql);
-    $res->bind_param("ss", $hosp, $sel_year);
+    $res->bind_param("s", $hosp);
     $res->execute();
     $gross_revenue = $res->get_result()->fetch_all(MYSQLI_ASSOC);
-    
+
     $sql2 = "SELECT
             SUBSTRING('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec ', (MONTH(FROM_UNIXTIME(b.end_appoint, '%Y-%m-%d')) * 4) - 3, 3) AS Month,
             SUM(c.package_price) AS Gross_revenue,
