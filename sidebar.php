@@ -207,7 +207,7 @@ $role = $_SESSION['role'];
                                                     } ?>">
                                 <a href="users.php">Users</a>
                             </li><?php }
-                                if ($role == "admin" || $role == "financial manager") { ?>
+                                if ($role == "admin") { ?>
                             <li class="submenu-item <?php if ($your_variable == "hospitals") {
                                                         echo "active";
                                                     } else {
