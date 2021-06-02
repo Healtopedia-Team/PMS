@@ -142,7 +142,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                     <center>
                                         <form method="POST" style="width: 650px;">
                                             <label>CHOOSE DATE</label><br />
-                                            <input type="text" id="date" name="date" class="form-control datepicker" autocomplete="off" placeholder="click here.." required>
+                                            <input type="text" id="date" name="date" class="form-control datepicker" style="padding: 8px;" autocomplete="off" placeholder="Please click here..." required>
                                             <br>
                                             <table>
                                                 <tbody>
@@ -154,7 +154,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time" checked="true" value="09:00AM" style="display: none;">&nbsp;09:00AM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -168,7 +168,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time3" checked="true" value="12:00PM" style="display: none;">&nbsp;12:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime3" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime3" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -182,7 +182,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time10" checked="true" value="07:00PM" style="display: none;">&nbsp;07:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime10" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime10" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -198,7 +198,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time1" checked="true" value="10:00AM" style="display: none;">&nbsp;10:00AM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime1" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime1" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -212,7 +212,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time4" checked="true" value="01:00PM" style="display: none;">&nbsp;01:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime4" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime4" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -226,7 +226,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time11" checked="true" value="08:00PM" style="display: none;">&nbsp;08:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime11" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime11" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -242,7 +242,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time2" checked="true" value="11:00AM" style="display: none;">&nbsp;11:00AM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime2" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime2" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -256,7 +256,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time5" checked="true" value="02:00PM" style="display: none;">&nbsp;02:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime5" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime5" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -270,7 +270,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time12" checked="true" value="09:00PM" style="display: none;">&nbsp;09:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime12" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime12" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -287,7 +287,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time6" checked="true" value="03:00PM" style="display: none;">&nbsp;03:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime6" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime6" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -305,7 +305,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time7" checked="true" value="04:00PM" style="display: none;">&nbsp;04:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime7" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime7" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -323,7 +323,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time8" checked="true" value="05:00PM" style="display: none;">&nbsp;05:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime8" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime8" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -341,7 +341,7 @@ $user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time9" checked="true" value="06:00PM" style="display: none;">&nbsp;06:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime9" class="custom-select" style="margin: 0;">
+                                                                <select name="dtime9" class="custom-select">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
