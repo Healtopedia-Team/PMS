@@ -6,7 +6,7 @@
                 $user = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 */
                 $result = $conn->prepare("SELECT firstname, lastname, order_id, cust_id, status, SUBSTRING(order_date,1,10) AS order_date 
-                    FROM orderwoo WHERE status = 'processing' ORDER BY order_id DESC");
+                    FROM orderwoo ORDER BY order_id DESC");
                 $result->execute();
                 $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                 ?>
@@ -14,26 +14,7 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-body">
-                            <div class="btn-group mb-3" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="listtoday()">Today</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="listupcoming()">Upcoming</button>
-                                <button type="button" class="btn btn-outline-primary active" onclick="listpending()">Pending</button>
-                            </div>
-                            <script>
-                                function listall(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-all.php";
-                                }
-                                function listtoday(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-today.php";
-                                }
-                                function listupcoming(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-upcoming.php";
-                                }
-                                function listpending(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-processing.php";
-                                }
-                            </script>
+                            
                         <table class="table table-striped" id="table1">
                             <thead>
                                 <tr>
