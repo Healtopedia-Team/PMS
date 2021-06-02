@@ -5,7 +5,8 @@
                 session_start();
                 $role = $_SESSION['role'];
                 //print_r($role);
-                if ($role === 'admin' || ($role === 'financial manager' and $_SESSION['hospital'] === 'Healtopedia')) {
+                $hosp = $_SESSION['hospital'];
+                if ($role === 'admin' || ($role == 'financial manager' and $hosp == 'Healtopedia')) {
                     echo '<script>alert("Welcome ' . $role . '");window.location.href="po-list-admin.php";</script>';
                 }
                 $hosp = $_SESSION["hospital"];
