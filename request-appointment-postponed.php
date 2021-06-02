@@ -7,8 +7,8 @@ $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'po
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_POST['updatedate'])) {
-    $postponedate = $_POST['postponedate'];
-    $postponeid = $_POST['postponeid'];
+    $postponedate = mysqli_real_escape_string($conn, $_POST['postponedate']);
+    $postponeid = mysqli_real_escape_string($conn, $_POST['postponeid']);
     $sql = "UPDATE requestappoint SET req_appdate = '$postponedate' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request date postponed.");</script>';

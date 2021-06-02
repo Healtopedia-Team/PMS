@@ -5,7 +5,7 @@ $result=mysqli_query($conn, "SELECT * FROM requestappoint ORDER BY request_id");
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_POST['reqaccept'])) {
-    $confirmid = $_POST['confirmid'];
+    $confirmid = mysqli_real_escape_string($conn, $_POST['confirmid']);
     $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
         $sql2 = "UPDATE calendar SET cal_status = 'approved' WHERE cal_id = '$confirmid'";
@@ -16,7 +16,7 @@ if (isset($_POST['reqaccept'])) {
 }
 
 if (isset($_POST['reqreject'])) {
-    $confirmid = $_POST['confirmid'];
+    $confirmid = mysqli_real_escape_string($conn, $_POST['confirmid']);
     $sql = "DELETE FROM requestappoint WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
         $sql2 = "DELETE FROM calendar WHERE cal_id = '$confirmid'";
@@ -26,8 +26,8 @@ if (isset($_POST['reqreject'])) {
     }
 }
 if (isset($_POST['updatedate'])) {
-    $postponedate = $_POST['postponedate'];
-    $postponeid = $_POST['postponeid'];
+    $postponedate = mysqli_real_escape_string($conn, $_POST['postponedate']);
+    $postponeid = mysqli_real_escape_string($conn, $_POST['postponeid']);
     $sql = "UPDATE requestappoint SET req_appdate = '$postponedate', req_status = 'postponed' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request date postponed.");</script>';
@@ -36,7 +36,7 @@ if (isset($_POST['updatedate'])) {
 }
 
 if (isset($_POST['reqcomplete'])) {
-    $confirmid = $_POST['confirmid'];
+    $confirmid = mysqli_real_escape_string($conn, $_POST['confirmid']);
     $sql = "UPDATE requestappoint SET req_status = 'completed' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
         $sql2 = "UPDATE calendar SET cal_status = 'completed' WHERE cal_id = '$confirmid'";
@@ -47,8 +47,9 @@ if (isset($_POST['reqcomplete'])) {
 }
 
 if (isset($_POST['updatedate'])) {
-    $postponedate = $_POST['postponedate'];
-    $postponeid = $_POST['postponeid'];
+    $postponedate = mysqli_real_escape_string($conn, $_POST['postponedate']);
+    $postponeid = mysqli_real_escape_string($conn, $_POST['postponeid']);
+
     $sql = "UPDATE requestappoint SET req_appdate = '$postponedate' WHERE request_id = '$postponeid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>alert("Request date postponed.");</script>';

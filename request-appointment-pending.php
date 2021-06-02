@@ -5,7 +5,7 @@ $result=mysqli_query($conn, "SELECT * FROM requestappoint WHERE req_status = 'pe
 $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 if (isset($_POST['reqaccept'])) {
-    $confirmid = $_POST['confirmid'];
+    $confirmid = mysqli_real_escape_string($conn, $_POST['confirmid']);
     $sql = "UPDATE requestappoint SET req_status = 'approved' WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>window.location.href = "request-appointment-pending.php";</script>';
@@ -13,7 +13,7 @@ if (isset($_POST['reqaccept'])) {
 }
 
 if (isset($_POST['reqreject'])) {
-    $confirmid = $_POST['confirmid'];
+    $confirmid = mysqli_real_escape_string($conn, $_POST['confirmid']);
     $sql = "DELETE FROM requestappoint WHERE request_id = '$confirmid'";
     if (mysqli_query($conn,$sql)) {
         echo '<script>window.location.href = "request-appointment-pending.php";</script>';
