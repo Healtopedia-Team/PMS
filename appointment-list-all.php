@@ -406,7 +406,7 @@ if (isset($_POST['refund'])) {
                                                                     $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
 
                                                                     foreach ($data4 as $key4) {
-                                                                        if ($key4['order_id'] == "") {
+                                                                        if ($key4['order_id'] != "") {
                                                                             echo $key4['order_id'];
                                                                             echo $key4['prod_id'];
                                                                             echo $key4['prod_name'];
