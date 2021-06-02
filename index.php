@@ -66,22 +66,21 @@ $appointment = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 */
 $hosp = $_SESSION["hospital"];
 $heal = "Healtopedia";
-if(strpos($hosp, $heal) !== false){
-  
+if (strpos($hosp, $heal) !== false) {
+
   $result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo GROUP BY prod_id ORDER BY 2 DESC");
   $result2->execute();
   $hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
-  
+
   $result3 = $conn->prepare("SELECT * FROM packagewoo");
   $result3->execute();
   $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
-}
-else{
+} else {
   $result2 = $conn->prepare("SELECT prod_id, COUNT(*) FROM appointwoo WHERE hosp_name=? GROUP BY prod_id ORDER BY 2 DESC");
   $result2->bind_param("s", $hosp);
   $result2->execute();
   $hospital_list = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
-  
+
   $result3 = $conn->prepare("SELECT * FROM packagewoo");
   $result3->execute();
   $hospital_list2 = $result3->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -235,7 +234,7 @@ $month_gross_revenue = $res->get_result()->fetch_assoc();
                       </div>
                       <div class="col-md-8">
                         <h6 class="text-muted font-semibold">Monthly Gross Revenue</h6>
-                        <h6 class="font-extrabold mb-0">RM <?php echo $month_gross_revenue['month_rev'];?>.00</h6>
+                        <h6 class="font-extrabold mb-0">RM <?php echo $month_gross_revenue['month_rev']; ?>.00</h6>
                       </div>
                     </div>
                   </div>
@@ -252,7 +251,7 @@ $month_gross_revenue = $res->get_result()->fetch_assoc();
               </div>
               <div class="col-md-6">
                 <div class="card">
-                  <div class="table-responsive" style="overflow-y:auto; height:310px;">
+                  <div class="table-responsive" style="overflow-y:auto; height:310px; padding-left: 0.8rem; padding-right: 0.8rem;">
                     <table class="table table-lg">
                       <thead>
                         <tr>
@@ -323,7 +322,7 @@ $month_gross_revenue = $res->get_result()->fetch_assoc();
             <div class="row">
               <div class="col-12 col-md-6">
                 <div class="card">
-                  <div class="card-header">
+                  <div class="card-header" style="padding: 1.3rem;">
                     <h4>Monthly Appointment List</h4>
                   </div>
                   <div class="card-body">
@@ -333,10 +332,10 @@ $month_gross_revenue = $res->get_result()->fetch_assoc();
               </div>
               <div class="col-12 col-md-6">
                 <div class="card">
-                  <div class="card-header">
+                  <div class="card-header" style="padding: 1.3rem;">
                     <h4>Product Overview</h4>
                   </div>
-                  <div class="table-responsive" style="overflow-y:auto; height:338px;">
+                  <div class="table-responsive" style="overflow-y:auto; height:338px; padding-left: 0.8rem; padding-right: 0.8rem;">
                     <table class="table table-lg">
                       <thead>
                         <tr>
