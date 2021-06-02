@@ -407,7 +407,7 @@ if (isset($_POST['refund'])) {
                                                                     $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
 
                                                                     foreach ($data4 as $key4) {
-                                                                        if ($key4['order_id'] == "") {?>
+                                                                        if ($key4['prod_price'] != $totalori ) {?>
                                                                             <form method="POST">
                                                                                 <button type="submit" class="btn rounded-pill btn-warning" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
                                                                                 <input type="text" name="refprice" value="<?php echo $totalori;?>">
