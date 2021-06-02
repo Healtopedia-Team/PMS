@@ -369,22 +369,23 @@ if (isset($_POST['refund'])) {
                                                                     </div>
                                                                     <div class="quest">Nationality :</div>
                                                                     <div class="ans">
-                                                                        <?php if ($key['line_items'][$q]['meta_data'][4]['key'] == "Nationality") {
+                                                                        <?php 
+                                                                        if ($key['line_items'][$q]['meta_data'][4]['key'] == "Nationality") {
                                                                             echo $key['line_items'][$q]['meta_data'][4]['value'];
                                                                         } else {
                                                                             if ($key['meta_data'][0]['key'] == "_billing_nationality_") {
-                                                                            echo $key['meta_data'][$q]['value'];
-                                                                        } elseif ($key['meta_data'][1]['key'] == "_billing_nationality_") {
-                                                                            echo $key['meta_data'][1]['value'];
-                                                                        } elseif ($key['meta_data'][2]['key'] == "_billing_nationality_") {
-                                                                            echo $key['meta_data'][2]['value'];
-                                                                        } elseif ($key['meta_data'][3]['key'] == "_billing_nationality_") {
-                                                                            echo $key['meta_data'][3]['value'];
-                                                                        } elseif ($key['meta_data'][4]['key'] == "_billing_nationality_") {
-                                                                            echo $key['meta_data'][4]['value'];
-                                                                        } else {
-                                                                            echo "No Data";
-                                                                        }
+                                                                                echo $key['meta_data'][$q]['value'];
+                                                                            } elseif ($key['meta_data'][1]['key'] == "_billing_nationality_") {
+                                                                                echo $key['meta_data'][1]['value'];
+                                                                            } elseif ($key['meta_data'][2]['key'] == "_billing_nationality_") {
+                                                                                echo $key['meta_data'][2]['value'];
+                                                                            } elseif ($key['meta_data'][3]['key'] == "_billing_nationality_") {
+                                                                                echo $key['meta_data'][3]['value'];
+                                                                            } elseif ($key['meta_data'][4]['key'] == "_billing_nationality_") {
+                                                                                echo $key['meta_data'][4]['value'];
+                                                                            } else {
+                                                                                echo "No Data";
+                                                                            }
                                                                         } ?>
                                                                     </div>
                                                                     <div class="quest">Method :</div>
@@ -407,14 +408,15 @@ if (isset($_POST['refund'])) {
                                                                     $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
 
                                                                     foreach ($data4 as $key4) {
-                                                                        if ($key4['prod_price'] == $totalori ) {?>
+                                                                        if ($key4['order_id'] != "") {
+                                                                        }else{?>
                                                                             <form method="POST">
                                                                                 <button type="submit" class="btn rounded-pill btn-warning" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
                                                                                 <input type="text" name="refprice" value="<?php echo $totalori;?>">
                                                                                 <input type="text" name="refid" value="<?php echo $prodid;?>">
                                                                                 <input type="text" name="refname" value="<?php echo $prodname;?>">
                                                                             </form>
-                                                                        <?php }
+                                                                    <?php }
                                                                     }
                                                                     ?>
                                                                 </li>
