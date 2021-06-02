@@ -1,9 +1,9 @@
 <?php
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
- 
+
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
     exit;
 }
@@ -67,31 +67,32 @@ if (isset($_POST['submit'])) {
     ('$date','$time10','$dtime10','0','$limit10'),('$date','$time11','$dtime11','0','$limit11'),
     ('$date','$time12','$dtime12','0','$limit12')";
 
-    if (mysqli_query($conn,$sql)) {
+    if (mysqli_query($conn, $sql)) {
         echo '<script>alert("Successfully close time slot");</script>';
     }
 }
 
 if (isset($_POST['deletetime'])) {
-    
+
     $deletetime = $_POST['deletetime'];
 
     $sql = "DELETE FROM xtime WHERE timedisdate = '$deletetime'";
 
-    if (mysqli_query($conn,$sql)) {
+    if (mysqli_query($conn, $sql)) {
         echo '<script>alert("Success delete closed time");</script>';
     }
 }
 
 //=============================== C A L L === D A T A === S L O T === O F F ================================//
-$result=mysqli_query($conn, "SELECT id,timedisdate, GROUP_CONCAT(timedisable SEPARATOR ' | ') AS timedisable FROM xtime WHERE timeonoff = 'off' GROUP BY timedisdate");
-$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+$result = mysqli_query($conn, "SELECT id,timedisdate, GROUP_CONCAT(timedisable SEPARATOR ' | ') AS timedisable FROM xtime WHERE timeonoff = 'off' GROUP BY timedisdate");
+$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 //=============================== C A L L === D A T A === S L O T === O N ================================//
-$result1=mysqli_query($conn, "SELECT id,timedisdate,GROUP_CONCAT(totalappoint SEPARATOR '<br>') AS totalappoint,GROUP_CONCAT(limitapp SEPARATOR '<br>') AS limitapp, GROUP_CONCAT(timedisable SEPARATOR '<br>') AS timedisable FROM xtime WHERE timeonoff = 'on' GROUP BY timedisdate");
-$user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
+$result1 = mysqli_query($conn, "SELECT id,timedisdate,GROUP_CONCAT(totalappoint SEPARATOR '<br>') AS totalappoint,GROUP_CONCAT(limitapp SEPARATOR '<br>') AS limitapp, GROUP_CONCAT(timedisable SEPARATOR '<br>') AS timedisable FROM xtime WHERE timeonoff = 'on' GROUP BY timedisdate");
+$user1 = mysqli_fetch_all($result1, MYSQLI_ASSOC);
 
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,9 +109,10 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 </head>
+
 <body>
     <div id="app">
         <?php include 'sidebar.php'; ?>
@@ -125,7 +127,8 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Appointment List</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Request Appointment</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Manage Time</li>
                                 </ol>
                             </nav>
                         </div>
@@ -151,7 +154,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time" checked="true" value="09:00AM" style="display: none;">&nbsp;09:00AM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime" class="custom-select">
+                                                                <select name="dtime" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -165,7 +168,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time3" checked="true" value="12:00PM" style="display: none;">&nbsp;12:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime3" class="custom-select">
+                                                                <select name="dtime3" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -179,7 +182,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time10" checked="true" value="07:00PM" style="display: none;">&nbsp;07:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime10" class="custom-select">
+                                                                <select name="dtime10" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -195,7 +198,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time1" checked="true" value="10:00AM" style="display: none;">&nbsp;10:00AM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime1" class="custom-select">
+                                                                <select name="dtime1" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -209,7 +212,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time4" checked="true" value="01:00PM" style="display: none;">&nbsp;01:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime4" class="custom-select">
+                                                                <select name="dtime4" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -223,7 +226,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time11" checked="true" value="08:00PM" style="display: none;">&nbsp;08:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime11" class="custom-select">
+                                                                <select name="dtime11" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -239,7 +242,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time2" checked="true" value="11:00AM" style="display: none;">&nbsp;11:00AM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime2" class="custom-select">
+                                                                <select name="dtime2" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -253,7 +256,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time5" checked="true" value="02:00PM" style="display: none;">&nbsp;02:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime5" class="custom-select">
+                                                                <select name="dtime5" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -267,7 +270,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time12" checked="true" value="09:00PM" style="display: none;">&nbsp;09:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime12" class="custom-select">
+                                                                <select name="dtime12" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -284,7 +287,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time6" checked="true" value="03:00PM" style="display: none;">&nbsp;03:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime6" class="custom-select">
+                                                                <select name="dtime6" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -302,7 +305,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time7" checked="true" value="04:00PM" style="display: none;">&nbsp;04:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime7" class="custom-select">
+                                                                <select name="dtime7" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -320,7 +323,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time8" checked="true" value="05:00PM" style="display: none;">&nbsp;05:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime8" class="custom-select">
+                                                                <select name="dtime8" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
@@ -338,11 +341,11 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                                         <input type="checkbox" name="time9" checked="true" value="06:00PM" style="display: none;">&nbsp;06:00PM
                                                                     </div>
                                                                 </div>
-                                                                <select name="dtime9" class="custom-select">
+                                                                <select name="dtime9" class="custom-select" style="margin: 0;">
                                                                     <option value="On">On</option>
                                                                     <option value="Off">Off</option>
                                                                 </select>
-                                                            <input type="text" name="limit9" class="form-control" value="100">
+                                                                <input type="text" name="limit9" class="form-control" value="100">
                                                             </div>
                                                         </td>
                                                         <td></td>
@@ -370,7 +373,7 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                             <th>DISABLED TIME</th>
                                             <th>EDIT/DELETE</th>
                                         </tr>
-                                        <?php foreach($user as $row): ?>
+                                        <?php foreach ($user as $row) : ?>
                                             <form method="POST">
                                                 <tr>
                                                     <td><?php echo $row['timedisdate']; ?></td>
@@ -381,9 +384,9 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
                                                             <input type="text" name="deletetime" value="<?php echo $row['timedisdate']; ?>" style="display: none;">
                                                         </button>
                                             </form>
-                                                        <a href='manage-time-edit.php?date=<?php echo $row['timedisdate']; ?>'><button class="btn btn-info"><i class="bi bi-pencil-square"></i></button></a>
-                                                    </td>
-                                                </tr>
+                                            <a href='manage-time-edit.php?date=<?php echo $row['timedisdate']; ?>'><button class="btn btn-info"><i class="bi bi-pencil-square"></i></button></a>
+                                            </td>
+                                            </tr>
                                         <?php endforeach; ?>
                                     </table>
                                 </div>
@@ -413,28 +416,30 @@ $user1=mysqli_fetch_all($result1, MYSQLI_ASSOC);
 
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>
 <?php
 
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 
-$result=mysqli_query($conn, "SELECT datedisable FROM xdate");
-$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+$result = mysqli_query($conn, "SELECT datedisable FROM xdate");
+$user = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 ?>
 <script>
-    var disableDates = [<?php foreach ($user as $row){echo "'".$row['datedisable']."'".",";}?>];
-      
+    var disableDates = [<?php foreach ($user as $row) {
+                            echo "'" . $row['datedisable'] . "'" . ",";
+                        } ?>];
+
     $('.datepicker').datepicker({
         startDate: new Date(),
         format: 'mm/dd/yyyy',
-        daysOfWeekDisabled: [0,6],
-        beforeShowDay: function(date){
+        daysOfWeekDisabled: [0, 6],
+        beforeShowDay: function(date) {
             dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-            if(disableDates.indexOf(dmy) != -1){
+            if (disableDates.indexOf(dmy) != -1) {
                 return false;
-            }
-            else{
+            } else {
                 return true;
             }
         }

@@ -1,15 +1,15 @@
 <?php
 $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
- 
+
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
     exit;
 }
 
 if (isset($_POST['submit'])) {
-    
+
     $date = $_POST['ddate'];
     $date1 = $_POST['ddate1'];
     $date2 = $_POST['ddate2'];
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_POST['deletedate'])) {
-    
+
     $deletedate = $_POST['deletedate'];
     /*
     $sql = "DELETE FROM xdate WHERE id = '$deletedate'";
@@ -56,6 +56,7 @@ $result->execute();
 $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,9 +73,10 @@ $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 </head>
+
 <body>
     <div id="app">
         <?php include 'sidebar.php'; ?>
@@ -89,7 +91,8 @@ $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Appointment List</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Request Appointment</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Manage Date</li>
                                 </ol>
                             </nav>
                         </div>
@@ -118,7 +121,7 @@ $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                                             <input type="text" name="ddate4" class="form-control datepicker" autocomplete="off">
                                             <br>
                                             <button type="submit" name="submit" class="btn btn-primary">Close Date</button>
-                                        </form>                     
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -135,19 +138,19 @@ $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php foreach($user as $row): ?>
-                                                <form method="POST">
-                                                <tr>
-                                                    <td><?php echo $row['datedisable']; ?></td>
-                                                    <td>
-                                                        <button type="submit" name="deletedate" class="btn btn-danger">
-                                                            <i class="bi bi-trash"></i>
-                                                            <input type="text" name="deletedate" value="<?php echo $row['id']; ?>" style="display: none;">
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                                </form>
-                                            <?php endforeach; ?>
+                                                <?php foreach ($user as $row) : ?>
+                                                    <form method="POST">
+                                                        <tr>
+                                                            <td><?php echo $row['datedisable']; ?></td>
+                                                            <td>
+                                                                <button type="submit" name="deletedate" class="btn btn-danger">
+                                                                    <i class="bi bi-trash"></i>
+                                                                    <input type="text" name="deletedate" value="<?php echo $row['id']; ?>" style="display: none;">
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </form>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -190,18 +193,19 @@ $user = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 
 ?>
 <script type="text/javascript">
-    var disableDates = [<?php foreach ($user as $row){echo "'".$row['datedisable']."'".",";}?>];
-      
+    var disableDates = [<?php foreach ($user as $row) {
+                            echo "'" . $row['datedisable'] . "'" . ",";
+                        } ?>];
+
     $('.datepicker').datepicker({
         startDate: new Date(),
         format: 'd-m-yyyy',
-        daysOfWeekDisabled: [0,6],
-        beforeShowDay: function(date){
+        daysOfWeekDisabled: [0, 6],
+        beforeShowDay: function(date) {
             dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
-            if(disableDates.indexOf(dmy) != -1){
+            if (disableDates.indexOf(dmy) != -1) {
                 return false;
-            }
-            else{
+            } else {
                 return true;
             }
         }
