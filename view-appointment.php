@@ -403,7 +403,7 @@ if (isset($_POST['refund'])) {
                                                                     <a href="ticket.php?orderid=<?php echo $orderid ?>&custid=<?php echo $custid ?>&prodid=<?php echo $prodid ?>&namecust=<?php echo $tickname ?>&icpass=<?php echo $icpass ?>" target="_blank"><button class="btn rounded-pill btn-primary" style="margin-top: 10px; float: left;">Get Ticket</button></a>
                                                                     <?php } 
 
-                                                                    $data4 = mysqli_query($conn, "SELECT * FROM refund WHERE order_id = '$orderid' AND prod_price = '$totalori'");
+                                                                    $data4 = mysqli_query($conn, "SELECT order_id FROM refund WHERE order_id = '$orderid' AND prod_price = '$totalori'");
                                                                     $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
 
                                                                     foreach ($data4 as $key4) {
@@ -417,6 +417,12 @@ if (isset($_POST['refund'])) {
                                                                     <?php }
                                                                     }
                                                                     ?>
+                                                                    <form method="POST">
+                                                                                <button type="submit" class="btn rounded-pill btn-warning" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
+                                                                                <input type="text" name="refprice" value="<?php echo $totalori;?>">
+                                                                                <input type="text" name="refid" value="<?php echo $prodid;?>">
+                                                                                <input type="text" name="refname" value="<?php echo $prodname;?>">
+                                                                            </form>
                                                                 </li>
                                                             </ul>
                                                         </div>
