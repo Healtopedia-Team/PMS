@@ -404,16 +404,31 @@ if (isset($_POST['refund'])) {
                                                                     <?php } ?>
 
                                                                     <?php
-                                                                    $data4 = mysqli_query($conn, "SELECT order_id FROM refund WHERE order_id = '$orderid' AND prod_price = '$totalori'");
+                                                                    $data4 = mysqli_query($conn, "SELECT COUNT(order_id) AS Total FROM refund WHERE order_id = '$orderid' AND prod_price = '$totalori'");
                                                                     $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
 
                                                                     foreach ($data4 as $key4) {
-                                                                        if ($totalori != $key4['order_id']) { ?>
+                                                                        if ($key4['Total'] == 0) {?>
+                                                                            <form method="POST">
                                                                                 <button type="submit" class="btn rounded-pill btn-warning" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
                                                                                 <input type="text" name="refprice" value="<?php echo $totalori;?>">
                                                                                 <input type="text" name="refid" value="<?php echo $prodid;?>">
                                                                                 <input type="text" name="refname" value="<?php echo $prodname;?>">
-                                                                    <?php } } ?>
+                                                                            </form>
+                                                                        <?php }
+                                                                    ?>
+
+                                                                    <!--?php
+                                                                    $data4 = mysqli_query($conn, "SELECT order_id FROM refund WHERE order_id = '$orderid' AND prod_price = '$totalori'");
+                                                                    $data4 = mysqli_fetch_all($data4, MYSQLI_ASSOC);
+
+                                                                    foreach ($data4 as $key4) {
+                                                                        if ($totalori != $key4['order_id']) {?>
+                                                                                <button type="submit" class="btn rounded-pill btn-warning" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
+                                                                                <input type="text" name="refprice" value="<?php echo $totalori;?>">
+                                                                                <input type="text" name="refid" value="<?php echo $prodid;?>">
+                                                                                <input type="text" name="refname" value="<?php echo $prodname;?>">
+                                                                    <?php } } ?>-->
                                                                 </li>
                                                             </ul>
                                                         </div>
