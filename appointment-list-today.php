@@ -51,7 +51,7 @@
                                 </thead>
                                 <tbody>
                                 <?php $i = 1; ?>
-                                <?php foreach( $ansappoint as $row ){
+                                <?php foreach( $user as $row ){
                                     $appdate = date('Y-m-d', $row['start_appoint']);
                                     $todaydate = date("Y-m-d");
 
