@@ -93,7 +93,7 @@ $role = $_SESSION['role'];
                 <?php if ($role == "admin" || $role == "financial manager" || $role == "hospital admin") { ?>
                     <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
-                            <i class="bi bi-file-earmark-text-fill"></i>
+                            <i class="bi bi-file-earmark-text"></i>
                             <span>Finance</span>
                         </a>
                         <ul class="submenu <?php if ($your_variable == "po-list" || $your_variable == "financial-report-status" || $your_variable == "request-refund") {
@@ -150,7 +150,7 @@ $role = $_SESSION['role'];
                                                 echo "noactive";
                                             } ?>">
                         <a href="appoint-calendar.php" class='sidebar-link'>
-                            <i class="bi bi-calendar3-week-fill"></i>
+                            <i class="bi bi-calendar-month"></i>
                             <span>Appointment Calendar</span>
                         </a>
                     </li>
