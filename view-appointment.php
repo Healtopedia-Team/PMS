@@ -411,9 +411,9 @@ if (isset($_POST['refund'])) {
                                                                         if ($key4['Total'] < 1) {?>
                                                                             <form method="POST">
                                                                                 <button type="submit" class="btn rounded-pill btn-warning" name="refund" style="margin-top: 10px; float: left;color: black">Request Refund</button>
-                                                                                <input type="text" name="refprice" value="<?php echo $totalori;?>">
-                                                                                <input type="text" name="refid" value="<?php echo $prodid;?>">
-                                                                                <input type="text" name="refname" value="<?php echo $prodname;?>">
+                                                                                <input type="text" name="refprice" value="<?php echo $totalori;?>" style="display: none;">
+                                                                                <input type="text" name="refid" value="<?php echo $prodid;?>" style="display: none;">
+                                                                                <input type="text" name="refname" value="<?php echo $prodname;?>" style="display: none;">
                                                                             </form>
                                                                         <?php }
                                                                     }?>
