@@ -75,6 +75,21 @@ $role = $_SESSION['role'];
                     </li>
                 <?php } ?>
 
+                <?php if ($role == "admin" || $role == "receptionist") {
+                ?>
+                    <li class="sidebar-item <?php if ($your_variable == "patient-report") {
+                                                echo "active";
+                                            } else {
+                                                echo "noactive";
+                                            } ?>">
+                        <a href="patient-report.php" class='sidebar-link'>
+                            <i class="bi bi-clipboard-data"></i>
+                            <span>Patient Report</span>
+                        </a>
+                    </li>
+
+                <?php } ?>
+
                 <?php if ($role == "admin" || $role == "financial manager" || $role == "hospital admin") { ?>
                     <li class="sidebar-item has-sub">
                         <a href="#" class='sidebar-link'>
@@ -127,6 +142,7 @@ $role = $_SESSION['role'];
                     </li>
 
                 <?php } ?>
+
                 <?php if ($role == "admin") { ?>
                     <li class="sidebar-item <?php if ($your_variable == "appoint-calendar") {
                                                 echo "active";
@@ -174,7 +190,7 @@ $role = $_SESSION['role'];
                                                 echo "noactive";
                                             } ?>">
                         <a href="package-list.php" class='sidebar-link'>
-                            <i class="bi bi-journal-text"></i>
+                            <i class="bi bi-journal-album"></i>
                             <span>Package List</span>
                         </a>
                     </li>
