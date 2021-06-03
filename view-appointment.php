@@ -415,8 +415,7 @@ if (isset($_POST['refund'])) {
                                                                                 <input type="text" name="refid" value="<?php echo $prodid;?>">
                                                                                 <input type="text" name="refname" value="<?php echo $prodname;?>">
                                                                             </form>
-                                                                        <?php }
-                                                                    ?>
+                                                                        <?php } } ?>
 
                                                                     <!--?php
                                                                     $data4 = mysqli_query($conn, "SELECT order_id FROM refund WHERE order_id = '$orderid' AND prod_price = '$totalori'");
