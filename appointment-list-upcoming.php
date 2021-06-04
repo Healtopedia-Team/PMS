@@ -20,7 +20,6 @@
                                 <button type="button" class="btn btn-outline-primary" onclick="listall()">All</button>
                                 <button type="button" class="btn btn-outline-primary" onclick="listtoday()">Today</button>
                                 <button type="button" class="btn btn-outline-primary active" onclick="listupcoming()">Upcoming</button>
-                                <button type="button" class="btn btn-outline-primary" onclick="listpending()">Pending</button>
                             </div>
                             <script>
                                 function listall(){
@@ -31,9 +30,6 @@
                                 }
                                 function listupcoming(){
                                     window.location.href="https://pms.healtopedia.com/appointment-list-upcoming.php";
-                                }
-                                function listpending(){
-                                    window.location.href="https://pms.healtopedia.com/appointment-list-processing.php";
                                 }
                             </script>
                             <table class="table table-striped" id="table1">
