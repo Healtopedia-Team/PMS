@@ -4,7 +4,7 @@
 
     $data = file_get_contents('https://pms.healtopedia.com/json-order.php');
     $data = json_decode($data, true);
-    $data2 = file_get_contents('https://pms.healtopedia.com/slotjson.php');
+    $data2 = file_get_contents('https://pms.healtopedia.com/json-appointment.php');
     $data2 = json_decode($data2, true);
 
     $conn = mysqli_connect("localhost","myhealtopedia","Healit20.","db_pms");
