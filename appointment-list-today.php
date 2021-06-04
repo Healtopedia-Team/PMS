@@ -41,7 +41,7 @@
                                         <th>Customer Name</th>
                                         <th>Order Date</th>
                                         <th>Appointment Date</th>
-                                        <th>Payment Status</th>
+                                        <th>Payment</th>
                                         <th>Order Details</th>
                                     </tr>
                                 </thead>
