@@ -204,7 +204,7 @@
             $orderdate = $row3['date_created'];
 
             foreach ($data2 as $row2) {
-                if ($row4['order_id'] == $row3['number']) {
+                if ($row2['order_id'] == $row3['number']) {
                     $custid = $row2['id'];
                 }
             }
