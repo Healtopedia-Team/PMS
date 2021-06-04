@@ -13,9 +13,6 @@
     $data3 = file_get_contents('https://pms.healtopedia.com/json-order.php');
     $data3 = json_decode($data3, true);
 
-    $data4 = file_get_contents('https://pms.healtopedia.com/json-appointment.php');
-    $data4 = json_decode($data4, true);
-
     foreach ( $data2 as $row2 ) :
         foreach ( $data as $row ) :
             if ($row['id'] == $row2['product_id']){
@@ -206,9 +203,9 @@
             $status = $row3['status'];
             $orderdate = $row3['date_created'];
 
-            foreach ($data4 as $row4) {
+            foreach ($data2 as $row2) {
                 if ($row4['order_id'] == $row3['number']) {
-                    $custid = $row4['id'];
+                    $custid = $row2['id'];
                 }
             }
 
