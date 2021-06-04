@@ -68,7 +68,7 @@ $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
                                             <td><?php echo $row['order_id'];?></td>
                                             <td><?php echo $row['prod_id'];?></td>
                                             <td><?php echo $row['prod_name'];?></td>
-                                            <td><?php echo $row['prod_price'];?></td>
+                                            <td><?php echo "RM ".$row['prod_price'];?></td>
                                         </tr>
                                     <?php }?>
                             </tbody>
