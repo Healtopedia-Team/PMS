@@ -7,6 +7,9 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
     header("location: auth-login.php");
     exit;
 }
+
+$data = mysqli_query($conn, "SELECT * FROM refund ORDER BY id");
+$data = mysqli_fetch_all($data, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +57,26 @@ if (!isset($_SESSION["name"]) || $_SESSION["loggedin"] !== true) {
                                 </nav>
                             </div>
                             <div class="card">
-                                
+                                <table class="table table-striped" id="table1">
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Product ID</th>
+                                            <th>Package Name</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($data as $row) {?>
+                                            <tr>
+                                                <td><?php echo $row['order_id'];?></td>
+                                                <td><?php echo $row['prod_id'];?></td>
+                                                <td><?php echo $row['prod_name'];?></td>
+                                                <td><?php echo $row['prod_price'];?></td>
+                                            </tr>
+                                        <?php }?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
