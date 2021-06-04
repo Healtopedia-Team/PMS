@@ -56,10 +56,10 @@ $data = mysqli_fetch_all($data, MYSQLI_ASSOC);
                             <table class="table table-striped" id="table1">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
                                         <th>Order ID</th>
-                                        <th>Customer Name</th>
-                                        <th>Order Date</th>
+                                        <th>Package ID</th>
+                                        <th>Package Name</th>
+                                        <th>Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
