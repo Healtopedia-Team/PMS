@@ -59,9 +59,6 @@ if (!$err2) {
     echo "cURL Error #:" . $err2;
 }
 
-$data3 = file_get_contents('https://pms.healtopedia.com/json-appointment.php');
-$data3 = json_decode($data3, true);
-
 if (isset($_POST['refund'])) {
     $refprice = $_POST['refprice'];
     $refid = $_POST['refid'];
