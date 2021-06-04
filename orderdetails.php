@@ -58,7 +58,7 @@ if (!$err2) {
   echo "cURL Error #:" . $err2;
 }
 
-$data3 = file_get_contents('https://digital.healtopedia.com/ATIQ/MigrateWoo/appointmentjson.php');
+$data3 = file_get_contents('https://digital.healtopedia.com/ATIQ/MigrateWoo/json-appointment.php');
 $data3 = json_decode($data3, true);
 ?>
 <!DOCTYPE html>
