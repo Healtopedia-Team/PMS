@@ -10,6 +10,12 @@
     $data2 = file_get_contents('https://pms.healtopedia.com/json-appointment.php');
     $data2 = json_decode($data2, true);
 
+    $data3 = file_get_contents('https://pms.healtopedia.com/json-order.php');
+    $data3 = json_decode($data3, true);
+
+    $data4 = file_get_contents('https://pms.healtopedia.com/json-appointment.php');
+    $data4 = json_decode($data4, true);
+
     foreach ( $data2 as $row2 ) :
         foreach ( $data as $row ) :
             if ($row['id'] == $row2['product_id']){
@@ -188,5 +194,41 @@
                 }
             }
         }
+        endforeach;
     endforeach;
-endforeach; ?>
+
+    foreach ($data3 as $row3 ){
+        if ($row3['status'] == "completed" || $row3['status'] == "processing") {
+
+            $firstname = $row3['billing']['first_name'];
+            $lastname = $row3['billing']['last_name'];
+            $orderid = $row3['number'];
+            $status = $row3['status'];
+            $orderdate = $row3['date_created'];
+
+            foreach ($data4 as $row4) {
+                if ($row4['order_id'] == $row3['number']) {
+                    $custid = $row4['id'];
+                }
+            }
+
+            //$result=mysqli_query($conn, "SELECT COUNT(cust_id) as Total FROM orderwoo WHERE cust_id = '$custid'");
+            //$user=mysqli_fetch_all($result, MYSQLI_ASSOC);
+            $result2 = $conn->prepare("SELECT COUNT(cust_id) as Total FROM orderwoo WHERE cust_id =? ");
+            $result2->bind_param("i", $custid);
+            $result2->execute();
+            $user2 = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
+
+            foreach ($user2 as $key2) {
+                if ($key2['Total'] < 1) {
+                    //$sql = "INSERT INTO orderwoo SET firstname = '$firstname', lastname = '$lastname', order_id = '$orderid', cust_id = '$custid', status = '$status', order_date = '$orderdate'";
+                    //mysqli_query($conn, $sql);
+
+                    $sql2 = $conn->prepare("INSERT INTO orderwoo SET firstname = ?, lastname = ?, order_id = ?, cust_id = ?, status = ?, order_date = ? ");
+                    $sql2->bind_param("ssiiss", $firstname, $lastname, $orderid, $custid, $status, $orderdate);
+                    $sql2->execute();
+                }
+            }
+        }
+    }
+?>
