@@ -292,12 +292,7 @@ if (isset($_POST['refund'])) {
                                                                             $tickname = $key['billing']['first_name']." ".$key['billing']['last_name']; ?>
                                                                     <div class="quest">Attendee Name :</div>
                                                                             <div class="ans"><?php echo $tickname; ?></div>
-                                                                <?php   }
-                                                                    foreach ($data3 as $key3) {
-                                                                        if ($key3['order_id'] == $orderid && $key3['order_item_id'] == $key['line_items'][$q]['id']) {
-                                                                            $appid = $key3['id'];
-                                                                        }
-                                                                    } ?>
+                                                                <?php   } ?>
                                                                     <div class="quest">IC/ Passport :</div>
                                                                     <div class="ans">
                                                                         <?php if ($key['line_items'][$q]['meta_data'][1]['key'] == "IC / Passport No.") {
