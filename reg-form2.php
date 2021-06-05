@@ -62,7 +62,7 @@ if ($conn->connect_error) {
                <h6 class="m-0 font-weight-bold text-primary">Walk-In Registration Form</h6>
             </div>
             <div class="card-body">
-               <form action="https://manage.healtopedia.com/function.php" method="POST">
+               <form action="function2.php" method="POST">
                   <p><b>Client Details</b></p>
                   <hr>
                   <div class="row">
