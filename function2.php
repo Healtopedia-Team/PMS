@@ -78,7 +78,7 @@ $sqlresult = mysqli_query($conn, "INSERT INTO book_list (name,ic,bod,gender,nati
 
 if ($sqlresult) {
    
-    header('location:https://manage.healtopedia.com/ticket.php?name='.$name.'&ic='.$ic.'&gender='.$gender.'&queue='.$queue_num);
+    header('location:https://pms.healtopedia.com/ticket2.php?name='.$name.'&ic='.$ic.'&gender='.$gender.'&queue='.$queue_num);
     echo '<script>alert("Registration Successful!")</script>';
 }
 
