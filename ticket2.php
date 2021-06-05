@@ -121,12 +121,9 @@ $queue = $_GET['queue'];
                                 <button type="submit" name="printqueue" id="printqueue" class="btn btn-primary" onclick="printDiv('printarea')">Print the Queue Number<i class="bi bi-chevron-double-down"></i></button>
                             </div>
                             <div class="col-md-6">
-                                <a href="http://localhost/ic/reg-form.php"><button type="submit" name="backtoprevious" class="btn btn-primary">Back to Previous Offline Form<i class="bi bi-chevron-double-down"></i></button></a>
+                                <a href="https://pms.healtopedia.com/reg-form2.php"><button type="submit" name="backtoprevious" class="btn btn-primary">Back to Previous Form<i class="bi bi-chevron-double-down"></i></button></a>
                             </div>
-                            <div class="col-md-6"></div>
-                            <div class="col-md-6" style="margin-top: 10px;">
-                                <a href="https://manage.healtopedia.com/reg-form2.php"><button type="submit" name="backtoprevious" class="btn btn-success">Back to Previous Online Form<i class="bi bi-chevron-double-down"></i></button></a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
