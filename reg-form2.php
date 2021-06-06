@@ -62,7 +62,7 @@ if ($conn->connect_error) {
                <h6 class="m-0 font-weight-bold text-primary">Walk-In Registration Form</h6>
             </div>
             <div class="card-body">
-               <form action="https://manage.healtopedia.com/function.php" method="POST">
+               <form action="https://pms.healtopedia.com/function2.php" method="POST">
                   <p><b>Client Details</b></p>
                   <hr>
                   <div class="row">
@@ -307,7 +307,6 @@ if ($conn->connect_error) {
                                  dateFormat: "dd/mm/yyyy",
                                  timeFormat: "HH:MMA",
                                  direction: 'BOTTOM',
-                                 autoclose: true
                               });
                            </script>
                         </div>
@@ -362,6 +361,7 @@ if ($conn->connect_error) {
                                  <option value="<?php echo $loc['location'] ?>"><?php echo $loc['location'] ?></option>
                               <?php }
                               ?>
+                              <option value="Glo Damansara">Glo Damansara</option>
 
                            </select>
                         </div>
