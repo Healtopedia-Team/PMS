@@ -78,10 +78,7 @@ if ($conn->connect_error) {
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
-                           <select class="form-control" name="gender" id="gender" required>
-                              <option value="">Select Gender</option>
-                              <option value="MALE">Male</option>
-                              <option value="FEMALE">Female</option>
+                           <input type="text" class="form-control" name="gender" id="gender" required >
                            </select>
                         </div>
 
@@ -431,7 +428,7 @@ if ($conn->connect_error) {
   
      var dob = day+"/"+month+"/"+year;
      document.getElementById("gender").value = gender;
-     document.getElementById("bod").value = dob;
+     //document.getElementById("bod").value = dob;
       
 }
    
