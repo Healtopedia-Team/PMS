@@ -73,7 +73,7 @@ if ($conn->connect_error) {
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
-                           <input type="text" class="form-control" name="ic" required maxlength="12">
+                           <input type="text" class="form-control" name="ic" id="ic" required maxlength="12">
                         </div>
                         <input type="checkbox" name="fillic" onclick="SetIC(this.checked);" />Autofill me!<br />
                         <div class=" form-group">
@@ -318,7 +318,7 @@ if ($conn->connect_error) {
 
                         <div class="form-group">
                            <small><label class="col-form-label">Email :</label></small>
-                           <input type="text" class="form-control" name="email" required>
+                           <input type="text" class="form-control" name="email" id="email" required>
                         </div>
 
 
@@ -410,7 +410,7 @@ if ($conn->connect_error) {
 function SetIC(checked){
    var stro = document.getElementsByName('ic').value;
   
-   document.getElementsByName("email").innerHTML = stro;
+   document.getElementsByName("email").innerHTML.value = stro;
    
 }
    
