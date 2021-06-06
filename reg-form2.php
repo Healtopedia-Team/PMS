@@ -75,7 +75,6 @@ if ($conn->connect_error) {
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
                            <input type="text" class="form-control" name="ic" id="ic" required maxlength="12">
                         </div>
-                        <input type="checkbox" name="filladdress" onclick="Setcard(this.checked);" /> Present current address same as above address.<br />
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
                            <select class="form-control" name="gender" required>
@@ -406,12 +405,7 @@ if ($conn->connect_error) {
          document.getElementById('current_address').value = document.getElementById('address').value;
       }
    }
-   
-function Setcard(checked) {
-      if (checked) {
-         document.getElementById('name').value = document.getElementById('ic').value;
-      }
-   }
+  
    
    
    
