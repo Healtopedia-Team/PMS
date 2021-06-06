@@ -405,6 +405,37 @@ if ($conn->connect_error) {
          document.getElementById('current_address').value = document.getElementById('address').value;
       }
    }
+   
+   var str = document.getElementsByName('ic').value;
+   var yr = str.slice(0, 2);
+  var month = str.slice(2, 4);
+  var day = str.slice(4, 6);
+  var no = str.slice(11,12);
+  var gno = parseInt(no,10);
+  var yer = parseInt(yr,10);
+  if(gno%2==0){
+  var gender = "Female";
+  }
+  else{
+  var gender = "Male";
+  }
+  
+  if(yer<=21){
+  var year = yer+2000;
+  }
+  else{
+  var year = yer+1900;
+  }
+  
+  
+  var dob = day+"/"+month+"/"+year;
+   document.getElementsByName("gender").innerHTML = gender;
+   document.getElementsByName("bod").innerHTML = dob;
+   
+   
+   
+   
+   
 </script>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
