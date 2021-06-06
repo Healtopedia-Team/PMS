@@ -13,7 +13,8 @@ if ($conn->connect_error) {
 $name = $_POST['name'];
 $name = str_replace("'", '', $name);
 $ic = $_POST['ic'];
-$bod = $_POST['bod'];
+$oldbod = $_POST['bod'];
+$bod = date("dd/mm/yyyy", strtotime($oldbod));
 $gender = $_POST['gender'];
 $nation = $_POST['nation'];
 $phone = $_POST['phone'];
