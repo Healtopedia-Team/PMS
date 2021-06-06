@@ -409,8 +409,7 @@ if ($conn->connect_error) {
    
 function SetIC(checked){
   if (checked){
-   var stro = document.getElementById('ic').value;
-   document.getElementById('email').innerHTML.value = stro;
+   document.getElementById('email').innerHTML.value = document.getElementById('ic').value;
   }
 }
    
