@@ -404,7 +404,7 @@ if ($conn->connect_error) {
       var yer = parseInt(yr,10);
       var n = str.length;
       if(n!==12){
-         document.getElementById("gender").value = "IC INPUT ERROR, REFILL AGAIN";
+         document.getElementById("gender").value = "IC INPUT ERROR, REFILL IC AGAIN";
       }
       else{
       if(gno%2==0){
