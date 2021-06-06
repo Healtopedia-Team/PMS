@@ -74,7 +74,7 @@ if ($conn->connect_error) {
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
                            <input type="text" class="form-control" name="ic" id="ic" required maxlength="12"><br>
-                           <input type="button"value="Autofill DOB and Gender" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-primary btn-sm">
+                           <input type="button"value="Autofill Date of Birth and Gender" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-primary btn-sm">
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
