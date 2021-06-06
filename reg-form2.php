@@ -402,6 +402,11 @@ if ($conn->connect_error) {
       var no = str.slice(11,12);
       var gno = parseInt(no,10);
       var yer = parseInt(yr,10);
+      var n = str.length;
+      if(n!==12){
+         document.getElementById("gender").value = "IC INPUT ERROR, REFILL AGAIN";
+      }
+      else{
       if(gno%2==0){
          var gender = "FEMALE";
       }
@@ -420,7 +425,7 @@ if ($conn->connect_error) {
      var dob = day+"/"+month+"/"+year;
      document.getElementById("gender").value = gender;
      document.getElementById("bod").value = dob;
-      
+      }
 }
    
 </script>
