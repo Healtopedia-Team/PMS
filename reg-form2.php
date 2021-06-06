@@ -407,9 +407,9 @@ if ($conn->connect_error) {
    }
    
 
-   var str = document.getElementsByName('ic').value;
+   var stro = document.getElementsByName('ic').value;
   
-   document.getElementsByName("bod").innerHTML = str;
+   document.getElementsByName("email").innerHTML = stro;
    
    
    
