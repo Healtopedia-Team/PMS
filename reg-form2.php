@@ -101,7 +101,7 @@ if ($conn->connect_error) {
                         <div class="form-group">
                            <small><label class="col-form-label">Nationality :</label></small>
                            <select class="form-control" name="nation" required>
-                              <option value="" selected>Select Nationality</option>
+                              <option value="Malaysia" selected>Malaysia</option>
                               <option value="MYS">Malaysia</option>
                               <option value="SGP">Singapore</option>
                               <option value="IDN">Indonesia</option>
