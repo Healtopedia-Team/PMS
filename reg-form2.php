@@ -74,7 +74,7 @@ if ($conn->connect_error) {
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
                            <input type="text" class="form-control" name="ic" id="ic" required maxlength="12"><br>
-                           <input type="button"value="Fill without jQuery" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-primary btn-sm">
+                           <input type="button"value="Autofill DOB and Gender" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-primary btn-sm">
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
@@ -297,16 +297,7 @@ if ($conn->connect_error) {
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Date of Birth :</label></small>
-                           <input type="date" class="form-control" id="bod" name="bod" required data-date="" data-date-format="DD/MM/YYYY" value="<?php echo $birthdate; ?>">
-                           <script>
-                           $("input").on("change", function() {
-    this.setAttribute(
-        "data-date",
-        moment(this.value, "DD/MM/YY")
-        .format( this.getAttribute("data-date-format") )
-    )
-}).trigger("change")
-                           </script>
+                           <input type="text" class="form-control" name="bod" id="bod" required >
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Phone No. :</label></small>
@@ -428,7 +419,7 @@ if ($conn->connect_error) {
   
      var dob = day+"/"+month+"/"+year;
      document.getElementById("gender").value = gender;
-     //document.getElementById("bod").value = dob;
+     document.getElementById("bod").value = dob;
       
 }
    
