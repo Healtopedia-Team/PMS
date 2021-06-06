@@ -405,12 +405,12 @@ if ($conn->connect_error) {
          document.getElementById('current_address').value = document.getElementById('address').value;
       }
    }
-   
+     $(document).ready(function() {
    $('#ic').keyup(function(){
      $("#name").val($(this).val());
  });
   
-   
+   });
    
    
 </script>
