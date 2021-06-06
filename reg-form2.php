@@ -73,12 +73,12 @@ if ($conn->connect_error) {
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
-                           <input type="text" class="form-control" name="ic" id="ic" required maxlength="12">
+                           <input type="text" class="form-control" name="ic" id="ic" required maxlength="12"><br>
                            <input type="button"value="Fill without jQuery" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-primary btn-sm">
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
-                           <select class="form-control" name="gender" required>
+                           <select class="form-control" name="gender" id="gender" required>
                               <option value="">Select Gender</option>
                               <option value="MALE">Male</option>
                               <option value="FEMALE">Female</option>
@@ -300,7 +300,7 @@ if ($conn->connect_error) {
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Date of Birth :</label></small>
-                           <input type="date" class="form-control" name="bod" required data-date="" data-date-format="DD/MM/YYYY" value="<?php echo $birthdate; ?>">
+                           <input type="date" class="form-control" id="bod" name="bod" required data-date="" data-date-format="DD/MM/YYYY" value="<?php echo $birthdate; ?>">
                            <script>
                            $("input").on("change", function() {
     this.setAttribute(
@@ -408,7 +408,30 @@ if ($conn->connect_error) {
    }
    fillValuesNoJQuery = function () {
       var values = document.getElementById("ic").value;
-      document.getElementById('name').value = values;
+      var yr = str.slice(0, 2);
+      var month = str.slice(2, 4);
+      var day = str.slice(4, 6);
+      var no = str.slice(11,12);
+      var gno = parseInt(no,10);
+      var yer = parseInt(yr,10);
+      if(gno%2==0){
+         var gender = "Female";
+      }
+      else{
+         var gender = "Male";
+      }
+  
+      if(yer<=21){
+         var year = yer+2000;
+      }
+      else{
+         var year = yer+1900;
+      }
+  
+  
+     var dob = day+"/"+month+"/"+year;
+     document.getElementById("gender").innerHTML = gender;
+     document.getElementById("bod").innerHTML = dob;
       
 }
    
