@@ -74,7 +74,7 @@ if ($conn->connect_error) {
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
                            <input type="text" class="form-control" name="ic" id="ic" required maxlength="12">
-                           <input type="button"value="Fill without jQuery" id="filler2" onClick="fillValuesNoJQuery()">
+                           <input type="button"value="Fill without jQuery" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-info">
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
