@@ -75,7 +75,7 @@ if ($conn->connect_error) {
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
                            <input type="text" class="form-control" name="ic" id="ic" required maxlength="12">
                         </div>
-                        <input type="checkbox" name="fillic" onclick="SetIC(this.checked);" />Autofill me!<br />
+                        <input type="checkbox" name="filladdress" onclick="SetBilling(this.checked);" /> Present current address same as above address.<br />
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
                            <select class="form-control" name="gender" required>
