@@ -75,6 +75,7 @@ if ($conn->connect_error) {
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
                            <input type="text" class="form-control" name="ic" required maxlength="12">
                         </div>
+                        <button onclick="icFunction()" class="btn btn-info">Click me</button>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
                            <select class="form-control" name="gender" required>
@@ -406,12 +407,12 @@ if ($conn->connect_error) {
       }
    }
    
-
+function icFunction(){
    var stro = document.getElementsByName('ic').value;
   
    document.getElementsByName("email").innerHTML = stro;
    
-   
+}
    
    
    
