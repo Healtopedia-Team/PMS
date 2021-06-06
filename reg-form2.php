@@ -407,7 +407,7 @@ if ($conn->connect_error) {
       }
    }
    fillValuesNoJQuery = function () {
-      var values = document.getElementById("ic").value;
+      var str = document.getElementById("ic").value;
       var yr = str.slice(0, 2);
       var month = str.slice(2, 4);
       var day = str.slice(4, 6);
