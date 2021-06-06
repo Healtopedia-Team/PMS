@@ -69,7 +69,7 @@ if ($conn->connect_error) {
                      <div class="col-md-6">
                         <div class="form-group">
                            <small><label class="col-form-label">Name :</label></small>
-                           <input type="text" class="form-control" name="name" required >
+                           <input type="text" class="form-control" name="name" id="name" required >
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
@@ -409,7 +409,7 @@ if ($conn->connect_error) {
    
 function SetIC(checked){
   if (checked){
-   document.getElementById('email').innerHTML.value = document.getElementById('ic').value;
+   document.getElementById('name').innerHTML.value = document.getElementById('ic').value;
   }
 }
    
