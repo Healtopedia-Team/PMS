@@ -299,7 +299,16 @@ if ($conn->connect_error) {
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Date of Birth :</label></small>
-                           <input type="date" class="form-control" name="bod" required value="<?php echo $birthdate; ?>">
+                           <input type="date" class="form-control" name="bod" required data-date="" data-date-format="DD/MM/YYYY" value="<?php echo $birthdate; ?>">
+                           <script>
+                           $("input").on("change", function() {
+    this.setAttribute(
+        "data-date",
+        moment(this.value, "DD/MM/YY")
+        .format( this.getAttribute("data-date-format") )
+    )
+}).trigger("change")
+                           </script>
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Phone No. :</label></small>
