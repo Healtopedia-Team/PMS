@@ -74,6 +74,7 @@ if ($conn->connect_error) {
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
                            <input type="text" class="form-control" name="ic" id="ic" required maxlength="12">
+                           <input type="button"value="Fill without jQuery" id="filler2" onClick="fillValuesNoJQuery()">
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
@@ -405,13 +406,11 @@ if ($conn->connect_error) {
          document.getElementById('current_address').value = document.getElementById('address').value;
       }
    }
-     $(document).ready(function() {
-   $('#ic').keyup(function(){
-     $("#name").val($(this).val());
- });
-  
-   });
-   
+   fillValuesNoJQuery = function () {
+      var values = document.getElementById("ic").value;
+      document.getElementById('name').value = values;
+      
+}
    
 </script>
 <script src="vendor/jquery/jquery.min.js"></script>
