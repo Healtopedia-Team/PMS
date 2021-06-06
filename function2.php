@@ -28,11 +28,13 @@ $orderno = '12345';
 $price = 0;
 $location = $_POST['location'];
 if ($type == 'RTK-Antigen') {
-    $price = "";
+    $price = "90";
 } else if ($type == 'RT-PCR') {
-    $price = "";
+    $price = "210";
+} else if ($type == 'STATPCR') {
+    $price = "310";
 } else {
-    $price = "";
+    $price = "350";
 }
 $order_date = date("d/m/Y h:i:s A");
 
