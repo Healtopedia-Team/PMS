@@ -51,7 +51,7 @@ if ($conn->connect_error) {
 
 <!-- Begin Page Content -->
 <div class="text-center">
-   <img src="https://manage.healtopedia.com/img/logo.png" width="250px" height="80px">
+   <img src="img/logo.png" width="250px" height="80px">
    <h1 class="h5 text-gray-900 mb-4">Healtopedia Registration Form</h1>
 </div>
 <div class="container-fluid">
@@ -62,7 +62,7 @@ if ($conn->connect_error) {
                <h6 class="m-0 font-weight-bold text-primary">Walk-In Registration Form</h6>
             </div>
             <div class="card-body">
-               <form action="function2.php" method="POST">
+               <form action="https://manage.healtopedia.com/function.php" method="POST">
                   <p><b>Client Details</b></p>
                   <hr>
                   <div class="row">
@@ -72,8 +72,8 @@ if ($conn->connect_error) {
                            <input type="text" class="form-control" name="name" required >
                         </div>
                         <div class=" form-group">
-                           <small><label class="col-form-label">IC/Passport:</label></small>
-                           <input type="text" class="form-control" name="ic" required >
+                           <small><label class="col-form-label">IC/Passport (without - ):</label></small>
+                           <input type="text" class="form-control" name="ic" required maxlength="12">
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
@@ -306,13 +306,14 @@ if ($conn->connect_error) {
                                  showDate: true,
                                  dateFormat: "dd/mm/yyyy",
                                  timeFormat: "HH:MMA",
-                                 direction: 'BOTTOM'
+                                 direction: 'BOTTOM',
+                                 autoclose: true
                               });
                            </script>
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Phone No. :</label></small>
-                           <input type="text" class="form-control" name="phone" required>
+                           <input type="text" class="form-control" value="60" name="phone" required>
                         </div>
 
                         <div class="form-group">
