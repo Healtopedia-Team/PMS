@@ -430,8 +430,8 @@ if ($conn->connect_error) {
   
   
      var dob = day+"/"+month+"/"+year;
-     document.getElementById("gender").innerHTML = gender;
-     document.getElementById("bod").innerHTML = dob;
+     document.getElementById("gender").value = gender;
+     document.getElementById("bod").value = dob;
       
 }
    
