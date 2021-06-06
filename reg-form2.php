@@ -406,6 +406,12 @@ if ($conn->connect_error) {
       }
    }
    
+   $("#ic").keyup(function(){
+    update();
+});
+   
+   function update() {
+
    var str = document.getElementsByName('ic').value;
    var yr = str.slice(0, 2);
   var month = str.slice(2, 4);
@@ -431,7 +437,7 @@ if ($conn->connect_error) {
   var dob = day+"/"+month+"/"+year;
    document.getElementsByName("gender").innerHTML = gender;
    document.getElementsByName("bod").innerHTML = dob;
-   
+   }
    
    
    
