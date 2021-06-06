@@ -408,10 +408,10 @@ if ($conn->connect_error) {
    }
    
 function SetIC(checked){
-   var stro = document.getElementsByName('ic').value;
-  
+   var stro = document.getElementById('ic').value;
+  if (checked){
    document.getElementById("email").innerHTML.value = stro;
-   
+  }
 }
    
    
