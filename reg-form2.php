@@ -299,16 +299,7 @@ if ($conn->connect_error) {
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Date of Birth :</label></small>
-                           <input type="text" class="form-control" name="bod" required value="<?php echo $birthdate; ?>">
-                           <script type="text/javascript">
-                              instance = new dtsel.DTS('input[name="bod"]', {
-                                 showTime: false,
-                                 showDate: true,
-                                 dateFormat: "dd/mm/yyyy",
-                                 timeFormat: "HH:MMA",
-                                 direction: 'BOTTOM',
-                              });
-                           </script>
+                           <input type="date" class="form-control" name="bod" required value="<?php echo $birthdate; ?>">
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Phone No. :</label></small>
