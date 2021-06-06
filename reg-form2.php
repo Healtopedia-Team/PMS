@@ -333,7 +333,13 @@ if ($conn->connect_error) {
                      <div class="col-md-6">
                         <div class="form-group">
                            <small><label class="col-form-label">Test Type :</label></small>
-                           <input type="text" class="form-control" name="test_type" required value="RTK-Antigen">
+                           <select class="form-control" name="test_type" required>
+                              <option value="">Choose Type</option>
+                              <option value="RTK-Antigen">RTK-Antigen (RM90.00)</option>
+                              <option value="RT-PCR">RT-PCR (RM210.00)</option>
+                              <option value="IgM">IgM (RM350.00)</option>
+                              <option value="STATPCR">STAT RT-PCR (RM310.00)</option>
+                           </select>
                         </div>
 
                         <div class="form-group">
