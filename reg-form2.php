@@ -403,10 +403,10 @@ if ($conn->connect_error) {
       var gno = parseInt(no,10);
       var yer = parseInt(yr,10);
       if(gno%2==0){
-         var gender = "Female";
+         var gender = "FEMALE";
       }
       else{
-         var gender = "Male";
+         var gender = "MALE";
       }
   
       if(yer<=21){
