@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
+$conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
 session_start();
 //$hosp = $_SESSION['hospital'];
 
