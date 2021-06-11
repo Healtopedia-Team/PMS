@@ -210,30 +210,30 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
     <div style="clear: both;"></div>
 
     <div class="billingpart">
-        <table class="billing" cellspacing="0" border="1" style="width: 100%; margin: auto;">
+        <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
             <tbody>
                 <tr>
-                    <td height="18" align="center" valign="middle" bgcolor="#fff" sdnum="1033;0;0.00%">
+                    <td height="18" align="center" valign="middle" bgcolor="#fff" sdnum="1033;0;0.00%" style="border: 1px solid;">
                         <b>
                             <font color="#000">ITEM NO.</font>
                         </b>
                     </td>
-                    <td colspan="3" align="center" valign="middle" bgcolor="#fff" sdnum="1033;0;0.00%">
+                    <td colspan="3" align="center" valign="middle" bgcolor="#fff" sdnum="1033;0;0.00%" style="border: 1px solid;">
                         <b>
                             <font color="#000">DESCRIPTION</font>
                         </b>
                     </td>
-                    <td align="center" valign="middle" bgcolor="#fff">
+                    <td align="center" valign="middle" bgcolor="#fff" style="border: 1px solid;">
                         <b>
                             <font color="#000">QTY</font>
                         </b>
                     </td>
-                    <td align="center" valign="middle" bgcolor="#fff">
+                    <td align="center" valign="middle" bgcolor="#fff" style="border: 1px solid;">
                         <b>
                             <font color="#000">UNIT PRICE</font>
                         </b>
                     </td>
-                    <td align="center" valign="middle" bgcolor="#fff">
+                    <td align="center" valign="middle" bgcolor="#fff" style="border: 1px solid;">
                         <b>
                             <font color="#000">TOTAL</font>
                         </b>
