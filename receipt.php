@@ -43,7 +43,7 @@ $query = "SELECT * FROM `book_list` WHERE queue_num=?";
 //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $result = $conn->prepare($query);
-$result->bind_param("i", $patient_id);
+$result->bind_param("s", $patient_id);
 $result->execute();
 $rows = $result->get_result()->fetch_assoc();
 $total_price = 0;
