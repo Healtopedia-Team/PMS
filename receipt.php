@@ -3,15 +3,8 @@ $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "db_pms");
 session_start();
 //$hosp = $_SESSION['hospital'];
 
-//$current_date = $_GET['cur_date'];
-if ($cur_date != '') {
-    $current_date = $cur_date;
-} else {
-    $current_date = $_GET['cur_date'];
-}
-if ($hosp == '') {
-    $hosp = $_GET['hosp'];
-}
+$current_date = $_GET['cur_date'];
+
 //var_dump($current_date);
 /*
 $heal = "Healtopedia";
@@ -45,26 +38,16 @@ if (strpos($hosp, $heal) !== false) {
   $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 */
-$query = "SELECT a.order_id, a.appoint_id, a.start_appoint, a.hosp_name, 
-            b.firstname, b.lastname, c.package_name, c.package_price, 
-            DATE(FROM_UNIXTIME(a.start_appoint, '%Y-%m-%d')) AS c_date 
-            FROM appointwoo a LEFT JOIN orderwoo b ON a.order_id=b.order_id 
-            LEFT JOIN packagewoo c ON a.prod_id=c.package_id 
-            WHERE FROM_UNIXTIME(a.end_appoint, '%Y-%m-%d')=? AND a.hosp_name=? AND statusapp='complete'";
+$query = "SELECT * FROM `book_list` WHERE queue_num=?";
 //$result = mysqli_query($conn, $query);
 //$res = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 $result = $conn->prepare($query);
-$result->bind_param("ss", $current_date, $hosp);
+$result->bind_param("s", $patient_id);
 $result->execute();
 $res = $result->get_result()->fetch_all(MYSQLI_ASSOC);
 $total_price = 0;
 
-$query2 = "SELECT pic,hosp_company,hosp_address,hosp_phone FROM hospital WHERE hosp_name=?";
-$result2 = $conn->prepare($query2);
-$result2->bind_param("s", $hosp);
-$result2->execute();
-$hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
@@ -132,7 +115,8 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
         <p>19-1 Oval Damansara, 685 Jalan Damansara TTDI, 60000 Kuala Lumpur, Malaysia<br>Phone: +6014-2044287 / +603-7731 2696<br>Email: marketing@healtopedia.com</p>
     </div>
     <div style="clear: both;"></div>
-
+<?php foreach ($hs as $rows) { 
+        ?>
     <div class="receipt">
         <table>
             <tr height="20">
@@ -141,12 +125,12 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                 </td>
             </tr>
             <tr>
-                <td>Invoice</td>
+                <td>Date</td>
                 <td>: 09/06/2021<?php //echo 
                                 ?></td>
             </tr>
             <tr>
-                <td>Invoice No</td>
+                <td>Receipt No</td>
                 <td>: 1185<?php //echo 
                             ?></td>
             </tr>
@@ -173,9 +157,6 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
         </table>
     </div>
     <div class="customer">
-
-        <?php //foreach ($hs as $rows) { 
-        ?>
 
         <table>
             <tr height="20">
