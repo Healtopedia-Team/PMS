@@ -300,7 +300,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                 ?>
 
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="6" height="2" align="left" valign="middle">
+                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
@@ -315,7 +315,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="6" height="2" align="left" valign="middle">
+                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
@@ -329,7 +329,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="6" height="2" align="left" valign="middle">
+                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
@@ -343,7 +343,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="6" height="2" align="left" valign="middle">
+                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
@@ -357,7 +357,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="6" height="2" align="left" valign="middle">
+                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
@@ -371,7 +371,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="6" height="2" align="left" valign="middle">
+                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
