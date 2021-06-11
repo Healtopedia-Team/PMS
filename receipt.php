@@ -135,40 +135,8 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
         <p>19-1 Oval Damansara, 685 Jalan Damansara TTDI, 60000 Kuala Lumpur, Malaysia<br>Phone: +6014-2044287 / +603-7731 2696<br>Email: marketing@healtopedia.com</p>
     </div>
     <div style="clear: both;"></div>
-    <div class="customer">
 
-        <?php //foreach ($hs as $rows) { 
-        ?>
-
-        <table>
-            <tr height="20">
-                <td height="15" bgcolor="#3B4E87" style="padding-left:10px">
-                    <font color="#FFFFFF"><b>CUSTOMER</b></font>
-                </td>
-            </tr>
-            <tr>
-                <td><?php //echo $rows['pic'] 
-                    ?></td>
-            </tr>
-            <tr>
-                <td><b>He Yu Xin <?php //echo $rows['hosp_company'] 
-                                    ?></b></td>
-            </tr>
-            <tr>
-                <td>39, Jalan Lingkaran Tengah 2, <br>Ukay Heights, Ampang Jaya, <br>68000 Selangor<br><?php //echo $rows['hosp_address'] 
-                                                                                                        ?><br>+6019-2899549<?php //echo $rows['hosp_phone'] 
-                                                                                                                            ?>
-                </td>
-            </tr>
-            <tr>
-                <td>heyuxin@powerchina-intl.com</td>
-            </tr>
-        </table>
-        <?php //} 
-        ?>
-    </div>
-
-    <div class="receipt" style="float:right !important;">
+    <div class="receipt">
         <table>
             <tr height="20">
                 <td height="15" bgcolor="#3B4E87" style="padding-left:10px" colspan="2">
@@ -206,6 +174,38 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                 </td>
             </tr>
         </table>
+    </div>
+    <div class="customer">
+
+        <?php //foreach ($hs as $rows) { 
+        ?>
+
+        <table>
+            <tr height="20">
+                <td height="15" bgcolor="#3B4E87" style="padding-left:10px">
+                    <font color="#FFFFFF"><b>CUSTOMER</b></font>
+                </td>
+            </tr>
+            <tr>
+                <td><?php //echo $rows['pic'] 
+                    ?></td>
+            </tr>
+            <tr>
+                <td><b>He Yu Xin <?php //echo $rows['hosp_company'] 
+                                    ?></b></td>
+            </tr>
+            <tr>
+                <td>39, Jalan Lingkaran Tengah 2, <br>Ukay Heights, Ampang Jaya, <br>68000 Selangor<br><?php //echo $rows['hosp_address'] 
+                                                                                                        ?><br>+6019-2899549<?php //echo $rows['hosp_phone'] 
+                                                                                                                            ?>
+                </td>
+            </tr>
+            <tr>
+                <td>heyuxin@powerchina-intl.com</td>
+            </tr>
+        </table>
+        <?php //} 
+        ?>
     </div>
     <div style="clear: both;"></div>
     <div style="clear: both;"></div>
