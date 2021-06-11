@@ -201,7 +201,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                         ?></td>
             </tr>
             <tr height="20">
-                <td height="15" bgcolor="#fff" style="padding-left:10px; border: 1px solid;">
+                <td height="15" bgcolor="#fff" style="padding-left:10px; border: 1px solid;" colspan="2">
                     <font color="#000"><b>REMARKS</b></font>
                 </td>
             </tr>
@@ -367,8 +367,8 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3" height="4" align="left" valign="middle">
-                        <font color="#000000" style="font-size:24px;">Thanks for your payment!</font>
+                    <td colspan="3" height="2" align="left" valign="middle">
+                        <font color="#000000" style="font-size:14px;">Thanks for your payment!</font>
                     </td>
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
