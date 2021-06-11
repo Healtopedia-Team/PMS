@@ -201,14 +201,15 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                         ?></td>
             </tr>
             <tr height="20">
-                <td height="15" bgcolor="#fff" style="padding-left:10px">
+                <td height="15" bgcolor="#fff" style="padding-left:10px; border: 1px solid;">
                     <font color="#000"><b>REMARKS</b></font>
                 </td>
             </tr>
         </table>
     </div>
     <div style="clear: both;"></div>
-
+    <div style="clear: both;"></div>
+    <div style="clear: both;"></div>
     <div class="billingpart">
         <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
             <tbody>
@@ -243,7 +244,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     $appoint_id = $row['appoint_id'];
                     $order_id = $row['order_id']; */ ?>
                 <tr class="fill">
-                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" height="2" align="left" valign="middle">
+                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7; float:right; padding-right:2px;" height="2" align="left" valign="middle">
                         <font color="#000000">1.<?php //echo $order_id . "/" . $appoint_id 
                                                 ?></font>
                     </td>
@@ -277,10 +278,10 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td colspan="8" height="2" align="left" valign="middle" style="float:right;">
+                    <td colspan="8" height="2" align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">SUBTOTAL</font>
                     </td>
-                    <td colspan="4" height="2" style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+                    <td colspan="4" height="2" style="padding-right:3px;border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
                         <font color="#000000">RM 350.00<?php //echo $total_price 
                                                         ?></font>
                     </td>
@@ -292,10 +293,10 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td align="left" valign="middle" style="float:right;">
+                    <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">TAX RATE</font>
                     </td>
-                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+                    <td style="padding-right:3px;border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
                         <font color="#000000">0.000%</font>
                     </td>
                 </tr>
@@ -306,10 +307,10 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td align="left" valign="middle" style="float:right;">
+                    <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">TAX</font>
                     </td>
-                    <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+                    <td style="padding-right:3px;border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
                         <font color="#000000">0.00</font>
                     </td>
                 </tr>
@@ -320,10 +321,10 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td align="left" valign="middle" style="float:right;">
+                    <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">S &amp; H</font>
                     </td>
-                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+                    <td style="padding-right:3px;border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
                         <font color="#000000">RM 0.00</font>
                     </td>
                 </tr>
@@ -334,10 +335,10 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td style="border-bottom: 1px solid #000000" align="left" valign="middle" style="float:right;">
+                    <td style="padding-right:3px;border-bottom: 1px solid #000000" align="left" valign="middle" style="float:right;">
                         <font color="#000000">OTHER</font>
                     </td>
-                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #000000; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+                    <td style="padding-right:3px;border-top: 1px solid #b7b7b7; border-bottom: 1px solid #000000; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
                         <font color="#000000">RM 0.00</font>
                     </td>
                 </tr>
@@ -348,12 +349,12 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td style="style:float; border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle" bgcolor="#E4E8F3">
+                    <td style="padding-right:3px; style:float; border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle" bgcolor="#E4E8F3">
                         <b>
                             <font color="#000000">TOTAL</font>
                         </b>
                     </td>
-                    <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+                    <td style="padding-right:3px;border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
                         <b>
                             <font color="#000000">RM 350.00<?php //echo $total_price 
                                                             ?></font>
@@ -366,8 +367,8 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" height="2" align="left" valign="middle">
-                        <font color="#000000">Thanks for your payment</font>
+                    <td colspan="3" height="4" align="left" valign="middle">
+                        <font color="#000000" style="font-size:24px;">Thanks for your payment!</font>
                     </td>
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
