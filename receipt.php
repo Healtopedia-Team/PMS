@@ -109,7 +109,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     .receipt {
-        width: 20%;
+        width: 25%;
         float: right;
     }
 
@@ -207,10 +207,8 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
         <?php //} 
         ?>
     </div>
-    <div style="clear: both;"></div>
-    <div style="clear: both;"></div>
-    <div style="clear: both;"></div>
-    <div class="billingpart">
+
+    <div class="billingpart" style="margin-top: 50px;">
         <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
             <tbody>
                 <tr>
@@ -281,7 +279,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">SUBTOTAL</font>
                     </td>
-                    <td colspan="4" height="2" style="padding-right:3px;border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+                    <td colspan="4" height="2" style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
                         <font color="#000000">RM 350.00<?php //echo $total_price 
                                                         ?></font>
                     </td>
@@ -296,7 +294,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">TAX RATE</font>
                     </td>
-                    <td style="padding-right:3px;border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
                         <font color="#000000">0.000%</font>
                     </td>
                 </tr>
@@ -310,7 +308,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">TAX</font>
                     </td>
-                    <td style="padding-right:3px;border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+                    <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
                         <font color="#000000">0.00</font>
                     </td>
                 </tr>
@@ -324,7 +322,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">S &amp; H</font>
                     </td>
-                    <td style="padding-right:3px;border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
+                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
                         <font color="#000000">RM 0.00</font>
                     </td>
                 </tr>
@@ -354,7 +352,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                             <font color="#000000">TOTAL</font>
                         </b>
                     </td>
-                    <td style="padding-right:3px;border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+                    <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
                         <b>
                             <font color="#000000">RM 350.00<?php //echo $total_price 
                                                             ?></font>
