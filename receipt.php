@@ -204,8 +204,8 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
         <?php //} 
         ?>
     </div>
-    <div style="clear: both; margin-top:100px;"></div>
-    <div class="billingpart">
+    <div style="clear: both;"></div>
+    <div class="billingpart" style="margin-top:100px;">
         <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
             <tbody>
                 <tr>
@@ -276,8 +276,9 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">SUBTOTAL</font>
                     </td>
-                    <td colspan="4" height="2" style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-                        <font color="#000000">RM 350.00<?php //echo $total_price ?></font>
+                    <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
+                        <font color="#000000">RM 350.00<?php //echo $total_price 
+                                                        ?></font>
                     </td>
                 </tr>
                 <tr>
