@@ -170,6 +170,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
 
 
     </div>
+    <div style="clear: both;"></div>
 
 
     <div class="receipt">
@@ -335,11 +336,12 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                     <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
                         <b>
-                            <font color="#000000">RM 350.00<?php //echo $total_price ?></font>
+                            <font color="#000000">RM 350.00<?php //echo $total_price 
+                                                            ?></font>
                         </b>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td colspan="7" rowspan="7" height="158" align="center" valign="middle">
                         <b>
