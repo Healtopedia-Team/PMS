@@ -65,7 +65,7 @@ else{
 
 
 
-$location_det = array('Perumahan Awam Seri Sabah 3A'=>'A', 'Perumahan Awam Seri Sabah 3B'=>'B', 'Perumahan Awam Seri Pulau Pinang'=>'C', 'Perumahan Awam Seri Kota'=>'D');
+$location_det = array('Perumahan Awam Seri Sabah 3A'=>'A', 'Perumahan Awam Seri Sabah 3B'=>'B', 'Perumahan Awam Seri Pulau Pinang'=>'C', 'Perumahan Awam Seri Kota'=>'D', 'ALPS'=>'Z');
 //$queue_num = $location_det['Pulse Grande Hotel']. sprintf('%04d',$number); eg
 //echo $queue_num; this will print "A0001"
 $queue_num = $location_det[$_POST['location']]. sprintf('%04d',$count);
