@@ -208,7 +208,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
         ?>
     </div>
 
-    <div class="billingpart" style="margin-top: 50px;">
+    <div class="billingpart" style="padding-top: 50px;">
         <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
             <tbody>
                 <tr>
