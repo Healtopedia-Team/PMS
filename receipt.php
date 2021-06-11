@@ -104,13 +104,13 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     .customer {
-        width: 50%;
+        width: 40%;
         float: left;
     }
 
     .receipt {
-        width: 50%;
-        right: auto;
+        width: 15%;
+        float: right;
     }
 
     .requisitioner {
