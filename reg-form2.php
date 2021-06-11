@@ -316,7 +316,7 @@ if ($conn->connect_error) {
                      <div class="col-md-6">
                         <div class="form-group">
                            <small><label class="col-form-label">Test Type :</label></small>
-                           <input type="text" class="form-control" name="test_type" required value="IgM" readonly>
+                           <input type="text" class="form-control" name="test_type" required value="IgM/IgG + PCR Test" readonly>
                         </div>
 
                         <div class="form-group">
@@ -333,11 +333,8 @@ if ($conn->connect_error) {
 
                      <div id="locationdropdown" class="form-group">
                            <small><label class="col-form-label">Location :</label></small>
-                           <select class="form-control" name="location" required>
-                              <option value="" selected>Select Appointment Location</option>
-                              <option value="ALPS">ALPS</option>
-                              <option value="Glo Damansara">Glo Damansara</option>
-                           </select>
+                           <input type="text" class="form-control" name="location" required value="ALPS" readonly>
+
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Payment Method:</label></small>
