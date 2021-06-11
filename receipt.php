@@ -109,7 +109,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     .receipt {
-        width: 30%;
+        max-width: 40%;
         float: right;
     }
 
