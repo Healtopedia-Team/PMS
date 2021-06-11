@@ -244,7 +244,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     $appoint_id = $row['appoint_id'];
                     $order_id = $row['order_id']; */ ?>
                 <tr class="fill">
-                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7; float:right; padding-right:2px;" height="2" align="left" valign="middle">
+                    <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7;" height="2" align="left" valign="middle">
                         <font color="#000000">1.<?php //echo $order_id . "/" . $appoint_id 
                                                 ?></font>
                     </td>
@@ -278,7 +278,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td colspan="8" height="2" align="left" valign="middle" style="padding-right:3px;float:right;">
+                    <td align="left" valign="middle" style="padding-right:3px;float:right;">
                         <font color="#000000">SUBTOTAL</font>
                     </td>
                     <td colspan="4" height="2" style="padding-right:3px;border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
