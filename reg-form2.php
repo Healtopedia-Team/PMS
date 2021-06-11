@@ -84,7 +84,7 @@ if ($conn->connect_error) {
 
                         <div class="form-group">
                            <small><label class="col-form-label">Address :</label></small>
-                           <textarea type="text" class="form-control" name="address" id="address" required></textarea>
+                           <textarea type="text" class="form-control" name="current_address" id="address" required></textarea>
                         </div>
 
                      </div>
