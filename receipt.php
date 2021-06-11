@@ -168,7 +168,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
         ?>
     </div>
 
-    <div class="receipt">
+    <div class="receipt" style="float:right !important;">
         <table>
             <tr height="20">
                 <td height="15" bgcolor="#3B4E87" style="padding-left:10px" colspan="2">
