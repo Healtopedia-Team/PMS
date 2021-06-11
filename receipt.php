@@ -104,12 +104,12 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     .customer {
-        width: 35%;
+        width: 50%;
         float: left;
     }
 
     .receipt {
-        width: 40%;
+        width: 50%;
         float: right;
     }
 
@@ -210,7 +210,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
     <div style="clear: both;"></div>
 
     <div class="billingpart">
-        <table class="billing" cellspacing="0" border="0" style="width: 100%; margin: auto;">
+        <table class="billing" cellspacing="0" border="1" style="width: 100%; margin: auto;">
             <tbody>
                 <tr>
                     <td height="18" align="center" valign="middle" bgcolor="#fff" sdnum="1033;0;0.00%">
