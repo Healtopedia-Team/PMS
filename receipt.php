@@ -79,6 +79,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
     body {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 10px;
+        overflow: auto;
     }
 
     .img {
