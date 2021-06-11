@@ -109,13 +109,10 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     .receipt {
-        width: 25%;
+        width: 30%;
         float: right;
     }
 
-    .requisitioner {
-        margin-top: 0.2in;
-    }
 
     .biling>td {
         border-top: 1px solid #b7b7b7;
