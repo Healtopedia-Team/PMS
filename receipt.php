@@ -360,7 +360,25 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                         </b>
                     </td>
                 </tr>
-
+                <tr>
+                    <td colspan="5" height="8" align="left" valign="middle">
+                        <font color="#000000"><br /></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" height="2" align="left" valign="middle">
+                        <font color="#000000">Thanks for your payment</font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font color="#000000"><br /></font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font color="#000000"><br /></font>
+                    </td>
+                    <td align="left" valign="middle">
+                        <font color="#000000"><br /></font>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
