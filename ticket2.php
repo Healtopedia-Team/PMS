@@ -61,6 +61,7 @@ $name = $_GET['name'];
 $ic = $_GET['ic'];
 $gender = $_GET['gender'];
 $queue = $_GET['queue'];
+$phone = $_GET['phone'];
 
 
 
@@ -118,8 +119,8 @@ $queue = $_GET['queue'];
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <button type="submit" name="printqueue" id="printqueue" class="btn btn-primary" onclick="printDiv('printarea')">Print the Queue Number<i class="bi bi-chevron-double-down"></i></button>
-                            </div>
+                                <a class="btn btn-success"  href="https://wasap.my/<?php echo $phone?>/Hi+<?php echo $name?>,+here+is+your+receipt+'https://pms.healtopedia.com/receipt-pdf.php?id=<?php echo $queue ?>'+.+Thank+you."><i class="bi bi-chevron-double-down"></i> Send Receipt to Client</a>
+                            </div><br>
                             <div class="col-md-6">
                                 <a href="https://pms.healtopedia.com/reg-form2.php"><button type="submit" name="backtoprevious" class="btn btn-primary">Back to Previous Form<i class="bi bi-chevron-double-down"></i></button></a>
                             </div>
