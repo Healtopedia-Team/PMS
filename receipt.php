@@ -300,7 +300,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                 ?>
 
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+                    <td colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
@@ -315,7 +315,7 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+                    <td colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
@@ -329,13 +329,13 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+                    <td colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td align="left" valign="middle">
+                    <td align="left" valign="middle" style="float:right;">
                         <font color="#000000">TAX</font>
                     </td>
                     <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
@@ -343,13 +343,13 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+                    <td colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td align="left" valign="middle">
+                    <td align="left" valign="middle" style="float:right;">
                         <font color="#000000">S &amp; H</font>
                     </td>
                     <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
@@ -357,13 +357,13 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+                    <td colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td style="border-bottom: 1px solid #000000" align="left" valign="middle">
+                    <td style="border-bottom: 1px solid #000000" align="left" valign="middle" style="float:right;">
                         <font color="#000000">OTHER</font>
                     </td>
                     <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #000000; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
@@ -371,13 +371,13 @@ $hs = $result2->get_result()->fetch_all(MYSQLI_ASSOC);
                     </td>
                 </tr>
                 <tr>
-                    <td style="border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" colspan="4" height="2" align="left" valign="middle">
+                    <td colspan="4" height="2" align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
                     <td align="left" valign="middle">
                         <font color="#000000"><br /></font>
                     </td>
-                    <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle" bgcolor="#E4E8F3">
+                    <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7; border-right: 1px solid #b7b7b7" align="left" valign="middle" bgcolor="#E4E8F3" style="float:right;">
                         <b>
                             <font color="#000000">TOTAL</font>
                         </b>
