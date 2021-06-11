@@ -3,7 +3,7 @@ $conn = mysqli_connect("localhost", "myhealtopedia", "Healit20.", "AppsOnsite");
 session_start();
 //$hosp = $_SESSION['hospital'];
 
-$current_date = $_GET['cur_date'];
+$patient_id = $_GET['id'];
 
 //var_dump($current_date);
 /*
@@ -115,7 +115,9 @@ $total_price = 0;
         <p>19-1 Oval Damansara, 685 Jalan Damansara TTDI, 60000 Kuala Lumpur, Malaysia<br>Phone: +6014-2044287 / +603-7731 2696<br>Email: marketing@healtopedia.com</p>
     </div>
     <div style="clear: both;"></div>
-<?php foreach ($hs as $rows) { 
+<?php 
+    
+    foreach ($res as $rows) { 
         ?>
     <div class="receipt">
         <table>
@@ -126,18 +128,15 @@ $total_price = 0;
             </tr>
             <tr>
                 <td>Date</td>
-                <td>: 09/06/2021<?php //echo 
-                                ?></td>
+                <td>: <?php echo $rows['app_date']?></td>
             </tr>
             <tr>
                 <td>Receipt No</td>
-                <td>: 1185<?php //echo 
-                            ?></td>
+                <td>: <?php echo $rows['current_cnt'] ?></td>
             </tr>
             <tr>
                 <td>Customer ID</td>
-                <td>: 300-H012<?php //echo 
-                                ?></td>
+                <td>: <?php echo $rows['queue_num'] ?></td>
             </tr>
             <tr>
                 <td>Payment Method</td>
@@ -165,21 +164,14 @@ $total_price = 0;
                 </td>
             </tr>
             <tr>
-                <td><?php //echo $rows['pic'] 
-                    ?></td>
+                <td><b><?php echo $rows['name'] ?></b></td>
             </tr>
             <tr>
-                <td><b>He Yu Xin <?php //echo $rows['hosp_company'] 
-                                    ?></b></td>
-            </tr>
-            <tr>
-                <td>39, Jalan Lingkaran Tengah 2, <br>Ukay Heights, Ampang Jaya, <br>68000 Selangor<br><?php //echo $rows['hosp_address'] 
-                                                                                                        ?><br>+6019-2899549<?php //echo $rows['hosp_phone'] 
-                                                                                                                            ?>
+                <td><?php echo $rows['address']?><br><?php echo $rows['phone'] ?>
                 </td>
             </tr>
             <tr>
-                <td>heyuxin@powerchina-intl.com</td>
+                <td><?php echo $rows['email']?></td>
             </tr>
         </table>
         <?php //} 
@@ -216,9 +208,6 @@ $total_price = 0;
                         </b>
                     </td>
                 </tr>
-                <?php /*foreach ($res as $row) {
-                    $appoint_id = $row['appoint_id'];
-                    $order_id = $row['order_id']; */ ?>
                 <tr class="fill">
                     <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7;" height="2" align="left" valign="middle">
                         <font color="#000000">1.<?php //echo $order_id . "/" . $appoint_id 
@@ -243,9 +232,6 @@ $total_price = 0;
                     </td>
 
                 </tr>
-
-                <?php //} 
-                ?>
 
                 <tr>
                     <td colspan="4" height="2" align="left" valign="middle">
