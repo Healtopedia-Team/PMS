@@ -73,7 +73,7 @@ if ($conn->connect_error) {
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
-                           <input type="text" class="form-control" name="ic" id="ic" required maxlength="12"><br>
+                           <input type="text" class="form-control" name="ic" id="ic" required ><br>
                            <input type="button"value="Autofill Date of Birth and Gender" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-primary btn-sm">
                         </div>
                         <div class=" form-group">
@@ -86,12 +86,6 @@ if ($conn->connect_error) {
                            <small><label class="col-form-label">Address :</label></small>
                            <textarea type="text" class="form-control" name="address" id="address" required></textarea>
                         </div>
-                        <input type="checkbox" name="filladdress" onclick="SetBilling(this.checked);" /> Present current address same as above address.<br />
-                        <div class="form-group">
-                           <small><label class="col-form-label">Current Address :</label></small>
-                           <textarea type="text" class="form-control" name="current_address" id="current_address" required></textarea>
-                        </div>
-
 
                      </div>
 
@@ -297,7 +291,7 @@ if ($conn->connect_error) {
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Date of Birth :</label></small>
-                           <input type="text" class="form-control" name="bod" id="bod" required >
+                           <input type="text" class="form-control" name="bod" id="bod">
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Phone No. :</label></small>
@@ -306,7 +300,7 @@ if ($conn->connect_error) {
 
                         <div class="form-group">
                            <small><label class="col-form-label">Email :</label></small>
-                           <input type="text" class="form-control" name="email" id="email" required>
+                           <input type="text" class="form-control" name="email" id="email">
                         </div>
 
 
@@ -322,18 +316,12 @@ if ($conn->connect_error) {
                      <div class="col-md-6">
                         <div class="form-group">
                            <small><label class="col-form-label">Test Type :</label></small>
-                           <select class="form-control" name="test_type" required>
-                              <option value="">Choose Type</option>
-                              <option value="RTK-Antigen">RTK-Antigen (RM90.00)</option>
-                              <option value="RT-PCR">RT-PCR (RM210.00)</option>
-                              <option value="IgM">IgM (RM350.00)</option>
-                              <option value="STATPCR">STAT RT-PCR (RM310.00)</option>
-                           </select>
+                           <input type="text" class="form-control" name="test_type" required value="IgM" readonly>
                         </div>
 
                         <div class="form-group">
                            <small><label class="col-form-label">Method:</label></small>
-                           <input type="text" class="form-control" name="test_method" required value="Walk-In">
+                           <input type="text" class="form-control" name="test_method" required value="Walk-In" readonly>
                         </div>
 
 
@@ -347,22 +335,17 @@ if ($conn->connect_error) {
                            <small><label class="col-form-label">Location :</label></small>
                            <select class="form-control" name="location" required>
                               <option value="" selected>Select Appointment Location</option>
-                              <?php
-                              $locs = $conn->prepare("SELECT * FROM location");
-                              $locs->execute();
-                              $loc_list = $locs->get_result()->fetch_all(MYSQLI_ASSOC);
-                              foreach ($loc_list as $loc) {
-                              ?>
-                                 <option value="<?php echo $loc['location'] ?>"><?php echo $loc['location'] ?></option>
-                              <?php }
-                              ?>
+                              <option value="ALPS">ALPS</option>
                               <option value="Glo Damansara">Glo Damansara</option>
-
                            </select>
                         </div>
                         <div class="form-group">
                            <small><label class="col-form-label">Payment Method:</label></small>
-                           <input type="text" class="form-control" name="payment_method" required value="Cash Payment">
+                           <select class="form-control" name="payment_method" required>
+                              <option value="" selected>Select Payment Method</option>
+                              <option value="Cash Payment">Cash Payment</option>
+                              <option value="Bank Transfer">Bank Transfer</option>
+                           </select>
 
                         </div>
                      </div>
