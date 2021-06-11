@@ -7,7 +7,6 @@ $path = parse_url($directoryURI, PHP_URL_PATH);
 $components = explode('/', $path);
 $your_variable = basename($_SERVER['PHP_SELF'], ".php");
 $hosp = $_SESSION['hospital'];
-session_start();
 $current_month = substr(date("F"), 0, 3);
 $previous_month = substr(date('F', strtotime(date('Y-m') . " -1 month")), 0, 3);
 // Check if the user is logged in, if not then redirect him to login page
