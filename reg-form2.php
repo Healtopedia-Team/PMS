@@ -45,7 +45,7 @@ $dbname = "AppsOnsite";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+   die("Connection failed: " . $conn->connect_error);
 }
 ?>
 
@@ -69,22 +69,25 @@ if ($conn->connect_error) {
                      <div class="col-md-6">
                         <div class="form-group">
                            <small><label class="col-form-label">Name :</label></small>
-                           <input type="text" class="form-control" name="name" id="name" required >
+                           <input type="text" class="form-control" name="name" id="name" required>
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">IC/Passport (without - ):</label></small>
-                           <input type="text" class="form-control" name="ic" id="ic" required ><br>
-                           <input type="button"value="Autofill Date of Birth and Gender" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-primary btn-sm">
+                           <input type="text" class="form-control" name="ic" id="ic" required><br>
+                           <input type="button" value="Autofill Date of Birth and Gender" id="filler2" onClick="fillValuesNoJQuery()" class="btn btn-primary btn-sm">
                         </div>
                         <div class=" form-group">
                            <small><label class="col-form-label">Gender :</label></small>
-                           <input type="text" class="form-control" name="gender" id="gender" required >
+                           <!-- <input type="text" class="form-control" name="gender" id="gender" required> -->
+                           <select class="form-control" name="gender" required>
+                              <option value="Male" selected>Male</option>
+                              <option value="Female">Female</option>
                            </select>
                         </div>
 
                         <div class="form-group">
                            <small><label class="col-form-label">Address :</label></small>
-                           <textarea type="text" class="form-control" name="current_address" id="address" required></textarea>
+                           <textarea type="text" class="form-control" name="current_address" id="address" value="-" required></textarea>
                         </div>
 
                      </div>
@@ -95,7 +98,7 @@ if ($conn->connect_error) {
                         <div class="form-group">
                            <small><label class="col-form-label">Nationality :</label></small>
                            <select class="form-control" name="nation" required>
-                              <option value="Malaysia" selected>Malaysia</option>
+                              <option value="CHN" selected>China</option>
                               <option value="MYS">Malaysia</option>
                               <option value="SGP">Singapore</option>
                               <option value="IDN">Indonesia</option>
@@ -300,7 +303,7 @@ if ($conn->connect_error) {
 
                         <div class="form-group">
                            <small><label class="col-form-label">Email :</label></small>
-                           <input type="text" class="form-control" name="email" id="email">
+                           <input type="text" class="form-control" name="email" id="email" value="-">
                         </div>
 
 
@@ -331,7 +334,7 @@ if ($conn->connect_error) {
 
                      <div class="col-md-6">
 
-                     <div id="locationdropdown" class="form-group">
+                        <div id="locationdropdown" class="form-group">
                            <small><label class="col-form-label">Location :</label></small>
                            <input type="text" class="form-control" name="location" required value="ALPS" readonly>
 
@@ -374,40 +377,36 @@ if ($conn->connect_error) {
          document.getElementById('current_address').value = document.getElementById('address').value;
       }
    }
-   fillValuesNoJQuery = function () {
+   fillValuesNoJQuery = function() {
       var str = document.getElementById("ic").value;
       var yr = str.slice(0, 2);
       var month = str.slice(2, 4);
       var day = str.slice(4, 6);
-      var no = str.slice(11,12);
-      var gno = parseInt(no,10);
-      var yer = parseInt(yr,10);
+      var no = str.slice(11, 12);
+      var gno = parseInt(no, 10);
+      var yer = parseInt(yr, 10);
       var n = str.length;
-      if(n!==12){
+      if (n !== 12) {
          document.getElementById("gender").value = "IC INPUT ERROR, REFILL IC AGAIN";
+      } else {
+         if (gno % 2 == 0) {
+            var gender = "FEMALE";
+         } else {
+            var gender = "MALE";
+         }
+
+         if (yer <= 21) {
+            var year = yer + 2000;
+         } else {
+            var year = yer + 1900;
+         }
+
+
+         var dob = day + "/" + month + "/" + year;
+         document.getElementById("gender").value = gender;
+         document.getElementById("bod").value = dob;
       }
-      else{
-      if(gno%2==0){
-         var gender = "FEMALE";
-      }
-      else{
-         var gender = "MALE";
-      }
-  
-      if(yer<=21){
-         var year = yer+2000;
-      }
-      else{
-         var year = yer+1900;
-      }
-  
-  
-     var dob = day+"/"+month+"/"+year;
-     document.getElementById("gender").value = gender;
-     document.getElementById("bod").value = dob;
-      }
-}
-   
+   }
 </script>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
