@@ -9,7 +9,7 @@
    <meta name="description" content="">
    <meta name="author" content="">
 
-   <title>Healtopedia - Dashboard </title>
+   <title>Healtopedia - China Client Registration Form </title>
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
    <!-- Custom fonts for this template -->
    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
