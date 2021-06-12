@@ -52,7 +52,7 @@ if ($conn->connect_error) {
 <!-- Begin Page Content -->
 <div class="text-center">
    <img src="https://manage.healtopedia.com/img/logo.png" width="250px" height="80px">
-   <h1 class="h5 text-gray-900 mb-4">Healtopedia Registration Form</h1>
+   <h1 class="h5 text-gray-900 mb-4">Healtopedia Registration Form --- China Client</h1>
 </div>
 <div class="container-fluid">
    <div class="row">
