@@ -65,14 +65,14 @@
                             <td>
                                 <?php echo $row['firstname']; ?> <?php echo $row['lastname']; ?>
                             </td>
-                            <td>
+                            <!--td>
                                 <?php echo date('d-m-Y', $row['order_date']); ?>
                             </td>
                             <td>
                                 <?php foreach ($timee as $rows) :
                                     echo date('d-m-Y', $rows['start_appoint']);
                                 endforeach; ?>
-                            </td>
+                            </td-->
                             <td>
                                 <?php echo $row['status']; ?>
                             </td>
