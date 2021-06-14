@@ -71,7 +71,7 @@
                                             <?php echo $row['firstname'];?> <?php echo $row['lastname'];?>
                                         </td>
                                         <td>
-                                            <?php echo date('d-m-Y', $row['order_date']); ?>
+                                            <?php echo date('d-m-Y', strtotime($row['order_date'])); ?>
                                         </td>
                                         <td>
                                             <?php foreach ($timee as $rows) :
