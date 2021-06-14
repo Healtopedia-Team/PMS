@@ -52,7 +52,7 @@ $number = 1;
 $count = 000;
 
 if($name !=='DUMMY'){
-$query = mysqli_query($conn, "SELECT count(1) FROM book_list WHERE location='$location' AND app_date='$app_date' AND name !='DUMMY'");
+$query = mysqli_query($conn, "SELECT count(1) FROM book_list WHERE location='$location' AND name !='DUMMY'");
 $rowq = mysqli_fetch_array($query);
 if ($rowq[0]==0) {
     $count =1;
