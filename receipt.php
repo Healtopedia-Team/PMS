@@ -125,7 +125,7 @@ $total_price = 0;
             </tr>
             <tr>
                 <td>Date</td>
-                <td>: <?php echo $rows['app_date']?></td>
+                <td>: <?php echo $rows['app_date'] ?></td>
             </tr>
             <tr>
                 <td>Receipt No</td>
@@ -137,13 +137,16 @@ $total_price = 0;
             </tr>
             <tr>
                 <td>Payment Method</td>
-                <td>: C.O.D<?php //echo 
-                            ?></td>
+                <td>: <?php if($rows['payment_method']== 'Cash Payment'){
+                                echo "C.O.D";
+                        } else {
+                            echo "Bank Transfer";
+                        }
+                ?></td>
             </tr>
             <tr>
                 <td>Payment Due</td>
-                <td>: -<?php //echo 
-                        ?></td>
+                <td>: -<?php echo $rows['app_date'] ?></td>
             </tr>
             <tr height="20">
                 <td height="15" bgcolor="#fff" style="padding-left:10px; border: 1px solid;" colspan="2">
@@ -164,11 +167,11 @@ $total_price = 0;
                 <td><b><?php echo $rows['name'] ?></b></td>
             </tr>
             <tr>
-                <td><?php echo $rows['address']?><br><?php echo $rows['phone'] ?>
+                <td><?php echo $rows['address'] ?><br><?php echo $rows['phone'] ?>
                 </td>
             </tr>
             <tr>
-                <td><?php echo $rows['email']?></td>
+                <td><?php echo $rows['email'] ?></td>
             </tr>
         </table>
 
@@ -210,21 +213,19 @@ $total_price = 0;
                                                 ?></font>
                     </td>
                     <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7;" colspan="3" align="left" valign="middle">
-                        <font color="#000000">COVID-19 RT-PCR + IGM, Onsite Test (26/06/2021)<?php //echo 
-                                                                                                ?></font>
+                        <font color="#000000">COVID-19 RT-PCR + IGM, Onsite Test (<?php echo $rows['app_date'] ?>)</font>
                     </td>
                     <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="center" valign="middle">
                         <font color="#000000">1<?php //echo 
                                                 ?></font>
                     </td>
                     <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle">
-                        <font color="#000000">350.00<?php //echo $row['package_price'] 
-                                                    ?></font>
+                        <font color="#000000"><?php echo $rows['price'] ?></font>
                     </td>
                     <td style="border-top: 1px solid #b7b7b7; border-bottom: 1px solid #b7b7b7; border-left: 1px solid #b7b7b7; border-right: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#fff">
-                        <font color="#000000">350.00<?php //echo $row['package_price']; 
-                                                    ?></font><?php //$total_price += $row['package_price']; 
-                                                                ?>
+                        <font color="#000000"><?php echo $rows['price'] ?><?php //echo $row['package_price']; 
+                                                                            ?></font><?php //$total_price += $row['package_price']; 
+                                                                                        ?>
                     </td>
 
                 </tr>
@@ -240,8 +241,8 @@ $total_price = 0;
                         <font color="#000000">SUBTOTAL</font>
                     </td>
                     <td style="border-left: 1px solid #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
-                        <font color="#000000">RM 350.00<?php //echo $total_price 
-                                                        ?></font>
+                        <font color="#000000">RM <?php echo $rows['price'] ?>.00<?php //echo $total_price 
+                                                                                ?></font>
                     </td>
                 </tr>
                 <tr>
@@ -314,8 +315,8 @@ $total_price = 0;
                     </td>
                     <td style="border-top: 1px solid #000000; border-bottom: 2px double #b7b7b7" align="right" valign="middle" bgcolor="#E4E8F3">
                         <b>
-                            <font color="#000000">RM 350.00<?php //echo $total_price 
-                                                            ?></font>
+                            <font color="#000000">RM <?php echo $rows['price'] ?>.00<?php //echo $total_price 
+                                                                                    ?></font>
                         </b>
                     </td>
                 </tr>
